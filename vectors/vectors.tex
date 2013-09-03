@@ -46,6 +46,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
 
 \begin{document}
@@ -348,6 +349,102 @@
 		\]
 		gives all solutions as $t,s$ vary over all of $\R$.
 		\item Write all solutions to equation (\ref{eq1}) in vector form.
+	\end{Enum}
+
+\subsection*{Arbitrary Lines and Planes}
+	
+	So far, all of our lines and planes have passed through the origin. To 
+	produce the equation of an arbitrary line/plane, we first make one of
+	same ``slope'' that passes through the origin, then we translate it
+	to the appropriate place.
+
+	We'd like to write the equation of a line $L$ with normal vector
+	$\vec n=\begin{bmatrix}4\\-1\end{bmatrix}$ that passes through
+	the point $p=\mat{-1\\-1}$
+
+	\begin{Enum}
+		\item Write normal form of the line $L_2$ which is parallel to $L$,
+		but passes through the origin.
+		\item Draw a picture of $L$ and $L_2$, and find two points that lie on
+		$L$.  Call these points $p_1$ and $p_2$.
+		\item Verify the vector $\vec {p_1p_2}$ is perpendicular to $\vec n$.
+		\item What is $\vec n\cdot p_1$, $\vec n\cdot p_2$, $\vec n\cdot p$?
+		Should these values be zero, equal, or different?  Explain (think about
+		projections).
+		\item How does the equation $\vec n\cdot (\vec x-p)=0$ relate to $L$?
+	\end{Enum}
+
+	$W$ is the plane with normal vector $\vec n=\mat{1\\2\\3}$ and passes through
+	the point $p=\mat{1\\1\\2}$.
+	\begin{Enum}
+		\item Write normal form of $W$.
+		\item Write vector form of $W$.
+	\end{Enum}
+
+\section*{Systems of Linear Equations}
+	
+	\emph{Linear equations} are equations only involving variables, 
+	multiplication by constants, and addition/subtraction.  \emph{Systems}
+	of equations are sets of equations that share common variables.
+
+	Consider the system
+	\begin{equation}\label{eq2}
+		\begin{array}{ll}
+			x-y &= 2\\
+			2x+y &= 1
+		\end{array}
+	\end{equation}
+
+	\begin{Enum}
+		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
+		\item Algebraically solve the system (\ref{eq2}).  What does this 
+		solution represent on your graph?
+	\end{Enum}
+	Let $L$ be the line given by $x-y=2$.
+	\begin{Enum}
+		\item Write an equation of a line that doesn't intersect $L$.
+		\item Write an equation of a line that intersects $L$ in 
+		\begin{enumerate}
+			\item one place.
+			\item infinitely many places
+			\item exactly two places
+		\end{enumerate}
+		or explain why no such equation exists.
+		\item For each equation you came up with solve the system algebraically.
+		How can you tell algebraically how many solutions there are?
+	\end{Enum}
+
+\subsection*{The Row Reduction Algorithm}
+
+	\begin{Enum}
+		\item Solve the system
+		\begin{equation}\label{eq3}
+			\begin{array}{ll}
+				x-y-2z &= -5\\
+				2x+3y+z &= 5\\
+				0x+2y+3z &= 8
+			\end{array}
+		\end{equation}
+		any way you like.
+
+		\item Use an augmented matrix to solve the system (\ref{eq3}).
+	\end{Enum}
+
+	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
+	interpretations when appropriate is one of the most powerful tools of Linear 
+	Algebra).  We can think of solutions to (\ref{eq3})
+	as the intersection of three planes, or we can interpret the solution
+	as coefficients of a linear combination.
+
+	\begin{Enum}[resume]
+		\item Rewrite (\ref{eq3}) as a vector equation of the form
+		\[
+			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
+		\]
+		where $x,y,z$ are interpreted as scalar quantities.
+
+		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
+		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
 	\end{Enum}
 
 
