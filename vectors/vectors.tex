@@ -16,9 +16,10 @@
 \textwidth=6in
 \topmargin=0in
 \textheight=9in
+\parskip=.07in
 
 \parindent=0in
-\pagestyle{empty}
+%\pagestyle{empty}
 
 \newcounter{EnumPrefix}
 \newcounter{EnumSuffix}
@@ -46,6 +47,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
+\renewcommand{\span}{\mathrm{span}\,}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
 
@@ -263,7 +265,7 @@
 	\begin{Enum}
 		\item For the arbitrary vector $\vec a$, what is $\proj_{3\vec a}\vec a$?
 		\item If $\vec a$ and $\vec b$ are orthogonal (perpendicular) vectors,
-		what is $\proj_{\vec b}\vec a$ $\proj_{\vec a}\vec b$?
+		what is $\proj_{\vec b}\vec a$? $\proj_{\vec a}\vec b$?
 	\end{Enum}
 	
 
@@ -317,7 +319,7 @@
 	\subsection*{Moving to Planes}
 	When solving equations, sometimes we get to make choices. For example, 
 	if $x+2y=0$, we can find solutions by fixing either $x$ or $y$ and solving
-	for the other. e.g., if $x=2$, then $y=-1$ nad if $y=3$ then $x=-6$.
+	for the other. e.g., if $x=2$, then $y=-1$ and if $y=3$ then $x=-6$.
 
 	\begin{Enum}
 		\item Write down three solutions $\vec a$, $\vec b$, $\vec c$ to
@@ -447,6 +449,214 @@
 		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
 	\end{Enum}
 
+	Consider the augmented matrix
+	\[
+		A=\left[\begin{array}{ccc|c}
+			1 & 2 & -1 & -7\\
+			0 & 2 & 3 & 9\\
+			0 & 0 & 1 & 1
+		\end{array}\right].
+	\]
+	\begin{Enum}
+		\item Write the system of equations corresponding to $A$.
+		\item Solve the system of equations corresponding to $A$.
+	\end{Enum}
 
+\subsection*{Infinite Solutions}
+	Consider the system
+	\begin{equation}\label{eq4}
+		\begin{array}{ll}
+			x+2y &= 3\\
+			2x+4y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{Enum}
+		\item How many solutions does (\ref{eq4}) have?
+		\item Write the solutions to (\ref{eq4}) in vector form.
+		\item What happens when you use an augmented matrix
+		to solve (\ref{eq4})?
+	\end{Enum}
+
+\subsection*{Free Variables}
+	Suppose the row-reduced augmented matrix corresponding to 
+	a system is
+	\[
+		B=\left[\begin{array}{cc|c}
+			1 & 2 & 3\\
+			0 & 0 & 0
+		\end{array}\right].
+	\]
+	After reducing, we have 1 equation and 2 unknowns, so we can make
+	$2-1=1$ choices when writing a solution.  Let's make the
+	choice $y=t$.
+	
+	\begin{Enum}
+		\item With the added equation $y=t$, solve the
+		system represented by $B$.
+	\end{Enum}
+
+	Consider the system given by the augmented matrix
+	\[
+		C=\left[\begin{array}{ccccc|c}
+			1&0&1&2&0&-1\\
+			0&1&1&0&0&3\\
+			0&0&0&0&1&4
+		\end{array}\right].
+	\]
+	and call the variables in this system $x_1,x_2,
+	x_3,x_4,x_5$.
+
+	\begin{Enum}
+		\item Write the system of equations represented by $C$.
+		\item Identify how many choices you can make when writing
+		down a solution corresponding to $C$.
+		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
+		for each choice you must make when solving the system.
+		\item Write in vector form all solutions to $C$.
+	\end{Enum}
+
+	\begin{Enum}
+		\item An unknown system $U$ is represented by an augmented
+		matrix with 4 rows and 6 columns.  What is 
+		the minimum number of
+		free variables solutions to $U$ will have?
+		\item An unknown system $V$ is represented by an augmented
+		matrix with 6 rows and 4 columns.  What is 
+		the minimum number of
+		free variables solutions to $V$ will have?
+	\end{Enum}
+
+\section*{Span}
+	Let
+	\[
+		\vec u=\mat{1\\0\\3} \qquad \vec v=\mat{-1\\1\\-3}
+		\qquad \vec w=\mat{1\\2\\3} \qquad \vec r=\mat{2\\3\\4}
+	\]
+
+	\begin{Enum}
+		\item Is $\vec w$ a linear combination of $\vec u$ and $\vec v$?
+		\item Is $\vec r$ a linear combination of $\vec u$ and $\vec v$?
+		\item hat does the space of all linear combinations of 
+		$\vec u$ and $\vec v$ look like? (Do you expect a randomly 
+		chosen vector to be in this space?)
+	\end{Enum}
+
+	The set of all linear combinations of a set of vectors $V$ is called
+	the \emph{span} of $V$ and is denoted ``$\span V$.''
+	\begin{Enum}
+		\item Describe $\span\{\vec u\}$.
+		\item Describe $\span\{\vec u,\vec v\}$
+		\item Describe $\span\{\xh,\yh,\zh\}$.
+		\item Describe $\span\{\xh,\yh\}$.
+		\item Describe $\span\{\xh,\yh\}\cap \span\{\vec u,\vec v\}$.
+	\end{Enum}
+	\begin{Enum}
+		\item How do $\span\{\vec u,\vec v\}$ and
+		$\span\{\vec u,\vec v,\vec w\}$ relate?
+	\end{Enum}
+
+\subsection*{Linear Independence and Dependence}
+	We've seen sometimes adding a vector to a set doesn't
+	make its span any larger.  This is because the vector was already
+	in the span in the first place!
+
+	We say $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+	\emph{linearly dependent} if for at least one $i$,
+	\[
+		\vec v_i\in\span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+		\vec v_{i+1},\ldots,\vec v_n\},
+	\]
+	and a set is \emph{linearly independent} otherwise.
+
+	\begin{Enum}
+		\item Can you state linear independence in terms
+		of linear combinations?
+		\item Is the set $\left\{\mat{1\\0},\mat{0\\1},
+		\mat{3,-2}\right\}$ linearly independent?
+		What is its span?
+		\item In $\R^2$ what is the largest linearly
+		independent set you could have?
+		\item In $\R^2$, is every set of two or fewer
+		vectors linearly independent?
+	\end{Enum}
+
+	We say a linear combination 
+	$a_1\vec v_1+a_2\vec v_2+\cdots +a_n\vec v_n$
+	is \emph{trivial} if $a_1=a_2=\cdots=a_n=0$.
+	\begin{Enum}
+		\item Consider the linearly dependent 
+		set $\{\vec u,\vec v,\vec w\}$ (where $\vec u,\vec v,\vec w$
+		are defined as above).  Can you write $\vec 0$
+		as a non-trivial linear combination of vectors in this set?
+		\item Consider the linearly independent 
+		set $\{\vec u,\vec v\}$.  Can you write $\vec 0$
+		as a non-trivial linear combination of vectors in this set?
+	\end{Enum}
+
+	We now have an equivalent definition of linear dependence.
+	Namely, $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+	\emph{linearly dependent} if there is a non-trivial
+	linear combination of $\vec v_1,\ldots,\vec v_n$ that
+	forms the zero vector.
+
+	\begin{Enum}
+		\item Explain how this new definition implies the old one.
+		\item Explain how the old definition implies this new one.
+	\end{Enum}
+
+	We now have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
+	should be read aloud as `implies').  This means the two definitions
+	are \emph{equivalent} (which we write as new def $\iff$ old def).
+
+
+	Suppose for some unknown $\vec u,\vec v,\vec w$,
+	\[
+		\vec a = 3\vec u+2\vec v +\vec w\qquad \text{and}\qquad 
+		\vec a = 2\vec u+\vec v -\vec w.
+	\]
+	\begin{Enum}
+		\item Could the set $\{\vec u,\vec v,\vec w\}$ be linearly
+		independent?
+	\end{Enum}
+	Suppose that
+	\[
+		\vec a = \vec u+6\vec r-\vec s
+	\]
+	is the \emph{only} way to write $\vec a$ using $\vec u,\vec r,\vec s$.
+	\begin{Enum}[resume]
+		\item Is $\{\vec u,\vec r,\vec s\}$ linearly independent?
+		\item Is $\{\vec u,\vec r\}$ linearly independent?
+		\item Is $\{\vec u,\vec v,\vec w,\vec r\}$ linearly independent?
+	\end{Enum}
+
+\subsection*{Finding Linearly Independent Subsets}
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec y$ you have no free variables.
+	
+	\begin{Enum}
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+	\end{Enum}
+	
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec y$ the second column corresponds to a 
+	free variable.
+	
+	\begin{Enum}[resume]
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec v\}$ linearly independent?
+	\end{Enum}
+
+	A \emph{maximal linearly independent subset} $X$ of a set of vectors $V$
+	is a linearly independent subset of $V$ with the most possible vectors in it 
+	(i.e., if you too any subset of $V$ with more vectors, it would be linearly
+	dependent).
+
+	\begin{Enum}
+		\item Give a maximal linearly independent subset, $T$, of
+		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
+		\item What is the size of $T$?
+	\end{Enum}
 
 \end{document}
