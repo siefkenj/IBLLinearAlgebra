@@ -48,6 +48,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
 \renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
 
@@ -383,6 +384,8 @@
 		\item Write vector form of $W$.
 	\end{Enum}
 
+\newpage
+
 \section*{Systems of Linear Equations}
 	
 	\emph{Linear equations} are equations only involving variables, 
@@ -478,6 +481,7 @@
 		to solve (\ref{eq4})?
 	\end{Enum}
 
+
 \subsection*{Free Variables}
 	Suppose the row-reduced augmented matrix corresponding to 
 	a system is
@@ -527,6 +531,8 @@
 		free variables solutions to $V$ will have?
 	\end{Enum}
 
+\newpage
+
 \section*{Span}
 	Let
 	\[
@@ -537,7 +543,7 @@
 	\begin{Enum}
 		\item Is $\vec w$ a linear combination of $\vec u$ and $\vec v$?
 		\item Is $\vec r$ a linear combination of $\vec u$ and $\vec v$?
-		\item hat does the space of all linear combinations of 
+		\item What does the space of all linear combinations of 
 		$\vec u$ and $\vec v$ look like? (Do you expect a randomly 
 		chosen vector to be in this space?)
 	\end{Enum}
@@ -573,7 +579,7 @@
 		\item Can you state linear independence in terms
 		of linear combinations?
 		\item Is the set $\left\{\mat{1\\0},\mat{0\\1},
-		\mat{3,-2}\right\}$ linearly independent?
+		\mat{3\\-2}\right\}$ linearly independent?
 		What is its span?
 		\item In $\R^2$ what is the largest linearly
 		independent set you could have?
@@ -658,5 +664,138 @@
 		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
 		\item What is the size of $T$?
 	\end{Enum}
+
+	Consider the vectors
+	\[
+		\vec v_1=\mat{1\\2\\1}
+		\qquad
+		\vec v_2=\mat{-1\\-1\\-1}
+		\qquad
+		\vec v_3=\mat{0\\1\\0}
+		\qquad
+		\vec v_4=\mat{-1\\2\\0}
+		\qquad
+		\vec v_5=\mat{1\\-1\\1}
+	\]
+	and the matrices
+	\[
+		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
+		\qquad \rref (A)
+		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
+	\]
+	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots \vec v_5$)
+
+	\begin{Enum}
+		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
+		independent?
+		\item Pick a maximal linearly independent subset of $V$.
+		\item Pick another (different) maximal linearly independent subset of $V$.
+	\end{Enum}
+
+
+\section*{Matrices}
+	\[
+		A=\mat{1&2\\3&1\\0&-1}
+		\qquad
+		B=\mat{-1&-1\\0&1\\1&-2}
+		\qquad
+		C=\mat{1&2&0\\-1&-1&-1}
+	\]
+	\begin{Enum}
+		\item Write the shape of the matrices $A,B,C$ (i.e., for each one,
+		write the dimensions in $m\times n$ form).
+		\item List \emph{all} products between the matrices $A,B,C$ that are
+		defined. (Your list will be some subset of $AB,AC,BA,CA,BC,CB$.)
+		\item Compute $AC$ and $CA$.
+	\end{Enum}
+	\begin{Enum}
+		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+		does $XY=YX$?  Explain.
+		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+		does $X+Y=Y+X$?  Explain.
+	\end{Enum}
+
+	Consider the system
+	\begin{equation}\label{mateq1}
+		\begin{array}{ll}
+			x+2y &= 3\\
+			4x+5y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{Enum}
+		\item Find values of $a,b,c,d,e,f$ so that the matrix equation
+		\[
+			\mat{a&b\\c&d}\mat{x\\y}=\mat{e\\f}
+		\]
+		represents the same system as (\ref{mateq1}).
+	\end{Enum}
+
+	Consider the system represented by
+	\[
+		\mat{1&-3&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\vec b.
+	\]
+	\begin{Enum}[resume]
+		\item If $\vec b=\mat{1\\2\\3}$, is the solution set to this system a 
+		point, line, plane, or other?
+		\item If $\vec b=\mat{1\\1\\0}$, is the solution set to this system a 
+		point, line, plane, or other?
+	\end{Enum}
+
+	The transpose of a matrix (written with a superscript $T$, e.g. $A^T$) swaps
+	the rows an columns of a matrix.
+
+	\[
+		A=\mat{1&1&2\\2&2&1}
+	\]
+	\begin{Enum}
+		\item What is the shape of $A$ and $A^T$?
+		\item Write down $A^T$.
+	\end{Enum}
+
+	$B$ and $D$ are $4\times 6$ matrices and $C$ is a $6\times 4$ matrix.
+
+	\begin{Enum}[resume]
+		\item Does $(BC)^T=B^TC^T$? Explain.
+		\item Does $(B+D)^T=B^T+D^T$? Explain?
+		\item Compute $AA^T$ and $A^TA$ (where $A$ is the matrix defined earlier).
+		What do you notice?
+	\end{Enum}
+
+A matrix $X$ is called symmetric if $X=X^T$.  Symmetric matrices have many useful properties,
+and have deep connections with orthogonality and eigenvectors (which we will get to later on).
+
+	\begin{Enum}
+		\item Prove that if $W$ is a square matrix, then $V=W^TW+W+W^T$ is a symmetric
+		matrix.
+	\end{Enum}
+
+There are two very special matrices that have special names.  The \emph{zero} matrix
+is a square matrix consisting of only zeros.  We sometimes write $0_{n\times n}$
+to signify the $n\times n$ zero matrix.  Sometimes we leave off the $n\times n$
+when it is obvious what size it should be.  The \emph{identity} matrix is a square
+matrix with ones on the diagonal and zeros everywhere else.  Again, we may write
+$I_{n\times n}$ to specify the $n\times n$ identity matrix, or we may just write $I$ and
+assume the dimensions are clear from context.  (In Matlab, 
+the command {\tt eye(n)} will create an $n\times n$ identity
+matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
+
+	Let $A=\mat{1&2&3\\4&5&6\\7&8&9}$.
+	\begin{Enum}
+		\item Write down the $3\times 3$ identity matrix and the $3\times 3$ zero
+		matrix.
+		\item Compute $I_{3\times 3}A$, $AI_{3\times 3}$, $0_{3\times 3}A$,
+		and $A0_{3\times 3}$.
+		\item If we were to think of matrices as numbers, what numbers would the
+		zero matrix and the identity matrix correspond to?
+	\end{Enum}
+	\begin{Enum}
+		\item Solve the matrix equation
+		\[
+			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
+		\]
+	\end{Enum}
+
+
 
 \end{document}
