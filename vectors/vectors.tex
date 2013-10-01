@@ -692,7 +692,7 @@
 		\item Pick another (different) maximal linearly independent subset of $V$.
 	\end{Enum}
 
-
+\newpage
 \section*{Matrices}
 	\[
 		A=\mat{1&2\\3&1\\0&-1}
@@ -796,6 +796,78 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 		\]
 	\end{Enum}
 
+\newpage
+\section*{Matrix Inverses}
+
+	\begin{Enum}
+		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_1$.
+		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_2$.
+	\end{Enum}
+	An \emph{Elementary Matrix} is the identity matrix with a single row operation applied.
+
+	\[
+		A=\mat{1&2&3\\4&5&6\\7&8&9}
+	\]
+	\begin{Enum}[resume]
+		\item Compute $E_1A$ and $E_2A$.  How do the resulting matrices relate to row
+		operations?
+		\item Without computing, what should the result of applying the row
+		operation $R_3\to R_3-2R_1$ to $E_1$ be?  Compute and verify.
+		\item Without computing, what should $E_1E_2$ be?  What about $E_2E_1$?
+		Now compute and verify.
+	\end{Enum}
+
+	If two square matrices $A,B$ satisfy $AB=I=BA$, we call $A$ and $B$ \emph{inverses}.
+	We notate the inverse of $A$ as $A^{-1}$.
+
+	\[
+		B=\mat{1 &4\\0 &2}
+	\]
+	\begin{Enum}
+		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
+		and write an elementary matrix $E_1$ corresponding to the first operation
+		and $E_2$ corresponding to the second.
+		\item What is $E_2E_1B$?
+		\item Find $B^{-1}$.
+		\item Can you outline a procedure for finding the inverse of a matrix
+		using elementary matrices?
+	\end{Enum}
+	\begin{Enum}
+		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+	\end{Enum}
+
+	\[
+		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
+		\vec b=\mat{1\\2\\3}\qquad
+		C=[A\vec b]\qquad
+		A^{-1}=\mat{9&-3/2&-5\\-5&1&3\\-2&1/2&1}
+	\]
+	\begin{Enum}
+		\item What is $A^{-1}A$?
+		\item What is $\rref(A)$?
+		\item What is $\rref(C)$?
+		\item Solve the system $A\vec x=\vec b$.
+	\end{Enum}
+\subsection*{Algorithms for Computing Inverses}
+	\begin{Enum}
+		\item What is $A\mat{1\\0\\0}$, $A\mat{0\\1\\0}$
+			and $A\mat{0\\0\\1}$? (Where $A$ is the matrix from earlier).
+	\end{Enum}
+	If $A$ is invertible (which it happens to be) we could solve the 
+	the system $A\vec x=\mat{1\\0\\0}$ as $\vec x=A^{-1}\mat{1\\0\\0}$.
+
+	\begin{Enum}[resume]
+		\item Solve $A\vec x=\mat{1\\0\\0}$,  $A\vec x=\mat{0\\1\\0}$, 
+			and $A\vec x=\mat{0\\0\\1}$
+	\end{Enum}
+	\[
+		D=[A|I_{3\times 3}]
+	\]
+	\begin{Enum}[resume]
+	\item What is $\rref(D)$?
+	\end{Enum}
 
 
 \end{document}
