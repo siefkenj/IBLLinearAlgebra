@@ -656,7 +656,7 @@
 
 	A \emph{maximal linearly independent subset} $X$ of a set of vectors $V$
 	is a linearly independent subset of $V$ with the most possible vectors in it 
-	(i.e., if you too any subset of $V$ with more vectors, it would be linearly
+	(i.e., if you took any subset of $V$ with more vectors, it would be linearly
 	dependent).
 
 	\begin{Enum}
@@ -834,14 +834,11 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 		\item Can you outline a procedure for finding the inverse of a matrix
 		using elementary matrices?
 	\end{Enum}
-	\begin{Enum}
-		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
-	\end{Enum}
 
 	\[
 		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
 		\vec b=\mat{1\\2\\3}\qquad
-		C=[A\vec b]\qquad
+		C=[A|\vec b]\qquad
 		A^{-1}=\mat{9&-3/2&-5\\-5&1&3\\-2&1/2&1}
 	\]
 	\begin{Enum}
@@ -849,6 +846,17 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 		\item What is $\rref(A)$?
 		\item What is $\rref(C)$?
 		\item Solve the system $A\vec x=\vec b$.
+	\end{Enum}
+	\begin{Enum}
+		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+	\end{Enum}
+	\[
+		A^{-1}=\mat{-1&-2\\1&1}\qquad B^{-1}=\mat{1/3&-2/3\\0&1}\qquad 
+		AB=\mat{3&4\\-3&-3}
+	\]
+	\begin{Enum}
+		\item Find $(AB)^{-1}$.
+		\item Solve $AB\vec x=\mat{-1\\3}$.
 	\end{Enum}
 \subsection*{Algorithms for Computing Inverses}
 	\begin{Enum}
