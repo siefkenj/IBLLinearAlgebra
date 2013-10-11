@@ -49,6 +49,8 @@
 \newcommand{\proj}{\mathrm{proj}}
 \renewcommand{\span}{\mathrm{span}\,}
 \newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
 
@@ -822,6 +824,21 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 	If two square matrices $A,B$ satisfy $AB=I=BA$, we call $A$ and $B$ \emph{inverses}.
 	We notate the inverse of $A$ as $A^{-1}$.
 
+	Consider the matrices 
+	\[
+		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
+		B=\mat{1&0&0\\0&1&0}\qquad
+		C=\mat{1&0\\0&1\\0&0}
+	\]
+	\[
+		D=\mat{1&-2&0\\0&1&0\\3&0&1}\qquad
+		E=\mat{1&0&0\\0&2&0\\0&1&1}\qquad
+		F=\mat{1&0&0\\0&1&0\\0&0&1}
+	\]
+	\begin{Enum}
+		\item Which pairs of matrices above are inverses of each other?
+	\end{Enum}
+
 	\[
 		B=\mat{1 &4\\0 &2}
 	\]
@@ -877,5 +894,180 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 	\item What is $\rref(D)$?
 	\end{Enum}
 
+\newpage
+\section*{Subspace, Basis, Dimension \& Rank }
+
+A \emph{subspace} (not to be confused with subset) is the formal term for ``flat
+space through the origin.''
+
+A collection of vectors $X$ is a \emph{subspace} if
+\begin{itemize}
+	\item $\vec 0\in X$
+	\item $\vec u,\vec v\in X$ implies $\vec u+\vec v\in X$
+	\item $\vec v\in X$ implies $c\vec v\in X$ for all scalars $c$
+\end{itemize}
+
+Explain whether or not the following are subspaces
+\begin{Enum}
+	\item $\span\{\mat{3\\-2}\}$
+	\item $\R^4$
+	\item The line $x+2y=3$
+	\item $\{\vec 0\}$
+	\item $\span \{\mat{1\\0}\}\cup \span\{\mat{0\\1}\}$
+	\item $\span \{\vec u,\vec v,\vec w\}$ for unknown vectors $\vec u,\vec v,\vec w$
+	\item The set of vectors orthogonal to $\vec u=\mat{1\\2\\1}$ and $\vec v=\mat{1\\-1\\1}$
+\end{Enum}
+
+When dealing with matrices, there are several subspaces we often refer to 
+\begin{itemize}
+	\item The \emph{row space} of $A$ is the span of the row vectors in $A$.
+	\item The \emph{column space} of $A$ is the span of the column vectors in $A$.
+	\item The \emph{null space} of $A$ is the set of vectors $\vec x$ so that 
+		$A\vec x=\vec 0$.
+\end{itemize}
+
+Consider $A=\mat{1&0&0\\0&1&0}$.
+\begin{Enum}
+	\item Describe the row space of $A$.
+	\item Describe the column space of $A$.
+	\item Is the row space of $A$ the same as the column space of $A$?
+	\item Describe the set of all vectors perpendicular to the rows of $A$.
+	\item Describe the null space of $A$.
+\end{Enum}
+
+\[
+	B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
+\]
+\begin{Enum}
+	\item How does the row space of $B$ relate to the row space of $C$?
+	\item How does the null space of $B$ relate to the null space of $C$?
+	\item Compute the null space of $B$.
+\end{Enum}
+\[
+	P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
+\]
+\begin{Enum}
+	\item How does the column space of $P$ relate to the column space of $Q$?
+	\item Describe the columns space of $P$ and the column space of $Q$.
+\end{Enum}
+
+A \emph{basis} for a subspace $X$ is a linearly independent set $\{\vec v_1,\ldots,\vec v_n\}$
+so that $\span\{\vec v_1,\ldots,\vec v_n\}=X$.
+
+\begin{Enum}
+	\item Give a basis for $\R^2$.
+	\item Give a basis for the plane $\mat{1\\2\\3}\cdot \vec x=0$.
+	\item Give a basis for the null space of $A=\mat{1&2&3}$.
+\end{Enum}
+
+Recall the definition of a maximal linearly independent set from earlier. It turns out
+that if $V$ is a set of vectors, any maximal linearly independent subset of $V$ is a basis
+for $\span V$.
+
+The \emph{dimension} of a subspace $X$ is the number of vectors in a basis for $X$.
+
+\[
+	A=\mat{1&1&-1\\1&1&1\\2&2&0}\qquad
+	\rref(A)=\mat{1&1&0\\0&0&1\\0&0&0}\qquad
+	\rref(A^T)=\mat{1&0&1\\0&1&1\\0&0&0}
+\]
+
+\begin{Enum}
+	\item Find a basis for and the dimension of the row space of $A$.
+	\item Find a basis for and the dimension of the column space of $A$.
+\end{Enum}
+
+We are now equipped to give an alternate definition for rank.  The \emph{rank}
+of a matrix is the dimension of the row space.
+
+The \emph{nullity} of a matrix is the dimension of the null space.
+
+The rank-nullity theorem states
+\[
+	\rank(A)+\nnul(A) = \#\text{of rows in }A.
+\]
+
+The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
+Define $A=[\vec u|\vec v|\vec w]$.
+\begin{Enum}
+	\item What is the rank and nullity of $A^T$?
+	\item What is the rank and nullity of $A$?
+\end{Enum}
+
+\newpage
+\section*{Linear Transformations}
+
+$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
+by $90^\circ$.
+\begin{Enum}
+	\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
+	\item Compute $\mathcal R\mat{1\\1}$.  How does this relate to
+		$\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$?
+	\item What is $\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)$?
+	\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
+		counter clockwise by $90^\circ$.
+\end{Enum}
+
+$\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
+and contracts in the $\yh$ direction by a factor of $3$.
+\begin{Enum}
+	\item Write a matrix representation of $\mathcal S$.
+\end{Enum}
+
+A \emph{Linear Transformation} is a transformation of vectors 
+	that respects addition and scalar multiplication.  That is $T$
+	is a linear transformation if
+	\[
+		T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
+		T(a\vec v)=aT\vec v
+	\]
+	for all scalars $a$.
+
+\begin{Enum}
+	\item Classify the following as linear transformation or not
+		\begin{enumerate}
+			\item $\mathcal R$ from above.
+			\item $\mathcal S$ from above.
+			\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+			\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+			\item $P:\R^2\to\R^2$ where $P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
+				$\vec u=\mat{2\\3}$.
+		\end{enumerate}
+\end{Enum}
+
+It turns out every linear transformation can be written as a matrix (in fact
+this is why matrix multiplication was invented).
+
+Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
+\begin{Enum}
+	\item Write down a matrix for $\mathcal P$.
+	\item What is the null space of $\mathcal P$?
+	\item What is the rank of $\mathcal P$?
+	\item Is $\mathcal P$ invertible?
+\end{Enum}
+	
+Matrix multiplication was designed to exactly model composition of linear transformations.
+\begin{Enum}[resume]
+	\item Write down a matrix for $\mathcal P$ and for $\mathcal R$ the rotation
+		by $90^\circ$.
+	\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+\end{Enum}
+
+Not only is every linear transformation modeled by a matrix, but every matrix models a linear
+transformation.
+
+\begin{Enum}
+	\item Describe in words the transformation that each matrix represents.
+		\begin{enumerate}
+			\item $A\mat{2&0&0\\0&1&0\\0&0&3}$
+			\item $B=\mat{1&0&0\\0&1&0\\0&0&0}$
+			\item $C=\mat{0&0&1\\0&1&0\\1&0&0}$
+			\item $D=\mat{1/2&1/2}$
+			\item $E=\mat{\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}}$
+		\end{enumerate}
+	\item Which transformations listed above are invertible?
+	\item For each transformation, describe its image as a point, line,
+		plane, or other.  How does this relate to the column space?
+\end{Enum}
 
 \end{document}
