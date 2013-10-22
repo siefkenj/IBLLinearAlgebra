@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+
+
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6in
+\topmargin=-1in
+\textheight=10in
+\parskip=.07in
+
+\parindent=0in
+%\pagestyle{empty}
+
+\newcounter{EnumPrefix}
+\newcounter{EnumSuffix}
+%\newenvironment{Enum}[0]{
+\DeclareDocumentEnvironment{Enum}{o}{
+	\ifthenelse{ \equal{#1}{resume} }{
+		\begin{enumerate}[label={\footnotesize\arabic{EnumPrefix}}.\arabic*]
+		\setcounter{enumi}{\value{EnumSuffix}}
+	}{
+		\stepcounter{EnumPrefix}\begin{enumerate}[label={\footnotesize\arabic{EnumPrefix}}.\arabic*]
+	}
+}{
+	\setcounter{EnumSuffix}{\value{enumi}}
+	\end{enumerate}
+}
+%\renewcommand{\labelenumi}{\arabic{EnumPrefix}.\arabic*}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\section*{Complex Numbers}
+	A large part of mathematics is the process of abstraction.
+	For instance, numbers are an abstraction of the concept of length.
+	If we had two numbers $a,b$ representing length, their product would be 
+	the area of the rectangle whose sides were $a,b$.  Strictly speaking, with
+	this interpretation, $ab$ is an area and $a,b$ are lengths and they cannot be
+	compared (this is what the Greeks thought), but we have come to know numbers as
+	a more abstract concept.  After all, we can write both $a,b$ and $ab$ using decimals,
+	so why shouldn't we compare them?
+
+	Taking this idea to solving polynomials gives us complex numbers.  The solutions
+	to $x^2=a$ are $\pm\sqrt{a}$ formally, but if I said $a=-4$, we might claim that $\sqrt{-4}$
+	doesn't make any sense.  However, with a simple definition, we can make
+	a larger class of numbers where $\sqrt{-4}$ fits in perfectly.
+
+	\begin{definition}
+		The imaginary unit $i$ is defined as a solution to $x^2=-1$.  That
+		is $i^2=-1$.
+	\end{definition}
+	\begin{definition}
+		A \emph{complex number} is a number $a+bi$ where $a$ is the \emph{real part}
+		and $b$ is the \emph{imaginary part}.
+	\end{definition}
+
+	You can think of complex numbers as vectors with two components, a real one
+	and an imaginary one.  You add complex numbers as you would vectors.
+
+	Compute the following:
+	\begin{Enum}
+		\item $(1+2i)$+$(2-7i)$
+		\item $i-(6+i)$
+		\item $24(3+i)-\frac{1}{2}(2+2i)$
+	\end{Enum}
+
+	Unlike vectors however, complex numbers can be multiplied.  Multiplication
+	follows all the same rules as for real numbers, except $(i)(i)=-1$.  So,
+	for example, $i(2-3i)=2i-3i^2=3+2i$.
+
+	Compute the following products:
+	\begin{Enum}
+		\item $i(7i)$
+		\item $(3+i)(2+4i)$
+		\item $(7+i)(7-i)$
+	\end{Enum}
+
+	\begin{definition}
+		The \emph{conjugate} of a complex number $a+bi$ is written with a bar over
+		top the number and is
+		\[
+			\overline{a+bi}=a-bi.
+		\]
+	\end{definition}
+
+	If $c$ is a complex number then $c\bar c$ is always a real number.  This
+	means that while $1/c$ has complex numbers in the denominator
+	of a fraction, $1/c=\bar c/(c\bar c)$ does not.  Now you know how to divide
+	by a complex number!
+
+	Compute the following:
+	\begin{Enum}
+		\item $\overline{2-7i}$
+		\item $\bar i$
+		\item $1/(2-7i)$
+		\item $(4+3i)/(-5+i)$
+	\end{Enum}
+
+	Recall that for the square-root function $\sqrt{ab}=\sqrt{a}\sqrt{b}$.
+	Thus for example $\sqrt{-4}=\sqrt{4}\sqrt{-1}=2i$.  Use this and your
+	knowledge of the quadratic formula to solve the following:
+	\begin{Enum}
+		\item $x^2+3x+9=0$
+		\item $-x^2-2=1$
+		\item $-x^2+5x-12=7$
+	\end{Enum}
+
+	The amazing thing about complex numbers is that just by introducing the
+	solution to the equation $x^2=-1$ we can now write the solutions
+	to any $n$-degree polynomial as complex numbers!
+	\begin{theorem}\label{t}
+		If $p(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ then we can factor $p$
+		as
+		\[
+			p(x)=(x-c_1)(x-c_2)\cdots (x-c_n)
+		\]
+		where $c_1,\ldots,c_n$ are complex numbers.
+	\end{theorem}
+
+	Theorem \ref{t} will be important as we start solving equations
+	involving determinants, but you can just think of Theorem \ref{t} as
+	telling us that we always have $n$ solutions to an $n$-degree polynomial
+	(though the solutions may not be all distinct).
+
+\subsection*{Complex Numbers and Matrices}
+	Using complex numbers as entries in a matrix allows us to represent things
+	we couldn't before.
+
+	Compute the following:
+	\begin{Enum}
+		\item $\mat{1 &-i}\mat{1\\i}$
+		\item $\mat{-i&i\\1&1}\mat{i&1\\-i&1}$
+		\item $\mat{-i&i\\1&1}\mat{-i&0\\0&i}\mat{i&1\\-i&1}$
+		\item Compute $i\mat{i\\1}$ and compare it
+			with $\mat{0&-1\\1&0}\mat{i\\1}$.  What do you notice? (How
+			does this relate to eigen values and eigen vectors?)
+	\end{Enum}
+
+
+\end{document}
