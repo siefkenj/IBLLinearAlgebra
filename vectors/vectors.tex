@@ -9,7 +9,9 @@
 \usepackage{xparse}
 \usepackage{ifthen}
 \usepackage{geometry}
-
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \oddsidemargin=0in
 \evensidemargin=0in
@@ -52,6 +54,7 @@
 \newcommand{\rank}{\mathrm{rank}}
 \newcommand{\nnul}{\mathrm{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\chr}{\mathrm{char}}
 
 
 \begin{document}
@@ -1059,7 +1062,7 @@ transformation.
 \begin{Enum}
 	\item Describe in words the transformation that each matrix represents.
 		\begin{enumerate}
-			\item $A\mat{2&0&0\\0&1&0\\0&0&3}$
+			\item $A=\mat{2&0&0\\0&1&0\\0&0&3}$
 			\item $B=\mat{1&0&0\\0&1&0\\0&0&0}$
 			\item $C=\mat{0&0&1\\0&1&0\\1&0&0}$
 			\item $D=\mat{1/2&1/2}$
@@ -1069,5 +1072,196 @@ transformation.
 	\item For each transformation, describe its image as a point, line,
 		plane, or other.  How does this relate to the column space?
 \end{Enum}
+
+\newpage
+\section*{Eigenvectors}
+The picture shows what the transformation $T$ does to the unit square.
+
+	\includegraphics[width=2.5in]{transform1b.pdf}
+	\includegraphics[width=2.5in]{transform2b.pdf}
+
+
+	\vspace{-6em}
+	\begin{Enum}
+		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
+		\item Write down a matrix for $T$.
+		\item Are there any vectors $\vec v$ so that $T\vec v$ points in the
+			same direction as $\vec v$?
+	\end{Enum}
+
+	For a transformation $X$, an \emph{eigenvector} for $X$ is a vector that doesn't
+	change directions when $X$ is applied.  That is,
+	\[
+		X\vec v=\lambda \vec v
+	\]
+	for some $\lambda\in\R$.  $\lambda$ is called the \emph{eigenvalue} 
+	of $X$ corresponding
+	to the eigenvector $\vec v$.
+
+	\begin{Enum}[resume]
+		\item Give an eigenvector for $T$.  What is the eigenvalue?
+		\item Can you give another?
+	\end{Enum}
+
+	We will now develop tools to allow us to compute eigenvalues and eigenvectors.
+
+	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
+	oriented volume of the image of the unit $n$-cube.  The determinant
+	of a square matrix is the oriented volume of the parallelepiped 
+	($n$-dimensional parallelogram) given by the column vectors or the row
+	vectors.
+
+	Let $\mathcal S$ be the unit square in $\R^2$ (The $1\times 1$ square with lower
+	left corner at the origin).
+
+	We know the following about the transformation $A$:
+	\[
+		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
+	\]
+	\begin{Enum}
+		\item Draw $\mathcal S$ and $A\mathcal S$, the image of the unit square
+			under $A$.
+		\item Compute the area of $A\mathcal S$.
+		\item Compute $\det(A)$.
+	\end{Enum}
+
+	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
+	\begin{Enum}
+		\item Draw $\mathcal S$ and $R\mathcal S$.
+		\item Compute the area of $R\mathcal S$.
+		\item Compute $\det(R)$.
+	\end{Enum}
+	
+	We know the following about the transformation $F$:
+	\[
+		F\mat{1\\0}=\mat{0\\1}\qquad\text{and}\qquad F\mat{0\\1}=\mat{1\\0}.
+	\]
+	\begin{Enum}
+		\item What is $\det(F)$?
+	\end{Enum}
+
+	\begin{itemize}
+		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
+		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
+		\item $E_a$ is $I_{3\times 3}$ with $R_1\to R_1+2R_2$ applied.
+	\end{itemize}
+
+	\begin{Enum}
+		\item What is $\det(E_f)$?
+		\item What is $\det(E_m)$?
+		\item What is $\det(E_a)$?
+		\item What is $\det(E_fE_m)$?
+		\item What is $\det(4I_{3\times 3})$?
+		\item What is $\det(W)$ where $W=E_fE_aE_fE_mE_m$?
+	\end{Enum}
+
+	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
+	\begin{Enum}
+		\item What is $\det(U)$?
+	\end{Enum}
+	When you row reduce the square matrix $V$, there is a row of zeros.
+	\begin{Enum}[resume]
+		\item What is $\det(V)$?
+	\end{Enum}
+	$P$ is projection onto the vector $\mat{-1\\-1}$.
+	\begin{Enum}[resume]
+		\item What is $\det(P)$?
+	\end{Enum}
+
+	Suppose you know $\det(X)=4$.
+	\begin{Enum}
+		\item What is $\det(X^{-1})$?
+		\item Derive a relationship between $\det(Y)$
+			and $\det(Y^{-1})$ for an arbitrary matrix $Y$.
+		\item Suppose $Y$ is not invertible.  What is $\det(Y)$?
+	\end{Enum}
+
+	After all this work with determinants, we see 
+	that (like dot products) there is a geometric and an
+	algebraic way of thinking about them, and they 
+	\emph{determine} if a matrix is invertible.
+
+\newpage
+\section*{Eigenvectors and Eigenvalues Cont.}
+
+For some matrix $A$,
+\[
+	A\mat{3\\3\\1}=\mat{2\\2\\2/3}.
+\]
+	\begin{Enum}
+		\item Give an eigenvector and a corresponding eigenvalue for $A$.
+	\end{Enum}
+
+	$B=A-2/3I$.
+	\begin{Enum}
+		\item What is $B\mat{3\\3\\1}$?
+		\item What is the dimension of $\text{null}(B)$?
+		\item What is $\det(B)$?
+	\end{Enum}
+
+	$C=\mat{-1&2\\1&0}$ and $E_\lambda = B-\lambda I$
+	\begin{Enum}
+		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
+			null space?
+		\item What are the eigenvalues of $C$?
+		\item Find the eigenvectors of $C$.
+	\end{Enum}
+	
+	For a matrix $A$, the \emph{characteristic polynomial} of $A$ is
+	\[
+		\chr(A)=\det(A-\lambda I).
+	\]
+
+	Let $D=\mat{1&2\\3&0}$.
+	\begin{Enum}
+		\item Compute $\chr(D)$.
+		\item Find the eigenvalues of $D$.
+	\end{Enum}
+
+	Suppose $\chr(E)=\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
+	matrix $E$.
+	\begin{Enum}
+		\item What are the eigenvalues of $E$?
+		\item Is $E$ invertible?
+		\item What is $\nnul(E)$, $\nnul(E-3I)$, $\nnul(E+3I)$?
+	\end{Enum}
+
+	Define
+	\[
+		A=\mat{1&0&1\\0&1&1\\1&1&0}\qquad
+		\vec v_1=\mat{1\\1\\1}\qquad
+		\vec v_2=\mat{1\\1\\-2}\qquad
+		\vec v_3=\mat{-1\\1\\0}
+	\]
+	and notice that $\vec v_1,\vec v_2,\vec v_3$ are eigenvectors for $A$.
+	\begin{Enum}
+		\item Find the eigenvalues of $A$.
+		\item Compute $A\vec w$ where $w=2\vec v_1-\vec v_2$.
+		\item Compute $A\vec u$ where $\vec u=a\vec v_1+b\vec v_2+c\vec v_3$ for
+			unknown scalar coefficients $a,b,c$.
+	\end{Enum}
+	Notice that $V=\{\vec v_1,\vec v_2,\vec v_3\}$ is a basis for $\R^3$.
+	\begin{Enum}[resume]
+	\item If $\vec x=\mat{1\\3\\4}_V$ is $\vec x$ written in the $V$ basis,
+		compute $A\vec x$.
+	\end{Enum}
+	The transformation $P$ takes vectors in the standard basis and outputs
+	vectors in the $V$ basis.  
+	\begin{Enum}
+		\item Describe in words what $P^{-1}$ does.
+		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
+			$A\vec y$ for any $\vec y\in \R^3$.
+		\item Can you find a matrix $D$ so that
+			\[
+				P^{-1}DP=A?
+			\]
+		\item $\vec x=\mat{1\\3\\4}_V$.  Compute $A^{100}\vec x$.
+	\end{Enum}
+
+	Two matrices $A,B$ are called \emph{similar} if there is a matrix $P$ so that
+	\[
+		A=PBP^{-1}.
+	\]
+	Similar matrices represent the same transformation but in different bases.
 
 \end{document}
