@@ -8,16 +8,16 @@
 \usepackage{amssymb}
 \usepackage{xparse}
 \usepackage{ifthen}
-\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{color}
 
-\oddsidemargin=0in
-\evensidemargin=0in
+\oddsidemargin=.2in
+\evensidemargin=.2in
 \textwidth=6in
-\topmargin=0in
-\textheight=9in
+\topmargin=-.75in
+\textheight=10in
 \parskip=.07in
 
 \parindent=0in
@@ -55,10 +55,61 @@
 \newcommand{\nnul}{\mathrm{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\chr}{\mathrm{char}}
+% Create a command that draws a horizontal line extending into the margin.
+% If no argument is given, it prints the current problem number.
+% Otherwise the argument is displayed (including a blank argument)
+\definecolor{barcolor}{rgb}{.2,.6,1.0}
+\NewDocumentCommand{\sep}{o}{%
+	\makebox(0,0){%
+		\vspace{.1in}
+		\hspace{-1.0in}
+		\color{barcolor}{
+			\makebox(0,10)[l]{\rule{1.4in}{.25pt}}
+			\IfNoValueTF{#1}{
+				\stepcounter{EnumPrefix}
+				\makebox(0,0)[lt]{\arabic{EnumPrefix}}
+				\addtocounter{EnumPrefix}{-1}
+			}{
+				\makebox(0,0)[lt]{\emph{#1}}
+			}
+		}
+}\\*[0pt]}
+% a \sep command to be used before a list.  Remove the extra spacing...
+\newcommand{\sepl}{\sep \vspace{-.35in}}
 
+\definecolor{defcolor}{rgb}{.1,.7,.3}
+\DeclareDocumentEnvironment{Def}{o}{
+	\makebox(0,0){%
+			\vspace{.0in}
+			\hspace{-.7in}
+			\color{defcolor}{
+				\makebox(0,10)[l]{\rule{1.0in}{.25pt}}
+				\makebox(0,0)[lt]{\emph{Def}}
+			}
+	}\\*
+}{%
+	%\makebox(0,0){}	\newline
+	\hspace*{\fill}\\*
+	\makebox(0,0){%
+			\vspace{.2in}
+			\hspace{-.7in}
+			\color{defcolor}{
+				\makebox(0,10)[l]{\rule{1.0in}{.25pt}}
+			}
+	}
+	\vspace{-.2in}
+}
 
 \begin{document}
-	\newgeometry{top=1cm}
+% resized the pages, so inserted blank pages to keep pagenumbers
+% consistent.  Can be removed!!
+\newpage
+x
+\newpage
+x
+\newpage
+x
+\newpage
 	\includegraphics{ruler.pdf}
 \section*{Vectors}
 
@@ -884,7 +935,7 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 		\item What is $A\mat{1\\0\\0}$, $A\mat{0\\1\\0}$
 			and $A\mat{0\\0\\1}$? (Where $A$ is the matrix from earlier).
 	\end{Enum}
-	If $A$ is invertible (which it happens to be) we could solve the 
+	If $A$ is invertible (which it happens to be) we could solve 
 	the system $A\vec x=\mat{1\\0\\0}$ as $\vec x=A^{-1}\mat{1\\0\\0}$.
 
 	\begin{Enum}[resume]
@@ -901,6 +952,7 @@ matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
 \newpage
 \section*{Subspace, Basis, Dimension \& Rank }
 
+\begin{Def}
 A \emph{subspace} (not to be confused with subset) is the formal term for ``flat
 space through the origin.''
 
@@ -910,7 +962,10 @@ A collection of vectors $X$ is a \emph{subspace} if
 	\item $\vec u,\vec v\in X$ implies $\vec u+\vec v\in X$
 	\item $\vec v\in X$ implies $c\vec v\in X$ for all scalars $c$
 \end{itemize}
+\vspace{-.3in}
+\end{Def}
 
+\sep
 Explain whether or not the following are subspaces
 \begin{Enum}
 	\item $\span\{\mat{3\\-2}\}$
@@ -930,6 +985,7 @@ When dealing with matrices, there are several subspaces we often refer to
 		$A\vec x=\vec 0$.
 \end{itemize}
 
+\sep
 Consider $A=\mat{1&0&0\\0&1&0}$.
 \begin{Enum}
 	\item Describe the row space of $A$.
@@ -939,6 +995,7 @@ Consider $A=\mat{1&0&0\\0&1&0}$.
 	\item Describe the null space of $A$.
 \end{Enum}
 
+\sep
 \[
 	B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
 \]
@@ -947,6 +1004,8 @@ Consider $A=\mat{1&0&0\\0&1&0}$.
 	\item How does the null space of $B$ relate to the null space of $C$?
 	\item Compute the null space of $B$.
 \end{Enum}
+
+\sep
 \[
 	P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
 \]
@@ -955,9 +1014,12 @@ Consider $A=\mat{1&0&0\\0&1&0}$.
 	\item Describe the columns space of $P$ and the column space of $Q$.
 \end{Enum}
 
+\begin{Def}
 A \emph{basis} for a subspace $X$ is a linearly independent set $\{\vec v_1,\ldots,\vec v_n\}$
 so that $\span\{\vec v_1,\ldots,\vec v_n\}=X$.
+\end{Def}
 
+\sepl
 \begin{Enum}
 	\item Give a basis for $\R^2$.
 	\item Give a basis for the plane $\mat{1\\2\\3}\cdot \vec x=0$.
@@ -968,8 +1030,11 @@ Recall the definition of a maximal linearly independent set from earlier. It tur
 that if $V$ is a set of vectors, any maximal linearly independent subset of $V$ is a basis
 for $\span V$.
 
+\begin{Def}
 The \emph{dimension} of a subspace $X$ is the number of vectors in a basis for $X$.
+\end{Def}
 
+\sep
 \[
 	A=\mat{1&1&-1\\1&1&1\\2&2&0}\qquad
 	\rref(A)=\mat{1&1&0\\0&0&1\\0&0&0}\qquad
@@ -981,6 +1046,7 @@ The \emph{dimension} of a subspace $X$ is the number of vectors in a basis for $
 	\item Find a basis for and the dimension of the column space of $A$.
 \end{Enum}
 
+\begin{Def}
 We are now equipped to give an alternate definition for rank.  The \emph{rank}
 of a matrix is the dimension of the row space.
 
@@ -990,7 +1056,9 @@ The rank-nullity theorem states
 \[
 	\rank(A)+\nnul(A) = \#\text{of rows in }A.
 \]
+\end{Def}
 
+\sep
 The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
 Define $A=[\vec u|\vec v|\vec w]$.
 \begin{Enum}
@@ -1001,6 +1069,7 @@ Define $A=[\vec u|\vec v|\vec w]$.
 \newpage
 \section*{Linear Transformations}
 
+\sep
 $\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
 by $90^\circ$.
 \begin{Enum}
@@ -1012,13 +1081,15 @@ by $90^\circ$.
 		counter clockwise by $90^\circ$.
 \end{Enum}
 
+\sep
 $\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
 and contracts in the $\yh$ direction by a factor of $3$.
 \begin{Enum}
 	\item Write a matrix representation of $\mathcal S$.
 \end{Enum}
 
-A \emph{Linear Transformation} is a transformation of vectors 
+	\begin{Def}
+	A \emph{Linear Transformation} is a transformation of vectors 
 	that respects addition and scalar multiplication.  That is $T$
 	is a linear transformation if
 	\[
@@ -1026,7 +1097,9 @@ A \emph{Linear Transformation} is a transformation of vectors
 		T(a\vec v)=aT\vec v
 	\]
 	for all scalars $a$.
+	\end{Def}
 
+\sepl
 \begin{Enum}
 	\item Classify the following as linear transformation or not
 		\begin{enumerate}
@@ -1042,6 +1115,7 @@ A \emph{Linear Transformation} is a transformation of vectors
 It turns out every linear transformation can be written as a matrix (in fact
 this is why matrix multiplication was invented).
 
+\sep
 Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
 \begin{Enum}
 	\item Write down a matrix for $\mathcal P$.
@@ -1049,7 +1123,7 @@ Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
 	\item What is the rank of $\mathcal P$?
 	\item Is $\mathcal P$ invertible?
 \end{Enum}
-	
+
 Matrix multiplication was designed to exactly model composition of linear transformations.
 \begin{Enum}[resume]
 	\item Write down a matrix for $\mathcal P$ and for $\mathcal R$ the rotation
@@ -1057,6 +1131,7 @@ Matrix multiplication was designed to exactly model composition of linear transf
 	\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
 \end{Enum}
 
+\sep
 Not only is every linear transformation modeled by a matrix, but every matrix models a linear
 transformation.
 
@@ -1076,7 +1151,8 @@ transformation.
 
 \newpage
 \section*{Eigenvectors}
-The picture shows what the transformation $T$ does to the unit square.
+	\sep
+	The picture shows what the transformation $T$ does to the unit square.
 
 	\includegraphics[width=2.5in]{transform1b.pdf}
 	\includegraphics[width=2.5in]{transform2b.pdf}
@@ -1089,7 +1165,8 @@ The picture shows what the transformation $T$ does to the unit square.
 		\item Are there any vectors $\vec v$ so that $T\vec v$ points in the
 			same direction as $\vec v$?
 	\end{Enum}
-
+	
+	\begin{Def}
 	For a transformation $X$, an \emph{eigenvector} for $X$ is a vector that doesn't
 	change directions when $X$ is applied.  That is,
 	\[
@@ -1098,6 +1175,7 @@ The picture shows what the transformation $T$ does to the unit square.
 	for some $\lambda\in\R$.  $\lambda$ is called the \emph{eigenvalue} 
 	of $X$ corresponding
 	to the eigenvector $\vec v$.
+	\end{Def}
 
 	\begin{Enum}[resume]
 		\item Give an eigenvector for $T$.  What is the eigenvalue?
@@ -1106,12 +1184,15 @@ The picture shows what the transformation $T$ does to the unit square.
 
 	We will now develop tools to allow us to compute eigenvalues and eigenvectors.
 
+	\begin{Def}
 	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
 	oriented volume of the image of the unit $n$-cube.  The determinant
 	of a square matrix is the oriented volume of the parallelepiped 
 	($n$-dimensional parallelogram) given by the column vectors or the row
 	vectors.
+	\end{Def}
 
+	\sep
 	Let $\mathcal S$ be the unit square in $\R^2$ (The $1\times 1$ square with lower
 	left corner at the origin).
 
@@ -1126,6 +1207,7 @@ The picture shows what the transformation $T$ does to the unit square.
 		\item Compute $\det(A)$.
 	\end{Enum}
 
+	\sep
 	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
 	\begin{Enum}
 		\item Draw $\mathcal S$ and $R\mathcal S$.
@@ -1133,6 +1215,7 @@ The picture shows what the transformation $T$ does to the unit square.
 		\item Compute $\det(R)$.
 	\end{Enum}
 	
+	\sep
 	We know the following about the transformation $F$:
 	\[
 		F\mat{1\\0}=\mat{0\\1}\qquad\text{and}\qquad F\mat{0\\1}=\mat{1\\0}.
@@ -1141,6 +1224,9 @@ The picture shows what the transformation $T$ does to the unit square.
 		\item What is $\det(F)$?
 	\end{Enum}
 
+	\vspace{-.2in}
+	\sep
+	\vspace{-.3in}
 	\begin{itemize}
 		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
 		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
@@ -1156,6 +1242,7 @@ The picture shows what the transformation $T$ does to the unit square.
 		\item What is $\det(W)$ where $W=E_fE_aE_fE_mE_m$?
 	\end{Enum}
 
+	\sep
 	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
 	\begin{Enum}
 		\item What is $\det(U)$?
@@ -1164,11 +1251,13 @@ The picture shows what the transformation $T$ does to the unit square.
 	\begin{Enum}[resume]
 		\item What is $\det(V)$?
 	\end{Enum}
+
 	$P$ is projection onto the vector $\mat{-1\\-1}$.
 	\begin{Enum}[resume]
 		\item What is $\det(P)$?
 	\end{Enum}
 
+	\sep
 	Suppose you know $\det(X)=4$.
 	\begin{Enum}
 		\item What is $\det(X^{-1})$?
@@ -1185,14 +1274,16 @@ The picture shows what the transformation $T$ does to the unit square.
 \newpage
 \section*{Eigenvectors and Eigenvalues Cont.}
 
-For some matrix $A$,
-\[
-	A\mat{3\\3\\1}=\mat{2\\2\\2/3}.
-\]
+	\sep
+	For some matrix $A$,
+	\[
+		A\mat{3\\3\\1}=\mat{2\\2\\2/3}.
+	\]
 	\begin{Enum}
 		\item Give an eigenvector and a corresponding eigenvalue for $A$.
 	\end{Enum}
 
+	\sep
 	$B=A-\frac{2}{3}I$.
 	\begin{Enum}
 		\item What is $B\mat{3\\3\\1}$?
@@ -1200,6 +1291,7 @@ For some matrix $A$,
 		\item What is $\det(B)$?
 	\end{Enum}
 
+	\sep
 	$C=\mat{-1&2\\1&0}$ and $E_\lambda = C-\lambda I$
 	\begin{Enum}
 		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
@@ -1208,6 +1300,7 @@ For some matrix $A$,
 		\item Find the eigenvectors of $C$.
 	\end{Enum}
 	
+	\sep
 	For a matrix $A$, the \emph{characteristic polynomial} of $A$ is
 	\[
 		\chr(A)=\det(A-\lambda I).
@@ -1219,6 +1312,7 @@ For some matrix $A$,
 		\item Find the eigenvalues of $D$.
 	\end{Enum}
 
+	\sep
 	Suppose $\chr(E)=\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
 	matrix $E$.
 	\begin{Enum}
@@ -1227,6 +1321,7 @@ For some matrix $A$,
 		\item What is $\nnul(E)$, $\nnul(E-3I)$, $\nnul(E+3I)$?
 	\end{Enum}
 
+	\sep
 	Define
 	\[
 		A=\mat{1&0&1\\0&1&1\\1&1&0}\qquad
@@ -1247,6 +1342,8 @@ For some matrix $A$,
 	\item If $\vec x=\mat{1\\3\\4}_V$ is $\vec x$ written in the $V$ basis,
 		compute $A\vec x$ in the $V$ basis.
 	\end{Enum}
+	
+	\sep
 	The transformation $P$ takes vectors in the standard basis and outputs
 	vectors in the $V$ basis.  
 	\begin{Enum}
@@ -1260,6 +1357,7 @@ For some matrix $A$,
 		\item $\vec x=\mat{1\\3\\4}_V$.  Compute $A^{100}\vec x$.
 	\end{Enum}
 
+	\begin{Def}
 	Two matrices $A,B$ are called \emph{similar} if there is a matrix $P$ so that
 	\[
 		A=PBP^{-1}.
@@ -1268,11 +1366,14 @@ For some matrix $A$,
 
 	A matrix $A$ is called \emph{diagonalizable} if $A$ is similar to 
 	a diagonal matrix $D$.
+	\end{Def}
 
-	\vspace{.1in}
+	\sep
 	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
 	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
 	eigenvalues.
+	
+
 	\begin{Enum}
 		\item Is $T$ diagonalizable?  If so, explain how to obtain its diagonalized form.
 		\item What if one of the eigenvalues of $T$ is zero?  Is $T$ diagonalizable?
@@ -1280,6 +1381,7 @@ For some matrix $A$,
 			Would $T$ be diagonalizable?
 	\end{Enum}
 
+	\begin{Def}
 	Let $A$ be a matrix with eigenvalues $\{\lambda_1,\ldots,\lambda_m\}$.  The
 	\emph{eigenspace} of $A$ corresponding to the eigenvalue $\lambda_i$ is the
 	null space of $A-\lambda_i I$.  That is, it is the space spanned by all eigenvectors
@@ -1289,7 +1391,9 @@ For some matrix $A$,
 	of the eigenspace corresponding to $\lambda_i$.  The \emph{algebraic multiplicity}
 	of $\lambda_i$ is the number of times $\lambda_i$ occurs as a factor of the
 	characteristic polynomial of $A$.
-	
+	\end{Def}
+
+	\sep
 	Define $F=\mat{1&1\\0&1}$.
 	\begin{Enum}
 		\item Is $F$ diagonalizable?  Why or why not?
