@@ -58,7 +58,8 @@
 % Create a command that draws a horizontal line extending into the margin.
 % If no argument is given, it prints the current problem number.
 % Otherwise the argument is displayed (including a blank argument)
-\definecolor{barcolor}{rgb}{.2,.6,1.0}
+%\definecolor{barcolor}{rgb}{.2,.6,1.0}  % medium blue
+\definecolor{barcolor}{rgb}{.1,.4,.5} % dark blue
 \NewDocumentCommand{\sep}{o}{%
 	\makebox(0,0){%
 		\vspace{.1in}
@@ -77,7 +78,7 @@
 % a \sep command to be used before a list.  Remove the extra spacing...
 \newcommand{\sepl}{\sep \vspace{-.35in}}
 
-\definecolor{defcolor}{rgb}{.1,.7,.3}
+\definecolor{defcolor}{rgb}{.05,.4,.15}
 \DeclareDocumentEnvironment{Def}{o}{
 	\makebox(0,0){%
 			\vspace{.0in}
@@ -1301,11 +1302,15 @@ transformation.
 	\end{Enum}
 	
 	\sep
+	\begin{Def}
 	For a matrix $A$, the \emph{characteristic polynomial} of $A$ is
 	\[
 		\chr(A)=\det(A-\lambda I).
 	\]
+	\vspace{-.3in}
+	\end{Def}
 
+	\vspace{.2in}
 	Let $D=\mat{1&2\\3&0}$.
 	\begin{Enum}
 		\item Compute $\chr(D)$.
@@ -1389,8 +1394,9 @@ transformation.
 
 	The \emph{geometric multiplicity} of an eigenvalue $\lambda_i$ is the dimension
 	of the eigenspace corresponding to $\lambda_i$.  The \emph{algebraic multiplicity}
-	of $\lambda_i$ is the number of times $\lambda_i$ occurs as a factor of the
-	characteristic polynomial of $A$.
+	of $\lambda_i$ is the number of times $\lambda_i$ occurs as a root of the
+	characteristic polynomial of $A$ (i.e., the number of times $x-\lambda_i$
+	occurs as a factor).
 	\end{Def}
 
 	\sep
@@ -1404,5 +1410,303 @@ transformation.
 			$A$ diagonalizable?  What if all the geometric and algebraic multiplicities
 			match?
 	\end{Enum}
+
+\section*{Orthogonality}
+	\begin{Def}
+		A set of vectors is \emph{orthogonal} if every pair of vectors
+		in the set is orthogonal.
+	\end{Def}
+
+	\begin{Def}
+		A set of vectors is \emph{orthonormal} if the set is orthogonal
+		and every vector is a unit vector.
+	\end{Def}
+
+	\sep
+	\[
+		\mathcal B=\{\vec b_1,\vec b_2\}\qquad\vec b_1=\mat{1/2\\\sqrt{3}/2}
+		\qquad \vec b_2=\mat{-\sqrt{3}/2\\1/2}
+	\]
+	The matrix $A=[\vec b_1|\vec b_2]$ takes vectors in the $\mathcal B$ basis
+	and rewrites them in the standard basis.
+	\begin{Enum}
+		\item What does $A^{-1}$ do?
+		\item Find a matrix $B$ that takes vectors in the standard basis
+			and rewrites them in the $\mathcal B$ basis.
+		\item Write $\vec x=\mat{1\\2}_S$ in the $\mathcal B$ basis.
+		\item What is the relationship between $A$ and $B$?
+	\end{Enum}
+
+	\begin{Def}
+		An \emph{orthogonal} matrix is a square matrix whose columns are
+		orthonormal (Yes, a better name would be orthonormal matrix, but that
+		is not the term the rest of the world uses).
+	\end{Def}
+
+	\sep
+	Suppose $X=[\vec x_1|\vec x_2|\vec x_3|\vec x_4]$ is an orthogonal matrix.
+	\begin{Enum}
+		\item What is the shape of $X$ (i.e., it is a what$\times$what matrix)?
+		\item Compute $X^TX$.
+		\item What is $X^{-1}$?
+	\end{Enum}
+
+	\sep
+	\[
+		Y=\mat{1&1&1&-1\\1&-1&-1&-1\\1&1&-1&1\\1&-1&1&1}
+	\]
+	\begin{Enum}
+		\item Is $Y$ an orthogonal matrix?
+		\item Fix $Y$ so it is an orthogonal matrix.  Call the new matrix $X$.
+		\item Compute $X^{-1}$.
+		\item Compute $Y^{-1}$.
+		\item Compute $\det(X)$ and $\det(Y)$.
+	\end{Enum}
+
+	Matrix equations involving orthogonal matrices are easy to solve because the
+	inverse of an orthogonal matrix is so easy to compute!
+	
+	\sep
+	Let $A=[\vec a_1|\vec a_2|\vec a_3|\vec a_4]$ be an orthogonal matrix.
+	\begin{Enum}
+		\item Explain why 
+			$\vec x=\mat{\vec a_1\cdot \vec b\\
+				     \vec a_2\cdot \vec b\\
+			     	     \vec a_3\cdot \vec b\\
+			     	     \vec a_4\cdot \vec b}$ is a solution to $A\vec x=\vec b$.
+		\item Find scalars $a,b,c,d$ so $\vec b=a\vec a_1+b\vec a_2+c\vec a_3+d\vec a_4$
+			(your answers will have variables in them).
+	\end{Enum}
+
+	Orthogonal matrices also allow us to compute projections quite easily.
+
+	\begin{Def}
+		If $V$ is a subspace of $\R^n$, the \emph{projection}
+		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
+		is the closest point in $V$ to $\vec x$. We notate the projection
+		of $\vec x$ onto $V$ as $\proj_V\vec x$.
+	\end{Def}
+
+	Projections are normally hard to compute and a priori might require some sort
+	of calculus-style optimization to find.  However, from geometry we know that 
+	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
+	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
+	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
+	will be our savior.
+
+	\sep
+	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
+	\begin{Enum}
+		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
+			onto the $xy$-plane.
+	\end{Enum}
+	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
+	\begin{Enum}[resume]
+		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
+			onto $\span\{\vec b_1,\vec b_3\}$.
+	\end{Enum}
+	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
+	\[
+		\|\vec c_1\| = 
+		\|\vec c_2\| = 
+		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
+		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
+	\]
+	\vspace{-.35in}
+	\begin{Enum}[resume]
+		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
+			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
+	\end{Enum}
+
+	\sep
+	Let's put this all together.  
+	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
+	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
+	by
+	\[
+		0x+y-z=0.
+	\]
+	\begin{Enum}
+		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
+			listed in the $\mathcal B$ basis).
+		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
+			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
+		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
+	\end{Enum}
+
+%\newpage
+\subsection*{Gram-Schmidt Orthogonalization}
+	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
+	turn any basis into an orthonormal basis through a process called
+	Gram-Schmidt orthogonalization.
+
+	\sep
+	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
+	\begin{Enum}
+		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
+		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
+			$\vec c$ and $\vec b$.
+		\item Can you write $\vec a$ as the sum of two vectors, one in 
+			the direction of $\vec b$ and one orthogonal to $\vec b$?
+			If so, do it.
+	\end{Enum}
+
+	\sep
+	Let $\vec a=\mat{1\\2\\3}$ and $\vec b=\mat{1\\1\\-1}$.
+	\begin{Enum}
+		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
+			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
+		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
+	\end{Enum}
+
+	With two vectors, making an orthonormal set without changing the span
+	is quite easy.  With more vectors, it is only slightly harder.
+
+	\begin{Def}
+		The \emph{Gram-Schmidt} orthogonalization procedure
+		takes in a set of vectors and outputs a set of orthonormal vectors
+		with the same span.  The idea is to iteratively produce a set of
+		vectors where each new vector you produce is orthogonal to the previous vectors.
+
+		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
+		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
+		to $ v_1$ by subtracting off the respective projections
+		of $ v_2,\ldots, v_n$
+		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
+		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
+		respective projections
+		onto $ v_2'$.  Continue this process until you have a set
+		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
+		Finally, normalize $V$ so all vectors have unit length.
+	\end{Def}
+
+	\sep
+	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
+	$\vec x_3=\mat{2\\2\\1\\2}$.
+	\begin{Enum}
+		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
+			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
+			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
+			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+	\end{Enum}
+	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
+	\begin{Enum}[resume]
+		\item Find an orthonormal basis for the row space of $R$.
+		\item Find the null space of $R$ (Hint, you've already done the work, so
+			there is no need to row reduce).
+	\end{Enum}
+
+	\sep
+	Let
+	\[
+		\vec y_1=\mat{1\\1\\2}\qquad 
+		\vec y_2=\mat{-1\\-1\\2}\qquad
+		\vec y_3=\mat{1\\1\\6}.
+	\]
+	\begin{Enum}
+		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
+			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
+	\end{Enum}
+
+	\begin{Def}
+		The \emph{orthogonal complement} of a subspace $V$ is written
+		$V^\perp$ and defined as
+		\[
+			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
+		\]
+		\vspace{-.2in}
+	\end{Def}
+
+	\begin{Enum}[resume]
+		\item Find the orthogonal complement of $\span \mathcal W$.
+		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
+			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
+	\end{Enum}
+
+
+\subsection*{$QR$ Decomposition}
+
+	\begin{Def}
+		For a matrix $A$, we can rewrite $A=QR$ where $Q$ is an
+		orthogonal matrix and $R$ is an upper triangular matrix.  Writing
+		$A$ as $QR$ is called the \emph{$QR$ decomposition} of $A$.
+	\end{Def}
+
+	\sep
+	Suppose $A,B,C$ are square matrices and $C=AB$.
+	\begin{Enum}
+		\item How do the column spaces of $A$ and $C$ relate?
+		\item How do the column spaces of $B$ and $C$ relate?
+	\end{Enum}
+
+	\sep
+	$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ forms a basis for $\R^3$.
+	When we apply the Gram-Schmidt process to $\mathcal V$, we get
+	\[
+		\begin{array}{rl}
+			\vec q_1' &=\vec v\\
+			\vec q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
+			\vec q_3' &= \vec v_3-\vec v_1+2\vec v_2
+		\end{array}
+	\]
+	form an orthogonal set.  Normalizing we get
+	\[
+		\begin{array}{rl}
+			\vec q_1 &= 2\vec q_1'\\
+			\vec q_2 &= 3\vec q_2'\\
+			\vec q_3 &=\frac{1}{2}\vec q_3'
+		\end{array}
+	\]
+	form an orthonormal set.
+	\begin{Enum}
+		\item Write $\vec v_1$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+		\item Write $\vec v_2$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+		\item Write $\vec v_3$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+	\end{Enum}
+	Define $A=[\vec v_1|\vec v_2|\vec v_2]$ and $Q=[\vec q_1|\vec q_2|\vec q_3]$.
+	\begin{Enum}[resume]
+		\item Find a matrix $R$ so that $A=QR$.
+	\end{Enum}
+	
+	We've just discovered one process to find the $QR$ decomposition of a matrix.
+	It's really as simple as doing Gram-Schmidt and keeping track of your coefficients.
+	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
+	decomposition and exploit the fact that $Q^{-1}=Q^T$, we have
+	\[
+		A\vec x==QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
+	\]
+	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
+	out that if you solve systems this way, there is less rounding error than if you
+	use row reduction.)
+
+\subsection*{Symmetric Matrices}
+	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
+	it's sometimes hard to grasp the significance of certain properties of a matrix.
+
+	Symmetric matrices are easy to forget at first, but they have many profound 
+	properties (not to mention they are one of the key concepts of Quantum Mechanics).
+
+	\sep
+	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
+	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
+	we are thinking of $\vec v$ and $\vec w$ as column vectors.
+	\begin{Enum}
+		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
+		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
+		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
+		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
+			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
+			or $\vec v^T(A\vec w)$.  Better do both to be safe).
+		\item What can you conclude about $\vec v^T\vec w$?  How about
+			$\vec v\cdot \vec w$?
+	\end{Enum}
+
+	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
+	top of that, symmetric matrices always have a basis of eigenvectors.  That means
+	that not only can you always diagonalize a symmetric matrix, but you can 
+	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
+	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
+	best of all worlds in one!
 
 \end{document}
