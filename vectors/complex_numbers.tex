@@ -159,8 +159,101 @@
 		\item $\mat{-i&i\\1&1}\mat{-i&0\\0&i}\mat{i&1\\-i&1}$
 		\item Compute $i\mat{i\\1}$ and compare it
 			with $\mat{0&-1\\1&0}\mat{i\\1}$.  What do you notice? (How
-			does this relate to eigen values and eigen vectors?)
+			does this relate to eigenvalues and eigenvectors?)
 	\end{Enum}
+
+\newpage
+\section*{Geometry of Complex Numbers}
+	When we think of complex numbers as vectors with two components,
+	we say they are vectors in the \emph{complex plane}.  Te
+	complex plane has a \emph{real} axis and an \emph{imaginary} axis.
+
+	Being vectors in a plane, we can represent a complex number in terms
+	of a pair of rectangular coordinates or as a pair of polar coordinates.
+
+	\begin{definition}
+		The \emph{rectangular} coordinates of a complex number $c$
+		are $(a,b)$ where $c=a+bi$.  The \emph{rectangular form}
+		of $c$ is $a+bi$.
+	\end{definition}
+	
+	\begin{definition}
+		The \emph{polar} coordinates of a complex number $c$
+		are $(r,\theta)$ where $c=r(\cos\theta +i \sin\theta)$.  
+		The \emph{polar form} (sometimes
+		called the exponential form)
+		of $c$ is $re^{i\theta}$.
+	\end{definition}
+
+	For the moment, look past the funny use of $e$.  The complex number
+	$a=\cos\theta+i\sin\theta$ is the rectangular form of a unit vector in the complex
+	plane that forms an angle $\theta$ with the real axis. (Draw a picture
+	if this doesn't make sense.)
+
+	Let $a=\cos\theta+i\sin\theta$
+	\begin{Enum}
+		\item Compute $a\bar a$ and $|a|$.
+		\item Compute $|16a|$.
+	\end{Enum}
+	Let $c=1+\sqrt{3}i$.
+	\begin{Enum}[resume]
+		\item Find the angle $c$ makes with the real axis.
+		\item Find $r$ and $\theta$ so $c=r(\cos\theta+i\sin\theta)$.
+	\end{Enum}
+
+	The exponential in polar form comes from the following incredible identity.
+	\begin{definition}
+			\emph{Euler's formula} (sometimes called Euler's identity) states
+			\[
+				e^{i\theta}=\cos\theta+i\sin \theta.
+			\]
+	\end{definition}
+	Thus, $r(\cos\theta+i\sin\theta)=re^{i\theta}$ is an application of Euler's formula.
+
+	\begin{Enum}
+		\item Write $1+\sqrt{3}i$ in polar form.
+		\item Write $-2i$ in polar form.
+		\item Write $\frac{5\sqrt{2}}{2}+\frac{5\sqrt{2}}{2}i$ in polar form.
+		\item Write $e^{-\frac{4}{3}\pi i}$ in rectangular form.
+		\item Write $-2e^{-\frac{\pi}{2} i}$ in rectangular form.
+	\end{Enum}
+
+	Polar form and rectangular form each have their advantages.  
+	Rectangular form makes adding complex numbers easy but multiplying them hard.
+	Polar form makes adding hard but multiplying easy.
+
+	\begin{Enum}
+		\item Compute $xy$ where $x=2e^{\frac{3}{4}\pi i}$ and 
+			$y=3e^{\frac{\pi}{2} i}$.
+		\item Let $x=2e^{\frac{3}{4}\pi i}$ and compute $\bar x$ in polar form.
+			What do you notice about the exponent?
+	\end{Enum}
+
+	When you multiply complex number in polar form, you see
+	their angles add and their lengths multiply.  This means that multiplication
+	by a complex number is a rotation combined with a scaling (and you can bet this
+	is a linear transformation!).
+
+	\begin{Enum}
+		\item Compute $z^7$ where $z=\frac{1}{2}e^{\frac{2}{3}\pi i}$.
+	\end{Enum}
+
+	Finally, we observe that polar form also makes it easy to find roots.
+	For example $\sqrt{z}=(re^{i\theta})^{1/2}=r^{1/2}e^{i\theta/2}$.
+	However, we are by now quite familiar with the fact that
+	$z^2=k$ has more solutions than just $\sqrt{k}$ (in this
+	case it also has $-\sqrt{k}$).  Polar form helps us find them all!
+	\begin{Enum}
+		\item If $z=re^{i\theta}$, find
+			all $r$ and all $\theta$ such that $z^2=4e^{\pi i}$ 
+			(you need to use Euler's formula and the periodicity
+			of $\sin$ and $\cos$ to figure this out).
+		\item Find all unique solutions to $z^2=4e^{\pi i}$.
+			Write them in rectangular form (there should only be two).
+		\item Find all solutions to $z^3=1$ (Hint, $1=e^{0i}$).
+		\item Compute all solutions to $z^4=i$.
+	\end{Enum}
+
 
 
 \end{document}
