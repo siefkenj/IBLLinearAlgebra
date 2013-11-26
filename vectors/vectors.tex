@@ -1460,7 +1460,8 @@ transformation.
 		\item Fix $Y$ so it is an orthogonal matrix.  Call the new matrix $X$.
 		\item Compute $X^{-1}$.
 		\item Compute $Y^{-1}$.
-		\item Compute $\det(X)$ and $\det(Y)$.
+		\item Compute $|\det(X)|$ and $|\det(Y)|$ (the absolute value of
+			the determinant of $X$ and $Y$).
 	\end{Enum}
 
 	Matrix equations involving orthogonal matrices are easy to solve because the
@@ -1552,7 +1553,7 @@ transformation.
 	\end{Enum}
 
 	\sep
-	Let $\vec a=\mat{1\\2\\3}$ and $\vec b=\mat{1\\1\\-1}$.
+	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
 	\begin{Enum}
 		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
 			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
@@ -1645,17 +1646,17 @@ transformation.
 	When we apply the Gram-Schmidt process to $\mathcal V$, we get
 	\[
 		\begin{array}{rl}
-			\vec q_1' &=\vec v\\
-			\vec q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
-			\vec q_3' &= \vec v_3-\vec v_1+2\vec v_2
+			q_1' &=\vec v\\
+			q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
+			q_3' &= \vec v_3-\vec v_1+2\vec v_2
 		\end{array}
 	\]
 	form an orthogonal set.  Normalizing we get
 	\[
 		\begin{array}{rl}
-			\vec q_1 &= 2\vec q_1'\\
-			\vec q_2 &= 3\vec q_2'\\
-			\vec q_3 &=\frac{1}{2}\vec q_3'
+			\vec q_1 &= 2q_1'\\
+			\vec q_2 &= 3q_2'\\
+			\vec q_3 &=\frac{1}{2}q_3'
 		\end{array}
 	\]
 	form an orthonormal set.
@@ -1674,7 +1675,7 @@ transformation.
 	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
 	decomposition and exploit the fact that $Q^{-1}=Q^T$, we have
 	\[
-		A\vec x==QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
+		A\vec x=QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
 	\]
 	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
 	out that if you solve systems this way, there is less rounding error than if you
