@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[letter]{article}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -12,20 +12,34 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{color}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
 
+
+%%%
+% Set up the margins to use a fairly large area of the page
+%%%
 \oddsidemargin=.2in
 \evensidemargin=.2in
 \textwidth=6in
-\topmargin=-.75in
-\textheight=10in
+\topmargin=-1.2in
+\textheight=9.8in
 \parskip=.07in
-
 \parindent=0in
-%\pagestyle{empty}
 
+%%%
+% Make the copyright notice appear in the footer
+%%%
+\pagestyle{fancy}
+\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2013 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+\renewcommand{\headrulewidth}{0pt}
+
+%%%
+% Custom enumerate environment Enum
+% that incriments the problem number every time it is used.
+%%%
 \newcounter{EnumPrefix}
 \newcounter{EnumSuffix}
-%\newenvironment{Enum}[0]{
 \DeclareDocumentEnvironment{Enum}{o}{
 	\ifthenelse{ \equal{#1}{resume} }{
 		\begin{enumerate}[label={\footnotesize\arabic{EnumPrefix}}.\arabic*]
@@ -37,15 +51,16 @@
 	\setcounter{EnumSuffix}{\value{enumi}}
 	\end{enumerate}
 }
-%\renewcommand{\labelenumi}{\arabic{EnumPrefix}.\arabic*}
 
+%%%
+% Useful Linear Algebra macros
+%%%
 \newcommand{\ul}{$\underline{\phantom{xxx}}$}
 \newcommand{\ull}{\underline{\phantom{xxx}}}
 \newcommand{\xh}{\hat{\bf x}}
 \newcommand{\yh}{\hat{\bf y}}
 \newcommand{\zh}{\hat{\bf z}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
@@ -55,9 +70,14 @@
 \newcommand{\nnul}{\mathrm{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\chr}{\mathrm{char}}
+%\newcommand{\url}[1]{#1}
+
+%%%
 % Create a command that draws a horizontal line extending into the margin.
 % If no argument is given, it prints the current problem number.
 % Otherwise the argument is displayed (including a blank argument)
+%%%
+
 %\definecolor{barcolor}{rgb}{.2,.6,1.0}  % medium blue
 \definecolor{barcolor}{rgb}{.1,.4,.5} % dark blue
 \NewDocumentCommand{\sep}{o}{%
@@ -101,16 +121,83 @@
 	\vspace{-.2in}
 }
 
+
+
+%%%
+% Start the document!
+%%%
 \begin{document}
-% resized the pages, so inserted blank pages to keep pagenumbers
-% consistent.  Can be removed!!
+\pagestyle{empty}
+
+\begin{center}
+{\huge\bf Inquiry Based Linear Algebra}\\
+
+\vspace{.7in}
+{
+\it \copyright\,Jason Siefken, 2013 \\
+Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}
+}
+\end{center}
+
+\section*{About the Document}
+This document was originally designed in the fall of 2013 to guide students
+through an eleven week Linear Algebra course (Math 110, Linear Algebra for Engineers) at
+the University of Victoria.  The order of topics closely follows that in {\it Linear
+Algebra: A Modern Introduction} third edition by David Poole.
+
+A typical class day using the problem-sets:
+\begin{enumerate}
+	\item {\bf Introduction by instructor.} This may involve giving a definition,
+		a broader context for the day's topics, or answering questions.
+	\item {\bf Students work on problems.} Students work individually or in pairs
+		on the prescribed problem.  During this time the instructor moves around
+		the room addressing questions that students may have and giving one-on-one
+		coaching.
+	\item {\bf Instructor intervention.} If most students have successfully solved the 
+		problem, the instructor regroups the class by providing a concise 
+		explanation so that everyone is ready to move to the next concept.  This
+		is also time for the instructor to ensure that everyone has understood the
+		main point of the exercise (since it is sometimes easy to do some computation
+		while being oblivious to the larger context).
+
+		If students are having trouble, the instructor can give hints to the group,
+		and additional guidance to ensure the students don't get frustrated
+		to the point of giving up.
+	\item {\bf Repeat step 2.}
+\end{enumerate}
+
+Using this format, students are working (and happily so) most of the class.
+Further, they are especially primed to hear the insights of the instructor, 
+having already invested substantially into each problem.
+
+
+These problem-sets strike a balance between concepts and computation, leaning towards
+the conceptual side.  Two algorithms, \emph{row reduction} and \emph{determinant of
+a matrix by cofactors}, are not introduced in these problem-sets.  Instead, students are
+expected to learn them on their own and be prepared to apply them on problems in the
+problem-set (these topics were left up to the students because of time constraints).
+Further, not ever Linear Algebra definition is given in these problem-sets, since these
+notes are not intended to replace a Linear Algebra textbook, but most definitions
+are given to expedite the transition to new topics in the middle of class time.
+
+{\bf License}  This document is licensed under the Creative Commons
+By-Attribution Share-Alike License.  That means, you are free to use,
+copy, and modify this document provided that you provide attribution
+to the previous copyright holders and you release your derivative work 
+under the same license.  Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
+
+If you modify this document, you may add your name to the copyright list.  Also,
+if you think your contributions would be helpful to others, consider making a pull
+requestion, or opening an \emph{issue} at 
+\url{https://github.com/siefkenj/IBLLinearAlgebra}
+
+
+%%%
+% Start the Math!
+%%%
 \newpage
-x
-\newpage
-x
-\newpage
-x
-\newpage
+\setcounter{page}{1}
+\pagestyle{fancy}
 	\includegraphics{ruler.pdf}
 \section*{Vectors}
 
@@ -298,10 +385,12 @@ x
 	points in the direction of another.
 
 	\includegraphics{projection1.pdf}
+	\vspace{-.4in}
 
 	The projection of $\vec a$ onto $\vec b$ is written $\proj_{\vec b}\vec a$ and is a vector in the direction of $\vec b$.
 
 	\includegraphics{projection2.pdf}
+	\vspace{-.7in}
 	
 	\begin{Enum}
 		\item In this picture $\|\vec a\|=4$ and $\theta = \pi/6$.  Find $\|\proj_{\vec b}\vec a\|$.
@@ -327,7 +416,7 @@ x
 		what is $\proj_{\vec b}\vec a$? $\proj_{\vec a}\vec b$?
 	\end{Enum}
 	
-
+\newpage
 \section*{Lines, Planes, Normals, Equations}
 	\begin{Enum}
 		\item Draw $\vec u=\begin{bmatrix}2\\3\end{bmatrix}$ and \emph{all}
