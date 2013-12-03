@@ -1,0 +1,208 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{geometry}
+\noprintanswers
+
+\newcommand {\DS} [1] {${\displaystyle #1}$}
+\newcommand{\answer}[1]{{\bf Answer:} \; #1}
+\newcommand{\vv}{\vspace{.2cm}}
+\newcommand{\vvv}{\vspace{6cm}}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit course information here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mthCourse}{MATH 110}
+\newcommand{\mthTerm}{Fall 2013}
+\newcommand{\mthTutorialNumber}{1}
+\newcommand{\mthDate}{September 11, 2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Today's main problems}
+\begin{enumerate}
+	\item Knowing the definitions is half the battle in Linear Algebra.
+	Write the definitions of the following (either in words or with a formula).
+	\begin{itemize}
+		\item  \emph{Vector}: \vv\vv\vv
+		\item  \emph{Dot product}: \vv\vv\vv
+		\item  The \emph{norm} of $\vec w$: \vv\vv\vv
+		\item  \emph{Distance between} vectors $\vec u$ and $\vec v$: \vv\vv\vv
+		\item  $\vec u$ and $\vec v$ are \emph{orthogonal} when: \vv\vv\vv
+		\item  $\vec w$ is a \emph{linear combination} of $\vec u$ and $\vec v$ when: \vv\vv\vv
+		\item  $\vec w$ is a \emph{unit vector} when: \vv\vv\vv
+	\end{itemize}
+
+	\item For the vectors $\vec u=\mat{-2\\1\\-2}$ and $\vec v=\mat{4\\-1\\3}$ determine
+	\begin{enumerate}
+		\item the distance between $\vec u$ and $\vec v$
+		\item a unit vector in the direction $\vec v$
+		\item whether $\vec u$ and $\vec v$ are orthogonal
+		\item the angle between $\vec u$ and $\vec v$
+	\end{enumerate}
+\end{enumerate}
+
+
+\section*{Further questions}
+
+\begin{enumerate}[resume]
+	\item  Find the projection of $\vec u$ onto $\vec v$.
+
+	\item $L=\{t\vec v: t\in \R\}$ is the line in the direction $\vec v$ that
+	passes through the origin.  Find the intersection of $L$ with the sphere
+	of radius 2 centered at the origin.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Challenge questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Challenge questions}
+
+\begin{enumerate}[resume]
+
+	\item  Find a vector that forms a $45^\circ$ angle with $\vec v$ and has length 7. 
+
+	\emph{Hint:} There are many, many such vectors, so you'll have to make some choices.
+
+	\item The vector $\vec w$ forms an angle of $45^\circ$ with $\vec v$ and
+	$\|\proj_{\vec v}\vec w\|=10$.  The vector $\vec r$ satisfies
+	$\|\vec r\| = 2\|\vec w\|$ and $\|\proj_{\vec v}\vec r\|=10$.  What are the
+	possible angle(s) between the vectors $\vec r$ and $\vec v$?
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TA instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{\small
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber. Instructions for TAs}
+	\end{center}
+}
+
+\subsection*{Objectives}
+
+	Knowing the definitions is half the battle in Linear Algebra.  Today
+	we are going to focus on knowing the definitions and how to apply them.
+
+\subsection*{Hidden objectives}
+	
+	Everyone forgets a definition at some point, but the key is to be able to
+	find it when you need it.  We'd like students to be resourceful and use
+	each other and their \emph{textbook} to find the definitions they don't know.
+
+\subsection*{Suggestions}
+	Ask students to work on number 1 first and to talk to their neighbors 
+	and refer to their textbook and notes if they are unsure.  Give them
+	sufficient time come up with definitions before going over them 
+	midway through the class.  Going over them doesn't need to take much time
+	since they have seen these definitions before, but we want everyone to be
+	on the same page before starting 2.
+
+	Further, since this is the first tutorial, make sure to explain that there
+	are many questions and they are not expected to complete them all during
+	tutorial time.
+
+\subsection*{Wrapup}
+	Choose a question that most of the class has started but not yet finished,
+	or a question that people particularly struggled with.
+
+\subsection*{Solutions}
+\begin{enumerate}
+	\item Knowing the definitions is half the battle in Linear Algebra.
+	Write the definitions of the following (either in words or with a formula).
+	\begin{itemize}
+		\item  \emph{Vector}: A magnitude and a direction; a list of components.
+		\item  \emph{Dot product}: $\vec a\cdot \vec b=\|\vec a\|\|\vec b\|\cos \theta$
+		where $\theta$ is the angle between them; $\vec a\cdot \vec b=\sum a_ib_i$
+		where $a_i$ are the components of $\vec a$ and $b_i$ are the components 
+		of $\vec b$.
+		\item  The \emph{norm} of $\vec w$: the length of $\vec w$; $\|\vec w\|=\sqrt{
+		\vec w\cdot \vec w}$ 
+		\item  \emph{Distance between} vectors $\vec u$ and $\vec v$: $\|\vec u-\vec v\|$
+		\item  $\vec u$ and $\vec v$ are \emph{orthogonal} when: $\vec u$ and $\vec v$
+		are perpendicular; $\vec u$ and $\vec v$ meet at $90^\circ$; $\vec u\cdot \vec v=0$
+		\item  $\vec w$ is a \emph{linear combination} of $\vec u$ and $\vec v$ when: 
+		$\vec w=a\vec u+b\vec v$ for some numbers $a,b$
+		\item  $\vec w$ is a \emph{unit vector} when: $\|\vec w\|=1$
+	\end{itemize}
+
+	\item For the vectors $\vec u=\mat{-2\\1\\-2}$ and $\vec v=\mat{4\\-1\\3}$ determine
+	\begin{enumerate}
+		\item the distance between $\vec u$ and $\vec v$
+
+		$\sqrt{65}\approx 8.06$
+		\item a unit vector in the direction $\vec v$
+		
+		$\frac{1}{\sqrt{26}}\vec v$
+		\item whether $\vec u$ and $\vec v$ are orthogonal
+
+		No
+		\item the angle between $\vec u$ and $\vec v$
+
+		$\cos \theta = \frac{-15}{3\sqrt{26}}\approx-0.98$ so $\theta \approx 169^\circ$
+	\end{enumerate}
+	\item  Find the projection of $\vec u$ onto $\vec v$.
+
+	$\frac{1}{26}\mat{-60\\15\\-45}\approx\mat{-2.31\\.58\\-1.73}$
+	\item $L=\{t\vec v: t\in \R\}$ is the line in the direction $\vec v$ that
+	passes through the origin.  Find the intersection of $L$ with the sphere
+	of radius 2 centered at the origin.
+
+	Two points: $\frac{2}{\sqrt{26}}\mat{4\\-1\\3}$ and $\frac{-2}{\sqrt{26}}\mat{4\\-1\\3}$
+\end{enumerate}
+	
+
+\end{document}

@@ -1,0 +1,181 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{geometry}
+\noprintanswers
+
+\newcommand {\DS} [1] {${\displaystyle #1}$}
+\newcommand{\answer}[1]{{\bf Answer:} \; #1}
+\newcommand{\vv}{\vspace{.2cm}}
+\newcommand{\vvv}{\vspace{6cm}}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit course information here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mthCourse}{MATH 110}
+\newcommand{\mthTerm}{Fall 2013}
+\newcommand{\mthTutorialNumber}{9}
+\newcommand{\mthDate}{November 6, 2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin -1in
+\textheight 10in
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Today's main problems}
+
+		\[
+			A=\mat{3&-2\\2&-2}\qquad
+			B=\mat{5&-6\\3&-4}\qquad
+			C=\mat{-3&4\\-3&5}
+		\]
+		\[
+			\vec v_1=\mat{1\\2}\qquad
+			\vec v_2=\mat{2\\1}\qquad
+			\vec v_3=\mat{3\\4}\qquad
+			\vec v_4=\mat{1\\1}\qquad
+			\vec v_5=\mat{1\\0}
+		\]
+\begin{enumerate}
+	\item For each $\vec v_i$, identify whether $\vec v_i$ is an eigenvector 
+		of $A$, $B$, or $C$.  If so, find the corresponding eigenvalue.
+
+	\item Find all eigenvectors and eigenvalues of $C$.
+
+	\item $F=\mat{1&2&1\\-1&-1&3\\4&0&k}$
+	\begin{enumerate}
+		\item Compute $\det (F)$.
+		\item For what values of $k$ is $F$ invertible?
+		\item For what values of $k$ is zero an eigenvalue of $F$?
+	\end{enumerate}
+	
+
+\end{enumerate}
+\subsection*{Further Questions}
+\begin{enumerate}[resume]
+	
+	\item $R=\mat{0&1\\-1&0}$
+	\begin{enumerate}
+		\item Explain what $R$ does geometrically.
+		\item Compute the eigenvalues and eigenvectors of $R$.
+		\item Explain geometrically why you should or shouldn't expect real eigenvectors
+			or eigenvalues for $R$.  Can you generalize this result?
+	\end{enumerate}
+	\item 
+	Let $E=\mat{2&1&0\\0&2&0\\0&0&3}$.
+		\begin{enumerate}
+			\item Find the eigenvectors and eigenvalues of $E$.
+			\item List the algebraic and geometric multiplicity of each eigenvalue.
+			\item Can you form a basis for $\R^3$ consisting of eigenvectors
+				of $E$?
+		\end{enumerate}
+	\item For the matrix $F$, you know $\mat{1\\-1}$ is an eigenvector
+		with eigenvalue $3$ and $\mat{2\\3}$ is an eigenvector with eigenvalue
+		$2$.
+		\begin{enumerate}
+			\item Is there a basis for $\R^2$ consisting of eigenvectors of $F$?
+			\item Write $\vec v=\mat{5\\5}$ in the eigenbasis.
+			\item Compute $F\vec v$.
+		\end{enumerate}
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Challenge questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Challenge questions}
+
+\begin{enumerate}[resume]
+	\item Find the matrix $F$ from the previous problem.
+	\item For a matrix $A$, $\vec u,\vec v$ are eigenvectors with different eigenvalues.
+		Show that $\vec u$ and $\vec v$ are linearly independent.
+	\item Prove that if $A$ is a $4\times 4$ matrix with eigenvalues $2,1,0,-7$, then
+		there is a basis for $\R^4$ consisting of eigenvectors of $A$.
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TA instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{\small
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber. Instructions for TAs}
+	\end{center}
+}
+
+\subsection*{Objectives}
+
+
+\subsection*{Hidden objectives}
+
+
+\subsection*{Suggestions}
+
+\subsection*{Wrapup}
+	Choose a question that most of the class has started but not yet finished,
+	or a question that people particularly struggled with.
+
+\subsection*{Solutions}
+\begin{enumerate}
+	\item
+\end{enumerate}
+	
+
+\end{document}

@@ -1,0 +1,193 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{geometry}
+\noprintanswers
+
+\newcommand {\DS} [1] {${\displaystyle #1}$}
+\newcommand{\answer}[1]{{\bf Answer:} \; #1}
+\newcommand{\vv}{\vspace{.2cm}}
+\newcommand{\vvv}{\vspace{6cm}}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit course information here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mthCourse}{MATH 110}
+\newcommand{\mthTerm}{Fall 2013}
+\newcommand{\mthTutorialNumber}{11}
+\newcommand{\mthDate}{November 27, 2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin -1in
+\textheight 10in
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Today's main problems}
+		$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3, \vec v_4\}$ where
+		\[
+			\vec v_1=\mat{0\\2\\1\\0}\qquad
+			\vec v_2=\mat{1\\-1\\0\\0}\qquad
+			\vec v_3=\mat{1\\2\\0\\-1}\qquad
+			\vec v_4=\mat{1\\0\\0\\1}
+		\]
+\begin{enumerate}
+	\item Apply the Gram-Schmidt process to $\mathcal V$ to find an orthonormal
+		basis $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3,\vec b_4\}$
+		for $\R^4$.  Note that some of the vectors in $V$
+		are already orthogonal to eachother.  You may reorder the vectors
+		before you apply Gram-Schmidt to minimize the amount of work
+		you need to do.
+
+\end{enumerate}
+\subsection*{Further Questions}
+	Let $B=[\vec b_1|\vec b_2|\vec b_3]$ where $\vec b_i\in\mathcal B$ from problem 1.
+	Define 
+	\[
+		C=\span\{\vec b_1,\vec b_2,\vec b_3\}\qquad
+		\vec c_1=\mat{1\\2\\3\\4}\qquad
+		\vec c_2=\mat{2\\1\\1\\1}.
+	\]
+\begin{enumerate}[resume]
+	
+	\item 
+	\begin{enumerate}
+		\item Is the system $B\vec x=\vec c_1$ consistent?
+		\item Is the system $B\vec x=\vec c_2$ consistent?
+		\item Is the system $B\vec x=\proj_C\vec y$ consistent for any choice of $\vec y$?
+	\end{enumerate}
+	\item Even if a system $A\vec x=\vec b$ is inconsistent, we can attempt to find
+		a best solution.  That is, we can attempt to find a vector $\vec x$ so
+		that $A\vec x$ is as close to $\vec b$ as it can be while still
+		being in the column space.  Find the best solution to the
+		system $B\vec x=\vec c_1$ (also called the \emph{least squares}
+		solution) by projecting $\vec c_1$ onto the column space of $B$ and then
+		solving $B\vec x=\proj_C\vec c_1$.
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Challenge questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Challenge questions}
+
+\begin{enumerate}[resume]
+	\item Let $A$ and $B$ be orthogonal matrices.
+	\begin{enumerate}
+		\item Prove $A(A^T+B^T)B=A+B$.
+		\item Use part (a) to prove that if $\det A+\det B=0$ then $A+B$
+			is not invertible.
+	\end{enumerate}
+	\item We can define a dot product on polynomials.  If $p(x)$ and
+		$q(x)$ are polynomials, then \[\displaystyle 
+		p\cdot q=\int_{-1}^1 p(x)q(x)\,\mathrm{d} x.\]
+		Use the Gram-Schmidt process on the basis $\mathcal P=\{1,x,x^2,x^3,x^4\}$
+		to come up with an orthonormal basis for polynomials of degree at most 4.
+		If you graph the polynomials that make up your basis, what do you notice?
+		(These polynomials are called the Legendre polynomials.)
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TA instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{\small
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber. Instructions for TAs}
+	\end{center}
+}
+
+\subsection*{Objectives}
+	Students need practice doing Gram-Schmidt and especially doing
+	careful and methodical arithmetic.
+
+
+\subsection*{Hidden objectives}
+
+
+\subsection*{Suggestions}
+	Though they have seen Gram-Schmidt in class, most of them won't remember
+	the procedure.  It is worth reminding them of the idea behind Gram-Schmidt
+	at the beginning: ``take a set of vectors that is already orthogonal
+	to one another (this could be a single vector) and add a new vector by subtracting
+	off its projection onto each vector already in your set.''  If you can draw a 3-d picture
+	to illustrate the idea, more power to you, but don't get too carried away.  They 
+	seen this in class and your job isn't to give a lecture on the topic.
+
+	If students are having computational trouble with Gram-Schmidt, make them 
+	be methodical.  Make them get out a clean sheet of paper and write all the
+	intermediate calculations down.  I know fractions are super hard, but 
+	sometimes they're just there.  Also, have them resist the urge to normalize until
+	they've orthogonalized everything.
+
+\subsection*{Wrapup}
+	The objective of this tutorial is question 1.  If people got question 1, but they
+	struggled with the arithmetic and bookkeeping, it is worth you doing this methodically
+	as a wrapup.  A mathematician's skill of being systematic, organized, and renaming
+	things where appropriate isn't learned over night.  If everyone had no organizational
+	trouble with the computations, you can consider doing a different problem as a wrapup.
+
+
+\subsection*{Solutions}
+\begin{enumerate}
+	\item
+\end{enumerate}
+	
+
+\end{document}

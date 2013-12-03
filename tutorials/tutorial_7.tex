@@ -1,0 +1,205 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{geometry}
+\noprintanswers
+
+\newcommand {\DS} [1] {${\displaystyle #1}$}
+\newcommand{\answer}[1]{{\bf Answer:} \; #1}
+\newcommand{\vv}{\vspace{.2cm}}
+\newcommand{\vvv}{\vspace{6cm}}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit course information here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mthCourse}{MATH 110}
+\newcommand{\mthTerm}{Fall 2013}
+\newcommand{\mthTutorialNumber}{7}
+\newcommand{\mthDate}{October 23, 2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin -1in
+\textheight 10in
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Today's main problems}
+
+\begin{enumerate}
+	\item 
+	\[
+		S_1 = \left\{
+			\mat{x_1\\x_2\\x_3}:x_1+3x_2-x_3=0
+		\right\}
+		\qquad
+		S_2 = \left\{
+			\mat{x_1\\x_2}:x_1x_2=0
+		\right\}
+	\]
+	\[
+		S_3 = \left\{
+			\mat{x_1\\x_2\\x_3}:x_1+3x_2-x_3=0\text{ and }-x_1+x_2+2x_3=0
+		\right\}
+	\]\[
+		S_4 = \text{A line in $\R^7$ through $\vec 0$ with direction $\vec d$}
+	\]
+	\begin{enumerate}
+		\item Is $S_1$ a subspace of $\R^3$?
+		\item Is $S_2$ a subspace of $\R^2$?
+		\item Is $S_3$ a subspace of $\R^3$?
+		\item Is $S_4$ a subspace of $\R^7$?
+	\end{enumerate}
+	
+	\item Consider
+		\[
+			A=\mat{1&1&-1\\1&3&0\\3&-1&-5}\qquad \vec b=\mat{1\\2\\1}
+			\qquad \vec v=\mat{7\\-1\\2}\qquad \vec w=\mat{1&-3&-3}
+		\]
+	\begin{enumerate}
+		\item Determine whether or not $\vec b$ is in the column space of $A$.
+		\item Determine whether or not $\vec w$ is in the row space of $A$.
+		\item Determine whether or not $\vec v$ is in the null space of $A$.
+		\item Find the dimension of the row space, column space, and null space.
+	\end{enumerate}
+
+\end{enumerate}
+\subsection*{Further Questions}
+\begin{enumerate}[resume]
+	\item Give a basis for the row space, column space, and null space of $A$ where
+		\[
+			A=\mat{1&1&0&1\\0&1&-1&1\\0&1&-1&-1}
+		\]
+	\item Let $V=\{\vec v_1, \vec v_2, \vec v_3, \vec v_4, \vec v_5\}$
+		where
+		\[
+			\vec v_1=\mat{1\\-1\\5\\2}\qquad
+			\vec v_2=\mat{-2\\3\\1\\0}\qquad
+			\vec v_3=\mat{4\\-5\\9\\4}\qquad
+			\vec v_4=\mat{0\\4\\2\\-3}\qquad
+			\vec v_5=\mat{-7\\18\\2\\-8}
+		\]
+		Find a subset of $V$ that is a
+		basis for $\mathrm{span}( V)$ and express the remaining vectors as linear
+		combinations of this basis.
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Challenge questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Challenge questions}
+
+\begin{enumerate}[resume]
+	\item Show that the intersection of any two subspaces is also a subspace.
+	\item Completely classify all
+		conditions under which the union of two subspaces a subspace.
+	\item If $X$ is a subspace, $\proj_X\vec v$ is defined to be the vector
+		in $X$ whose distance from $\vec v$ is smallest.
+		Show that if $X=\mathrm{span}\{\vec d\}$, then $\proj_X \vec v$ agrees
+		with $\proj_{\vec d}\vec x$.
+	\item If $X=\mathrm{span}\{\vec u_1,\vec u_2\}$ is a plane, can you come up with an 
+		algorithm for computing $\proj_X\vec v$?  (Note that $\vec u_1,
+		\vec u_2$ may not be in $\R^3$.)
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TA instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{\small
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber. Instructions for TAs}
+	\end{center}
+}
+
+\subsection*{Objectives}
+
+
+\subsection*{Hidden objectives}
+
+
+\subsection*{Suggestions}
+	They may find set notation confusing, and some may think that
+	$\{\vec v\}$ and $\mathrm{span} \{\vec v\}$ are two ways of saying the same thing.
+
+	I would suggest briefly talking about how to interpret set notation
+	with $S_1$ as an example.  ``A plane is a set of infinitely many vectors
+	pointing from the origin to the surface if the plane,'' etc.
+
+	It's a good idea to get the axioms of a subspace (not of an abstract
+	vector space, just a subspace) written on the board at the beginning of
+	class and remind them that if they want to show that something
+	isn't a subspace, they only need to find a single violation
+	of one of the axioms.  If something is a subspace, they need to show it
+	works for all vectors, which will involve picking arbitrary vectors
+	that satisfy the conditions specified in the set.  This is going to be
+	very, very hard for them.
+
+	This tutorial has quite a few problems on it and can be quite time
+	consuming.  Remind them that they are not expected to get through both
+	the main problems and the further problems in the tutorial time. 
+	(In fact, it wouldn't be unreasonable if it took the full time just
+	for question 1).
+
+\subsection*{Wrapup}
+	Choose a question that most of the class has started but not yet finished,
+	or a question that people particularly struggled with.
+
+\subsection*{Solutions}
+\begin{enumerate}
+	\item
+\end{enumerate}
+	
+
+\end{document}

@@ -1,0 +1,178 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{geometry}
+\noprintanswers
+
+\newcommand {\DS} [1] {${\displaystyle #1}$}
+\newcommand{\answer}[1]{{\bf Answer:} \; #1}
+\newcommand{\vv}{\vspace{.2cm}}
+\newcommand{\vvv}{\vspace{6cm}}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit course information here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mthCourse}{MATH 110}
+\newcommand{\mthTerm}{Fall 2013}
+\newcommand{\mthTutorialNumber}{10}
+\newcommand{\mthDate}{November 20, 2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin -1in
+\textheight 10in
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Today's main problems}
+		$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ where
+		\[
+			\vec v_1=\mat{0\\2\\0}\qquad
+			\vec v_2=\mat{-4\\0\\3}\qquad
+			\vec v_3=\mat{3\\0\\4}
+		\]
+\begin{enumerate}
+	\item 
+	\begin{enumerate}
+		\item Show that $\mathcal V$ is an orthogonal basis.  Is it an
+		orthonormal basis?
+
+		\item Create an orthonormal basis $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ 
+		by ``fixing'' the vectors in $\mathcal V$ so they are orthonormal.
+
+		\item Write the vector $\vec w=\mat{1\\1\\1}$ as a linear combination of
+			vectors in the $\mathcal B$ basis.
+	\end{enumerate}
+
+\item Consider the three planes $\mathcal P_1=\span \{\vec v_1,\vec v_2\}$, 
+	$\mathcal P_2=\span \{\vec v_2,\vec v_3\}$, $\mathcal P_3=\span \{\vec v_1,\vec v_3\}$.
+	\begin{enumerate}
+		\item Find the normal vectors of the planes $\mathcal P_1,
+			\mathcal P_2,$ and $\mathcal P_3$.
+		\item Find the projection of $\vec w=\mat{1\\1\\1}$ onto $\mathcal P_1,
+			\mathcal P_2,$ and $\mathcal P_3$.
+		\item Write $\vec w=\vec a+\vec b$ where $\vec a\in \mathcal P_1$ and
+			$\vec b$ is perpendicular to $\mathcal P_1$.
+	\end{enumerate}
+	
+
+\end{enumerate}
+\subsection*{Further Questions}
+\begin{enumerate}[resume]
+	
+	\item 
+	Let $B=[\vec b_1|\vec b_2|\vec b_3]$ and $V=[\vec v_1|\vec v_2|\vec v_3]$
+	where $\vec b_i$ and $\vec v_i$ are from problem 1.
+	\begin{enumerate}
+		\item Compute $B^{-1}$ (Hint, this is easy. No computation required!)
+		\item Compute $V^{-1}$ (This requires a little thinking, but not
+			much computation).
+	\end{enumerate}
+	\item $V$ is a subspace of $\R^9$ and $P$ is a matrix that projects vectors
+		in $\R^9$ onto $V$.  Further, rank$(P)=3$.
+		\begin{enumerate}
+			\item How many vectors are in a basis for $V$?
+			\item Let $\vec v\in \R^9$ and $\vec w = \vec v-P\vec v$. What
+				is the angle between $\vec w$ and any vector in $V$?
+			\item What is rank$(I-P)$?
+		\end{enumerate}
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Challenge questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Challenge questions}
+
+	Recall that the trace of a matrix is the sum of the diagonal entries
+	and that trace$(A)=$trace$(B)$ if $A$ and $B$ are similar.
+\begin{enumerate}[resume]
+	\item Let $P$ be a projection matrix.  Show that trace$(P)$ is always an integer (Hint, think
+	about what a projection matrix must be similar to).
+	\item Show that in fact trace$(P)$ is the dimension of the subspace that $P$ projects onto.
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TA instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{\small
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber. Instructions for TAs}
+	\end{center}
+}
+
+\subsection*{Objectives}
+
+
+\subsection*{Hidden objectives}
+
+
+\subsection*{Suggestions}
+
+\subsection*{Wrapup}
+	Choose a question that most of the class has started but not yet finished,
+	or a question that people particularly struggled with.
+
+\subsection*{Solutions}
+\begin{enumerate}
+	\item
+\end{enumerate}
+	
+
+\end{document}

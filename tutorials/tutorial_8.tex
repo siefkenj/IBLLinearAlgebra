@@ -1,0 +1,187 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{geometry}
+\noprintanswers
+
+\newcommand {\DS} [1] {${\displaystyle #1}$}
+\newcommand{\answer}[1]{{\bf Answer:} \; #1}
+\newcommand{\vv}{\vspace{.2cm}}
+\newcommand{\vvv}{\vspace{6cm}}
+
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{\hat{\bf x}}
+\newcommand{\yh}{\hat{\bf y}}
+\newcommand{\zh}{\hat{\bf z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit course information here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mthCourse}{MATH 110}
+\newcommand{\mthTerm}{Fall 2013}
+\newcommand{\mthTutorialNumber}{8}
+\newcommand{\mthDate}{October 30, 2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin -1in
+\textheight 10in
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Today's main problems}
+
+\begin{enumerate}
+	\item 
+		The transformation $\mathcal S:\R^2\to\R^2$ is
+		given by $\mathcal S\mat{x\\y}=\mat{2x\\y}$ is linear.
+	\begin{enumerate}
+		\item Find the standard matrix representation for the transformation $\mathcal S$.
+		\item Explain why this linear transformation is called 
+			a \emph{horizontal scaling}.  Find the factor of this scaling.
+			Is this transformation stretching or contracting vectors in $\R^2$?
+		\item Describe in words what $\mathcal S^{-1}$ does to vectors in $\R^2$.
+	\end{enumerate}
+	
+	\item Give an example of a \emph{vertical scaling} that contracts
+	vectors in $\R^3$ by a factor of 3.
+
+	\item Let $T$ denote the triangle with vertices give by the vectors
+		\[
+			\vec v_1=\mat{1\\1}\qquad
+			\vec v_2=\mat{3\\1}\qquad
+			\vec v_3=\mat{2\\3}
+		\]
+	\begin{enumerate}
+		\item Draw the triangle $T$.
+		\item Draw the result of $\mathcal S (T)$.
+		\item $\mathcal C$ contracts vertically by a factor of $3$.
+			Draw $\mathcal C(T)$.
+		\item Draw $\mathcal S\mathcal C(T)$.  How does this compare
+			to $\mathcal C\mathcal S(T)$?  Using this fact,
+			what can you say about the
+			matrix representations of $\mathcal S$ and $\mathcal C$?
+	\end{enumerate}
+
+\end{enumerate}
+\subsection*{Further Questions}
+\begin{enumerate}[resume]
+	\item $\mathcal R:\R^2\to\R^2$ rotates vectors counterclockwise
+		by $90^{\circ}$.
+		\begin{enumerate}
+			\item Compute the matrix representation of $\mathcal R$
+				and $\mathcal R^{-1}$.
+			\item Compute the matrix representation of the transformation $\mathcal W$
+				that rotates vectors in $\R^2$ clockwise by $90^\circ$.
+			\item How do $\mathcal R^{-1}$ and $\mathcal W$ relate?
+		\end{enumerate}
+	\item Consider the matrix $P$ that projects vectors in $\R^2$ onto
+		the line $y=2x$.
+		\begin{enumerate}
+			\item Draw the image of $P$ applied to the triangle $T$ from
+				problem 3.
+			\item If you write down the matrix for $P$, would it be invertible?
+				Why or why not?
+		\end{enumerate}
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Challenge questions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber}\\
+		{\bf \mthDate}
+	\end{center}
+}
+
+\section*{Challenge questions}
+
+	$\mathcal R_t$ rotates vectors in $\R^2$ counterclockwise
+		by $t$ radians.
+\begin{enumerate}[resume]
+	\item   Write the matrix representation, $R$, of $\mathcal R_t$.
+	\item Write the matrix representation of $\mathcal R_t^{-1}$. (It's
+		easier to think about this one instead of row reducing).
+	\item How does $\mathcal R_t^{-1}$ compare to $R^T$?.
+	\item Suppose $V$ is an $n\times n$ matrix whose columns are orthogonal
+		and are all unit vectors.  Explain how $V^T$ relates to $V^{-1}$.
+		Can you relate this to the rotation matrices you've been playing
+		around with?
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TA instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{\small
+	\begin{center}
+		{\bf \mthCourse, \mthTerm}\\ 
+		{\bf Tutorial \#\mthTutorialNumber. Instructions for TAs}
+	\end{center}
+}
+
+\subsection*{Objectives}
+
+
+\subsection*{Hidden objectives}
+
+
+\subsection*{Suggestions}
+	When they start scaling the triangle in number 3, make sure they scale from the origin 
+	not just draw wider and shorter triangles (like they will be tempted to).
+
+\subsection*{Wrapup}
+	Choose a question that most of the class has started but not yet finished,
+	or a question that people particularly struggled with.
+
+\subsection*{Solutions}
+\begin{enumerate}
+	\item
+\end{enumerate}
+	
+
+\end{document}
