@@ -1,0 +1,1983 @@
+\documentclass[letter]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+%\usepackage{wrapfig}
+
+
+%%%
+% Set up the margins to use a fairly large area of the page
+%%%
+\oddsidemargin=.2in
+\evensidemargin=.2in
+\textwidth=6in
+\topmargin=-1.2in
+\textheight=9.8in
+\parskip=.07in
+\parindent=0in
+
+%%%
+% Make the copyright notice appear in the footer
+%%%
+\pagestyle{fancy}
+\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+\renewcommand{\headrulewidth}{0pt}
+
+%%%
+% Custom enumerate environment Enum
+% that incriments the problem number every time it is used.
+%%%
+\newcounter{EnumPrefix}
+\newcounter{EnumSuffix}
+\DeclareDocumentEnvironment{Enum}{o}{
+	\ifthenelse{ \equal{#1}{resume} }{
+		\begin{enumerate}[label={\footnotesize\arabic{EnumPrefix}}.\arabic*]
+		\setcounter{enumi}{\value{EnumSuffix}}
+	}{
+		\stepcounter{EnumPrefix}\begin{enumerate}[label={\footnotesize\arabic{EnumPrefix}}.\arabic*]
+	}
+}{
+	\setcounter{EnumSuffix}{\value{enumi}}
+	\end{enumerate}
+}
+
+%%%
+% Useful Linear Algebra macros
+%%%
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{{\vec e_1}}
+\newcommand{\yh}{{\vec e_2}}
+\newcommand{\zh}{{\vec e_3}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\chr}{\mathrm{char}}
+%\newcommand{\url}[1]{#1}
+
+%%%
+% Create a command that draws a horizontal line extending into the margin.
+% If no argument is given, it prints the current problem number.
+% Otherwise the argument is displayed (including a blank argument)
+%%%
+
+%\definecolor{barcolor}{rgb}{.2,.6,1.0}  % medium blue
+\definecolor{barcolor}{rgb}{.1,.4,.5} % dark blue
+\NewDocumentCommand{\sep}{o}{%
+	\makebox(0,0){%
+		\vspace{.1in}
+		\hspace{-1.0in}
+		\color{barcolor}{
+			\makebox(0,10)[l]{\rule{1.4in}{.25pt}}
+			\IfNoValueTF{#1}{
+				\stepcounter{EnumPrefix}
+				\makebox(0,0)[lt]{\arabic{EnumPrefix}}
+				\addtocounter{EnumPrefix}{-1}
+			}{
+				\makebox(0,0)[lt]{\emph{#1}}
+			}
+		}
+}\\*[0pt]}
+% a \sep command to be used before a list.  Remove the extra spacing...
+\newcommand{\sepl}{\sep \vspace{-.35in}}
+
+\definecolor{defcolor}{rgb}{.05,.4,.15}
+\newsavebox{\fminipagebox}
+\newlength{\currentparskip}
+\NewDocumentEnvironment{Def}{O{\fboxsep}}
+ {
+ 	\setlength{\currentparskip}{\parskip}
+	\makebox(0,0){%
+			\vspace{.0in}
+			\hspace{-.9in}
+			\color{defcolor}{
+				\makebox(0,-12)[lt]{\bf{Def}}
+			}
+	}
+ \par\kern#1\noindent\begin{lrbox}{\fminipagebox}
+  \begin{minipage}{\textwidth}\ignorespaces%
+  \setlength{\parskip}{.4em}
+}
+ {\end{minipage}\end{lrbox}%
+  \makebox[\textwidth]{%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+    \fbox{\usebox{\fminipagebox}}%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+  }\par\kern#1
+  \setlength{\parskip}{\currentparskip}
+ }
+%\DeclareDocumentEnvironment{Def}{O{\textwidth} O{\fboxsep}}{
+%	\makebox(0,0){%
+%			\vspace{.0in}
+%			\hspace{-.7in}
+%			\color{defcolor}{
+%				\makebox(0,10)[l]{\rule{1.0in}{.25pt}}
+%				\makebox(0,0)[lt]{\emph{Def}}
+%			}
+%	}\\*
+%	{\par\kern#2\noindent\begin{lrbox}{\fminipagebox}\begin{minipage}{#1}\ignorespaces}
+%}{%
+%	%\makebox(0,0){}	\newline
+%	\hspace*{\fill}\\*
+%	\makebox(0,0){%
+%			\vspace{.2in}
+%			\hspace{-.7in}
+%			\color{defcolor}{
+%				\makebox(0,10)[l]{\rule{1.0in}{.25pt}}
+%			}
+%	}
+% \end{minipage}\end{lrbox}%
+%  \makebox[#1]{%
+%    \kern\dimexpr-\fboxsep-\fboxrule\relax
+%    \fbox{\usebox{\fminipagebox}}%
+%    \kern\dimexpr-\fboxsep-\fboxrule\relax
+%  }\par\kern#2
+%	\vspace{-.2in}
+%}
+
+
+
+%%%
+% Start the document!
+%%%
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+{\huge\bf Inquiry Based Linear Algebra}\\
+
+\vspace{.7in}
+{
+\it \copyright\,Jason Siefken, 2015 \\
+Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}
+}
+\end{center}
+
+\section*{About the Document}
+This document was originally designed in the spring of 2015 to guide students
+through an eleven week Linear Algebra course (Math 211, Linear Algebra for Scientists) at
+the University of Victoria.  The order of topics closely follows that in {\it Linear
+Algebra for Science and Engineering} second edition by Daniel Norman and Dan Wolczuk.
+
+A typical class day using the problem-sets:
+\begin{enumerate}
+	\item {\bf Introduction by instructor.} This may involve giving a definition,
+		a broader context for the day's topics, or answering questions.
+	\item {\bf Students work on problems.} Students work individually or in pairs
+		on the prescribed problem.  During this time the instructor moves around
+		the room addressing questions that students may have and giving one-on-one
+		coaching.
+	\item {\bf Instructor intervention.} If most students have successfully solved the 
+		problem, the instructor regroups the class by providing a concise 
+		explanation so that everyone is ready to move to the next concept.  This
+		is also time for the instructor to ensure that everyone has understood the
+		main point of the exercise (since it is sometimes easy to do some computation
+		while being oblivious to the larger context).
+
+		If students are having trouble, the instructor can give hints to the group,
+		and additional guidance to ensure the students don't get frustrated
+		to the point of giving up.
+	\item {\bf Repeat step 2.}
+\end{enumerate}
+
+Using this format, students are working (and happily so) most of the class.
+Further, they are especially primed to hear the insights of the instructor, 
+having already invested substantially into each problem.
+
+
+These problem-sets strike a balance between concepts and computation, leaning towards
+the conceptual side.  Two algorithms, \emph{row reduction} and \emph{determinant of
+a matrix by cofactors}, are not introduced in these problem-sets.  Instead, students are
+expected to learn them on their own and be prepared to apply them on problems in the
+problem-set (these topics were left up to the students because of time constraints).
+Further, not ever Linear Algebra definition is given in these problem-sets, since these
+notes are not intended to replace a Linear Algebra textbook, but most definitions
+are given to expedite the transition to new topics in the middle of class time.
+
+{\bf License}  This document is licensed under the Creative Commons
+By-Attribution Share-Alike License.  That means, you are free to use,
+copy, and modify this document provided that you provide attribution
+to the previous copyright holders and you release your derivative work 
+under the same license.  Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
+
+If you modify this document, you may add your name to the copyright list.  Also,
+if you think your contributions would be helpful to others, consider making a pull
+requestion, or opening an \emph{issue} at 
+\url{https://github.com/siefkenj/IBLLinearAlgebra}
+
+
+%%%
+% Start the Math!
+%%%
+\newpage
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+\section*{Vectors}
+
+	\sep
+	\begin{tikzpicture}[>=latex,scale=4]
+		\draw[style=help lines] (0,0) (2,2);
+
+		\draw[->,thick,black] (0,0) -- (135:1) node [left] {$\mathbf a$};
+		\draw[->,thick,black] (0,0) -- (0,1) node [left] {$\mathbf b$};
+		\draw[->,thick,black] (0,0) -- (45:1) node [above] {$\mathbf c$};
+		\draw[->,thick,black] (0,0) -- (1,0) node [above] {$\mathbf d$};
+		\draw (0,0) node [below] {$\mathbf o$};
+		
+		\draw[thick,blue,fill] (1,2) circle [radius=.02] node [below right,black] {$p$};
+		\draw[thick,blue] (2,1) circle [radius=.02] node [below right,black] {$q$};
+
+	\end{tikzpicture}
+
+	Notice that all arrows in this diagram are the same length.
+	We will call this length a \emph{unit}.
+	\begin{Enum}
+		\item Give directions from $\bf o$ to $\bf p$ of
+		the form ``Walk \ul units in the direction of arrow \ul, then 
+		walk \ul units in the direction of arrow \ul.''
+
+		\item Can you give directions with the two arrows you haven't
+		used?  Give such directions, or explain why it cannot be done.
+
+		\item Give directions from $\bf o$ to $q$.
+
+		\item Can you give directions from $\bf o$ to $q$ using $\bf c$ and $\bf a$?
+		Give such directions, or explain why it cannot be done.
+
+	\end{Enum}
+	
+
+	\sep
+	\begin{minipage}{.35\textwidth}
+	\begin{tikzpicture}[>=latex,scale=4]
+		\draw[style=help lines] (0,0) (1,2);
+
+		\draw[->,thick,black] (0,0) -- (0,1) node [left] {$\yh$};
+		\draw[->,thick,black] (0,0) -- (63.4:1) node [left] {$\mathbf c$};
+		\draw[->,thick,black] (0,0) -- (1,0) node [above] {$\xh$};
+		\draw (0,0) node [below] {$\mathbf o$};
+		
+		\draw[thick,blue,fill] (1,2) circle [radius=.02] node [below right,black] {$p$};
+
+	\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{.65\textwidth}
+	We are going to start using a more mathematical notation
+	for giving directions.  Our directions will now look like
+	\[
+		p = \ull\, \xh + \ull\, \yh
+	\]
+	which is read as ``To get to $p$ (=) go \ul units in the direction $\xh$ then (+) go \ul units in 
+	the direction $\yh$.''
+
+	\begin{Enum}
+		\item What is the difference between $p = \ull\, \xh + \ull\, \yh$ and $p = \ull\, \yh + \ull\, \xh$?
+		Can they both give valid directions?
+		\item
+		\begin{enumerate}
+			\item Give directions to $p$ using the new notation. 
+			\item Give directions to $p$ using $\bf c$.
+			\item What is the distance from $\bf o$ to $p$ in units?
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item $r=1\bf c$.  Give directions from $\bf o$ to $r$ using $\xh$ and $\yh$.
+			\item What is the distance from $\bf o$ to $r$?
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item $q=-2\xh+3\yh$; find the exact distance from $\bf o$ to $q$.
+			\item $s=2\xh+\bf c$; find the exact distance from $\bf o$ to $s$.
+		\end{enumerate}
+	\end{Enum}
+	\end{minipage}
+
+
+	The vectors $\xh$ and $\yh$ are called the \emph{standard
+	basis vectors} for $\R^2$ (the plane).  
+
+\section*{Column Vector Notation}
+	We previously wrote $q=-2\xh+3\yh$.  In column vector notation we write
+	\[
+		q=\begin{bmatrix}-2\\3\end{bmatrix}
+	\]
+	We may call $q$ either a \emph{vector} or a \emph{point}.  If we call $q$ a vector,
+	we are emphasizing that $q$ gives direction of some sort.  If we call $q$ a point,
+	we emphasize that $q$ is some absolute location in space. (What's the philosophical
+	difference between a location in space and directions from the origin to said location?)
+
+	\sep 
+	$r=1\bf c$ and $s=2\xh+\bf c$ where $\bf c$ is the vector from before.
+	\begin{Enum}
+		\item Write $r$ and $s$ in column vector form.
+	\end{Enum}
+
+\section*{Sets and Set Notation}
+
+	\begin{Def}
+		A \emph{set} is a (possibly infinite) collection of items
+		and is notated with curly braces (for example, $\{1,2,3\}$ is
+		the set containing the numbers 1, 2, and 3).  We call the items in
+		a set \emph{elements}.
+
+		If $X$ is a set and $a$ is an element $X$, we may write $a\in X$,
+		which is read ``$a$ is an element of $X$.''
+
+		If $X$ is a set, a \emph{subset} $Y$ of $X$ (written $Y\subseteq X$)
+		is a set such that every element of $Y$ is an element of $X$.
+
+		We can define a subset using \emph{set-builder notation}.
+		That is, if $X$ is a set, we can define the subset 
+		\[
+			Y= \{a\in X:\text{some rule involving }a\},
+		\]
+		which is read ``$Y$ is the set of $a$ in $X$ {\bf such that} some rule
+		involving $a$ is true.''  If $X$ is intuitive, we may omit it and
+		simply write $Y=\{a:\text{some rule involving }a\}$.  You may equivalently
+		use ``$|$'' instead of ``$:$'', writing $Y=\{a\,|\,\text{some rule involving }a\}$.
+	\end{Def}
+
+	\begin{Def}
+		Some common sets are
+		\vspace{-1em}
+		\begin{itemize}
+			\item[] $\N=\{\text{natural numbers}\} = \{\text{non-negative whole numbers}\}$.
+			\item[] $\Z=\{\text{integers}\} = \{\text{whole numbers, including negatives}\}$.
+			\item[] $\R=\{\text{real numbers}\}$.
+			\item[] $\R^n=\{\text{vectors in $n$-dimensional Euclidean space}\}$.
+		\end{itemize}
+	\end{Def}
+
+	\sep
+	\vspace{-2em}
+	\begin{Enum}
+		\item Which of the following are true?
+		\begin{enumerate}
+			\item $3\in\{1,2,3\}$.
+			\item $4\in\{1,2,3\}$.
+			\item ``b''$\in\{x:x\text{ is an English letter}\}$.
+			\item ``\`o''$\in\{x:x\text{ is an English letter}\}$.
+			\item $\{1,2\}\subseteq \{1,2,3\}$.
+			\item For some $a\in\{1,2,3\}$, $a \geq 3$.
+			\item For any $a\in\{1,2,3\}$, $a\geq 3$.
+			\item $1\subseteq\{1,2,3\}$.
+			\item $\{1,2,3\}=\{x\in\R:1\leq x\leq 3\}$.
+			\item $\{1,2,3\}=\{x\in\Z:1\leq x\leq 3\}$.
+		\end{enumerate}
+	\end{Enum}
+
+	\sep
+		Write the following in set-builder notation
+	\begin{Enum}
+			\item The subset $A\subset \R$ of real numbers larger than $\sqrt{2}$.
+			\item The subset $B\subset \R^2$ of vectors whose first coordinate
+			is twice the second.
+	\end{Enum}
+
+	\begin{Def}
+		Two common set operations are \emph{unions} and \emph{intersections}.  
+		Let $X$ and $Y$ be sets.
+
+		\hfill\begin{minipage}{\dimexpr\textwidth-3cm}
+		\begin{itemize}
+			\item[(union)] $X\cup Y = \{a:a\in X\text{ or }a\in Y\}$.
+			\item[(intersection)] $X\cap Y = \{a: a\in X\text{ and }a\in Y\}$.
+		\end{itemize}
+		\end{minipage}
+	\end{Def}
+
+	\sep
+	Let $X=\{1,2,3\}$ and $Y=\{2,3,4,5\}$ and $Z=\{4,5,6\}$.  Compute
+	\begin{Enum}
+		\item $X\cup Y$
+		\item $X\cap Y$
+		\item $X\cup Y\cup Z$
+		\item $X\cap Y\cap Z$
+	\end{Enum}
+
+	\sep
+	Draw the following subsets of $\R^2$.
+	\begin{Enum}
+		\item $V=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}0\\t\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $H=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}t\\0\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $J=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $V\cup H$.
+		\item $V\cap H$.
+		\item Does $V\cup H=\R^2$?
+	\end{Enum}
+
+\section*{Linear Combinations and Span}
+
+	\vspace{-2em}
+
+	\begin{Def}
+		A \emph{linear combination} of the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ is
+		a vector
+		\[
+			\vec w = \alpha_1\vec v_1+\alpha_2\vec v_2+\cdots+\alpha_n\vec v_n
+		\]
+		where $\alpha_1,\alpha_2,\ldots,\alpha_n$ are scalars.
+	\end{Def}
+
+	\sep
+	Let $\vec v_1=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec v_2=\begin{bmatrix}1\\-1\end{bmatrix}$, and $\vec w=2\vec v_1+\vec v_2$.
+	\begin{Enum}
+		\item Write the coordinates of $\vec w$.
+		\item Draw a picture with $\vec w$, $\vec v_1$ and $\vec v_2$.
+		\item Is $\mat{3\\3}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\item Is $\mat{0\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\item Is $\mat{4\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\item Can you find a vector in $\R^2$ that isn't a linear combination of
+		$\vec v_1$ and $\vec v_2$?
+		\item Can you find a vector in $\R^2$ that isn't a linear combination of
+		only $\vec v_1$?
+	\end{Enum}
+
+\section*{Vector Length}
+	The \emph{length} or \emph{norm} of a vector $\vec w$ is denoted $\|\vec w\|$ and is the distance
+	from $\bf o$ to the point you end up at if you follow $\vec w$'s instructions.
+
+	\begin{Enum}
+		\item Find $\|\vec a\|$, $\|\vec b\|$, $\|\vec c\|$ where
+		\begin{enumerate}
+			\item $\vec a=3\xh+4\yh$
+			\item $\vec b=2\vec a$
+			\item $\vec c = -\vec a/2$
+		\end{enumerate}
+		\item $\zh$ points perpendicular to $\xh$ and $\yh$ into the 3rd dimension.
+		
+		Let $\vec v=2\xh+\yh+\zh$ and $\vec w=2\xh+\yh$.
+		\begin{enumerate}
+			\item Write $\vec v$ in terms of $\vec w$ and $\zh$
+			and draw a picture showing the relationship between the three vectors
+			(3-d pictures are a hard but essential skill in this course).
+			\item Find $\|\vec w\|$ and $\|\vec v\|$.  (Hint, look at your picture
+			and see if there are any right triangles to exploit).
+		\end{enumerate}
+		\item Let $\vec u=2\xh+3\yh+4\zh$.
+		\begin{enumerate}
+			\item Find $\|\vec u\|$.
+			\item Find $\|k\vec u\|$ where $k$ is some unknown constant.
+			\item What value(s) of $k$ makes $\|k\vec u\|=1$?
+			\item Write down a vector in column form that points in the same direciton
+			as $\vec u$ and has length 1.
+		\end{enumerate}
+	\end{Enum}
+
+\section*{Unit Vectors}
+	Vectors that have length 1 are called \emph{unit vectors}.
+	\begin{Enum}
+		\item $\vec a=-\xh+\yh+\zh$.  Find a unit vector in the direction of $\vec a$,
+		and call this vector $\vec u$ ($u$ for $u$nit, get it?).
+		\item Write $\vec a$ in terms of $\vec u$.  Does $\|\vec a\|$ show up in your formula at all?
+		\item Write $3\vec u$ in column vector form and find its length.
+		\item Write $7.5\vec u$ in column vector form and find its length.
+		\item $\vec v$ is a different unit vector (I won't tell you its exact form).  Find $\|9\vec v\|$
+		Why do we like unit vectors so much?
+	\end{Enum}
+
+\section*{Dot Product}
+	The \emph{dot product} is incredible because it is easy to compute and has a useful
+	geometric meaning.
+
+	If $\vec a=\begin{bmatrix}a_1\\ a_2\\ \vdots \\ a_n\end{bmatrix}$ and 
+	$\vec b=\begin{bmatrix}b_1\\ b_2\\ \vdots \\ b_n\end{bmatrix}$ are two vectors in $n$-dimensional
+	space, then the dot product of $\vec a$ an $\vec b$ is
+	\[
+		\vec a\cdot\vec b = a_1b_1+a_2b_2+\cdots+a_nb_n.
+	\]
+	We also have a geometry-related formula
+	\[
+		\vec a\cdot \vec b = \|\vec a\|\|\vec b\|\cos \theta
+	\]
+	where $\theta$ is the angle between $\vec a$ and $\vec b$.
+	
+	\begin{Enum}
+		\item Let $\vec a=\begin{bmatrix}1\\1\end{bmatrix}$ and $\vec b=\begin{bmatrix}3\\2\end{bmatrix}$
+		\begin{enumerate}	
+			\item Draw a picture of $\vec a $ and $\vec b$.
+			\item Compute $\vec a\cdot \vec b$.
+			\item Find $\|\vec a\|$ and $\|\vec b\|$ and use your knowledge of
+			the multiple ways to compute the dot product to find $\theta$,
+			the angle between $\vec a$ and $\vec b$. Label $\theta$ on your picture.
+		\end{enumerate}
+		\item Draw the graph of $\cos$ and identify which angles make $\cos$ negative, zero,
+		or positive.
+
+		\item Draw a new picture of $\vec a$ and $\vec b$ and on that picture draw
+		\begin{enumerate}	
+			\item a vector $\vec c$ where $\vec c\cdot \vec a$ is negative.
+			\item a vector $\vec d$ where $\vec d\cdot \vec a=0$ and $\vec d\cdot \vec b < 0$.
+			\item a vector $\vec e$ where $\vec e\cdot \vec a=0$ and $\vec e\cdot \vec b>0$.
+			\item Could you find a vector $\vec f$ where $\vec f\cdot \vec a=0$ and $\vec f\cdot \vec b=0$?
+			Explain why or why not.
+		\end{enumerate}
+
+		\item $\vec u=\begin{bmatrix}1\\2\\1\end{bmatrix}$.
+		\begin{enumerate}
+			\item Write down a vector $\vec v$ so that the angle between $\vec u$ and $\vec v$
+			is $\pi/2$. (Hint, how does this relate to the dot product?)
+			\item Write down another vector $\vec w$ (in a different direction from $\vec v$)
+			so that the angle between $\vec w$ and $\vec u$ is $\pi/2$.
+			\item Can you write down other vectors different than both $\vec v$ and $\vec w$ that still
+			form an angle of $\pi/2$ with $\vec u$?  How many such vectors are there?
+		\end{enumerate}
+	\end{Enum}
+
+	We've explored how dot products relate to angles, but how do they relate to lengths?
+	\begin{Enum}
+		\item Let $\vec a = \begin{bmatrix}3\\3\\-1\end{bmatrix}$
+		\begin{enumerate}
+			\item Find $\|\vec a\|$ and $\vec a\cdot \vec a$.  How do the
+			two quantities relate?
+			\item Write down an equation for the length of a vector $\vec v$ in terms
+			of dot products.
+		\end{enumerate}
+		\item Let $\vec b = \begin{bmatrix}1\\1\\-2\\2\end{bmatrix}$, and find $\|\vec b\|$.
+		Did you know how to find 4-d lengths before?
+		\item Suppose $\vec u=\begin{bmatrix}x\\ y\end{bmatrix}$ for $x,y\in \R$.
+		Could $\vec u\cdot \vec u$ be negative? Compute $\vec u\cdot \vec u$ algebraically
+		and use this to justify your answer.
+	\end{Enum}
+
+\newpage
+\section*{Projections}
+	Projections (sometimes called orthogonal projections) are a way to measure how much one vector
+	points in the direction of another.
+
+	\includegraphics{images/projection1.pdf}
+	\vspace{-.4in}
+
+	The projection of $\vec a$ onto $\vec b$ is written $\proj_{\vec b}\vec a$ and is a vector in the direction of $\vec b$.
+
+	\includegraphics{images/projection2.pdf}
+	\vspace{-.7in}
+	
+	\begin{Enum}
+		\item In this picture $\|\vec a\|=4$ and $\theta = \pi/6$.  Find $\|\proj_{\vec b}\vec a\|$.
+		\item If $\vec b=\begin{bmatrix}6\\0\end{bmatrix}$, write down $\proj_{\vec b}\vec a$ in column vector
+		form.  How do the coordinates relate to $\|\proj_{\vec b}\vec a\|$?
+		\item Consider $\vec u=\begin{bmatrix}3\\1\end{bmatrix}$.  Compute $\proj_{\xh}\vec u$ and 
+		$\proj_{\yh}\vec u$.  How do these projections relate to the coordinates of $\vec u$? What
+		can you say in general about projections onto $\xh$ and $\yh$?
+	\end{Enum}
+
+	\[
+		\vec w = \begin{bmatrix}4\\4\end{bmatrix}\qquad \vec v=\begin{bmatrix}2\\7\end{bmatrix}
+	\]
+	\begin{Enum}
+		\item Find $\theta$, the angle between $\vec w$ and $\vec v$.
+		\item Use $\theta$ to compute $\proj_{\vec v}\vec w$ and $\proj_{\vec w}\vec v$.
+		\item Write down a formula for $\proj_{\vec b}\vec a$ where $\vec a$ and $\vec b$ are
+		arbitrary vectors.
+	\end{Enum}
+	\begin{Enum}
+		\item For the arbitrary vector $\vec a$, what is $\proj_{3\vec a}\vec a$?
+		\item If $\vec a$ and $\vec b$ are orthogonal (perpendicular) vectors,
+		what is $\proj_{\vec b}\vec a$? $\proj_{\vec a}\vec b$?
+	\end{Enum}
+	
+\newpage
+\section*{Lines, Planes, Normals, Equations}
+	\begin{Enum}
+		\item Draw $\vec u=\begin{bmatrix}2\\3\end{bmatrix}$ and \emph{all}
+		vectors perpendicular to it.
+		\item If $\vec x=\begin{bmatrix}x\\y\end{bmatrix}$ and $\vec x$ is 
+		perpendicular to $\vec u$, what is $\vec x\cdot \vec u$?
+		\item Expand the dot product $\vec u\cdot \vec x$ to get an equation
+		for a line.  This is called \emph{normal form}
+	\end{Enum}
+
+	A \emph{normal vector} to a line is one that is orthogonal to it.
+	\begin{Enum}[resume]
+		\item Rewrite the line $\vec u\cdot \vec x = 0$ in $y=mx+b$ form and verify it matches
+		the line you drew above.
+	\end{Enum}
+
+	We can also write a line in \emph{parametric form} by introducing a parameter
+	that traces out the line as the parameter runs over all real numbers.
+	\begin{Enum}
+		\item Draw the line $L$ with $x,y$ coordinates given by
+		\[
+			\begin{array}{l}x=t\\y=2t\end{array}
+		\]
+		as $t$ ranges over $\R$.
+		\item Write the line $\vec u \cdot \vec x=0$ (where $\vec u$ is the same as before) in parametric form.
+	\end{Enum}
+	
+	\emph{Vector form} is the same as parametric form but written in vector notation.  For example, the
+	line $L$ from earlier could be written as 
+	\[
+		\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}t\\2t\end{bmatrix}
+	\]
+	or
+	\[
+		\begin{bmatrix}x\\y\end{bmatrix}=t\begin{bmatrix}1\\2\end{bmatrix}.
+	\]
+
+	\begin{Enum}
+		\item Write $\vec u\cdot \vec x=0$ in vector form.  That is, find a vector $\vec v$ so
+		the line $\vec u\cdot \vec x=0$  can be written as
+		\[
+			\begin{bmatrix}x\\y\end{bmatrix} = t\vec v
+		\]
+		as $t$ ranges over $\R$.
+		\item What is $\vec v\cdot \vec u$? Why? Will this always happen?
+	\end{Enum}
+
+	\subsection*{Moving to Planes}
+	When solving equations, sometimes we get to make choices. For example, 
+	if $x+2y=0$, we can find solutions by fixing either $x$ or $y$ and solving
+	for the other. e.g., if $x=2$, then $y=-1$ and if $y=3$ then $x=-6$.
+
+	\begin{Enum}
+		\item Write down three solutions $\vec a$, $\vec b$, $\vec c$ to
+		\begin{equation}\label{eq1}
+			2x+y-z=0.
+		\end{equation}
+		\item Is $2\vec a-\vec b$ a solution?  Is any linear combination of solutions a solution?  Justify why or why not.
+		\item Rewrite equation (\ref{eq1}) in normal form $\vec n\cdot \vec x=0$ where $\vec x=\begin{bmatrix}x\\ y\\ z\end{bmatrix}$.
+		\item What do you notice about the angle between solutions to equation (\ref{eq1}) and $\vec n$?
+		\item You've already seen that scalars come out of dot products (e.g., $\vec a\cdot(3\vec b) = 3(\vec a\cdot \vec b)$.
+		Use this combined with normal form to prove a linear combination of solutions is still a solution.
+	\end{Enum}
+
+	When writing down solutions to equation (\ref{eq1}), you got to choose two coordinates before the remaining
+	coordinate became determined.  This means the solutions have two parameters (and consequently form a
+	two dimensional space).
+
+	\begin{Enum}[resume]
+		\item Write down parametric form of a line of solutions to equation (\ref{eq1}).
+		\item Write down parametric form of a different line of solutions to equation (\ref{eq1}).
+		\item Write down all solutions to equation (\ref{eq1}) in parametric form.  That is, find $a_x,
+		a_y,a_z,b_x,b_y,b_z$ so that
+		\[
+			\begin{array}{l}
+				x=a_x t+b_x s\\
+				y=a_y t+b_y s\\
+				z=a_z t+b_z s
+			\end{array}
+		\]
+		gives all solutions as $t,s$ vary over all of $\R$.
+		\item Write all solutions to equation (\ref{eq1}) in vector form.
+	\end{Enum}
+
+\subsection*{Arbitrary Lines and Planes}
+	
+	So far, all of our lines and planes have passed through the origin. To 
+	produce the equation of an arbitrary line/plane, we first make one of
+	same ``slope'' that passes through the origin, then we translate it
+	to the appropriate place.
+
+	We'd like to write the equation of a line $L$ with normal vector
+	$\vec n=\begin{bmatrix}4\\-1\end{bmatrix}$ that passes through
+	the point $p=\mat{-1\\-1}$
+
+	\begin{Enum}
+		\item Write normal form of the line $L_2$ which is parallel to $L$,
+		but passes through the origin.
+		\item Draw a picture of $L$ and $L_2$, and find two points that lie on
+		$L$.  Call these points $p_1$ and $p_2$.
+		\item Verify the vector $\vec {p_1p_2}$ is perpendicular to $\vec n$.
+		\item What is $\vec n\cdot p_1$, $\vec n\cdot p_2$, $\vec n\cdot p$?
+		Should these values be zero, equal, or different?  Explain (think about
+		projections).
+		\item How does the equation $\vec n\cdot (\vec x-p)=0$ relate to $L$?
+	\end{Enum}
+
+	$W$ is the plane with normal vector $\vec n=\mat{1\\2\\3}$ and passes through
+	the point $p=\mat{1\\1\\2}$.
+	\begin{Enum}
+		\item Write normal form of $W$.
+		\item Write vector form of $W$.
+	\end{Enum}
+
+\newpage
+
+\section*{Systems of Linear Equations}
+	
+	\emph{Linear equations} are equations only involving variables, 
+	multiplication by constants, and addition/subtraction.  \emph{Systems}
+	of equations are sets of equations that share common variables.
+
+	Consider the system
+	\begin{equation}\label{eq2}
+		\begin{array}{ll}
+			x-y &= 2\\
+			2x+y &= 1
+		\end{array}
+	\end{equation}
+
+	\begin{Enum}
+		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
+		\item Algebraically solve the system (\ref{eq2}).  What does this 
+		solution represent on your graph?
+	\end{Enum}
+	Let $L$ be the line given by $x-y=2$.
+	\begin{Enum}
+		\item Write an equation of a line that doesn't intersect $L$.
+		\item Write an equation of a line that intersects $L$ in 
+		\begin{enumerate}
+			\item one place.
+			\item infinitely many places
+			\item exactly two places
+		\end{enumerate}
+		or explain why no such equation exists.
+		\item For each equation you came up with solve the system algebraically.
+		How can you tell algebraically how many solutions there are?
+	\end{Enum}
+
+\subsection*{The Row Reduction Algorithm}
+
+	\begin{Enum}
+		\item Solve the system
+		\begin{equation}\label{eq3}
+			\begin{array}{ll}
+				x-y-2z &= -5\\
+				2x+3y+z &= 5\\
+				0x+2y+3z &= 8
+			\end{array}
+		\end{equation}
+		any way you like.
+
+		\item Use an augmented matrix to solve the system (\ref{eq3}).
+	\end{Enum}
+
+	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
+	interpretations when appropriate is one of the most powerful tools of Linear 
+	Algebra).  We can think of solutions to (\ref{eq3})
+	as the intersection of three planes, or we can interpret the solution
+	as coefficients of a linear combination.
+
+	\begin{Enum}[resume]
+		\item Rewrite (\ref{eq3}) as a vector equation of the form
+		\[
+			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
+		\]
+		where $x,y,z$ are interpreted as scalar quantities.
+
+		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
+		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
+	\end{Enum}
+
+	Consider the augmented matrix
+	\[
+		A=\left[\begin{array}{ccc|c}
+			1 & 2 & -1 & -7\\
+			0 & 2 & 3 & 9\\
+			0 & 0 & 1 & 1
+		\end{array}\right].
+	\]
+	\begin{Enum}
+		\item Write the system of equations corresponding to $A$.
+		\item Solve the system of equations corresponding to $A$.
+	\end{Enum}
+
+\subsection*{Infinite Solutions}
+	Consider the system
+	\begin{equation}\label{eq4}
+		\begin{array}{ll}
+			x+2y &= 3\\
+			2x+4y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{Enum}
+		\item How many solutions does (\ref{eq4}) have?
+		\item Write the solutions to (\ref{eq4}) in vector form.
+		\item What happens when you use an augmented matrix
+		to solve (\ref{eq4})?
+	\end{Enum}
+
+
+\subsection*{Free Variables}
+	Suppose the row-reduced augmented matrix corresponding to 
+	a system is
+	\[
+		B=\left[\begin{array}{cc|c}
+			1 & 2 & 3\\
+			0 & 0 & 0
+		\end{array}\right].
+	\]
+	After reducing, we have 1 equation and 2 unknowns, so we can make
+	$2-1=1$ choices when writing a solution.  Let's make the
+	choice $y=t$.
+	
+	\begin{Enum}
+		\item With the added equation $y=t$, solve the
+		system represented by $B$.
+	\end{Enum}
+
+	Consider the system given by the augmented matrix
+	\[
+		C=\left[\begin{array}{ccccc|c}
+			1&0&1&2&0&-1\\
+			0&1&1&0&0&3\\
+			0&0&0&0&1&4
+		\end{array}\right].
+	\]
+	and call the variables in this system $x_1,x_2,
+	x_3,x_4,x_5$.
+
+	\begin{Enum}
+		\item Write the system of equations represented by $C$.
+		\item Identify how many choices you can make when writing
+		down a solution corresponding to $C$.
+		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
+		for each choice you must make when solving the system.
+		\item Write in vector form all solutions to $C$.
+	\end{Enum}
+
+	\begin{Enum}
+		\item An unknown system $U$ is represented by an augmented
+		matrix with 4 rows and 6 columns.  What is 
+		the minimum number of
+		free variables solutions to $U$ will have?
+		\item An unknown system $V$ is represented by an augmented
+		matrix with 6 rows and 4 columns.  What is 
+		the minimum number of
+		free variables solutions to $V$ will have?
+	\end{Enum}
+
+\newpage
+
+\section*{Span}
+	Let
+	\[
+		\vec u=\mat{1\\0\\3} \qquad \vec v=\mat{-1\\1\\-3}
+		\qquad \vec w=\mat{1\\2\\3} \qquad \vec r=\mat{2\\3\\4}
+	\]
+
+	\begin{Enum}
+		\item Is $\vec w$ a linear combination of $\vec u$ and $\vec v$?
+		\item Is $\vec r$ a linear combination of $\vec u$ and $\vec v$?
+		\item What does the space of all linear combinations of 
+		$\vec u$ and $\vec v$ look like? (Do you expect a randomly 
+		chosen vector to be in this space?)
+	\end{Enum}
+
+	The set of all linear combinations of a set of vectors $V$ is called
+	the \emph{span} of $V$ and is denoted ``$\span V$.''
+	\begin{Enum}
+		\item Describe $\span\{\vec u\}$.
+		\item Describe $\span\{\vec u,\vec v\}$
+		\item Describe $\span\{\xh,\yh,\zh\}$.
+		\item Describe $\span\{\xh,\yh\}$.
+		\item Describe $\span\{\xh,\yh\}\cap \span\{\vec u,\vec v\}$.
+	\end{Enum}
+	\begin{Enum}
+		\item How do $\span\{\vec u,\vec v\}$ and
+		$\span\{\vec u,\vec v,\vec w\}$ relate?
+	\end{Enum}
+
+\subsection*{Linear Independence and Dependence}
+	We've seen sometimes adding a vector to a set doesn't
+	make its span any larger.  This is because the vector was already
+	in the span in the first place!
+
+	We say $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+	\emph{linearly dependent} if for at least one $i$,
+	\[
+		\vec v_i\in\span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+		\vec v_{i+1},\ldots,\vec v_n\},
+	\]
+	and a set is \emph{linearly independent} otherwise.
+
+	\begin{Enum}
+		\item Can you state linear independence in terms
+		of linear combinations?
+		\item Is the set $\left\{\mat{1\\0},\mat{0\\1},
+		\mat{3\\-2}\right\}$ linearly independent?
+		What is its span?
+		\item In $\R^2$ what is the largest linearly
+		independent set you could have?
+		\item In $\R^2$, is every set of two or fewer
+		vectors linearly independent?
+	\end{Enum}
+
+	We say a linear combination 
+	$a_1\vec v_1+a_2\vec v_2+\cdots +a_n\vec v_n$
+	is \emph{trivial} if $a_1=a_2=\cdots=a_n=0$.
+	\begin{Enum}
+		\item Consider the linearly dependent 
+		set $\{\vec u,\vec v,\vec w\}$ (where $\vec u,\vec v,\vec w$
+		are defined as above).  Can you write $\vec 0$
+		as a non-trivial linear combination of vectors in this set?
+		\item Consider the linearly independent 
+		set $\{\vec u,\vec v\}$.  Can you write $\vec 0$
+		as a non-trivial linear combination of vectors in this set?
+	\end{Enum}
+
+	We now have an equivalent definition of linear dependence.
+	Namely, $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+	\emph{linearly dependent} if there is a non-trivial
+	linear combination of $\vec v_1,\ldots,\vec v_n$ that
+	forms the zero vector.
+
+	\begin{Enum}
+		\item Explain how this new definition implies the old one.
+		\item Explain how the old definition implies this new one.
+	\end{Enum}
+
+	We now have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
+	should be read aloud as `implies').  This means the two definitions
+	are \emph{equivalent} (which we write as new def $\iff$ old def).
+
+
+	Suppose for some unknown $\vec u,\vec v,\vec w$,
+	\[
+		\vec a = 3\vec u+2\vec v +\vec w\qquad \text{and}\qquad 
+		\vec a = 2\vec u+\vec v -\vec w.
+	\]
+	\begin{Enum}
+		\item Could the set $\{\vec u,\vec v,\vec w\}$ be linearly
+		independent?
+	\end{Enum}
+	Suppose that
+	\[
+		\vec a = \vec u+6\vec r-\vec s
+	\]
+	is the \emph{only} way to write $\vec a$ using $\vec u,\vec r,\vec s$.
+	\begin{Enum}[resume]
+		\item Is $\{\vec u,\vec r,\vec s\}$ linearly independent?
+		\item Is $\{\vec u,\vec r\}$ linearly independent?
+		\item Is $\{\vec u,\vec v,\vec w,\vec r\}$ linearly independent?
+	\end{Enum}
+
+\subsection*{Finding Linearly Independent Subsets}
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec y$ you have no free variables.
+	
+	\begin{Enum}
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+	\end{Enum}
+	
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec y$ the second column corresponds to a 
+	free variable.
+	
+	\begin{Enum}[resume]
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec v\}$ linearly independent?
+	\end{Enum}
+
+	A \emph{maximal linearly independent subset} $X$ of a set of vectors $V$
+	is a linearly independent subset of $V$ with the most possible vectors in it 
+	(i.e., if you took any subset of $V$ with more vectors, it would be linearly
+	dependent).
+
+	\begin{Enum}
+		\item Give a maximal linearly independent subset, $T$, of
+		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
+		\item What is the size of $T$?
+	\end{Enum}
+
+	Consider the vectors
+	\[
+		\vec v_1=\mat{1\\2\\1}
+		\qquad
+		\vec v_2=\mat{-1\\-1\\-1}
+		\qquad
+		\vec v_3=\mat{0\\1\\0}
+		\qquad
+		\vec v_4=\mat{-1\\2\\0}
+		\qquad
+		\vec v_5=\mat{1\\-1\\1}
+	\]
+	and the matrices
+	\[
+		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
+		\qquad \rref (A)
+		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
+	\]
+	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots \vec v_5$)
+
+	\begin{Enum}
+		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
+		independent?
+		\item Pick a maximal linearly independent subset of $V$.
+		\item Pick another (different) maximal linearly independent subset of $V$.
+	\end{Enum}
+
+\newpage
+\section*{Matrices}
+	\[
+		A=\mat{1&2\\3&1\\0&-1}
+		\qquad
+		B=\mat{-1&-1\\0&1\\1&-2}
+		\qquad
+		C=\mat{1&2&0\\-1&-1&-1}
+	\]
+	\begin{Enum}
+		\item Write the shape of the matrices $A,B,C$ (i.e., for each one,
+		write the dimensions in $m\times n$ form).
+		\item List \emph{all} products between the matrices $A,B,C$ that are
+		defined. (Your list will be some subset of $AB,AC,BA,CA,BC,CB$.)
+		\item Compute $AC$ and $CA$.
+	\end{Enum}
+	\begin{Enum}
+		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+		does $XY=YX$?  Explain.
+		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+		does $X+Y=Y+X$?  Explain.
+	\end{Enum}
+
+	Consider the system
+	\begin{equation}\label{mateq1}
+		\begin{array}{ll}
+			x+2y &= 3\\
+			4x+5y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{Enum}
+		\item Find values of $a,b,c,d,e,f$ so that the matrix equation
+		\[
+			\mat{a&b\\c&d}\mat{x\\y}=\mat{e\\f}
+		\]
+		represents the same system as (\ref{mateq1}).
+	\end{Enum}
+
+	Consider the system represented by
+	\[
+		\mat{1&-3&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\vec b.
+	\]
+	\begin{Enum}[resume]
+		\item If $\vec b=\mat{1\\2\\3}$, is the solution set to this system a 
+		point, line, plane, or other?
+		\item If $\vec b=\mat{1\\1\\0}$, is the solution set to this system a 
+		point, line, plane, or other?
+	\end{Enum}
+
+	The transpose of a matrix (written with a superscript $T$, e.g. $A^T$) swaps
+	the rows an columns of a matrix.
+
+	\[
+		A=\mat{1&1&2\\2&2&1}
+	\]
+	\begin{Enum}
+		\item What is the shape of $A$ and $A^T$?
+		\item Write down $A^T$.
+	\end{Enum}
+
+	$B$ and $D$ are $4\times 6$ matrices and $C$ is a $6\times 4$ matrix.
+
+	\begin{Enum}[resume]
+		\item Does $(BC)^T=B^TC^T$? Explain.
+		\item Does $(B+D)^T=B^T+D^T$? Explain?
+		\item Compute $AA^T$ and $A^TA$ (where $A$ is the matrix defined earlier).
+		What do you notice?
+	\end{Enum}
+
+A matrix $X$ is called symmetric if $X=X^T$.  Symmetric matrices have many useful properties,
+and have deep connections with orthogonality and eigenvectors (which we will get to later on).
+
+	\begin{Enum}
+		\item Prove that if $W$ is a square matrix, then $V=W^TW+W+W^T$ is a symmetric
+		matrix.
+	\end{Enum}
+
+There are two very special matrices that have special names.  The \emph{zero} matrix
+is a square matrix consisting of only zeros.  We sometimes write $0_{n\times n}$
+to signify the $n\times n$ zero matrix.  Sometimes we leave off the $n\times n$
+when it is obvious what size it should be.  The \emph{identity} matrix is a square
+matrix with ones on the diagonal and zeros everywhere else.  Again, we may write
+$I_{n\times n}$ to specify the $n\times n$ identity matrix, or we may just write $I$ and
+assume the dimensions are clear from context.  (In Matlab, 
+the command {\tt eye(n)} will create an $n\times n$ identity
+matrix and {\tt zeros(n)} will create an $n\times n$ zero matrix).
+
+	Let $A=\mat{1&2&3\\4&5&6\\7&8&9}$.
+	\begin{Enum}
+		\item Write down the $3\times 3$ identity matrix and the $3\times 3$ zero
+		matrix.
+		\item Compute $I_{3\times 3}A$, $AI_{3\times 3}$, $0_{3\times 3}A$,
+		and $A0_{3\times 3}$.
+		\item If we were to think of matrices as numbers, what numbers would the
+		zero matrix and the identity matrix correspond to?
+	\end{Enum}
+	\begin{Enum}
+		\item Solve the matrix equation
+		\[
+			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
+		\]
+	\end{Enum}
+
+\newpage
+\section*{Matrix Inverses}
+
+	\begin{Enum}
+		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_1$.
+		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_2$.
+	\end{Enum}
+	An \emph{Elementary Matrix} is the identity matrix with a single row operation applied.
+
+	\[
+		A=\mat{1&2&3\\4&5&6\\7&8&9}
+	\]
+	\begin{Enum}[resume]
+		\item Compute $E_1A$ and $E_2A$.  How do the resulting matrices relate to row
+		operations?
+		\item Without computing, what should the result of applying the row
+		operation $R_3\to R_3-2R_1$ to $E_1$ be?  Compute and verify.
+		\item Without computing, what should $E_1E_2$ be?  What about $E_2E_1$?
+		Now compute and verify.
+	\end{Enum}
+
+	If two square matrices $A,B$ satisfy $AB=I=BA$, we call $A$ and $B$ \emph{inverses}.
+	We notate the inverse of $A$ as $A^{-1}$.
+
+	Consider the matrices 
+	\[
+		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
+		B=\mat{1&0&0\\0&1&0}\qquad
+		C=\mat{1&0\\0&1\\0&0}
+	\]
+	\[
+		D=\mat{1&-2&0\\0&1&0\\3&0&1}\qquad
+		E=\mat{1&0&0\\0&2&0\\0&1&1}\qquad
+		F=\mat{1&0&0\\0&1&0\\0&0&1}
+	\]
+	\begin{Enum}
+		\item Which pairs of matrices above are inverses of each other?
+	\end{Enum}
+
+	\[
+		B=\mat{1 &4\\0 &2}
+	\]
+	\begin{Enum}
+		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
+		and write an elementary matrix $E_1$ corresponding to the first operation
+		and $E_2$ corresponding to the second.
+		\item What is $E_2E_1B$?
+		\item Find $B^{-1}$.
+		\item Can you outline a procedure for finding the inverse of a matrix
+		using elementary matrices?
+	\end{Enum}
+
+	\[
+		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
+		\vec b=\mat{1\\2\\3}\qquad
+		C=[A|\vec b]\qquad
+		A^{-1}=\mat{9&-3/2&-5\\-5&1&3\\-2&1/2&1}
+	\]
+	\begin{Enum}
+		\item What is $A^{-1}A$?
+		\item What is $\rref(A)$?
+		\item What is $\rref(C)$?
+		\item Solve the system $A\vec x=\vec b$.
+	\end{Enum}
+	\begin{Enum}
+		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+	\end{Enum}
+	\[
+		A^{-1}=\mat{-1&-2\\1&1}\qquad B^{-1}=\mat{1/3&-2/3\\0&1}\qquad 
+		AB=\mat{3&4\\-3&-3}
+	\]
+	\begin{Enum}
+		\item Find $(AB)^{-1}$.
+		\item Solve $AB\vec x=\mat{-1\\3}$.
+	\end{Enum}
+\subsection*{Algorithms for Computing Inverses}
+	\begin{Enum}
+		\item What is $A\mat{1\\0\\0}$, $A\mat{0\\1\\0}$
+			and $A\mat{0\\0\\1}$? (Where $A$ is the matrix from earlier).
+	\end{Enum}
+	If $A$ is invertible (which it happens to be) we could solve 
+	the system $A\vec x=\mat{1\\0\\0}$ as $\vec x=A^{-1}\mat{1\\0\\0}$.
+
+	\begin{Enum}[resume]
+		\item Solve $A\vec x=\mat{1\\0\\0}$,  $A\vec x=\mat{0\\1\\0}$, 
+			and $A\vec x=\mat{0\\0\\1}$
+	\end{Enum}
+	\[
+		D=[A|I_{3\times 3}]
+	\]
+	\begin{Enum}[resume]
+	\item What is $\rref(D)$?
+	\end{Enum}
+
+\newpage
+\section*{Subspace, Basis, Dimension \& Rank }
+
+\begin{Def}
+A \emph{subspace} (not to be confused with subset) is the formal term for ``flat
+space through the origin.''
+
+A collection of vectors $X$ is a \emph{subspace} if
+\begin{itemize}
+	\item $\vec 0\in X$
+	\item $\vec u,\vec v\in X$ implies $\vec u+\vec v\in X$
+	\item $\vec v\in X$ implies $c\vec v\in X$ for all scalars $c$
+\end{itemize}
+\vspace{-.3in}
+\end{Def}
+
+\sep
+Explain whether or not the following are subspaces
+\begin{Enum}
+	\item $\span\{\mat{3\\-2}\}$
+	\item $\R^4$
+	\item The line $x+2y=3$
+	\item $\{\vec 0\}$
+	\item $\span \{\mat{1\\0}\}\cup \span\{\mat{0\\1}\}$
+	\item $\span \{\vec u,\vec v,\vec w\}$ for unknown vectors $\vec u,\vec v,\vec w$
+	\item The set of vectors orthogonal to $\vec u=\mat{1\\2\\1}$ and $\vec v=\mat{1\\-1\\1}$
+\end{Enum}
+
+When dealing with matrices, there are several subspaces we often refer to 
+\begin{itemize}
+	\item The \emph{row space} of $A$ is the span of the row vectors in $A$.
+	\item The \emph{column space} of $A$ is the span of the column vectors in $A$.
+	\item The \emph{null space} of $A$ is the set of vectors $\vec x$ so that 
+		$A\vec x=\vec 0$.
+\end{itemize}
+
+\sep
+Consider $A=\mat{1&0&0\\0&1&0}$.
+\begin{Enum}
+	\item Describe the row space of $A$.
+	\item Describe the column space of $A$.
+	\item Is the row space of $A$ the same as the column space of $A$?
+	\item Describe the set of all vectors perpendicular to the rows of $A$.
+	\item Describe the null space of $A$.
+\end{Enum}
+
+\sep
+\[
+	B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
+\]
+\begin{Enum}
+	\item How does the row space of $B$ relate to the row space of $C$?
+	\item How does the null space of $B$ relate to the null space of $C$?
+	\item Compute the null space of $B$.
+\end{Enum}
+
+\sep
+\[
+	P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
+\]
+\begin{Enum}
+	\item How does the column space of $P$ relate to the column space of $Q$?
+	\item Describe the columns space of $P$ and the column space of $Q$.
+\end{Enum}
+
+\begin{Def}
+A \emph{basis} for a subspace $X$ is a linearly independent set $\{\vec v_1,\ldots,\vec v_n\}$
+so that $\span\{\vec v_1,\ldots,\vec v_n\}=X$.
+\end{Def}
+
+\sepl
+\begin{Enum}
+	\item Give a basis for $\R^2$.
+	\item Give a basis for the plane $\mat{1\\2\\3}\cdot \vec x=0$.
+	\item Give a basis for the null space of $A=\mat{1&2&3}$.
+\end{Enum}
+
+Recall the definition of a maximal linearly independent set from earlier. It turns out
+that if $V$ is a set of vectors, any maximal linearly independent subset of $V$ is a basis
+for $\span V$.
+
+\begin{Def}
+The \emph{dimension} of a subspace $X$ is the number of vectors in a basis for $X$.
+\end{Def}
+
+\sep
+\[
+	A=\mat{1&1&-1\\1&1&1\\2&2&0}\qquad
+	\rref(A)=\mat{1&1&0\\0&0&1\\0&0&0}\qquad
+	\rref(A^T)=\mat{1&0&1\\0&1&1\\0&0&0}
+\]
+
+\begin{Enum}
+	\item Find a basis for and the dimension of the row space of $A$.
+	\item Find a basis for and the dimension of the column space of $A$.
+\end{Enum}
+
+\begin{Def}
+We are now equipped to give an alternate definition for rank.  The \emph{rank}
+of a matrix is the dimension of the row space.
+
+The \emph{nullity} of a matrix is the dimension of the null space.
+
+The rank-nullity theorem states
+\[
+	\rank(A)+\nnul(A) = \#\text{of rows in }A.
+\]
+\end{Def}
+
+\sep
+The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
+Define $A=[\vec u|\vec v|\vec w]$.
+\begin{Enum}
+	\item What is the rank and nullity of $A^T$?
+	\item What is the rank and nullity of $A$?
+\end{Enum}
+
+\newpage
+\section*{Linear Transformations}
+
+\sep
+$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
+by $90^\circ$.
+\begin{Enum}
+	\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
+	\item Compute $\mathcal R\mat{1\\1}$.  How does this relate to
+		$\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$?
+	\item What is $\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)$?
+	\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
+		counter clockwise by $90^\circ$.
+\end{Enum}
+
+\sep
+$\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
+and contracts in the $\yh$ direction by a factor of $3$.
+\begin{Enum}
+	\item Write a matrix representation of $\mathcal S$.
+\end{Enum}
+
+	\begin{Def}
+	A \emph{Linear Transformation} is a transformation of vectors 
+	that respects addition and scalar multiplication.  That is $T$
+	is a linear transformation if
+	\[
+		T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
+		T(a\vec v)=aT\vec v
+	\]
+	for all scalars $a$.
+	\end{Def}
+
+\sepl
+\begin{Enum}
+	\item Classify the following as linear transformation or not
+		\begin{enumerate}
+			\item $\mathcal R$ from above.
+			\item $\mathcal S$ from above.
+			\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+			\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+			\item $P:\R^2\to\R^2$ where $P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
+				$\vec u=\mat{2\\3}$.
+		\end{enumerate}
+\end{Enum}
+
+It turns out every linear transformation can be written as a matrix (in fact
+this is why matrix multiplication was invented).
+
+\sep
+Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
+\begin{Enum}
+	\item Write down a matrix for $\mathcal P$.
+	\item What is the null space of $\mathcal P$?
+	\item What is the rank of $\mathcal P$?
+	\item Is $\mathcal P$ invertible?
+\end{Enum}
+
+Matrix multiplication was designed to exactly model composition of linear transformations.
+\begin{Enum}[resume]
+	\item Write down a matrix for $\mathcal P$ and for $\mathcal R$ the rotation
+		by $90^\circ$.
+	\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+\end{Enum}
+
+\sep
+Not only is every linear transformation modeled by a matrix, but every matrix models a linear
+transformation.
+
+\begin{Enum}
+	\item Describe in words the transformation that each matrix represents.
+		\begin{enumerate}
+			\item $A=\mat{2&0&0\\0&1&0\\0&0&3}$
+			\item $B=\mat{1&0&0\\0&1&0\\0&0&0}$
+			\item $C=\mat{0&0&1\\0&1&0\\1&0&0}$
+			\item $D=\mat{1/2&1/2}$
+			\item $E=\mat{\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}}$
+		\end{enumerate}
+	\item Which transformations listed above are invertible?
+	\item For each transformation, describe its image as a point, line,
+		plane, or other.  How does this relate to the column space?
+\end{Enum}
+
+\newpage
+\section*{Eigenvectors}
+	\sep
+	The picture shows what the transformation $T$ does to the unit square.
+
+	\includegraphics[width=2.5in]{images/transform1b.pdf}
+	\includegraphics[width=2.5in]{images/transform2b.pdf}
+
+
+	\vspace{-6em}
+	\begin{Enum}
+		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
+		\item Write down a matrix for $T$.
+		\item Are there any vectors $\vec v$ so that $T\vec v$ points in the
+			same direction as $\vec v$?
+	\end{Enum}
+	
+	\begin{Def}
+	For a transformation $X$, an \emph{eigenvector} for $X$ is a vector that doesn't
+	change directions when $X$ is applied.  That is,
+	\[
+		X\vec v=\lambda \vec v
+	\]
+	for some $\lambda\in\R$.  $\lambda$ is called the \emph{eigenvalue} 
+	of $X$ corresponding
+	to the eigenvector $\vec v$.
+	\end{Def}
+
+	\begin{Enum}[resume]
+		\item Give an eigenvector for $T$.  What is the eigenvalue?
+		\item Can you give another?
+	\end{Enum}
+
+	We will now develop tools to allow us to compute eigenvalues and eigenvectors.
+
+	\begin{Def}
+	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
+	oriented volume of the image of the unit $n$-cube.  The determinant
+	of a square matrix is the oriented volume of the parallelepiped 
+	($n$-dimensional parallelogram) given by the column vectors or the row
+	vectors.
+	\end{Def}
+
+	\sep
+	Let $\mathcal S$ be the unit square in $\R^2$ (The $1\times 1$ square with lower
+	left corner at the origin).
+
+	We know the following about the transformation $A$:
+	\[
+		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
+	\]
+	\begin{Enum}
+		\item Draw $\mathcal S$ and $A\mathcal S$, the image of the unit square
+			under $A$.
+		\item Compute the area of $A\mathcal S$.
+		\item Compute $\det(A)$.
+	\end{Enum}
+
+	\sep
+	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
+	\begin{Enum}
+		\item Draw $\mathcal S$ and $R\mathcal S$.
+		\item Compute the area of $R\mathcal S$.
+		\item Compute $\det(R)$.
+	\end{Enum}
+	
+	\sep
+	We know the following about the transformation $F$:
+	\[
+		F\mat{1\\0}=\mat{0\\1}\qquad\text{and}\qquad F\mat{0\\1}=\mat{1\\0}.
+	\]
+	\begin{Enum}
+		\item What is $\det(F)$?
+	\end{Enum}
+
+	\vspace{-.2in}
+	\sep
+	\vspace{-.3in}
+	\begin{itemize}
+		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
+		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
+		\item $E_a$ is $I_{3\times 3}$ with $R_1\to R_1+2R_2$ applied.
+	\end{itemize}
+
+	\begin{Enum}
+		\item What is $\det(E_f)$?
+		\item What is $\det(E_m)$?
+		\item What is $\det(E_a)$?
+		\item What is $\det(E_fE_m)$?
+		\item What is $\det(4I_{3\times 3})$?
+		\item What is $\det(W)$ where $W=E_fE_aE_fE_mE_m$?
+	\end{Enum}
+
+	\sep
+	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
+	\begin{Enum}
+		\item What is $\det(U)$?
+	\end{Enum}
+	When you row reduce the square matrix $V$, there is a row of zeros.
+	\begin{Enum}[resume]
+		\item What is $\det(V)$?
+	\end{Enum}
+
+	$P$ is projection onto the vector $\mat{-1\\-1}$.
+	\begin{Enum}[resume]
+		\item What is $\det(P)$?
+	\end{Enum}
+
+	\sep
+	Suppose you know $\det(X)=4$.
+	\begin{Enum}
+		\item What is $\det(X^{-1})$?
+		\item Derive a relationship between $\det(Y)$
+			and $\det(Y^{-1})$ for an arbitrary matrix $Y$.
+		\item Suppose $Y$ is not invertible.  What is $\det(Y)$?
+	\end{Enum}
+
+	After all this work with determinants, we see 
+	that (like dot products) there is a geometric and an
+	algebraic way of thinking about them, and they 
+	\emph{determine} if a matrix is invertible.
+
+\newpage
+\section*{Eigenvectors and Eigenvalues Cont.}
+
+	\sep
+	For some matrix $A$,
+	\[
+		A\mat{3\\3\\1}=\mat{2\\2\\2/3}.
+	\]
+	\begin{Enum}
+		\item Give an eigenvector and a corresponding eigenvalue for $A$.
+	\end{Enum}
+
+	\sep
+	$B=A-\frac{2}{3}I$.
+	\begin{Enum}
+		\item What is $B\mat{3\\3\\1}$?
+		\item What is the dimension of $\text{null}(B)$?
+		\item What is $\det(B)$?
+	\end{Enum}
+
+	\sep
+	$C=\mat{-1&2\\1&0}$ and $E_\lambda = C-\lambda I$
+	\begin{Enum}
+		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
+			null space?
+		\item What are the eigenvalues of $C$?
+		\item Find the eigenvectors of $C$.
+	\end{Enum}
+	
+	\sep
+	\begin{Def}
+	For a matrix $A$, the \emph{characteristic polynomial} of $A$ is
+	\[
+		\chr(A)=\det(A-\lambda I).
+	\]
+	\vspace{-.3in}
+	\end{Def}
+
+	\vspace{.2in}
+	Let $D=\mat{1&2\\3&0}$.
+	\begin{Enum}
+		\item Compute $\chr(D)$.
+		\item Find the eigenvalues of $D$.
+	\end{Enum}
+
+	\sep
+	Suppose $\chr(E)=\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
+	matrix $E$.
+	\begin{Enum}
+		\item What are the eigenvalues of $E$?
+		\item Is $E$ invertible?
+		\item What is $\nnul(E)$, $\nnul(E-3I)$, $\nnul(E+3I)$?
+	\end{Enum}
+
+	\sep
+	Define
+	\[
+		A=\mat{1&0&1\\0&1&1\\1&1&0}\qquad
+		\vec v_1=\mat{1\\1\\1}\qquad
+		\vec v_2=\mat{1\\1\\-2}\qquad
+		\vec v_3=\mat{-1\\1\\0}
+	\]
+	and notice that $\vec v_1,\vec v_2,\vec v_3$ are eigenvectors for $A$.
+	\begin{Enum}
+		\item Find the eigenvalues of $A$.
+		\item Find the characteristic polynomial of $A$.
+		\item Compute $A\vec w$ where $w=2\vec v_1-\vec v_2$.
+		\item Compute $A\vec u$ where $\vec u=a\vec v_1+b\vec v_2+c\vec v_3$ for
+			unknown scalar coefficients $a,b,c$.
+	\end{Enum}
+	Notice that $V=\{\vec v_1,\vec v_2,\vec v_3\}$ is a basis for $\R^3$.
+	\begin{Enum}[resume]
+	\item If $\vec x=\mat{1\\3\\4}_V$ is $\vec x$ written in the $V$ basis,
+		compute $A\vec x$ in the $V$ basis.
+	\end{Enum}
+	
+	\sep
+	The transformation $P$ takes vectors in the standard basis and outputs
+	vectors in the $V$ basis.  
+	\begin{Enum}
+		\item Describe in words what $P^{-1}$ does.
+		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
+			$A\vec y$ for any $\vec y\in \R^3$.
+		\item Can you find a matrix $D$ so that
+			\[
+				P^{-1}DP=A?
+			\]
+		\item $\vec x=\mat{1\\3\\4}_V$.  Compute $A^{100}\vec x$.
+	\end{Enum}
+
+	\begin{Def}
+	Two matrices $A,B$ are called \emph{similar} if there is a matrix $P$ so that
+	\[
+		A=PBP^{-1}.
+	\]
+	Similar matrices represent the same transformation but in different bases.
+
+	A matrix $A$ is called \emph{diagonalizable} if $A$ is similar to 
+	a diagonal matrix $D$.
+	\end{Def}
+
+	\sep
+	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
+	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
+	eigenvalues.
+	
+
+	\begin{Enum}
+		\item Is $T$ diagonalizable?  If so, explain how to obtain its diagonalized form.
+		\item What if one of the eigenvalues of $T$ is zero?  Is $T$ diagonalizable?
+		\item What if the eigenvectors of $T$ did not form a basis for $\R^n$.
+			Would $T$ be diagonalizable?
+	\end{Enum}
+
+	\begin{Def}
+	Let $A$ be a matrix with eigenvalues $\{\lambda_1,\ldots,\lambda_m\}$.  The
+	\emph{eigenspace} of $A$ corresponding to the eigenvalue $\lambda_i$ is the
+	null space of $A-\lambda_i I$.  That is, it is the space spanned by all eigenvectors
+	that have the eigenvalue $\lambda_i$.
+
+	The \emph{geometric multiplicity} of an eigenvalue $\lambda_i$ is the dimension
+	of the eigenspace corresponding to $\lambda_i$.  The \emph{algebraic multiplicity}
+	of $\lambda_i$ is the number of times $\lambda_i$ occurs as a root of the
+	characteristic polynomial of $A$ (i.e., the number of times $x-\lambda_i$
+	occurs as a factor).
+	\end{Def}
+
+	\sep
+	Define $F=\mat{1&1\\0&1}$.
+	\begin{Enum}
+		\item Is $F$ diagonalizable?  Why or why not?
+		\item What is the geometric and algebraic multiplicity of each eigenvalue
+			of $F$?
+		\item Suppose $A$ is a matrix where the geometric multiplicity of one of its eigenvalues
+			is smaller than the algebraic multiplicity of the same eigenvalue.  Is
+			$A$ diagonalizable?  What if all the geometric and algebraic multiplicities
+			match?
+	\end{Enum}
+
+\section*{Orthogonality}
+	\begin{Def}
+		A set of vectors is \emph{orthogonal} if every pair of vectors
+		in the set is orthogonal.
+	\end{Def}
+
+	\begin{Def}
+		A set of vectors is \emph{orthonormal} if the set is orthogonal
+		and every vector is a unit vector.
+	\end{Def}
+
+	\sep
+	\[
+		\mathcal B=\{\vec b_1,\vec b_2\}\qquad\vec b_1=\mat{1/2\\\sqrt{3}/2}
+		\qquad \vec b_2=\mat{-\sqrt{3}/2\\1/2}
+	\]
+	The matrix $A=[\vec b_1|\vec b_2]$ takes vectors in the $\mathcal B$ basis
+	and rewrites them in the standard basis.
+	\begin{Enum}
+		\item What does $A^{-1}$ do?
+		\item Find a matrix $B$ that takes vectors in the standard basis
+			and rewrites them in the $\mathcal B$ basis.
+		\item Write $\vec x=\mat{1\\2}_S$ in the $\mathcal B$ basis.
+		\item What is the relationship between $A$ and $B$?
+	\end{Enum}
+
+	\begin{Def}
+		An \emph{orthogonal} matrix is a square matrix whose columns are
+		orthonormal (Yes, a better name would be orthonormal matrix, but that
+		is not the term the rest of the world uses).
+	\end{Def}
+
+	\sep
+	Suppose $X=[\vec x_1|\vec x_2|\vec x_3|\vec x_4]$ is an orthogonal matrix.
+	\begin{Enum}
+		\item What is the shape of $X$ (i.e., it is a what$\times$what matrix)?
+		\item Compute $X^TX$.
+		\item What is $X^{-1}$?
+	\end{Enum}
+
+	\sep
+	\[
+		Y=\mat{1&1&1&-1\\1&-1&-1&-1\\1&1&-1&1\\1&-1&1&1}
+	\]
+	\begin{Enum}
+		\item Is $Y$ an orthogonal matrix?
+		\item Fix $Y$ so it is an orthogonal matrix.  Call the new matrix $X$.
+		\item Compute $X^{-1}$.
+		\item Compute $Y^{-1}$.
+		\item Compute $|\det(X)|$ and $|\det(Y)|$ (the absolute value of
+			the determinant of $X$ and $Y$).
+	\end{Enum}
+
+	Matrix equations involving orthogonal matrices are easy to solve because the
+	inverse of an orthogonal matrix is so easy to compute!
+	
+	\sep
+	Let $A=[\vec a_1|\vec a_2|\vec a_3|\vec a_4]$ be an orthogonal matrix.
+	\begin{Enum}
+		\item Explain why 
+			$\vec x=\mat{\vec a_1\cdot \vec b\\
+				     \vec a_2\cdot \vec b\\
+			     	     \vec a_3\cdot \vec b\\
+			     	     \vec a_4\cdot \vec b}$ is a solution to $A\vec x=\vec b$.
+		\item Find scalars $a,b,c,d$ so $\vec b=a\vec a_1+b\vec a_2+c\vec a_3+d\vec a_4$
+			(your answers will have variables in them).
+	\end{Enum}
+
+	Orthogonal matrices also allow us to compute projections quite easily.
+
+	\begin{Def}
+		If $V$ is a subspace of $\R^n$, the \emph{projection}
+		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
+		is the closest point in $V$ to $\vec x$. We notate the projection
+		of $\vec x$ onto $V$ as $\proj_V\vec x$.
+	\end{Def}
+
+	Projections are normally hard to compute and a priori might require some sort
+	of calculus-style optimization to find.  However, from geometry we know that 
+	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
+	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
+	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
+	will be our savior.
+
+	\sep
+	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
+	\begin{Enum}
+		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
+			onto the $xy$-plane.
+	\end{Enum}
+	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
+	\begin{Enum}[resume]
+		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
+			onto $\span\{\vec b_1,\vec b_3\}$.
+	\end{Enum}
+	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
+	\[
+		\|\vec c_1\| = 
+		\|\vec c_2\| = 
+		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
+		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
+	\]
+	\vspace{-.35in}
+	\begin{Enum}[resume]
+		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
+			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
+	\end{Enum}
+
+	\sep
+	Let's put this all together.  
+	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
+	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
+	by
+	\[
+		0x+y-z=0.
+	\]
+	\begin{Enum}
+		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
+			listed in the $\mathcal B$ basis).
+		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
+			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
+		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
+	\end{Enum}
+
+%\newpage
+\subsection*{Gram-Schmidt Orthogonalization}
+	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
+	turn any basis into an orthonormal basis through a process called
+	Gram-Schmidt orthogonalization.
+
+	\sep
+	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
+	\begin{Enum}
+		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
+		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
+			$\vec c$ and $\vec b$.
+		\item Can you write $\vec a$ as the sum of two vectors, one in 
+			the direction of $\vec b$ and one orthogonal to $\vec b$?
+			If so, do it.
+	\end{Enum}
+
+	\sep
+	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
+	\begin{Enum}
+		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
+			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
+		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
+	\end{Enum}
+
+	With two vectors, making an orthonormal set without changing the span
+	is quite easy.  With more vectors, it is only slightly harder.
+
+	\begin{Def}
+		The \emph{Gram-Schmidt} orthogonalization procedure
+		takes in a set of vectors and outputs a set of orthonormal vectors
+		with the same span.  The idea is to iteratively produce a set of
+		vectors where each new vector you produce is orthogonal to the previous vectors.
+
+		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
+		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
+		to $ v_1$ by subtracting off the respective projections
+		of $ v_2,\ldots, v_n$
+		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
+		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
+		respective projections
+		onto $ v_2'$.  Continue this process until you have a set
+		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
+		Finally, normalize $V$ so all vectors have unit length.
+	\end{Def}
+
+	\sep
+	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
+	$\vec x_3=\mat{2\\2\\1\\2}$.
+	\begin{Enum}
+		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
+			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
+			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
+			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+	\end{Enum}
+	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
+	\begin{Enum}[resume]
+		\item Find an orthonormal basis for the row space of $R$.
+		\item Find the null space of $R$ (Hint, you've already done the work, so
+			there is no need to row reduce).
+	\end{Enum}
+
+	\sep
+	Let
+	\[
+		\vec y_1=\mat{1\\1\\2}\qquad 
+		\vec y_2=\mat{-1\\-1\\2}\qquad
+		\vec y_3=\mat{1\\1\\6}.
+	\]
+	\begin{Enum}
+		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
+			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
+	\end{Enum}
+
+	\begin{Def}
+		The \emph{orthogonal complement} of a subspace $V$ is written
+		$V^\perp$ and defined as
+		\[
+			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
+		\]
+		\vspace{-.2in}
+	\end{Def}
+
+	\begin{Enum}[resume]
+		\item Find the orthogonal complement of $\span \mathcal W$.
+		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
+			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
+	\end{Enum}
+
+
+\subsection*{$QR$ Decomposition}
+
+	\begin{Def}
+		For a matrix $A$, we can rewrite $A=QR$ where $Q$ is an
+		orthogonal matrix and $R$ is an upper triangular matrix.  Writing
+		$A$ as $QR$ is called the \emph{$QR$ decomposition} of $A$.
+	\end{Def}
+
+	\sep
+	Suppose $A,B,C$ are square matrices and $C=AB$.
+	\begin{Enum}
+		\item How do the column spaces of $A$ and $C$ relate?
+		\item How do the column spaces of $B$ and $C$ relate?
+	\end{Enum}
+
+	\sep
+	$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ forms a basis for $\R^3$.
+	When we apply the Gram-Schmidt process to $\mathcal V$, we get
+	\[
+		\begin{array}{rl}
+			q_1' &=\vec v\\
+			q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
+			q_3' &= \vec v_3-\vec v_1+2\vec v_2
+		\end{array}
+	\]
+	form an orthogonal set.  Normalizing we get
+	\[
+		\begin{array}{rl}
+			\vec q_1 &= 2q_1'\\
+			\vec q_2 &= 3q_2'\\
+			\vec q_3 &=\frac{1}{2}q_3'
+		\end{array}
+	\]
+	form an orthonormal set.
+	\begin{Enum}
+		\item Write $\vec v_1$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+		\item Write $\vec v_2$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+		\item Write $\vec v_3$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+	\end{Enum}
+	Define $A=[\vec v_1|\vec v_2|\vec v_2]$ and $Q=[\vec q_1|\vec q_2|\vec q_3]$.
+	\begin{Enum}[resume]
+		\item Find a matrix $R$ so that $A=QR$.
+	\end{Enum}
+	
+	We've just discovered one process to find the $QR$ decomposition of a matrix.
+	It's really as simple as doing Gram-Schmidt and keeping track of your coefficients.
+	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
+	decomposition and exploit the fact that $Q^{-1}=Q^T$, we have
+	\[
+		A\vec x=QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
+	\]
+	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
+	out that if you solve systems this way, there is less rounding error than if you
+	use row reduction.)
+
+\subsection*{Symmetric Matrices}
+	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
+	it's sometimes hard to grasp the significance of certain properties of a matrix.
+
+	Symmetric matrices are easy to forget at first, but they have many profound 
+	properties (not to mention they are one of the key concepts of Quantum Mechanics).
+
+	\sep
+	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
+	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
+	we are thinking of $\vec v$ and $\vec w$ as column vectors.
+	\begin{Enum}
+		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
+		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
+		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
+		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
+			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
+			or $\vec v^T(A\vec w)$.  Better do both to be safe).
+		\item What can you conclude about $\vec v^T\vec w$?  How about
+			$\vec v\cdot \vec w$?
+	\end{Enum}
+
+	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
+	top of that, symmetric matrices always have a basis of eigenvectors.  That means
+	that not only can you always diagonalize a symmetric matrix, but you can 
+	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
+	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
+	best of all worlds in one!
+
+\end{document}
