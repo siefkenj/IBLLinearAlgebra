@@ -14,7 +14,7 @@
 \usepackage{color}
 \usepackage{tikz}
 \usepackage{fancyhdr}
-\usepackage[hidelinks]{hyperref}
+%\usepackage[hidelinks]{hyperref}
 %\usepackage{wrapfig}
 
 
@@ -67,12 +67,13 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
 \renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\Span}{\mathrm{span}\,}
 \newcommand{\rref}{\mathrm{rref}}
 \newcommand{\rank}{\mathrm{rank}}
 \newcommand{\nnul}{\mathrm{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\chr}{\mathrm{char}}
-%\newcommand{\url}[1]{#1}
+\newcommand{\url}[1]{#1}
 
 %%%
 % Create a command that draws a horizontal line extending into the margin.
@@ -443,14 +444,74 @@ requestion, or opening an \emph{issue} at
 	Let $\vec v_1=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec v_2=\begin{bmatrix}1\\-1\end{bmatrix}$, and $\vec w=2\vec v_1+\vec v_2$.
 	\begin{Enum}
 		\item Write the coordinates of $\vec w$.
-		\item Draw a picture with $\vec w$, $\vec v_1$ and $\vec v_2$.
+		\item Draw a picture with $\vec w$, $\vec v_1$, and $\vec v_2$.
 		\item Is $\mat{3\\3}$ a linear combination of $\vec v_1$ and $\vec v_2$?
 		\item Is $\mat{0\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
 		\item Is $\mat{4\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
 		$\vec v_1$ and $\vec v_2$?
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
-		only $\vec v_1$?
+		$\vec v_1$?
+	\end{Enum}
+	
+	\begin{Def}
+		The \emph{span} of a set of vectors $V$ is the set of
+		all linear combinations of vectors in $V$.  That is,
+		\[
+			\Span V = \{\vec v:\vec v=\alpha_1\vec v_1+\alpha_2\vec v_2 + \cdots 
+			+\alpha_n\vec v_n\text{ for some }\vec v_1,\vec v_2,\ldots,\vec v_n\in V
+			\text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n\}.
+		\]
+	\end{Def}
+
+	\sep
+	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
+	\begin{Enum}
+		\item Draw $\Span\{\vec v_2\}$.
+		\item Draw $\Span\{\vec v_2\}$.
+		\item Describe $\Span\{\vec v_1,\vec v_2\}$.
+		\item Describe $\Span\{\vec v_1,\vec v_3\}$.
+		\item Describe $\Span\{\vec v_1,\vec v_2,\vec v_3\}$.
+	\end{Enum}
+
+	\sep
+	Give an example of:
+	\begin{Enum}
+		\item two vectors in $\R^3$ that span a plane;
+		\item two vectors in $\R^3$ that span a line;
+		\item four vectors in $\R^3$ that span a plane;
+		\item a set of 50 vectors in $\R^3$ whose span is the line
+		through the origin and the point $\mat{1\\2\\-3}$. \\
+	\end{Enum}
+
+	In some sets, every vector is essential for computing a span.  In others,
+	there are ``excess'' vectors.  This leads us to the concept of 
+	linear independence.
+
+	\begin{Def}
+		We say $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+		\emph{linearly dependent} if for at least one $i$,
+		\[
+			\vec v_i\in\span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+			\vec v_{i+1},\ldots,\vec v_n\},
+		\]
+		and a set is \emph{linearly independent} otherwise.
+	\end{Def}
+
+	\sep
+		Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
+	\begin{Enum}
+		\item Describe $\Span\{\vec u,\vec v,\vec w\}$.
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?  Why or why not?
+	\end{Enum}
+
+	Let $X=\{\vec u,\vec v,\vec w\}$.
+
+	\begin{Enum}[resume]
+		\item Give a subset $Y\subseteq X$ so that $\Span Y=\Span X$ and $Y$ is
+		linearly independent.
+		\item Give a subset $Z\subseteq X$ so that $\Span Z=\Span X$ and $Z$ is
+		linearly independent and $Z\neq Y$.
 	\end{Enum}
 
 \section*{Vector Length}
