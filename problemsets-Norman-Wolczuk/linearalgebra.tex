@@ -1,4 +1,5 @@
 \documentclass[letter]{article}
+\usepackage[letterpaper]{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -66,6 +67,8 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Perp}{\mathrm{perp}}
 \renewcommand{\span}{\mathrm{span}\,}
 \newcommand{\Span}{\mathrm{span}\,}
 \newcommand{\rref}{\mathrm{rref}}
@@ -658,9 +661,10 @@ requestion, or opening an \emph{issue} at
 	
 	\pagebreak
 	\sep
-	\vspace{-1cm}
+		Let $\vec a=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec b=\begin{bmatrix}3\\2\end{bmatrix}$, and $\vec u=\begin{bmatrix}1\\2\\1\end{bmatrix}$.
+	\vspace{-.5cm}
 	\begin{Enum}
-		\item Let $\vec a=\begin{bmatrix}1\\1\end{bmatrix}$ and $\vec b=\begin{bmatrix}3\\2\end{bmatrix}$
+		\item 
 		\begin{enumerate}	
 			\item Draw a picture of $\vec a $ and $\vec b$.
 			\item Compute $\vec a\cdot \vec b$.
@@ -680,7 +684,7 @@ requestion, or opening an \emph{issue} at
 			Explain why or why not.
 		\end{enumerate}
 
-		\item $\vec u=\begin{bmatrix}1\\2\\1\end{bmatrix}$.
+		\item Recall the vector $\vec u$ whose coordinates are given at the beginning of this problem.
 		\begin{enumerate}
 			\item Write down a vector $\vec v$ so that the angle between $\vec u$ and $\vec v$
 			is $\pi/2$. (Hint, how does this relate to the dot product?)
@@ -737,96 +741,77 @@ requestion, or opening an \emph{issue} at
 
 	\begin{Def}
 		Two vectors $\vec u$ and $\vec v$ are \emph{orthogonal} to each other
-		if $\vec u\cdot \vec v=0$.
+		if $\vec u\cdot \vec v=0$.  The word orthogonal is synonymous with the
+		word perpendicular.
 	\end{Def}
 
 	\sep
-	\vspace{-.2cm}
+	\vspace{-1cm}
 	\begin{Enum}
-		\item 
+		\item Find two vectors orthogonal to $\vec a=\mat{1\\-3}$.  Could you find two linearly independent vectors 
+			that are orthogonal to $\vec a$?
+		\item Find two vectors orthogonal to $\vec b=\mat{1\\-3\\4}$.  Could you find two linearly independent vectors 
+			that are orthogonal to $\vec b$?
+		\item Suppose $\vec x$ and $\vec y$ are orthogonal to each other and $\|\vec x\|=5$ and $\|\vec y\|=3$.
+			What is the distance between $\vec x$ and $\vec y$?
 	\end{Enum}
 
 
-\section*{Vector Length}
-	The \emph{length} or \emph{norm} of a vector $\vec w$ is denoted $\|\vec w\|$ and is the distance
-	from $\bf o$ to the point you end up at if you follow $\vec w$'s instructions.
-
-	\begin{Enum}
-		\item Find $\|\vec a\|$, $\|\vec b\|$, $\|\vec c\|$ where
-		\begin{enumerate}
-			\item $\vec a=3\xh+4\yh$
-			\item $\vec b=2\vec a$
-			\item $\vec c = -\vec a/2$
-		\end{enumerate}
-		\item $\zh$ points perpendicular to $\xh$ and $\yh$ into the 3rd dimension.
-		
-		Let $\vec v=2\xh+\yh+\zh$ and $\vec w=2\xh+\yh$.
-		\begin{enumerate}
-			\item Write $\vec v$ in terms of $\vec w$ and $\zh$
-			and draw a picture showing the relationship between the three vectors
-			(3-d pictures are a hard but essential skill in this course).
-			\item Find $\|\vec w\|$ and $\|\vec v\|$.  (Hint, look at your picture
-			and see if there are any right triangles to exploit).
-		\end{enumerate}
-		\item Let $\vec u=2\xh+3\yh+4\zh$.
-		\begin{enumerate}
-			\item Find $\|\vec u\|$.
-			\item Find $\|k\vec u\|$ where $k$ is some unknown constant.
-			\item What value(s) of $k$ makes $\|k\vec u\|=1$?
-			\item Write down a vector in column form that points in the same direciton
-			as $\vec u$ and has length 1.
-		\end{enumerate}
-	\end{Enum}
-
-\section*{Unit Vectors}
-	Vectors that have length 1 are called \emph{unit vectors}.
-	\begin{Enum}
-		\item $\vec a=-\xh+\yh+\zh$.  Find a unit vector in the direction of $\vec a$,
-		and call this vector $\vec u$ ($u$ for $u$nit, get it?).
-		\item Write $\vec a$ in terms of $\vec u$.  Does $\|\vec a\|$ show up in your formula at all?
-		\item Write $3\vec u$ in column vector form and find its length.
-		\item Write $7.5\vec u$ in column vector form and find its length.
-		\item $\vec v$ is a different unit vector (I won't tell you its exact form).  Find $\|9\vec v\|$
-		Why do we like unit vectors so much?
-	\end{Enum}
-
-\section*{Dot Product}
-
-\newpage
 \section*{Projections}
 	Projections (sometimes called orthogonal projections) are a way to measure how much one vector
 	points in the direction of another.
 
-	\includegraphics{images/projection1.pdf}
-	\vspace{-.4in}
+	\vspace{-.8cm}
+	\begin{Def}
+	\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}[>=latex,scale=2.5]
+		\draw[->,thick,black] (0,0) -- (2,1) node [above] {$\vec u$};
+		\draw[->,thick,black] (0,0) -- (3,0) node [above] {$\vec v$};
+		\draw[->,thick,black,yshift=-.07cm] (0,0) -- (2,0);
+		\draw[decoration={brace, mirror}, decorate, yshift=-.15cm] (0,0) -- (2,0) node [midway,below,yshift=-4pt] {$\Proj_{\vec v}\vec u$};
+		
+		\draw[dashed,thick,black] (2,0) -- (2,1);
+		\draw[decoration={brace, mirror}, decorate, xshift=1.15cm] (2,0) -- (2,1) node [midway,right,xshift=4pt] {$\Perp_{\vec v}\vec u$};
+		\draw[thin,black] (1.85,0)--(1.85,.15)--(2,.15);
 
-	The projection of $\vec a$ onto $\vec b$ is written $\proj_{\vec b}\vec a$ and is a vector in the direction of $\vec b$.
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-.6cm}
+	
+	The \emph{projection} of $\vec u$ onto $\vec v$ is written $\proj_{\vec v}\vec u$ and is the vector in the direction of $\vec v$
+	such that $\vec u-\Proj_{\vec v}\vec u$ is orthogonal to $\vec v$.  The vector $\vec u-\Proj_{\vec v}$ is called the \emph{perpendicular
+	component} of $\vec u$ with respect to $\vec v$ and is notated as $\Perp_{\vec v}\vec u$.
+	\end{Def}
+	
+	\sep
+	\vspace{-1cm}
+	\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}[>=latex,scale=2.5]
+		\draw[->,thick,black] (0,0) -- (30:2) node [above] {$\vec a$};
+		\draw[->,thick,black] (0,0) -- (3,0) node [above] {$\vec b$};
+		\draw[thick,black] (0,0) +(0:.3cm) arc (0:30:.3cm) node[right,yshift=-4pt] {$\theta$};
 
-	\includegraphics{images/projection2.pdf}
-	\vspace{-.7in}
+	\end{tikzpicture}
+	\end{center}
 	
 	\begin{Enum}
-		\item In this picture $\|\vec a\|=4$ and $\theta = \pi/6$.  Find $\|\proj_{\vec b}\vec a\|$.
-		\item If $\vec b=\begin{bmatrix}6\\0\end{bmatrix}$, write down $\proj_{\vec b}\vec a$ in column vector
-		form.  How do the coordinates relate to $\|\proj_{\vec b}\vec a\|$?
+		\item In this picture $\|\vec a\|=4$ and $\theta = \pi/6$.  
+			Find $\|\Proj_{\vec b}\vec a\|$ and $\|\Perp_{\vec b}\vec a\|$.
+		\item If $\vec b=\begin{bmatrix}6\\0\end{bmatrix}$, write down 
+				$\Proj_{\vec b}\vec a$ and $\Perp_{\vec b}\vec a$ in column vector
+				form.
+		\item If $\vec b=\begin{bmatrix}-4\\0\end{bmatrix}$, write down 
+				$\Proj_{\vec b}\vec a$ and $\Perp_{\vec b}\vec a$ in column vector
+				form.
+		\item If $\vec b=\begin{bmatrix}3\\1\end{bmatrix}$, write down 
+				$\Proj_{\vec b}\vec a$ and $\Perp_{\vec b}\vec a$ in column vector
+				form.  (You may need to use your knowledge of how dot products and angles
+				relate to answer this one.)
 		\item Consider $\vec u=\begin{bmatrix}3\\1\end{bmatrix}$.  Compute $\proj_{\xh}\vec u$ and 
 		$\proj_{\yh}\vec u$.  How do these projections relate to the coordinates of $\vec u$? What
 		can you say in general about projections onto $\xh$ and $\yh$?
-	\end{Enum}
-
-	\[
-		\vec w = \begin{bmatrix}4\\4\end{bmatrix}\qquad \vec v=\begin{bmatrix}2\\7\end{bmatrix}
-	\]
-	\begin{Enum}
-		\item Find $\theta$, the angle between $\vec w$ and $\vec v$.
-		\item Use $\theta$ to compute $\proj_{\vec v}\vec w$ and $\proj_{\vec w}\vec v$.
-		\item Write down a formula for $\proj_{\vec b}\vec a$ where $\vec a$ and $\vec b$ are
-		arbitrary vectors.
-	\end{Enum}
-	\begin{Enum}
-		\item For the arbitrary vector $\vec a$, what is $\proj_{3\vec a}\vec a$?
-		\item If $\vec a$ and $\vec b$ are orthogonal (perpendicular) vectors,
-		what is $\proj_{\vec b}\vec a$? $\proj_{\vec a}\vec b$?
 	\end{Enum}
 	
 \newpage
