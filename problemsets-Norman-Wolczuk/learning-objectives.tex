@@ -1,0 +1,241 @@
+\documentclass[letter]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{tikz}
+\usepackage{enumerate}
+
+%%%
+% Set up the margins to use a fairly large area of the page
+%%%
+\oddsidemargin=.4in
+\evensidemargin=.4in
+\textwidth=6in
+\topmargin=0in
+\textheight=9.0in
+\parskip=.07in
+\parindent=0in
+\pagestyle{fancy}
+
+\expandafter\def\expandafter\quote\expandafter{\quote\sf\color{DarkGreen}}
+
+%%%
+% Set up the header
+%%%
+\newcommand{\setheader}[6]{
+	\lhead{{\sc #1}\\{\sc #2} %({\small \it \today})
+	}
+	\rhead{
+		{\bf #3} 
+		\ifthenelse{\equal{#4}{}}{}{(#4)}\\
+		{\bf #5} 
+		\ifthenelse{\equal{#6}{}}{}{(#6)}%
+	}
+}
+
+%%%
+% Set up some shortcut commands
+%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\Null}{\mathrm{null}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+%%%
+% This is where the body of the document goes
+%%%
+\begin{document}
+	\setheader{Math 211 (A01)}{Linear Algebra I}{Learning Objectives}{}{}{}
+
+	\small
+	\section*{Chapter 1}
+
+	\begin{enumerate}
+		\item[\bf Set Notation] 
+			\begin{itemize}
+				\item Given a set in set-builder notation, explicitly specify it by
+					listing its elements or drawing it.
+				\item Identify when one set is a subset of another.
+				\item Compute and specify the result of an expression involving unions and intersections.
+			\end{itemize}
+		\item[\bf Vectors] 
+			\begin{itemize}
+				\item Add and scale vectors specified geometrically or component-wise.
+				\item Write the definition of what it means for two vectors to be equal.
+			\end{itemize}
+		\item[\bf Linear Combinations] 
+			\begin{itemize}
+				\item Write the definition of a linear combination of two vectors.
+				\item Compute linear combinations.
+				\item Write a vector in $\R^2$ as a linear combination of other vectors in $\R^2$.
+				\item Write the definition of span.
+				\item Identify in simple cases (e.g. $\R^2$ or $\R^3$) if a vector is in 
+					the span of others.
+			\end{itemize}
+		\item[\bf Linear Independence] 
+			\begin{itemize}
+				\item Write the definition of linear independence and linear dependence.
+				\item Identify whether simple sets are linearly independent or dependent.
+			\end{itemize}
+		\item[\bf Subspace/Basis] 
+			\begin{itemize}
+				\item Write the definition of a subspace and basis.
+				\item Produce a proof of whether or not a set (described in words or set notation) is
+					a subspace.
+				\item Identify an invalid proof of subspaceness.
+				\item Define dimension.
+			\end{itemize}
+		\item[\bf Dot product/Length] 
+			\begin{itemize}
+				\item Write the definition of the dot product of two vectors written in components as well as 
+					the geometric definition of the dot product involving lengths and angles.
+				\item Write the definition of the length of a vector.
+				\item Compute dot products and lengths.
+				\item Use linearity of the dot product to compute other dot products.
+				\item Find the angle between two vectors.
+				\item Find the distance between two vectors.
+				\item Define and produce unit vectors.
+				\item Define orthogonality.
+			\end{itemize}
+		\item[\bf Projections] 
+			\begin{itemize}
+				\item Define projection.
+				\item Project vectors onto lines and planes.
+			\end{itemize}
+		\item[\bf Lines \& Planes] 
+			\begin{itemize}
+				\item Specify lines and planes as spans or in vector form.
+				\item Specify a given line or plane in scalar form.
+			\end{itemize}
+	\end{enumerate}
+
+	\section*{Chapter 2}
+	\begin{enumerate}
+		\item[\bf SLEs] 
+			\begin{itemize}
+				\item Solve SLEs with unique solutions.
+				\item Convert back and forth between a SLE and an augmented matrix.
+				\item Given two solutions to a SLE, produce another.
+				\item Recite a SLE has $0,1$, or $\infty$ solutions.
+				\item Identify whether a system is inconsistent.
+			\end{itemize}
+		\item[\bf Row Reduction] 
+			\begin{itemize}
+				\item Reduce a matrix to rref.
+				\item Identify whether a matrix is in rref.
+				\item Produce the solution(s) to a SLE from rref form of the augmented matrix.
+				\item List the elementary row operations.
+			\end{itemize}
+		\item[\bf Rank] 
+			\begin{itemize}
+				\item Define rank.
+				\item Compute rank of a given matrix.
+				\item Use rank to determine whether a system has a unique solution.
+			\end{itemize}
+		\item[\bf Spanning Sets] 
+			\begin{itemize}
+				\item Use row reduction to determine if a set of vectors is linearly independent.
+				\item Use row reduction to find a basis for the span of a set of vectors.
+				\item Use row reduction to determine if a vector is in the span of others.
+				\item Use row reduction to write a vector as a linear combination of things in a basis.
+			\end{itemize}
+	\end{enumerate}
+	
+	\section*{Chapter 3}
+	\begin{enumerate}
+		\item[\bf Matrix Ops] 
+			\begin{itemize}
+				\item Index a matrix.
+				\item Add and multiply matrices.
+				\item Produce matrices where the order of multiplication does/doesn't matter.
+				\item Rewrite a SLE as a matrix equation.
+				\item Compute the transpose of a matrix.
+				\item Write out the special matrices $I$ and $0$.
+			\end{itemize}
+		\item[\bf Matrix Inverses] 
+			\begin{itemize}
+				\item Define the inverse of a matrix.
+				\item Compute the inverse of a matrix.
+				\item Solve a matrix equation using an inverse.
+				\item Relate rank and invertibility.
+				\item Produce examples of invertible/non-invertible matrices.
+				\item Prove the inversion formula for matrix products ($(AB)^{-1}=B{-1}A^{-1}$).
+			\end{itemize}
+		\item[\bf Elementary Matrices] 
+			\begin{itemize}
+				\item Define an elementary matrix.
+				\item Find the inverse of an elementary matrix.
+				\item Decompose an invertible matrix as a product of elementary matrices.
+			\end{itemize}
+		\item[\bf Linear Transformations] 
+			\begin{itemize}
+				\item Write the definition of a linear transformation from $\R^n\to\R^m$.
+				\item Compute the image of a vector under a linear transformation described in
+					words or a matrix.
+				\item Produce the standard matrix for a linear transformation described in some
+					other way.
+				\item Determine whether a standard matrix for a linear transformation will be 
+					invertible based on the description of the linear transformation
+					(and without actually trying to compute the inverse of a matrix).
+				\item Define and compute the image/range and null space/kernel of a linear transformation.
+				\item Define and compute the row/column space of a matrix.
+				\item Determine whether or not a given transformation is linear.
+				\item State the rank-nullity theorem.
+				\item Use the rank-nullity theorem to determine the dimension of the image and
+					kernel of a given linear transformation.
+			\end{itemize}
+	\end{enumerate}
+	
+	\section*{Chapter 4}
+	\begin{enumerate}
+		\item[\bf Change of Basis] 
+			\begin{itemize}
+				\item Write a vector given in the standard basis in another basis.
+				\item Write a linear transformation in a different basis.
+			\end{itemize}
+	\end{enumerate}
+	\section*{Chapter 5}
+	\begin{enumerate}
+		\item[\bf Determinants] 
+			\begin{itemize}
+				\item Define the determinant as an oriented volume.
+				\item Relate the determinant to invertibility.
+				\item Compute the determinant of a $2\times 2$, $3\times 3$, or 
+					sparse $n\times n$ matrix.
+				\item Use the multiplicativity, inverse property, and transpose property
+					of the determinant to compute the determinant of a composition of
+					matrices.
+				\item Use determinants to compute volumes.
+				\item Compute the determinant of particular linear transformations (those with
+					nice geometric descriptions) without using a matrix.
+			\end{itemize}
+	\end{enumerate}
+	\section*{Chapter 6}
+	\begin{enumerate}
+		\item[\bf Eigen Vectors/Values] 
+			\begin{itemize}
+				\item Define eigenvectors/values.
+				\item Compute eigenvectors/values.
+				\item Relate the set of eigenvalues of a particular matrix to its determinant.
+				\item Define and compute the characteristic polynomial of a matrix.
+				\item Create a matrix with given eigenvalues/eigenvectors.
+				\item Diagonalize a matrix.
+				\item Define eigen space.
+				\item Use diagonalization to compute large powers of a matrix.
+			\end{itemize}
+	\end{enumerate}
+	\section*{Chapter 7}
+	\begin{enumerate}
+		\item[\bf Orthogonality] 
+			\begin{itemize}
+				\item Use Gram-Schmidt to produce an orthonormal basis for a subspace.
+			\end{itemize}
+	\end{enumerate}
+\end{document}
