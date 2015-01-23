@@ -816,21 +816,27 @@ requestion, or opening an \emph{issue} at
 	
 \newpage
 \section*{Lines, Planes, Normals, Equations}
+	\sep
+	\vspace{-1cm}
 	\begin{Enum}
 		\item Draw $\vec u=\begin{bmatrix}2\\3\end{bmatrix}$ and \emph{all}
 		vectors perpendicular to it.
 		\item If $\vec x=\begin{bmatrix}x\\y\end{bmatrix}$ and $\vec x$ is 
 		perpendicular to $\vec u$, what is $\vec x\cdot \vec u$?
 		\item Expand the dot product $\vec u\cdot \vec x$ to get an equation
-		for a line.  This is called \emph{normal form}
+		for a line.  This equation is called the \emph{scalar equation} representing the line.
 	\end{Enum}
 
-	A \emph{normal vector} to a line is one that is orthogonal to it.
+	\begin{Def}
+		A \emph{normal vector} to a line (or plane or hyperplane) is one that is orthogonal to it.
+	\end{Def}
+
 	\begin{Enum}[resume]
 		\item Rewrite the line $\vec u\cdot \vec x = 0$ in $y=mx+b$ form and verify it matches
 		the line you drew above.
 	\end{Enum}
 
+	\sep
 	We can also write a line in \emph{parametric form} by introducing a parameter
 	that traces out the line as the parameter runs over all real numbers.
 	\begin{Enum}
@@ -842,6 +848,7 @@ requestion, or opening an \emph{issue} at
 		\item Write the line $\vec u \cdot \vec x=0$ (where $\vec u$ is the same as before) in parametric form.
 	\end{Enum}
 	
+	\sep
 	\emph{Vector form} is the same as parametric form but written in vector notation.  For example, the
 	line $L$ from earlier could be written as 
 	\[
@@ -853,7 +860,7 @@ requestion, or opening an \emph{issue} at
 	\]
 
 	\begin{Enum}
-		\item Write $\vec u\cdot \vec x=0$ in vector form.  That is, find a vector $\vec v$ so
+		\item Write the line $\vec u\cdot \vec x=0$ in vector form.  That is, find a vector $\vec v$ so
 		the line $\vec u\cdot \vec x=0$  can be written as
 		\[
 			\begin{bmatrix}x\\y\end{bmatrix} = t\vec v
@@ -866,17 +873,19 @@ requestion, or opening an \emph{issue} at
 	When solving equations, sometimes we get to make choices. For example, 
 	if $x+2y=0$, we can find solutions by fixing either $x$ or $y$ and solving
 	for the other. e.g., if $x=2$, then $y=-1$ and if $y=3$ then $x=-6$.
-
+	
+	\sep
+	\vspace{-1cm}
 	\begin{Enum}
-		\item Write down three solutions $\vec a$, $\vec b$, $\vec c$ to
+		\item Write down three solutions $\vec a$, $\vec b$, $\vec c\in\R^3$ to
 		\begin{equation}\label{eq1}
 			2x+y-z=0.
 		\end{equation}
 		\item Is $2\vec a-\vec b$ a solution?  Is any linear combination of solutions a solution?  Justify why or why not.
-		\item Rewrite equation (\ref{eq1}) in normal form $\vec n\cdot \vec x=0$ where $\vec x=\begin{bmatrix}x\\ y\\ z\end{bmatrix}$.
+		\item Find $\vec n\in\R^3$ so that equation (\ref{eq1}) in is equivalent
+		to $\vec n\cdot \vec x=0$ where $\vec x=\begin{bmatrix}x\\ y\\ z\end{bmatrix}$.
 		\item What do you notice about the angle between solutions to equation (\ref{eq1}) and $\vec n$?
-		\item You've already seen that scalars come out of dot products (e.g., $\vec a\cdot(3\vec b) = 3(\vec a\cdot \vec b)$.
-		Use this combined with normal form to prove a linear combination of solutions is still a solution.
+		\item Prove that any plane of the form $\vec n\cdot \vec x=0$ is a subspace.
 	\end{Enum}
 
 	When writing down solutions to equation (\ref{eq1}), you got to choose two coordinates before the remaining
@@ -906,22 +915,24 @@ requestion, or opening an \emph{issue} at
 	same ``slope'' that passes through the origin, then we translate it
 	to the appropriate place.
 
+	\sep
 	We'd like to write the equation of a line $L$ with normal vector
 	$\vec n=\begin{bmatrix}4\\-1\end{bmatrix}$ that passes through
 	the point $p=\mat{-1\\-1}$
 
 	\begin{Enum}
-		\item Write normal form of the line $L_2$ which is parallel to $L$,
+		\item Give a scalar equation of the line $L_2$ which is parallel to $L$
 		but passes through the origin.
 		\item Draw a picture of $L$ and $L_2$, and find two points that lie on
 		$L$.  Call these points $p_1$ and $p_2$.
-		\item Verify the vector $\vec {p_1p_2}$ is perpendicular to $\vec n$.
+		\item Verify the vector $\overline {p_1p_2}$ is perpendicular to $\vec n$.
 		\item What is $\vec n\cdot p_1$, $\vec n\cdot p_2$, $\vec n\cdot p$?
 		Should these values be zero, equal, or different?  Explain (think about
 		projections).
 		\item How does the equation $\vec n\cdot (\vec x-p)=0$ relate to $L$?
 	\end{Enum}
 
+	\sep
 	$W$ is the plane with normal vector $\vec n=\mat{1\\2\\3}$ and passes through
 	the point $p=\mat{1\\1\\2}$.
 	\begin{Enum}
