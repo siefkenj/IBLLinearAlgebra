@@ -948,6 +948,7 @@ requestion, or opening an \emph{issue} at
 	multiplication by constants, and addition/subtraction.  \emph{Systems}
 	of equations are sets of equations that share common variables.
 
+	\sep
 	Consider the system
 	\begin{equation}\label{eq2}
 		\begin{array}{ll}
@@ -961,6 +962,8 @@ requestion, or opening an \emph{issue} at
 		\item Algebraically solve the system (\ref{eq2}).  What does this 
 		solution represent on your graph?
 	\end{Enum}
+	
+	\sep
 	Let $L$ be the line given by $x-y=2$.
 	\begin{Enum}
 		\item Write an equation of a line that doesn't intersect $L$.
@@ -971,12 +974,14 @@ requestion, or opening an \emph{issue} at
 			\item exactly two places
 		\end{enumerate}
 		or explain why no such equation exists.
-		\item For each equation you came up with solve the system algebraically.
+		\item For each equation you came up with, solve the system algebraically.
 		How can you tell algebraically how many solutions there are?
 	\end{Enum}
 
 \subsection*{The Row Reduction Algorithm}
 
+	\sep
+	\vspace{-1cm}
 	\begin{Enum}
 		\item Solve the system
 		\begin{equation}\label{eq3}
@@ -1006,8 +1011,10 @@ requestion, or opening an \emph{issue} at
 
 		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
 		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
+		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
 	\end{Enum}
 
+	\sep
 	Consider the augmented matrix
 	\[
 		A=\left[\begin{array}{ccc|c}
@@ -1022,6 +1029,7 @@ requestion, or opening an \emph{issue} at
 	\end{Enum}
 
 \subsection*{Infinite Solutions}
+	\sep
 	Consider the system
 	\begin{equation}\label{eq4}
 		\begin{array}{ll}
@@ -1039,6 +1047,7 @@ requestion, or opening an \emph{issue} at
 
 
 \subsection*{Free Variables}
+	\sep
 	Suppose the row-reduced augmented matrix corresponding to 
 	a system is
 	\[
@@ -1056,6 +1065,7 @@ requestion, or opening an \emph{issue} at
 		system represented by $B$.
 	\end{Enum}
 
+	\sep
 	Consider the system given by the augmented matrix
 	\[
 		C=\left[\begin{array}{ccccc|c}
@@ -1076,6 +1086,8 @@ requestion, or opening an \emph{issue} at
 		\item Write in vector form all solutions to $C$.
 	\end{Enum}
 
+	\sep
+	\vspace{-1cm}
 	\begin{Enum}
 		\item An unknown system $U$ is represented by an augmented
 		matrix with 4 rows and 6 columns.  What is 
@@ -1086,6 +1098,38 @@ requestion, or opening an \emph{issue} at
 		the minimum number of
 		free variables solutions to $V$ will have?
 	\end{Enum}
+	
+	\sep
+	\begin{Def}
+		A system is called \emph{homogeneous} if all equations equal $0$.
+	\end{Def}
+
+		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
+		 $(x,y,z)=(1,2,1)$ and
+		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
+	\begin{Enum}
+		\item Can you produce another solution
+		to the system?
+
+		\item  Can you
+		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
+		equation equals 0)?
+
+		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
+		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
+	\end{Enum}
+
+\newpage
+\section*{Span Again, and the Homogeneous Case}
+	\sep
+	Consider the system 
+		\begin{equation}\label{eq4b}
+			\begin{array}{llll}
+				x&-y&-z &= 0\\
+				0x&+1y&+2z &= 0\\
+				3x&-3y&+3z &= 0
+			\end{array}
+		\end{equation}
 
 \newpage
 
