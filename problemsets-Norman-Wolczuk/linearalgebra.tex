@@ -4,7 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{enumitem}
+\usepackage[inline]{enumitem}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{xparse}
@@ -73,6 +73,7 @@
 \newcommand{\Span}{\mathrm{span}\,}
 \newcommand{\rref}{\mathrm{rref}}
 \newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Rank}{\mathrm{rank}}
 \newcommand{\nnul}{\mathrm{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\chr}{\mathrm{char}}
@@ -1120,16 +1121,147 @@ requestion, or opening an \emph{issue} at
 	\end{Enum}
 
 \newpage
-\section*{Span Again, and the Homogeneous Case}
+\section*{Rank}
+\begin{Def}
+	The \emph{rank} of the matrix $A$ is the number of leading ones in the 
+	reduced row echelon form of $A$.
+\end{Def}
+
+	\sep
+	\vspace{-1cm}
+	\begin{Enum}
+		\item Determine the rank of
+		\begin{enumerate*}
+			\item $\mat{1&1\\2&2}$
+			\item $\mat{1&2\\3&4}$
+			\item $\mat{1&1&0\\0&0&1}$
+			\item $\mat{3\\3\\2}$
+			\item $\mat{1&0&1\\0&1&0\\0&0&1}$.
+		\end{enumerate*}
+	\end{Enum}
+	
+	\sep
+	Consider the homogeneous system 
+		\begin{equation}\label{eq4b}
+			\begin{array}{llll}
+				x&+2y&+z &= 0\\
+				x&+2y&+3z &= 0\\
+				-x&-2y&+z &= 0
+			\end{array}
+		\end{equation}
+	and the non-augmented matrix of coefficients $A=\mat{1&2&1\\1&2&3\\-1&-2&1}$.
+	\begin{Enum}
+		\item What is $\Rank(A)$?
+		\item Give the general solution to \eqref{eq4b}.
+		\item Are the column vectors of $A$ linearly independent?
+		\item Give a non-homogeneous system with the same coefficients as \eqref{eq4b} that has
+			\begin{enumerate}
+				\item infinitely many solutions
+				\item no solutions.
+			\end{enumerate}
+	\end{Enum}
+
+	\sep
+	\vspace{-1cm}
+	\begin{Enum}
+		\item The rank of a $3\times 4$ matrix $A$ is $3$.  Are the column vectors of $A$ linearly independent?
+		\item The rank of a $4\times 3$ matrix $B$ is $3$.  Are the column vectors of $B$ linearly independent?
+	\end{Enum}
+
+\section*{Span Again}
 	\sep
 	Consider the system 
-		\begin{equation}\label{eq4b}
+		\begin{equation}\label{eq4bc}
 			\begin{array}{llll}
 				x&-y&-z &= 0\\
 				0x&+1y&+2z &= 0\\
 				3x&-3y&+3z &= 0
 			\end{array}
 		\end{equation}
+	which has the unique solution $(x,y,z)=(0,0,0)$.
+	\begin{Enum}
+		\item Give vectors $\vec u,\vec v,\vec w$ so that the system \eqref{eq4bc}
+			corresponds to the vector equation $x\vec u+y\vec v+z\vec w = \vec 0$.
+		\item Is $\vec w\in\Span\{\vec u,\vec v\}$? If so, write it as a linear combination
+			of $\vec u$ and $\vec v$.
+	\end{Enum}
+
+	The matrix $M$ is the non-augmented matrix corresponding to a homogeneous system of linear equations.
+	$M$ also corresponds to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.  Further, we know
+	\[
+		\rref(M) = \mat{1&0&1\\0&1&-2\\0&0&0}.
+	\]
+	\begin{Enum}[resume]
+		\item Give a solution to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.
+		\item Is $\vec c\in\Span\{\vec a,\vec b\}$?  If so, write it as a linear combination
+			of $\vec a$ and $\vec b$.
+		\item Do you have enough information to tell if $\{\vec a,\vec b\}$ is linearly independent?  Why or why not?
+	\end{Enum}
+
+\subsection*{Finding Linearly Independent Subsets}
+	\sep
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec 0$ you have no free variables.
+	
+	\begin{Enum}
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+	\end{Enum}
+	
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a 
+	free variable.
+	
+	\begin{Enum}[resume]
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec v\}$ linearly independent?
+	\end{Enum}
+
+	\begin{Def}
+	Given a set of vectors $X$, a 
+	\emph{maximal linearly independent subset} of $X$ is a linearly independent
+	subset $V\subseteq X$ with the most possible vectors in it 
+	(i.e., if you took any subset of $X$ with more vectors, it would be linearly
+	dependent).
+	\end{Def}
+
+	\sep
+	\vspace{-.7cm}
+	\begin{Enum}
+		\item Give a maximal linearly independent subset, $T$, of
+		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
+		\item What is the size of $T$?
+	\end{Enum}
+
+	\sep
+	Consider the vectors
+	\[
+		\vec v_1=\mat{1\\2\\1}
+		\qquad
+		\vec v_2=\mat{-1\\-1\\-1}
+		\qquad
+		\vec v_3=\mat{0\\1\\0}
+		\qquad
+		\vec v_4=\mat{-1\\2\\0}
+		\qquad
+		\vec v_5=\mat{1\\-1\\1}
+	\]
+	and the matrices
+	\[
+		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
+		\qquad \rref (A)
+		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
+	\]
+	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots, \vec v_5$)
+
+	\begin{Enum}
+		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
+		independent?
+		\item Pick a maximal linearly independent subset of $V$.
+		\item Pick another (different) maximal linearly independent subset of $V$.
+		\item Give a basis for $\Span(V)$.
+		\item What is the dimension of $V$?
+	\end{Enum}
 
 \newpage
 
@@ -1188,61 +1320,6 @@ requestion, or opening an \emph{issue} at
 	\end{Enum}
 
 
-\subsection*{Finding Linearly Independent Subsets}
-	Suppose when you use an augmented matrix to solve
-	$a\vec u+b\vec v+c\vec w=\vec y$ you have no free variables.
-	
-	\begin{Enum}
-		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
-	\end{Enum}
-	
-	Suppose when you use an augmented matrix to solve
-	$a\vec u+b\vec v+c\vec w=\vec y$ the second column corresponds to a 
-	free variable.
-	
-	\begin{Enum}[resume]
-		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
-		\item Is $\{\vec u,\vec w\}$ linearly independent?
-		\item Is $\{\vec u,\vec v\}$ linearly independent?
-	\end{Enum}
-
-	A \emph{maximal linearly independent subset} $X$ of a set of vectors $V$
-	is a linearly independent subset of $V$ with the most possible vectors in it 
-	(i.e., if you took any subset of $V$ with more vectors, it would be linearly
-	dependent).
-
-	\begin{Enum}
-		\item Give a maximal linearly independent subset, $T$, of
-		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
-		\item What is the size of $T$?
-	\end{Enum}
-
-	Consider the vectors
-	\[
-		\vec v_1=\mat{1\\2\\1}
-		\qquad
-		\vec v_2=\mat{-1\\-1\\-1}
-		\qquad
-		\vec v_3=\mat{0\\1\\0}
-		\qquad
-		\vec v_4=\mat{-1\\2\\0}
-		\qquad
-		\vec v_5=\mat{1\\-1\\1}
-	\]
-	and the matrices
-	\[
-		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
-		\qquad \rref (A)
-		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
-	\]
-	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots \vec v_5$)
-
-	\begin{Enum}
-		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
-		independent?
-		\item Pick a maximal linearly independent subset of $V$.
-		\item Pick another (different) maximal linearly independent subset of $V$.
-	\end{Enum}
 
 \newpage
 \section*{Matrices}
