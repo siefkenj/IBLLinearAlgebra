@@ -1407,6 +1407,7 @@ requestion, or opening an \emph{issue} at
 \newpage
 \section*{Linear Transformations}
 
+\vspace{-.5cm}
 \sep
 $\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
 by $90^\circ$.
@@ -1419,6 +1420,7 @@ by $90^\circ$.
 		counter clockwise by $90^\circ$.
 \end{Enum}
 
+\vspace{-.5cm}
 \sep
 $\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
 and contracts in the $\yh$ direction by a factor of $3$.
@@ -1426,16 +1428,17 @@ and contracts in the $\yh$ direction by a factor of $3$.
 	\item Write a matrix representation of $\mathcal S$.
 \end{Enum}
 
-	\begin{Def}
-	A \emph{Linear Transformation} is a transformation of vectors 
-	that distributes with respect to vector addition and scalar multiplication.  That is $T$
+	\vspace{-.8cm}
+\begin{Def}
+	A \emph{linear transformation} is a function that takes in vectors and outputs vectors and which
+	distributes with respect to vector addition and scalar multiplication.  That is $T:\R^n\to\R^m$
 	is a linear transformation if
 	\[
 		T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
 		T(a\vec v)=aT\vec v
 	\]
 	for all scalars $a$.
-	\end{Def}
+\end{Def}
 
 \sep
 \vspace{-.8cm}
@@ -1446,11 +1449,12 @@ and contracts in the $\yh$ direction by a factor of $3$.
 			\item $\mathcal S$ from above.
 			\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
 			\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
-			\item $P:\R^2\to\R^2$ where $P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
+			\item $\mathcal P:\R^2\to\R^2$ where $\mathcal P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
 				$\vec u=\mat{2\\3}$.
 		\end{enumerate}
 \end{Enum}
 
+\vspace{-.2cm}
 It turns out every linear transformation can be written as a matrix (in fact
 this is why matrix multiplication was invented).
 
@@ -1470,6 +1474,7 @@ Matrix multiplication was designed to exactly model composition of linear transf
 	\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
 \end{Enum}
 
+\vspace{-.8cm}
 \begin{Def}
 	The \emph{range} (or \emph{image}) of a linear transformation $T:\R^n\to\R^m$ is the set of vectors that
 	$T$ can output.  That is,
@@ -1477,6 +1482,7 @@ Matrix multiplication was designed to exactly model composition of linear transf
 		\Range(T)=\{\vec y\in\R^m:\vec y=T\vec x\text{ for some }\vec x\in \R^n\}.
 	\]
 \end{Def}
+\vspace{-.4cm}
 \begin{Def}
 	The \emph{null space} (or \emph{kernel}) of a linear transformation $T:\R^n\to\R^m$ is the
 	set of vectors that get mapped to zero under $T$.  That is,
@@ -1500,6 +1506,62 @@ Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
 \end{Enum}
 
 
+\vspace{-.8cm}
+\begin{Def}
+	Associated with any matrix $M$ are three fundamental subspaces: the \emph{row space}
+	of $M$ is the span of the rows of $M$; the \emph{column space} of $M$ is the span
+	of the columns of $M$; and the \emph{null space} of $M$ is the set of solutions
+	to $M\vec x=\vec 0$. 
+	
+	The \emph{nullity} of $M$ is the dimension of the null space of $M$.
+\end{Def}
+
+\sep
+Consider $A=\mat{1&0&0\\0&1&0}$.
+\begin{Enum}
+	\item Describe the row space of $A$.
+	\item Describe the column space of $A$.
+	\item Is the row space of $A$ the same as the column space of $A$?
+	\item Describe the set of all vectors perpendicular to the rows of $A$.
+	\item Describe the null space of $A$.
+\end{Enum}
+
+\sep
+\vspace{-.5cm}
+\[
+	B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
+\]
+\begin{Enum}
+	\item How does the row space of $B$ relate to the row space of $C$?
+	\item How does the null space of $B$ relate to the null space of $C$?
+	\item Compute the null space of $B$.
+\end{Enum}
+
+\sep
+\[
+	P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
+\]
+\begin{Enum}
+	\item How does the column space of $P$ relate to the column space of $Q$?
+	\item Describe the columns space of $P$ and the column space of $Q$.
+\end{Enum}
+
+\begin{Def}
+The \emph{nullity} of a matrix is the dimension of the null space.
+
+The rank-nullity theorem states
+\[
+	\rank(A)+\nnul(A) = \#\text{of rows in }A.
+\]
+\end{Def}
+
+\sep
+The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
+Define $A=[\vec u|\vec v|\vec w]$.
+\begin{Enum}
+	\item What is the rank and nullity of $A^T$?
+	\item What is the rank and nullity of $A$?
+\end{Enum}
 
 \newpage
 \section*{Matrix Inverses}
@@ -1612,51 +1674,6 @@ When dealing with matrices, there are several subspaces we often refer to
 		$A\vec x=\vec 0$.
 \end{itemize}
 
-\sep
-Consider $A=\mat{1&0&0\\0&1&0}$.
-\begin{Enum}
-	\item Describe the row space of $A$.
-	\item Describe the column space of $A$.
-	\item Is the row space of $A$ the same as the column space of $A$?
-	\item Describe the set of all vectors perpendicular to the rows of $A$.
-	\item Describe the null space of $A$.
-\end{Enum}
-
-\sep
-\[
-	B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
-\]
-\begin{Enum}
-	\item How does the row space of $B$ relate to the row space of $C$?
-	\item How does the null space of $B$ relate to the null space of $C$?
-	\item Compute the null space of $B$.
-\end{Enum}
-
-\sep
-\[
-	P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
-\]
-\begin{Enum}
-	\item How does the column space of $P$ relate to the column space of $Q$?
-	\item Describe the columns space of $P$ and the column space of $Q$.
-\end{Enum}
-
-\begin{Def}
-The \emph{nullity} of a matrix is the dimension of the null space.
-
-The rank-nullity theorem states
-\[
-	\rank(A)+\nnul(A) = \#\text{of rows in }A.
-\]
-\end{Def}
-
-\sep
-The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
-Define $A=[\vec u|\vec v|\vec w]$.
-\begin{Enum}
-	\item What is the rank and nullity of $A^T$?
-	\item What is the rank and nullity of $A$?
-\end{Enum}
 
 \newpage
 
