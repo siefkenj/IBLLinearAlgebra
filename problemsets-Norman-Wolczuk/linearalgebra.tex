@@ -1551,7 +1551,7 @@ The \emph{nullity} of a matrix is the dimension of the null space.
 
 The rank-nullity theorem states
 \[
-	\rank(A)+\nnul(A) = \#\text{of rows in }A.
+	\rank(A)+\nnul(A) = \#\text{ of columns in }A.
 \]
 \end{Def}
 
@@ -1613,6 +1613,7 @@ Define $A=[\vec u|\vec v|\vec w]$.
 		E=\mat{1&0&0\\0&2&0\\0&1&1}\qquad
 		F=\mat{1&0&0\\0&1&0\\0&0&1}
 	\]
+	\vspace{-.7cm}
 	\begin{Enum}
 		\item Which pairs of matrices above are inverses of each other?
 	\end{Enum}
@@ -1622,6 +1623,7 @@ Define $A=[\vec u|\vec v|\vec w]$.
 	\[
 		B=\mat{1 &4\\0 &2}
 	\]
+	\vspace{-.7cm}
 	\begin{Enum}
 		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
 		and write an elementary matrix $E_1$ corresponding to the first operation
@@ -1651,42 +1653,83 @@ Define $A=[\vec u|\vec v|\vec w]$.
 	\vspace{-.8cm}
 	\begin{Enum}
 		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
+			could $M$ be invertible?
 	\end{Enum}
 
-	\sep
-	\vspace{-.5cm}
-	\[
-		A^{-1}=\mat{-1&-2\\1&1}\qquad B^{-1}=\mat{1/3&-2/3\\0&1}\qquad 
-		AB=\mat{3&4\\-3&-3}
-	\]
-	\begin{Enum}
-		\item Find $(AB)^{-1}$.
-		\item Solve $AB\vec x=\mat{-1\\3}$.
-	\end{Enum}
+%	\sep
+%	\vspace{-.5cm}
+%	\[
+%		A^{-1}=\mat{-1&-2\\1&1}\qquad B^{-1}=\mat{1/3&-2/3\\0&1}\qquad 
+%		AB=\mat{3&4\\-3&-3}
+%	\]
+%	\begin{Enum}
+%		\item Find $(AB)^{-1}$.
+%		\item Solve $AB\vec x=\mat{-1\\3}$.
+%	\end{Enum}
 	
-\subsection*{Changing Basis}
+\section*{Change of Basis}
+	\sep
+	Let $\vec b_1=\mat{1\\1}$, $\vec b_2=\mat{1\\-1}$, $\vec c=\mat{4\\0}$, and $\mathcal B=\{\vec b_1,\vec b_2\}$.
+	\begin{Enum}
+		\item Is $\mathcal B$ a basis for $\R^2$?
+		\item Find coefficients $\alpha_1$ and $\alpha_2$ so that $\vec c=\alpha_1\vec b_1+\alpha_2\vec b_2$.
+	\end{Enum}
+	We call the vector $\mat{\alpha_1\\\alpha_2}$ the representation of $\vec c$ in the $\mathcal B$ basis and notate
+	this by $[\vec c]_{\mathcal B}=\mat{\alpha_1\\\alpha_2}$.
+	\begin{Enum}[resume]
+		\item Compute $[\vec e_1]_{\mathcal B}$ and $[\vec e_2]_{\mathcal B}$.
+	\end{Enum}
+	Let $X=[\vec b_1|\vec b_2]$ be the matrix whose columns are $\vec b_1$ and $\vec b_2$.
+	\begin{Enum}[resume]
+		\item Compute $X[\vec c]_{\mathcal B}$.  What do you notice?
+	\end{Enum}
 
+	
+	\sep
+	Let $\mathcal S=\{\vec e_1,\vec e_2,\ldots,\vec e_n\}$ be the standard basis for $\R^n$.
+	Given a basis $\mathcal B=\{\vec b_1,\vec b_2,\ldots,\vec b_n\}$ for $\R^n$, the 
+	matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ converts
+	vectors from the $\mathcal B$ basis into the standard basis.  In other words,
+	\[
+		X[\vec v]_{\mathcal B} = [\vec v]_{\mathcal S}.
+	\]
+	\vspace{-1cm}
+	\begin{Enum}
+		\item Should $X^{-1}$ exist? Explain.
+		\item Consider the equation\[
+				X^{-1}[\vec v]_{?} = [\vec v]_{?}.
+			\]
+			Can you fill in the ``?'' symbols so that the equation makes sense?
+		\item What is $[\vec b_1]_{\mathcal B}$?  How about $[\vec b_2]_{\mathcal B}$?  Can
+			you generalize to $[\vec b_i]_{\mathcal B}$?
+	\end{Enum}
 
 	\sep
-	Like we've seen before 
-\subsection*{Algorithms for Computing Inverses}
+	Let $\vec c_1=\mat{2\\1}$, $\vec c_2=\mat{5\\3}$, $\mathcal C=\{\vec c_1,\vec c_2\}$, and $A=\mat{2&5\\1&3}$.
+	Note that $A^{-1}=\mat{3&-5\\-1&2}$ and that $A$ changes vectors from the $\mathcal C$ basis to standard
+	basis and $A^{-1}$ changes vectors from the standard basis to the $\mathcal C$ basis.
 	\begin{Enum}
-		\item What is $A\mat{1\\0\\0}$, $A\mat{0\\1\\0}$
-			and $A\mat{0\\0\\1}$? (Where $A$ is the matrix from earlier).
+		\item Compute $[\vec c_1]_{\mathcal C}$ and $[\vec c_2]_{\mathcal C}$.
 	\end{Enum}
-	If $A$ is invertible (which it happens to be) we could solve 
-	the system $A\vec x=\mat{1\\0\\0}$ as $\vec x=A^{-1}\mat{1\\0\\0}$.
-
+	Let $T:\R^2\to\R^2$ be the linear transformation that stretches in the $\vec c_1$ direction by a factor of $2$
+	and doesn't stretch in the $\vec c_2$ direction at all.
 	\begin{Enum}[resume]
-		\item Solve $A\vec x=\mat{1\\0\\0}$,  $A\vec x=\mat{0\\1\\0}$, 
-			and $A\vec x=\mat{0\\0\\1}$
+		\item Compute $T\mat{2\\1}$ and $T\mat{5\\3}$.
+		\item Compute $[T\vec c_1]_{\mathcal C}$ and $[T\vec c_2]_{\mathcal C}$.
+		\item Compute the result of $T\mat{\alpha\\\beta}_{\mathcal C}$ and express the result in the
+			$\mathcal C$ basis (i.e., as a vector of the form $\mat{?\\?}_{\mathcal C}$).
+		\item Find a matrix for $T$ in the $\mathcal C$ basis.
+		\item Find a matrix for $T$ in the standard basis.
 	\end{Enum}
-	\[
-		D=[A|I_{3\times 3}]
-	\]
-	\begin{Enum}[resume]
-	\item What is $\rref(D)$?
-	\end{Enum}
+	\begin{Def}
+		A matrix $A$ and a matrix $B$ are \emph{similar matrices}, denoted $A\sim B$, if
+		$A$ and $B$ represent the same linear transformation but in possibly different bases.
+		Equivalently, $A\sim B$ if there is an invertible matrix $X$ so that
+		\[
+			A=XBX^{-1}.
+		\]
+	\end{Def}
 
 \newpage
 
