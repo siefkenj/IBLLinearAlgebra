@@ -1732,40 +1732,19 @@ Define $A=[\vec u|\vec v|\vec w]$.
 	\end{Def}
 
 \newpage
+\section*{Determinants}
+	\vspace{-1cm}
+	\begin{Def}
+		The unit $n$-cube is the $n$-dimensional cube with side length 1 and lower-left
+		corner located at the origin.  That is 
+		\[
+			C_n = \left\{\vec x\in\R^n:\vec x=\sum_{i=1}^n \alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]\right\}=[0,1]^n.
+		\]
+	\end{Def}
+	The volume of the unit $n$-cube is always 1.
 
-When dealing with matrices, there are several subspaces we often refer to 
-\begin{itemize}
-	\item The \emph{row space} of $A$ is the span of the row vectors in $A$.
-	\item The \emph{column space} of $A$ is the span of the column vectors in $A$.
-	\item The \emph{null space} of $A$ is the set of vectors $\vec x$ so that 
-		$A\vec x=\vec 0$.
-\end{itemize}
-
-
-\newpage
-
-\sep
-Not only is every linear transformation modeled by a matrix, but every matrix models a linear
-transformation.
-
-\begin{Enum}
-	\item Describe in words the transformation that each matrix represents.
-		\begin{enumerate}
-			\item $A=\mat{2&0&0\\0&1&0\\0&0&3}$
-			\item $B=\mat{1&0&0\\0&1&0\\0&0&0}$
-			\item $C=\mat{0&0&1\\0&1&0\\1&0&0}$
-			\item $D=\mat{1/2&1/2}$
-			\item $E=\mat{\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}\\\frac{\sqrt{3}}{3}}$
-		\end{enumerate}
-	\item Which transformations listed above are invertible?
-	\item For each transformation, describe its image as a point, line,
-		plane, or other.  How does this relate to the column space?
-\end{Enum}
-
-\newpage
-\section*{Eigenvectors}
 	\sep
-	The picture shows what the transformation $T$ does to the unit square.
+	The picture shows what the linear transformation $T$ does to the unit square (i.e., the unit $2$-cube).
 
 	\includegraphics[width=2.5in]{images/transform1b.pdf}
 	\includegraphics[width=2.5in]{images/transform2b.pdf}
@@ -1775,28 +1754,11 @@ transformation.
 	\begin{Enum}
 		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
 		\item Write down a matrix for $T$.
-		\item Are there any vectors $\vec v$ so that $T\vec v$ points in the
-			same direction as $\vec v$?
+		\item What is the volume of the image of the unit square (i.e., the volume of $T(C_2)$)?  You may need
+			to use trigonometry.
 	\end{Enum}
 	
-	\begin{Def}
-	For a transformation $X$, an \emph{eigenvector} for $X$ is a vector that doesn't
-	change directions when $X$ is applied.  That is,
-	\[
-		X\vec v=\lambda \vec v
-	\]
-	for some $\lambda\in\R$.  $\lambda$ is called the \emph{eigenvalue} 
-	of $X$ corresponding
-	to the eigenvector $\vec v$.
-	\end{Def}
-
-	\begin{Enum}[resume]
-		\item Give an eigenvector for $T$.  What is the eigenvalue?
-		\item Can you give another?
-	\end{Enum}
-
-	We will now develop tools to allow us to compute eigenvalues and eigenvectors.
-
+	\vspace{-.7cm}
 	\begin{Def}
 	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
 	oriented volume of the image of the unit $n$-cube.  The determinant
@@ -1806,25 +1768,22 @@ transformation.
 	\end{Def}
 
 	\sep
-	Let $\mathcal S$ be the unit square in $\R^2$ (The $1\times 1$ square with lower
-	left corner at the origin).
-
 	We know the following about the transformation $A$:
 	\[
 		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
 	\]
 	\begin{Enum}
-		\item Draw $\mathcal S$ and $A\mathcal S$, the image of the unit square
+	\item Draw $C_2$ and $A(C_2)$, the image of the unit square
 			under $A$.
-		\item Compute the area of $A\mathcal S$.
+		\item Compute the area of $A (C_2)$.
 		\item Compute $\det(A)$.
 	\end{Enum}
 
 	\sep
 	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
 	\begin{Enum}
-		\item Draw $\mathcal S$ and $R\mathcal S$.
-		\item Compute the area of $R\mathcal S$.
+	\item Draw $C_2$ and $R(C_2)$.
+	\item Compute the area of $R(C_2)$.
 		\item Compute $\det(R)$.
 	\end{Enum}
 	
@@ -1885,27 +1844,51 @@ transformation.
 	\emph{determine} if a matrix is invertible.
 
 \newpage
-\section*{Eigenvectors and Eigenvalues Cont.}
+\section*{Eigenvectors}
+	\vspace{-1cm}
+	\begin{Def}
+	For a transformation $X$, an \emph{eigenvector} for $X$ is a vector that doesn't
+	change directions when $X$ is applied.  That is, $\vec v$ is an eigenvector for $X$ if
+	\[
+		X\vec v=\lambda \vec v
+	\]
+	for some $\lambda\in\R$.  We call $\lambda$ the \emph{eigenvalue} 
+	of $X$ corresponding
+	to the eigenvector $\vec v$.
+	\end{Def}
 
 	\sep
-	For some matrix $A$,
-	\[
-		A\mat{3\\3\\1}=\mat{2\\2\\2/3}.
-	\]
+	The picture shows what the linear transformation $T$ does to the unit square (i.e., the unit $2$-cube).
+	
+	\vspace{-1cm}
+	\includegraphics[width=2in]{images/transform1b.pdf}
+	\includegraphics[width=2in]{images/transform2b.pdf}
+
+	\vspace{-2.5cm}
 	\begin{Enum}
-		\item Give an eigenvector and a corresponding eigenvalue for $A$.
+		\item Give an eigenvector for $T$.  What is the eigenvalue?
+		\item Can you give another?
 	\end{Enum}
 
+
+	\vspace{-.4cm}
 	\sep
-	$B=A-\frac{2}{3}I$.
+	For some matrix $A$,
+	\vspace{-.5cm}
+	\[
+		A\mat{3\\3\\1}=\mat{2\\2\\2/3}\qquad\text{ and }\qquad B=A-\tfrac{2}{3}I.
+	\]
+	\vspace{-.7cm}
 	\begin{Enum}
+		\item Give an eigenvector and a corresponding eigenvalue for $A$.
 		\item What is $B\mat{3\\3\\1}$?
 		\item What is the dimension of $\text{null}(B)$?
 		\item What is $\det(B)$?
 	\end{Enum}
 
+	\vspace{-.4cm}
 	\sep
-	$C=\mat{-1&2\\1&0}$ and $E_\lambda = C-\lambda I$
+	Let $C=\mat{-1&2\\1&0}$ and $E_\lambda = C-\lambda I$.
 	\begin{Enum}
 		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
 			null space?
@@ -1913,7 +1896,7 @@ transformation.
 		\item Find the eigenvectors of $C$.
 	\end{Enum}
 	
-	\sep
+	\vspace{-.8cm}
 	\begin{Def}
 	For a matrix $A$, the \emph{characteristic polynomial} of $A$ is
 	\[
@@ -1921,14 +1904,15 @@ transformation.
 	\]
 	\vspace{-.3in}
 	\end{Def}
-
-	\vspace{.2in}
+	
+	\sep
 	Let $D=\mat{1&2\\3&0}$.
 	\begin{Enum}
 		\item Compute $\chr(D)$.
 		\item Find the eigenvalues of $D$.
 	\end{Enum}
 
+	\vspace{-.4cm}
 	\sep
 	Suppose $\chr(E)=\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
 	matrix $E$.
@@ -1954,36 +1938,26 @@ transformation.
 		\item Compute $A\vec u$ where $\vec u=a\vec v_1+b\vec v_2+c\vec v_3$ for
 			unknown scalar coefficients $a,b,c$.
 	\end{Enum}
-	Notice that $V=\{\vec v_1,\vec v_2,\vec v_3\}$ is a basis for $\R^3$.
+	Notice that $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ is a basis for $\R^3$.
 	\begin{Enum}[resume]
-	\item If $\vec x=\mat{1\\3\\4}_V$ is $\vec x$ written in the $V$ basis,
-		compute $A\vec x$ in the $V$ basis.
+	\item If $\vec x=\mat{1\\3\\4}_{\mathcal V}$ is $\vec x$ written in the $\mathcal V$ basis,
+		compute $A\vec x$ in the $\mathcal V$ basis.
 	\end{Enum}
 	
 	\sep
-	The transformation $P$ takes vectors in the standard basis and outputs
-	vectors in the $V$ basis.  
+	The transformation $P^{-1}$ takes vectors in the standard basis and outputs
+	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).  
 	\begin{Enum}
-		\item Describe in words what $P^{-1}$ does.
+		\item Describe in words what $P$ does.
 		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
 			$A\vec y$ for any $\vec y\in \R^3$.
 		\item Can you find a matrix $D$ so that
 			\[
 				P^{-1}DP=A?
 			\]
-		\item $\vec x=\mat{1\\3\\4}_V$.  Compute $A^{100}\vec x$.
+		\item $\vec x=\mat{1\\3\\4}_{\mathcal V}$.  Compute $A^{100}\vec x$.
 	\end{Enum}
 
-	\begin{Def}
-	Two matrices $A,B$ are called \emph{similar} if there is a matrix $P$ so that
-	\[
-		A=PBP^{-1}.
-	\]
-	Similar matrices represent the same transformation but in different bases.
-
-	A matrix $A$ is called \emph{diagonalizable} if $A$ is similar to 
-	a diagonal matrix $D$.
-	\end{Def}
 
 	\sep
 	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
@@ -1992,7 +1966,7 @@ transformation.
 	
 
 	\begin{Enum}
-		\item Is $T$ diagonalizable?  If so, explain how to obtain its diagonalized form.
+	\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
 		\item What if one of the eigenvalues of $T$ is zero?  Is $T$ diagonalizable?
 		\item What if the eigenvectors of $T$ did not form a basis for $\R^n$.
 			Would $T$ be diagonalizable?
