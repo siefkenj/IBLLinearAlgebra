@@ -1,0 +1,384 @@
+\documentclass{problemset}
+\usepackage{amsmath}
+
+\usepackage{lipsum}
+%\usepackage{showframe}
+\usepackage{layout}
+
+
+\usepackage[charter,cal=cmcal]{mathdesign} %different font
+\usepackage{microtype}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{calc}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+%%%
+% Useful Linear Algebra macros
+%%%
+\newcommand{\ul}{$\underline{\phantom{xxx}}$}
+\newcommand{\ull}{\underline{\phantom{xxx}}}
+\newcommand{\xh}{{\hat {\mathbf x}}}
+\newcommand{\yh}{{\hat {\mathbf y}}}
+\newcommand{\zh}{{\hat {\mathbf z}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Perp}{\mathrm{perp}}
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\Span}{\mathrm{span}\,}
+\newcommand{\Img}{\mathrm{img}\,}
+\newcommand{\Null}{\mathrm{null}\,}
+\newcommand{\Range}{\mathrm{range}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\chr}{\mathrm{char}}
+\renewcommand{\d}{\mathrm{d}}
+
+%\tcbuselibrary{skins}
+%\usetikzlibrary{shadings}
+
+
+%%%
+% Set up the margins to use a fairly large area of the page
+%%%
+\textwidth=6in
+\topmargin=-1in
+\textheight=10in
+\parskip=.07in
+\parindent=0in
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+{\huge\bf Inquiry Based Vector Calculus}\\
+
+\vspace{.7in}
+{
+\it \copyright\,Jason Siefken, 2016 \\
+Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}
+}
+\end{center}
+
+\section*{About the Document}
+
+	This document was originally designed in the spring of 2016 to guide students
+	through an ten week Linear Algebra course (Math 281-3) at
+	Northwestern University.  
+
+	A typical class day using the problem-sets:
+	\begin{enumerate}
+		\item {\bf Introduction by instructor.} This may involve giving a definition,
+			a broader context for the day's topics, or answering questions.
+		\item {\bf Students work on problems.} Students work individually or in pairs
+			on the prescribed problem.  During this time the instructor moves around
+			the room addressing questions that students may have and giving one-on-one
+			coaching.
+		\item {\bf Instructor intervention.} If most students have successfully solved the 
+			problem, the instructor regroups the class by providing a concise 
+			explanation so that everyone is ready to move to the next concept.  This
+			is also time for the instructor to ensure that everyone has understood the
+			main point of the exercise (since it is sometimes easy to do some computation
+			while being oblivious to the larger context).
+
+			If students are having trouble, the instructor can give hints to the group,
+			and additional guidance to ensure the students don't get frustrated
+			to the point of giving up.
+		\item {\bf Repeat step 2.}
+	\end{enumerate}
+
+	Using this format, students are working (and happily so) most of the class.
+	Further, they are especially primed to hear the insights of the instructor, 
+	having already invested substantially into each problem.
+
+	This problem-set is geared towards concepts instead of computation, though some problems
+	focus on simple computation.
+
+	{\bf License}  This document is licensed under the Creative Commons
+	By-Attribution Share-Alike License.  That means, you are free to use,
+	copy, and modify this document provided that you provide attribution
+	to the previous copyright holders and you release your derivative work 
+	under the same license.  Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
+
+	If you modify this document, you may add your name to the copyright list.  Also,
+	if you think your contributions would be helpful to others, consider making a pull
+	requestion, or opening an \emph{issue} at 
+	\url{https://github.com/siefkenj/IBLLinearAlegbra}
+
+
+\newpage
+
+\setcounter{page}{1}
+\pagestyle{fancy}
+\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+\renewcommand{\headrulewidth}{0pt}
+
+\section*{Sets of Vectors}
+	\vspace{-2em}
+	\question
+		Write the following sets in set-builder notation
+	\begin{parts}
+			\item The subset $A\subseteq \R$ of real numbers larger than $\sqrt{2}$.
+			\item The subset $B\subseteq \R^2$ of vectors whose first coordinate
+			is twice the second.
+	\end{parts}
+
+	\begin{definition}[Unions \& Intersections]
+		Two common set operations are \emph{unions} and \emph{intersections}.  
+		Let $X$ and $Y$ be sets.
+
+		\hfill\begin{minipage}{\dimexpr\textwidth-3cm}
+		\begin{itemize}
+			\item[(union)] $X\cup Y = \{a:a\in X\text{ or }a\in Y\}$.
+			\item[(intersection)] $X\cap Y = \{a: a\in X\text{ and }a\in Y\}$.
+		\end{itemize}
+		\end{minipage}
+	\end{definition}
+
+	\question
+	Let $X=\{1,2,3\}$ and $Y=\{2,3,4,5\}$ and $Z=\{4,5,6\}$.  Compute
+	\begin{parts}
+		\item $X\cup Y$
+		\item $X\cap Y$
+		\item $X\cup Y\cup Z$
+		\item $X\cap Y\cap Z$
+	\end{parts}
+
+	\question
+	Draw the following subsets of $\R^2$.
+	\begin{parts}
+		\item $V=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}0\\t\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $H=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}t\\0\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $J=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $V\cup H$.
+		\item $V\cap H$.
+		\item Does $V\cup H=\R^2$?
+	\end{parts}
+
+
+	\vspace{-1em}
+\section*{Linear Combinations, Span, and Linear Independence}
+	\vspace{-1em}
+
+	\begin{definition}[Linear Combination]
+		A \emph{linear combination} of the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ is
+		a vector
+		\[
+			\vec w = \alpha_1\vec v_1+\alpha_2\vec v_2+\cdots+\alpha_n\vec v_n
+		\]
+		where $\alpha_1,\alpha_2,\ldots,\alpha_n$ are scalars.
+	\end{definition}
+
+	\question
+	Let $\vec v_1=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec v_2=\begin{bmatrix}1\\-1\end{bmatrix}$, and $\vec w=2\vec v_1+\vec v_2$.
+	\begin{parts}
+		\item Write the coordinates of $\vec w$.
+		\item Draw a picture with $\vec w$, $\vec v_1$, and $\vec v_2$.
+		\item Is $\mat{3\\3}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\item Is $\mat{0\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\item Is $\mat{4\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\item Can you find a vector in $\R^2$ that isn't a linear combination of
+		$\vec v_1$ and $\vec v_2$?
+		\item Can you find a vector in $\R^2$ that isn't a linear combination of
+		$\vec v_1$?
+	\end{parts}
+	
+	\begin{definition}[Span]
+		The \emph{span} of a set of vectors $V$ is the set of
+		all linear combinations of vectors in $V$.  That is,
+		\[
+			\Span V = \{\vec v:\vec v=\alpha_1\vec v_1+\alpha_2\vec v_2 + \cdots 
+			+\alpha_n\vec v_n\text{ for some }\vec v_1,\vec v_2,\ldots,\vec v_n\in V
+			\text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n\}.
+		\]
+	\end{definition}
+
+	\question
+	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
+	\begin{parts}
+		\item Draw $\Span\{\vec v_1\}$.
+		\item Draw $\Span\{\vec v_2\}$.
+		\item Describe $\Span\{\vec v_1,\vec v_2\}$.
+		\item Describe $\Span\{\vec v_1,\vec v_3\}$.
+		\item Describe $\Span\{\vec v_1,\vec v_2,\vec v_3\}$.
+	\end{parts}
+
+	\question
+	Give an example of:
+	\begin{parts}
+		\item two vectors in $\R^3$ that span a plane;
+		\item two vectors in $\R^3$ that span a line;
+		\item four vectors in $\R^3$ that span a plane;
+		\item a set of 50 vectors in $\R^3$ whose span is the line
+		through the origin and the point $\mat{1\\2\\-3}$. \\
+	\end{parts}
+
+	In some sets, every vector is essential for computing a span.  In others,
+	there are ``excess'' vectors.  This leads us to the concept of 
+	linear independence.
+
+	\begin{definition}
+		We say $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+		\emph{linearly dependent} if for at least one $i$,
+		\[
+			\vec v_i\in\span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+			\vec v_{i+1},\ldots,\vec v_n\},
+		\]
+		and a set is \emph{linearly independent} otherwise.
+	\end{definition}
+
+	\question
+		Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
+	\begin{parts}
+		\item Describe $\Span\{\vec u,\vec v,\vec w\}$.
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?  Why or why not?
+	\end{parts}
+
+	Let $X=\{\vec u,\vec v,\vec w\}$.
+
+	\begin{parts}[resume]
+		\item Give a subset $Y\subseteq X$ so that $\Span Y=\Span X$ and $Y$ is
+		linearly independent.
+		\item Give a subset $Z\subseteq X$ so that $\Span Z=\Span X$ and $Z$ is
+		linearly independent and $Z\neq Y$.
+	\end{parts}
+	
+	\begin{definition}[Trivial Linear Combination]
+	We say a linear combination 
+	$a_1\vec v_1+a_2\vec v_2+\cdots +a_n\vec v_n$
+	is \emph{trivial} if $a_1=a_2=\cdots=a_n=0$.
+	\end{definition}
+	
+	\question
+		Recall $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
+	\begin{parts}
+		\item Consider the linearly dependent 
+		set $\{\vec u,\vec v,\vec w\}$ (where $\vec u,\vec v,\vec w$
+		are defined as above).  Can you write $\vec 0$
+		as a non-trivial linear combination of vectors in this set?
+		\item Consider the linearly independent 
+		set $\{\vec u,\vec v\}$.  Can you write $\vec 0$
+		as a non-trivial linear combination of vectors in this set?
+	\end{parts}
+
+	We now have an equivalent definition of linear dependence.
+
+	\begin{definition}
+	$\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+	\emph{linearly dependent} if there is a non-trivial
+	linear combination of $\vec v_1,\ldots,\vec v_n$ that
+	equals the zero vector.
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Explain how this new definition implies the old one.
+		\item Explain how the old definition implies this new one.
+	\end{parts}
+
+	Since have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
+	should be read aloud as `implies'), the two definitions
+	are \emph{equivalent} (which we write as new def $\iff$ old def).
+
+
+	\question
+	Suppose for some unknown $\vec u, \vec v, \vec w$, and $\vec a$,
+	\[
+		\vec a = 3\vec u+2\vec v +\vec w\qquad \text{and}\qquad 
+		\vec a = 2\vec u+\vec v -\vec w.
+	\]
+	\begin{parts}
+		\item Could the set $\{\vec u,\vec v,\vec w\}$ be linearly
+		independent?
+	\end{parts}
+	Suppose that
+	\[
+		\vec a = \vec u+6\vec r-\vec s
+	\]
+	is the \emph{only} way to write $\vec a$ using $\vec u,\vec r,\vec s$.
+	\begin{parts}[resume]
+		\item Is $\{\vec u,\vec r,\vec s\}$ linearly independent?
+		\item Is $\{\vec u,\vec r\}$ linearly independent?
+		\item Is $\{\vec u,\vec v,\vec w,\vec r\}$ linearly independent?
+	\end{parts}
+
+\section*{Subspaces and Bases}
+	\begin{definition}
+		A \emph{subspace} $V\subseteq \R^n$ is a subset such that
+		\begin{enumerate}
+			\item[(i)] $\vec u,\vec v\in V$ implies $\vec u+\vec v\in V$.
+			\item[(ii)] $\vec u\in V$ implies $k\vec u\in V$ for all scalars $k$.
+		\end{enumerate}
+	\end{definition}
+
+	Subspaces give a mathematically precise definition of a ``flat space through the origin.''
+
+	\question
+	For each set, draw it and explain whether or not it is a subspace of $\R^2$.
+	\begin{parts}
+		\item $A=\{\vec x\in\R^2:\vec x=\mat{a\\0}\text{ for some }a\in\Z\}$.
+		\item $B=\{\vec x\in\R^2:\vec x\neq \mat{0\\0}\}$.
+		\item $C=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ for some }t\in\R\}$.
+		\item $D=\{\vec x\in\R^2:\vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R\}$.
+		\item $E=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R\}$.
+		\item $F=\{\vec x\in\R^2:\vec x=t\mat{3\\1}\text{ for some }t\in\R\}$.
+		\item $G=\span\left\{\mat{1\\1}\right\}$.
+		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
+	\end{parts}
+
+	\begin{definition}
+		A \emph{basis} for a subspace $V$ is a linearly independent set of vectors, $\mathcal B$,
+		so that $\Span\mathcal B=V$.
+	\end{definition}
+
+	\question
+	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\span\{\vec u,\vec v,\vec w\}$.
+	\begin{parts}
+		\item Describe $V$.
+		\item Is $\{\vec u,\vec v,\vec w\}$ a basis for $V$?  Why or why not?
+		\item Give a basis for $V$.
+		\item Give another basis for $V$.
+		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
+	\end{parts}
+
+	\begin{definition}
+		The \emph{dimension} of a subspace $V$ is the number of elements in a basis for $V$.
+	\end{definition}
+
+	\begin{parts}[resume]
+		\item What is the dimension of $V$?
+	\end{parts}
+
+
+	\question
+	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ and 
+	let $P=\span\{\vec a,\vec b\}$ and $Q=\span\{\vec b,\vec c\}$.
+	\begin{parts}
+		\item Give a basis for and the dimension of $P$.
+		\item Give a basis for and the dimension of $Q$.
+		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
+		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
+	\end{parts}
+
+
+
+\end{document}
