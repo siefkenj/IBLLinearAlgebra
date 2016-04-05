@@ -236,7 +236,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 	there are ``excess'' vectors.  This leads us to the concept of 
 	linear independence.
 
-	\begin{definition}
+	\begin{definition}[Linearly Dependent \& Independent]
 		We say $\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
 		\emph{linearly dependent} if for at least one $i$,
 		\[
@@ -282,7 +282,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 
 	We now have an equivalent definition of linear dependence.
 
-	\begin{definition}
+	\begin{definition}[Linearly Dependent \& Independent]
 	$\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
 	\emph{linearly dependent} if there is a non-trivial
 	linear combination of $\vec v_1,\ldots,\vec v_n$ that
@@ -322,7 +322,8 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 	\end{parts}
 
 \section*{Subspaces and Bases}
-	\begin{definition}
+	\vspace{-1em}
+	\begin{definition}[Subspace]
 		A \emph{subspace} $V\subseteq \R^n$ is a subset such that
 		\begin{enumerate}
 			\item[(i)] $\vec u,\vec v\in V$ implies $\vec u+\vec v\in V$.
@@ -345,7 +346,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 	\end{parts}
 
-	\begin{definition}
+	\begin{definition}[Basis]
 		A \emph{basis} for a subspace $V$ is a linearly independent set of vectors, $\mathcal B$,
 		so that $\Span\mathcal B=V$.
 	\end{definition}
@@ -360,7 +361,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
 	\end{parts}
 
-	\begin{definition}
+	\begin{definition}[Dimension]
 		The \emph{dimension} of a subspace $V$ is the number of elements in a basis for $V$.
 	\end{definition}
 
@@ -379,6 +380,434 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 	\end{parts}
 
+	\newpage
 
 
+\section*{Systems of Linear Equations}
+	
+	\emph{Linear equations} are equations only involving variables, 
+	multiplication by constants, and addition/subtraction.  \emph{Systems}
+	of equations are sets of equations that share common variables.
+
+	\question
+	Consider the system
+	\begin{equation}\label{eq2}
+		\begin{array}{rcrl}
+			x &-&y &= 2\\
+			2x &+&y &= 1
+		\end{array}
+	\end{equation}
+
+	\begin{parts}
+		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
+		\item Algebraically solve the system (\ref{eq2}).  What does this 
+		solution represent on your graph?
+	\end{parts}
+	
+	\question
+	Let $L$ be the line given by $x-y=2$.
+	\begin{parts}
+		\item Write an equation of a line that doesn't intersect $L$.
+		\item Write an equation of a line that intersects $L$ in 
+		\begin{enumerate}
+			\item one place.
+			\item infinitely many places
+			\item exactly two places
+		\end{enumerate}
+		or explain why no such equation exists.
+		\item For each equation you came up with, solve the system algebraically.
+		How can you tell algebraically how many solutions there are?
+	\end{parts}
+
+\subsection*{The Row Reduction Algorithm}
+
+	\question
+	\begin{parts}
+		\item Solve the system
+		\begin{equation}\label{eq3}
+			\begin{array}{rcrcrl}
+				x&-&y&-&2z &= -5\\
+				2x&+&3y&+&z &= 5\\
+				0x&+&2y&+&3z &= 8
+			\end{array}
+		\end{equation}
+		any way you like.
+
+		\item Use an augmented matrix to solve the system (\ref{eq3}).
+	\end{parts}
+
+	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
+	interpretations when appropriate is one of the most powerful tools of Linear 
+	Algebra).  We can think of solutions to (\ref{eq3})
+	as the intersection of three planes, or we can interpret the solution
+	as coefficients of a linear combination.
+
+	\begin{parts}[resume]
+		\item Rewrite (\ref{eq3}) as a vector equation of the form
+		\[
+			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
+		\]
+		where $x,y,z$ are interpreted as scalar quantities.
+
+		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
+		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
+		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
+	\end{parts}
+
+	\question
+	Consider the augmented matrix
+	\[
+		A=\left[\begin{array}{ccc|c}
+			1 & 2 & -1 & -7\\
+			0 & 2 & 3 & 9\\
+			0 & 0 & 1 & 1
+		\end{array}\right].
+	\]
+	\begin{parts}
+		\item Write the system of equations corresponding to $A$.
+		\item Solve the system of equations corresponding to $A$.
+	\end{parts}
+
+\subsection*{Infinite Solutions}
+	\question
+	Consider the system
+	\begin{equation}\label{eq4}
+		\begin{array}{rcrl}
+			x&+&2y &= 3\\
+			2x&+&4y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{parts}
+		\item How many solutions does (\ref{eq4}) have?
+		\item Write the solutions to (\ref{eq4}) in vector form.
+		\item What happens when you use an augmented matrix
+		to solve (\ref{eq4})?
+	\end{parts}
+
+
+\subsection*{Free Variables}
+	\question
+	Suppose the row-reduced augmented matrix corresponding to 
+	a system is
+	\[
+		B=\left[\begin{array}{cc|c}
+			1 & 2 & 3\\
+			0 & 0 & 0
+		\end{array}\right].
+	\]
+	After reducing, we have 1 equation and 2 unknowns, so we can make
+	$2-1=1$ choices when writing a solution.  Let's make the
+	choice $y=t$.
+	
+	\begin{parts}
+		\item With the added equation $y=t$, solve the
+		system represented by $B$.
+	\end{parts}
+
+	\question
+	Consider the system given by the augmented matrix
+	\[
+		C=\left[\begin{array}{ccccc|c}
+			1&0&1&2&0&-1\\
+			0&1&1&0&0&3\\
+			0&0&0&0&1&4
+		\end{array}\right].
+	\]
+	and call the variables in this system $x_1,x_2,
+	x_3,x_4,x_5$.
+
+	\begin{parts}
+		\item Write the system of equations represented by $C$.
+		\item Identify how many choices you can make when writing
+		down a solution corresponding to $C$.
+		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
+		for each choice you must make when solving the system.
+		\item Write in vector form all solutions to $C$.
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item An unknown system $U$ is represented by an augmented
+		matrix with 4 rows and 6 columns.  What is 
+		the minimum number of
+		free variables solutions to $U$ will have?
+		\item An unknown system $V$ is represented by an augmented
+		matrix with 6 rows and 4 columns.  What is 
+		the minimum number of
+		free variables solutions to $V$ will have?
+	\end{parts}
+	
+	\question
+	\begin{definition}[Homogeneous]
+		A system is called \emph{homogeneous} if all equations equal $0$.
+	\end{definition}
+
+		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
+		 $(x,y,z)=(1,2,1)$ and
+		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
+	\begin{parts}
+		\item Can you produce another solution
+		to the system?
+
+		\item  Can you
+		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
+		equation equals 0)?
+
+		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
+		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
+	\end{parts}
+
+
+
+\section*{Rank}
+	\begin{definition}[Rank]
+		The \emph{rank} of the matrix $A$ is the number of leading ones in the 
+		reduced row echelon form of $A$.
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Determine the rank of
+		\begin{enumerate*}
+			\item $\mat{1&1\\2&2}$
+			\item $\mat{1&2\\3&4}$
+			\item $\mat{1&1&0\\0&0&1}$
+			\item $\mat{3\\3\\2}$
+			\item $\mat{1&0&1\\0&1&0\\0&0&1}$.
+		\end{enumerate*}
+	\end{parts}
+	
+	\question
+	Consider the homogeneous system 
+		\begin{equation}\label{eq4b}
+			\begin{array}{llll}
+				x&+2y&+z &= 0\\
+				x&+2y&+3z &= 0\\
+				-x&-2y&+z &= 0
+			\end{array}
+		\end{equation}
+	and the non-augmented matrix of coefficients $A=\mat{1&2&1\\1&2&3\\-1&-2&1}$.
+	\begin{parts}
+		\item What is $\Rank(A)$?
+		\item Give the general solution to \eqref{eq4b}.
+		\item Are the column vectors of $A$ linearly independent?
+		\item Give a non-homogeneous system with the same coefficients as \eqref{eq4b} that has
+			\begin{enumerate}
+				\item infinitely many solutions
+				\item no solutions.
+			\end{enumerate}
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item The rank of a $3\times 4$ matrix $A$ is $3$.  Are the column vectors of $A$ linearly independent?
+		\item The rank of a $4\times 3$ matrix $B$ is $3$.  Are the column vectors of $B$ linearly independent?
+	\end{parts}
+
+\section*{Span Again}
+	\question
+	Consider the system 
+		\begin{equation}\label{eq4bc}
+			\begin{array}{llll}
+				x&-y&-z &= 0\\
+				0x&+1y&+2z &= 0\\
+				3x&-3y&+3z &= 0
+			\end{array}
+		\end{equation}
+	which has the unique solution $(x,y,z)=(0,0,0)$.
+	\begin{parts}
+		\item Give vectors $\vec u,\vec v,\vec w$ so that the system \eqref{eq4bc}
+			corresponds to the vector equation $x\vec u+y\vec v+z\vec w = \vec 0$.
+		\item Is $\vec w\in\Span\{\vec u,\vec v\}$? If so, write it as a linear combination
+			of $\vec u$ and $\vec v$.
+	\end{parts}
+
+	The matrix $M$ is the non-augmented matrix corresponding to a homogeneous system of linear equations.
+	$M$ also corresponds to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.  Further, we know
+	\[
+		\rref(M) = \mat{1&0&1\\0&1&-2\\0&0&0}.
+	\]
+	\begin{parts}[resume]
+		\item Give a solution to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.
+		\item Is $\vec c\in\Span\{\vec a,\vec b\}$?  If so, write it as a linear combination
+			of $\vec a$ and $\vec b$.
+		\item Do you have enough information to tell if $\{\vec a,\vec b\}$ is linearly independent?  Why or why not?
+	\end{parts}
+
+\subsection*{Finding Linearly Independent Subsets}
+	\question
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec 0$ you have no free variables.
+	
+	\begin{parts}
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+	\end{parts}
+	
+	Suppose when you use an augmented matrix to solve
+	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a 
+	free variable.
+	
+	\begin{parts}[resume]
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec w\}$ linearly independent?
+		\item Is $\{\vec u,\vec v\}$ linearly independent?
+	\end{parts}
+
+	\begin{definition}[Maximal Linearly Independent Subset]
+	Given a set of vectors $X$, a 
+	\emph{maximal linearly independent subset} of $X$ is a linearly independent
+	subset $V\subseteq X$ with the most possible vectors in it 
+	(i.e., if you took any subset of $X$ with more vectors, it would be linearly
+	dependent).
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Give a maximal linearly independent subset, $T$, of
+		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
+		\item What is the size of $T$?
+	\end{parts}
+
+	\question
+	Consider the vectors
+	\[
+		\vec v_1=\mat{1\\2\\1}
+		\qquad
+		\vec v_2=\mat{-1\\-1\\-1}
+		\qquad
+		\vec v_3=\mat{0\\1\\0}
+		\qquad
+		\vec v_4=\mat{-1\\2\\0}
+		\qquad
+		\vec v_5=\mat{1\\-1\\1}
+	\]
+	and the matrices
+	\[
+		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
+		\qquad \rref (A)
+		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
+	\]
+	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots, \vec v_5$)
+
+	\begin{parts}
+		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
+		independent?
+		\item Pick a maximal linearly independent subset of $V$.
+		\item Pick another (different) maximal linearly independent subset of $V$.
+		\item Give a basis for $\Span(V)$.
+		\item What is the dimension of $\Span(V)$?
+	\end{parts}
+
+	\newpage
+\section*{Matrices}
+	\question
+	\[
+		A=\mat{1&2\\3&1\\0&-1}
+		\qquad
+		B=\mat{-1&-1\\0&1\\1&-2}
+		\qquad
+		C=\mat{1&2&0\\-1&-1&-1}
+	\]
+	\begin{parts}
+		\item Write the shape of the matrices $A,B,C$ (i.e., for each one,
+		write the dimensions in $m\times n$ form).
+		\item List \emph{all} products between the matrices $A,B,C$ that are
+		defined. (Your list will be some subset of $AB,AC,BA,CA,BC,CB$.)
+		\item Compute $AC$ and $CA$.
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+		does $XY=YX$?  Explain.
+		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+		does $X+Y=Y+X$?  Explain.
+	\end{parts}
+
+	\question
+	Consider the system represented by
+	\[
+		\mat{1&-3&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\vec b.
+	\]
+	\begin{parts}
+		\item If $\vec b=\mat{1\\2\\3}$, is the set of solutions to this system a 
+		point, line, plane, or other?
+		\item If $\vec b=\mat{1\\1\\0}$, is the set of solutions to this system a 
+		point, line, plane, or other?
+	\end{parts}
+
+	\question
+	The entries of a matrix are specified by (row,column) pairs of integers.  If
+	$a_{ij}$ is the $(i,j)$ entry of a matrix $A$, we may write $A=[a_{ij}]$.
+	\begin{parts}
+		\item Write the $2\times 2$ matrix $A$ with entries $a_{11} = 4$, $a_{12}=3$,
+			$a_{21} = 7$ and $a_{22}=9$.
+		\item Let $B=[b_{ij}]$ be the $3\times 3$ matrix where $b_{ij} = i+j$.  Write $B$.
+		\item Let $C=[c_{ij}]$ be the $3\times 4$ matrix where $c_{ij} = 0$ if $i=j$ and
+			$c_{ij}=1$ if $i\neq j$.
+	\end{parts}
+
+	\question
+	\begin{definition}
+		The \emph{transpose} of a matrix $A=[a_{ij}]$ is the matrix $A^{T}=[a_{ji}]$.
+	\end{definition}
+	Visually, the transpose of a matrix swaps rows and columns.
+
+	\[
+		A=\mat{1&1&2\\2&2&1}
+	\]
+	\begin{parts}
+		\item What is the shape of $A$ and $A^T$?
+		\item Write down $A^T$.
+	\end{parts}
+
+	$B$ and $D$ are $4\times 6$ matrices and $C$ is a $6\times 4$ matrix.
+
+	\begin{parts}[resume]
+		\item Does $(BC)^T=B^TC^T$? Explain.
+		\item Does $(B+D)^T=B^T+D^T$? Explain.
+		\item Compute $AA^T$ and $A^TA$ (where $A$ is the matrix defined earlier).
+		What do you notice?
+	\end{parts}
+
+	\question
+	\begin{definition}
+		A matrix $X$ is called \emph{symmetric} if $X=X^T$.  
+	\end{definition}
+	Symmetric matrices have many useful properties,
+	and have deep connections with orthogonality and eigenvectors (which we will get to later on).
+
+	\begin{parts}
+		\item Prove that if $W$ is a square matrix, then $V=W^TW+W+W^T$ is a symmetric
+		matrix.
+	\end{parts}
+
+	\question
+	\begin{definition}
+		A \emph{zero matrix} is a matrix whose entries are all zeros.
+		An \emph{identity matrix} is a square matrix whose diagonal
+		entries are $1$ and non-diagonal entries are $0$.
+	\end{definition}
+	We write the $m\times n$ zero matrix as $0_{m\times n}$ or just $0$ if the shape
+	is determined by context.  The $n\times n$ identity matrix is notated $I_{n\times n}$ or just
+	$I$ if the shape is determined by context.
+
+	Let $A=\mat{1&2&3\\4&5&6\\7&8&9}$.
+	\begin{parts}
+		\item Write down the $3\times 3$ identity matrix and the $3\times 3$ zero
+		matrix.
+		\item Compute $I_{3\times 3}A$, $AI_{3\times 3}$, $0_{3\times 3}A$,
+		and $A0_{3\times 3}$.
+		\item If we were to think of matrices as numbers, what numbers would the
+		zero matrix and the identity matrix correspond to?
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item Solve the matrix equation
+		\[
+			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
+		\]
+	\end{parts}
 \end{document}
