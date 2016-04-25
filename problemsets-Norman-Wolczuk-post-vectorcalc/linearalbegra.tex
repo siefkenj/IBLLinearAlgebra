@@ -295,7 +295,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item Explain how the old definition implies this new one.
 	\end{parts}
 
-	Since have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
+	Since we have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
 	should be read aloud as `implies'), the two definitions
 	are \emph{equivalent} (which we write as new def $\iff$ old def).
 
@@ -810,4 +810,247 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
 		\]
 	\end{parts}
+
+
+
+\newpage
+\section*{Linear Transformations}
+\vspace{-1.5em}
+	
+	\question
+	$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
+	by $90^\circ$.
+	\begin{parts}
+		\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
+		\item Compute $\mathcal R\mat{1\\1}$.  How does this relate to
+			$\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$?
+		\item What is $\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)$?
+		\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
+			counter clockwise by $90^\circ$.
+	\end{parts}
+
+	\question
+	$\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
+	and contracts in the $\yh$ direction by a factor of $3$.
+	\begin{parts}
+		\item Write a matrix representation of $\mathcal S$.
+	\end{parts}
+
+	\begin{definition}[Linear Transformation]
+		If $V$ and $W$ are vector spaces, a function $T:V\to W$ is called a \emph{linear transformation}
+		if 
+		\[
+			T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
+			T(\alpha \vec v)=\alpha T\vec v
+		\]
+		for vectors $\vec u,\vec v\in V$ and all scalars $\alpha$.
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Classify the following as linear transformation or not
+			\begin{enumerate}
+				\item $\mathcal R$ from above.
+				\item $\mathcal S$ from above.
+				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+				\item $\mathcal P:\R^2\to\R^2$ where $\mathcal P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
+					$\vec u=\mat{2\\3}$.
+			\end{enumerate}
+	\end{parts}
+
+	It turns out every linear transformation can be written as a matrix (in fact
+	this is why matrix multiplication was invented).
+
+	\question
+	Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
+	\begin{parts}
+		\item Write down a matrix for $\mathcal P$.
+		%\item What is the null space of $\mathcal P$?
+		\item What is the rank of the matrix corresponding to $\mathcal P$?
+		%\item Is $\mathcal P$ invertible?
+	\end{parts}
+
+	Matrix multiplication was designed to exactly model composition of linear transformations.
+	\begin{parts}[resume]
+		\item Write down a matrix for $\mathcal P$ and for $\mathcal R$, the counter-clockwise rotation
+			by $90^\circ$.
+		\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+	\end{parts}
+
+	\begin{definition}[Range]
+		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ is the set of vectors that
+		$T$ can output.  That is,
+		\[
+			\Range(T)=\{\vec y\in W:\vec y=T\vec x\text{ for some }\vec x\in V\}.
+		\]
+	\end{definition}
+	\begin{definition}[Null Space]
+		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$ is the
+		set of vectors that get mapped to zero under $T$.  That is,
+		\[
+			\Null(T)=\{\vec x\in V:T\vec x=\vec 0\}.
+		\]
+	\end{definition}
+
+	\question
+	Let $\mathcal P:\R^2\to\R^2$ be projection onto the vector $\vec u=\mat{2\\3}$ (like before).
+	\begin{parts}
+		\item What is the range of $\mathcal P$?
+		\item What is the null space of $\mathcal P$?
+	\end{parts}
+
+	\question
+	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
+	\begin{parts}
+		\item Show that the null space of $T$ is a subspace.
+		\item Show that the range of $T$ is a subspace.
+	\end{parts}
+
+
+	\begin{definition}[Fundamental Subspaces]
+		Associated with any matrix $M$ are three fundamental subspaces: the \emph{row space}
+		of $M$ is the span of the rows of $M$; the \emph{column space} of $M$ is the span
+		of the columns of $M$; and the \emph{null space} of $M$ is the set of solutions
+		to $M\vec x=\vec 0$. 
+		
+	\end{definition}
+
+	\question
+	Consider $A=\mat{1&0&0\\0&1&0}$.
+	\begin{parts}
+		\item Describe the row space of $A$.
+		\item Describe the column space of $A$.
+		\item Is the row space of $A$ the same as the column space of $A$?
+		\item Describe the set of all vectors perpendicular to the rows of $A$.
+		\item Describe the null space of $A$.
+	\end{parts}
+
+	\question
+	\[
+		B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
+	\]
+	\begin{parts}
+		\item How does the row space of $B$ relate to the row space of $C$?
+		\item How does the null space of $B$ relate to the null space of $C$?
+		\item Compute the null space of $B$.
+	\end{parts}
+
+	\question
+	\[
+		P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
+	\]
+	\begin{parts}
+		\item How does the column space of $P$ relate to the column space of $Q$?
+		\item Describe the columns space of $P$ and the column space of $Q$.
+	\end{parts}
+
+	\begin{theorem}[Rank-nullity Theorem]
+	The \emph{nullity} of a matrix is the dimension of the null space.
+
+	The rank-nullity theorem states
+	\[
+		\rank(A)+\nnul(A) = \#\text{ of columns in }A.
+	\]
+	\end{theorem}
+
+	\question
+	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
+	Define $A=[\vec u|\vec v|\vec w]$.
+	\begin{parts}
+		\item What is the rank and nullity of $A^T$?
+		\item What is the rank and nullity of $A$?
+	\end{parts}
+
+\newpage
+
+\section*{Matrix Inverses}
+
+	\question
+	\begin{parts}
+		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_1$.
+		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_2$.
+	\end{parts}
+
+	\vspace{-.8cm}
+	\begin{definition}
+	An \emph{elementary matrix} is the identity matrix with a single row operation applied.
+	\end{definition}
+
+	\[
+		A=\mat{1&2&3\\4&5&6\\7&8&9}
+	\]
+	\begin{parts}[resume]
+		\item Compute $E_1A$ and $E_2A$.  How do the resulting matrices relate to row
+		operations?
+		\item Without computing, what should the result of applying the row
+		operation $R_3\to R_3-2R_1$ to $E_1$ be?  Compute and verify.
+		\item Without computing, what should $E_1E_2$ be?  What about $E_2E_1$?
+		Now compute and verify.
+	\end{parts}
+
+	\begin{definition}
+		The \emph{inverse} of an $n\times n$ matrix $A$ is an $n\times n$
+		matrix $B$ such that $AB=I_{n\times n}=BA$.
+		In this case, $B$ is called the inverse of $A$ and is notated as $A^{-1}$.
+	\end{definition}
+
+	\question
+	Consider the matrices 
+	\[
+		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
+		B=\mat{1&0&0\\0&1&0}\qquad
+		C=\mat{1&0\\0&1\\0&0}
+	\]
+	\[
+		D=\mat{1&-2&0\\0&1&0\\3&0&1}\qquad
+		E=\mat{1&0&0\\0&2&0\\0&1&1}\qquad
+		F=\mat{1&0&0\\0&1&0\\0&0&1}
+	\]
+	\vspace{-.7cm}
+	\begin{parts}
+		\item Which pairs of matrices above are inverses of each other?
+	\end{parts}
+
+	\question
+	\vspace{-.5cm}
+	\[
+		B=\mat{1 &4\\0 &2}
+	\]
+	\vspace{-.7cm}
+	\begin{parts}
+		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
+		and write an elementary matrix $E_1$ corresponding to the first operation
+		and $E_2$ corresponding to the second.
+		\item What is $E_2E_1B$?
+		\item Find $B^{-1}$.
+		\item Can you outline a procedure for finding the inverse of a matrix
+		using elementary matrices?
+	\end{parts}
+
+	\question
+	\vspace{-.5cm}
+	\[
+		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
+		\vec b=\mat{1\\2\\3}\qquad
+		C=[A|\vec b]\qquad
+		A^{-1}=\mat{9&-3/2&-5\\-5&1&3\\-2&1/2&1}
+	\]
+	\begin{parts}
+		\item What is $A^{-1}A$?
+		\item What is $\rref(A)$?
+		\item What is $\rref(C)$? (Hint, there is no need to actually do row reduction!)
+		\item Solve the system $A\vec x=\vec b$.
+	\end{parts}
+
+	\question
+	\vspace{-.8cm}
+	\begin{parts}
+		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
+			could $M$ be invertible?
+	\end{parts}
+
 \end{document}

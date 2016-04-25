@@ -147,8 +147,8 @@
 	% Declare the new environment
 	%
 	\DeclareDocumentEnvironment{#1}{o}{
-		\renewcommand{\emph}[1]{{
-			\color{#5} \textbf{\textit{####1}}
+		\renewcommand{\emph}[1]{{%
+			\color{#5} \textbf{\textit{####1}}%
 		}}
 		\IfNoValueTF{##1}{
 			\begin{tcolorbox}[box#1, parbox=false]
