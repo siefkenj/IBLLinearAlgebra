@@ -22,6 +22,7 @@
 \usepackage{tikz}
 \usepackage{fancyhdr}
 \usepackage{calc}
+\usepackage{wrapfig}
 \usepackage[hidelinks]{hyperref}
 
 \usepackage{pgfplots}
@@ -153,20 +154,37 @@ you two gifts. Specifically, they give you two forms of transportation:
 a hover board and a magic carpet. Your parents inform you that both the
 hover board and the magic carpet have restrictions in how they operate:
 
-\begin{itemize}
-	\item We denote the restriction on the hover board's movement by the vector
+
+\begin{minipage}{\textwidth}
+	\vspace{.5cm}
+	\begin{wrapfigure}{l}{1in}
+	\vspace{-.8cm}
+	\includegraphics[width=1in]{images/HoverBoard-small.png}
+	\end{wrapfigure}
+	
+	We denote the restriction on the hover board's movement by the vector
 	$\mat{3 \\1}$. By this we mean that if
 	the hover board traveled ``forward'' for one hour, it would move along a
 	``diagonal'' path that would result in a displacement of 3 miles East and
 	1 mile North of its starting location.
+\end{minipage}
 
-
-	\item We denote the restriction on the magic carpet's movement by the vector
+\begin{minipage}{\textwidth}
+	\vspace{.5cm}
+	\begin{wrapfigure}{l}{1in}
+	\vspace{-.8cm}
+	\includegraphics[width=1in]{images/MagicCarpet-small.png}
+	\end{wrapfigure}
+	
+	We denote the restriction on the magic carpet's movement by the vector
 	$\mat{1 \\2 }$. By this we mean that if the
 	magic carpet traveled ``forward'' for one hour, it would move along a
 	``diagonal'' path that would result in a displacement of 1 mile East and
 	2 miles North of its starting location.
-\end{itemize}
+\end{minipage}
+
+\lfoot{\footnotesize Drawings by \url{@DavidsonJohnR} (twitter)}
+
 \vspace{10mm}
 
 % Scenario Section
@@ -200,20 +218,36 @@ you two gifts. Specifically, they give you two forms of transportation:
 a hover board and a magic carpet. Your parents inform you that both the
 hover board and the magic carpet have restrictions in how they operate:
 
-\begin{itemize}
-	\item We denote the restriction on the hover board's movement by the vector
+
+
+\begin{minipage}{\textwidth}
+	\vspace{.5cm}
+	\begin{wrapfigure}{l}{1in}
+	\vspace{-.8cm}
+	\includegraphics[width=1in]{images/HoverBoard-small.png}
+	\end{wrapfigure}
+	
+	We denote the restriction on the hover board's movement by the vector
 	$\mat{3 \\1}$. By this we mean that if
 	the hover board traveled ``forward'' for one hour, it would move along a
 	``diagonal'' path that would result in a displacement of 3 miles East and
 	1 mile North of its starting location.
+\end{minipage}
 
-
-	\item We denote the restriction on the magic carpet's movement by the vector
+\begin{minipage}{\textwidth}
+	\vspace{.5cm}
+	\begin{wrapfigure}{l}{1in}
+	\vspace{-.8cm}
+	\includegraphics[width=1in]{images/MagicCarpet-small.png}
+	\end{wrapfigure}
+	
+	We denote the restriction on the magic carpet's movement by the vector
 	$\mat{1 \\2 }$. By this we mean that if the
 	magic carpet traveled ``forward'' for one hour, it would move along a
 	``diagonal'' path that would result in a displacement of 1 mile East and
 	2 miles North of its starting location.
-\end{itemize}
+	\vspace{1cm}
+\end{minipage}
 
 
 
