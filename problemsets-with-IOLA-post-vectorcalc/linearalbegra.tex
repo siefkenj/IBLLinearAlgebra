@@ -96,11 +96,11 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 
 \section*{About the Document}
 
-	This document is a hybird of many linear algebra resources, including those of
+	This document is a hybrid of many linear algebra resources, including those of
 	the IOLA (Inquiry Oriented Linear Algebra) project, Jason Siefken's IBLLinearAlgebra
 	project, and Asaki, Camfield, Moon, and Snipes' Radiograph and Tomography project.
 
-	This document is a mix of student projects, problemsets, and labs.
+	This document is a mix of student projects, problem sets, and labs.
 	A typical class day looks like:
 	\begin{enumerate}
 		\item {\bf Introduction by instructor.} This may involve giving a definition,
@@ -163,7 +163,7 @@ hover board and the magic carpet have restrictions in how they operate:
 	\vspace{-.8cm}
 	\includegraphics[width=1in]{images/HoverBoard-small.png}
 	\end{wrapfigure}
-	
+
 	We denote the restriction on the hover board's movement by the vector
 	$\mat{3 \\1}$. By this we mean that if
 	the hover board traveled ``forward'' for one hour, it would move along a
@@ -177,7 +177,7 @@ hover board and the magic carpet have restrictions in how they operate:
 	\vspace{-.8cm}
 	\includegraphics[width=1in]{images/MagicCarpet-small.png}
 	\end{wrapfigure}
-	
+
 	We denote the restriction on the magic carpet's movement by the vector
 	$\mat{1 \\2 }$. By this we mean that if the
 	magic carpet traveled ``forward'' for one hour, it would move along a
@@ -228,7 +228,7 @@ hover board and the magic carpet have restrictions in how they operate:
 	\vspace{-.8cm}
 	\includegraphics[width=1in]{images/HoverBoard-small.png}
 	\end{wrapfigure}
-	
+
 	We denote the restriction on the hover board's movement by the vector
 	$\mat{3 \\1}$. By this we mean that if
 	the hover board traveled ``forward'' for one hour, it would move along a
@@ -242,7 +242,7 @@ hover board and the magic carpet have restrictions in how they operate:
 	\vspace{-.8cm}
 	\includegraphics[width=1in]{images/MagicCarpet-small.png}
 	\end{wrapfigure}
-	
+
 	We denote the restriction on the magic carpet's movement by the vector
 	$\mat{1 \\2 }$. By this we mean that if the
 	magic carpet traveled ``forward'' for one hour, it would move along a
@@ -267,8 +267,8 @@ with these two modes of transportation?}
 Describe the places that you
 can reach using a combination of the hover board and the magic carpet and
 those you cannot. Specify these geometrically and algebraically. Include
-a symbolic represenation using vector noation. Also, include a convincing
-argument supporting your answer.  
+a symbolic representation using vector notation. Also, include a convincing
+argument supporting your answer.
 
 %\vspace{5mm} \par \textbf{Use your
 %group's whiteboard as a space to write out our work as your work together
@@ -305,7 +305,7 @@ argument supporting your answer.
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
 		$\vec v_1$?
 	\end{parts}
-	
+
 	\begin{definition}[Span]
 		The \emph{span} of a set of vectors $V$ is the set of
 		all linear combinations of vectors in $V$.  That is,
@@ -315,7 +315,7 @@ argument supporting your answer.
 			\text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n\}.
 		\]
 	\end{definition}
-	
+
 	\vspace{-.3cm}
 	\question
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
@@ -327,7 +327,7 @@ argument supporting your answer.
 		\item Describe $\Span\{\vec v_1,\vec v_2,\vec v_3\}$.
 	\end{parts}
 
-	
+
 	In some sets, every vector is essential for computing a span.  In others,
 	there are ``excess'' vectors.  This leads us to the concept of 
 	linear independence.
@@ -465,7 +465,7 @@ it is not possible to do so.
 \section*{Subspaces and Bases}
 	\vspace{-1em}
 	\begin{definition}[Subspace]
-		A \emph{subspace} $V\subseteq \R^n$ is a subset such that
+		A \emph{subspace} $V\subseteq \R^n$ is a non-empty subset such that
 		\begin{enumerate}
 			\item[(i)] $\vec u,\vec v\in V$ implies $\vec u+\vec v\in V$.
 			\item[(ii)] $\vec u\in V$ implies $k\vec u\in V$ for all scalars $k$.
@@ -701,6 +701,213 @@ it is not possible to do so.
 
 
 
+\newpage
+\pagestyle{iola}
+\section*{Task 2.1: Italicizing N}
+
+\hfill\begin{tikzpicture}[scale=1.5]
+    \begin{axis}[
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=3.5,
+		 ymin=-.5,
+		 ymax=5.5,
+		 major grid style={dotted, gray, thick},
+                 xtick={0,1,2,3},
+		 ytick={0,1,2,3,4,5},
+                 grid=both]
+
+	 \draw[black, thick] (0,0) -- (0,3) -- (2,0) -- (2,3);
+    \end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture}[scale=1.5]
+    \begin{axis}[
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=3.5,
+		 ymin=-.5,
+		 ymax=5.5,
+		 major grid style={dotted, gray, thick},
+                 xtick={0,1,2,3},
+		 ytick={0,1,2,3,4,5},
+                 grid=both]
+
+	 \draw[black, thick] (0,0) -- (1,4) -- (2,0) -- (3,4);
+    \end{axis}
+\end{tikzpicture}\hfill
+
+Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
+	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
+
+Work with your group to write out your solution and approach.  Make a list of any assumptions you
+notice your group making or any questions for further pursuit.
+
+\newpage
+\section*{Task 2.2: Beyond the N}
+
+\begin{minipage}{0.4\textwidth}
+\begin{tikzpicture}
+    \begin{axis}[scale=1.2,
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-4.5,
+		 xmax=7.5,
+		 ymin=-4.5,
+		 ymax=11.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both]
+	 \draw (0,0) circle[radius=1pt,fill=blue] node[below right] {$(0,0)$};
+	 \draw[black, thick] (0,0) -- (0,3) -- (2,0) -- (2,3);
+
+	 \draw[black, thick] (0,0) -- (-2,0) -- (-2,-3) -- (0,-3)(-2,-1.5) -- (0,-1.5);
+
+	\draw[black, thick] (5, 3) -- (3, 3) -- (3, 0) -- (5, 0)  (3, 1.5) -- (5, 1.5);
+	    \draw[black, thick] (2, 8) -- (0, 8) -- (0, 5) -- (2, 5)  (0, 6.5) -- (2, 6.5);
+
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.6\textwidth}
+	A few students were wondering how letters placed in other
+locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}$. 
+	If an ``E'' is placed around the
+	``N,'' the students argued over four different possible results for the
+	transformed E's. Which choice below, if any, is correct, and why? If none of
+	the four options are correct, what would the correct option be, and why?
+\end{minipage}
+
+\vfill
+\hfill
+\begin{tikzpicture}
+    \begin{axis}[scale=1.2,
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-4.5,
+		 xmax=7.5,
+		 ymin=-4.5,
+		 ymax=11.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,11},
+                 grid=both]
+	\draw (0,0) circle[radius=1pt,fill=blue] node[below right] {$(0,0)$};
+	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
+
+	\draw[black, thick] (-1, -4) -- (-3, -4) -- (-2, 0) -- (0, 0)  (-2.5, -2) -- (-0.5, -2);
+	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
+	\draw[black, thick](2, 6) -- (0, 6) -- (1, 10) -- (3, 10) (0.5, 8) -- (2.5, 8) ;
+    \end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+    \begin{axis}[scale=1.2,
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-4.5,
+		 xmax=7.5,
+		 ymin=-4.5,
+		 ymax=11.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,11},
+                 grid=both]
+	\draw (0,0) circle[radius=1pt,fill=blue] node[below right] {$(0,0)$};
+	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
+
+	\draw[black, thick] (-1, -4) -- (-3, -4) -- (-2, 0) -- (0, 0)  (-2.5, -2) -- (-0.5, -2);
+	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
+	\draw[black, thick] (3.5, 6) -- (1.5, 6) -- (2.5, 10) -- (4.5, 10) (2.0, 8) -- (4.0, 8);
+    \end{axis}
+\end{tikzpicture}
+\hfill
+
+\hfill
+\begin{tikzpicture}
+    \begin{axis}[scale=1.2,
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-4.5,
+		 xmax=7.5,
+		 ymin=-4.5,
+		 ymax=11.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,11},
+                 grid=both]
+	\draw (0,0) circle[radius=1pt,fill=blue] node[below right] {$(0,0)$};
+	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
+
+	\draw[black, thick] (-1, -4) -- (-3, -4) -- (-2, 0) -- (0, 0)  (-2.5, -2) -- (-0.5, -2);
+	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
+	\draw[black, thick] (3.666666666666667, 6.666666666666667) -- (1.6666666666666667, 6.666666666666667) -- (2.666666666666667, 10.666666666666668) -- (4.666666666666667, 10.666666666666668)  (2.166666666666667, 8.666666666666668) -- (4.166666666666667, 8.666666666666668);
+    \end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+    \begin{axis}[scale=1.2,
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-4.5,
+		 xmax=7.5,
+		 ymin=-4.5,
+		 ymax=11.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,11},
+                 grid=both]
+	\draw (0,0) circle[radius=1pt,fill=blue] node[below right] {$(0,0)$};
+	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
+
+	\draw[black, thick] (0, -4) -- (-2, -4) -- (-1, 0) -- (1, 0)  (-1.5, -2) -- (0.5, -2);
+	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
+	\draw[black, thick] (3.666666666666667, 6.666666666666667) -- (1.6666666666666667, 6.666666666666667) -- (2.666666666666667, 10.666666666666668) -- (4.666666666666667, 10.666666666666668)  (2.166666666666667, 8.666666666666668) -- (4.166666666666667, 8.666666666666668);
+    \end{axis}
+\end{tikzpicture}
+\hfill
+\vfill
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\pagestyle{siefken}
 \section*{Rank}
 	\begin{definition}[Rank]
 		The \emph{rank} of the matrix $A$ is the number of leading ones in the 
