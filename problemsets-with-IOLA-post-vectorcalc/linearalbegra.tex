@@ -360,7 +360,7 @@ argument supporting your answer.
 	
 \newpage
 \pagestyle{iola}
-\section*{Task 1.3: The Carpet Riding, Getting Back Home}
+\section*{Task 1.3: The Magic Carpet, Getting Back Home}
 
 Suppose you are now in a three-dimensional world for the carpet
 ride problem, and you have three modes of transportation:
@@ -891,6 +891,139 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 \hfill
 \vfill
 
+\newpage
+
+\section*{Task 2.3: Pat and Jamie}
+
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[scale=.9]
+    \begin{axis}[
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=3.5,
+		 ymin=-.5,
+		 ymax=5.5,
+		 major grid style={dotted, gray, thick},
+                 xtick={0,1,2,3},
+		 ytick={0,1,2,3,4,5},
+                 grid=both]
+
+	 \draw[black, thick] (0,0) -- (0,3) -- (2,0) -- (2,3);
+    \end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture}[scale=.9]
+    \begin{axis}[
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=3.5,
+		 ymin=-.5,
+		 ymax=5.5,
+		 major grid style={dotted, gray, thick},
+                 xtick={0,1,2,3},
+		 ytick={0,1,2,3,4,5},
+                 grid=both]
+
+	 \draw[black, thick] (0,0) -- (1,4) -- (2,0) -- (3,4);
+    \end{axis}
+\end{tikzpicture}\hfill
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+
+Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
+	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
+\end{minipage}
+
+Two students---Pat and Jamie---explained their approach to the Italicizing N task as follows:
+\begin{quote}\itshape
+	In order to find the matrix $A$, we are going to find a matrix that makes the ``N'' taller,
+	find a matrix that italicizes the taller ``N,'' and a combination of those two matrices
+	will give the desired matrix $A$.
+\end{quote}
+
+\begin{enumerate}
+	\item Do you think Pat and Jamie's approach allowed them to find $A$?  If so, do
+		you think they found the same matrix that you did during Italicising N?
+		\vspace{\stretch{1}}
+	\item Try Pat and Jamie's approach.  Either (a) come up with a matrix $A$ using
+		their approach, or (b) explain why their approach does not work.
+		\vspace{\stretch{2}}
+\end{enumerate}
+
+
+
+\newpage
+\section*{Task 2.4: Getting back N}
+
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[scale=.9]
+    \begin{axis}[
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=3.5,
+		 ymin=-.5,
+		 ymax=5.5,
+		 major grid style={dotted, gray, thick},
+                 xtick={0,1,2,3},
+		 ytick={0,1,2,3,4,5},
+                 grid=both]
+
+	 \draw[black, thick] (0,0) -- (0,3) -- (2,0) -- (2,3);
+    \end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture}[scale=.9]
+    \begin{axis}[
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=3.5,
+		 ymin=-.5,
+		 ymax=5.5,
+		 major grid style={dotted, gray, thick},
+                 xtick={0,1,2,3},
+		 ytick={0,1,2,3,4,5},
+                 grid=both]
+
+	 \draw[black, thick] (0,0) -- (1,4) -- (2,0) -- (3,4);
+    \end{axis}
+\end{tikzpicture}\hfill
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+
+Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
+	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
+\end{minipage}
+
+Two students---Pat and Jamie---explained their approach to the Italicizing N task as follows:
+\begin{quote}\itshape
+	In order to find the matrix $A$, we are going to find a matrix that makes the ``N'' taller,
+	find a matrix that italicizes the taller ``N,'' and a combination of those two matrices
+	will give the desired matrix $A$.
+\end{quote}
+
+Consider the new task: find a matrix $C$ that transforms the ``N'' on the right to
+the ``N'' on the left.
+\begin{enumerate}
+	\item Use any method you like to find $C$.
+		\vspace{\stretch{1}}
+	\item Use a method similar to Pat and Jamie's method, only use it to find $C$ instead
+		of $A$.
+		\vspace{\stretch{1}}
+\end{enumerate}
 
 
 
