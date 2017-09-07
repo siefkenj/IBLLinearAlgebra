@@ -32,9 +32,9 @@
 %%%
 \newcommand{\ul}{$\underline{\phantom{xxx}}$}
 \newcommand{\ull}{\underline{\phantom{xxx}}}
-\newcommand{\xh}{{\hat {\mathbf x}}}
-\newcommand{\yh}{{\hat {\mathbf y}}}
-\newcommand{\zh}{{\hat {\mathbf z}}}
+\newcommand{\xh}{{{\mathbf e}_1}}
+\newcommand{\yh}{{{\mathbf e}_2}}
+\newcommand{\zh}{{{\mathbf e}_3}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
@@ -340,6 +340,194 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item $V\cup H$.
 		\item $V\cap H$.
 		\item Does $V\cup H=\R^2$?
+	\end{parts}
+
+
+
+\section*{Systems of Linear Equations}
+	
+	\emph{Linear equations} are equations only involving variables, 
+	multiplication by constants, and addition/subtraction.  \emph{Systems}
+	of equations are sets of equations that share common variables.
+
+	\question
+	Consider the system
+	\begin{equation}\label{eq2}
+		\begin{array}{rcrl}
+			x &-&y &= 2\\
+			2x &+&y &= 1
+		\end{array}
+	\end{equation}
+
+	\begin{parts}
+		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
+		\item Algebraically solve the system (\ref{eq2}).  What does this 
+		solution represent on your graph?
+	\end{parts}
+	
+	\question
+	Let $L$ be the line given by $x-y=2$.
+	\begin{parts}
+		\item Write an equation of a line that doesn't intersect $L$.
+		\item Write an equation of a line that intersects $L$ in 
+		\begin{enumerate}
+			\item one place.
+			\item infinitely many places
+			\item exactly two places
+		\end{enumerate}
+		or explain why no such equation exists.
+		\item For each equation you came up with, solve the system algebraically.
+		How can you tell algebraically how many solutions there are?
+	\end{parts}
+
+	\newpage
+	\question
+	Consider the augmented matrix
+	\[
+		A=\left[\begin{array}{ccc|c}
+			1 & 2 & -1 & -7\\
+			0 & 2 & 3 & 9\\
+			0 & 0 & 1 & 1
+		\end{array}\right].
+	\]
+	\begin{parts}
+		\item Write the system of equations corresponding to $A$.
+		\item Solve the system of equations corresponding to $A$.
+	\end{parts}
+	\begin{definition}[Vector Form of a Line]
+		A line $\ell$ is written in \emph{vector form} if it is expressed
+		as
+		\[
+			\vec x=\vec d t+\vec p
+		\]
+		for some vector $\vec x$ and point $\vec p$. That is, $\ell = \{\vec x: \vec x=
+		\vec d t+\vec p\text{ for some } t\in\R \}$.
+	\end{definition}
+
+\subsection*{Infinite Solutions}
+	\question
+	Consider the system
+	\begin{equation}\label{eq4}
+		\begin{array}{rcrl}
+			x&+&2y &= 3\\
+			2x&+&4y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{parts}
+		\item How many solutions does (\ref{eq4}) have?
+		\item Write the solutions to (\ref{eq4}) in vector form.
+		\item What happens when you use an augmented matrix
+		to solve (\ref{eq4})?
+	\end{parts}
+
+
+
+\subsection*{The Row Reduction Algorithm}
+
+
+	\question
+	\begin{parts}
+		\item Solve the system
+		\begin{equation}\label{eq3}
+			\begin{array}{rcrcrl}
+				x&-&y&-&2z &= -5\\
+				2x&+&3y&+&z &= 5\\
+				0x&+&2y&+&3z &= 8
+			\end{array}
+		\end{equation}
+		any way you like.
+
+		\item Use an augmented matrix to solve the system (\ref{eq3}).
+	\end{parts}
+
+	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
+	interpretations when appropriate is one of the most powerful tools of Linear 
+	Algebra).  We can think of solutions to (\ref{eq3})
+	as the intersection of three planes, or we can interpret the solution
+	as coefficients of a linear combination.
+
+	\begin{parts}[resume]
+		\item Rewrite (\ref{eq3}) as a vector equation of the form
+		\[
+			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
+		\]
+		where $x,y,z$ are interpreted as scalar quantities.
+
+		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
+		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
+		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
+	\end{parts}
+\subsection*{Free Variables}
+	\question
+	Suppose the row-reduced augmented matrix corresponding to 
+	a system is
+	\[
+		B=\left[\begin{array}{cc|c}
+			1 & 2 & 3\\
+			0 & 0 & 0
+		\end{array}\right].
+	\]
+	After reducing, we have 1 equation and 2 unknowns, so we can make
+	$2-1=1$ choices when writing a solution.  Let's make the
+	choice $y=t$.
+	
+	\begin{parts}
+		\item With the added equation $y=t$, solve the
+		system represented by $B$.
+	\end{parts}
+
+	\question
+	Consider the system given by the augmented matrix
+	\[
+		C=\left[\begin{array}{ccccc|c}
+			1&0&1&2&0&-1\\
+			0&1&1&0&0&3\\
+			0&0&0&0&1&4
+		\end{array}\right].
+	\]
+	and call the variables in this system $x_1,x_2,
+	x_3,x_4,x_5$.
+
+	\begin{parts}
+		\item Write the system of equations represented by $C$.
+		\item Identify how many choices you can make when writing
+		down a solution corresponding to $C$.
+		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
+		for each choice you must make when solving the system.
+		\item Write in vector form all solutions to $C$.
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item An unknown system $U$ is represented by an augmented
+		matrix with 4 rows and 6 columns.  What is 
+		the minimum number of
+		free variables solutions to $U$ will have?
+		\item An unknown system $V$ is represented by an augmented
+		matrix with 6 rows and 4 columns.  What is 
+		the minimum number of
+		free variables solutions to $V$ will have?
+	\end{parts}
+	
+	\question
+	\begin{definition}[Homogeneous]
+		A system is called \emph{homogeneous} if all equations equal $0$.
+	\end{definition}
+
+		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
+		 $(x,y,z)=(1,2,1)$ and
+		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
+	\begin{parts}
+		\item Can you produce another solution
+		to the system?
+
+		\item  Can you
+		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
+		equation equals 0)?
+
+		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
+		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
 	\end{parts}
 
 
@@ -725,183 +913,6 @@ it is not possible to do so.
 	\end{parts}
 
 	\newpage
-
-
-\section*{Systems of Linear Equations}
-	
-	\emph{Linear equations} are equations only involving variables, 
-	multiplication by constants, and addition/subtraction.  \emph{Systems}
-	of equations are sets of equations that share common variables.
-
-	\question
-	Consider the system
-	\begin{equation}\label{eq2}
-		\begin{array}{rcrl}
-			x &-&y &= 2\\
-			2x &+&y &= 1
-		\end{array}
-	\end{equation}
-
-	\begin{parts}
-		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
-		\item Algebraically solve the system (\ref{eq2}).  What does this 
-		solution represent on your graph?
-	\end{parts}
-	
-	\question
-	Let $L$ be the line given by $x-y=2$.
-	\begin{parts}
-		\item Write an equation of a line that doesn't intersect $L$.
-		\item Write an equation of a line that intersects $L$ in 
-		\begin{enumerate}
-			\item one place.
-			\item infinitely many places
-			\item exactly two places
-		\end{enumerate}
-		or explain why no such equation exists.
-		\item For each equation you came up with, solve the system algebraically.
-		How can you tell algebraically how many solutions there are?
-	\end{parts}
-
-\subsection*{The Row Reduction Algorithm}
-
-	\question
-	\begin{parts}
-		\item Solve the system
-		\begin{equation}\label{eq3}
-			\begin{array}{rcrcrl}
-				x&-&y&-&2z &= -5\\
-				2x&+&3y&+&z &= 5\\
-				0x&+&2y&+&3z &= 8
-			\end{array}
-		\end{equation}
-		any way you like.
-
-		\item Use an augmented matrix to solve the system (\ref{eq3}).
-	\end{parts}
-
-	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
-	interpretations when appropriate is one of the most powerful tools of Linear 
-	Algebra).  We can think of solutions to (\ref{eq3})
-	as the intersection of three planes, or we can interpret the solution
-	as coefficients of a linear combination.
-
-	\begin{parts}[resume]
-		\item Rewrite (\ref{eq3}) as a vector equation of the form
-		\[
-			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
-		\]
-		where $x,y,z$ are interpreted as scalar quantities.
-
-		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
-		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
-		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
-	\end{parts}
-
-	\question
-	Consider the augmented matrix
-	\[
-		A=\left[\begin{array}{ccc|c}
-			1 & 2 & -1 & -7\\
-			0 & 2 & 3 & 9\\
-			0 & 0 & 1 & 1
-		\end{array}\right].
-	\]
-	\begin{parts}
-		\item Write the system of equations corresponding to $A$.
-		\item Solve the system of equations corresponding to $A$.
-	\end{parts}
-
-\subsection*{Infinite Solutions}
-	\question
-	Consider the system
-	\begin{equation}\label{eq4}
-		\begin{array}{rcrl}
-			x&+&2y &= 3\\
-			2x&+&4y &= 6
-		\end{array}
-	\end{equation}
-
-	\begin{parts}
-		\item How many solutions does (\ref{eq4}) have?
-		\item Write the solutions to (\ref{eq4}) in vector form.
-		\item What happens when you use an augmented matrix
-		to solve (\ref{eq4})?
-	\end{parts}
-
-
-\subsection*{Free Variables}
-	\question
-	Suppose the row-reduced augmented matrix corresponding to 
-	a system is
-	\[
-		B=\left[\begin{array}{cc|c}
-			1 & 2 & 3\\
-			0 & 0 & 0
-		\end{array}\right].
-	\]
-	After reducing, we have 1 equation and 2 unknowns, so we can make
-	$2-1=1$ choices when writing a solution.  Let's make the
-	choice $y=t$.
-	
-	\begin{parts}
-		\item With the added equation $y=t$, solve the
-		system represented by $B$.
-	\end{parts}
-
-	\question
-	Consider the system given by the augmented matrix
-	\[
-		C=\left[\begin{array}{ccccc|c}
-			1&0&1&2&0&-1\\
-			0&1&1&0&0&3\\
-			0&0&0&0&1&4
-		\end{array}\right].
-	\]
-	and call the variables in this system $x_1,x_2,
-	x_3,x_4,x_5$.
-
-	\begin{parts}
-		\item Write the system of equations represented by $C$.
-		\item Identify how many choices you can make when writing
-		down a solution corresponding to $C$.
-		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
-		for each choice you must make when solving the system.
-		\item Write in vector form all solutions to $C$.
-	\end{parts}
-
-	\question
-	\begin{parts}
-		\item An unknown system $U$ is represented by an augmented
-		matrix with 4 rows and 6 columns.  What is 
-		the minimum number of
-		free variables solutions to $U$ will have?
-		\item An unknown system $V$ is represented by an augmented
-		matrix with 6 rows and 4 columns.  What is 
-		the minimum number of
-		free variables solutions to $V$ will have?
-	\end{parts}
-	
-	\question
-	\begin{definition}[Homogeneous]
-		A system is called \emph{homogeneous} if all equations equal $0$.
-	\end{definition}
-
-		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
-		 $(x,y,z)=(1,2,1)$ and
-		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
-	\begin{parts}
-		\item Can you produce another solution
-		to the system?
-
-		\item  Can you
-		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
-		equation equals 0)?
-
-		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
-		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
-	\end{parts}
-
 
 
 \newpage
