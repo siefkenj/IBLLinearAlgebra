@@ -212,7 +212,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\begin{enumerate}
 			\item Give directions to $p$ using the new notation. 
 			\item Give directions to $p$ using $\bf c$.  (Notice that
-				$\bf c$ points directly at $p$.)
+				$\bf c$ is of unit length and points directly at $p$.)
 			\item What is the distance from $\bf o$ to $p$ in units?
 		\end{enumerate}
 		\item
@@ -394,34 +394,6 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item Write the system of equations corresponding to $A$.
 		\item Solve the system of equations corresponding to $A$.
 	\end{parts}
-	\begin{definition}[Vector Form of a Line]
-		A line $\ell$ is written in \emph{vector form} if it is expressed
-		as
-		\[
-			\vec x=\vec d t+\vec p
-		\]
-		for some vector $\vec x$ and point $\vec p$. That is, $\ell = \{\vec x: \vec x=
-		\vec d t+\vec p\text{ for some } t\in\R \}$.
-	\end{definition}
-
-\subsection*{Infinite Solutions}
-	\question
-	Consider the system
-	\begin{equation}\label{eq4}
-		\begin{array}{rcrl}
-			x&+&2y &= 3\\
-			2x&+&4y &= 6
-		\end{array}
-	\end{equation}
-
-	\begin{parts}
-		\item How many solutions does (\ref{eq4}) have?
-		\item Write the solutions to (\ref{eq4}) in vector form.
-		\item What happens when you use an augmented matrix
-		to solve (\ref{eq4})?
-	\end{parts}
-
-
 
 \subsection*{The Row Reduction Algorithm}
 
@@ -456,8 +428,39 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 
 		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
 		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
-		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
+		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p$ a linear combination of $\vec v_1$,
+			$\vec v_2$, and $\vec v_3$?
 	\end{parts}
+	
+	\begin{definition}[Vector Form of a Line]
+		A line $\ell$ is written in \emph{vector form} if it is expressed
+		as
+		\[
+			\vec x=\vec d t+\vec p
+		\]
+		for some vector $\vec x$ and point $\vec p$. That is, $\ell = \{\vec x: \vec x=
+		\vec d t+\vec p\text{ for some } t\in\R \}$.
+	\end{definition}
+
+\subsection*{Infinite Solutions}
+	\question
+	Consider the system
+	\begin{equation}\label{eq4}
+		\begin{array}{rcrl}
+			x&+&2y &= 3\\
+			2x&+&4y &= 6
+		\end{array}
+	\end{equation}
+
+	\begin{parts}
+		\item How many solutions does (\ref{eq4}) have?
+		\item Write the solutions to (\ref{eq4}) in vector form.
+		\item What happens when you use an augmented matrix
+		to solve (\ref{eq4})?
+	\end{parts}
+
+
+
 \subsection*{Free Variables}
 	\question
 	Suppose the row-reduced augmented matrix corresponding to 
@@ -501,13 +504,13 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 	\question
 	\begin{parts}
 		\item An unknown system $U$ is represented by an augmented
-		matrix with 4 rows and 6 columns.  What is 
+		matrix with 4 rows, 6 columns, and one augmented column.  What is 
 		the minimum number of
-		free variables solutions to $U$ will have?
+		free variables $U$ can have?
 		\item An unknown system $V$ is represented by an augmented
-		matrix with 6 rows and 4 columns.  What is 
+		matrix with 6 rows, 4 columns, and one augmented column.  What is 
 		the minimum number of
-		free variables solutions to $V$ will have?
+		free variables  $V$ can have?
 	\end{parts}
 	
 	\question
