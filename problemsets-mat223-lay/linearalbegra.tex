@@ -1,4 +1,4 @@
-\documentclass{problemset}
+\documentclass[14pt]{problemset}
 \usepackage{amsmath}
 
 \usepackage{lipsum}
@@ -505,13 +505,15 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 	\question
 	\begin{parts}
 		\item An unknown system $U$ is represented by an augmented
-		matrix with 4 rows, 6 columns, and one augmented column.  What is 
-		the minimum number of
-		free variables $U$ can have?
+			matrix with 4 rows, 7 columns (one column is
+			the augmented column).  What is 
+			the minimum number of
+			free variables $U$ can have?
 		\item An unknown system $V$ is represented by an augmented
-		matrix with 6 rows, 4 columns, and one augmented column.  What is 
-		the minimum number of
-		free variables  $V$ can have?
+			matrix with 6 rows, 5 columns (one column is the
+			augmented column).  What is 
+			the minimum number of
+			free variables  $V$ can have?
 	\end{parts}
 	
 	\question
@@ -534,7 +536,173 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
 	\end{parts}
 
+\newpage
+\section*{Dot Product}
 
+	\begin{definition}[Dot Product]
+	If $\vec a=\begin{bmatrix}a_1\\ a_2\\ \vdots \\ a_n\end{bmatrix}$ and 
+	$\vec b=\begin{bmatrix}b_1\\ b_2\\ \vdots \\ b_n\end{bmatrix}$ are two vectors in $n$-dimensional
+		space, then the \emph{dot product} of $\vec a$ an $\vec b$ is
+	\[
+		\vec a\cdot\vec b = a_1b_1+a_2b_2+\cdots+a_nb_n.
+	\]
+	Equivalently, the dot product is defined by the geometric formula
+	\[
+		\vec a\cdot \vec b = \|\vec a\|\|\vec b\|\cos \theta
+	\]
+	where $\theta$ is the angle between $\vec a$ and $\vec b$.
+	\end{definition}
+	
+	\question
+		Let $\vec a=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec b=\begin{bmatrix}3\\2\end{bmatrix}$, and $\vec u=\begin{bmatrix}1\\2\\1\end{bmatrix}$.
+	\begin{parts}
+		\item 
+		\begin{enumerate}	
+			\item Draw a picture of $\vec a $ and $\vec b$.
+			\item Compute $\vec a\cdot \vec b$.
+			\item Find $\|\vec a\|$ and $\|\vec b\|$ and use your knowledge of
+			the multiple ways to compute the dot product to find $\theta$,
+			the angle between $\vec a$ and $\vec b$. Label $\theta$ on your picture.
+		\end{enumerate}
+		\item Draw the graph of $\cos$ and identify which angles make $\cos$ negative, zero,
+		or positive.
+
+		\item Draw a new picture of $\vec a$ and $\vec b$ and on that picture draw
+		\begin{enumerate}	
+			\item a vector $\vec c$ where $\vec c\cdot \vec a$ is negative.
+			\item a vector $\vec d$ where $\vec d\cdot \vec a=0$ and $\vec d\cdot \vec b < 0$.
+			\item a vector $\vec e$ where $\vec e\cdot \vec a=0$ and $\vec e\cdot \vec b>0$.
+			\item Could you find a vector $\vec f$ where $\vec f\cdot \vec a=0$ and $\vec f\cdot \vec b=0$?
+			Explain why or why not.
+		\end{enumerate}
+
+		\item Recall the vector $\vec u$ whose coordinates are given at the beginning of this problem.
+		\begin{enumerate}
+			\item Write down a vector $\vec v$ so that the angle between $\vec u$ and $\vec v$
+			is $\pi/2$. (Hint, how does this relate to the dot product?)
+			\item Write down another vector $\vec w$ (in a different direction from $\vec v$)
+			so that the angle between $\vec w$ and $\vec u$ is $\pi/2$.
+			\item Can you write down other vectors different than both $\vec v$ and $\vec w$ that still
+			form an angle of $\pi/2$ with $\vec u$?  How many such vectors are there?
+		\end{enumerate}
+	\end{parts}
+
+	\begin{definition}[Norm]
+		The \emph{norm} of a vector $\vec v\in\R^n$, denoted $\|\vec v\|$ is its length
+		and is given by the formula
+		\[
+			\|\vec v\| = \sqrt{\vec v\cdot\vec v}.
+		\]
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Let $\vec a = \mat{3\\2}$.  Find $\|\vec a\|$ using the Pythagorean theorem
+			and using the formula from the definition of the norm.  How do
+			these quantities relate?
+		\item Let $\vec b = \mat{1\\1\\-2\\2}$, and find $\|\vec b\|$.
+		Did you know how to find 4-d lengths before?
+	
+		\item Suppose $\vec u=\mat{x\\ y}$ for some $x,y\in \R$.
+		Could $\vec u\cdot \vec u$ be negative? Compute $\vec u\cdot \vec u$ algebraically
+		and use this to justify your answer.
+	\end{parts}
+
+	\begin{definition}[Distance]
+		The \emph{distance} between two vectors $\vec u$ and $\vec v$ is $\|\vec u-\vec v\|$.
+	\end{definition}
+	\begin{definition}[Unit Vector]
+		A vector $\vec v$ is called a \emph{unit vector} if $\|\vec v\|=1$.
+	\end{definition}
+	
+	\question
+	Let $\vec u=\mat{1\\2\\1}$ and $\vec v=\mat{1\\1\\3}$.
+	\begin{parts}
+		\item Find the distance between $\vec u$ and $\vec v$.
+		\item Find a unit vector in the direction of $\vec u$.
+		\item Does there exists a \emph{unit vector} $\vec x$ that is distance
+			$1$ from $\vec u$?
+		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ and
+			$\vec u$ is $2$.  What is the angle between $\vec y$ and $\vec u$?
+	\end{parts}
+
+	\begin{definition}[Orthogonal]
+		Two vectors $\vec u$ and $\vec v$ are \emph{orthogonal} to each other
+		if $\vec u\cdot \vec v=0$.  The word orthogonal is synonymous with the
+		word perpendicular.
+	\end{definition}
+
+	\newpage
+	\question
+	\begin{parts}
+		\item Find two vectors orthogonal to $\vec a=\mat{1\\-3}$.  Can you find two such vectors that
+			are not parallel?
+		\item Find two vectors orthogonal to $\vec b=\mat{1\\-3\\4}$.  Can you find two 
+			such vectors that are not parallel?
+		\item Suppose $\vec x$ and $\vec y$ are orthogonal to each other and $\|\vec x\|=5$ and $\|\vec y\|=3$.
+			What is the distance between $\vec x$ and $\vec y$?
+	\end{parts}
+
+
+\section*{Projections}
+	Projections (sometimes called orthogonal projections) are a way to measure how much one vector
+	points in the direction of another.
+
+	\begin{definition}[Projection]
+	\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}[>=latex,scale=2.5]
+		\draw[->,thick,black] (0,0) -- (2,1) node [above] {$\vec u$};
+		\draw[->,thick,black] (0,0) -- (3,0) node [above] {$\vec v$};
+		\draw[->,thick,black,yshift=-.07cm] (0,0) -- (2,0);
+		\draw[decoration={brace, mirror}, decorate, yshift=-.15cm] (0,0) -- (2,0) node [midway,below,yshift=-4pt] {$\Proj_{\vec v}\vec u$};
+		
+		\draw[dashed,thick,black] (2,0) -- (2,1);
+		\draw[decoration={brace, mirror}, decorate, xshift=1.15cm] (2,0) -- (2,1) node [midway,right,xshift=4pt] {$\Perp_{\vec v}\vec u$};
+		\draw[thin,black] (1.85,0)--(1.85,.15)--(2,.15);
+
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-.6cm}
+	
+	The \emph{projection} of $\vec u$ onto $\vec v$ is written $\proj_{\vec v}\vec u$ and is the vector in the direction of $\vec v$
+	such that $\vec u-\Proj_{\vec v}\vec u$ is orthogonal to $\vec v$.  The vector $\vec u-\Proj_{\vec v}$ is called the \emph{perpendicular
+	component} of $\vec u$ with respect to $\vec v$ and is notated as $\Perp_{\vec v}\vec u$.
+	\end{definition}
+	
+	\question
+	\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}[>=latex,scale=2.5]
+		\draw[->,thick,black] (0,0) -- (30:2) node [above] {$\vec a$};
+		\draw[->,thick,black] (0,0) -- (3,0) node [above] {$\vec b$};
+		\draw[thick,black] (0,0) +(0:.3cm) arc (0:30:.3cm) node[right,yshift=-4pt] {$\theta$};
+
+	\end{tikzpicture}
+	\end{center}
+
+
+	In this picture $\|\vec a\|=4$, $\theta = \pi/6$, and $\vec b=\mat{6\\0}$.
+	%%%
+	% XXX: This is confusing with multiple b vectors. Should instead emphasise that proj_b(a ) = proj_{-b}(a).
+	%%%
+	\begin{parts}
+		\item   Write $\vec a$ in column vector form.
+		\item   Find $\|\Proj_{\vec b}\vec a\|$ and $\|\Perp_{\vec b}\vec a\|$.
+		\item Write down 
+				$\Proj_{\vec b}\vec a$ and $\Perp_{\vec b}\vec a$ in column vector
+				form.
+		\item If $\vec c=\mat{-4\\0}$, write down 
+				$\Proj_{\vec c}\vec a$ and $\Perp_{\vec c}\vec a$ in column vector
+				form.
+		\item If $\vec d=\mat{3\\1}$, write down 
+				$\Proj_{\vec d}\vec a$ and $\Perp_{\vec d}\vec a$ in column vector
+				form.  (You may need to use your knowledge of how dot products and angles
+				relate to answer this one.)
+		\item Consider $\vec d=\mat{3\\1}$.  Compute $\proj_{\xh}\vec d$ and 
+		$\proj_{\yh}\vec d$.  How do these projections relate to the coordinates of $\vec d$? What
+		can you say in general about projections onto $\xh$ and $\yh$?
+	\end{parts}
 
 
 
