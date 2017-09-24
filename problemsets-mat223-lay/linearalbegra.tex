@@ -693,18 +693,56 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		\item Write down 
 				$\Proj_{\vec b}\vec a$ and $\Perp_{\vec b}\vec a$ in column vector
 				form.
-		\item If $\vec c=\mat{-4\\0}$, write down 
+		\item Let $\vec c=\mat{-4\\0}$. Write down 
 				$\Proj_{\vec c}\vec a$ and $\Perp_{\vec c}\vec a$ in column vector
 				form.
-		\item If $\vec d=\mat{3\\1}$, write down 
+	\end{parts}
+
+	\question
+	Let $\|\vec a\|=4$, $\vec d=\mat{3\\1}$ and let $\theta = \pi/6$ be the angle between $\vec a$ and $\vec d$.
+	\begin{parts}
+		\item Write down 
 				$\Proj_{\vec d}\vec a$ and $\Perp_{\vec d}\vec a$ in column vector
-				form.  (You may need to use your knowledge of how dot products and angles
-				relate to answer this one.)
-		\item Consider $\vec d=\mat{3\\1}$.  Compute $\proj_{\xh}\vec d$ and 
+				form.
+		\item Compute $\proj_{\xh}\vec d$ and 
 		$\proj_{\yh}\vec d$.  How do these projections relate to the coordinates of $\vec d$? What
 		can you say in general about projections onto $\xh$ and $\yh$?
 	\end{parts}
 
+
+\subsection*{Matrix Equations}
+Let $M$ be an $n\times m$ matrix with rows $\vec r_1,\ldots, \vec r_n$ and let $\vec v$ be a $1\times m$ vector.
+Then
+\[
+	M\vec v=\mat{\vec r_1\cdot \vec v\\\vdots\\ \vec r_n\cdot \vec v}.
+\]
+
+	\question
+	\begin{parts}
+		\item Let $M=\mat{1&5&2\\2&1&1\\0&1&0}$ and $\vec v=\mat{8\\1\\1}$. Compute $M\vec v$.
+	\end{parts}
+
+	\question
+		Consider the system
+		\begin{equation}\label{eqmatvecprod}
+			\begin{array}{llll}
+				x&+2y&+z &= 1\\
+				x&+2y&+3z &= 2\\
+				-x&-2y&+z &= 3
+			\end{array}
+		\end{equation}
+		\begin{parts}
+			\item Write \eqref{eqmatvecprod} as a vector equation.
+			\item Write \eqref{eqmatvecprod} as a matrix equation (i.e., one of the form $M\vec x=\vec b$).
+		\end{parts}
+
+	\question
+	Let $M$ be an $n\times m$ matrix with columns $\vec c_1,\ldots \vec c_m$ and rows $\vec r_1,\ldots,\vec r_n$.
+	Let $\vec x=\mat{x_1\\\vdots\\ x_m}$.
+	\begin{parts}
+		\item Express $M\vec x$ in terms of $\vec r_1,\ldots,\vec r_n$ and $\vec x$.
+		\item Express $M\vec x$ in terms of $\vec c_1,\ldots,\vec c_m$ and $\vec x$.
+	\end{parts}
 
 
 
