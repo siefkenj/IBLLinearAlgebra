@@ -1500,6 +1500,161 @@ the ``N'' on the left.
 
 \newpage
 \pagestyle{siefken}
+
+
+\section*{Linear Transformations}
+\vspace{-1.5em}
+	
+	\question
+	$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
+	by $90^\circ$.
+	\begin{parts}
+		\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
+		\item Compute $\mathcal R\mat{1\\1}$.  How does this relate to
+			$\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$?
+		\item What is $\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)$?
+		\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
+			counter clockwise by $90^\circ$.
+	\end{parts}
+
+	\question
+	$\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
+	and contracts in the $\yh$ direction by a factor of $3$.
+	\begin{parts}
+		\item Write a matrix representation of $\mathcal S$.
+	\end{parts}
+
+	\begin{definition}[Linear Transformation]
+		If $V$ and $W$ are vector spaces, a function $T:V\to W$ is called a \emph{linear transformation}
+		if 
+		\[
+			T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
+			T(\alpha \vec v)=\alpha T\vec v
+		\]
+		for all vectors $\vec u,\vec v\in V$ and all scalars $\alpha$.
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Classify the following as linear transformation or not
+			\begin{enumerate}
+				\item $\mathcal R$ from above.
+				\item $\mathcal S$ from above.
+				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+				\item $\mathcal P:\R^2\to\R^2$ where $\mathcal P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
+					$\vec u=\mat{2\\3}$.
+			\end{enumerate}
+	\end{parts}
+
+	It turns out every linear transformation can be written as a matrix (in fact
+	this is why matrix multiplication was invented).
+
+	\question
+	Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
+	\begin{parts}
+		\item Write down a matrix for $\mathcal P$.
+		%\item What is the null space of $\mathcal P$?
+		\item What is the rank of the matrix corresponding to $\mathcal P$?
+		%\item Is $\mathcal P$ invertible?
+	\end{parts}
+
+	Matrix multiplication was designed to exactly model composition of linear transformations.
+	\begin{parts}[resume]
+		\item Write down a matrix for $\mathcal P$ and for $\mathcal R$, the counter-clockwise rotation
+			by $90^\circ$.
+		\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+	\end{parts}
+
+	\begin{definition}[Range]
+		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ is the set of vectors that
+		$T$ can output.  That is,
+		\[
+			\Range(T)=\{\vec y\in W:\vec y=T\vec x\text{ for some }\vec x\in V\}.
+		\]
+	\end{definition}
+	\begin{definition}[Null Space]
+		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$ is the
+		set of vectors that get mapped to zero under $T$.  That is,
+		\[
+			\Null(T)=\{\vec x\in V:T\vec x=\vec 0\}.
+		\]
+	\end{definition}
+
+	\question
+	Let $\mathcal P:\R^2\to\R^2$ be projection onto the vector $\vec u=\mat{2\\3}$ (like before).
+	\begin{parts}
+		\item What is the range of $\mathcal P$?
+		\item What is the null space of $\mathcal P$?
+	\end{parts}
+
+	\question
+	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
+	\begin{parts}
+		\item Show that the null space of $T$ is a subspace.
+		\item Show that the range of $T$ is a subspace.
+	\end{parts}
+
+
+	\begin{definition}[Fundamental Subspaces]
+		Associated with any matrix $M$ are three fundamental subspaces: the \emph{row space}
+		of $M$ is the span of the rows of $M$; the \emph{column space} of $M$ is the span
+		of the columns of $M$; and the \emph{null space} of $M$ is the set of solutions
+		to $M\vec x=\vec 0$. 
+		
+	\end{definition}
+
+	\question
+	Consider $A=\mat{1&0&0\\0&1&0}$.
+	\begin{parts}
+		\item Describe the row space of $A$.
+		\item Describe the column space of $A$.
+		\item Is the row space of $A$ the same as the column space of $A$?
+		\item Describe the set of all vectors perpendicular to the rows of $A$.
+		\item Describe the null space of $A$.
+	\end{parts}
+
+	\question
+	\[
+		B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
+	\]
+	\begin{parts}
+		\item How does the row space of $B$ relate to the row space of $C$?
+		\item How does the null space of $B$ relate to the null space of $C$?
+		\item Compute the null space of $B$.
+	\end{parts}
+
+	\question
+	\[
+		P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
+	\]
+	\begin{parts}
+		\item How does the column space of $P$ relate to the column space of $Q$?
+		\item Describe the column space of $P$ and the column space of $Q$.
+	\end{parts}
+
+	\begin{theorem}[Rank-nullity Theorem]
+	The \emph{nullity} of a matrix is the dimension of the null space.
+
+	The rank-nullity theorem states
+	\[
+		\rank(A)+\nnul(A) = \#\text{ of columns in }A.
+	\]
+	\end{theorem}
+
+	\question
+	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
+	Define $A=[\vec u|\vec v|\vec w]$.
+	\begin{parts}
+		\item What is the rank and nullity of $A^T$?
+		\item What is the rank and nullity of $A$?
+	\end{parts}
+
+
+
+
+
+
 \section*{Rank}
 	\begin{definition}[Rank]
 		The \emph{rank} of the matrix $A$ is the number of leading ones in the 
@@ -1720,155 +1875,6 @@ the ``N'' on the left.
 	\newpage
 
 
-
-\newpage
-\section*{Linear Transformations}
-\vspace{-1.5em}
-	
-	\question
-	$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
-	by $90^\circ$.
-	\begin{parts}
-		\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
-		\item Compute $\mathcal R\mat{1\\1}$.  How does this relate to
-			$\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$?
-		\item What is $\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)$?
-		\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
-			counter clockwise by $90^\circ$.
-	\end{parts}
-
-	\question
-	$\mathcal S:\R^3\to\R^3$ stretches in the $\zh$ direction  by a factor of $2$
-	and contracts in the $\yh$ direction by a factor of $3$.
-	\begin{parts}
-		\item Write a matrix representation of $\mathcal S$.
-	\end{parts}
-
-	\begin{definition}[Linear Transformation]
-		If $V$ and $W$ are vector spaces, a function $T:V\to W$ is called a \emph{linear transformation}
-		if 
-		\[
-			T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
-			T(\alpha \vec v)=\alpha T\vec v
-		\]
-		for all vectors $\vec u,\vec v\in V$ and all scalars $\alpha$.
-	\end{definition}
-
-	\question
-	\begin{parts}
-		\item Classify the following as linear transformation or not
-			\begin{enumerate}
-				\item $\mathcal R$ from above.
-				\item $\mathcal S$ from above.
-				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
-				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
-				\item $\mathcal P:\R^2\to\R^2$ where $\mathcal P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
-					$\vec u=\mat{2\\3}$.
-			\end{enumerate}
-	\end{parts}
-
-	It turns out every linear transformation can be written as a matrix (in fact
-	this is why matrix multiplication was invented).
-
-	\question
-	Define $\mathcal P$ to be projection onto $\vec u=\mat{2\\3}$.
-	\begin{parts}
-		\item Write down a matrix for $\mathcal P$.
-		%\item What is the null space of $\mathcal P$?
-		\item What is the rank of the matrix corresponding to $\mathcal P$?
-		%\item Is $\mathcal P$ invertible?
-	\end{parts}
-
-	Matrix multiplication was designed to exactly model composition of linear transformations.
-	\begin{parts}[resume]
-		\item Write down a matrix for $\mathcal P$ and for $\mathcal R$, the counter-clockwise rotation
-			by $90^\circ$.
-		\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
-	\end{parts}
-
-	\begin{definition}[Range]
-		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ is the set of vectors that
-		$T$ can output.  That is,
-		\[
-			\Range(T)=\{\vec y\in W:\vec y=T\vec x\text{ for some }\vec x\in V\}.
-		\]
-	\end{definition}
-	\begin{definition}[Null Space]
-		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$ is the
-		set of vectors that get mapped to zero under $T$.  That is,
-		\[
-			\Null(T)=\{\vec x\in V:T\vec x=\vec 0\}.
-		\]
-	\end{definition}
-
-	\question
-	Let $\mathcal P:\R^2\to\R^2$ be projection onto the vector $\vec u=\mat{2\\3}$ (like before).
-	\begin{parts}
-		\item What is the range of $\mathcal P$?
-		\item What is the null space of $\mathcal P$?
-	\end{parts}
-
-	\question
-	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
-	\begin{parts}
-		\item Show that the null space of $T$ is a subspace.
-		\item Show that the range of $T$ is a subspace.
-	\end{parts}
-
-
-	\begin{definition}[Fundamental Subspaces]
-		Associated with any matrix $M$ are three fundamental subspaces: the \emph{row space}
-		of $M$ is the span of the rows of $M$; the \emph{column space} of $M$ is the span
-		of the columns of $M$; and the \emph{null space} of $M$ is the set of solutions
-		to $M\vec x=\vec 0$. 
-		
-	\end{definition}
-
-	\question
-	Consider $A=\mat{1&0&0\\0&1&0}$.
-	\begin{parts}
-		\item Describe the row space of $A$.
-		\item Describe the column space of $A$.
-		\item Is the row space of $A$ the same as the column space of $A$?
-		\item Describe the set of all vectors perpendicular to the rows of $A$.
-		\item Describe the null space of $A$.
-	\end{parts}
-
-	\question
-	\[
-		B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
-	\]
-	\begin{parts}
-		\item How does the row space of $B$ relate to the row space of $C$?
-		\item How does the null space of $B$ relate to the null space of $C$?
-		\item Compute the null space of $B$.
-	\end{parts}
-
-	\question
-	\[
-		P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
-	\]
-	\begin{parts}
-		\item How does the column space of $P$ relate to the column space of $Q$?
-		\item Describe the column space of $P$ and the column space of $Q$.
-	\end{parts}
-
-	\begin{theorem}[Rank-nullity Theorem]
-	The \emph{nullity} of a matrix is the dimension of the null space.
-
-	The rank-nullity theorem states
-	\[
-		\rank(A)+\nnul(A) = \#\text{ of columns in }A.
-	\]
-	\end{theorem}
-
-	\question
-	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
-	Define $A=[\vec u|\vec v|\vec w]$.
-	\begin{parts}
-		\item What is the rank and nullity of $A^T$?
-		\item What is the rank and nullity of $A$?
-	\end{parts}
 
 \newpage
 
