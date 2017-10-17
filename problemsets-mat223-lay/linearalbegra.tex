@@ -1538,8 +1538,8 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Classify the following as linear transformation or not
 			\begin{enumerate}
-				\item $\mathcal R$ from above.
-				\item $\mathcal S$ from above.
+				\item $\mathcal R$ from before.
+				\item $\mathcal S$ from before.
 				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
 				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
 				\item $\mathcal P:\R^2\to\R^2$ where $\mathcal P\mat{x\\y}=\proj_{\vec u}\mat{x\\y}$ and 
@@ -1547,7 +1547,7 @@ the ``N'' on the left.
 			\end{enumerate}
 	\end{parts}
 
-	It turns out every linear transformation can be written as a matrix (in fact
+	It turns out every (finite-dimensional) linear transformation can be written as a matrix (in fact
 	this is why matrix multiplication was invented).
 
 	\question
@@ -1566,6 +1566,7 @@ the ``N'' on the left.
 		\item Write down matrices for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
 	\end{parts}
 
+\newpage
 	\begin{definition}[Range]
 		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ is the set of vectors that
 		$T$ can output.  That is,
@@ -1586,13 +1587,6 @@ the ``N'' on the left.
 	\begin{parts}
 		\item What is the range of $\mathcal P$?
 		\item What is the null space of $\mathcal P$?
-	\end{parts}
-
-	\question
-	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
-	\begin{parts}
-		\item Show that the null space of $T$ is a subspace.
-		\item Show that the range of $T$ is a subspace.
 	\end{parts}
 
 
@@ -1633,6 +1627,117 @@ the ``N'' on the left.
 		\item Describe the column space of $P$ and the column space of $Q$.
 	\end{parts}
 
+
+	\newpage
+	\begin{definition}[One-to-One \& Onto]
+		A linear transformation $T:\R^n\to\R^m$ is called \emph{one-to-one} if $T(\vec a)=T(\vec b)$
+		only when $\vec a=\vec b$. The transformation $T$ is called \emph{onto} if its range is all
+		of $\R^m$.
+	\end{definition}
+
+	\question
+	Let $T:\R^3\to\R^3$ and $S:\R^3\to\R^3$ be matrix transformations
+	and suppose 
+	\[
+		\text{null}(T)=\Span\{\xh\}\qquad \text{and}\qquad\text{null}(S)=\{\vec 0\}.
+	\]
+	\begin{parts}
+		\item Could $T$ be one-to-one? Explain.
+		\item Could $S$ be one-to-one? Explain.
+		\item Could $S$ be onto? Explain.
+		\item Could $T$ be onto? Explain.
+	\end{parts}
+
+
+
+\section*{Matrix Inverses}
+
+	\question
+	\begin{parts}
+		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_1$.
+		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
+		matrix and call the result $E_2$.
+	\end{parts}
+
+	\begin{definition}
+	An \emph{elementary matrix} is the identity matrix with a single row operation applied.
+	\end{definition}
+
+	\[
+		A=\mat{1&2&3\\4&5&6\\7&8&9}
+	\]
+	\begin{parts}[resume]
+		\item Compute $E_1A$ and $E_2A$.  How do the resulting matrices relate to row
+		operations?
+		\item Without computing, what should the result of applying the row
+		operation $R_3\to R_3-2R_1$ to $E_1$ be?  Compute and verify.
+		\item Without computing, what should $E_1E_2$ be?  What about $E_2E_1$?
+		Now compute and verify.
+	\end{parts}
+
+	\begin{definition}
+		The \emph{inverse} of an $n\times n$ matrix $A$ is an $n\times n$
+		matrix $B$ such that $AB=I_{n\times n}=BA$.
+		In this case, $B$ is called the inverse of $A$ and is notated as $A^{-1}$.
+	\end{definition}
+
+	\question
+	Consider the matrices 
+	\[
+		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
+		B=\mat{1&0&0\\0&1&0}\qquad
+		C=\mat{1&0\\0&1\\0&0}
+	\]
+	\[
+		D=\mat{1&-2&0\\0&1&0\\3&0&1}\qquad
+		E=\mat{1&0&0\\0&2&0\\0&1&1}\qquad
+		F=\mat{1&0&0\\0&1&0\\0&0&1}
+	\]
+	\begin{parts}
+		\item Which pairs of matrices above are inverses of each other?
+	\end{parts}
+
+	\question
+	\[
+		B=\mat{1 &4\\0 &2}
+	\]
+	\begin{parts}
+		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
+		and write an elementary matrix $E_1$ corresponding to the first operation
+		and $E_2$ corresponding to the second.
+		\item What is $E_2E_1B$?
+		\item Find $B^{-1}$.
+		\item Can you outline a procedure for finding the inverse of a matrix
+		using elementary matrices?
+	\end{parts}
+
+	\question
+	\[
+		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
+		\vec b=\mat{1\\2\\3}\qquad
+		C=[A|\vec b]\qquad
+		A^{-1}=\mat{9&-3/2&-5\\-5&1&3\\-2&1/2&1}
+	\]
+	\begin{parts}
+		\item What is $A^{-1}A$?
+		\item What is $\rref(A)$?
+		\item What is $\rref(C)$? (Hint, there is no need to actually do row reduction!)
+		\item Solve the system $A\vec x=\vec b$.
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
+			could $M$ be invertible?
+	\end{parts}
+
+
+
+
+
+
 	\begin{theorem}[Rank-nullity Theorem]
 	The \emph{nullity} of a matrix is the dimension of the null space.
 
@@ -1653,6 +1758,13 @@ the ``N'' on the left.
 
 
 
+
+	\question
+	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
+	\begin{parts}
+		\item Show that the null space of $T$ is a subspace.
+		\item Show that the range of $T$ is a subspace.
+	\end{parts}
 
 
 \section*{Rank}
@@ -1877,89 +1989,6 @@ the ``N'' on the left.
 
 
 \newpage
-
-\section*{Matrix Inverses}
-
-	\question
-	\begin{parts}
-		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
-		matrix and call the result $E_1$.
-		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
-		matrix and call the result $E_2$.
-	\end{parts}
-
-	\begin{definition}
-	An \emph{elementary matrix} is the identity matrix with a single row operation applied.
-	\end{definition}
-
-	\[
-		A=\mat{1&2&3\\4&5&6\\7&8&9}
-	\]
-	\begin{parts}[resume]
-		\item Compute $E_1A$ and $E_2A$.  How do the resulting matrices relate to row
-		operations?
-		\item Without computing, what should the result of applying the row
-		operation $R_3\to R_3-2R_1$ to $E_1$ be?  Compute and verify.
-		\item Without computing, what should $E_1E_2$ be?  What about $E_2E_1$?
-		Now compute and verify.
-	\end{parts}
-
-	\begin{definition}
-		The \emph{inverse} of an $n\times n$ matrix $A$ is an $n\times n$
-		matrix $B$ such that $AB=I_{n\times n}=BA$.
-		In this case, $B$ is called the inverse of $A$ and is notated as $A^{-1}$.
-	\end{definition}
-
-	\question
-	Consider the matrices 
-	\[
-		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
-		B=\mat{1&0&0\\0&1&0}\qquad
-		C=\mat{1&0\\0&1\\0&0}
-	\]
-	\[
-		D=\mat{1&-2&0\\0&1&0\\3&0&1}\qquad
-		E=\mat{1&0&0\\0&2&0\\0&1&1}\qquad
-		F=\mat{1&0&0\\0&1&0\\0&0&1}
-	\]
-	\begin{parts}
-		\item Which pairs of matrices above are inverses of each other?
-	\end{parts}
-
-	\question
-	\[
-		B=\mat{1 &4\\0 &2}
-	\]
-	\begin{parts}
-		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
-		and write an elementary matrix $E_1$ corresponding to the first operation
-		and $E_2$ corresponding to the second.
-		\item What is $E_2E_1B$?
-		\item Find $B^{-1}$.
-		\item Can you outline a procedure for finding the inverse of a matrix
-		using elementary matrices?
-	\end{parts}
-
-	\question
-	\[
-		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
-		\vec b=\mat{1\\2\\3}\qquad
-		C=[A|\vec b]\qquad
-		A^{-1}=\mat{9&-3/2&-5\\-5&1&3\\-2&1/2&1}
-	\]
-	\begin{parts}
-		\item What is $A^{-1}A$?
-		\item What is $\rref(A)$?
-		\item What is $\rref(C)$? (Hint, there is no need to actually do row reduction!)
-		\item Solve the system $A\vec x=\vec b$.
-	\end{parts}
-
-	\question
-	\begin{parts}
-		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
-		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
-			could $M$ be invertible?
-	\end{parts}
 
 
 \section*{Change of Basis}
