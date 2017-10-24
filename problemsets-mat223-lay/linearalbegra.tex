@@ -1736,6 +1736,70 @@ the ``N'' on the left.
 
 
 
+\section*{Subspaces and Bases}
+	\vspace{-1em}
+	\begin{definition}[Subspace]
+		A \emph{subspace} $V\subseteq \R^n$ is a non-empty subset such that
+		\begin{enumerate}
+			\item[(i)] $\vec u,\vec v\in V$ implies $\vec u+\vec v\in V$.
+			\item[(ii)] $\vec u\in V$ implies $k\vec u\in V$ for all scalars $k$.
+		\end{enumerate}
+	\end{definition}
+
+	Subspaces give a mathematically precise definition of a ``flat space through the origin.''
+
+	\question
+	For each set, draw it and explain whether or not it is a subspace of $\R^2$.
+	\begin{parts}
+		\item $A=\{\vec x\in\R^2:\vec x=\mat{a\\0}\text{ for some }a\in\Z\}$.
+		\item $B=\{\vec x\in\R^2:\vec x\neq \mat{0\\0}\}$.
+		\item $C=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ for some }t\in\R\}$.
+		\item $D=\{\vec x\in\R^2:\vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R\}$.
+		\item $E=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R\}$.
+		\item $F=\{\vec x\in\R^2:\vec x=t\mat{3\\1}\text{ for some }t\in\R\}$.
+		\item $G=\span\left\{\mat{1\\1}\right\}$.
+		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
+	\end{parts}
+
+	\begin{definition}[Basis]
+		A \emph{basis} for a subspace $V$ is a linearly independent set of vectors, $\mathcal B$,
+		so that $\Span\mathcal B=V$.
+	\end{definition}
+
+	\question
+	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\span\{\vec u,\vec v,\vec w\}$.
+	\begin{parts}
+		\item Describe $V$.
+		\item Is $\{\vec u,\vec v,\vec w\}$ a basis for $V$?  Why or why not?
+		\item Give a basis for $V$.
+		\item Give another basis for $V$.
+		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
+	\end{parts}
+
+	\begin{definition}[Dimension]
+		The \emph{dimension} of a subspace $V$ is the number of elements in a basis for $V$.
+	\end{definition}
+
+	\begin{parts}[resume]
+		\item What is the dimension of $V$?
+	\end{parts}
+
+
+	\question
+	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ and 
+	let $P=\span\{\vec a,\vec b\}$ and $Q=\span\{\vec b,\vec c\}$.
+	\begin{parts}
+		\item Give a basis for and the dimension of $P$.
+		\item Give a basis for and the dimension of $Q$.
+		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
+		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
+	\end{parts}
+
+	\newpage
+
+
+
+\newpage
 
 
 
@@ -1926,70 +1990,6 @@ the ``N'' on the left.
 		\]
 	\end{parts}
 
-\section*{Subspaces and Bases}
-	\vspace{-1em}
-	\begin{definition}[Subspace]
-		A \emph{subspace} $V\subseteq \R^n$ is a non-empty subset such that
-		\begin{enumerate}
-			\item[(i)] $\vec u,\vec v\in V$ implies $\vec u+\vec v\in V$.
-			\item[(ii)] $\vec u\in V$ implies $k\vec u\in V$ for all scalars $k$.
-		\end{enumerate}
-	\end{definition}
-
-	Subspaces give a mathematically precise definition of a ``flat space through the origin.''
-
-	\question
-	For each set, draw it and explain whether or not it is a subspace of $\R^2$.
-	\begin{parts}
-		\item $A=\{\vec x\in\R^2:\vec x=\mat{a\\0}\text{ for some }a\in\Z\}$.
-		\item $B=\{\vec x\in\R^2:\vec x\neq \mat{0\\0}\}$.
-		\item $C=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ for some }t\in\R\}$.
-		\item $D=\{\vec x\in\R^2:\vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R\}$.
-		\item $E=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R\}$.
-		\item $F=\{\vec x\in\R^2:\vec x=t\mat{3\\1}\text{ for some }t\in\R\}$.
-		\item $G=\span\left\{\mat{1\\1}\right\}$.
-		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
-	\end{parts}
-
-	\begin{definition}[Basis]
-		A \emph{basis} for a subspace $V$ is a linearly independent set of vectors, $\mathcal B$,
-		so that $\Span\mathcal B=V$.
-	\end{definition}
-
-	\question
-	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\span\{\vec u,\vec v,\vec w\}$.
-	\begin{parts}
-		\item Describe $V$.
-		\item Is $\{\vec u,\vec v,\vec w\}$ a basis for $V$?  Why or why not?
-		\item Give a basis for $V$.
-		\item Give another basis for $V$.
-		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
-	\end{parts}
-
-	\begin{definition}[Dimension]
-		The \emph{dimension} of a subspace $V$ is the number of elements in a basis for $V$.
-	\end{definition}
-
-	\begin{parts}[resume]
-		\item What is the dimension of $V$?
-	\end{parts}
-
-
-	\question
-	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ and 
-	let $P=\span\{\vec a,\vec b\}$ and $Q=\span\{\vec b,\vec c\}$.
-	\begin{parts}
-		\item Give a basis for and the dimension of $P$.
-		\item Give a basis for and the dimension of $Q$.
-		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
-		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
-	\end{parts}
-
-	\newpage
-
-
-
-\newpage
 
 
 \section*{Change of Basis}
