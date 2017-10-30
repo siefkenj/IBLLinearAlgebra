@@ -1760,6 +1760,15 @@ the ``N'' on the left.
 		\item $G=\span\left\{\mat{1\\1}\right\}$.
 		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 	\end{parts}
+	
+	\question
+	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
+	\begin{parts}
+		\item Show that the null space of $T$ is a subspace.
+		\item Show that the range of $T$ is a subspace.
+	\end{parts}
+
+
 
 	\begin{definition}[Basis]
 		A \emph{basis} for a subspace $V$ is a linearly independent set of vectors, $\mathcal B$,
@@ -1795,42 +1804,6 @@ the ``N'' on the left.
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 	\end{parts}
 
-	\newpage
-
-
-
-\newpage
-
-
-
-	\begin{theorem}[Rank-nullity Theorem]
-	The \emph{nullity} of a matrix is the dimension of the null space.
-
-	The rank-nullity theorem states
-	\[
-		\rank(A)+\nnul(A) = \#\text{ of columns in }A.
-	\]
-	\end{theorem}
-
-	\question
-	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
-	Define $A=[\vec u|\vec v|\vec w]$.
-	\begin{parts}
-		\item What is the rank and nullity of $A^T$?
-		\item What is the rank and nullity of $A$?
-	\end{parts}
-
-
-
-
-
-	\question
-	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
-	\begin{parts}
-		\item Show that the null space of $T$ is a subspace.
-		\item Show that the range of $T$ is a subspace.
-	\end{parts}
-
 
 \section*{Rank}
 	\begin{definition}[Rank]
@@ -1850,6 +1823,7 @@ the ``N'' on the left.
 		\end{enumerate*}
 	\end{parts}
 	
+	\newpage
 	\question
 	Consider the homogeneous system 
 		\begin{equation}\label{eq4b}
@@ -1876,6 +1850,175 @@ the ``N'' on the left.
 		\item The rank of a $3\times 4$ matrix $A$ is $3$.  Are the column vectors of $A$ linearly independent?
 		\item The rank of a $4\times 3$ matrix $B$ is $3$.  Are the column vectors of $B$ linearly independent?
 	\end{parts}
+
+
+
+
+	\begin{theorem}[Rank-nullity Theorem]
+	The \emph{nullity} of a matrix is the dimension of the null space.
+
+	The rank-nullity theorem states
+	\[
+		\rank(A)+\nnul(A) = \#\text{ of columns in }A.
+	\]
+	\end{theorem}
+
+	\question
+	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
+	Define $A=[\vec u|\vec v|\vec w]$.
+	\begin{parts}
+		\item What is the rank and nullity of $A^T$?
+		\item What is the rank and nullity of $A$?
+	\end{parts}
+
+\subsection*{Orthogonality}
+
+	\begin{definition}[Orthogonal Projection]
+		If $V$ is a subspace of $\R^n$, the \emph{projection}
+		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
+		is the closest point in $V$ to $\vec x$. We notate the projection
+		of $\vec x$ onto $V$ as $\proj_V\vec x$.
+	\end{definition}
+
+	Projections are normally hard to compute and a priori might require some sort
+	of calculus-style optimization to find.  However, from geometry we know that 
+	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
+	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
+	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
+	will be our savior.
+
+	\question
+	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
+	\begin{parts}
+		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
+			onto the $xy$-plane.
+	\end{parts}
+	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
+	\begin{parts}[resume]
+		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
+			onto $\span\{\vec b_1,\vec b_3\}$.
+	\end{parts}
+	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
+	\[
+		\|\vec c_1\| = 
+		\|\vec c_2\| = 
+		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
+		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
+	\]
+	\vspace{-.35in}
+	\begin{parts}[resume]
+		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
+			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
+	\end{parts}
+
+	\question
+	Let's put this all together.  
+	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
+	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
+	by
+	\[
+		0x+y-z=0.
+	\]
+	\begin{parts}
+		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
+			listed in the $\mathcal B$ basis).
+		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
+			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
+		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
+	\end{parts}
+
+%\newpage
+\subsection*{Gram-Schmidt Orthogonalization}
+	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
+	turn any basis into an orthonormal basis through a process called
+	Gram-Schmidt orthogonalization.
+
+	\question
+	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
+	\begin{parts}
+		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
+		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
+			$\vec c$ and $\vec b$.
+		\item Can you write $\vec a$ as the sum of two vectors, one in 
+			the direction of $\vec b$ and one orthogonal to $\vec b$?
+			If so, do it.
+	\end{parts}
+
+	\question
+	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
+	\begin{parts}
+		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
+			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
+		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
+	\end{parts}
+
+	With two vectors, making an orthonormal set without changing the span
+	is quite easy.  With more vectors, it is only slightly harder.
+
+	\begin{definition}[Gram-Schmidt Process]
+		The \emph{Gram-Schmidt} orthogonalization procedure
+		takes in a set of vectors and outputs a set of orthonormal vectors
+		with the same span.  The idea is to iteratively produce a set of
+		vectors where each new vector you produce is orthogonal to the previous vectors.
+
+		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
+		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
+		to $ v_1$ by subtracting off the respective projections
+		of $ v_2,\ldots, v_n$
+		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
+		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
+		respective projections
+		onto $ v_2'$.  Continue this process until you have a set
+		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
+		Finally, normalize $V$ so all vectors have unit length.
+	\end{definition}
+
+	\question
+	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
+	$\vec x_3=\mat{2\\2\\1\\2}$.
+	\begin{parts}
+		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
+			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
+			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
+			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+	\end{parts}
+	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
+	\begin{parts}[resume]
+		\item Find an orthonormal basis for the row space of $R$.
+		\item Find the null space of $R$ (Hint, you've already done the work, so
+			there is no need to row reduce).
+	\end{parts}
+
+	\question
+	Let
+	\[
+		\vec y_1=\mat{1\\1\\2}\qquad 
+		\vec y_2=\mat{-1\\-1\\2}\qquad
+		\vec y_3=\mat{1\\1\\6}.
+	\]
+	\begin{parts}
+		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
+			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
+	\end{parts}
+
+	\begin{definition}[Orthogonal Complement]
+		The \emph{orthogonal complement} of a subspace $V$ is written
+		$V^\perp$ and defined as
+		\[
+			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
+		\]
+		\vspace{-.2in}
+	\end{definition}
+
+	\begin{parts}[resume]
+		\item Find the orthogonal complement of $\span \mathcal W$.
+		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
+			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
+	\end{parts}
+
+
+
 
 \section*{Span Again}
 	\newpage
@@ -2404,149 +2547,6 @@ the ``N'' on the left.
 
 	Orthogonal matrices also allow us to compute projections quite easily.
 
-	\begin{definition}[Orthogonal Projection]
-		If $V$ is a subspace of $\R^n$, the \emph{projection}
-		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
-		is the closest point in $V$ to $\vec x$. We notate the projection
-		of $\vec x$ onto $V$ as $\proj_V\vec x$.
-	\end{definition}
-
-	Projections are normally hard to compute and a priori might require some sort
-	of calculus-style optimization to find.  However, from geometry we know that 
-	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
-	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
-	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
-	will be our savior.
-
-	\question
-	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
-	\begin{parts}
-		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
-			onto the $xy$-plane.
-	\end{parts}
-	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
-	\begin{parts}[resume]
-		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
-			onto $\span\{\vec b_1,\vec b_3\}$.
-	\end{parts}
-	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
-	\[
-		\|\vec c_1\| = 
-		\|\vec c_2\| = 
-		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
-		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
-	\]
-	\vspace{-.35in}
-	\begin{parts}[resume]
-		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
-			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
-	\end{parts}
-
-	\question
-	Let's put this all together.  
-	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
-	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
-	by
-	\[
-		0x+y-z=0.
-	\]
-	\begin{parts}
-		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
-			listed in the $\mathcal B$ basis).
-		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
-			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
-		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
-	\end{parts}
-
-%\newpage
-\subsection*{Gram-Schmidt Orthogonalization}
-	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
-	turn any basis into an orthonormal basis through a process called
-	Gram-Schmidt orthogonalization.
-
-	\question
-	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
-	\begin{parts}
-		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
-		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
-			$\vec c$ and $\vec b$.
-		\item Can you write $\vec a$ as the sum of two vectors, one in 
-			the direction of $\vec b$ and one orthogonal to $\vec b$?
-			If so, do it.
-	\end{parts}
-
-	\question
-	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
-	\begin{parts}
-		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
-			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
-		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
-	\end{parts}
-
-	With two vectors, making an orthonormal set without changing the span
-	is quite easy.  With more vectors, it is only slightly harder.
-
-	\begin{definition}[Gram-Schmidt Process]
-		The \emph{Gram-Schmidt} orthogonalization procedure
-		takes in a set of vectors and outputs a set of orthonormal vectors
-		with the same span.  The idea is to iteratively produce a set of
-		vectors where each new vector you produce is orthogonal to the previous vectors.
-
-		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
-		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
-		to $ v_1$ by subtracting off the respective projections
-		of $ v_2,\ldots, v_n$
-		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
-		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
-		respective projections
-		onto $ v_2'$.  Continue this process until you have a set
-		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
-		Finally, normalize $V$ so all vectors have unit length.
-	\end{definition}
-
-	\question
-	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
-	$\vec x_3=\mat{2\\2\\1\\2}$.
-	\begin{parts}
-		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
-			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
-		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
-			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
-			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
-	\end{parts}
-	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
-	\begin{parts}[resume]
-		\item Find an orthonormal basis for the row space of $R$.
-		\item Find the null space of $R$ (Hint, you've already done the work, so
-			there is no need to row reduce).
-	\end{parts}
-
-	\question
-	Let
-	\[
-		\vec y_1=\mat{1\\1\\2}\qquad 
-		\vec y_2=\mat{-1\\-1\\2}\qquad
-		\vec y_3=\mat{1\\1\\6}.
-	\]
-	\begin{parts}
-		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
-			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
-	\end{parts}
-
-	\begin{definition}[Orthogonal Complement]
-		The \emph{orthogonal complement} of a subspace $V$ is written
-		$V^\perp$ and defined as
-		\[
-			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
-		\]
-		\vspace{-.2in}
-	\end{definition}
-
-	\begin{parts}[resume]
-		\item Find the orthogonal complement of $\span \mathcal W$.
-		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
-			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
-	\end{parts}
 
 
 \subsection*{$QR$ Decomposition}
