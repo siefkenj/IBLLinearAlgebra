@@ -1955,6 +1955,8 @@ the ``N'' on the left.
 	With two vectors, making an orthonormal set without changing the span
 	is quite easy.  With more vectors, it is only slightly harder.
 
+
+	\newpage
 	\begin{definition}[Gram-Schmidt Process]
 		The \emph{Gram-Schmidt} orthogonalization procedure
 		takes in a set of vectors and outputs a set of orthonormal vectors
@@ -1995,31 +1997,82 @@ the ``N'' on the left.
 	\[
 		\vec y_1=\mat{1\\1\\2}\qquad 
 		\vec y_2=\mat{-1\\-1\\2}\qquad
-		\vec y_3=\mat{1\\1\\6}.
+		\vec y_3=\mat{1\\1\\6} \qquad\text{and}\qquad \mathcal W=\span\{\vec y_1,\vec y_2,\vec y_3\}.
 	\]
 	\begin{parts}
-		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
-			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
+		\item Find an orthonormal basis $\mathcal B$ for $\mathcal W$.
 	\end{parts}
 
 	\begin{definition}[Orthogonal Complement]
 		The \emph{orthogonal complement} of a subspace $V$ is written
 		$V^\perp$ and defined as
 		\[
-			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
+			V^\perp=\{\vec x:\vec x\text{ is orthogonal to all vectors in }V\}.
 		\]
 		\vspace{-.2in}
 	\end{definition}
 
 	\begin{parts}[resume]
-		\item Find the orthogonal complement of $\span \mathcal W$.
+		\item Find the orthogonal complement of $\mathcal W$.
 		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
-			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
+			$\vec r\in\mathcal W$ and $\vec n\in{\mathcal W}^\perp$.
 	\end{parts}
 
 
+	\begin{theorem}[Orthogonal Decomposition]
+		If $\mathcal V\subseteq \R^n$ is a subspace than any vector $\vec x\in\R^n$ can be written uniquely as
+		$
+			\vec x=\vec v+\vec w
+		$
+		where $\vec v\in\mathcal V$ and $\vec w\in{\mathcal V}^\perp$.
+	\end{theorem}
+
+	\question
+	Let $\vec x=\mat{1\\2\\3}$. For each of the following $\mathcal V$, decompose $\vec x$ into the sum of a vector in
+	$\mathcal V$ and one in ${\mathcal V}^\perp$.
+	\begin{parts}
+		\item $\mathcal V$ is the $x$-axis.
+		\item $\mathcal V=\{\vec 0\}$.
+		\item $\mathcal V$ is the plane $x+y+z=0$.
+		\item $\mathcal V=\R^3$.
+	\end{parts}
 
 
+	\begin{definition}[Direct Sum]
+		Suppose $\mathcal V,\mathcal W\subseteq \R^n$ are two subspaces and every vector $\vec x\in\R^n$
+		can be uniquely expressed as $\vec x=\vec v+\vec w$ for $\vec v\in\mathcal V$ and $\vec w\in\mathcal W$.
+		Then we say $\R^n$ is the \emph{direct sum} of $\mathcal V$ and $\mathcal W$ and write
+		\[
+			\R^n=\mathcal V\oplus \mathcal W.
+		\]
+	\end{definition}
+
+	\begin{theorem}[Fundamental Theorem of Linear Algebra]
+		Let $A$ be an $n\times m$ matrix. Then 
+		\[
+			\text{row}(A)=\Null(A)^\perp\qquad\text{and}\qquad \R^m = \text{row}(A)\oplus \Null(A)
+		\]
+		and
+		\[
+			\text{col}(A)=\Null(A^T)^\perp\qquad\text{and}\qquad \R^n = \text{col}(A)\oplus \Null(A^T).
+		\]
+	\end{theorem}
+
+	\question
+	Let $A=\mat{1&1\\1&1}$ and let $\vec b=\mat{4\\4}$.
+	\begin{parts}
+		\item Verify that $\vec u=\mat{4\\0}$, $\vec v=\mat{5\\-1}$, and $\vec w=\mat{-6\\10}$ are all solutions
+			to $A\vec x=\vec b$.
+		\item Decompose $\vec u$, $\vec v$, and $\vec w$ into the sum of vectors in $\text{row}(A)$ and $\Null(A)$. What do you notice?
+
+		\item Suppose $\vec x\in\text{row}(A)$ and $A\vec x=\vec b$. What is $\vec x$? Is it unique?
+
+		\item Consider the transformation $T:\text{row}(A)\to\R^2$ where $T(\vec y)=A\vec y$. Is $T$ invertible? Is $A$ invertible? Explain.
+
+	\end{parts}
+
+
+	\newpage
 \section*{Span Again}
 	\newpage
 \section*{Matrices}
