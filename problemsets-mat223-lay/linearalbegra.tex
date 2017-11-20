@@ -2071,6 +2071,127 @@ the ``N'' on the left.
 
 	\end{parts}
 
+\section*{Determinants}
+	\begin{definition}[Unit $n$-cube]
+		The unit $n$-cube is the $n$-dimensional cube with side length 1 and lower-left
+		corner located at the origin.  That is 
+		\[
+			C_n = \left\{\vec x\in\R^n:\vec x=\sum_{i=1}^n \alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]\right\}=[0,1]^n.
+		\]
+	\end{definition}
+	The volume of the unit $n$-cube is always 1.
+
+	\question
+	The picture shows what the linear transformation $T$ does to the unit square (i.e., the unit $2$-cube).
+
+	\begin{center}
+	\includegraphics[width=2.5in]{images/transform1b.pdf}
+	\includegraphics[width=2.5in]{images/transform2b.pdf}
+	\end{center}
+
+	\vspace{-6em}
+	\begin{parts}
+		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
+		\item Write down a matrix for $T$.
+		\item What is the volume of the image of the unit square (i.e., the volume of $T(C_2)$)?  You may need
+			to use trigonometry.
+	\end{parts}
+	
+	\begin{definition}[Determinant]
+	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
+	oriented volume of the image of the unit $n$-cube.  The determinant
+	of a square matrix is the oriented volume of the parallelepiped 
+	($n$-dimensional parallelogram) given by the column vectors or the row
+	vectors.
+	\end{definition}
+
+	\question
+	We know the following about the transformation $A$:
+	\[
+		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
+	\]
+	\begin{parts}
+	\item Draw $C_2$ and $A(C_2)$, the image of the unit square
+			under $A$.
+		\item Compute the area of $A (C_2)$.
+		\item Compute $\det(A)$.
+	\end{parts}
+
+	\question
+	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
+	\begin{parts}
+	\item Draw $C_2$ and $R(C_2)$.
+	\item Compute the area of $R(C_2)$.
+		\item Compute $\det(R)$.
+	\end{parts}
+	
+	\question
+	We know the following about the transformation $F$:
+	\[
+		F\mat{1\\0}=\mat{0\\1}\qquad\text{and}\qquad F\mat{0\\1}=\mat{1\\0}.
+	\]
+	\begin{parts}
+		\item What is $\det(F)$?
+	\end{parts}
+
+	\question
+	\begin{itemize}
+		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
+		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
+		\item $E_a$ is $I_{3\times 3}$ with $R_1\to R_1+2R_2$ applied.
+	\end{itemize}
+
+	\begin{parts}
+		\item What is $\det(E_f)$?
+		\item What is $\det(E_m)$?
+		\item What is $\det(E_a)$?
+		\item What is $\det(E_fE_m)$?
+		\item What is $\det(4I_{3\times 3})$?
+		\item What is $\det(W)$ where $W=E_fE_aE_fE_mE_m$?
+	\end{parts}
+
+	\question
+	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
+	\begin{parts}
+		\item What is $\det(U)$?
+		\item $V$ is a square matrix and rref$(V)$ has a row of zeros.
+		 What is $\det(V)$?
+		\item $P$ is projection onto the vector $\mat{-1\\-1}$. What is $\det(P)$?
+	\end{parts}
+
+	\question
+	Suppose you know $\det(X)=4$.
+	\begin{parts}
+		\item What is $\det(X^{-1})$?
+		\item Derive a relationship between $\det(Y)$
+			and $\det(Y^{-1})$ for an arbitrary matrix $Y$.
+		\item Suppose $Y$ is not invertible.  What is $\det(Y)$?
+	\end{parts}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	\newpage
 \section*{Span Again}
@@ -2252,103 +2373,6 @@ the ``N'' on the left.
 
 
 
-\newpage
-\section*{Determinants}
-	\begin{definition}[Unit $n$-cube]
-		The unit $n$-cube is the $n$-dimensional cube with side length 1 and lower-left
-		corner located at the origin.  That is 
-		\[
-			C_n = \left\{\vec x\in\R^n:\vec x=\sum_{i=1}^n \alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]\right\}=[0,1]^n.
-		\]
-	\end{definition}
-	The volume of the unit $n$-cube is always 1.
-
-	\question
-	The picture shows what the linear transformation $T$ does to the unit square (i.e., the unit $2$-cube).
-
-	\begin{center}
-	\includegraphics[width=2.5in]{images/transform1b.pdf}
-	\includegraphics[width=2.5in]{images/transform2b.pdf}
-	\end{center}
-
-	\vspace{-6em}
-	\begin{parts}
-		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
-		\item Write down a matrix for $T$.
-		\item What is the volume of the image of the unit square (i.e., the volume of $T(C_2)$)?  You may need
-			to use trigonometry.
-	\end{parts}
-	
-	\begin{definition}[Determinant]
-	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
-	oriented volume of the image of the unit $n$-cube.  The determinant
-	of a square matrix is the oriented volume of the parallelepiped 
-	($n$-dimensional parallelogram) given by the column vectors or the row
-	vectors.
-	\end{definition}
-
-	\question
-	We know the following about the transformation $A$:
-	\[
-		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
-	\]
-	\begin{parts}
-	\item Draw $C_2$ and $A(C_2)$, the image of the unit square
-			under $A$.
-		\item Compute the area of $A (C_2)$.
-		\item Compute $\det(A)$.
-	\end{parts}
-
-	\question
-	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
-	\begin{parts}
-	\item Draw $C_2$ and $R(C_2)$.
-	\item Compute the area of $R(C_2)$.
-		\item Compute $\det(R)$.
-	\end{parts}
-	
-	\question
-	We know the following about the transformation $F$:
-	\[
-		F\mat{1\\0}=\mat{0\\1}\qquad\text{and}\qquad F\mat{0\\1}=\mat{1\\0}.
-	\]
-	\begin{parts}
-		\item What is $\det(F)$?
-	\end{parts}
-
-	\question
-	\begin{itemize}
-		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
-		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
-		\item $E_a$ is $I_{3\times 3}$ with $R_1\to R_1+2R_2$ applied.
-	\end{itemize}
-
-	\begin{parts}
-		\item What is $\det(E_f)$?
-		\item What is $\det(E_m)$?
-		\item What is $\det(E_a)$?
-		\item What is $\det(E_fE_m)$?
-		\item What is $\det(4I_{3\times 3})$?
-		\item What is $\det(W)$ where $W=E_fE_aE_fE_mE_m$?
-	\end{parts}
-
-	\question
-	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
-	\begin{parts}
-		\item What is $\det(U)$?
-		\item $V$ is a square matrix and rref$(V)$ has a row of zeros.
-		 What is $\det(V)$?
-		\item $P$ is projection onto the vector $\mat{-1\\-1}$. What is $\det(P)$?
-	\end{parts}
-
-	\question
-	Suppose you know $\det(X)=4$.
-	\begin{parts}
-		\item What is $\det(X^{-1})$?
-		\item Derive a relationship between $\det(Y)$
-			and $\det(Y^{-1})$ for an arbitrary matrix $Y$.
-		\item Suppose $Y$ is not invertible.  What is $\det(Y)$?
-	\end{parts}
 
 	After all this work with determinants, we see 
 	that (like dot products) there is a geometric and an
