@@ -2269,9 +2269,10 @@ the ``N'' on the left.
 	\end{parts}
 	Notice that $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ is a basis for $\R^3$.
 	\begin{parts}[resume]
-	\item If $\vec x=\vec v_1+3\vec v_2+4\vec v_4$ is $\vec x$ written as a linear combination
-		of vectors in $\mathcal V$,
-		compute $A\vec x$ as a linear combination of vectors in $\mathcal V$.
+	\item Imagine for a moment that $\vec v_1=\xh$, $\vec v_2=\yh$ and $\vec v_3=\zh$.
+		In this fantasy world, $\vec v_1$, $\vec v_2$, and $\vec v_3$
+		are still eigenvectors with the eigenvalues you've already found.
+		What would the matrix $A$ be in this fantasy?
 	\end{parts}
 	
 	\question
@@ -2333,6 +2334,34 @@ the ``N'' on the left.
 	\end{parts}
 
 
+\subsection*{Symmetric Matrices}
+	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
+	it's sometimes hard to grasp the significance of certain properties of a matrix.
+
+	Symmetric matrices are easy to forget at first, but they have many profound 
+	properties (not to mention they are one of the key concepts of Quantum Mechanics).
+
+	\question
+	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
+	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
+	we are thinking of $\vec v$ and $\vec w$ as column vectors.
+	\begin{parts}
+		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
+		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
+		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
+		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
+			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
+			or $\vec v^T(A\vec w)$.  Better do both to be safe).
+		\item What can you conclude about $\vec v^T\vec w$?  How about
+			$\vec v\cdot \vec w$?
+	\end{parts}
+
+	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
+	top of that, symmetric matrices always have a basis of eigenvectors.  That means
+	that not only can you always diagonalize a symmetric matrix, but you can 
+	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
+	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
+	best of all worlds in one!
 
 
 
@@ -2688,34 +2717,5 @@ the ``N'' on the left.
 	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
 	out that if you solve systems this way, there is less rounding error than if you
 	use row reduction.)
-
-\subsection*{Symmetric Matrices}
-	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
-	it's sometimes hard to grasp the significance of certain properties of a matrix.
-
-	Symmetric matrices are easy to forget at first, but they have many profound 
-	properties (not to mention they are one of the key concepts of Quantum Mechanics).
-
-	\question
-	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
-	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
-	we are thinking of $\vec v$ and $\vec w$ as column vectors.
-	\begin{parts}
-		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
-		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
-		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
-		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
-			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
-			or $\vec v^T(A\vec w)$.  Better do both to be safe).
-		\item What can you conclude about $\vec v^T\vec w$?  How about
-			$\vec v\cdot \vec w$?
-	\end{parts}
-
-	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
-	top of that, symmetric matrices always have a basis of eigenvectors.  That means
-	that not only can you always diagonalize a symmetric matrix, but you can 
-	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
-	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
-	best of all worlds in one!
 
 \end{document}
