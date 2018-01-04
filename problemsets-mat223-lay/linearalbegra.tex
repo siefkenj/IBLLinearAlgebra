@@ -2714,4 +2714,54 @@ the ``N'' on the left.
 	out that if you solve systems this way, there is less rounding error than if you
 	use row reduction.)
 
+
+	\newpage
+	\section*{Abstract Linear Algebra}
+	\setcounter{question}{0}
+	\begin{definition}[Vector Space]
+		A non-empty set $V$ together with two functions ``$+$''$:V\times V\to V$
+		and ``$\ \cdot\ $'':$\R\times V\to V$ is called a \emph{real vector space}
+		if it satisfies the following axioms for all $\vec a,\vec b,\vec c\in V$
+		and all $\alpha,\beta\in\R$.
+		\begin{enumerate}
+			\item $(\vec a+\vec b)+\vec c=\vec a+(\vec b+\vec c)$
+			\item $\vec a+\vec b=\vec b+\vec a$
+			\item There is an element $\vec 0\in V$ so that $\vec a+\vec z=\vec a$
+			\item There is an element $-\vec a\in V$ sot hat $\vec a+(-\vec a)=\vec 0$
+			\item $\alpha\cdot (\vec a+\vec b)=\alpha\cdot \vec a+\alpha\cdot \vec b$
+			\item $(\alpha+\beta)\cdot\vec a = \alpha\cdot \vec a+\beta\cdot \vec a$
+			\item $\alpha\cdot (\beta \cdot \vec a) = (\alpha\beta)\cdot \vec a$
+			\item $1\cdot \vec a=\vec a$
+		\end{enumerate}
+	\end{definition}
+
+	\question
+	For each of the following sets, come up with a vector addition and scalar multiplication
+	so that they form a vector space \emph{and} come up with a vector addition and scalar
+	multiplication so that they don't form a vector space.
+	\begin{parts}
+		\item $A=\{\text{arrows in the plane}\}$.
+		\item $T=\{\text{triples of real numbers}\}$.
+		\item $F(\R)=\{\text{functions from $\R$ to $\R$}\}$.
+		\item $R^+ = \{x\in\R:x>0\}$.
+		\item $P_4=\{\text{polynomials of degree at most $n$}\}$.
+		\item $M_{2\times 2}=\{2\times 2\text{ matrices with real entries}\}$.
+	\end{parts}
+
+	\begin{definition}[Subspace]
+		Let $V$ be a vector space with operations ``$+$'' and ``$\ \cdot\ $''. A 
+		\emph{subspace} of $V$ is a subset $W\subseteq V$ that is also a vector
+		space with the vector addition and scalar multiplication induced
+		by ``$+$'' and ``$\ \cdot\ $''.
+	\end{definition}
+
+	\question
+		Let $V=\R^2$ be a vector space with component-wise addition and scalar
+		multiplication.
+	\begin{parts}
+		\item Let $X\subseteq V$ be the $x$-axis. Is $X$ a subspace?
+		\item Let $Y\subseteq V$ be defined by $Y=\{\vec r\in V:\vec r\in x\text{-axis or }
+			\vec r\in y\text{-axis}\}$. Is $Y$ a subspace?
+	\end{parts}
+
 \end{document}
