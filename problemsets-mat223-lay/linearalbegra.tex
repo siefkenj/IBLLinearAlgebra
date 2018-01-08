@@ -2768,4 +2768,106 @@ the ``N'' on the left.
 		\item Let $Z\subseteq V$ be defined by $Z=\{(x,y):x+y=0\}$.
 	\end{parts}
 
+	\newpage
+	\begin{definition}[Linear Combination]
+		The vector $\vec w$ is a\emph{linear combination} of the vectors $\vec v_1,\ldots,\vec v_n$
+		if there are scalars $\alpha_1,\ldots,\alpha_n$ so that
+		\[
+			\vec w=\alpha_1\vec v_1+\cdots+\alpha_n\vec v_n.
+		\]
+	\end{definition}
+	\begin{definition}[Span]
+		Let $V$ be a vector space and let $X\subseteq V$ be a non-empty subset. We define the \emph{span}
+		of $X$ to be the set
+		\[
+			\Span X = \{\vec x\in V:\text{$\vec x$ is a linear combination of vectors in $V$}\}.
+		\]
+		We define
+		\[
+			\Span \{\} = \{\vec 0\}.
+		\]
+	\end{definition}
+
+	\question
+		Identify the following definition of span as equivalent, inequivalent, or incoherent.
+	\begin{parts}
+		\item $\Span X = \{\vec x\in V : \vec x\text{ is in }X\}$
+		\item $\Span X = \{\vec x\in V : \vec x=\sum\alpha_i\vec v_i\text{ for some }\vec v_i\in X\text{ and scalars }\alpha_i\}$
+		\item $\Span X = \{\vec x\in V : \vec x=\sum\alpha_i\vec v_i\}$
+		\item $\Span X = \{\vec x\in V : \vec x=\sum\alpha_i\vec v_i\text{ for all }\vec v_i\in X\text{ and scalars }\alpha_i\}$
+		\item Let $\mathcal S = \{Y\subseteq V:X\subseteq Y\text{ and }Y\text{ is a subspace}\}$. 
+			Then, $\displaystyle\Span X= \bigcap_{Y\in \mathcal S} Y$
+		\item $\Span X = \displaystyle \bigcup_{\text{$\vec w$ is a linear combination of $X$}} \vec w$
+		\item $\Span X = \displaystyle \bigcup_{\text{$\vec w$ is a linear combination of vectors in $X$}} \{\vec w\}$
+	\end{parts}
+
+	\question
+		Let $V=P_2$ be the vector space of polynomials of degree at most $2$, and let $\vec u=x$, $\vec v=x^2$.
+	\begin{parts}
+		\item Describe $\Span\{\vec u\}$, $\Span\{\vec v\}$, and $\Span\{\vec u+\vec v\}$.
+		\item Describe $\Span\{\vec u,\vec v\}$.
+		\item Is $\Span\{\vec u,\vec v\}=V$? Explain.
+	\end{parts}
+
+	\question
+	Let $V=\R^2$ and let $\vec u=\mat{1\\1}$ and $\vec v=\mat{1\\-1}$.
+	\begin{parts}
+		\item Prove $\Span\{\vec u,\vec v\}=V$.
+		\item Prove $\Span\{\vec u\}\neq V$.
+	\end{parts}
+
+	\begin{definition}[Set Sum]
+		Let $V$ be a vectors space. If $X,Y\subseteq V$, then the \emph{set sum}
+		of $X$ and $Y$ is
+		\[
+			X+Y = \{\vec v\in V:\vec v=\vec x+\vec y\text{ for some }\vec x\in X\text{ and }\vec y \in Y\}.
+		\]
+	\end{definition}
+
+	\question
+		Let $V=\R^2$ and let $\vec u=\mat{1\\1}$ and $\vec v=\mat{1\\-1}$.
+		\begin{parts}
+		\item Describe $\{\vec u\}+\{\vec v\}$.
+		\item Is $\{\vec u\}+\{\vec v\}=\{\vec u\}\cup\{\vec v\}$?
+		\item Describe $\{\vec u\}+\Span\{\vec v\}$.
+		\item Describe $\Span\{\vec u\}+\Span\{\vec v\}$.
+		\item Is $\Span\{\vec u\}+\Span\{\vec v\} = \Span(\{\vec u\}+\{\vec v\})$? Explain.
+		\end{parts}
+
+	\begin{definition}[Linear Independence/Dependence]
+		The vectors $\vec v_1,\ldots, \vec v_n$ are \emph{linearly independent} if
+		\[
+			\vec 0=\alpha_1\vec v_1+\cdots+\alpha_n\vec v_n
+		\]
+		implies $\alpha_1=\cdots=\alpha_n=0$ otherwise they are linearly
+		dependent. A (possibly infinite) set of vectors is linearly dependent if it contains 
+		$n$ linearly dependent vectors for some $n$.
+	\end{definition}
+
+	\question
+		Identify the following statements about linear independence/dependence
+		as equivalent to the definition, inequivalent to the definition, or incoherent.
+	\begin{parts}
+		\item $\vec v_1,\ldots,\vec v_n$ is linearly dependent if there is some $i$ for which
+			\[
+				\vec v_i \in \Span\{\vec v_1,\ldots,\vec v_{i-1},\vec v_{i+1},\ldots,\vec v_n\}.
+			\]
+		\item $\vec v_1,\ldots,\vec v_n$ is linearly dependent if there is some $i$ for which
+			\[
+				\vec v_i \in \Span\{\vec v_1,\ldots,\vec v_n\}.
+			\]
+		\item $\vec v_1,\ldots,\vec v_n$ is linearly dependent if $\vec v_1\in\Span\{\vec v_2,\ldots, \vec v_n\}$.
+		\item $\vec v_1,\ldots,\vec v_n$ is linearly independent if the only linear combination is trivial.
+	\end{parts}
+
+	\question
+	Prove the linear independence or dependence of the following sets.
+	\begin{parts}
+		\item $A=\left\{\mat{1\\0},\mat{0\\1}\right\}\subseteq \R^2$
+		\item $B=\{1+x,x^2\}\subseteq P_2$
+		\item $C=\Span\{\vec e_1\}\subseteq \R^3$
+		\item $D=\{\vec 0\}\subseteq \R^n$
+		\item $E=\{\}\subseteq \R^n$
+	\end{parts}
+
 \end{document}
