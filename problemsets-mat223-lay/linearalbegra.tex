@@ -2890,7 +2890,7 @@ the ``N'' on the left.
 		\item $M_{2\times 2}$
 		\item Symmetric $2\times 2$ matrices.
 		\item $R^+$, the set of positive reals, with operations defined
-			by $[a]+[b]=[ab]$ and $\alpha[a]=[a^\alpha]$ for $[a],[b]\in R^+$ and $\alpha\in \R$.
+			by $[x]+[y]=[xy]$ and $\alpha[x]=[x^\alpha]$ for $[x],[y]\in R^+$ and $\alpha\in \R$.
 	\end{parts}
 
 	\begin{definition}[Well Defined]
@@ -2907,8 +2907,59 @@ the ``N'' on the left.
 			that $b^2=a$.
 		\item The \emph{square root} of a real number $a$ is a positive number $b$ so
 			that $b^2=a$.
+		\item The \emph{dimension} of a vector space, $V$, is the number of elements in a basis
+			for $V$.
+	\end{parts}
 
+	\question
+	Consider the following theorem: If $\mathcal B$ is a basis for a vector space $V$, then every
+	element in $V$ can be \emph{expressed uniquely} as a linear combination of vectors in $\mathcal B$.
+	\begin{parts}
+		\item Which part(s) of the definition of basis is needed to show every vector in $V$ can be
+			\emph{expressed} as a linear combination of vectors in $\mathcal B$?
+		\item Which part(s) of the definition of basis is needed to show that vectors 
+			are \emph{uniquely} expressed as a linear 
+			combination of vectors in $\mathcal B$?
+		\item Prove the stated theorem.
+	\end{parts}
 
+	\newpage
+	\begin{definition}[Linear Transformation]
+		Let $V$ be a vector space. A function $T:V\to V$ is called
+		\emph{linear} (or a \emph{linear transformation}) if
+		\[
+			T(\vec a+\vec b)=T\vec a+T\vec b\qquad\text{and}\qquad
+			T(\alpha\vec b)=\alpha T\vec b
+		\]
+		for all $\vec a,\vec b\in V$ and scalars $\alpha$.
+	\end{definition}
+
+	\question
+	For each transformation, decide whether it is linear or not.
+	\begin{parts}
+		\item $R:\R^2\to\R^2$ which reflects vectors across the line $y=x$.
+		\item $A:\R^2\to\R^2$ which reflects vectors across the line $y=x+3$.
+		\item $N:\R^2\to\R^2$ defined by $\mat{x\\y}\mapsto \vec 0$.
+		\item $E:P_2\to P_2$ defined by $p\mapsto p(3)$.
+		\item $M:R^+\to R^+$ defined by $[a]\mapsto [2a]$.
+		\item $D:P_n\to P_{n-1}$ defined by $p\mapsto p'$ (where $p'$ is the derivative of $p$).
+	\end{parts}
+
+	\question
+	A person is commuting to work. The function $\varphi_a(b)$ gives their distance from home
+	$a+b$ seconds after midnight. You know $\varphi_0(t)=t(t-4)$.
+	\begin{parts}
+		\item Write down a formula for $\varphi_3(t)$.
+		\item Let $T_1$ be defined so $T_1(\varphi_a) = \varphi_{a+1}$. Describe in words what $T$ does.
+		\item Is $T$ linear?
+		\item Let $R:\R^2\to\R^2$ be the function that translates all vectors left one unit.
+			Is $R$ linear?
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item Suppose $T:V\to V$ is linear. Must $T(\vec 0) = \vec 0$? Prove your answer using definitions/axioms.
+		\item Suppose $T:V\to V$ and $T(\vec 0)=\vec 0$. Must $T$ be linear? Prove your answer using definitions/axioms.
 	\end{parts}
 
 \end{document}
