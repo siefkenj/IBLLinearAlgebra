@@ -2963,4 +2963,69 @@ the ``N'' on the left.
 		\item Suppose $T:V\to V$ and $T(\vec 0)=\vec 0$. Must $T$ be linear? Prove your answer using definitions/axioms.
 	\end{parts}
 
+	\begin{definition}[Representation in a Basis]
+		If $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is a basis for the vector space $\mathcal V$ and $\vec v\in\mathcal V$
+		satisfies $\vec v=\alpha_1\vec b_1+\cdots+\alpha_n\vec b_n$, then the \emph{representation of $\vec v$ in
+		the $\mathcal B$ basis} is the list of numbers
+		\[
+			[\vec v]_{\mathcal B} = \mat{\alpha_1\\\vdots\\\alpha_n}.
+		\]
+	\end{definition}
+
+	\question
+	Let $\mathcal B=\{\vec b_1,\vec b_2\}=\{\vec e_1+\vec e_2,\vec e_1-\vec e_2\}$ be a basis for $\R^2$ where $\mathcal S=
+	\{\vec e_1,\vec e_2\}$ is the standard basis.
+	\begin{parts}
+		\item Is the representation of a vector in the $\mathcal B$ basis well defined? Why?
+		\item Find $[\vec e_1]_{\mathcal B}$,\ \ $[2\vec e_1+\vec e_2]_{\mathcal B}$,\ \ $[\vec e_1]_{\mathcal S}$, and $[2\vec e_1+\vec e_2]_{\mathcal S}$.
+		\item Consider the transformation $T:\R^2\to\R^2$ defined by $T(\vec v)=[\vec v]_{\mathcal B}$. Is $T$ linear?
+	\end{parts}
+	\question
+	Let $\mathcal V$ be a vector space with bases $\mathcal A=\{\vec a_1,\vec a_2\}$ and
+	$\mathcal B=\{\vec b_1,\vec b_2\}=\{\vec a_1+\vec a_2,\vec a_1-\vec a_2\}$.
+	\begin{parts}
+		\item Find $[\vec a_1]_{\mathcal B}$,\ \ $[2\vec a_1+\vec a_2]_{\mathcal B}$,\ \ $[\vec a_1]_{\mathcal A}$, and $[2\vec a_1+\vec a_2]_{\mathcal A}$.
+		\item Consider the transformation $T:\mathcal V\to\R^2$ defined by $T(\vec v)=[\vec v]_{\mathcal B}$. Is $T$ linear?
+	\end{parts}
+
+	\newpage
+	\question
+	Let $\mathcal V$ be a vector space with bases $\mathcal A=\{\vec a_1,\vec a_2\}$ and
+	$\mathcal B=\{\vec b_1,\vec b_2\}=\{\vec a_1+\vec a_2,\vec a_1-\vec a_2\}$. You know the following
+	about the linear transformations
+	$T,S:\mathcal V\to\mathcal V$.
+	\[
+		T\vec a_1=\tfrac{3}{2}\vec a_1+\tfrac{1}{2}\vec a_2\qquad 
+		T\vec a_2=\tfrac{1}{2}\vec a_1+\tfrac{3}{2}\vec a_2\qquad\text{and}
+		\qquad
+		S \vec b_1 = 2\vec b_1\qquad
+		S\vec b_2 = \vec b_2.
+	\]
+	\begin{parts}
+		\item Compute $T(2\vec a_1+\vec a_2)$, $T(\vec a_1+\vec a_2)$, $S(2\vec a_1+\vec a_2)$, and $S(\vec a_1+\vec a_2)$.
+		\item What information would you need to compute $T(\vec v)$ and $S(\vec v)$ for any vector in $\mathcal V$?
+		\item Find a formula for $[T(\alpha\vec a_1+\beta\vec a_2)]_{\mathcal A}$ and $[S(\alpha\vec a_1+\beta\vec a_2)]_{\mathcal A}$.
+		\item Find a formula for $[T(\alpha\vec a_1+\beta\vec a_2)]_{\mathcal B}$ and $[S(\alpha\vec a_1+\beta\vec a_2)]_{\mathcal B}$.
+		\item Are $T$ and $S$ the same or different transformations?
+		\item Can you find a matrix $X$ so that $X[\vec v]_{\mathcal A} = [T\vec v]_{\mathcal A}$? What
+			about a matrix $Y$ so that $Y[\vec v]_{\mathcal B} = [T\vec v]_{\mathcal B}$?
+		\item Are there any other matrices that might reasonably represent the transformations $T$ and $S$?
+	\end{parts}
+
+	\begin{definition}[Matrix Representation]
+		Let $T:\mathcal V\to\mathcal W$ be a linear transformation between finite dimensional vector spaces;
+		let $\mathscr A$ be a basis for $\mathcal V$ and let $\mathscr B$ be a basis for $\mathcal W$. 
+		%Further,
+		%define $A:\mathcal V\to\R^n$ and $B:\mathcal W\to\R^m$ by
+		%\[
+		%	A(\vec v) = [\vec v]_{\mathcal A}\qquad\text{and}\qquad B(\vec w)=[\vec w]_{\mathcal B}.
+		%\]
+		The \emph{matrix representation of $T$ with respect to the bases $\mathcal A$ and $\mathcal B$}
+		is notated $[T]_{\mathscr A}^{\mathscr B}$ and is the matrix such that
+		\[
+			[T]_{\mathscr A}^{\mathscr B}[\vec v]_{\mathscr A} = [T(\vec v)]_{\mathscr B}.
+		\]
+	\end{definition}
+
+
 \end{document}
