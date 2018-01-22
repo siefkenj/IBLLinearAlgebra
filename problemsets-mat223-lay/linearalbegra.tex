@@ -712,7 +712,7 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 		can you say in general about projections onto $\xh$ and $\yh$?
 	\end{parts}
 
-
+\newpage
 \subsection*{Matrix Equations}
 Let $M$ be an $n\times m$ matrix with rows $\vec r_1,\ldots, \vec r_n$ and let $\vec v$ be a $1\times m$ vector.
 Then
@@ -2925,7 +2925,7 @@ the ``N'' on the left.
 
 	\newpage
 	\begin{definition}[Linear Transformation]
-		Let $V$ be a vector space. A function $T:V\to V$ is called
+		Let $V,W$ be a vector spaces. A function $T:V\to W$ is called
 		\emph{linear} (or a \emph{linear transformation}) if
 		\[
 			T(\vec a+\vec b)=T\vec a+T\vec b\qquad\text{and}\qquad
@@ -2948,7 +2948,7 @@ the ``N'' on the left.
 
 	\question
 	A person is commuting to work. The function $\varphi_a(b)$ gives their distance from home
-	$a+b$ seconds after midnight. You know $\varphi_0(t)=t(t-4)$.
+	$a+b$ minutes after midnight. You know $\varphi_0(t)=t(t-4)$.
 	\begin{parts}
 		\item Write down a formula for $\varphi_3(t)$.
 		\item Let $T_1$ be defined so $T_1(\varphi_a) = \varphi_{a+1}$. Describe in words what $T$ does.
@@ -2964,11 +2964,11 @@ the ``N'' on the left.
 	\end{parts}
 
 	\begin{definition}[Representation in a Basis]
-		If $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is a basis for the vector space $\mathcal V$ and $\vec v\in\mathcal V$
-		satisfies $\vec v=\alpha_1\vec b_1+\cdots+\alpha_n\vec b_n$, then the \emph{representation of $\vec v$ in
+		If $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is a basis for the vector space $\mathcal V$ and $\vec x\in\mathcal V$
+		satisfies $\vec x=\alpha_1\vec b_1+\cdots+\alpha_n\vec b_n$, then the \emph{representation of $\vec x$ in
 		the $\mathcal B$ basis} is the list of numbers
 		\[
-			[\vec v]_{\mathcal B} = \mat{\alpha_1\\\vdots\\\alpha_n}.
+			[\vec x]_{\mathcal B} = \mat{\alpha_1\\\vdots\\\alpha_n}.
 		\]
 	\end{definition}
 
@@ -3020,12 +3020,27 @@ the ``N'' on the left.
 		%\[
 		%	A(\vec v) = [\vec v]_{\mathcal A}\qquad\text{and}\qquad B(\vec w)=[\vec w]_{\mathcal B}.
 		%\]
-		The \emph{matrix representation of $T$ with respect to the bases $\mathcal A$ and $\mathcal B$}
+		The \emph{matrix representation of $T$ with respect to the bases $\mathscr A$ and $\mathscr B$}
 		is notated $[T]_{\mathscr A}^{\mathscr B}$ and is the matrix such that
 		\[
 			[T]_{\mathscr A}^{\mathscr B}[\vec v]_{\mathscr A} = [T(\vec v)]_{\mathscr B}.
 		\]
 	\end{definition}
 
+	\question
+	Let $T:\R^2\to\R^2$ be the transformation that reflects across the line $y=x$.
+	\begin{parts}
+		\item Find $[T]_{\mathcal S}^{\mathcal S}$ where $\mathcal S$ is the standard basis.
+		\item Find a basis $\mathcal B$ so that $[T]_{\mathcal B}^{\mathcal B}$ is a diagonal matrix.
+		\item Let $id:\R^2\to\R^2$ be the identity transformation. Find $[id]_{\mathcal S}^{\mathcal S}$,
+		$[id]_{\mathcal B}^{\mathcal B}$, $[id]_{\mathcal B}^{\mathcal S}$, and $[id]_{\mathcal S}^{\mathcal B}$.
+		\item What is the matrix product $[id]_{\mathcal B}^{\mathcal S}[id]_{\mathcal S}^{\mathcal B}$? Give
+			a high-level explanation of this result (using the idea of bases).
+	\end{parts}
+
+	\begin{definition}[Matrix Multiplication]
+		Let $T:\mathcal U\to\mathcal V$ and $S:\mathcal V\to\mathcal W$ and let $\mathscr A,\mathscr B,\mathscr C$
+		be bases for $\mathcal U,\mathcal V,\mathcal W$, respectively.
+	\end{definition}
 
 \end{document}
