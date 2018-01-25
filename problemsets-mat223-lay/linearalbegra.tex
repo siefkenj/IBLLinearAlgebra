@@ -3040,7 +3040,43 @@ the ``N'' on the left.
 
 	\begin{definition}[Matrix Multiplication]
 		Let $T:\mathcal U\to\mathcal V$ and $S:\mathcal V\to\mathcal W$ and let $\mathscr A,\mathscr B,\mathscr C$
-		be bases for $\mathcal U,\mathcal V,\mathcal W$, respectively.
+		be bases for $\mathcal U,\mathcal V,\mathcal W$, respectively. Let $P=[T]_{\mathscr A}^{\mathscr B}$ and
+		$Q=[S]_{\mathscr B}^{\mathscr C}$. The \emph{matrix product} of $Q$ and $P$, written $QP$, is defined
+		to be the matrix
+		\[
+			QP=[S\circ T]_{\mathscr A}^{\mathscr C}.
+		\]
+	\end{definition}
+
+	\question
+	Let $C$ be an $n\times n$ matrix and let $\mathscr A$ and $\mathscr B$ be bases for an $n$-dimensional vector
+	space $\mathcal V$.
+	\begin{parts}
+		\item Use $C$ to define a linear transformation $T_C:\mathcal V\to\mathcal V$.
+		\item Under what conditions is it garaunteed that $C[id]_{\mathscr A}^{\mathscr B}=C$?
+		\item Under what conditions is it garaunteed that $C[id]_{\mathscr A}^{\mathscr B}=I$, where $I$
+			is the $n\times n$ identity matrix?
+	\end{parts}
+
+	\newpage
+	\begin{definition}[One-to-one \& Onto]
+		Let $f:A\to B$ be a function. $f$ is called \emph{one-to-one} (\emph{injective}) if
+		$f(x)=f(y)$ implies $x=y$. $f$ is called \emph{onto} (\emph{surjective}) if for all
+		$b\in B$ there is an $a\in A$ so that $f(a)=b$.
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item If possible, write down a one-to-one linear transfomration with domain and codomain $\R^2$.
+		\item If possible, write down an onto linear transfomration with domain and codomain $\R^2$.
+		\item If possible, write down a one-to-one linear transfomration with domain $\R^2$ and codomain $\R^3$.
+		\item If possible, write down an onto linear transfomration with domain $\R^2$ and codomain $\R^3$.
+		\item If possible, write down a one-to-one linear transfomration with domain $\R^3$ and codomain $\R^2$.
+		\item If possible, write down an onto linear transfomration with domain $\R^3$ and codomain $\R^2$.
+	\end{parts}
+
+	\begin{definition}[Kernel \& Range]
+		Let $T:\mathcal V\to\mathcal W$ be a linear transformation.
 	\end{definition}
 
 \end{document}
