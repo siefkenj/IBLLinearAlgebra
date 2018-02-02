@@ -43,16 +43,20 @@
 \newcommand{\Perp}{\mathrm{perp}}
 \renewcommand{\span}{\mathrm{span}\,}
 \newcommand{\Span}{\mathrm{span}\,}
-\newcommand{\Img}{\mathrm{img}\,}
+%\newcommand{\Img}{\mathrm{img}\,}
 \newcommand{\Null}{\mathrm{null}\,}
-\newcommand{\Range}{\mathrm{range}\,}
+%\newcommand{\Range}{\mathrm{range}\,}
 \newcommand{\rref}{\mathrm{rref}}
 \newcommand{\rank}{\mathrm{rank}}
-\newcommand{\Rank}{\mathrm{rank}}
-\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\Rank}{\operatorname{rank}}
+\newcommand{\nnul}{\operatorname{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\chr}{\mathrm{char}}
 \renewcommand{\d}{\mathrm{d}}
+\newcommand{\Kern}{\operatorname{kern}}
+\newcommand{\Range}{\operatorname{range}}
+\newcommand{\Img}{\operatorname{img}}
+\newcommand{\Dim}{\operatorname{dim}}
 
 %\tcbuselibrary{skins}
 %\usetikzlibrary{shadings}
@@ -69,7 +73,7 @@
 
 
 \fancypagestyle{siefken}{%
-	\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015--2017 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+	\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015--2018 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
 	\lfoot{}
 	\renewcommand{\headrulewidth}{0pt}
 }
@@ -3052,9 +3056,10 @@ the ``N'' on the left.
 	Let $C$ be an $n\times n$ matrix and let $\mathscr A$ and $\mathscr B$ be bases for an $n$-dimensional vector
 	space $\mathcal V$.
 	\begin{parts}
-		\item Use $C$ to define a linear transformation $T_C:\mathcal V\to\mathcal V$.
-		\item Under what conditions is it garaunteed that $C[id]_{\mathscr A}^{\mathscr B}=C$?
-		\item Under what conditions is it garaunteed that $C[id]_{\mathscr A}^{\mathscr B}=I$, where $I$
+	\item Use $C$ to define a linear transformation $T_C:\mathcal V\to\mathcal V$ (don't forget, you can use words
+		in addition to symbols to specify the transformation).
+		\item Under what conditions is it guaranteed that $C[id]_{\mathscr A}^{\mathscr B}=C$?
+		\item Under what conditions is it guaranteed that $C[id]_{\mathscr A}^{\mathscr B}=I$, where $I$
 			is the $n\times n$ identity matrix?
 	\end{parts}
 
@@ -3067,16 +3072,73 @@ the ``N'' on the left.
 
 	\question
 	\begin{parts}
-		\item If possible, write down a one-to-one linear transfomration with domain and codomain $\R^2$.
-		\item If possible, write down an onto linear transfomration with domain and codomain $\R^2$.
-		\item If possible, write down a one-to-one linear transfomration with domain $\R^2$ and codomain $\R^3$.
-		\item If possible, write down an onto linear transfomration with domain $\R^2$ and codomain $\R^3$.
-		\item If possible, write down a one-to-one linear transfomration with domain $\R^3$ and codomain $\R^2$.
-		\item If possible, write down an onto linear transfomration with domain $\R^3$ and codomain $\R^2$.
+		\item If possible, write down a one-to-one linear transformation with domain and codomain $\R^2$.
+		\item If possible, write down an onto linear transformation with domain and codomain $\R^2$.
+		\item If possible, write down a one-to-one linear transformation with domain $\R^2$ and codomain $\R^3$.
+		\item If possible, write down an onto linear transformation with domain $\R^2$ and codomain $\R^3$.
+		\item If possible, write down a one-to-one linear transformation with domain $\R^3$ and codomain $\R^2$.
+		\item If possible, write down an onto linear transformation with domain $\R^3$ and codomain $\R^2$.
 	\end{parts}
 
 	\begin{definition}[Kernel \& Range]
-		Let $T:\mathcal V\to\mathcal W$ be a linear transformation.
+		Let $T:\mathcal V\to\mathcal W$ be a linear transformation. The \emph{kernel} of $T$ is
+		\[
+			\Kern T = \{\vec x\in \mathcal V: T\vec x=\vec 0\}
+		\]
+		and the \emph{range} (or \emph{image}) of $T$ is
+		\[
+			\Range T = \{\vec x\in \mathcal W: \vec x=T\vec y\text{ for some }\vec y\in V\}.
+		\]
 	\end{definition}
+	
+	\question
+		Let $\mathcal V$ and $\mathcal W$ be vectorspaces and let
+		$T:\mathcal V\to\mathcal W$ be a linear transformation.
+	\begin{parts}
+		\item Prove that $\Kern T$ is a vector space.
+		\item Prove that $\Range T$ is a vector space.
+	\end{parts}
+
+	\question
+		Let $\mathcal V$ and $\mathcal W$ be vectorspaces with unknown dimensions and let
+		$T:\mathcal V\to\mathcal W$ be a linear transformation.
+	\begin{parts}
+		\item If $\Kern T = \{\vec 0\}$ can you conclude whether or not $T$ is one-to-one?
+			What about onto?
+		\item If $\Kern T$ is three dimensional, can you conclude whether or not $T$ is one-to-one?
+			What about onto?
+		\item If $\Range T = \mathcal W$ can you conclude whether or not $T$ is one-to-one?
+			What about onto?
+		\item Is it possible that $\Kern T=\Range T$? Why or why not.
+	\end{parts}
+
+	\question
+		Let $\mathcal V$ and $\mathcal W$ be vectorspaces and let
+		$T:\mathcal V\to\mathcal W$ be a linear transformation.
+	\begin{parts}
+		\item If $\mathcal V$ and $\mathcal W$ are both two dimensional
+			and $\Kern T=\{\vec 0\}$, can you conclude that $T$ is onto?
+		\item If $\mathcal V$ is two dimensional and $\mathcal W$ is three dimensional
+			and $\Kern T=\{\vec 0\}$, can you conclude that $T$ is onto?
+		\item If $\mathcal V$ and $\mathcal W$ are both infinite dimensional
+			and $\Kern T=\{\vec 0\}$, can you conclude that $T$ is onto?
+	\end{parts}
+
+	\begin{theorem}[Dimension Theorem]
+		Let $T:\mathcal V\to\mathcal W$ be a linear transformation between finite dimensional
+		vector spaces. Then
+		\[
+			\Dim(\Kern T) + \Dim(\Range T) = \Dim \mathcal V
+		\]
+	\end{theorem}
+	\question
+		The \emph{Rank-Nullity Theorem} says that for a matrix $M$, \[\nnul M + \Rank M = \#\text{cols in }M.\]
+	\begin{parts}
+		\item Explain how the Dimension Theorem and the Rank-Nullity theorem relate.
+		\item How can you use your knowledge of matrix representations of linear transformations to 
+			find $\Dim (\Kern T)$ or $\Dim (\Range T)$ for a linear transformation. Does a choice 
+			of basis matter?
+	\end{parts}
+
 
 \end{document}
