@@ -3141,4 +3141,37 @@ the ``N'' on the left.
 	\end{parts}
 
 
+	\begin{definition}[Image \& Inverse Image]
+		Let $T:\mathcal V\to\mathcal W$ be a function and let $A\subseteq \mathcal V$ and 
+		$B\subseteq \mathcal W$ be sets. The \emph{image} of the set $A$ under $T$ is
+		\[
+			T(A) = \{\vec w\in\mathcal W:\vec w=T(\vec a)\text{ for some }\vec a\in A\}.
+		\]
+		The \emph{inverse image} of the set $B$ under $T$ is
+		\[
+			T^{-1}(B) = \{\vec v\in \mathcal V:T(\vec v)\in B\}.
+		\]
+	\end{definition}
+
+	\question
+		Let $S:\R\to\R$ be the squaring map $S(x)=x^2$.
+	\begin{parts}
+		\item What is $S(\R)$? How would you phrase this in the language of images/inverse images?
+		\item What is $S^{-1}(\{2\})$? How would you phrase this in the language of images/inverse images?
+		\item What is the difference between writing $S^{-1}(\{2\})$ and $S^{-1}(2)$? Is one more
+			valid than the other?
+		\item Let $T:\mathcal V\to\mathcal W$ be a linear transformation. Use images/inverse images
+			to define the kernel of $T$ and the range of $T$.
+	\end{parts}
+
+	\question
+		Let $M=\mat{1&2\\2&4}$ and define $T:\R^2\to\R^2$ by $\vec x\mapsto M\vec x$.
+	\begin{parts}
+		\item Is $T$ one-to-one?
+		\item Describe $\Range T$.
+		\item Compute $T^{-1}(\{\mat{3\\6}\})$.
+		\item For $\vec v\in\Range T$, consider the set $X_{\vec v}=T^{-1}(\{\vec v\})$. What does
+			$X_{\vec v}$ look like as $\vec v$ changes? Can you describe $X_{\vec v}$ using ideas
+			like kernel or range?
+	\end{parts}
 \end{document}
