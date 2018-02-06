@@ -3174,4 +3174,34 @@ the ``N'' on the left.
 			$X_{\vec v}$ look like as $\vec v$ changes? Can you describe $X_{\vec v}$ using ideas
 			like kernel or range?
 	\end{parts}
+
+	\question
+		Let $T:\mathcal V\to\mathcal W$ be a linear transformation and let $\vec v\in\mathcal V$ and
+		$\vec w\in\mathcal W$ so that $T(\vec v)=\vec w$.
+	\begin{parts}
+		\item Prove $T^{-1}(\{\vec w\}) = \{\vec v\}+\Kern T$.
+		\item Is $T^{-1}(\{\vec w\})$ a subspace? What about $T^{-1}(\Span\{\vec w\})$?
+	\end{parts}
+
+	\question
+		Let $T:\mathcal V\to\mathcal W$ be a linear transformation and let $\mathcal U\subseteq \mathcal W$
+		be a subspace.
+	\begin{parts}
+		\item Prove that $T^{-1}(\mathcal U)$ is a subspace.
+		\item What can you say about the dimension of $T^{-1}(\mathcal U)$ and
+			the dimension of $\mathcal U$?
+		\item Let $S:\mathcal W\to\mathcal Q$. What can you say about the kernel of
+			$S\circ T$? What can you say about its dimension?
+	\end{parts}
+
+	\begin{definition}[Inverse]
+		Let $T:\mathcal V\to\mathcal W$ be a function. $T$ is
+		\emph{invertible} if there exists a function $S:\mathcal W\to\mathcal V$ so that
+		\[
+			S\circ T=id_{\mathcal V}\qquad\text{and}\qquad T\circ S=id_{\mathcal W}
+		\]
+		where $id_{\mathcal V}$ is the identity function on $\mathcal V$ and $id_{\mathcal W}$
+		is the identity function on $\mathcal W$.
+		If $S$ exists, we notate it by $T^{-1}$.
+	\end{definition}
 \end{document}
