@@ -3204,4 +3204,32 @@ the ``N'' on the left.
 		is the identity function on $\mathcal W$.
 		If $S$ exists, we notate it by $T^{-1}$.
 	\end{definition}
+
+	\question
+	Let $\mathcal V$ be a finite-dimensional vector space
+	with a basis $\mathscr A$. Let $T:\mathcal V\to\mathcal V$ be a linear transformation.
+	\begin{parts}
+		\item Show that $T$ is invertible if and only if $[T]_{\mathscr A}^{\mathscr A}$ is invertible.
+		\item If $T$ is invertible, what can you say about the kernel of $T$.
+	\end{parts}
+
+	\newpage
+
+	\question
+	Let $\vec u=\mat{1\\0\\0}$ and $\vec v=\mat{1\\1\\0}$ and $\mathscr B=\{\vec u,\vec v\}$. Define $\mathcal V=\Span \mathscr B\subseteq \R^3$ 
+	and consider
+	the linear transformation 
+	\[
+		T:\mathcal V\to\R^2\qquad\text{where}\qquad \vec x\mapsto \mat{1&0&0\\0&1&0}\vec x.
+	\]
+	\begin{parts}
+		\item Is $\vec x=\mat{2\\1\\0}$ in the domain of $T$? If so, compute $T(\vec x)$.
+		\item Is $\vec y=\mat{3\\1\\0}$ in the domain of $T$? If so, compute $T(\vec y)$.
+		\item Write $[\vec x]_{\mathscr B}$ and $[\vec y]_{\mathscr B}$, if possible.
+		\item Is $T$ invertible?
+		\item What is $[T]_{\mathscr B}^{\mathscr B}$? Does $[T]_{\mathscr B}^{\mathscr B}=\mat{1&0&0\\0&1&0}$?
+			Is there another basis $\mathscr C$ so that $[T]_{\mathscr C}^{\mathscr C}=\mat{1&0&0\\0&1&0}$?
+			Why or why not?
+
+	\end{parts}
 \end{document}
