@@ -1361,7 +1361,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 
 \section*{Task 2.3: Pat and Jamie}
 
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.55\textwidth}
 \begin{tikzpicture}[scale=.9]
     \begin{axis}[
 		    axis equal image,
@@ -1401,7 +1401,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
     \end{axis}
 \end{tikzpicture}\hfill
 \end{minipage}
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.45\textwidth}
 
 Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
 	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
@@ -1428,7 +1428,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 \newpage
 \section*{Task 2.4: Getting back N}
 
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.55\textwidth}
 \begin{tikzpicture}[scale=.9]
     \begin{axis}[
 		    axis equal image,
@@ -1468,7 +1468,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
     \end{axis}
 \end{tikzpicture}\hfill
 \end{minipage}
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.45\textwidth}
 
 Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
 	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
@@ -3224,12 +3224,28 @@ the ``N'' on the left.
 	\]
 	\begin{parts}
 		\item Is $\vec x=\mat{2\\1\\0}$ in the domain of $T$? If so, compute $T(\vec x)$.
-		\item Is $\vec y=\mat{3\\1\\0}$ in the domain of $T$? If so, compute $T(\vec y)$.
+		\item Is $\vec y=\mat{2\\1\\1}$ in the domain of $T$? If so, compute $T(\vec y)$.
 		\item Write $[\vec x]_{\mathscr B}$ and $[\vec y]_{\mathscr B}$, if possible.
 		\item Is $T$ invertible?
 		\item What is $[T]_{\mathscr B}^{\mathscr B}$? Does $[T]_{\mathscr B}^{\mathscr B}=\mat{1&0&0\\0&1&0}$?
 			Is there another basis $\mathscr C$ so that $[T]_{\mathscr C}^{\mathscr C}=\mat{1&0&0\\0&1&0}$?
 			Why or why not?
 
+	\end{parts}
+
+	\begin{definition}[Isomorphic]
+		The vector spaces $\mathcal V$ and $\mathcal W$ are called \emph{isomorphic}
+		if there exists an invertible linear transformation $\Phi:\mathcal V\to\mathcal W$.
+		In this case, $\Phi$ is called a \emph{vectorspace isomorphism}.
+	\end{definition}
+	\question
+	\begin{parts}
+		\item Identify three distinct subspaces of $\R^3$ which are isomorphic to $\R^2$.
+		\item Let $\mathscr B$ be a basis for the $n$-dimensional vectorspace $\mathcal W$.
+			Give an isomorphism between $\mathcal W$ and $\R^n$.
+		\item Prove or disprove: If $\mathcal V$ and $\mathcal W$ are isomorphic, then
+			they have the same dimension.
+		\item Prove or disprove: If $\mathcal V$ and $\mathcal W$ are real vectorspaces
+			with the same dimension, then they are isomorphic.
 	\end{parts}
 \end{document}
