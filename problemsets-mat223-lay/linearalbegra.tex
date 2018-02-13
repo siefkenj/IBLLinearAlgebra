@@ -1543,7 +1543,7 @@ the ``N'' on the left.
 
 	\question
 	\begin{parts}
-		\item Classify the following as linear transformation or not
+		\item Classify the following as linear transformations or not
 			\begin{enumerate}
 				\item $\mathcal R$ from before.
 				\item $\mathcal S$ from before.
@@ -3247,5 +3247,83 @@ the ``N'' on the left.
 			they have the same dimension.
 		\item Prove or disprove: If $\mathcal V$ and $\mathcal W$ are real vectorspaces
 			with the same dimension, then they are isomorphic.
+	\end{parts}
+
+
+	\begin{definition}[Push-forward \& Conjugation]
+		Let $\Phi:\mathcal V\to\mathcal W$ be an isomorphism of vector spaces
+		and let $T:\mathcal V\to\mathcal V$ be a linear transformation. The 
+		\emph{push-forward} of $T$ under $\Phi$ is the linear transformation
+		$\Phi\circ T\circ \Phi^{-1}:\mathcal W\to\mathcal W$.
+
+		Two linear transformations are called \emph{conjugate} if one is a push-forward
+		of the other. Two matrices are called \emph{similar} if they correspond to
+		conjugate linear transformations.
+	\end{definition}
+
+	\question
+	Consider the linear transformations $T_A$, $T_B$, etc., defined by multiplication
+	by the following matrices.
+	\[
+		A=\mat{1&0\\0&1}\qquad B=\mat{1&1\\1&1}\qquad C=\mat{2&2\\2&2}
+	\]
+	\[
+		E=\mat{2&0\\0&0}\qquad F=\mat{0&0\\0&2}\qquad G=\mat{1&1\\1&-1}
+	\]
+	\begin{parts}
+		\item Compute the dimension of the range and kernel of each transformation $T_A$, $T_B$, etc..
+		\item Of $T_A$, $T_B$, etc., are there any pairs that you can
+			tell aren't conjugate? How do you know?
+		\item Can conjugate transformations have different kernels? Can the dimension of their
+			kernels differ? Prove your answer.
+		\item If two transformations have the same kernel, must they be conjugate? What if just the dimension
+			of their kernels are the same?
+	\end{parts}
+	
+	\question
+		Let $\mathscr A$ and $\mathscr B$ be bases for $\R^2$.
+			Let $T:\R^2\to\R^2$ be a 
+			and consider the transformations
+			$M_A,M_B:\R^2\to\R^2$ defined by multiplication by the matrices $A=[T]_{\mathscr A}$
+			and $B=[T]_{\mathscr B}$.
+	\begin{parts}
+		\item Are $M_A$ and $M_B$ conjugate? If so, give a conjugacy.
+		\item Are $A$ and $B$ similar matrices? Explain.
+		\item Your textbook defined the matrices $X$ and $Y$ to be similar if there is an invertible
+			matrix $Q$ so that $X=QYQ^{-1}$. How does this definition relate
+			to the definition in terms of conjugacies?
+	\end{parts}
+
+	\begin{definition}[Conjugacy Invariant]
+		A property, $\mathscr P$, of a transformation/matrix is called
+		a \emph{conjugacy invariant} if
+		\[
+			\mathscr P(T)=\mathscr P(S)
+		\]
+		whenever $T$ and $S$ are conjugate.
+	\end{definition}
+
+	\question
+	Consider the following properties
+	\[
+		\mathscr D(T)=\text{ dimension of the domain of $T$}
+		\qquad
+		\mathscr R(T)=\text{ dimension of the range of $T$}
+	\]
+	\[
+		\mathscr K(T)=\text{ kernel of $T$}
+		\qquad
+		\mathscr N(T)=\text{ dimension of the kernel of $T$}
+	\]
+	\[
+		\mathscr V(T)=\text{ $1$ if $\mat{1\\1}$ is an eigenvector for $T$ and $0$ otherwise}
+	\]\[
+		\mathscr E(T)=\text{ $1$ if $3$ is an eigenvvalue for $T$ and $0$ otherwise}
+	\]
+	\begin{parts}
+		\item For each property, decide whether it is a conjugacy invariant.
+		\item Do any of the listed properties \emph{determine} if two transformations
+			are conjugate? That is, if $\mathscr P(T)=\mathscr P(S)$ is it guaranteed
+			that $T$ and $S$ are conjugate?
 	\end{parts}
 \end{document}
