@@ -3184,7 +3184,7 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
-		Let $T:\mathcal V\to\mathcal W$ be a linear transformation and let $\mathcal U\subseteq \mathcal W$
+		Let $T:\mathcal V\to\mathcal W$ be an onto linear transformation and let $\mathcal U\subseteq \mathcal W$
 		be a subspace.
 	\begin{parts}
 		\item Prove that $T^{-1}(\mathcal U)$ is a subspace.
@@ -3210,25 +3210,28 @@ the ``N'' on the left.
 	with a basis $\mathscr A$. Let $T:\mathcal V\to\mathcal V$ be a linear transformation.
 	\begin{parts}
 		\item Show that $T$ is invertible if and only if $[T]_{\mathscr A}^{\mathscr A}$ is invertible.
+		\item Let $\mathscr B$ and $\mathscr C$ be bases for $\mathcal V$. Show that $T$ is invertible if
+			and only if $[T]_{\mathscr B}^{\mathscr C}$ is invertible.
 		\item If $T$ is invertible, what can you say about the kernel of $T$.
 	\end{parts}
 
 	\newpage
 
 	\question
-	Let $\vec u=\mat{1\\0\\0}$ and $\vec v=\mat{1\\1\\0}$ and $\mathscr B=\{\vec u,\vec v\}$. Define $\mathcal V=\Span \mathscr B\subseteq \R^3$ 
+	Let $\vec u=\mat{1\\0\\0}$ and $\vec v=\mat{1\\1\\0}$ and $\mathscr B=\{\vec u,\vec v\}$
+	and let $\mathscr E=\{\vec e_1,\vec e_2\}$ be the standard basis for $\R^2$. Define $\mathcal V=\Span \mathscr B\subseteq \R^3$ 
 	and consider
 	the linear transformation 
 	\[
 		T:\mathcal V\to\R^2\qquad\text{where}\qquad \vec x\mapsto \mat{1&0&0\\0&1&0}\vec x.
 	\]
 	\begin{parts}
-		\item Is $\vec x=\mat{2\\1\\0}$ in the domain of $T$? If so, compute $T(\vec x)$.
-		\item Is $\vec y=\mat{2\\1\\1}$ in the domain of $T$? If so, compute $T(\vec y)$.
+		\item Is $\vec x=\mat{4\\1\\0}$ in the domain of $T$? If so, compute $T(\vec x)$.
+		\item Is $\vec y=\mat{4\\1\\1}$ in the domain of $T$? If so, compute $T(\vec y)$.
 		\item Write $[\vec x]_{\mathscr B}$ and $[\vec y]_{\mathscr B}$, if possible.
 		\item Is $T$ invertible?
-		\item What is $[T]_{\mathscr B}^{\mathscr B}$? Does $[T]_{\mathscr B}^{\mathscr B}=\mat{1&0&0\\0&1&0}$?
-			Is there another basis $\mathscr C$ so that $[T]_{\mathscr C}^{\mathscr C}=\mat{1&0&0\\0&1&0}$?
+		\item What is $[T]_{\mathscr B}^{\mathscr E}$? Does $[T]_{\mathscr B}^{\mathscr E}=\mat{1&0&0\\0&1&0}$?
+			Are there other bases $\mathscr C$ and $\mathscr D$ so that $[T]_{\mathscr C}^{\mathscr D}=\mat{1&0&0\\0&1&0}$?
 			Why or why not?
 
 	\end{parts}
@@ -3316,9 +3319,11 @@ the ``N'' on the left.
 		\mathscr N(T)=\text{ dimension of the kernel of $T$}
 	\]
 	\[
-		\mathscr V(T)=\text{ $1$ if $\mat{1\\1}$ is an eigenvector for $T$ and $0$ otherwise}
-	\]\[
-		\mathscr E(T)=\text{ $1$ if $3$ is an eigenvvalue for $T$ and $0$ otherwise}
+		\mathscr V(T)=\begin{cases}1&\text{ if $\mat{1\\1}$ is an eigenvector for $T$}\\0& \text{ else}\end{cases}
+			\qquad
+		\mathscr E(T)=\begin{cases}
+			1&\text{if $3$ is an eigenvalue for $T$}\\0&\text{ else}
+		\end{cases}
 	\]
 	\begin{parts}
 		\item For each property, decide whether it is a conjugacy invariant.
