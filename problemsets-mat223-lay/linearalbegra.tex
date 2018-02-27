@@ -52,6 +52,7 @@
 \newcommand{\nnul}{\operatorname{nullity}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\chr}{\mathrm{char}}
+\newcommand{\Char}{\mathrm{char}}
 \renewcommand{\d}{\mathrm{d}}
 \newcommand{\Kern}{\operatorname{kern}}
 \newcommand{\Range}{\operatorname{range}}
@@ -3331,4 +3332,128 @@ the ``N'' on the left.
 			are conjugate? That is, if $\mathscr P(T)=\mathscr P(S)$ is it guaranteed
 			that $T$ and $S$ are conjugate?
 	\end{parts}
+
+	\subsection*{Eigenstuff}
+
+	\begin{definition}[Eigenvalues \& Eigenvectors]
+		Let $T:\mathcal V\to\mathcal V$ be a linear transformation. A non-zero
+		vector $\vec v\in\mathcal V$ is called an \emph{eigenvector} for $T$
+		if
+		\[
+			T\vec v=\lambda \vec v
+		\]
+		for some scalar $\lambda$. The scalar $\lambda$ is called the \emph{eigenvalue}
+		associated with $\vec v$.
+
+		Given an eigenvalue $\lambda$, the \emph{eigenspace} with eigenvalue $\lambda$
+		is the span of all eigenvectors with eigenvalue $\lambda$.
+	\end{definition}
+
+	\question
+	Let $P:\R^3\to\R^3$ be projection onto the $xy$-plane and let $Q:\R^3\to\R^3$ be projection
+	onto the line $\ell=\Span\{\xh+\yh+\zh\}$.
+
+	\begin{parts}
+		\item Find all eigenvectors and eigenvalues for $P$ and $Q$.
+		\item Find all eigenspaces for $P$ and $Q$.
+		\item Let $A,B$ be eigenspaces for $P$ with different eigenvalues.
+			What can you say about $A\cap B$? What about $A+B$? Will
+			these conclusions hold for transformations other than $P$?
+	\end{parts}
+
+	\newpage
+	\question
+	Let $\mathscr E=\{\xh,\yh,\zh\}$ and $\mathscr B=\{\mat{1\\2\\0},\yh,\zh\}$.
+	\begin{parts}
+		\item Write down a linear transformation $T:\R^3\to\R^3$ where $\mathscr E$ are eigenvectors
+			with eigenvalues $2,3,4$.
+		\item Write down a linear transformation $S:\R^3\to\R^3$ where $\mathscr B$ are eigenvectors
+			with eigenvalues $2,3,4$.
+		\item Are $T$ and $S$ conjugate? Why or why not?
+	\end{parts}
+
+	\begin{definition}[Characteristic Polynomial]
+		Let $T:\mathcal V\to\mathcal V$ and let $\mathscr B$ be a basis for 
+		the finite-dimensional vector space $\mathcal V$. The \emph{characteristic
+		polynomial} of $T$ is 
+		\[
+			\Char(T) = p(x) =\det([T]_{\mathscr B}^{\mathscr B} - xI).
+		\]
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item What needs to be checked determine if the characteristic polynomial
+			of a linear transformation is well defined?
+		\item Prove that $\Char(A)$ is well defined for a linear transformation $A:\mathcal V\to\mathcal V$.
+		\item Is $\Char$ a conjugacy invariant?
+		\item Explain how $\Char(A)$ relates to the eigenvalues or eigenvectors of $A$.
+	\end{parts}
+
+	\question
+	Let $X=\Span\{1,e^x,e^{2x}\}$.
+	Let $D_P:P_2\to P_2$ be the derivative operator on $P_2$ and let $D_X:X\to X$ be the derivative
+	operator on $X$.
+	\begin{parts}
+		\item Find $\Char(D_P)$ and $\Char(D_X)$.
+		\item Find all eigenvalues for $D_P$ and $D_X$.
+		\item Find all eigenspaces for $D_P$ and $D_X$.
+	\end{parts}
+
+	\begin{definition}[Geometric \& Algebraic Multiplicity]
+		Let $T:\mathcal V\to\mathcal V$ be a linear transformation 
+		between finite-dimensional vector spaces and let $\lambda$
+		be an eigenvalue for $T$. The \emph{geometric multiplicity} of $\lambda$ is
+		the dimension of the associated eigenspace. The \emph{algebraic multiplicity} of
+		$\lambda$ is the number of times $\lambda$ appears as a root of $\Char(T)$.
+	\end{definition}
+
+	\question
+	Let $D_P$ and $D_X$ be derivative operators on $P_2$ and $X=\Span\{1,e^x,e^{2x}\}$, respectively (as before).
+	\begin{parts}
+		\item Find the geometric and algebraic multiplicities for each eigenvalue of $D_P$ and $D_X$.
+		\item Does $X=E_0+E_1+E_2$ where $E_0$, $E_1$, and $E_2$ are eigenspaces for $D_X$?
+		\item Can $P_2$ be written as the sum of eigenspaces for $D_P$?
+		\item Make a conjecture to complete the following sentence: 
+			``Let $\mathcal V$ be a finite-dimensional vector space and let $T:\mathcal V\to\mathcal V$
+			be a linear transformation. $\mathcal V$
+			can be written as a sum of eigenspaces for $T$ exactly when \ldots''.
+	\end{parts}
+
+	\question
+	Let $T:\mathcal V\to\mathcal V$ be a linear transformation with eigenspaces
+	\[
+		E_1=\Span\{\vec a,\vec b\}\qquad E_3=\Span\{\vec c,\vec d\}\qquad E_{-5}=\Span\{\vec e\}
+	\]
+	with eigenvalues $1,3$, and $-5$, respectively. Further, suppose $\mathcal V=E_1+E_3+E_{-3}$.
+	\begin{parts}
+		\item Compute $T(\vec a+2\vec d)$.
+		\item Can you determine whether $\{\vec a,\vec c\}$ linearly independent or dependent?
+			If so, which is it?
+		\item Are you justified in writing $\mathcal V=E_1\oplus E_3\oplus E_{-3}$? Why or why not?
+		\item Find a matrix representation for $T$.
+	\end{parts}
+
+	\newpage
+	\question
+	Consider the following table.
+
+	\begin{tabular}{c|c|c|c}
+		Transformation & Eigenvalues & Geom. Mult. & Alg. Mult. \\
+		\hline
+		A & 1,2,3 & 1,1,1 & 1,1,1\\
+		B & 1,2,3 & 1,1,1 & 1,1,1 \\
+		C & 1,2 & 2,1& 2,1\\
+		D & 1,2 & 2,1& 2,1\\
+		E & 1,2 & 2,1& 2,2\\
+	\end{tabular}
+
+	\begin{parts}
+		\item Which transformations are diagonalizable?
+		\item Which transformations can you tell are \emph{not} conjugate?
+		\item Which transformations can you tell \emph{are} conjugate?
+		\item Are there any pairs of transformations where you don't have enough
+			information to tell if they are conjugate or not?
+	\end{parts}
+
 \end{document}
