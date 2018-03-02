@@ -37,6 +37,8 @@
 \newcommand{\zh}{{{\mathbf e}_3}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\proj}{\mathrm{proj}}
 \newcommand{\Proj}{\mathrm{proj}}
@@ -3288,7 +3290,7 @@ the ``N'' on the left.
 	
 	\question
 		Let $\mathscr A$ and $\mathscr B$ be bases for $\R^2$.
-			Let $T:\R^2\to\R^2$ be a 
+			Let $T:\R^2\to\R^2$ be a linear transformation
 			and consider the transformations
 			$M_A,M_B:\R^2\to\R^2$ defined by multiplication by the matrices $A=[T]_{\mathscr A}^{\mathscr A}$
 			and $B=[T]_{\mathscr B}^{\mathscr B}$.
@@ -3375,7 +3377,7 @@ the ``N'' on the left.
 	\end{parts}
 
 	\begin{definition}[Characteristic Polynomial]
-		Let $T:\mathcal V\to\mathcal V$ and let $\mathscr B$ be a basis for 
+		Let $T:\mathcal V\to\mathcal V$ be a linear transformation and let $\mathscr B$ be a basis for 
 		the finite-dimensional vector space $\mathcal V$. The \emph{characteristic
 		polynomial} of $T$ is 
 		\[
@@ -3422,6 +3424,7 @@ the ``N'' on the left.
 			can be written as a sum of eigenspaces for $T$ exactly when \ldots''.
 	\end{parts}
 
+	\newpage
 	\question
 	Let $T:\mathcal V\to\mathcal V$ be a linear transformation with eigenspaces
 	\[
@@ -3436,7 +3439,6 @@ the ``N'' on the left.
 		\item Find a matrix representation for $T$.
 	\end{parts}
 
-	\newpage
 	\question
 	Consider the following table.
 
@@ -3457,5 +3459,90 @@ the ``N'' on the left.
 		\item Are there any pairs of transformations where you don't have enough
 			information to tell if they are conjugate or not?
 	\end{parts}
+
+	\subsection*{Fields}
+
+	\question
+	Let $T_J,T_B:\R^2\to\R^2$ be given by multiplication by the matrices
+	$J=\mat{0&-1\\1&0}$ and $B=\mat{0&-2\\2&0}$.
+	\begin{parts}
+		\item Do $T_J$ or $T_B$ have eigenvectors? Why or why not?
+		\item Are $T_J$ and $T_B$ conjugate?
+	\end{parts}
+
+	\begin{definition}[Complex Numbers]
+		The \emph{complex numbers}, denoted by $\C$, are the real vector-space
+		$\R^2$ equipped with the bi-linear multiplication
+		\[
+			\mat{a\\b}\star\mat{c\\d} = \mat{ac-bd\\ad+bc}.
+		\]
+		The standard basis for $\C$ is commonly written as $\{1,i\}$
+		(or $\{1,j\}$ if you're an engineer).
+	\end{definition}
+
+	\question
+	\begin{parts}
+		\item Express $\mat{2\\3},\mat{-1\\2}\in\C$ in the standard basis for
+			$\C$ and compute $\mat{2\\3}\star\mat{-1\\2}$.
+		\item Let $R=\Span\{1\}\subseteq \C$. Show that $R$ is closed under
+			``$\star$''.
+		\item Would we be justified in calling $R$ and $\R$ isomorphic? Why or why not?
+	\end{parts}
+
+	\question
+	Let $p(x)=x^2+1$ and let $q(x)=x^4+1$. 
+	\begin{parts}
+		\item If possible, find all roots of $p$ in $\C$.
+		\item Find all solutions to the equation $i\star x=1$. Can you make sense
+			of the expression $1/i$?
+		\item Let $u=\sqrt{2}/2+(\sqrt{2}/2)i$ and define the transformation
+			$T_u:\C\to \C$ by $v\mapsto u\star v$. Is $T$ linear? Can you describe it geometrically?
+		\item Can you find a root of $q$ in $\C$?
+	\end{parts}
+
+	\newpage
+	\question
+	Let $u=a+bi\in \C$ be a fixed, and define the linear transformation $T_u:\C\to\C$
+	by $v\mapsto u\star v$.
+	\begin{parts}
+		\item Find a matrix for $T_u$.
+		\item Under what conditions is $T_u$ invertible?
+		\item For $\alpha\in\C$, under what conditions does the equation
+			$u\star x=\alpha$ have a solution?
+		\item Would we be justified in writing $1/\alpha$ for a complex number
+			$\alpha$? Why or why not?
+	\end{parts}
+
+	\begin{definition}[Field]
+		A set $F$ coupled with two operations $+:F\times F\to F$
+		and $\star:F\times F\to F$ is called a \emph{field}
+		if it satisfies the following axioms.
+		\begin{enumerate}
+			\item $a+(b+c)=(a+b)+c$ and $a\star(b\star c)=(a\star b)\star c)$ for all $a,b,c\in F$
+			\item $a+b=b+a$ and $a\star b=b\star a$ for all $a,b\in F$
+			\item $a\star(b+c)=(a\star b)+(a\star c)$ for all $a,b,c\in F$
+			\item There exists an element $0\in F$ satisfying $a+0=a$ and $a\star 0=0$ for all
+				$a\in F$
+			\item For all $a\in F$, there exists $-a\in F$ so that $a+(-a)=0$
+			\item There exists $1\in F$ so that $1\star a=a$ for all $a\in F$.
+			\item For all $a\in F$ satisfying $a\neq 0$, there exists
+				$a^{-1}\in F$ so that $a\star a^{-1}=1$.
+		\end{enumerate}
+	\end{definition}
+
+	\question
+	Consider the following sets:
+	$
+		\qquad\R\qquad R^+=\{x\in R:x>0\}\qquad \Q\qquad \Z\qquad \C.
+	$
+	\begin{parts}
+		\item For each set, decide whether it is a field.
+		\item For each field, if possible, come up with (i) a polynomial that has a solution
+			and (ii) a polynomial that doesn't have a solution.
+	\end{parts}
+	\begin{definition}[Algebraically Closed Field]
+		A field $F$ is called \emph{algebraically closed} if every polynomial with
+		coefficients in $F$ has a solution in $F$.
+	\end{definition}
 
 \end{document}
