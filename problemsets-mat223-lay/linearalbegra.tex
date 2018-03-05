@@ -3442,14 +3442,14 @@ the ``N'' on the left.
 	\question
 	Consider the following table.
 
-	\begin{tabular}{c|c|c|c}
-		Transformation & Eigenvalues & Geom. Mult. & Alg. Mult. \\
+	\begin{tabular}{c|c|c|c|c}
+		Transformation & Eigenvalues & Geom. Mult. & Alg. Mult. & Dim(Domain)\\
 		\hline
-		A & 1,2,3 & 1,1,1 & 1,1,1\\
-		B & 1,2,3 & 1,1,1 & 1,1,1 \\
-		C & 1,2 & 2,1& 2,1\\
-		D & 1,2 & 2,1& 2,1\\
-		E & 1,2 & 2,1& 2,2\\
+		A & 1,2,3 & 1,1,1 & 1,1,1 & 3\\
+		B & 1,2,3 & 1,1,1 & 1,1,1 & 3\\
+		C & 1,2 & 2,1& 2,1 & 3\\
+		D & 1,2 & 2,1& 2,1 & 3\\
+		E & 1,2 & 2,1& 2,2 & 4\\
 	\end{tabular}
 
 	\begin{parts}
@@ -3544,5 +3544,24 @@ the ``N'' on the left.
 		A field $F$ is called \emph{algebraically closed} if every polynomial with
 		coefficients in $F$ has a solution in $F$.
 	\end{definition}
+
+	\question
+	\begin{parts}
+		\item For the fields $\Q$, $\R$, and $\C$, decide if they are algebraically closed.
+		\item Find a linear transformation $T:\R^2\to\R^2$ that has no eigenvectors.
+		\item Find a linear transformation $S:\R^2\to\R^2$ with the following properties:
+			(i) $S(\Q^2)\subseteq \Q^2$, (ii) $S$ has eigenvectors, and (iii)
+			$R=S\big|_{\Q}$ has no eigenvectors.
+		\item Can you find a linear transformation $U:\C^2\to\C^2$ which has no eigenvectors?
+	\end{parts}
+
+	\question
+	\begin{parts}
+		\item Let $\mathcal V=\Span_{\Q}\{1,\sqrt{2}\}\subseteq \R$ be a $\Q$ vector space. What dimension
+			is $\mathcal V$?
+		\item Let $\mathcal W=\Span_{\Q}\{1,\sqrt{2},\sqrt{3},\sqrt{4}\}\subseteq \R$ be a $\Q$ vector space. What dimension
+			is $\mathcal W$?
+		\item Consider $\mathcal R=\R$ as a $\Q$ vector space. What dimension is $\mathcal R$?
+	\end{parts}
 
 \end{document}
