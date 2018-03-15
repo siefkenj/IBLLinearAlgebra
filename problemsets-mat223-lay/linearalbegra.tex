@@ -1884,8 +1884,13 @@ the ``N'' on the left.
 		\item What is the rank and nullity of $A$?
 	\end{parts}
 
+\newpage
 \subsection*{Orthogonality}
-
+	\begin{definition}[Orthogonal \& Orthonormal]
+		A set of vectors is \emph{orthogonal} if every pair of vectors
+		in the set is orthogonal.  A set of vectors is \emph{orthonormal}
+		if it is both an orthogonal set and every vector is a unit vector.
+	\end{definition}
 	\begin{definition}[Orthogonal Projection]
 		If $V$ is a subspace of $\R^n$, the \emph{projection}
 		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
@@ -1940,7 +1945,7 @@ the ``N'' on the left.
 		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
 	\end{parts}
 
-%\newpage
+\newpage
 \subsection*{Gram-Schmidt Orthogonalization}
 	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
 	turn any basis into an orthonormal basis through a process called
@@ -1969,7 +1974,6 @@ the ``N'' on the left.
 	is quite easy.  With more vectors, it is only slightly harder.
 
 
-	\newpage
 	\begin{definition}[Gram-Schmidt Process]
 		The \emph{Gram-Schmidt} orthogonalization procedure
 		takes in a set of vectors and outputs a set of orthonormal vectors
@@ -2005,6 +2009,7 @@ the ``N'' on the left.
 			there is no need to row reduce).
 	\end{parts}
 
+	\newpage
 	\question
 	Let
 	\[
@@ -2606,11 +2611,6 @@ the ``N'' on the left.
 
 
 \section*{Orthogonality}
-	\begin{definition}[Orthogonal \& Orthonormal]
-		A set of vectors is \emph{orthogonal} if every pair of vectors
-		in the set is orthogonal.  A set of vectors is \emph{orthonormal}
-		if it is both an orthogonal set and every vector is a unit vector.
-	\end{definition}
 
 	\question
 	\[
