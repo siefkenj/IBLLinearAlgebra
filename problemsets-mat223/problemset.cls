@@ -14,19 +14,21 @@
 	% the geometry package will make sure the pdf page gets set to the same size as \paperheight and \paperwidth
 	% further, with these settings text will take up 100% of the page
 	\RequirePackage[
-		textwidth=\paperwidth, 
-		textheight=\paperheight, 
-		noheadfoot, 
-		nomarginpar
+%		textwidth=\paperwidth, 
+%		textheight=\paperheight, 
+%		noheadfoot, 
+%		nomarginpar
 		]{geometry} 	
 	\RequirePackage[absolute]{textpos}
 	\RequirePackage{everypage}
 	\RequirePackage{xparse}
+	\RequirePackage{environ}
 	\RequirePackage[usenames,dvipsnames]{xcolor}
 	\RequirePackage{tcolorbox}
 		\tcbuselibrary{skins}
 	\RequirePackage{ifthen}
 	\RequirePackage{titlesec}
+	\RequirePackage{changepage}
 
 
 
@@ -46,33 +48,45 @@
 	\def\probset@marginparsep{10pt}
 	\def\probset@marginparwidth{35pt}
 
+
+	\geometry{top=.25in,
+		headsep=0in, 
+		headheight=0in, 
+		left=.9in, 
+		bottom=.3in, 
+		footskip=0in,
+		marginparsep=5pt, 
+		marginparwidth=2in,
+		right=10pt,
+		includeall}
+
 	% set all the latex values.  We need to addtolength
 	% because geometry magically adjusted them so we start
 	% out using all of the page's area; the actual values may
 	% not be zero!
-	\addtolength\voffset{\probset@voffset}
-	\addtolength\topmargin{\probset@topmargin}
-	\addtolength\headheight{\probset@headheight}
-	\addtolength\headsep{\probset@headsep}
-	\addtolength\footskip{\probset@footskip}
-
-	% set the textheight correctly
-	\addtolength\textheight{-\probset@voffset}
-	\addtolength\textheight{-\probset@topmargin}
-	\addtolength\textheight{-\probset@headheight}
-	\addtolength\textheight{-\probset@headsep}
-	\addtolength\textheight{-\probset@footskip}
-	%\addtolength\textheight{-1in}
-
-	\addtolength\hoffset{\probset@hoffset}
-	\addtolength\marginparsep{\probset@marginparsep}
-	\addtolength\marginparwidth{\probset@marginparwidth}
-
-	% set the textwidth correctly
-	\addtolength\textwidth{-\probset@hoffset}
-	\addtolength\textwidth{-\probset@marginparsep}
-	\addtolength\textwidth{-\probset@marginparwidth}
-	%\addtolength\textwidth{-1in}
+%	\addtolength\voffset{\probset@voffset}
+%	\addtolength\topmargin{\probset@topmargin}
+%	\addtolength\headheight{\probset@headheight}
+%	\addtolength\headsep{\probset@headsep}
+%	\addtolength\footskip{\probset@footskip}
+%
+%	% set the textheight correctly
+%	\addtolength\textheight{-\probset@voffset}
+%	\addtolength\textheight{-\probset@topmargin}
+%	\addtolength\textheight{-\probset@headheight}
+%	\addtolength\textheight{-\probset@headsep}
+%	\addtolength\textheight{-\probset@footskip}
+%	%\addtolength\textheight{-1in}
+%
+%	\addtolength\hoffset{\probset@hoffset}
+%	\addtolength\marginparsep{\probset@marginparsep}
+%	\addtolength\marginparwidth{\probset@marginparwidth}
+%
+%	% set the textwidth correctly
+%	\addtolength\textwidth{-\probset@hoffset}
+%	\addtolength\textwidth{-\probset@marginparsep}
+%	\addtolength\textwidth{-\probset@marginparwidth}
+%	%\addtolength\textwidth{-1in}
 
 
 
@@ -171,6 +185,7 @@
 	\newcommand{\question}{%
 		\addtocounter{question}{1}
 		\def\@currentlabel{\thequestion} 	% make a \label command work after a question
+		\pagebreak[3]
 		\noindent
 		\makebox(.5,0)[lt]{
 			\hspace{-2cm}
@@ -179,7 +194,8 @@
 				\vspace{-2pt}
 				\color{gray}{\sffamily\large\thequestion}
 			\end{minipage}
-		}
+		}%
+		\addcontentsline{toc}{subsection}{\thequestion}%
 		\nopagebreak
 		\par
 	}
@@ -213,7 +229,82 @@
 		\setcounter{partsitemlast}{\value{partsitem}}
 		\end{list}%
 	}
+	\DeclareDocumentEnvironment{solution}{o}{
+		\nopagebreak
+		%\par
+		\color{cyan}
+		\ifthenelse{ \equal{#1}{inline} }{}{
+			\begin{adjustwidth}{1cm}{}
+		}
+	}{%
+		\ifthenelse{ \equal{#1}{inline} }{}{
+			\end{adjustwidth}
+		}
+	}
+	\DeclareDocumentEnvironment{goals}{o}{
+		\footnotesize\sffamily\parskip=1.5mm%
+		\begin{tcolorbox}[colframe=NavyBlue,
+			colback=blue!5!white, 
+			left=0mm, 
+			right=0mm, 
+			top=1mm, 
+			bottom=1mm, 
+			leftrule=0mm, 
+			rightrule=0mm, 
+			sharp corners,
+		]
+		\setlist{leftmargin=*, labelindent=1mm, label={\color{NavyBlue!70!black}$\blacksquare$\!\!}, topsep=0pt}
+	}{%
+		\end{tcolorbox}
+	}
+	\DeclareDocumentCommand{\Goal}{m}{%
+		\textcolor{NavyBlue}{\bfseries #1}
+		\vspace{1mm}\par
+	}
+	\DeclareDocumentEnvironment{notes}{o}{
+		\footnotesize\sffamily\parskip=1.5mm%
+		\begin{tcolorbox}[
+			colframe=WildStrawberry,colback=red!5!white, 
+			left=0mm, 
+			right=0mm, 
+			top=0mm, 
+			bottom=1mm, 
+			leftrule=0mm, 
+			rightrule=0mm, 
+			sharp corners,
+			title={\footnotesize\sffamily\bfseries Notes/Misconceptions}
+		]
+		\setlist{leftmargin=*, labelindent=1mm, label={\color{WildStrawberry!70!black}$\blacksquare$\!\!}, topsep=0pt}
+	}{%
+		\end{tcolorbox}
+	}
+	\DeclareDocumentEnvironment{annotation}{o}{
+		\footnotesize\sffamily\parskip=1.5mm%
+		\MarginParWrap
+	}{%
+		\endMarginParWrap
+	}
+	\NewEnviron{MarginParWrap}{
+		\marginpar{\BODY}
+	}
 
+	% environment for describing lessons
+	\newcounter{lessoncounter}
+	\DeclareDocumentEnvironment{lesson}{o}{%
+		\addtocounter{lessoncounter}{1}
+		\setlist{ label={\color{Plum!70!black}$\blacksquare$}, topsep=0pt}
+	}{%
+	}
+	\DeclareDocumentCommand{\Title}{m}{%
+		\begin{center}
+			\color{Plum}{\sffamily\Large Lesson \thelessoncounter: #1}
+			\addcontentsline{toc}{section}{Lesson \thelessoncounter: #1}
+		\end{center}\par
+	}
+	\DeclareDocumentCommand{\Heading}{m}{%
+		{\color{Plum}{\sffamily\large #1}}
+		\par
+	}
 
 
 

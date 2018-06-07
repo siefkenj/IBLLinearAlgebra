@@ -3,15 +3,15 @@
 
 \usepackage{lipsum}
 %\usepackage{showframe}
-\usepackage{layout}
+%\usepackage{layout}
 
 
-\usepackage{geometry}
-\geometry{textwidth=5.5in, hoffset=-0.5in, voffset=0in, textheight=10in, footskip=20pt, 
-marginparsep=10pt,
-marginparwidth=1.75in,
-%showframe
-}
+%\usepackage{geometry}
+%\geometry{textwidth=5.5in, hoffset=-0.5in, voffset=0in, textheight=10in, footskip=20pt, 
+%marginparsep=10pt,
+%marginparwidth=1.75in,
+%%showframe
+%}
 \usepackage[charter,cal=cmcal]{mathdesign} %different font
 \usepackage{microtype}
 \usepackage{amsmath}
@@ -157,10 +157,73 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 
 \newpage
 
+
+\addcontentsline{toc}{chapter}{Lessons}
+
+\begin{lesson}
+	\Title{Linear Combinations}
+
+	\Heading{Textbook}
+	Section 1.1
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Internalize vectors as geometric objects representing displacements.
+		\item Use column vector notation to write vectors.
+		\item Relate points an vectors and be able to interpret a point as a vector and a
+			vector as a point.
+		\item Solve simple equations involving vectors.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Students have differing levels of experience with vectors. We want to establish a common
+	notation for vectors and use vector notation along with algebra to solve
+	simple questions. E.g., ``How can I get to location $X$ given that I can only walk
+	parallel to the lines $y=4x$ and $y=-x$?''
+
+	\begin{annotation}
+		\begin{notes}
+			We will use the language
+			\emph{component of $\vec v$ in the direction $\vec u$} in
+			the future and it will be a \emph{vector}. For this reason, try
+			to refer to the entries of a column vector as coordinates
+			instead of components.
+		\end{notes}
+	\end{annotation}
+	We will use column vector notation and the idea of equating coordinates in order to solve
+	problems.
+
+	\newpage
+\end{lesson}
+
+
 \setcounter{page}{1}
 \pagestyle{iola}
 \section*{Task 1.1: The Magic Carpet Ride}
+\addcontentsline{toc}{subsection}{Task 1.1: The Magic Carpet Ride}
 
+\begin{annotation}
+	\begin{goals}
+		\Goal{Hands-on experience with vectors as displacements.}
+		\begin{itemize}
+			\item Internalize vectors as geometric objects representing displacements.
+			\item Use column vector notation to write vectors.
+			\item Use pre-existing knowledge of algebra to answer vector
+				questions.
+		\end{itemize}
+	\end{goals}
+	\begin{notes}
+		\begin{itemize}
+			\item There are many ways to solve this problem,
+				and some might start with equations. Make them
+				draw a picture.
+			\item When the students start coming up with
+				vector equations, give them the vocabulary
+				of \emph{linear combinations} and \emph{column
+				vector notation}.
+		\end{itemize}
+	\end{notes}
+\end{annotation}
 You are a young traveler, leaving home for the first time. Your parents
 want to help you on your journey, so just before your departure, they give
 you two gifts. Specifically, they give you two forms of transportation:
@@ -222,9 +285,75 @@ get to the cabin with these modes of transportation, why is that the case?
 % point(s).
 
 \newpage
+
+\begin{lesson}
+	\Title{Linear Combinations}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Set up and solve vector equations $a\vec v+b\vec u=\vec w$. The solving
+			method may be ad hoc.
+		\item Use set notation and set operations/relations $\cup$, $\cap$, $\in$, $\subseteq$.
+		\item Translate between set-builder notation and words in multiple ways.
+	\end{itemize}
+
+	\Heading{Motivation}
+	We revisit questions about linear combinations more formally and generate a need for
+	algebra. The algebra we do to solve vector equations will become algorithmic when
+	we learn row reduction, but at the moment, any method is fine.
+
+	\begin{annotation}
+		\begin{notes}
+			You will have a mix of MAT135/136 and MAT137 students.
+			The MAT137 students will be doing logic and sets in their
+			class. The MAT135 students won't. Make sure not to leave them
+			behind!
+		\end{notes}
+	\end{annotation}
+	As we talk about more complex objects, we need precise ways to talk about
+	groups of vectors. I.e., we need sets and set-builder notation. This preview of set-builder
+	notation will take some of difficulty away when we define span as a set of vectors.
+
+	In this course we will be using formal and precise langauge. Part of this lesson
+	is that there are multiple correct ways (and multiple incorrect ways) to use formal
+	language. Gone are the days of ``there's only one right answer and it is 4''!
+
+	\newpage
+\end{lesson}
+
 \section*{Task 1.2: The Magic Carpet Ride, Hide and Seek}
+\addcontentsline{toc}{subsection}{Task 1.2: The Magic Carpet Ride, Hide and Seek}
 
 
+\begin{annotation}
+	\begin{goals}
+		\Goal{Address an existential question involving vectors: ``Is it possible
+		to find a linear combination that does\ldots?''}
+			
+		The goal of this problem is to
+		\begin{itemize}
+			\item Formalize geometric questions using the language of vectors.
+			\item Find both geometric and algebraic arguments to support the same 
+				conclusion.
+			\item Establish what a ``negative multiple'' of a vector should be.
+		\end{itemize}
+	\end{goals}
+	\begin{notes}
+		\begin{itemize}
+			\item Both \emph{yes} and \emph{no} are valid answers to
+				this question depending on whether you are allowed 
+				to go backwards. Establish that ``negative'' multiples of
+				a vector mean traveling backwards along that vector.
+			\item This problem can be solved with algebra by finding a formula
+				for the coefficients for an arbitrary position or with geometry,
+				with arguments eventually hinging on the fact that non-parallel
+				lines do not intersect.
+		\end{itemize}
+	\end{notes}
+\end{annotation}
 You are a young traveler, leaving home for the first time. Your parents
 want to help you on your journey, so just before your departure, they give
 you two gifts. Specifically, they give you two forms of transportation:
@@ -332,29 +461,98 @@ argument supporting your answer.
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practice reading sets and set-builder notation.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Become familiar with $\in$, $\subseteq$, and $=$ in
+					the context of sets.
+				\item Distinguish between $\in$ and $\subseteq$.
+				\item Use quantifiers with sets.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Most are easy up through (h).
+				\item Make students ``fix'' (i) so it
+					becomes true.
+				\item (j) and (k) are an opportunity to use
+					the definition of set equality. Students don't
+					realize that $=$'s has a definition.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Which of the following statements are true?
 		\begin{enumerate}
 			\item $3\in\{1,2,3\}$.
+				\begin{solution}[inline]True\end{solution}
 			\item $1.5\in\{1,2,3\}$.
+				\begin{solution}[inline]False\end{solution}
 			\item $4\in\{1,2,3\}$.
+				\begin{solution}[inline]False\end{solution}
 			\item ``b''$\in\{x:x\text{ is an English letter}\}$.
+				\begin{solution}[inline]True\end{solution}
 			\item ``\`o''$\in\{x:x\text{ is an English letter}\}$.
+				\begin{solution}[inline]False\end{solution}
 			\item $\{1,2\}\subseteq \{1,2,3\}$.
+				\begin{solution}[inline]True\end{solution}
 			\item For some $a\in\{1,2,3\}$, $a \geq 3$.
+				\begin{solution}[inline]True\end{solution}
 			\item For any $a\in\{1,2,3\}$, $a\geq 3$.
+				\begin{solution}[inline]False\end{solution}
 			\item $1\subseteq\{1,2,3\}$.
+				\begin{solution}[inline]False\end{solution}
 			\item $\{1,2,3\}=\{x\in\R:1\leq x\leq 3\}$.
+				\begin{solution}[inline]False\end{solution}
 			\item $\{1,2,3\}=\{x\in\Z:1\leq x\leq 3\}$.
+				\begin{solution}[inline]True\end{solution}
 		\end{enumerate}
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practice writing sets using set-builder notation.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Express English descriptions using math notation.
+				\item Recognize there is more than one correct way to
+					write formal math.
+				\item Preview vector form of a line.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item There are multiple correct ways to write
+					each of these sets. It's a good opportunity
+					to get man correct and incorrect sets up on the
+					board for discussing.
+				\item Don't worry about the geometry of $B$. That's coming
+					in a later problem.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 		Write the following in set-builder notation
 	\begin{parts}
 			\item The subset $A\subseteq \R$ of real numbers larger than $\sqrt{2}$.
+				\begin{solution}
+					$\{x\in\R: x>\sqrt{2}\}$.
+				\end{solution}
 			\item The subset $B\subseteq \R^2$ of vectors whose first coordinate
 			is twice the second.
+				\begin{solution}
+					$\left\{\vec v\in\R^2: \vec v=\mat{a\\b}\text{ with }a=2b\right\}$
+					or
+					$\left\{\vec v\in\R^2:\vec v=\mat{2t\\t}\text{ for some }t\in \R\right\}$\\
+					or
+					$\left\{\mat{a\\b}\in\R^2:a=2b\right\}$.
+				\end{solution}
 	\end{parts}
 
 	\newpage
@@ -371,24 +569,134 @@ argument supporting your answer.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of $\cup$ and $\cap$.}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item It's not important to emphasize that $\cup$ and $\cap$ are binary
+			operations but we ask for $X\cup Y\cup Z$ without parenthesis.
+			Students won't worry if you don't bring it up.
+				\item It won't be clear to them how to write the empty set.
+					Some will write $\{\emptyset\}$. Make sure this comes out.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $X=\{1,2,3\}$ and $Y=\{2,3,4,5\}$ and $Z=\{4,5,6\}$.  Compute
 	\begin{parts}
-		\item $X\cup Y$
-		\item $X\cap Y$
-		\item $X\cup Y\cup Z$
-		\item $X\cap Y\cap Z$
+		\item $X\cup Y$ \begin{solution}[inline]$\{1,2,3,4, 5\}$\end{solution}
+		\item $X\cap Y$ \begin{solution}[inline]$\{2,3\}$\end{solution}
+		\item $X\cup Y\cup Z$ \begin{solution}[inline]$\{1,2,3,4,5, 6\}$\end{solution}
+		\item $X\cap Y\cap Z$ \begin{solution}[inline]$\emptyset=\{\}$\end{solution}
 	\end{parts}
 
+
+\begin{lesson}
+	\newpage
+	\Title{Visualizing Sets, Formal Language of Linear Combinations}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Draw pictures of formally-described subsets of $\R^2$.
+		\item Graphically represent $\cup$ and $\cap$ for subsets of $\R^2$.
+		\item Graphically represent linear combinations and then come up with
+			algebraic arguments to support graphical intuition.
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	We want to build a bridge between the formal language of linear combinations
+	and set-builder notation and geometric intuition. Where as last time
+	the focus was on formal language, this time the focus is on linking geometry
+	to formal descriptions.
+
+
+	\newpage
+\end{lesson}
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Visualize sets of vectors.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Apply set-builder notation in the context of vectors.
+				\item Distinguish between ``for all'' and ``for some''
+					in set builder notation.
+				\item Practice unions and intersections.
+				\item Practice thinking about set equality.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item 1--3 will be easy.
+				\item Have a discussion about when you
+					should draw vectors as arrows
+					vs\mbox{.} as points.
+				\item 4 gets at a subtle point that will come up again
+					when we define span.
+				\item Many will miss 7. Writing a proof for this is
+					good practice.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Draw the following subsets of $\R^2$.
 	\begin{parts}
 		\item $V=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}0\\t\end{bmatrix}\text{ for some }t\in\R\right\}$.
 		\item $H=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}t\\0\end{bmatrix}\text{ for some }t\in\R\right\}$.
-		\item $J=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for some }t\in\R\right\}$.
-		\item $J=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for all }t\in\R\right\}$.
+		\item $D=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\begin{solution}
+	\begin{tikzpicture}[scale=1.2, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    axis line style={draw=none},
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-4.5,
+		 xmax=4.5,
+		 ymin=-4.5,
+		 ymax=4.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	    \draw[Green, very thick] (-5,0) -- (5,0) node[near end, below] {$H$};
+	    \draw[cyan!80!black, very thick] (0,-5) -- (0,5) node[near end, right] {$V$};
+	    \draw[orange!80!black, very thick] (-5,-5) -- (5,5) node[near end, below right] {$D$};
+
+
+	    \fill[fill=black] (0,0) circle[radius=2pt] node[below right, xshift=5pt] {\color{black}$\vec 0$};
+    \end{axis}
+\end{tikzpicture}
+		\end{solution}
+		\item $N=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for all }t\in\R\right\}$.
+				\begin{solution}[inline]
+			$N=\{\}$.
+		\end{solution}
+
 		\item $V\cup H$.
+			\begin{solution}[inline]
+			$V\cup H$ looks like a ``$+$'' going through the origin.
+		\end{solution}
 		\item $V\cap H$.
+			\begin{solution}[inline]
+				$V\cap H=\{\vec 0\}$ is just the origin.
+		\end{solution}
 		\item Does $V\cup H=\R^2$?
+			\begin{solution}
+				No. $V\cup H$ does not contain $\mat{1\\1}$ while $\R^2$ does contain
+				$\mat{1\\1}$.
+			\end{solution}
 	\end{parts}
 
 \section*{Vector Combinations}
@@ -404,31 +712,139 @@ argument supporting your answer.
 	\end{definition}
 
 	\question
+	\label{ProbSkewBasis}
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practice linear combinations.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice using the formal term \emph{linear combination}.
+				\item Foreshadow span.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In 2, the question should arise: ``Is $3\vec v_1$
+					a linear combination of $\vec v_1$ \emph{and}
+					$\vec v_2$?'' Address this.
+				\item Refer to the magic carpet ride for 5. You don't
+					need to do a full proof.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec v_1=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec v_2=\begin{bmatrix}1\\-1\end{bmatrix}$, and $\vec w=2\vec v_1+\vec v_2$.
 	\begin{parts}
-		\item Write the coordinates of $\vec w$. When $\vec w$ is written as a linear combination of $\vec v_1$ and $\vec v_2$, what
+		\item Write $\vec w$ as a column vector. When $\vec w$ is written as a linear combination of $\vec v_1$ and $\vec v_2$, what
 			are the coefficients of $\vec v_1$ and $\vec v_2$?
+		\begin{solution}
+			$\vec w=\mat{3\\2}$; the coefficients are $(2,1)$.
+		\end{solution}
 		\item Is $\mat{3\\3}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\begin{solution}[inline]
+			Yes. $\mat{3\\3}=3\vec v_1+0\vec v_2$.
+		\end{solution}
+
 		\item Is $\mat{0\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\begin{solution}[inline]
+			Yes. $\vec 0=0\vec v_1+0\vec v_2$.
+		\end{solution}
 		\item Is $\mat{4\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
+		\begin{solution}[inline]
+			Yes. $\mat{4\\0}=2\vec v_1+2\vec v_2$.
+		\end{solution}
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
 		$\vec v_1$ and $\vec v_2$?
+		\begin{solution}
+			No. $\mat{1\\0}=\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2$ and
+			 $\mat{0\\1}=\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2$. Therefore
+			 \[
+				 \mat{a\\b}=a\mat{1\\0}+b\mat{0\\1} = a(\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2)
+				 +b(\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2)
+				 =(\tfrac{a+b}{2})\vec v_1+(\tfrac{a-b}{2})\vec v_2.
+			\]
+			Therefore any vector in $\R^2$ can be written as linear combinations
+			of $\vec v_1$ and $\vec v_2$.
+		\end{solution}
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
 		$\vec v_1$?
+		\begin{solution}
+			Yes. All linear combinations of $\vec v_1$ have equal $x$ and $y$ coordinates,
+			therefore $\vec w=\mat{2\\1}$ is not a linear combination of $\vec v_1$.
+		\end{solution}
 	\end{parts}
 
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practice formal writing.}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Make everyone \emph{write}. They will think
+					they can do it, but they will find it hard if
+					they try.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Recall the \emph{Magic Carpet Ride} task where the hover board could travel in the direction
 	$\vec h=\mat{3\\1}$ and the magic carpet could move in the direction $\vec m=\mat{1\\2}$.
 	\begin{parts}
 		\item Rephrase the sentence \emph{``Gauss can be reached using just the magic carpet and the 
 			hover board''} using formal mathematical language.
+			\begin{solution}
+				Gauss's location can be written as a linear combination of $\vec m$ and $\vec h$.
+			\end{solution}
 		\item Rephrase the sentence \emph{``There is nowhere Gauss can hide where he is inaccessible
 			by magic carpet and hover board''} using formal mathematical language.
+			\begin{solution}
+				Every vector in $\R^2$ can be written as a linear combination of $\vec m$ and
+				$\vec h$.
+			\end{solution}
 		\item Rephrase the sentence \emph{``$\R^2$ is the set of all linear combinations of $\vec h$ and $\vec m$''}
 			using formal mathematical language.
+			\begin{solution}
+				$\R^2=\{\vec v:\vec v=t\vec m+s\vec h\text{ for some }t,s\in \R\}$.
+			\end{solution}
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Restricted Linear Combinations, Lines}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Read and digest a new definition.
+		\item Use pictures to explore a new concept.
+		\item Convert from an equation-representation of a line
+			to a set-representation.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Part of doing math in the world is reading and understanding other people's
+	definitions. Most students will not have heard of non-negative linear combinations
+	or convex linear combinations. This is a chance for them to read and try to understand
+	these formal definitions. They will need to draw pictures to get an intuition 
+	about what these concepts mean.
+
+	These concepts are useful in their own right, and in particular, convex linear
+	combinations can be used to describe line segments. Adding these definitions to 
+	a student's toolbox serves the goal of \emph{being able to describe the world with
+	mathematics}.
+
+	To that end, we start working with lines. Lines are something students have
+	used since grade school, but they worked with them in $y=mx+b$ form which is
+	only applicable in $\R^2$. We want to convert this representation into
+	vector form and set-based descriptions which apply to all dimensions.
+
+	\newpage
+\end{lesson}
 	\begin{definition}[Non-negative \& Convex Linear Combinations]
 		The linear combination $\vec w=\alpha_1\vec v_1+\alpha_2\vec v_2+\cdots+\alpha_n\vec v_n$ is
 		called a \emph{non-negative} linear combination of $\vec v_1,\vec v_2,\ldots,\vec v_n$ if
@@ -440,27 +856,92 @@ argument supporting your answer.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Geometric meaning of \emph{non-negative} and \emph{convex}
+			linear
+			combinations.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Read and apply the definition of non-negative and convex
+					linear combinations.
+				\item Gain geometric intuition for non-negative and convex linear
+					combinations.
+				\item Learn how to describe line segments using
+					convex linear combinations.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This question is about reading and applying;
+					emphasize that before they start.
+				\item The geometry won't be obvious. Ask them to \emph{draw} specific
+					linear combinations (e.g., $(1/2,1/2)$) to get an idea.
+				\item They know $\vec a$ and $\vec b$ span all vectors from problem \ref{ProbSkewBasis}.
+				\item In part 1, they will forget $\vec a$ and $\vec b$ are linear combinations of themselves.
+				\item Part 2 (b) highlights a degeneracy that will come up again when discussing linear independependence
+					and dependence. Explain how the picture for non-negative linear combinations
+					almost always looks one way, but this case is an exception.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let
 	\[
 		\vec a=\mat{1\\1}\qquad \vec b=\mat{-1\\1}\qquad \vec c=\mat{0\\1}\qquad\vec d=\mat{0\\2}\qquad\vec e=\mat{-1\\-1}.
 	\]
 	\begin{parts}
-		\item Out of $\vec a$, $\vec b$, $\vec c$, $\vec d$, and $\vec e$, which vectors are
+		\item Out of $\vec a$, $\vec b$, $\vec c$, $\vec d$, and $\vec e$, which
+			vectors are
 			\begin{enumerate}
-		\item linear combinations of $\vec a$	and $\vec b$?
-		\item  non-negative linear combinations of $\vec a$
-		and $\vec b$?
-		\item  convex linear combinations of $\vec a$
-		and $\vec b$?
+				\item linear combinations of $\vec a$ and $\vec b$?
+				\begin{solution}[inline]
+					All of them, since $\Span\{\vec a,\vec b\}=\R^2$.
+				\end{solution}
+
+				\item non-negative linear combinations of $\vec a$ and $\vec b$?
+				\begin{solution}[inline]
+					$\vec a$, $\vec b$, $\vec c$, $\vec d$.
+				\end{solution}
+
+				\item convex linear combinations of $\vec a$ and $\vec b$?
+				\begin{solution}[inline]
+					$\vec a$, $\vec b$, $\vec c$.
+				\end{solution}
 			\end{enumerate}
-		\item If possible, find two vectors $\vec u$ and $\vec v$ so that $\vec a$, $\vec c$ are non-negative linear
-			combinations of $\vec u$ and $\vec v$ but $\vec b$ is not. Otherwise, explain why it's not possible.
-		\item If possible, find two vectors $\vec u$ and $\vec v$ so that $\vec a$, $\vec e$ are non-negative linear
-			combinations of $\vec u$ and $\vec v$. Otherwise, explain why it's not possible.
-		\item If possible, find two vectors $\vec u$ and $\vec v$ so that $\vec a$, $\vec b$ are non-negative linear
-			combinations of $\vec u$ and $\vec v$ but $\vec d$ is not. Otherwise, explain why it's not possible.
-		\item If possible, find two vectors $\vec u$ and $\vec v$ so that $\vec a$, $\vec c$, and $\vec d$ are convex linear
-			combinations of $\vec u$ and $\vec v$. Otherwise, explain why it's not possible.
+
+		\item If possible, find two vectors $\vec u$ and $\vec v$ so that
+			\begin{enumerate}
+				\item $\vec a$ and $\vec c$ are non-negative linear combinations
+					of $\vec u$ and $\vec v$ but $\vec b$ is not.
+				\begin{solution}
+					Let $\vec u=\vec a$ and $\vec v=\vec c$.
+				\end{solution}
+
+				\item $\vec a$ and $\vec e$ are non-negative linear combinations
+					of $\vec u$ and $\vec v$.
+				\begin{solution}
+					Let $\vec u=\vec a$ and $\vec v=\vec e$.
+				\end{solution}
+
+				\item $\vec a$ and $\vec b$ are non-negative linear combinations
+					of $\vec u$ and $\vec v$ but $\vec d$ is not.
+				\begin{solution}
+					Impossible. If $\vec a$ and $\vec b$ are non-negative
+					linear combinations of $\vec u$ and $\vec v$, then every non-negative
+					linear combination of $\vec a$ and $\vec b$ is also a non-negative
+					linear combination of $\vec u$ and $\vec v$. And, we already concluded that
+					$\vec d$ is a non-negative linear combination of $\vec a$ and $\vec b$.
+				\end{solution}
+
+				\item $\vec a$, $\vec c$, and $\vec d$ are convex linear
+					combinations of $\vec u$ and $\vec v$.
+				\begin{solution}
+					Impossible. Convex linear combinations all lie on the same line segment,
+					but $\vec a$, $\vec c$, and $\vec d$ are not collinear.
+				\end{solution}
+			\end{enumerate}Otherwise, explain why it's not possible.
 	\end{parts}
 
 \section*{Lines and Planes}
@@ -475,6 +956,45 @@ argument supporting your answer.
 		\item For which $t\in\R$ is it true that $\vec a+t\vec d\in A$? Explain using your picture.
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Vector Form of Lines, Intersecting Lines}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Fluency with vector form of a line in $\R^2$ and $\R^3$.
+		\item Recognize that vector form of a line is not unique.
+		\item Find the intersection of two lines in vector form.
+	\end{itemize}
+
+	\Heading{Motivation}
+	A single linear equation cannot describe a line in more than two dimensions.
+	One way to describe a line that works in all dimensions is vector form, which
+	is a shorthand for a particular set. Vector form has the upside that it makes it easy
+	to produce points on a line, but it has the downside that it is not unique.
+
+	Vector form works because a line in any dimension can be defined by two
+	points or, equivalently, a point and a direction. Though we don't yet have
+	a systematic way to write solutions to a system of linear equations,
+	if we have a system representing a line, all we need to do is guess two
+	solutions to that system to find vector form of the line.
+
+
+	\begin{annotation}
+		\begin{notes}
+			The biggest stumbling block for finding the intersection of two lines
+			in vector form will be choosing different dummy variables before
+			setting the lines equal. 
+		\end{notes}
+	\end{annotation}
+	One thing vector form makes difficult is finding intersections, but intersections
+	can be turned into just another algebra problem involving a system of equations.
+
+	\newpage
+\end{lesson}
 
 	\newpage
 	\begin{definition}[Vector Form of a Line]
@@ -515,6 +1035,42 @@ argument supporting your answer.
 			that $X$ and $Y$ intersect?
 	\end{parts}
 	
+
+\begin{lesson}
+	\newpage
+	\Title{Planes, Span}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Describe a plane in vector form.
+		\item Visualize spans.
+		\item Recognize the dimension of $\Span(X)$ is not necessarily how many vectors
+			are in $X$.
+		\item Define \emph{span}.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Planes are just like lines but one dimension hire. Vector form of a plane is just like
+	vector form of a plane with all the advantages and disadvantages. But, we now have
+	\emph{two} direction vectors.
+
+	Spans are similar to lines and planes; $\Span\{\vec a,\vec b\}$ looks a lot like
+	vector form of the plane
+	$\vec x=t\vec a+s\vec b$. Except, $\Span\{\vec a,\vec b\}$ may not always be a plane.
+	We haven't defined linear independence and linear dependence yet, but we will continue to
+	foreshadow it by seeing that the dimension of the span of a set is not always the size of
+	that set.
+
+	Knowing definitions is an essential part of solving math problems. Span is
+	the first definition that students will think they ``know'' but won't be
+	able to write down.
+
+	\newpage
+\end{lesson}
+
 	\begin{definition}[Vector Form of a Plane]
 		A plane $\mathcal P$ is written in \emph{vector form} if it is expressed
 		as
@@ -551,10 +1107,7 @@ argument supporting your answer.
 		\item Write $\mathcal Q$ in vector form.
 	\end{parts}
 
-
-	\newpage
 \section*{Span}
-
 	\begin{definition}[Span]
 		The \emph{span} of a set of vectors $V$ is the set of
 		all linear combinations of vectors in $V$.  That is,
@@ -565,7 +1118,6 @@ argument supporting your answer.
 		\]
 	\end{definition}
 
-	\vspace{-.3cm}
 	\question
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
 	\begin{parts}
@@ -576,6 +1128,29 @@ argument supporting your answer.
 		\item Describe $\Span\{\vec v_1,\vec v_2,\vec v_3\}$.
 	\end{parts}
 
+
+\begin{lesson}
+	\newpage
+	\Title{Span, Translated Span}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Explain why spans always go through the origin.
+		\item Express lines or planes through the origin as spans.
+		\item Express lines or planes not through the origin as translated spans.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Translated spans link vector form of lines and planes with sets and spans.
+	Soon we will have the vocabulary of linear independence and be able to
+	talk about independent direction vectors of a plane, but right now just connecting
+	the concepts and notation is enough.
+
+	\newpage
+\end{lesson}
 
 	\question
 	Let $\ell_1\subseteq \R^2$ be the line with equation $x-y=0$ and $\ell_2\subseteq\R^2$
@@ -611,9 +1186,54 @@ argument supporting your answer.
 
 
 	
+\begin{lesson}
+	\newpage
+	\Title{Linear Independence \& Dependence}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Define linear independence/dependence using spans.
+		\item Pick linearly independent subsets with the same span by inspection.
+		\item Explain why having a ``closed loop'' or trivial linear combination
+			means a set is linearly dependent.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Linear independence/dependence is one of the biggest concepts in linear algebra. 
+	Linear independence/dependence tells us whether a set has redundant information
+	in it with respect to spans. The idea of a having redundant information vs\mbox{.}
+	not comes up all the time in the world (sometimes it's a plus, sometimes it's not).
+	
+	Knowing
+	a set is independent tells us what its span will look like (in terms of what dimension
+	it will be). It is also an abstract concept that has both a ``geometric'' definition
+	and an ``algebraic'' one. 
+	\begin{annotation}
+		\begin{notes}
+			Don't define a linearly dependent \emph{set}, define
+			a linearly dependent \emph{list}. Otherwise you cannot talk about
+			$\mat{1\\1}$ and $\mat{1\\1}$ be linearly dependent since sets don't
+			contain duplicates.
+		\end{notes}
+	\end{annotation}
+	Geometrically, a set is linearly dependent if you can remove
+	a vector without the span changing. Algebraically a set is linearly dependent if there
+	is a non-trivial linear combination giving the zero vector. This lesson focuses on the
+	geometric definition (with the algebraic definition coming next).
+
+	Though the algebraic definition is easier to work with in proofs, the geometric definition
+	provides intuition about how to visualize linearly
+	dependent sets.
+
+	\newpage
+\end{lesson}
 \newpage
 \pagestyle{iola}
 \section*{Task 1.3: The Magic Carpet, Getting Back Home}
+\addcontentsline{toc}{subsection}{Task 1.3: The Magic Carpet Ride, Getting Back Home}
 
 Suppose you are now in a three-dimensional world for the carpet
 ride problem, and you have three modes of transportation:
@@ -699,10 +1319,36 @@ it is not possible to do so.
 		as a non-trivial linear combination of vectors in this set?
 	\end{parts}
 
+
+\begin{lesson}
+	\newpage
+	\Title{Linear Independence \& Dependence---Equivalent Definitions}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Define linear independence/dependence in terms of trivial linear combinations.
+		\item Explain how the geometric and algebraic definitions of linear independence/dependence relate.
+		\item Explain the connection between a vector equation having multiple
+			solutions and those vectors being linearly independent/dependent.
+		\item Identify the largest linearly independent set that could exist in $\R^n$.
+	\end{itemize}
+
+	\Heading{Motivation}
+	We've done geometry, now let's do algebra. The geometric and algebraic definitions
+	are equivalent, but they suggest different consequences. The geometric definition
+	of linear independence tells us about the dimension of a span. The algebraic
+	definition tells us about the number of solutions to a vector equation.
+
+	\newpage
+\end{lesson}
+
 	We now have an equivalent definition of linear dependence.
 
 	\begin{definition}[Linearly Dependent \& Independent]
-	$\{\vec v_1,\vec v_2,\ldots,\vec v_n\}$ is
+	The vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
 	\emph{linearly dependent} if there is a non-trivial
 	linear combination of $\vec v_1,\ldots,\vec v_n$ that
 	equals the zero vector.
@@ -743,7 +1389,8 @@ it is not possible to do so.
 
 \newpage
 \pagestyle{iola}
-\section*{Task 1.4: Linear Independence and Dependence: Creating Examples}
+\section*{Task 1.4: Linear Independence and Dependence, Creating Examples}
+\addcontentsline{toc}{subsection}{Task 1.4: Linear Independence and Dependence, Creating Examples}
 
 
 
@@ -780,6 +1427,37 @@ examples.
 
 \newpage
 \pagestyle{siefken}
+
+
+\begin{lesson}
+	\newpage
+	\Title{Dot Product, Orthogonality}
+
+	\Heading{Textbook}
+	Section 1.3
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Compute the dot product of two vectors.
+		\item Compute the length of a vector.
+		\item Find the distance between two vectors.
+		\item Define what it means for vectors to be orthogonal.
+		\item Interpret the sign of the dot product geometrically.
+		\item Create a unit vector in the direction of another.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Studying $\R^n$ we're in a natural inner product space with lengths and
+	angles. The dot product allows us to get at lengths and angles. It will
+	also give an alternative way to compute matrix products (dot product with rows
+	instead of linear combination of columns). 
+
+	Most importantly, the dot product tells us how much two vectors point in
+	the same direction as well as when they're orthogonal. 
+
+	\newpage
+\end{lesson}
+
 
 \newpage
 \section*{Dot Product}
@@ -884,6 +1562,25 @@ examples.
 			What is the distance between $\vec x$ and $\vec y$?
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Normal Form of Lines and Planes}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Describe lines and planes in normal form.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Physics often describes surfaces in terms of normal and tangential components.
+	Normal form of lines and planes is one way to get at this decomposition. Further, thinking
+	about lines and planes in terms of right angles will help when visualizing orthogonal projections.
+
+	\newpage
+\end{lesson}
 	
 	\question
 	\begin{parts}
@@ -925,6 +1622,45 @@ examples.
 		\item Describe $X$ as a span.
 	\end{parts}
 
+
+\begin{lesson}
+	\newpage
+	\Title{Projections}
+
+	\Heading{Textbook}
+	Section 1.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Project a vector onto lines and finite sets.
+		\item Find the components of one vector in terms of another.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Projection of a vector onto a set, defined as the closet point in the
+	set to the vector, is a general operation used outside of linear algebra.
+	However, in the land of linear algebra, we have exact formulas for the
+	projection. Projections are a chance to explore a seemingly simple definition
+	and see it relate to sets, lines, normal form, and vector form.
+
+	\begin{annotation}
+		\begin{notes}
+			In this class, we don't write $\Proj_{\vec v}\vec u$,
+			i.e., the projection of one vector onto another. We
+			instead call this $\Comp_{\vec v}\vec u$. We do this so
+			as not to confuse $\Proj_{\{\vec v\}}\vec u$ and
+			$\Comp_{\vec v}\vec u$. One is projection onto a singleton.
+			The other is $\frac{\vec u\cdot \vec v}{\vec v\cdot \vec v}\vec v$.
+		\end{notes}
+	\end{annotation}
+	$\Comp_{\vec v}\vec u$ is the component of a vector in the direction of another, 
+	which is sometimes called the projection of $\vec u$ onto $\vec v$. It relates
+	to how much one vector points in the direction of another and
+	provides a decomposition of vectors in terms of orthogonal components. 
+	
+
+	\newpage
+\end{lesson}
 \section*{Projections}
 	
 	\begin{definition}[Projection]
@@ -984,6 +1720,53 @@ examples.
 	\end{parts}
 
 
+\begin{lesson}
+	\newpage
+	\Title{Projections, Subspaces}
+
+	\Heading{Textbook}
+	Sections 1.2, 1.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Identify $\Proj_{\Span\{\vec v\}}\vec u$ with $\Comp_{\vec v}\vec u$.
+		\item Identify $\Comp_{\vec v}\vec u$ and $\Comp_{\alpha\vec v}\vec u$
+			for all $\alpha\neq 0$, including negative $\alpha$.
+		\item Define subspace.
+		\item Distinguish subspaces and non-subspaces of $\R^2$.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Spans are a constructive way to describe lines, planes, and other
+	flat objects. Subspaces are a categorical way of defining flat objects.
+	Instead of explaining how to find the vectors in a set, we list their
+	properties. This is a really powerful idea that facilitates abstraction.
+
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+			\item	Philosophically, a subspace should be defined
+			as a non-empty set closed under linear combinations.
+			However, defining it as closed under addition and scalar 
+			multiplication gives students new to proofs
+			something explicit to hang on to when attempting a proof.
+			\item Some people define a subspace as a set containing
+			$\vec 0$ and satisfying closure. We define a subspace
+			as a non-empty set satisfying closure. We won't be trying
+			to trick students by asking if an empty set is a subspace,
+			so don't belabor the point.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	Since we do not do abstract vector spaces in this course, subspaces are
+	the first place (unless you count projections) students will encounter 
+	a set defined by its properties. Subspaces are suitable for a first-encounter
+	because 1) the properties are simple and familiar and 2) subspaces of $\R^n$
+	have a concrete geometric interpretation.
+
+	\newpage
+\end{lesson}
+
 	\newpage
 	\question
 	Let $\vec d=\mat{3\\3}$ and $\vec u=\mat{1\\2}$.
@@ -1022,6 +1805,36 @@ examples.
 		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Basis, Dimension}
+
+	\Heading{Textbook}
+	Sections 1.2, 4.3
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Define Basis.
+		\item Define Dimension.
+		\item Find a basis for a subspace.
+		\item Find the dimension of a subspace.
+		\item Explain why every vector has a unique representation as a linear
+			combination of basis vectors.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Bases are sets of just enough vectors to describe every vector in a subspace.
+	An additional consequence of a basis is that every vector can be \emph{uniquely}
+	represented as a linear combination of basis vectors. Using this fact we
+	will be able to consider objects in multiple different coordinate systems. However,
+	now is the time to get familiar with what a basis is and how to find one.
+
+	Dimension ties the abstract notion of subspace to our intuition about
+	Euclidean space. We already know a plane in $\R^3$ is two dimensional,
+	but now we know where that number \emph{two} comes from.
+
+	\newpage
+\end{lesson}
 	\begin{definition}[Basis]
 		A \emph{basis} for a subspace $V$ is a linearly independent set of vectors, $\mathcal B$,
 		so that $\Span\mathcal B=V$.
@@ -1032,14 +1845,59 @@ examples.
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definitions of basis and dimension to an easy example.}
+
+			The goal of this problem is to learn
+			\begin{itemize}
+				\item To apply the definition of basis and dimension.
+				\item Intuition that a plane is two dimensional.
+				\item A basis is not unique, but always has the same size (this is not proved).
+				\item Spans are never bases---you must not confuse a subspace with its basis!
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Students will claim $V$ is $\R^2$ and fail to distinguish $\R^2$ and the
+					$xy$-plane in $\R^3$.
+				\item Parts 2, 3, 4, 6 will be easy; don't belabor them.
+				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$ from $\{\vec u,\vec v\}$. Make sure this distinction
+					comes out.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\span\{\vec u,\vec v,\vec w\}$.
 	\begin{parts}
 		\item Describe $V$.
+			\begin{solution}
+				$V$ is the $xy$-plane in $\R^3$.
+			\end{solution}
 		\item Is $\{\vec u,\vec v,\vec w\}$ a basis for $V$?  Why or why not?
+			\begin{solution}
+				No. The set $\{\vec u,\vec v,\vec w\}$ is linearly dependent since $\vec w=\vec u+\vec v$.
+			\end{solution}
 		\item Give a basis for $V$.
+			\begin{solution}
+				$\{\vec u,\vec v\}$
+			\end{solution}
 		\item Give another basis for $V$.
+			\begin{solution}
+				$\{\vec u,\vec w\}$ or $\{\vec v,\vec w\}$.
+			\end{solution}
 		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
+			\begin{solution}
+				No. $\Span\{\vec u,\vec v\}$ is an infinite set of vectors
+				which includes $\vec 0$, so it cannot be linearly independent and
+				therefore isn't a basis.
+			\end{solution}
 		\item What is the dimension of $V$?
+			\begin{solution}
+				A basis for $V$ has two vectors so it is two dimensional. We also
+				know this because $V$ is the $xy$-plane in $\R^3$ and all planes are two
+				dimensional.
+			\end{solution}
 	\end{parts}
 
 
@@ -1054,6 +1912,32 @@ examples.
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 	\end{parts}
 
+
+\begin{lesson}
+	\newpage
+	\Title{Matrices}
+
+	\Heading{Textbook}
+	Section 3.1
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Write a system of linear equations as a matrix equation.
+		\item Write a matrix equation as a system of linear equations.
+		\item Pose familiar problems (e.g., ``find a normal vector'', or 
+			``do these planes intersect\mbox{?}'') as matrix-equation
+			questions.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Matrices will soon become a powerful tool to study linear transformations.
+	However, we will start out viewing them as a notation to represent
+	systems of linear equations. The fact that matrix-vector multiplication
+	has two interpretations, as a linear combination of columns or as a dot product
+	with rows, already connects geometry and angles with questions about linear combinations.
+
+	\newpage
+\end{lesson}
 \section*{Matrices}
 	
 	\question
@@ -1106,6 +1990,44 @@ examples.
 			How do $K$ and $M$ relate?
 	\end{parts}
 
+
+\begin{lesson}
+	\newpage
+	\Title{Change of Basis I}
+
+	\Heading{Textbook}
+	Section 4.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Write a vector in multiple bases.
+		\item Explain what the notation $[\vec v]_{\mathcal B}$ means.
+		\item Explain what the notation $\mat{a\\b\\c}_{\mathcal B}$ means.
+	\end{itemize}
+
+	\Heading{Motivation}
+	One of the most useful ideas in linear algebra is that you can
+	represent a vector, a geometric object, with a list of numbers. This
+	is done by picking a basis. So far we've implicitly used the standard basis,
+	but now we're going to use other bases.
+
+	\begin{annotation}
+		\begin{notes}
+			So far, we have written $\mat{1\\1}$ to mean
+			$\mat{1\\1}_{\mathcal E}$ where $\mathcal E$ is the
+			standard basis. We will continue to do this as convenient,
+			but if multiple bases are ever involved, we will be careful
+			to specify the basis.
+		\end{notes}
+	\end{annotation}
+	Now lists of numbers can mean many different things and can be identified
+	with vectors in many ways, so we need some notation to keep things straight.
+	It's important now to distinguish when something is a list of numbers (a matrix)
+	and when it is a vector. This distinction will arise again when
+	we talk about linear transformations and their matrix representations.
+
+	\newpage
+\end{lesson}
 \section*{Change of Basis \& Coordinates}
 
 	\question
@@ -1206,6 +2128,50 @@ examples.
 		\item What is $YX$?
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Orientation, Matrix Transformations}
+
+	\Heading{Textbook}
+	Section 3.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Identify the orientation of ordered bases in $\R^2$.
+		\item Given a set of input and output vectors for a 
+			linear transformation $L:\R^2\to\R^2$, find 
+			a matrix for the transformation.
+		\item Given a picture $X$ and its image under a linear transformation,
+			find a matrix for the transformation.
+	\end{itemize}
+
+	\Heading{Motivation}
+	Orientation is a topic that comes up in physics and explains the sign
+	of the determinant. We define orientation with an existential statement
+	about whether or not certain homeomorphisms exist. The goal is not to
+	prove anything rigorously about orientation, but to get students to
+	make pictures for themselves of vectors moving.
+
+	The Idea is simple: $n-1$ vectors span a space that partitions $\R^n$ in
+	two. Add a vector in the top partition (appropriately ordered) and you get
+	a positive orientation; add to the bottom and you get a negative orientation.
+	There's no way to get from one to the other without passing through the
+	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw. Eventually
+	we will compute orientation from the determinant, but it's nice to have
+	a grounding in where it comes from.
+
+	While we're thinking dynamically, we can start thinking about transformation.
+	We already know how to multiply a matrix and a vector and interpret it in
+	two different ways. Now we will add a third: multiplication by a given
+	matrix is a transformation from vectors to vectors.
+
+	Most of our study of matrix transformations will be of transformations from $\R^n$
+	to $\R^n$, even though non-square matrices can describe other transformations.
+	For now we stick with pictures of $\R^2$ since they are easy to draw. Then
+	we will generalize to linear transformations.
+
+	\newpage
+\end{lesson}
 
 	\begin{definition}[Orientation of a Basis]
 		The ordered basis $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is \emph{right-handed}
@@ -1231,10 +2197,10 @@ examples.
 	\end{parts}
 
 
-
 \newpage
 \pagestyle{iola}
 \section*{Task 2.1: Italicizing N}
+\addcontentsline{toc}{subsection}{Task 2.1: Italicizing N}
 
 \hfill\begin{tikzpicture}[scale=1.5]
     \begin{axis}[
@@ -1283,7 +2249,24 @@ notice your group making or any questions for further pursuit.
 \newpage
 
 
+\begin{lesson}
+	\newpage
+	\Title{Linear Transformations I}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 \section*{Task 2.2: Beyond the N}
+\addcontentsline{toc}{subsection}{Task 2.2: Beyond the N}
 
 	A few students were wondering how letters placed in other
 locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}$. 
@@ -1478,6 +2461,22 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 			\end{enumerate}
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Linear Transformations II, Composition of Linear Transformations}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\begin{definition}[Image of a Set]
 		Let $L:V\to W$ be a transformation and let $X\subset V$ be a set.
 		The \emph{image of the set $V$ under $L$}, denoted $L(V)$, is the set
@@ -1505,6 +2504,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 \newpage
 \pagestyle{iola}
 \section*{Task 2.3: Pat and Jamie}
+\addcontentsline{toc}{subsection}{Task 2.3: Pat and Jamie}
 
 \begin{minipage}{.5\textwidth}
 \begin{tikzpicture}[scale=.8]
@@ -1570,6 +2570,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 \pagestyle{siefken}
 
 
+\begin{lesson}
+	\newpage
+	\Title{Range, Nullspace}
+
+	\Heading{Textbook}
+	Section 3.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	Define $\mathcal P$ to be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
@@ -1620,6 +2636,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		is the standard basis for $\R^n$.
 	\end{definition}
 
+\begin{lesson}
+	\newpage
+	\Title{Fundamental Subspaces}
+
+	\Heading{Textbook}
+	Section 3.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
@@ -1671,6 +2703,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 
+\begin{lesson}
+	\newpage
+	\Title{Rank}
+
+	\Heading{Textbook}
+	Section 3.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\newpage
 	\begin{definition}[Rank]
 		For a linear transformation $T:V\to W$, the \emph{rank} of $T$,
@@ -1733,6 +2781,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 
+\begin{lesson}
+	\newpage
+	\Title{Rank-nullity Theorem, Inverses I}
+
+	\Heading{Textbook}
+	Section 1.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\begin{theorem}[Rank-nullity Theorem]
 	The \emph{nullity} of a matrix is the dimension of the null space.
 
@@ -1767,6 +2831,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 \newpage
 \pagestyle{iola}
 \section*{Task 2.4: Getting back N}
+\addcontentsline{toc}{subsection}{Task 2.4: Getting back N}
 
 \begin{minipage}{.5\textwidth}
 \begin{tikzpicture}[scale=.8]
@@ -1833,6 +2898,22 @@ the ``N'' on the left.
 \newpage
 \pagestyle{siefken}
 
+\begin{lesson}
+	\newpage
+	\Title{Inverses II, Elementary Matrices}
+
+	\Heading{Textbook}
+	Section 3.5
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 
 \section*{Inverses}
 
@@ -1896,6 +2977,22 @@ the ``N'' on the left.
 		using elementary matrices?
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Applications of Inverses I}
+
+	\Heading{Textbook}
+	Section 3.5
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	\[
 		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
@@ -1929,6 +3026,22 @@ the ``N'' on the left.
 	\end{parts}
 
 	
+\begin{lesson}
+	\newpage
+	\Title{Applications of Inverses II, Change of Basis}
+
+	\Heading{Textbook}
+	Section 4.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	Let $\mathcal S=\{\vec e_1,\vec e_2,\ldots,\vec e_n\}$ be the standard basis for $\R^n$.
 	Given a basis $\mathcal B=\{\vec b_1,\vec b_2,\ldots,\vec b_n\}$ for $\R^n$, the 
@@ -1961,8 +3074,8 @@ the ``N'' on the left.
 		\item Compute $[T\vec c_1]_{\mathcal C}$ and $[T\vec c_2]_{\mathcal C}$.
 		\item Compute the result of $T\mat{\alpha\\\beta}_{\mathcal C}$ and express the result in the
 			$\mathcal C$ basis (i.e., as a vector of the form $\mat{?\\?}_{\mathcal C}$).
-		\item Find a matrix for $T$ in the $\mathcal C$ basis.
-		\item Find a matrix for $T$ in the standard basis.
+		\item Find $[T]_{\mathcal C}$, the matrix for $T$ in the $\mathcal C$ basis.
+		\item Find $[T]_{\mathcal E}$, the matrix for $T$ in the standard basis.
 	\end{parts}
 	\begin{definition}[Similar Matrices]
 		A matrices $A$ and $B$ are called \emph{similar matrices}, denoted $A\sim B$, if
@@ -1974,6 +3087,24 @@ the ``N'' on the left.
 	\end{definition}
 
 
+
+	
+\begin{lesson}
+	\newpage
+	\Title{Determinants}
+
+	\Heading{Textbook}
+	Section 5.4
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 \newpage
 \section*{Determinants}
 	\begin{definition}[Unit $n$-cube]
@@ -2092,6 +3223,22 @@ the ``N'' on the left.
 		\item What is $\det(F)$?
 	\end{parts}
 
+\begin{lesson}
+	\newpage
+	\Title{Determinants and Compositions}
+
+	\Heading{Textbook}
+	Section 5.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	Let $D=\{\vec x:\|\vec x\|\leq 1\}$ be the unit disk. You know the following about the 
 	linear transformations $M$, $T$, and $S$: $M$ is
@@ -2140,7 +3287,25 @@ the ``N'' on the left.
 
 \newpage
 \pagestyle{iola}
+
+\begin{lesson}
+	\newpage
+	\Title{Eigenstuff I}
+
+	\Heading{Textbook}
+	Section 6.1
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 \section*{Task 3.1: The Green and the Black}
+\addcontentsline{toc}{subsection}{Task 3.1: The Green and the Black}
 Consider the following two bases for $\R^2$: the green basis $\mathcal G=\{\vec g_1,\vec g_2\}$
 and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \begin{center}
@@ -2192,9 +3357,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \end{tikzpicture}
 \end{center}
 
+
+
 \begin{enumerate}
 	\item Write each point above in both the green and the black bases.
-	\item Find a change-of-basis matrix $X$ so that converts vectors from
+	\item Find a change-of-basis matrix $X$ that converts vectors from
 		a green basis representation to a black basis representation. Find
 		another matrix $Y$ that converts vectors from a black basis representation
 		to a green basis representation.
@@ -2217,6 +3384,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 \newpage
 \pagestyle{siefken}
+
+\begin{lesson}
+	\newpage
+	\Title{Eigenstuff II}
+
+	\Heading{Textbook}
+	Section 6.1
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 \section*{Eigenvectors}
 
 	\vspace{-.6cm}
@@ -2325,6 +3509,22 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\item Find the eigenvectors of $C$.
 	\end{parts}
 	
+\begin{lesson}
+	\newpage
+	\Title{Characteristic Polynomial, Diagonalization I}
+
+	\Heading{Textbook}
+	Section 6.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\begin{definition}[Characteristic Polynomial]
 	For a matrix $A$, the \emph{characteristic polynomial} of $A$ is
 	\[
@@ -2373,6 +3573,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		compute $A\vec x$ in the $\mathcal V$ basis.
 	\end{parts}
 	
+
+\begin{lesson}
+	\newpage
+	\Title{Diagonalization II}
+
+	\Heading{Textbook}
+	Section 6.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	The transformation $P^{-1}$ takes vectors in the standard basis and outputs
 	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).  
@@ -2414,6 +3631,22 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	occurs as a factor).
 	\end{definition}
 
+\begin{lesson}
+	\newpage
+	\Title{Diagonalization III}
+
+	\Heading{Textbook}
+	Section 6.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+
+	\Heading{Motivation}
+
+	\newpage
+\end{lesson}
 	\question
 	Define $F=\mat{1&1\\0&1}$.
 	\begin{parts}
@@ -2436,684 +3669,682 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 
 
-
-
-\section*{Span Again}
-	\question
-	Consider the system 
-		\begin{equation}\label{eq4bc}
-			\begin{array}{llll}
-				x&-y&-z &= 0\\
-				0x&+1y&+2z &= 0\\
-				3x&-3y&+3z &= 0
-			\end{array}
-		\end{equation}
-	which has the unique solution $(x,y,z)=(0,0,0)$.
-	\begin{parts}
-		\item Give vectors $\vec u,\vec v,\vec w$ so that the system \eqref{eq4bc}
-			corresponds to the vector equation $x\vec u+y\vec v+z\vec w = \vec 0$.
-		\item Is $\vec w\in\Span\{\vec u,\vec v\}$? If so, write it as a linear combination
-			of $\vec u$ and $\vec v$.
-	\end{parts}
-
-	The matrix $M$ is the non-augmented matrix corresponding to a homogeneous system of linear equations.
-	$M$ also corresponds to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.  Further, we know
-	\[
-		\rref(M) = \mat{1&0&1\\0&1&-2\\0&0&0}.
-	\]
-	\begin{parts}[resume]
-		\item Give a solution to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.
-		\item Is $\vec c\in\Span\{\vec a,\vec b\}$?  If so, write it as a linear combination
-			of $\vec a$ and $\vec b$.
-		\item Do you have enough information to tell if $\{\vec a,\vec b\}$ is linearly independent?  Why or why not?
-	\end{parts}
-
-\subsection*{Finding Linearly Independent Subsets}
-	\question
-	Suppose when you use an augmented matrix to solve
-	$a\vec u+b\vec v+c\vec w=\vec 0$ you have no free variables.
-	
-	\begin{parts}
-		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
-	\end{parts}
-	
-	Suppose when you use an augmented matrix to solve
-	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a 
-	free variable.
-	
-	\begin{parts}[resume]
-		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
-		\item Is $\{\vec u,\vec w\}$ linearly independent?
-		\item Is $\{\vec u,\vec v\}$ linearly independent?
-	\end{parts}
-
-	\begin{definition}[Maximal Linearly Independent Subset]
-	Given a set of vectors $X$, a 
-	\emph{maximal linearly independent subset} of $X$ is a linearly independent
-	subset $V\subseteq X$ with the most possible vectors in it 
-	(i.e., if you took any subset of $X$ with more vectors, it would be linearly
-	dependent).
-	\end{definition}
-
-	\question
-	\begin{parts}
-		\item Give a maximal linearly independent subset, $T$, of
-		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
-		\item What is the size of $T$?
-	\end{parts}
-
-	\question
-	Consider the vectors
-	\[
-		\vec v_1=\mat{1\\2\\1}
-		\qquad
-		\vec v_2=\mat{-1\\-1\\-1}
-		\qquad
-		\vec v_3=\mat{0\\1\\0}
-		\qquad
-		\vec v_4=\mat{-1\\2\\0}
-		\qquad
-		\vec v_5=\mat{1\\-1\\1}
-	\]
-	and the matrices
-	\[
-		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
-		\qquad \rref (A)
-		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
-	\]
-	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots, \vec v_5$)
-
-	\begin{parts}
-		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
-		independent?
-		\item Pick a maximal linearly independent subset of $V$.
-		\item Pick another (different) maximal linearly independent subset of $V$.
-		\item Give a basis for $\Span(V)$.
-		\item What is the dimension of $\Span(V)$?
-	\end{parts}
-
-	\newpage
-\section*{Matrices}
-	\question
-	\[
-		A=\mat{1&2\\3&1\\0&-1}
-		\qquad
-		B=\mat{-1&-1\\0&1\\1&-2}
-		\qquad
-		C=\mat{1&2&0\\-1&-1&-1}
-	\]
-	\begin{parts}
-		\item Write the shape of the matrices $A,B,C$ (i.e., for each one,
-		write the dimensions in $m\times n$ form).
-		\item List \emph{all} products between the matrices $A,B,C$ that are
-		defined. (Your list will be some subset of $AB,AC,BA,CA,BC,CB$.)
-		\item Compute $AC$ and $CA$.
-	\end{parts}
-
-	\question
-	\begin{parts}
-		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
-		does $XY=YX$?  Explain.
-		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
-		does $X+Y=Y+X$?  Explain.
-	\end{parts}
-
-	\question
-	The entries of a matrix are specified by (row,column) pairs of integers.  If
-	$a_{ij}$ is the $(i,j)$ entry of a matrix $A$, we may write $A=[a_{ij}]$.
-	\begin{parts}
-		\item Write the $2\times 2$ matrix $A$ with entries $a_{11} = 4$, $a_{12}=3$,
-			$a_{21} = 7$ and $a_{22}=9$.
-		\item Let $B=[b_{ij}]$ be the $3\times 3$ matrix where $b_{ij} = i+j$.  Write $B$.
-		\item Let $C=[c_{ij}]$ be the $3\times 4$ matrix where $c_{ij} = 0$ if $i=j$ and
-			$c_{ij}=1$ if $i\neq j$.
-	\end{parts}
-
-	\question
-	\begin{definition}
-		The \emph{transpose} of a matrix $A=[a_{ij}]$ is the matrix $A^{T}=[a_{ji}]$.
-	\end{definition}
-	Visually, the transpose of a matrix swaps rows and columns.
-
-	\[
-		A=\mat{1&1&2\\2&2&1}
-	\]
-	\begin{parts}
-		\item What is the shape of $A$ and $A^T$?
-		\item Write down $A^T$.
-	\end{parts}
-
-	$B$ and $D$ are $4\times 6$ matrices and $C$ is a $6\times 4$ matrix.
-
-	\begin{parts}[resume]
-		\item Does $(BC)^T=B^TC^T$? Explain.
-		\item Does $(B+D)^T=B^T+D^T$? Explain.
-		\item Compute $AA^T$ and $A^TA$ (where $A$ is the matrix defined earlier).
-		What do you notice?
-	\end{parts}
-
-	\question
-	\begin{definition}
-		A matrix $X$ is called \emph{symmetric} if $X=X^T$.  
-	\end{definition}
-	Symmetric matrices have many useful properties,
-	and have deep connections with orthogonality and eigenvectors (which we will get to later on).
-
-	\begin{parts}
-		\item Prove that if $W$ is a square matrix, then $V=W^TW+W+W^T$ is a symmetric
-		matrix.
-	\end{parts}
-
-	\question
-	\begin{definition}
-		A \emph{zero matrix} is a matrix whose entries are all zeros.
-		An \emph{identity matrix} is a square matrix whose diagonal
-		entries are $1$ and non-diagonal entries are $0$.
-	\end{definition}
-	We write the $m\times n$ zero matrix as $0_{m\times n}$ or just $0$ if the shape
-	is determined by context.  The $n\times n$ identity matrix is notated $I_{n\times n}$ or just
-	$I$ if the shape is determined by context.
-
-	Let $A=\mat{1&2&3\\4&5&6\\7&8&9}$.
-	\begin{parts}
-		\item Write down the $3\times 3$ identity matrix and the $3\times 3$ zero
-		matrix.
-		\item Compute $I_{3\times 3}A$, $AI_{3\times 3}$, $0_{3\times 3}A$,
-		and $A0_{3\times 3}$.
-		\item If we were to think of matrices as numbers, what numbers would the
-		zero matrix and the identity matrix correspond to?
-	\end{parts}
-
-	\question
-	\begin{parts}
-		\item Solve the matrix equation
-		\[
-			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
-		\]
-	\end{parts}
-
-
-
-\newpage
-
-
-
-
-
-\newpage
-
-\section*{Orthogonality}
-	\begin{definition}[Orthogonal \& Orthonormal]
-		A set of vectors is \emph{orthogonal} if every pair of vectors
-		in the set is orthogonal.  A set of vectors is \emph{orthonormal}
-		if it is both an orthogonal set and every vector is a unit vector.
-	\end{definition}
-
-	\question
-	\[
-		\mathcal B=\{\vec b_1,\vec b_2\}\qquad\vec b_1=\mat{1/2\\\sqrt{3}/2}
-		\qquad \vec b_2=\mat{-\sqrt{3}/2\\1/2}
-	\]
-	The matrix $A=[\vec b_1|\vec b_2]$ takes vectors in the $\mathcal B$ basis
-	and rewrites them in the standard basis.
-	\begin{parts}
-		\item What does $A^{-1}$ do?
-		\item Find a matrix $B$ that takes vectors in the standard basis
-			and rewrites them in the $\mathcal B$ basis.
-		\item Write $\vec x=\mat{1\\2}$ in the $\mathcal B$ basis.
-		\item What is the relationship between $A$ and $B$?
-	\end{parts}
-
-	\begin{definition}[Orthogonal Matrix]
-		An \emph{orthogonal matrix} is a square matrix whose columns are
-		orthonormal (Yes, a better name would be orthonormal matrix, but that
-		is not the term the rest of the world uses).
-	\end{definition}
-
-	\question
-	Suppose $X=[\vec x_1|\vec x_2|\vec x_3|\vec x_4]$ is an orthogonal matrix.
-	\begin{parts}
-		\item What is the shape of $X$ (i.e., it is a what$\times$what matrix)?
-		\item Compute $X^TX$.
-		\item What is $X^{-1}$?
-	\end{parts}
-
-	\question
-	\[
-		Y=\mat{1&1&1&-1\\1&-1&-1&-1\\1&1&-1&1\\1&-1&1&1}
-	\]
-	\begin{parts}
-		\item Is $Y$ an orthogonal matrix?
-		\item Fix $Y$ so it is an orthogonal matrix.  Call the new matrix $X$.
-		\item Compute $X^{-1}$.
-		\item Compute $Y^{-1}$.
-		\item Compute $|\det(X)|$ and $|\det(Y)|$ (the absolute value of
-			the determinant of $X$ and $Y$).
-	\end{parts}
-
-	Matrix equations involving orthogonal matrices are easy to solve because the
-	inverse of an orthogonal matrix is so easy to compute!
-	
-	\question
-	Let $A=[\vec a_1|\vec a_2|\vec a_3|\vec a_4]$ be an orthogonal matrix.
-	\begin{parts}
-		\item Explain why 
-			$\vec x=\mat{\vec a_1\cdot \vec b\\
-				     \vec a_2\cdot \vec b\\
-			     	     \vec a_3\cdot \vec b\\
-			     	     \vec a_4\cdot \vec b}$ is a solution to $A\vec x=\vec b$.
-		\item Find scalars $a,b,c,d$ so $\vec b=a\vec a_1+b\vec a_2+c\vec a_3+d\vec a_4$
-			(your answers will have variables in them).
-	\end{parts}
-
-	Orthogonal matrices also allow us to compute projections quite easily.
-
-	\begin{definition}[Orthogonal Projection]
-		If $V$ is a subspace of $\R^n$, the \emph{projection}
-		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
-		is the closest point in $V$ to $\vec x$. We notate the projection
-		of $\vec x$ onto $V$ as $\proj_V\vec x$.
-	\end{definition}
-
-	Projections are normally hard to compute and a priori might require some sort
-	of calculus-style optimization to find.  However, from geometry we know that 
-	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
-	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
-	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
-	will be our savior.
-
-	\question
-	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
-	\begin{parts}
-		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
-			onto the $xy$-plane.
-	\end{parts}
-	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
-	\begin{parts}[resume]
-		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
-			onto $\span\{\vec b_1,\vec b_3\}$.
-	\end{parts}
-	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
-	\[
-		\|\vec c_1\| = 
-		\|\vec c_2\| = 
-		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
-		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
-	\]
-	\vspace{-.35in}
-	\begin{parts}[resume]
-		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
-			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
-	\end{parts}
-
-	\question
-	Let's put this all together.  
-	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
-	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
-	by
-	\[
-		0x+y-z=0.
-	\]
-	\begin{parts}
-		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
-			listed in the $\mathcal B$ basis).
-		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
-			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
-		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
-	\end{parts}
-
+%\section*{Span Again}
+%	\question
+%	Consider the system 
+%		\begin{equation}\label{eq4bc}
+%			\begin{array}{llll}
+%				x&-y&-z &= 0\\
+%				0x&+1y&+2z &= 0\\
+%				3x&-3y&+3z &= 0
+%			\end{array}
+%		\end{equation}
+%	which has the unique solution $(x,y,z)=(0,0,0)$.
+%	\begin{parts}
+%		\item Give vectors $\vec u,\vec v,\vec w$ so that the system \eqref{eq4bc}
+%			corresponds to the vector equation $x\vec u+y\vec v+z\vec w = \vec 0$.
+%		\item Is $\vec w\in\Span\{\vec u,\vec v\}$? If so, write it as a linear combination
+%			of $\vec u$ and $\vec v$.
+%	\end{parts}
+%
+%	The matrix $M$ is the non-augmented matrix corresponding to a homogeneous system of linear equations.
+%	$M$ also corresponds to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.  Further, we know
+%	\[
+%		\rref(M) = \mat{1&0&1\\0&1&-2\\0&0&0}.
+%	\]
+%	\begin{parts}[resume]
+%		\item Give a solution to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.
+%		\item Is $\vec c\in\Span\{\vec a,\vec b\}$?  If so, write it as a linear combination
+%			of $\vec a$ and $\vec b$.
+%		\item Do you have enough information to tell if $\{\vec a,\vec b\}$ is linearly independent?  Why or why not?
+%	\end{parts}
+%
+%\subsection*{Finding Linearly Independent Subsets}
+%	\question
+%	Suppose when you use an augmented matrix to solve
+%	$a\vec u+b\vec v+c\vec w=\vec 0$ you have no free variables.
+%	
+%	\begin{parts}
+%		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+%	\end{parts}
+%	
+%	Suppose when you use an augmented matrix to solve
+%	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a 
+%	free variable.
+%	
+%	\begin{parts}[resume]
+%		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
+%		\item Is $\{\vec u,\vec w\}$ linearly independent?
+%		\item Is $\{\vec u,\vec v\}$ linearly independent?
+%	\end{parts}
+%
+%	\begin{definition}[Maximal Linearly Independent Subset]
+%	Given a set of vectors $X$, a 
+%	\emph{maximal linearly independent subset} of $X$ is a linearly independent
+%	subset $V\subseteq X$ with the most possible vectors in it 
+%	(i.e., if you took any subset of $X$ with more vectors, it would be linearly
+%	dependent).
+%	\end{definition}
+%
+%	\question
+%	\begin{parts}
+%		\item Give a maximal linearly independent subset, $T$, of
+%		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
+%		\item What is the size of $T$?
+%	\end{parts}
+%
+%	\question
+%	Consider the vectors
+%	\[
+%		\vec v_1=\mat{1\\2\\1}
+%		\qquad
+%		\vec v_2=\mat{-1\\-1\\-1}
+%		\qquad
+%		\vec v_3=\mat{0\\1\\0}
+%		\qquad
+%		\vec v_4=\mat{-1\\2\\0}
+%		\qquad
+%		\vec v_5=\mat{1\\-1\\1}
+%	\]
+%	and the matrices
+%	\[
+%		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
+%		\qquad \rref (A)
+%		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
+%	\]
+%	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots, \vec v_5$)
+%
+%	\begin{parts}
+%		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
+%		independent?
+%		\item Pick a maximal linearly independent subset of $V$.
+%		\item Pick another (different) maximal linearly independent subset of $V$.
+%		\item Give a basis for $\Span(V)$.
+%		\item What is the dimension of $\Span(V)$?
+%	\end{parts}
+%
+%	\newpage
+%\section*{Matrices}
+%	\question
+%	\[
+%		A=\mat{1&2\\3&1\\0&-1}
+%		\qquad
+%		B=\mat{-1&-1\\0&1\\1&-2}
+%		\qquad
+%		C=\mat{1&2&0\\-1&-1&-1}
+%	\]
+%	\begin{parts}
+%		\item Write the shape of the matrices $A,B,C$ (i.e., for each one,
+%		write the dimensions in $m\times n$ form).
+%		\item List \emph{all} products between the matrices $A,B,C$ that are
+%		defined. (Your list will be some subset of $AB,AC,BA,CA,BC,CB$.)
+%		\item Compute $AC$ and $CA$.
+%	\end{parts}
+%
+%	\question
+%	\begin{parts}
+%		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+%		does $XY=YX$?  Explain.
+%		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
+%		does $X+Y=Y+X$?  Explain.
+%	\end{parts}
+%
+%	\question
+%	The entries of a matrix are specified by (row,column) pairs of integers.  If
+%	$a_{ij}$ is the $(i,j)$ entry of a matrix $A$, we may write $A=[a_{ij}]$.
+%	\begin{parts}
+%		\item Write the $2\times 2$ matrix $A$ with entries $a_{11} = 4$, $a_{12}=3$,
+%			$a_{21} = 7$ and $a_{22}=9$.
+%		\item Let $B=[b_{ij}]$ be the $3\times 3$ matrix where $b_{ij} = i+j$.  Write $B$.
+%		\item Let $C=[c_{ij}]$ be the $3\times 4$ matrix where $c_{ij} = 0$ if $i=j$ and
+%			$c_{ij}=1$ if $i\neq j$.
+%	\end{parts}
+%
+%	\question
+%	\begin{definition}
+%		The \emph{transpose} of a matrix $A=[a_{ij}]$ is the matrix $A^{T}=[a_{ji}]$.
+%	\end{definition}
+%	Visually, the transpose of a matrix swaps rows and columns.
+%
+%	\[
+%		A=\mat{1&1&2\\2&2&1}
+%	\]
+%	\begin{parts}
+%		\item What is the shape of $A$ and $A^T$?
+%		\item Write down $A^T$.
+%	\end{parts}
+%
+%	$B$ and $D$ are $4\times 6$ matrices and $C$ is a $6\times 4$ matrix.
+%
+%	\begin{parts}[resume]
+%		\item Does $(BC)^T=B^TC^T$? Explain.
+%		\item Does $(B+D)^T=B^T+D^T$? Explain.
+%		\item Compute $AA^T$ and $A^TA$ (where $A$ is the matrix defined earlier).
+%		What do you notice?
+%	\end{parts}
+%
+%	\question
+%	\begin{definition}
+%		A matrix $X$ is called \emph{symmetric} if $X=X^T$.  
+%	\end{definition}
+%	Symmetric matrices have many useful properties,
+%	and have deep connections with orthogonality and eigenvectors (which we will get to later on).
+%
+%	\begin{parts}
+%		\item Prove that if $W$ is a square matrix, then $V=W^TW+W+W^T$ is a symmetric
+%		matrix.
+%	\end{parts}
+%
+%	\question
+%	\begin{definition}
+%		A \emph{zero matrix} is a matrix whose entries are all zeros.
+%		An \emph{identity matrix} is a square matrix whose diagonal
+%		entries are $1$ and non-diagonal entries are $0$.
+%	\end{definition}
+%	We write the $m\times n$ zero matrix as $0_{m\times n}$ or just $0$ if the shape
+%	is determined by context.  The $n\times n$ identity matrix is notated $I_{n\times n}$ or just
+%	$I$ if the shape is determined by context.
+%
+%	Let $A=\mat{1&2&3\\4&5&6\\7&8&9}$.
+%	\begin{parts}
+%		\item Write down the $3\times 3$ identity matrix and the $3\times 3$ zero
+%		matrix.
+%		\item Compute $I_{3\times 3}A$, $AI_{3\times 3}$, $0_{3\times 3}A$,
+%		and $A0_{3\times 3}$.
+%		\item If we were to think of matrices as numbers, what numbers would the
+%		zero matrix and the identity matrix correspond to?
+%	\end{parts}
+%
+%	\question
+%	\begin{parts}
+%		\item Solve the matrix equation
+%		\[
+%			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
+%		\]
+%	\end{parts}
+%
+%
+%
 %\newpage
-\subsection*{Gram-Schmidt Orthogonalization}
-	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
-	turn any basis into an orthonormal basis through a process called
-	Gram-Schmidt orthogonalization.
-
-	\question
-	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
-	\begin{parts}
-		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
-		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
-			$\vec c$ and $\vec b$.
-		\item Can you write $\vec a$ as the sum of two vectors, one in 
-			the direction of $\vec b$ and one orthogonal to $\vec b$?
-			If so, do it.
-	\end{parts}
-
-	\question
-	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
-	\begin{parts}
-		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
-			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
-		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
-	\end{parts}
-
-	With two vectors, making an orthonormal set without changing the span
-	is quite easy.  With more vectors, it is only slightly harder.
-
-	\begin{definition}[Gram-Schmidt Process]
-		The \emph{Gram-Schmidt} orthogonalization procedure
-		takes in a set of vectors and outputs a set of orthonormal vectors
-		with the same span.  The idea is to iteratively produce a set of
-		vectors where each new vector you produce is orthogonal to the previous vectors.
-
-		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
-		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
-		to $ v_1$ by subtracting off the respective projections
-		of $ v_2,\ldots, v_n$
-		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
-		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
-		respective projections
-		onto $ v_2'$.  Continue this process until you have a set
-		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
-		Finally, normalize $V$ so all vectors have unit length.
-	\end{definition}
-
-	\question
-	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
-	$\vec x_3=\mat{2\\2\\1\\2}$.
-	\begin{parts}
-		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
-			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
-		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
-			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
-			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
-	\end{parts}
-	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
-	\begin{parts}[resume]
-		\item Find an orthonormal basis for the row space of $R$.
-		\item Find the null space of $R$ (Hint, you've already done the work, so
-			there is no need to row reduce).
-	\end{parts}
-
-	\question
-	Let
-	\[
-		\vec y_1=\mat{1\\1\\2}\qquad 
-		\vec y_2=\mat{-1\\-1\\2}\qquad
-		\vec y_3=\mat{1\\1\\6}.
-	\]
-	\begin{parts}
-		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
-			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
-	\end{parts}
-
-	\begin{definition}[Orthogonal Complement]
-		The \emph{orthogonal complement} of a subspace $V$ is written
-		$V^\perp$ and defined as
-		\[
-			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
-		\]
-		\vspace{-.2in}
-	\end{definition}
-
-	\begin{parts}[resume]
-		\item Find the orthogonal complement of $\span \mathcal W$.
-		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
-			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
-	\end{parts}
-
-
-\subsection*{$QR$ Decomposition}
-
-	\begin{definition}[$QR$ Decomposition]
-		For a matrix $A$, we can rewrite $A=QR$ where $Q$ is an
-		orthogonal matrix and $R$ is an upper triangular matrix.  Writing
-		$A$ as $QR$ is called the \emph{$QR$ decomposition} of $A$.
-	\end{definition}
-
-	\question
-	Suppose $A,B,C$ are square matrices and $C=AB$.
-	\begin{parts}
-		\item How do the column spaces of $A$ and $C$ relate?
-		\item How do the column spaces of $B$ and $C$ relate?
-	\end{parts}
-
-	\question
-	$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ forms a basis for $\R^3$.
-	When we apply the Gram-Schmidt process to $\mathcal V$, we get
-	\[
-		\begin{array}{rl}
-			q_1' &=\vec v\\
-			q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
-			q_3' &= \vec v_3-\vec v_1+2\vec v_2
-		\end{array}
-	\]
-	form an orthogonal set.  Normalizing we get
-	\[
-		\begin{array}{rl}
-			\vec q_1 &= 2q_1'\\
-			\vec q_2 &= 3q_2'\\
-			\vec q_3 &=\frac{1}{2}q_3'
-		\end{array}
-	\]
-	form an orthonormal set.
-	\begin{parts}
-		\item Write $\vec v_1$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
-		\item Write $\vec v_2$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
-		\item Write $\vec v_3$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
-	\end{parts}
-	Define $A=[\vec v_1|\vec v_2|\vec v_2]$ and $Q=[\vec q_1|\vec q_2|\vec q_3]$.
-	\begin{parts}[resume]
-		\item Find a matrix $R$ so that $A=QR$.
-	\end{parts}
-	
-	We've just discovered one process to find the $QR$ decomposition of a matrix.
-	It's really as simple as doing Gram-Schmidt and keeping track of your coefficients.
-	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
-	decomposition and exploit the fact that $Q^{-1}=Q^T$, we have
-	\[
-		A\vec x=QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
-	\]
-	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
-	out that if you solve systems this way, there is less rounding error than if you
-	use row reduction.)
-
-\subsection*{Symmetric Matrices}
-	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
-	it's sometimes hard to grasp the significance of certain properties of a matrix.
-
-	Symmetric matrices are easy to forget at first, but they have many profound 
-	properties (not to mention they are one of the key concepts of Quantum Mechanics).
-
-	\question
-	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
-	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
-	we are thinking of $\vec v$ and $\vec w$ as column vectors.
-	\begin{parts}
-		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
-		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
-		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
-		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
-			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
-			or $\vec v^T(A\vec w)$.  Better do both to be safe).
-		\item What can you conclude about $\vec v^T\vec w$?  How about
-			$\vec v\cdot \vec w$?
-	\end{parts}
-
-	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
-	top of that, symmetric matrices always have a basis of eigenvectors.  That means
-	that not only can you always diagonalize a symmetric matrix, but you can 
-	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
-	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
-	best of all worlds in one!
-
-
-
-\section*{Systems of Linear Equations}
-	
-	\emph{Linear equations} are equations only involving variables, 
-	multiplication by constants, and addition/subtraction.  \emph{Systems}
-	of equations are sets of equations that share common variables.
-
-	\question
-	Consider the system
-	\begin{equation}\label{eq2}
-		\begin{array}{rcrl}
-			x &-&y &= 2\\
-			2x &+&y &= 1
-		\end{array}
-	\end{equation}
-
-	\begin{parts}
-		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
-		\item Algebraically solve the system (\ref{eq2}).  What does this 
-		solution represent on your graph?
-	\end{parts}
-	
-	\question
-	Let $L$ be the line given by $x-y=2$.
-	\begin{parts}
-		\item Write an equation of a line that doesn't intersect $L$.
-		\item Write an equation of a line that intersects $L$ in 
-		\begin{enumerate}
-			\item one place.
-			\item infinitely many places
-			\item exactly two places
-		\end{enumerate}
-		or explain why no such equation exists.
-		\item For each equation you came up with, solve the system algebraically.
-		How can you tell algebraically how many solutions there are?
-	\end{parts}
-
-\subsection*{The Row Reduction Algorithm}
-
-	\question
-	\begin{parts}
-		\item Solve the system
-		\begin{equation}\label{eq3}
-			\begin{array}{rcrcrl}
-				x&-&y&-&2z &= -5\\
-				2x&+&3y&+&z &= 5\\
-				0x&+&2y&+&3z &= 8
-			\end{array}
-		\end{equation}
-		any way you like.
-
-		\item Use an augmented matrix to solve the system (\ref{eq3}).
-	\end{parts}
-
-	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
-	interpretations when appropriate is one of the most powerful tools of Linear 
-	Algebra).  We can think of solutions to (\ref{eq3})
-	as the intersection of three planes, or we can interpret the solution
-	as coefficients of a linear combination.
-
-	\begin{parts}[resume]
-		\item Rewrite (\ref{eq3}) as a vector equation of the form
-		\[
-			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
-		\]
-		where $x,y,z$ are interpreted as scalar quantities.
-
-		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
-		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
-		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
-	\end{parts}
-
-	\question
-	Consider the augmented matrix
-	\[
-		A=\left[\begin{array}{ccc|c}
-			1 & 2 & -1 & -7\\
-			0 & 2 & 3 & 9\\
-			0 & 0 & 1 & 1
-		\end{array}\right].
-	\]
-	\begin{parts}
-		\item Write the system of equations corresponding to $A$.
-		\item Solve the system of equations corresponding to $A$.
-	\end{parts}
-
-\subsection*{Infinite Solutions}
-	\question
-	Consider the system
-	\begin{equation}\label{eq4}
-		\begin{array}{rcrl}
-			x&+&2y &= 3\\
-			2x&+&4y &= 6
-		\end{array}
-	\end{equation}
-
-	\begin{parts}
-		\item How many solutions does (\ref{eq4}) have?
-		\item Write the solutions to (\ref{eq4}) in vector form.
-		\item What happens when you use an augmented matrix
-		to solve (\ref{eq4})?
-	\end{parts}
-
-
-\subsection*{Free Variables}
-	\question
-	Suppose the row-reduced augmented matrix corresponding to 
-	a system is
-	\[
-		B=\left[\begin{array}{cc|c}
-			1 & 2 & 3\\
-			0 & 0 & 0
-		\end{array}\right].
-	\]
-	After reducing, we have 1 equation and 2 unknowns, so we can make
-	$2-1=1$ choices when writing a solution.  Let's make the
-	choice $y=t$.
-	
-	\begin{parts}
-		\item With the added equation $y=t$, solve the
-		system represented by $B$.
-	\end{parts}
-
-	\question
-	Consider the system given by the augmented matrix
-	\[
-		C=\left[\begin{array}{ccccc|c}
-			1&0&1&2&0&-1\\
-			0&1&1&0&0&3\\
-			0&0&0&0&1&4
-		\end{array}\right].
-	\]
-	and call the variables in this system $x_1,x_2,
-	x_3,x_4,x_5$.
-
-	\begin{parts}
-		\item Write the system of equations represented by $C$.
-		\item Identify how many choices you can make when writing
-		down a solution corresponding to $C$.
-		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
-		for each choice you must make when solving the system.
-		\item Write in vector form all solutions to $C$.
-	\end{parts}
-
-	\question
-	\begin{parts}
-		\item An unknown system $U$ is represented by an augmented
-		matrix with 4 rows and 6 columns.  What is 
-		the minimum number of
-		free variables solutions to $U$ will have?
-		\item An unknown system $V$ is represented by an augmented
-		matrix with 6 rows and 4 columns.  What is 
-		the minimum number of
-		free variables solutions to $V$ will have?
-	\end{parts}
-	
-	\question
-	\begin{definition}[Homogeneous]
-		A system is called \emph{homogeneous} if all equations equal $0$.
-	\end{definition}
-
-		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
-		 $(x,y,z)=(1,2,1)$ and
-		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
-	\begin{parts}
-		\item Can you produce another solution
-		to the system?
-
-		\item  Can you
-		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
-		equation equals 0)?
-
-		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
-		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
-	\end{parts}
-
+%
+%
+%
+%
+%
+%\newpage
+%
+%\section*{Orthogonality}
+%	\begin{definition}[Orthogonal \& Orthonormal]
+%		A set of vectors is \emph{orthogonal} if every pair of vectors
+%		in the set is orthogonal.  A set of vectors is \emph{orthonormal}
+%		if it is both an orthogonal set and every vector is a unit vector.
+%	\end{definition}
+%
+%	\question
+%	\[
+%		\mathcal B=\{\vec b_1,\vec b_2\}\qquad\vec b_1=\mat{1/2\\\sqrt{3}/2}
+%		\qquad \vec b_2=\mat{-\sqrt{3}/2\\1/2}
+%	\]
+%	The matrix $A=[\vec b_1|\vec b_2]$ takes vectors in the $\mathcal B$ basis
+%	and rewrites them in the standard basis.
+%	\begin{parts}
+%		\item What does $A^{-1}$ do?
+%		\item Find a matrix $B$ that takes vectors in the standard basis
+%			and rewrites them in the $\mathcal B$ basis.
+%		\item Write $\vec x=\mat{1\\2}$ in the $\mathcal B$ basis.
+%		\item What is the relationship between $A$ and $B$?
+%	\end{parts}
+%
+%	\begin{definition}[Orthogonal Matrix]
+%		An \emph{orthogonal matrix} is a square matrix whose columns are
+%		orthonormal (Yes, a better name would be orthonormal matrix, but that
+%		is not the term the rest of the world uses).
+%	\end{definition}
+%
+%	\question
+%	Suppose $X=[\vec x_1|\vec x_2|\vec x_3|\vec x_4]$ is an orthogonal matrix.
+%	\begin{parts}
+%		\item What is the shape of $X$ (i.e., it is a what$\times$what matrix)?
+%		\item Compute $X^TX$.
+%		\item What is $X^{-1}$?
+%	\end{parts}
+%
+%	\question
+%	\[
+%		Y=\mat{1&1&1&-1\\1&-1&-1&-1\\1&1&-1&1\\1&-1&1&1}
+%	\]
+%	\begin{parts}
+%		\item Is $Y$ an orthogonal matrix?
+%		\item Fix $Y$ so it is an orthogonal matrix.  Call the new matrix $X$.
+%		\item Compute $X^{-1}$.
+%		\item Compute $Y^{-1}$.
+%		\item Compute $|\det(X)|$ and $|\det(Y)|$ (the absolute value of
+%			the determinant of $X$ and $Y$).
+%	\end{parts}
+%
+%	Matrix equations involving orthogonal matrices are easy to solve because the
+%	inverse of an orthogonal matrix is so easy to compute!
+%	
+%	\question
+%	Let $A=[\vec a_1|\vec a_2|\vec a_3|\vec a_4]$ be an orthogonal matrix.
+%	\begin{parts}
+%		\item Explain why 
+%			$\vec x=\mat{\vec a_1\cdot \vec b\\
+%				     \vec a_2\cdot \vec b\\
+%			     	     \vec a_3\cdot \vec b\\
+%			     	     \vec a_4\cdot \vec b}$ is a solution to $A\vec x=\vec b$.
+%		\item Find scalars $a,b,c,d$ so $\vec b=a\vec a_1+b\vec a_2+c\vec a_3+d\vec a_4$
+%			(your answers will have variables in them).
+%	\end{parts}
+%
+%	Orthogonal matrices also allow us to compute projections quite easily.
+%
+%	\begin{definition}[Orthogonal Projection]
+%		If $V$ is a subspace of $\R^n$, the \emph{projection}
+%		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
+%		is the closest point in $V$ to $\vec x$. We notate the projection
+%		of $\vec x$ onto $V$ as $\proj_V\vec x$.
+%	\end{definition}
+%
+%	Projections are normally hard to compute and a priori might require some sort
+%	of calculus-style optimization to find.  However, from geometry we know that 
+%	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
+%	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
+%	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
+%	will be our savior.
+%
+%	\question
+%	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
+%	\begin{parts}
+%		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
+%			onto the $xy$-plane.
+%	\end{parts}
+%	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
+%	\begin{parts}[resume]
+%		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
+%			onto $\span\{\vec b_1,\vec b_3\}$.
+%	\end{parts}
+%	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
+%	\[
+%		\|\vec c_1\| = 
+%		\|\vec c_2\| = 
+%		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
+%		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
+%	\]
+%	\vspace{-.35in}
+%	\begin{parts}[resume]
+%		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
+%			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
+%	\end{parts}
+%
+%	\question
+%	Let's put this all together.  
+%	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
+%	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
+%	by
+%	\[
+%		0x+y-z=0.
+%	\]
+%	\begin{parts}
+%		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
+%			listed in the $\mathcal B$ basis).
+%		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
+%			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
+%		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
+%	\end{parts}
+%
+%%\newpage
+%\subsection*{Gram-Schmidt Orthogonalization}
+%	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
+%	turn any basis into an orthonormal basis through a process called
+%	Gram-Schmidt orthogonalization.
+%
+%	\question
+%	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
+%	\begin{parts}
+%		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
+%		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
+%			$\vec c$ and $\vec b$.
+%		\item Can you write $\vec a$ as the sum of two vectors, one in 
+%			the direction of $\vec b$ and one orthogonal to $\vec b$?
+%			If so, do it.
+%	\end{parts}
+%
+%	\question
+%	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
+%	\begin{parts}
+%		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
+%			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
+%		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
+%	\end{parts}
+%
+%	With two vectors, making an orthonormal set without changing the span
+%	is quite easy.  With more vectors, it is only slightly harder.
+%
+%	\begin{definition}[Gram-Schmidt Process]
+%		The \emph{Gram-Schmidt} orthogonalization procedure
+%		takes in a set of vectors and outputs a set of orthonormal vectors
+%		with the same span.  The idea is to iteratively produce a set of
+%		vectors where each new vector you produce is orthogonal to the previous vectors.
+%
+%		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
+%		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
+%		to $ v_1$ by subtracting off the respective projections
+%		of $ v_2,\ldots, v_n$
+%		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
+%		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
+%		respective projections
+%		onto $ v_2'$.  Continue this process until you have a set
+%		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
+%		Finally, normalize $V$ so all vectors have unit length.
+%	\end{definition}
+%
+%	\question
+%	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
+%	$\vec x_3=\mat{2\\2\\1\\2}$.
+%	\begin{parts}
+%		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
+%			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+%		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
+%			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
+%			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
+%	\end{parts}
+%	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
+%	\begin{parts}[resume]
+%		\item Find an orthonormal basis for the row space of $R$.
+%		\item Find the null space of $R$ (Hint, you've already done the work, so
+%			there is no need to row reduce).
+%	\end{parts}
+%
+%	\question
+%	Let
+%	\[
+%		\vec y_1=\mat{1\\1\\2}\qquad 
+%		\vec y_2=\mat{-1\\-1\\2}\qquad
+%		\vec y_3=\mat{1\\1\\6}.
+%	\]
+%	\begin{parts}
+%		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
+%			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
+%	\end{parts}
+%
+%	\begin{definition}[Orthogonal Complement]
+%		The \emph{orthogonal complement} of a subspace $V$ is written
+%		$V^\perp$ and defined as
+%		\[
+%			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
+%		\]
+%		\vspace{-.2in}
+%	\end{definition}
+%
+%	\begin{parts}[resume]
+%		\item Find the orthogonal complement of $\span \mathcal W$.
+%		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
+%			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
+%	\end{parts}
+%
+%
+%\subsection*{$QR$ Decomposition}
+%
+%	\begin{definition}[$QR$ Decomposition]
+%		For a matrix $A$, we can rewrite $A=QR$ where $Q$ is an
+%		orthogonal matrix and $R$ is an upper triangular matrix.  Writing
+%		$A$ as $QR$ is called the \emph{$QR$ decomposition} of $A$.
+%	\end{definition}
+%
+%	\question
+%	Suppose $A,B,C$ are square matrices and $C=AB$.
+%	\begin{parts}
+%		\item How do the column spaces of $A$ and $C$ relate?
+%		\item How do the column spaces of $B$ and $C$ relate?
+%	\end{parts}
+%
+%	\question
+%	$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ forms a basis for $\R^3$.
+%	When we apply the Gram-Schmidt process to $\mathcal V$, we get
+%	\[
+%		\begin{array}{rl}
+%			q_1' &=\vec v\\
+%			q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
+%			q_3' &= \vec v_3-\vec v_1+2\vec v_2
+%		\end{array}
+%	\]
+%	form an orthogonal set.  Normalizing we get
+%	\[
+%		\begin{array}{rl}
+%			\vec q_1 &= 2q_1'\\
+%			\vec q_2 &= 3q_2'\\
+%			\vec q_3 &=\frac{1}{2}q_3'
+%		\end{array}
+%	\]
+%	form an orthonormal set.
+%	\begin{parts}
+%		\item Write $\vec v_1$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+%		\item Write $\vec v_2$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+%		\item Write $\vec v_3$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
+%	\end{parts}
+%	Define $A=[\vec v_1|\vec v_2|\vec v_2]$ and $Q=[\vec q_1|\vec q_2|\vec q_3]$.
+%	\begin{parts}[resume]
+%		\item Find a matrix $R$ so that $A=QR$.
+%	\end{parts}
+%	
+%	We've just discovered one process to find the $QR$ decomposition of a matrix.
+%	It's really as simple as doing Gram-Schmidt and keeping track of your coefficients.
+%	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
+%	decomposition and exploit the fact that $Q^{-1}=Q^T$, we have
+%	\[
+%		A\vec x=QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
+%	\]
+%	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
+%	out that if you solve systems this way, there is less rounding error than if you
+%	use row reduction.)
+%
+%\subsection*{Symmetric Matrices}
+%	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
+%	it's sometimes hard to grasp the significance of certain properties of a matrix.
+%
+%	Symmetric matrices are easy to forget at first, but they have many profound 
+%	properties (not to mention they are one of the key concepts of Quantum Mechanics).
+%
+%	\question
+%	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
+%	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
+%	we are thinking of $\vec v$ and $\vec w$ as column vectors.
+%	\begin{parts}
+%		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
+%		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
+%		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
+%		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
+%			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
+%			or $\vec v^T(A\vec w)$.  Better do both to be safe).
+%		\item What can you conclude about $\vec v^T\vec w$?  How about
+%			$\vec v\cdot \vec w$?
+%	\end{parts}
+%
+%	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
+%	top of that, symmetric matrices always have a basis of eigenvectors.  That means
+%	that not only can you always diagonalize a symmetric matrix, but you can 
+%	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
+%	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
+%	best of all worlds in one!
+%
+%
+%
+%\section*{Systems of Linear Equations}
+%	
+%	\emph{Linear equations} are equations only involving variables, 
+%	multiplication by constants, and addition/subtraction.  \emph{Systems}
+%	of equations are sets of equations that share common variables.
+%
+%	\question
+%	Consider the system
+%	\begin{equation}\label{eq2}
+%		\begin{array}{rcrl}
+%			x &-&y &= 2\\
+%			2x &+&y &= 1
+%		\end{array}
+%	\end{equation}
+%
+%	\begin{parts}
+%		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
+%		\item Algebraically solve the system (\ref{eq2}).  What does this 
+%		solution represent on your graph?
+%	\end{parts}
+%	
+%	\question
+%	Let $L$ be the line given by $x-y=2$.
+%	\begin{parts}
+%		\item Write an equation of a line that doesn't intersect $L$.
+%		\item Write an equation of a line that intersects $L$ in 
+%		\begin{enumerate}
+%			\item one place.
+%			\item infinitely many places
+%			\item exactly two places
+%		\end{enumerate}
+%		or explain why no such equation exists.
+%		\item For each equation you came up with, solve the system algebraically.
+%		How can you tell algebraically how many solutions there are?
+%	\end{parts}
+%
+%\subsection*{The Row Reduction Algorithm}
+%
+%	\question
+%	\begin{parts}
+%		\item Solve the system
+%		\begin{equation}\label{eq3}
+%			\begin{array}{rcrcrl}
+%				x&-&y&-&2z &= -5\\
+%				2x&+&3y&+&z &= 5\\
+%				0x&+&2y&+&3z &= 8
+%			\end{array}
+%		\end{equation}
+%		any way you like.
+%
+%		\item Use an augmented matrix to solve the system (\ref{eq3}).
+%	\end{parts}
+%
+%	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
+%	interpretations when appropriate is one of the most powerful tools of Linear 
+%	Algebra).  We can think of solutions to (\ref{eq3})
+%	as the intersection of three planes, or we can interpret the solution
+%	as coefficients of a linear combination.
+%
+%	\begin{parts}[resume]
+%		\item Rewrite (\ref{eq3}) as a vector equation of the form
+%		\[
+%			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
+%		\]
+%		where $x,y,z$ are interpreted as scalar quantities.
+%
+%		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
+%		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
+%		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
+%	\end{parts}
+%
+%	\question
+%	Consider the augmented matrix
+%	\[
+%		A=\left[\begin{array}{ccc|c}
+%			1 & 2 & -1 & -7\\
+%			0 & 2 & 3 & 9\\
+%			0 & 0 & 1 & 1
+%		\end{array}\right].
+%	\]
+%	\begin{parts}
+%		\item Write the system of equations corresponding to $A$.
+%		\item Solve the system of equations corresponding to $A$.
+%	\end{parts}
+%
+%\subsection*{Infinite Solutions}
+%	\question
+%	Consider the system
+%	\begin{equation}\label{eq4}
+%		\begin{array}{rcrl}
+%			x&+&2y &= 3\\
+%			2x&+&4y &= 6
+%		\end{array}
+%	\end{equation}
+%
+%	\begin{parts}
+%		\item How many solutions does (\ref{eq4}) have?
+%		\item Write the solutions to (\ref{eq4}) in vector form.
+%		\item What happens when you use an augmented matrix
+%		to solve (\ref{eq4})?
+%	\end{parts}
+%
+%
+%\subsection*{Free Variables}
+%	\question
+%	Suppose the row-reduced augmented matrix corresponding to 
+%	a system is
+%	\[
+%		B=\left[\begin{array}{cc|c}
+%			1 & 2 & 3\\
+%			0 & 0 & 0
+%		\end{array}\right].
+%	\]
+%	After reducing, we have 1 equation and 2 unknowns, so we can make
+%	$2-1=1$ choices when writing a solution.  Let's make the
+%	choice $y=t$.
+%	
+%	\begin{parts}
+%		\item With the added equation $y=t$, solve the
+%		system represented by $B$.
+%	\end{parts}
+%
+%	\question
+%	Consider the system given by the augmented matrix
+%	\[
+%		C=\left[\begin{array}{ccccc|c}
+%			1&0&1&2&0&-1\\
+%			0&1&1&0&0&3\\
+%			0&0&0&0&1&4
+%		\end{array}\right].
+%	\]
+%	and call the variables in this system $x_1,x_2,
+%	x_3,x_4,x_5$.
+%
+%	\begin{parts}
+%		\item Write the system of equations represented by $C$.
+%		\item Identify how many choices you can make when writing
+%		down a solution corresponding to $C$.
+%		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
+%		for each choice you must make when solving the system.
+%		\item Write in vector form all solutions to $C$.
+%	\end{parts}
+%
+%	\question
+%	\begin{parts}
+%		\item An unknown system $U$ is represented by an augmented
+%		matrix with 4 rows and 6 columns.  What is 
+%		the minimum number of
+%		free variables solutions to $U$ will have?
+%		\item An unknown system $V$ is represented by an augmented
+%		matrix with 6 rows and 4 columns.  What is 
+%		the minimum number of
+%		free variables solutions to $V$ will have?
+%	\end{parts}
+%	
+%	\question
+%	\begin{definition}[Homogeneous]
+%		A system is called \emph{homogeneous} if all equations equal $0$.
+%	\end{definition}
+%
+%		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
+%		 $(x,y,z)=(1,2,1)$ and
+%		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
+%	\begin{parts}
+%		\item Can you produce another solution
+%		to the system?
+%
+%		\item  Can you
+%		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
+%		equation equals 0)?
+%
+%		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
+%		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
+%	\end{parts}
+%
 
 
 
