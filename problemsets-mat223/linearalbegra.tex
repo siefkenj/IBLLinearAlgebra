@@ -14,7 +14,7 @@
 %}
 \usepackage[charter,cal=cmcal]{mathdesign} %different font
 \usepackage{microtype}
-\usepackage{amsmath}
+\usepackage{mathtools}
 %\usepackage{amsfonts}
 %\usepackage{amssymb}
 \usepackage{graphicx}
@@ -40,30 +40,54 @@
 %%%
 % Useful Linear Algebra macros
 %%%
-\newcommand{\ul}{$\underline{\phantom{xxx}}$}
-\newcommand{\ull}{\underline{\phantom{xxx}}}
-\newcommand{\xh}{{\hat {\mathbf x}}}
-\newcommand{\yh}{{\hat {\mathbf y}}}
-\newcommand{\zh}{{\hat {\mathbf z}}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\proj}{\mathrm{proj}}
-\newcommand{\Proj}{\mathrm{proj}}
-\newcommand{\Comp}{\mathrm{comp}}
-\newcommand{\Perp}{\mathrm{perp}}
-\renewcommand{\span}{\mathrm{span}\,}
-\newcommand{\Span}{\mathrm{span}\,}
-\newcommand{\Img}{\mathrm{img}\,}
-\newcommand{\Null}{\mathrm{null}\,}
-\newcommand{\Range}{\mathrm{range}\,}
-\newcommand{\rref}{\mathrm{rref}}
-\newcommand{\rank}{\mathrm{rank}}
-\newcommand{\Rank}{\mathrm{rank}}
-\newcommand{\nnul}{\mathrm{nullity}}
-\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
-\newcommand{\chr}{\mathrm{char}}
-\renewcommand{\d}{\mathrm{d}}
+\newcommand{\declarecommand}[1]{\providecommand{#1}{}\renewcommand{#1}}
+\declarecommand{\R}{\mathbb{R}}  % we don't care if it's already defined.  We really want *this* command!
+\declarecommand{\Z}{\mathbb{Z}}
+\declarecommand{\Q}{\mathbb{Q}}
+\declarecommand{\N}{\mathbb{N}}
+\declarecommand{\C}{\mathbb{C}}
+\declarecommand{\d}{\mathrm{d}}
+\declarecommand{\dd}{\mathbbm{d}} % exterior derivative
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Img}{img}
+\DeclareMathOperator{\Id}{id}
+\DeclareMathOperator{\Range}{range}
+\DeclareMathOperator{\Rref}{rref}
+\DeclareMathOperator{\Rank}{rank}
+\DeclareMathOperator{\Comp}{comp}
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\Nullity}{nullity}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Proj}{proj}
+\DeclareMathOperator{\Flux}{Flux}
+\DeclareMathOperator{\Circ}{Circ}
+\DeclareMathOperator{\chr}{char}
+\DeclareMathOperator{\Dim}{dim}
+\DeclareMathOperator{\Perp}{perp}
+\DeclareMathOperator{\Ker}{kernel}
+\newcommand{\proj}{\Proj}
+\newcommand{\rref}{\Rref}
+\newcommand{\xhat}{{\hat {\mathbf x}}}
+\newcommand{\yhat}{{\hat {\mathbf y}}}
+\newcommand{\zhat}{{\hat {\mathbf z}}}
+\newcommand{\mat}[1]{\begin{bmatrix*}[r]#1\end{bmatrix*}}
+\newcommand{\matc}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\formarg}[2]{\big(#1;\, #2\big)}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\Abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+% just to make sure it exists
+\providecommand\given{}
+% can be useful to refer to this outside \Set
+\newcommand\SetSymbol[1][]{%
+	\nonscript\::%
+	\allowbreak
+	\nonscript\:
+	\mathopen{}}
+\DeclarePairedDelimiterX\Set[1]\{\}{%
+	\renewcommand\given{\SetSymbol[\delimsize]}
+	#1
+}
 
 %\tcbuselibrary{skins}
 %\usetikzlibrary{shadings}
@@ -107,95 +131,97 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 
 \section*{About the Document}
 
-	This document is a hybrid of many linear algebra resources, including those of
-	the IOLA (Inquiry Oriented Linear Algebra) project, Jason Siefken's IBLLinearAlgebra
-	project, and Asaki, Camfield, Moon, and Snipes' Radiograph and Tomography project.
+This document is a hybrid of many linear algebra resources, including those of
+the IOLA (Inquiry Oriented Linear Algebra) project, Jason Siefken's
+IBLLinearAlgebra project, and Asaki, Camfield, Moon, and Snipes' Radiograph and
+Tomography project.
 
-	This document is a mix of student projects, problem sets, and labs.
-	A typical class day looks like:
-	\begin{enumerate}
-		\item {\bf Introduction by instructor.} This may involve giving a definition,
-			a broader context for the day's topics, or answering questions.
-		\item {\bf Students work on problems.} Students work individually or in pairs
-			on the prescribed problem.  During this time the instructor moves around
-			the room addressing questions that students may have and giving one-on-one
-			coaching.
-		\item {\bf Instructor intervention.} If most students have successfully solved the 
-			problem, the instructor regroups the class by providing a concise 
-			explanation so that everyone is ready to move to the next concept.  This
-			is also time for the instructor to ensure that everyone has understood the
-			main point of the exercise (since it is sometimes easy to do some computation
-			while being oblivious to the larger context).
+This document is a mix of student projects, problem sets, and labs. A typical
+class day looks like:
+\begin{enumerate}
+	\item {\bf Introduction by instructor.} This may involve giving a definition,
+		a broader context for the day's topics, or answering questions.
 
-			If students are having trouble, the instructor can give hints to the group,
-			and additional guidance to ensure the students don't get frustrated
-			to the point of giving up.
-		\item {\bf Repeat step 2.}
-	\end{enumerate}
+	\item {\bf Students work on problems.} Students work individually or in pairs
+		on the prescribed problem. During this time the instructor moves
+		around the room addressing questions that students may have and giving
+		one-on-one coaching.
 
-	Using this format, students are working (and happily so) most of the class.
-	Further, they are especially primed to hear the insights of the instructor, 
-	having already invested substantially into each problem.
+	\item {\bf Instructor intervention.} If most students have successfully solved
+		the problem, the instructor regroups the class by providing a concise
+		explanation so that everyone is ready to move to the next concept.
+		This is also time for the instructor to ensure that everyone has
+		understood the main point of the exercise (since it is sometimes
+		easy to do some computation while being oblivious to the larger context).
 
-	This problem-set is geared towards concepts instead of computation, though some problems
-	focus on simple computation.
+		If students are having trouble, the instructor can give hints to
+		the group, and additional guidance to ensure the students don't get
+		frustrated to the point of giving up.
 
-	{\bf License}  Unless otherwise mentioned, pages of this document are licensed under the Creative Commons
-	By-Attribution Share-Alike License.  That means, you are free to use,
-	copy, and modify this document provided that you provide attribution
-	to the previous copyright holders and you release your derivative work 
-	under the same license.  Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
+	\item {\bf Repeat step 2.}
+\end{enumerate}
 
-	If you modify this document, you may add your name to the copyright list.  Also,
-	if you think your contributions would be helpful to others, consider making a pull
-	requestion, or opening an \emph{issue} at 
-	\url{https://github.com/siefkenj/IBLLinearAlgebra}
+Using this format, students are working (and happily so) most of the class. Further,
+they are especially primed to hear the insights of the instructor, having already
+invested substantially into each problem.
 
-	Content from other sources is reproduced here with permission and retains the Author's copyright.
-	Please see the footnote of each page to verify the copyright.
+This problem-set is geared towards concepts instead of computation, though some problems
+focus on simple computation.
 
+{\bf License} Unless otherwise mentioned, pages of this document are licensed under
+the Creative Commons By-Attribution Share-Alike License. That means, you are free
+to use, copy, and modify this document provided that you provide attribution to the
+previous copyright holders and you release your derivative work under the same license.
+Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
+
+If you modify this document, you may add your name to the copyright list. Also,
+if you think your contributions would be helpful to others, consider making a
+pull requestion, or opening an \emph{issue} at \url{https://github.com/siefkenj/IBLLinearAlgebra}
+
+Content from other sources is reproduced here with permission and retains the
+Author's copyright. Please see the footnote of each page to verify the
+copyright.
 
 \newpage
 
-
 \addcontentsline{toc}{chapter}{Lessons}
+
 
 \begin{lesson}
 	\Title{Linear Combinations}
 
-	\Heading{Textbook}
-	Section 1.1
+	\Heading{Textbook} Section 1.1
 
 	\Heading{Objectives}
 	\begin{itemize}
 		\item Internalize vectors as geometric objects representing displacements.
+
 		\item Use column vector notation to write vectors.
-		\item Relate points an vectors and be able to interpret a point as a vector and a
-			vector as a point.
+
+		\item Relate points an vectors and be able to interpret a point as
+			a vector and a vector as a point.
+
 		\item Solve simple equations involving vectors.
 	\end{itemize}
 
-	\Heading{Motivation}
-	Students have differing levels of experience with vectors. We want to establish a common
-	notation for vectors and use vector notation along with algebra to solve
-	simple questions. E.g., ``How can I get to location $X$ given that I can only walk
-	parallel to the lines $y=4x$ and $y=-x$?''
+	\Heading{Motivation} Students have differing levels of experience with vectors.
+	We want to establish a common notation for vectors and use vector notation
+	along with algebra to solve simple questions. E.g., ``How can I get to location
+	$X$ given that I can only walk parallel to the lines $y=4x$ and $y=-x$?''
+
 
 	\begin{annotation}
 		\begin{notes}
-			We will use the language
-			\emph{component of $\vec v$ in the direction $\vec u$} in
-			the future and it will be a \emph{vector}. For this reason, try
-			to refer to the entries of a column vector as coordinates
-			instead of components.
+			We will use the language \emph{component of $\vec v$ in
+			the direction $\vec u$} in the future and it will be a \emph{vector}.
+			For this reason, try to refer to the entries of a column
+			vector as coordinates instead of components.
 		\end{notes}
-	\end{annotation}
-	We will use column vector notation and the idea of equating coordinates in order to solve
-	problems.
+	\end{annotation}We will use column vector notation and the idea of equating
+	coordinates in order to solve problems.
 
 	\newpage
 \end{lesson}
-
 
 \setcounter{page}{1}
 \pagestyle{iola}
@@ -206,30 +232,33 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 	\begin{goals}
 		\Goal{Hands-on experience with vectors as displacements.}
 		\begin{itemize}
-			\item Internalize vectors as geometric objects representing displacements.
+			\item Internalize vectors as geometric objects representing
+				displacements.
+
 			\item Use column vector notation to write vectors.
+
 			\item Use pre-existing knowledge of algebra to answer vector
 				questions.
 		\end{itemize}
 	\end{goals}
 	\begin{notes}
+
 		\begin{itemize}
-			\item There are many ways to solve this problem,
-				and some might start with equations. Make them
-				draw a picture.
-			\item When the students start coming up with
-				vector equations, give them the vocabulary
-				of \emph{linear combinations} and \emph{column
-				vector notation}.
+			\item There are many ways to solve this problem, and some
+				might start with equations. Make them draw a picture.
+
+			\item When the students start coming up with vector equations,
+				give them the vocabulary of \emph{linear
+				combinations}
+				and \emph{column vector notation}.
 		\end{itemize}
 	\end{notes}
 \end{annotation}
 You are a young traveler, leaving home for the first time. Your parents
-want to help you on your journey, so just before your departure, they give
-you two gifts. Specifically, they give you two forms of transportation:
-a hover board and a magic carpet. Your parents inform you that both the
-hover board and the magic carpet have restrictions in how they operate:
-
+want to help you on your journey, so just before your departure, they give you two
+gifts. Specifically, they give you two forms of transportation: a hover board and
+a magic carpet. Your parents inform you that both the hover board and the magic carpet
+have restrictions in how they operate: 
 
 \begin{minipage}{\textwidth}
 	\vspace{.5cm}
@@ -317,7 +346,7 @@ get to the cabin with these modes of transportation, why is that the case?
 	groups of vectors. I.e., we need sets and set-builder notation. This preview of set-builder
 	notation will take some of difficulty away when we define span as a set of vectors.
 
-	In this course we will be using formal and precise langauge. Part of this lesson
+	In this course we will be using formal and precise language. Part of this lesson
 	is that there are multiple correct ways (and multiple incorrect ways) to use formal
 	language. Gone are the days of ``there's only one right answer and it is 4''!
 
@@ -547,11 +576,11 @@ argument supporting your answer.
 			\item The subset $B\subseteq \R^2$ of vectors whose first coordinate
 			is twice the second.
 				\begin{solution}
-					$\left\{\vec v\in\R^2: \vec v=\mat{a\\b}\text{ with }a=2b\right\}$
+					$\Set*{\vec v\in\R^2\given \vec v=\mat{a\\b}\text{ with }a=2b}$
 					or
-					$\left\{\vec v\in\R^2:\vec v=\mat{2t\\t}\text{ for some }t\in \R\right\}$\\
+					$\Set*{\vec v\in\R^2\given\vec v=\mat{2t\\t}\text{ for some }t\in \R}$\\
 					or
-					$\left\{\mat{a\\b}\in\R^2:a=2b\right\}$.
+					$\Set*{\mat{a\\b}\in\R^2\given a=2b}$.
 				\end{solution}
 	\end{parts}
 
@@ -1278,7 +1307,7 @@ it is not possible to do so.
 		We say the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
 		\emph{linearly dependent} if for at least one $i$,
 		\[
-			\vec v_i\in\span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+			\vec v_i\in\Span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
 			\vec v_{i+1},\ldots,\vec v_n\}.
 		\]
 		Otherwise, they are called \emph{linearly independent}.
@@ -1801,8 +1830,8 @@ examples.
 		\item $D=\{\vec x\in\R^2:\vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R\}$.
 		\item $E=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R\}$.
 		\item $F=\{\vec x\in\R^2:\vec x=t\mat{3\\1}\text{ for some }t\in\R\}$.
-		\item $G=\span\left\{\mat{1\\1}\right\}$.
-		\item $H=\span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
+		\item $G=\Span\left\{\mat{1\\1}\right\}$.
+		\item $H=\Span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 	\end{parts}
 
 \begin{lesson}
@@ -1868,7 +1897,7 @@ examples.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\span\{\vec u,\vec v,\vec w\}$.
+	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\Span\{\vec u,\vec v,\vec w\}$.
 	\begin{parts}
 		\item Describe $V$.
 			\begin{solution}
@@ -1904,7 +1933,7 @@ examples.
 	\question
 	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ (notice these vectors
 	are linearly independent) and 
-	let $P=\span\{\vec a,\vec b\}$ and $Q=\span\{\vec b,\vec c\}$.
+	let $P=\Span\{\vec a,\vec b\}$ and $Q=\Span\{\vec b,\vec c\}$.
 	\begin{parts}
 		\item Give a basis for and the dimension of $P$.
 		\item Give a basis for and the dimension of $Q$.
@@ -2254,7 +2283,7 @@ notice your group making or any questions for further pursuit.
 	\Title{Linear Transformations I}
 
 	\Heading{Textbook}
-	Section 1.2
+	Section 3.2
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -2802,7 +2831,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	The rank-nullity theorem for a matrix $A$ states
 	\[
-		\rank(A)+\nnul(A) = \#\text{ of columns in }A.
+		\Rank(A)+\Null(A) = \#\text{ of columns in }A.
 	\]
 	\end{theorem}
 
@@ -3548,7 +3577,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\begin{parts}
 		\item What are the eigenvalues of $E$?
 		\item Is $E$ invertible?
-		\item What is $\nnul(E)$, $\nnul(E-3I)$, $\nnul(E+3I)$?
+		\item What is $\Null(E)$, $\Null(E-3I)$, $\Null(E+3I)$?
 	\end{parts}
 
 	\question
