@@ -1,0 +1,45 @@
+before_install:
+  # Install makeindex, if you do not use an index you can remove this (also remove the extra makeindex call).
+  - sudo apt-get install texlive-binaries
+
+install:
+  # Silent install from conda docs
+  # https://conda.io/docs/user-guide/install/macos.html#install-macos-silent
+  # adapted using
+  # https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
+
+  # Needed to check if conda already installed
+  - export PATH="$HOME/miniconda/bin:$PATH"
+
+  # If not yet installed, obtain Miniconda
+  # and tectonic
+  # From tectonic docs
+  # https://tectonic-typesetting.github.io/en-US/install.html#the-anaconda-method
+  - if ! command -v conda > /dev/null; then
+      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+      bash miniconda.sh -b -p $HOME/miniconda -u;
+      conda config --add channels conda-forge;
+      conda config --set always_yes yes;
+      conda update --all;
+      conda install tectonic;
+    fi
+  - conda info -a
+cache:
+  directories:
+    - $HOME/miniconda
+    - $HOME/.cache/Tectonic
+script: # Change working directory each time so including files will work. Change back so the pdfs can be found for deployment. This way, building multiple files goes well.
+ - cd ./problemsets-mat223/
+ # Tectonic does not include makeindex, so that needs to be done manually.
+ - tectonic ./linearalbegra.tex --print
+ - cd ../
+   #deploy:
+   #  provider: releases
+   #  api_key:
+   #    secure: GK0T9i6YKZlKmxurW4B8lkBGCfUcehODrWA8VcuUaK4CgSYaVj2BzMJj4E7pA3Ucm76bGR9l1yWYA+RHRwg0033A8Tw54hIinAcwiuXCpRwgcVkbbxK77o8Q4g0ooRPAMePtkQrjeq1JgHN2sZUZ2CixhtCDApM8H4yaQW7bb7TmBFut/9YEfiJVBCAE0ZNjbjXSbYADRc9Zh1fy/53xJzgKC57dQnFDrnEsGlwRkrv5lQK+3Dw7ktd48pQe8C3c2LNZn052gaR0TxxzDBAyvG4nmeA17wYMvZk7UhfKYVdqUjNqwyjktvWQQDOAtWL7OrlBNfWyf5bEn1RsfsnZ7lX/3uTj1z2fQeaYcx29goSo6y7cemz+UFsuoG3ggMuD1V81xkLI82WglYnbDEd7wij5kj1+/YAliiiZtO98kLUXbyPKWq0ycmPjj1PKyiX1Gk4LMtPfvDEIdhm/uShCY+6PrOxnGPAEd+gKgA8kAdhkuZ1/IZjkbz0dQpoZgJse7V71x+cop8fvHsuFUcj/irk4qzfVkfhnKuNpMtq2z6HDvQ/GDkZKUTkNaok8rWGFGhE8TiXCoaEoWUASEQcqouQY8KHjqQT6JVgKLwsoPuA34Pb5Fb6tbFzrNT5QE7GTeoVa9GPXJ3IrKepdcRAo3I8GVEyH0rWItdWBH0tU7fo=
+   #  file:
+   #  - ./problemsets-mat223/linearalbegra.pdf
+   #  skip_cleanup: true
+   #  on:
+   #    tags: true
+   #    branch: master
