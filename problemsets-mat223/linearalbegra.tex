@@ -974,7 +974,11 @@ argument supporting your answer.
 	\begin{parts}
 		\item Describe $A$ using set-builder notation.
 			\begin{solution}
-				$\Set{a \given b}$
+				$\Set*{\vec v \in \R^2 \given \vec v = \begin{bmatrix*}[c] x \\ 2x+1\end{bmatrix*} \text{ for some } x \in \R}$
+				or
+				$\Set*{ \mat{x \\ y} \in \R^2 \given y = 2x+1 }$
+				or
+				$\Set*{  \begin{bmatrix*}[c] x \\ 2x+1\end{bmatrix*} \in \R^2 \given x \in \R}$
 			\end{solution}
 		\item Draw $A$ as a subset of $\R^2$.
 		\item Add the vectors $\vec a=\mat{-1\\-1}$, $\vec b=\mat{1\\3}$ and
@@ -1041,24 +1045,81 @@ argument supporting your answer.
 	$z=y$.
 	\begin{parts}
 		\item Write $\ell$ in vector form. Is vector form of $\ell$ unique?
-		\item Write $L$ in vector form. 
+			\begin{solution}
+				$\vec x = t \mat{1 \\ -2} + \mat{0 \\ 3}$
+
+				The vector form is not unique, as any scalar multiple of the 
+				direction vector will work in place of $\mat{1 \\ -2}$, as will
+				any other point the line passes through work in place of 
+				$\mat{0 \\3}$. For example, another point on the line is 
+				$\mat{1 \\ 1}$, so the following vector equation describes the 
+				same line: $\vec x = t \mat{-4 \\ 8} + \mat{1 \\ 1}$.
+			\end{solution}
+		\item Write $L$ in vector form.
+			\begin{solution}[inline]
+				$\vec x = t\mat{1 \\ -2 \\ -2} + \mat{0 \\ 3 \\ 3}$
+			\end{solution}
 		\item Find another vector form for $L$ where both ``$\vec d$'' and
 			``$\vec p$'' are different from before.
+			\begin{solution}
+				Again, any multiple of the direction vector will work for 
+				$\vec d$, as will any other point on the line work for 
+				$\vec p$. For example, this equation describes the same 
+				line: $\vec x = t \mat{-3 \\ 6 \\ 6} + \mat{1 \\ 1 \\ 1}$.
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $A$, $B$, and $C$ be given in vector form by 
-	\[\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
+	\[
+	\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
 	\qquad \overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}
 	\qquad \overbrace{\vec x=t\mat{2\\-1\\1}+\mat{1\\1\\1}}^{\displaystyle C}.
 	\]
 	\begin{parts}
 		\item Do the lines $A$ and $B$ intersect? Justify your conclusion.
+			\begin{solution}
+				Yes. In this case this is quite easy to see since 
+				$\mat{0 \\ 0 \\ 1}$ is a point on line $A$, and this same point
+				 is on line $B$ (for the value $t = -1$).
+			\end{solution}
 		\item Do the lines $A$ and $C$ intersect? Justify your conclusion.
+			\begin{solution}
+				No. In order for them to intersect, there would have to exist 
+				two real numbers $a$ and $c$ such that when substituded for $t$ 
+				in the equations of $A$ and $C$, respectively, the resulting 
+				vectors would equal. In other words, we would have to have:
+				\[
+					a\mat{1\\2\\3}+\mat{0\\0\\1} = c\mat{2\\-1\\1}+\mat{1\\1\\1}.
+				\]
+				This amounts to showing that the following system of equations 
+				has no solutions:
+				\begin{gather*}
+					a = 2c + 1 \\
+					2a = -c + 1 \\
+					3a + 1 = c + 1
+				\end{gather*}
+				The third equation tells us that $c = 3a$, which when substituted 
+				into the first equation forces $a = -\tfrac{1}{5}$ and therefore
+				$c = -\tfrac{3}{5}$. These two numbers don't satisfy the second
+				equation, however.
+			\end{solution}
 		\item Let $\vec p\neq \vec q$ and suppose
 			$X$ has vector form $\vec x=t\vec d+\vec p$ and $Y$ has
 			vector form $\vec x=t\vec d+\vec q$. Is it possible
 			that $X$ and $Y$ intersect?
+			\begin{solution}
+				Yes. This can happen for example if $\vec q$ is a point, other 
+				than $\vec p$, on the line $\vec x = t \vec d + \vec p$.
+
+				One example might be the lines
+				\[
+					\vec x = t \mat{1\\1\\1} + \mat{0\\0\\0} 
+					\qquad \text{and} \qquad
+					\vec x = t \mat{1\\1\\1} + \mat{7\\7\\7}.
+				\]
+				These two are in fact the same line, so they intersect everywhere.
+			\end{solution}
 	\end{parts}
 	
 
@@ -1112,25 +1173,93 @@ argument supporting your answer.
 
 	\question
 	Recall the lines $A$ and $B$ given in vector form by
-	\[\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
-	\qquad \overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}.
+	\[
+		\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
+		\qquad
+		\overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}.
 	\]
 	Let $\mathcal P$ the plane that contains the lines $A$ and $B$.
 	\begin{parts}
 		\item Find two direction vectors in $\mathcal P$.
+			\begin{solution}
+				The easiest ones to find are the two direction vectors we 
+				already know are in the plane---the ones from the two lines:
+				\[
+					\vec d_1 = \mat{1\\2\\3}
+					\qquad \text{and} \qquad
+					\vec d_2 = \mat{-1\\1\\1}.
+				\]
+				Note that neither of these is a multiple of the other, so they 
+				really are two unique direction vectors in $\mathcal P$.
+			\end{solution}
 		\item Write $\mathcal P$ in vector form.
+			\begin{solution}
+				We already have two direction vectors, so we just need a point
+				on the plane. We will use the point $\vec p = \mat{0\\0\\1}$ 
+				that we already know is on line $A$. This gives the vector 
+				equation:
+				\[
+					\vec x = t\vec d_1 +s\vec d_2+\vec p
+					= t \mat{1\\2\\3} + s \mat{-1\\1\\1} + \mat{0\\0\\1}.
+				\]
+			\end{solution}
 		\item Describe how vector form of a plane relates to linear
 			combinations.
+			\begin{solution}
+				The vector form of a plane says that a vector $\vec x$ is on the
+				plane exactly when it is equal to any linear combination of 
+				$\vec d_1$ and $\vec d_2$, plus $\vec p$. 
+
+				Another way of saying 
+				the same thing is that the vector $\vec x$ is on the plane
+				exactly when $\vec x - \vec p$ is equal	to some linear 
+				combination of $\vec d_1$ and $\vec d_2$.
+			\end{solution}
 		\item Write $\mathcal P$ in vector form using different
 			direction vectors and a different point.
+			\begin{solution}
+				As with the equations of lines from before, we can use any 
+				scalar multiple of either direction	vector and get the same 
+				plane. We can also use the point $\vec q = \mat{-1\\1\\2}$ 
+				that we already know is on line $B$. Here's one possibility:
+				\[
+					\vec x = t\mat{-1\\-2\\-3}+s\mat{-7\\7\\7}+\mat{-1\\1\\2}.
+				\]
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $\mathcal Q\subseteq \R^3$ be a plane with equation $x+y+z=1$.
 	\begin{parts}
 		\item Find three points in $\mathcal Q$.
+			\begin{solution}
+				There are many choices here, of course. Three natural ones are:
+				\[
+					\vec p_1 = \mat{1\\0\\0}
+					\qquad
+					\vec p_2 = \mat{0\\1\\0}
+					\qquad
+					\vec p_3 = \mat{0\\0\\1}
+				\]
+			\end{solution}
 		\item Find two direction vectors for $\mathcal Q$.
+			\begin{solution}
+				Now that we have three points on the plane, we can use the 
+				direction vectors joining any two pairs of them. For example:
+				\[
+					\vec d_1 = \vec p_1 - \vec p_2 = \mat{1\\-1\\0}
+					\qquad
+					\vec d_2 = \vec p_1 - \vec p_3 = \mat{1\\0\\-1}.
+				\]
+			\end{solution}
 		\item Write $\mathcal Q$ in vector form.
+			\begin{solution}
+				Using the point $\vec p_1$ from above, one possible answer is:
+				\[
+					\vec x = t\vec d_1 + s\vec d_2 + \vec p_1
+					= t \mat{1\\-1\\0} + s \mat{1\\0\\-1} + \mat{1\\0\\0}.
+				\]
+			\end{solution}
 	\end{parts}
 
 \section*{Span}
