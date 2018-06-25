@@ -1311,10 +1311,35 @@ argument supporting your answer.
 	Let $\ell_1\subseteq \R^2$ be the line with equation $x-y=0$ and $\ell_2\subseteq\R^2$
 	the line with equation $x-y=4$.
 	\begin{parts}
-		\item If possible, describe $\ell_1$ as a span. Otherwise explain why it's not possible.
-		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's not possible.
+		\item If possible, describe $\ell_1$ as a span. Otherwise explain why 
+			it's not possible.
+			\begin{solution}
+				$\ell_1$ is the span of the vector $\mat{1\\1}$, since a point 
+				$\mat{1\\1}$ is on this line of and only if $x = y$, which in 
+				turn is true if and only if it is a scalar multiple of $\mat{1\\1}$. 
+			\end{solution}
+		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's not 
+			possible.
+			\begin{solution}
+				This is not possible. The origin $\mat{0\\0}$ must always be in the span
+				of any set of vectors, since we can use all zeroes as the scalars in a 
+				linear combination.	But the point $\mat{0\\0}$ is not on $\ell_2$, so it 
+				cannot be described	as a span.
+			\end{solution}
 		\item Does the expression $\Span(\ell_1)$ make sense? If so, what is it? How about
 			$\Span(\ell_2)$?
+			\begin{solution}
+				Both of these expressions do make sense. One can compute the span
+				of any set of vectors, and these lines are just special set of points in $\R^2$
+				which we are already used to thinking of as vectors.
+
+				$\Span(\ell_1)$ just equals $\ell_1$, since all of the vectors on the line 
+				$\ell_1$ are already multiples of $\mat{1\\1}$, as we discovered earlier. 
+
+				$\Span(\ell_2)$ equals all of $\R^2$. It's easy to see that the vectors 
+				$v = \mat{4\\0}$ and $w = \mat{0\\-4}$ are both on $\ell_2$, and the span
+				of these two vectors alone is all of $\R^2$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -1322,21 +1347,38 @@ argument supporting your answer.
 		If $A$ and $B$ are sets of vectors, then the \emph{set sum} of $A$
 		and $B$, denoted $A+B$, is
 		\[
-			A+B=\{\vec x:\vec x=\vec a+\vec b\text{ for some }\vec a\in A\text{ and }
-			\vec b\in B\}.
+			A+B=\Set{\vec x \given \vec x=\vec a+\vec b\text{ for some }\vec a\in A\text{ and }
+			\vec b\in B}.
 		\]
 	\end{definition}
 
 	\question
-	Let $A=\left\{\mat{1\\2}\right\}$, $B=\left\{\mat{1\\1},\mat{1\\-1}\right\}$, 
-	and $\ell=\Span\left\{\mat{1\\-1}\right\}$.
+	Let $A=\Set*{\mat{1\\2}}$, $B=\Set*{\mat{1\\1},\mat{1\\-1}}$, 
+	and $\ell=\Span\Set*{\mat{1\\-1}}$.
 	\begin{parts}
 		\item Draw $A$, $B$, and $A+B$ in the same picture.
 		\item Is $A+B$ the same as $B+A$?
+			\begin{solution}
+				Yes. Since $A$ and $B$ are such small sets we could easily just
+				compute all the vectors in $A+B$ and $B+A$ and see that they're 
+				equal. However, we know from elementary school that real numbers 
+				can be added up in any order, and the coordinates of an element of 
+				$A+B$ or $B+A$ are simply sums of the corresponding coordinates of 
+				elements of $A$ and $B$. 
+			\end{solution}
 		\item Draw $\ell+A$.
 		\item Consider the line $\ell_2$ given in vector form by $\vec x=t\mat{1\\-1}+\mat{1\\2}$.
 			Can $\ell_2$ be described using only a span? What about using a span
 			and set addition?
+			\begin{solution}
+				$\ell_2$ cannot be described using only a span, for the same reason 
+				as the line $\ell_2$ in the last part of the previous exercise
+				couldn't be. We know that the origin $\mat{0\\0}$ must be an element
+				of any span, but it is not a point on $\ell_2$. 
+
+				$\ell_2$ can be described as a span plus a set addition though. 
+				Specifically, it is $\ell + A$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -1419,7 +1461,7 @@ it is not possible to do so.
 	\item Is there anywhere in this 3D world that Gauss
 	  could hide from you? If so, where? If not, why not?
 
-	\item What is $\Span \left\{\mat{1 \\1 \\  1},\mat{6 \\3 \\ 8},\mat{4  \\1 \\ 6} \right\}$?
+	\item What is $\Span \Set*{\mat{1 \\1 \\  1},\mat{6 \\3 \\ 8},\mat{4  \\1 \\ 6}}$?
 
 \end{enumerate}
 
@@ -1433,8 +1475,8 @@ it is not possible to do so.
 		We say the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
 		\emph{linearly dependent} if for at least one $i$,
 		\[
-			\vec v_i\in\Span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
-			\vec v_{i+1},\ldots,\vec v_n\}.
+			\vec v_i\in\Span\Set{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+			\vec v_{i+1},\ldots,\vec v_n}.
 		\]
 		Otherwise, they are called \emph{linearly independent}.
 	\end{definition}
@@ -1443,16 +1485,27 @@ it is not possible to do so.
 		Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
 	\begin{parts}
 		\item Describe $\Span\{\vec u,\vec v,\vec w\}$.
-		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?  Why or why not?
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent? Why or why not?
+			\begin{solution}
+				No. It's easy to see that $\vec w=\vec u+\vec v$, and so
+				$\vec w \in \Span\Set{\vec u, \vec v}$.
+			\end{solution}
 	\end{parts}
 
-	Let $X=\{\vec u,\vec v,\vec w\}$.
+	Let $X=\Set{\vec u,\vec v,\vec w}$.
 
 	\begin{parts}[resume]
 		\item Give a subset $Y\subseteq X$ so that $\Span Y=\Span X$ and $Y$ is
-		linearly independent.
+			linearly independent.
+			\begin{solution}
+				One $Y$ that works is $Y = \Set{\vec u,\vec v}$. 
+			\end{solution}
 		\item Give a subset $Z\subseteq X$ so that $\Span Z=\Span X$ and $Z$ is
-		linearly independent and $Z\neq Y$.
+			linearly independent and $Z\neq Y$.
+			\begin{solution}
+				$Z = \Set{\vec u, \vec w}$ and $Z = \Set{\vec v, \vec w}$ both have 
+				the same span as $Y$ above.
+			\end{solution}
 	\end{parts}
 
 
@@ -1466,12 +1519,30 @@ it is not possible to do so.
 		Recall $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
 	\begin{parts}
 		\item Consider the linearly dependent 
-		set $\{\vec u,\vec v,\vec w\}$ (where $\vec u,\vec v,\vec w$
-		are defined as above).  Can you write $\vec 0$
-		as a non-trivial linear combination of vectors in this set?
-		\item Consider the linearly independent 
-		set $\{\vec u,\vec v\}$.  Can you write $\vec 0$
-		as a non-trivial linear combination of vectors in this set?
+			set $\Set{\vec u,\vec v,\vec w}$ (where $\vec u,\vec v,\vec w$ are 
+			defined as above). Can you write $\vec 0$ as a non-trivial linear 
+			combination of vectors in this set?
+			\begin{solution}[inline]
+				$\vec 0 = \vec u + \vec v - \vec w$. 
+			\end{solution}
+		\item Consider the linearly independent set $\Set{\vec u,\vec v}$. 
+			Can you write $\vec 0$ as a non-trivial linear combination of 
+			vectors in this set?
+			\begin{solution}
+				No. If we could do that, it would look like:
+				\[
+					a_1 \vec u + a_2 \vec v = \vec 0.
+				\]
+				Since neither of $\vec u$ or $\vec v$ is the zero vector, 
+				this would mean neither of $a_1$ or $a_2$ is zero. But
+				then we could rearrange the equation above to this:
+				\[
+					\vec u = \frac{a_2}{a_1} \vec v,
+				\]
+				which is impossible since $\Set{\vec u, \vec v}$ is linearly
+				independent. 
+
+			\end{solution}
 	\end{parts}
 
 
@@ -1512,11 +1583,54 @@ it is not possible to do so.
 	\question
 	\begin{parts}
 		\item Explain how this new definition implies the old one.
+			\begin{solution}
+				Suppose the vectors $\vec v_1, \vec v_2, \dots, \vec v_n$ is 
+				linearly dependent in this new sense. That means there are 
+				scalars	$a_1, a_2, \dots, a_n$, at least one of which is not 
+				zero, such that
+				\[
+					a_1 \vec v_1 + \cdots + a_n \vec v_n = 0.
+				\]
+				For the sake of example, let's suppose that $a_1$ is not zero. 
+				Then we can divide by it and rearrange this equation to this:
+				\[
+					\vec v_1=\frac{a_2}{a_1}\vec v_2 +cdots+\frac{a_n}{a_1}\vec v_n,
+				\]
+				which means that $v_1$ is in $\Span\Set{\vec v_2, \dots, \vec v_n}$. 
+				This is precisely the old definition of linear dependence.
+			\end{solution}
 		\item Explain how the old definition implies this new one.
+			\begin{solution}
+				Suppose that $\vec v_1, \vec v_2, \dots, \vec v_n$ are linearly 
+				dependent according to the old definition. One way this can 
+				happen is if one of the	$\vec v_i$ equals the zero vector, 
+				since $\vec 0$ is in the span of any set of vectors. If for 
+				example $\vec v_1 = \vec 0$, then the linear combination
+				\[
+					7 \vec v_1 + 0 \vec v_2 + \cdots 0 \vec v_n
+				\]
+				is non-trivial and equals the zero vector, meaning the set of 
+				vectors is	linearly dependent according to the new definition.
+
+				On the other hand, if none of the $\vec v_i$ equal the zero 
+				vector, then the old definition says that one of the vectors is 
+				in the span of the others. For the sake of example, suppose 
+				$\vec v_1$ is in the span of $\vec v_2, \dots \vec v_n$. That 
+				means there are scalars $a_2, \dots, a_n$ such that 
+				\[
+					\vec v_1 = a_2 \vec v_2 + a_3 \vec v_3 + \cdots + a_n \vec v_n,
+				\]
+				and since $\vec v_1 \neq \vec 0$, at least one of the scalars 
+				$a_i$ must not be zero. But then
+				\[
+					\vec v_1-a_2 \vec v_2-a_3 \vec v_3-\cdots-a_n \vec v_n=\vec 0,
+				\]
+				and this linear combination is non-trivial. 
+			\end{solution}
 	\end{parts}
 
-	Since we have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
-	should be read aloud as `implies'), the two definitions
+	Since we have old def $\implies$ new def, and new def $\implies$ old def 
+	($\implies$ should be read aloud as `implies'), the two definitions
 	are \emph{equivalent} (which we write as new def $\iff$ old def).
 
 
