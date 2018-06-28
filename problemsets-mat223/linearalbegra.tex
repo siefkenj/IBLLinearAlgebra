@@ -464,7 +464,7 @@ argument supporting your answer.
 		We can define a subset using \emph{set-builder notation}.
 		That is, if $X$ is a set, we can define the subset 
 		\[
-			Y= \{a\in X:\text{some rule involving }a\},
+			Y= \Set*{a\in X \given \text{some rule involving }a},
 		\]
 		which is read ``$Y$ is the set of $a$ in $X$ {\bf such that} some rule
 		involving $a$ is true.''  If $X$ is intuitive, we may omit it and
@@ -475,10 +475,10 @@ argument supporting your answer.
 	\begin{definition}
 		Some common sets are
 		\begin{itemize}
-			\item[] $\N=\{\text{natural numbers}\} = \{\text{non-negative whole numbers}\}$.
-			\item[] $\Z=\{\text{integers}\} = \{\text{whole numbers, including negatives}\}$.
-			\item[] $\R=\{\text{real numbers}\}$.
-			\item[] $\R^n=\{\text{vectors in $n$-dimensional Euclidean space}\}$.
+			\item[] $\N=\Set{\text{natural numbers}} = \Set{\text{non-negative whole numbers}}$.
+			\item[] $\Z=\Set{\text{integers}} = \Set{\text{whole numbers, including negatives}}$.
+			\item[] $\R=\Set{\text{real numbers}}$.
+			\item[] $\R^n=\Set{\text{vectors in $n$-dimensional Euclidean space}}$.
 		\end{itemize}
 	\end{definition}
 
@@ -511,27 +511,27 @@ argument supporting your answer.
 	\begin{parts}
 		\item Which of the following statements are true?
 		\begin{enumerate}
-			\item $3\in\{1,2,3\}$.
+			\item $3\in\Set{1,2,3}$.
 				\begin{solution}[inline]True\end{solution}
-			\item $1.5\in\{1,2,3\}$.
+			\item $1.5\in\Set{1,2,3}$.
 				\begin{solution}[inline]False\end{solution}
-			\item $4\in\{1,2,3\}$.
+			\item $4\in\Set{1,2,3}$.
 				\begin{solution}[inline]False\end{solution}
-			\item ``b''$\in\{x:x\text{ is an English letter}\}$.
+			\item ``b''$\in \Set{ x \given x\text{ is an English letter}}$.
 				\begin{solution}[inline]True\end{solution}
-			\item ``\`o''$\in\{x:x\text{ is an English letter}\}$.
+			\item ``\`o''$\in \Set{x \given x\text{ is an English letter}}$.
 				\begin{solution}[inline]False\end{solution}
-			\item $\{1,2\}\subseteq \{1,2,3\}$.
+			\item $\Set{1,2} \subseteq \Set{1,2,3}$.
 				\begin{solution}[inline]True\end{solution}
-			\item For some $a\in\{1,2,3\}$, $a \geq 3$.
+			\item For some $a\in \Set{1,2,3}$, $a \geq 3$.
 				\begin{solution}[inline]True\end{solution}
-			\item For any $a\in\{1,2,3\}$, $a\geq 3$.
+			\item For any $a\in \Set{1,2,3}$, $a\geq 3$.
 				\begin{solution}[inline]False\end{solution}
-			\item $1\subseteq\{1,2,3\}$.
+			\item $1 \subseteq \Set{1,2,3}$.
 				\begin{solution}[inline]False\end{solution}
-			\item $\{1,2,3\}=\{x\in\R:1\leq x\leq 3\}$.
+			\item $\Set{1,2,3}=\Set{x\in\R \given 1\leq x\leq 3}$.
 				\begin{solution}[inline]False\end{solution}
-			\item $\{1,2,3\}=\{x\in\Z:1\leq x\leq 3\}$.
+			\item $\Set{1,2,3}=\Set{x\in\Z \given 1\leq x\leq 3}$.
 				\begin{solution}[inline]True\end{solution}
 		\end{enumerate}
 	\end{parts}
@@ -565,7 +565,7 @@ argument supporting your answer.
 	\begin{parts}
 			\item The subset $A\subseteq \R$ of real numbers larger than $\sqrt{2}$.
 				\begin{solution}
-					$\{x\in\R: x>\sqrt{2}\}$.
+					$\Set*{x\in\R \given x>\sqrt{2}}$.
 				\end{solution}
 			\item The subset $B\subseteq \R^2$ of vectors whose first coordinate
 			is twice the second.
@@ -585,8 +585,8 @@ argument supporting your answer.
 
 		\hfill\begin{minipage}{\dimexpr\textwidth-3cm}
 		\begin{itemize}
-			\item[(union)] $X\cup Y = \{a:a\in X\text{ or }a\in Y\}$.
-			\item[(intersection)] $X\cap Y = \{a: a\in X\text{ and }a\in Y\}$.
+			\item[(union)] $X\cup Y = \Set{ a \given a\in X\text{ or }a\in Y}$.
+			\item[(intersection)] $X\cap Y = \Set{ a \given a\in X\text{ and }a\in Y}$.
 		\end{itemize}
 		\end{minipage}
 	\end{definition}
@@ -607,12 +607,12 @@ argument supporting your answer.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $X=\{1,2,3\}$ and $Y=\{2,3,4,5\}$ and $Z=\{4,5,6\}$.  Compute
+	Let $X=\Set{1,2,3}$ and $Y=\Set{2,3,4,5}$ and $Z=\Set{4,5,6}$.  Compute
 	\begin{parts}
-		\item $X\cup Y$ \begin{solution}[inline]$\{1,2,3,4, 5\}$\end{solution}
-		\item $X\cap Y$ \begin{solution}[inline]$\{2,3\}$\end{solution}
-		\item $X\cup Y\cup Z$ \begin{solution}[inline]$\{1,2,3,4,5, 6\}$\end{solution}
-		\item $X\cap Y\cap Z$ \begin{solution}[inline]$\emptyset=\{\}$\end{solution}
+		\item $X\cup Y$ \begin{solution}[inline]$\Set{1,2,3,4,5}$\end{solution}
+		\item $X\cap Y$ \begin{solution}[inline]$\Set{2,3}$\end{solution}
+		\item $X\cup Y\cup Z$ \begin{solution}[inline]$\Set{1,2,3,4,5,6}$\end{solution}
+		\item $X\cap Y\cap Z$ \begin{solution}[inline]$\emptyset=\Set{}$\end{solution}
 	\end{parts}
 
 
@@ -672,9 +672,9 @@ argument supporting your answer.
 	\end{annotation}
 	Draw the following subsets of $\R^2$.
 	\begin{parts}
-		\item $V=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}0\\t\end{bmatrix}\text{ for some }t\in\R\right\}$.
-		\item $H=\left\{\vec x\in\R^2:\vec x=\begin{bmatrix}t\\0\end{bmatrix}\text{ for some }t\in\R\right\}$.
-		\item $D=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for some }t\in\R\right\}$.
+		\item $V=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ for some }t\in\R}$.
+		\item $H=\Set*{\vec x\in\R^2 \given \vec x=\mat{t\\0}\text{ for some }t\in\R}$.
+		\item $D=\Set*{\vec x\in\R^2 \given \vec x=t\mat{1\\1}\text{ for some }t\in\R}$.
 		\begin{solution}
 	\begin{tikzpicture}[scale=1.2, >=latex]
     \begin{axis}[scale=1,
@@ -702,9 +702,9 @@ argument supporting your answer.
     \end{axis}
 \end{tikzpicture}
 		\end{solution}
-		\item $N=\left\{\vec x\in\R^2:\vec x=t\begin{bmatrix}1\\1\end{bmatrix}\text{ for all }t\in\R\right\}$.
+		\item $N=\Set*{\vec x\in\R^2 \given \vec x=t\mat{1\\1}\text{ for all }t\in\R}$.
 				\begin{solution}[inline]
-			$N=\{\}$.
+			$N=\Set{}$.
 		\end{solution}
 
 		\item $V\cup H$.
@@ -713,7 +713,7 @@ argument supporting your answer.
 		\end{solution}
 		\item $V\cap H$.
 			\begin{solution}[inline]
-				$V\cap H=\{\vec 0\}$ is just the origin.
+				$V\cap H=\Set{\vec 0}$ is just the origin.
 		\end{solution}
 		\item Does $V\cup H=\R^2$?
 			\begin{solution}
@@ -757,45 +757,50 @@ argument supporting your answer.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\vec v_1=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec v_2=\begin{bmatrix}1\\-1\end{bmatrix}$, and $\vec w=2\vec v_1+\vec v_2$.
+	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec w=2\vec v_1+\vec v_2$.
 	\begin{parts}
-		\item Write $\vec w$ as a column vector. When $\vec w$ is written as a linear combination of $\vec v_1$ and $\vec v_2$, what
-			are the coefficients of $\vec v_1$ and $\vec v_2$?
-		\begin{solution}
-			$\vec w=\mat{3\\2}$; the coefficients are $(2,1)$.
-		\end{solution}
+		\item Write $\vec w$ as a column vector. When $\vec w$ is written as a 
+			linear combination of $\vec v_1$ and $\vec v_2$, what are the 
+			coefficients of $\vec v_1$ and $\vec v_2$?
+			\begin{solution}
+				$\vec w=\mat{3\\2}$; the coefficients are $(2,1)$.
+			\end{solution}
 		\item Is $\mat{3\\3}$ a linear combination of $\vec v_1$ and $\vec v_2$?
-		\begin{solution}[inline]
-			Yes. $\mat{3\\3}=3\vec v_1+0\vec v_2$.
-		\end{solution}
+			\begin{solution}[inline]
+				Yes. $\mat{3\\3}=3\vec v_1+0\vec v_2$.
+			\end{solution}
 
 		\item Is $\mat{0\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
-		\begin{solution}[inline]
-			Yes. $\vec 0=0\vec v_1+0\vec v_2$.
-		\end{solution}
+			\begin{solution}[inline]
+				Yes. $\vec 0=0\vec v_1+0\vec v_2$.
+			\end{solution}
 		\item Is $\mat{4\\0}$ a linear combination of $\vec v_1$ and $\vec v_2$?
-		\begin{solution}[inline]
-			Yes. $\mat{4\\0}=2\vec v_1+2\vec v_2$.
-		\end{solution}
+			\begin{solution}[inline]
+				Yes. $\mat{4\\0}=2\vec v_1+2\vec v_2$.
+			\end{solution}
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
 		$\vec v_1$ and $\vec v_2$?
-		\begin{solution}
-			No. $\mat{1\\0}=\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2$ and
-			 $\mat{0\\1}=\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2$. Therefore
-			 \[
-				 \mat{a\\b}=a\mat{1\\0}+b\mat{0\\1} = a(\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2)
-				 +b(\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2)
-				 =(\tfrac{a+b}{2})\vec v_1+(\tfrac{a-b}{2})\vec v_2.
-			\]
-			Therefore any vector in $\R^2$ can be written as linear combinations
-			of $\vec v_1$ and $\vec v_2$.
-		\end{solution}
+			\begin{solution}
+				No. $\mat{1\\0}=\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2$ and
+				$\mat{0\\1}=\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2$. 
+				Therefore
+				\[
+					\mat{a\\b}
+					= a\mat{1\\0}+b\mat{0\\1} 
+					= a(\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2)
+						+b(\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2)
+					=(\tfrac{a+b}{2})\vec v_1+(\tfrac{a-b}{2})\vec v_2.
+				\]
+				Therefore any vector in $\R^2$ can be written as linear combinations
+				of $\vec v_1$ and $\vec v_2$.
+			\end{solution}
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
-		$\vec v_1$?
-		\begin{solution}
-			Yes. All linear combinations of $\vec v_1$ have equal $x$ and $y$ coordinates,
-			therefore $\vec w=\mat{2\\1}$ is not a linear combination of $\vec v_1$.
-		\end{solution}
+			$\vec v_1$?
+			\begin{solution}
+				Yes. All linear combinations of $\vec v_1$ have equal $x$ and 
+				$y$ coordinates, therefore $\vec w=\mat{2\\1}$ is not a linear 
+				combination of $\vec v_1$.
+			\end{solution}
 	\end{parts}
 
 
@@ -813,58 +818,62 @@ argument supporting your answer.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Recall the \emph{Magic Carpet Ride} task where the hover board could travel in the direction
-	$\vec h=\mat{3\\1}$ and the magic carpet could move in the direction $\vec m=\mat{1\\2}$.
+	Recall the \emph{Magic Carpet Ride} task where the hover board could 
+	travel in the direction $\vec h=\mat{3\\1}$ and the magic carpet could 
+	move in the direction $\vec m=\mat{1\\2}$.
 	\begin{parts}
-		\item Rephrase the sentence \emph{``Gauss can be reached using just the magic carpet and the 
-			hover board''} using formal mathematical language.
+		\item Rephrase the sentence \emph{``Gauss can be reached using just the 
+			magic carpet and the hover board''} using formal mathematical 
+			language.
 			\begin{solution}
-				Gauss's location can be written as a linear combination of $\vec m$ and $\vec h$.
+				Gauss's location can be written as a linear combination of 
+				$\vec m$ and $\vec h$.
 			\end{solution}
-		\item Rephrase the sentence \emph{``There is nowhere Gauss can hide where he is inaccessible
-			by magic carpet and hover board''} using formal mathematical language.
+		\item Rephrase the sentence \emph{``There is nowhere Gauss can hide 
+			where he is inaccessible by magic carpet and hover board''} using 
+			formal mathematical language.
 			\begin{solution}
-				Every vector in $\R^2$ can be written as a linear combination of $\vec m$ and
-				$\vec h$.
+				Every vector in $\R^2$ can be written as a linear combination 
+				of $\vec m$ and	$\vec h$.
 			\end{solution}
-		\item Rephrase the sentence \emph{``$\R^2$ is the set of all linear combinations of $\vec h$ and $\vec m$''}
-			using formal mathematical language.
+		\item Rephrase the sentence \emph{``$\R^2$ is the set of all linear 
+			combinations of $\vec h$ and $\vec m$''} using formal mathematical 
+			language.
 			\begin{solution}
-				$\R^2=\{\vec v:\vec v=t\vec m+s\vec h\text{ for some }t,s\in \R\}$.
+				$\R^2=\Set{\vec v\given \vec v=t\vec m+s\vec h\text{ for some }t,s\in \R}$.
 			\end{solution}
 	\end{parts}
 
 \begin{lesson}
-	\newpage
-	\Title{Restricted Linear Combinations, Lines}
+	\newpage \Title{Restricted Linear Combinations, Lines}
 
-	\Heading{Textbook}
-	Section 1.2
+	\Heading{Textbook} Section 1.2
 
 	\Heading{Objectives}
 	\begin{itemize}
 		\item Read and digest a new definition.
+
 		\item Use pictures to explore a new concept.
-		\item Convert from an equation-representation of a line
-			to a set-representation.
+
+		\item Convert from an equation-representation of a line to a set-representation.
 	\end{itemize}
 
-	\Heading{Motivation}
-	Part of doing math in the world is reading and understanding other people's
-	definitions. Most students will not have heard of non-negative linear combinations
-	or convex linear combinations. This is a chance for them to read and try to understand
-	these formal definitions. They will need to draw pictures to get an intuition 
-	about what these concepts mean.
+	\Heading{Motivation} Part of doing math in the world is reading and understanding
+	other people's definitions. Most students will not have heard of non-negative
+	linear combinations or convex linear combinations. This is a chance for them
+	to read and try to understand these formal definitions. They will need to
+	draw pictures to get an intuition about what these concepts mean.
 
 	These concepts are useful in their own right, and in particular, convex linear
-	combinations can be used to describe line segments. Adding these definitions to 
-	a student's toolbox serves the goal of \emph{being able to describe the world with
-	mathematics}.
+	combinations can be used to describe line segments. Adding these definitions
+	to a student's toolbox serves the goal of \emph{being able to describe
+	the world with mathematics}.
 
 	To that end, we start working with lines. Lines are something students have
-	used since grade school, but they worked with them in $y=mx+b$ form which is
-	only applicable in $\R^2$. We want to convert this representation into
-	vector form and set-based descriptions which apply to all dimensions.
+	used since grade school, but they worked with them in $y=mx+b$ form which
+	is only applicable in $\R^{2}$. We want to convert this representation
+	into vector form and set-based descriptions which apply to all
+	dimensions.
 
 	\newpage
 \end{lesson}
@@ -912,7 +921,7 @@ argument supporting your answer.
 	\end{annotation}
 	Let
 	\[
-		\vec a=\mat{1\\1}\qquad \vec b=\mat{-1\\1}\qquad \vec c=\mat{0\\1}\qquad\vec d=\mat{0\\2}\qquad\vec e=\mat{-1\\-1}.
+		\vec a=\mat{1\\1} \qquad \vec b=\mat{-1\\1}\qquad \vec c=\mat{0\\1}\qquad\vec d=\mat{0\\2}\qquad\vec e=\mat{-1\\-1}.
 	\]
 	\begin{parts}
 		\item Out of $\vec a$, $\vec b$, $\vec c$, $\vec d$, and $\vec e$, which
@@ -973,10 +982,26 @@ argument supporting your answer.
 	Let $A$ be the set of points $(x,y)\in\R^2$ such that $y=2x+1$.
 	\begin{parts}
 		\item Describe $A$ using set-builder notation.
+			\begin{solution}
+				$\Set*{\vec v\in\R^2 \given \vec v=\matc{x\\2x+1}\text{ for some } x\in\R}$
+				or
+				$\Set*{\mat{x\\y}\in\R^2 \given y=2x+1}$
+				or
+				$\Set*{\matc{x\\2x+1}\in\R^2 \given x\in\R}$
+			\end{solution}
 		\item Draw $A$ as a subset of $\R^2$.
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item Add the vectors $\vec a=\mat{-1\\-1}$, $\vec b=\mat{1\\3}$ and
 			$\vec d=\vec b-\vec a$ to your drawing.
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item For which $t\in\R$ is it true that $\vec a+t\vec d\in A$? Explain using your picture.
+			\begin{solution}
+				XXXX
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -1038,24 +1063,88 @@ argument supporting your answer.
 	$z=y$.
 	\begin{parts}
 		\item Write $\ell$ in vector form. Is vector form of $\ell$ unique?
-		\item Write $L$ in vector form. 
+			\begin{solution}
+				$\vec x = t \mat{1 \\ -2} + \mat{0 \\ 3}$
+
+				The vector form is not unique, as any non-zero scalar multiple of 
+				the direction vector will work in place of $\mat{1 \\ -2}$, as 
+				will any other point the line passes through work in place of 
+				$\mat{0 \\3}$. For example, another point on the line is 
+				$\mat{1 \\ 1}$, so the following vector equation describes the 
+				same line: $\vec x = t \mat{-4 \\ 8} + \mat{1 \\ 1}$.
+			\end{solution}
+		\item Write $L$ in vector form.
+			\begin{solution}[inline]
+				$\vec x = t\mat{1 \\ -2 \\ -2} + \mat{0 \\ 3 \\ 3}$
+			\end{solution}
 		\item Find another vector form for $L$ where both ``$\vec d$'' and
 			``$\vec p$'' are different from before.
+			\begin{solution}
+				$\vec x = t \mat{-3 \\ 6 \\ 6} + \mat{1 \\ 1 \\ 1}$.
+
+				Again, any non-zero scalar multiple of the direction vector 
+				will work for $\vec d$, as will any other point on the line 
+				work for $\vec p$. 
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $A$, $B$, and $C$ be given in vector form by 
-	\[\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
+	\[
+	\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
 	\qquad \overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}
 	\qquad \overbrace{\vec x=t\mat{2\\-1\\1}+\mat{1\\1\\1}}^{\displaystyle C}.
 	\]
 	\begin{parts}
 		\item Do the lines $A$ and $B$ intersect? Justify your conclusion.
+			\begin{solution}
+				Yes. $(0)\mat{1\\2\\3}+\mat{0\\0\\1} = \mat{0\\0\\1} = (-1)\mat{-1\\1\\1}+\mat{-1\\1\\2}$.
+
+				To find the intersection, if there is one, we must solve the vector equation:
+				\[
+					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}.
+				\]
+				One solution is when $t = 0$ and $s = -1$. 
+			\end{solution}
 		\item Do the lines $A$ and $C$ intersect? Justify your conclusion.
+			\begin{solution}
+				No. the vector equation 
+				\[
+					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}.
+				\]
+				has no solutions. This is equivalent to saying that the following 
+				system of equations has no solutions:
+				\begin{gather*}
+					t = 2s + 1 \\
+					2t = -s + 1 \\
+					3t + 1 = s + 1
+				\end{gather*}
+				The third equation tells us that $s = 3t$, which when substituted 
+				into the first equation forces $t = -\tfrac{1}{5}$ and therefore
+				$s = -\tfrac{3}{5}$. These two numbers don't satisfy the second
+				equation, however.
+			\end{solution}
 		\item Let $\vec p\neq \vec q$ and suppose
 			$X$ has vector form $\vec x=t\vec d+\vec p$ and $Y$ has
 			vector form $\vec x=t\vec d+\vec q$. Is it possible
 			that $X$ and $Y$ intersect?
+			\begin{solution}
+				Yes. If $\vec q=\vec p+a\vec d$ for $a\neq 0$, then $X$ and $Y$
+				will actually be the same line, since in this case:
+				\[
+					\vec x = t\vec d+\vec q 
+					= t\vec d+(\vec p+a\vec d) 
+					= (t+a)\vec d+\vec p
+				\]
+
+				For example, the following two vector equations represent the 
+				same line.
+				\[
+					\vec x = t \mat{1\\1\\1} + \mat{0\\0\\0} 
+					\qquad \text{and} \qquad
+					\vec x = t \mat{1\\1\\1} + \mat{7\\7\\7}.
+				\]
+			\end{solution}
 	\end{parts}
 	
 
@@ -1109,25 +1198,95 @@ argument supporting your answer.
 
 	\question
 	Recall the lines $A$ and $B$ given in vector form by
-	\[\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
-	\qquad \overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}.
+	\[
+		\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
+		\qquad
+		\overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}.
 	\]
 	Let $\mathcal P$ the plane that contains the lines $A$ and $B$.
 	\begin{parts}
 		\item Find two direction vectors in $\mathcal P$.
+			\begin{solution}
+				Two possible answers are:
+				\[
+					\vec d_1 = \mat{1\\2\\3}
+					\qquad \text{and} \qquad
+					\vec d_2 = \mat{-1\\1\\1}.
+				\]
+				These are the two direction vectors we already know are in the 
+				plane---the ones from the two lines:
+				
+				Note that neither of these is a multiple of the other, so they 
+				really are two unique direction vectors in $\mathcal P$.
+			\end{solution}
 		\item Write $\mathcal P$ in vector form.
+			\begin{solution}
+				\[
+					\vec x = t\vec d_1 +s\vec d_2+\vec p
+					= t \mat{1\\2\\3} + s \mat{-1\\1\\1} + \mat{0\\0\\1}.
+				\]
+				We already have two direction vectors, so we just needed a point
+				on the plane. We used the point $\vec p = \mat{0\\0\\1}$ 
+				that we already know is on line $A$. 
+			\end{solution}
 		\item Describe how vector form of a plane relates to linear
 			combinations.
+			\begin{solution}
+				The vector form of a plane says that a vector $\vec x$ is on the
+				plane exactly when it is equal to any linear combination of 
+				$\vec d_1$ and $\vec d_2$, plus $\vec p$. 
+
+				Another way of saying 
+				the same thing is that the vector $\vec x$ is on the plane
+				exactly when $\vec x - \vec p$ is equal	to some linear 
+				combination of $\vec d_1$ and $\vec d_2$.
+			\end{solution}
 		\item Write $\mathcal P$ in vector form using different
 			direction vectors and a different point.
+			\begin{solution}
+				One possibile answer:
+				\[
+					\vec x = t\mat{-1\\-2\\-3}+s\mat{-7\\7\\7}+\mat{-1\\1\\2}.
+				\]
+				As with the equations of lines from before, we can use any 
+				non-zero scalar multiple of either direction vector and get the 
+				same plane. We also used the point $\vec q = \mat{-1\\1\\2}$ 
+				that we already knew is on line $B$. 
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $\mathcal Q\subseteq \R^3$ be a plane with equation $x+y+z=1$.
 	\begin{parts}
 		\item Find three points in $\mathcal Q$.
+			\begin{solution}
+				There are many choices here, of course. Three natural ones are:
+				\[
+					\vec p_1 = \mat{1\\0\\0}
+					\qquad
+					\vec p_2 = \mat{0\\1\\0}
+					\qquad
+					\vec p_3 = \mat{0\\0\\1}
+				\]
+			\end{solution}
 		\item Find two direction vectors for $\mathcal Q$.
+			\begin{solution}
+				Now that we have three points on the plane, we can use the 
+				direction vectors joining any two pairs of them. For example:
+				\[
+					\vec d_1 = \vec p_1 - \vec p_2 = \mat{1\\-1\\0}
+					\qquad
+					\vec d_2 = \vec p_1 - \vec p_3 = \mat{1\\0\\-1}.
+				\]
+			\end{solution}
 		\item Write $\mathcal Q$ in vector form.
+			\begin{solution}
+				Using the point $\vec p_1$ from above, one possible answer is:
+				\[
+					\vec x = t\vec d_1 + s\vec d_2 + \vec p_1
+					= t \mat{1\\-1\\0} + s \mat{1\\0\\-1} + \mat{1\\0\\0}.
+				\]
+			\end{solution}
 	\end{parts}
 
 \section*{Span}
@@ -1135,9 +1294,9 @@ argument supporting your answer.
 		The \emph{span} of a set of vectors $V$ is the set of
 		all linear combinations of vectors in $V$.  That is,
 		\[
-			\Span V = \{\vec v:\vec v=\alpha_1\vec v_1+\alpha_2\vec v_2 + \cdots 
+			\Span V = \Set{\vec v \given \vec v=\alpha_1\vec v_1+\alpha_2\vec v_2 + \cdots 
 			+\alpha_n\vec v_n\text{ for some }\vec v_1,\vec v_2,\ldots,\vec v_n\in V
-			\text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n\}.
+			\text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n}.
 		\]
 	\end{definition}
 
@@ -1179,10 +1338,35 @@ argument supporting your answer.
 	Let $\ell_1\subseteq \R^2$ be the line with equation $x-y=0$ and $\ell_2\subseteq\R^2$
 	the line with equation $x-y=4$.
 	\begin{parts}
-		\item If possible, describe $\ell_1$ as a span. Otherwise explain why it's not possible.
-		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's not possible.
-		\item Does the expression $\Span(\ell_1)$ make sense? If so, what is it? How about
-			$\Span(\ell_2)$?
+		\item If possible, describe $\ell_1$ as a span. Otherwise explain why 
+			it's not possible.
+			\begin{solution}
+				$\ell_1 = \Span\Set*{\mat{1\\1}}$, since $\mat{x\\y} \in \ell_1$ 
+				if and only if $x = y$, which in turn is true if and only if it 
+				is a scalar multiple of $\mat{1\\1}$. 
+			\end{solution}
+		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's 
+			not possible.
+			\begin{solution}
+				This is not possible. $\mat{0\\0}$ is an element of	the span of 
+				\emph{any} set of vectors, since we can use all zeroes as the 
+				scalars in a linear combination, but $\mat{0\\0} \notin \ell_2$.
+			\end{solution}
+		\item Does the expression $\Span(\ell_1)$ make sense? If so, what is it? 
+			How about $\Span(\ell_2)$?
+			\begin{solution}
+				Both of these expressions do make sense. One can compute the span
+				of any set of vectors, and these lines are just special set of 
+				points in $\R^2$ which we are already used to thinking of as vectors.
+
+				$\Span(\ell_1) = \ell_1$, since all of the vectors on 
+				the line $\ell_1$ are already multiples of $\mat{1\\1}$, as we 
+				discovered earlier. 
+
+				$\Span(\ell_2)$ equals all of $\R^2$. It's easy to see that the 
+				vectors $v = \mat{4\\0}$ and $w = \mat{0\\-4}$ are both on $\ell_2$, 
+				and the span of these two vectors alone is all of $\R^2$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -1190,21 +1374,43 @@ argument supporting your answer.
 		If $A$ and $B$ are sets of vectors, then the \emph{set sum} of $A$
 		and $B$, denoted $A+B$, is
 		\[
-			A+B=\{\vec x:\vec x=\vec a+\vec b\text{ for some }\vec a\in A\text{ and }
-			\vec b\in B\}.
+			A+B=\Set{\vec x \given \vec x=\vec a+\vec b\text{ for some }\vec a\in A\text{ and }
+			\vec b\in B}.
 		\]
 	\end{definition}
 
 	\question
-	Let $A=\left\{\mat{1\\2}\right\}$, $B=\left\{\mat{1\\1},\mat{1\\-1}\right\}$, 
-	and $\ell=\Span\left\{\mat{1\\-1}\right\}$.
+	Let $A=\Set*{\mat{1\\2}}$, $B=\Set*{\mat{1\\1},\mat{1\\-1}}$, 
+	and $\ell=\Span\Set*{\mat{1\\-1}}$.
 	\begin{parts}
 		\item Draw $A$, $B$, and $A+B$ in the same picture.
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item Is $A+B$ the same as $B+A$?
+			\begin{solution}
+				Yes. Since $A$ and $B$ are such small sets we could just
+				compute all the vectors in $A+B$ and $B+A$ and see that they're 
+				equal. However, we know that real numbers can be added up in any 
+				order, and the coordinates of an element of $A+B$ or $B+A$ are 
+				simply sums of the corresponding coordinates of elements of $A$ and $B$. 
+			\end{solution}
 		\item Draw $\ell+A$.
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item Consider the line $\ell_2$ given in vector form by $\vec x=t\mat{1\\-1}+\mat{1\\2}$.
 			Can $\ell_2$ be described using only a span? What about using a span
 			and set addition?
+			\begin{solution}
+				$\ell_2$ cannot be described using only a span, for the same reason 
+				as the line $\ell_2$ in the last part of the previous exercise
+				couldn't be. We know that the origin $\mat{0\\0}$ must be an element
+				of any span, but it is not a point on $\ell_2$. 
+
+				$\ell_2$ can be described as a span plus a set addition though. 
+				Specifically, it is $\ell + A$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -1274,20 +1480,19 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 
 
 \begin{enumerate}
-	\item  Find the amounts of time on
-each mode of transportation ($c_1$, $c_2$,  and $c_3$, respectively)
-needed to go on a journey that starts and ends at home \emph{or} explain why
-it is not possible to do so.
+	\item  Find the amounts of time on each mode of transportation ($c_1$, $c_2$, 
+		and $c_3$, respectively) needed to go on a journey that starts and ends 
+		at home \emph{or} explain why it is not possible to do so.
 
 	\item Is there more than one way to make a journey that meets the
-	requirements described above? (In other words, are there different
-	combinations of times you can spend on the modes of transportation so
-	that you can get back home?) If so, how?
+		requirements described above? (In other words, are there different
+		combinations of times you can spend on the modes of transportation so
+		that you can get back home?) If so, how?
 
 	\item Is there anywhere in this 3D world that Gauss
-	  could hide from you? If so, where? If not, why not?
+		could hide from you? If so, where? If not, why not?
 
-	\item What is $\Span \left\{\mat{1 \\1 \\  1},\mat{6 \\3 \\ 8},\mat{4  \\1 \\ 6} \right\}$?
+	\item What is $\Span\Set*{\mat{1\\1\\1},\mat{6\\3\\8},\mat{4\\1\\6}}$?
 
 \end{enumerate}
 
@@ -1295,14 +1500,13 @@ it is not possible to do so.
 \newpage
 \pagestyle{siefken}
 
-
 	\newpage
 	\begin{definition}[Linearly Dependent \& Independent]
 		We say the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
 		\emph{linearly dependent} if for at least one $i$,
 		\[
-			\vec v_i\in\Span\{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
-			\vec v_{i+1},\ldots,\vec v_n\}.
+			\vec v_i\in\Span\Set{\vec v_1,\vec v_2,\ldots,\vec v_{i-1},
+			\vec v_{i+1},\ldots,\vec v_n}.
 		\]
 		Otherwise, they are called \emph{linearly independent}.
 	\end{definition}
@@ -1310,17 +1514,31 @@ it is not possible to do so.
 	\question
 		Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
 	\begin{parts}
-		\item Describe $\Span\{\vec u,\vec v,\vec w\}$.
-		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?  Why or why not?
+		\item Describe $\Span\Set{\vec u,\vec v,\vec w}$.
+			\begin{solution}
+				This is the set of all vectors in $\R^3$ with $z$-coordinate
+				equal to zero.
+			\end{solution}
+		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent? Why or why not?
+			\begin{solution}
+				No. $\vec w=\vec u+\vec v$, and so $\vec w \in \Span\Set{\vec u, \vec v}$.
+			\end{solution}
 	\end{parts}
 
-	Let $X=\{\vec u,\vec v,\vec w\}$.
+	Let $X=\Set{\vec u,\vec v,\vec w}$.
 
 	\begin{parts}[resume]
 		\item Give a subset $Y\subseteq X$ so that $\Span Y=\Span X$ and $Y$ is
-		linearly independent.
+			linearly independent.
+			\begin{solution}
+				$Y = \Set{\vec u,\vec v}$ is one example that works.
+			\end{solution}
 		\item Give a subset $Z\subseteq X$ so that $\Span Z=\Span X$ and $Z$ is
-		linearly independent and $Z\neq Y$.
+			linearly independent and $Z\neq Y$.
+			\begin{solution}
+				$Z = \Set{\vec u, \vec w}$ and $Z = \Set{\vec v, \vec w}$ both have 
+				the same span as $Y$ above.
+			\end{solution}
 	\end{parts}
 
 
@@ -1334,12 +1552,29 @@ it is not possible to do so.
 		Recall $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
 	\begin{parts}
 		\item Consider the linearly dependent 
-		set $\{\vec u,\vec v,\vec w\}$ (where $\vec u,\vec v,\vec w$
-		are defined as above).  Can you write $\vec 0$
-		as a non-trivial linear combination of vectors in this set?
-		\item Consider the linearly independent 
-		set $\{\vec u,\vec v\}$.  Can you write $\vec 0$
-		as a non-trivial linear combination of vectors in this set?
+			set $\Set{\vec u,\vec v,\vec w}$ (where $\vec u,\vec v,\vec w$ are 
+			defined as above). Can you write $\vec 0$ as a non-trivial linear 
+			combination of vectors in this set?
+			\begin{solution}[inline]
+				$\vec 0 = \vec u + \vec v - \vec w$. 
+			\end{solution}
+		\item Consider the linearly independent set $\Set{\vec u,\vec v}$. 
+			Can you write $\vec 0$ as a non-trivial linear combination of 
+			vectors in this set?
+			\begin{solution}
+				No. If we could do that, it would look like:
+				\[
+					a_1 \vec u + a_2 \vec v = \vec 0.
+				\]
+				Since neither of $\vec u$ or $\vec v$ is the zero vector, 
+				this would mean neither of $a_1$ or $a_2$ is zero. But
+				then we could rearrange the equation above to this:
+				\[
+					\vec u = \frac{a_2}{a_1} \vec v,
+				\]
+				which is impossible since $\Set{\vec u, \vec v}$ is linearly
+				independent. 
+			\end{solution}
 	\end{parts}
 
 
@@ -1380,11 +1615,54 @@ it is not possible to do so.
 	\question
 	\begin{parts}
 		\item Explain how this new definition implies the old one.
+			\begin{solution}
+				Suppose the vectors $\vec v_1, \vec v_2, \dots, \vec v_n$ is 
+				linearly dependent in this new sense. That means there are 
+				scalars	$a_1, a_2, \dots, a_n$, at least one of which is not 
+				zero, such that
+				\[
+					a_1 \vec v_1 + \cdots + a_n \vec v_n = 0.
+				\]
+				For the sake of example, let's suppose that $a_1$ is not zero. 
+				Then we can divide by it and rearrange this equation to this:
+				\[
+					\vec v_1=\frac{a_2}{a_1}\vec v_2 +cdots+\frac{a_n}{a_1}\vec v_n,
+				\]
+				which means that $v_1$ is in $\Span\Set{\vec v_2, \dots, \vec v_n}$. 
+				This is precisely the old definition of linear dependence.
+			\end{solution}
 		\item Explain how the old definition implies this new one.
+			\begin{solution}
+				Suppose that $\vec v_1, \vec v_2, \dots, \vec v_n$ are linearly 
+				dependent according to the old definition. One way this can 
+				happen is if one of the	$\vec v_i$ equals the zero vector, 
+				since $\vec 0$ is in the span of any set of vectors. If for 
+				example $\vec v_1 = \vec 0$, then the linear combination
+				\[
+					7 \vec v_1 + 0 \vec v_2 + \cdots 0 \vec v_n
+				\]
+				is non-trivial and equals the zero vector, meaning the set of 
+				vectors is	linearly dependent according to the new definition.
+
+				On the other hand, if none of the $\vec v_i$ equal the zero 
+				vector, then the old definition says that one of the vectors is 
+				in the span of the others. For the sake of example, suppose 
+				$\vec v_1$ is in the span of $\vec v_2, \dots \vec v_n$. That 
+				means there are scalars $a_2, \dots, a_n$ such that 
+				\[
+					\vec v_1 = a_2 \vec v_2 + a_3 \vec v_3 + \cdots + a_n \vec v_n,
+				\]
+				and since $\vec v_1 \neq \vec 0$, at least one of the scalars 
+				$a_i$ must not be zero. But then
+				\[
+					\vec v_1-a_2 \vec v_2-a_3 \vec v_3-\cdots-a_n \vec v_n=\vec 0,
+				\]
+				and this linear combination is non-trivial. 
+			\end{solution}
 	\end{parts}
 
-	Since we have old def $\implies$ new def, and new def $\implies$ old def ($\implies$
-	should be read aloud as `implies'), the two definitions
+	Since we have old def $\implies$ new def, and new def $\implies$ old def 
+	($\implies$ should be read aloud as `implies'), the two definitions
 	are \emph{equivalent} (which we write as new def $\iff$ old def).
 
 
@@ -1395,8 +1673,20 @@ it is not possible to do so.
 		\vec a = 2\vec u+\vec v -\vec w.
 	\]
 	\begin{parts}
-		\item Could the set $\{\vec u,\vec v,\vec w\}$ be linearly
+		\item Could the set $\Set{\vec u,\vec v,\vec w}$ be linearly
 		independent?
+			\begin{solution}
+				No. If both equations are true, they would combine to show
+				\[
+					3\vec u+2\vec v +\vec w = 2\vec u+\vec v -\vec w.
+				\]
+				Collecting all the terms on the left side, we get:
+				\[
+					\vec u + \vec v + 2\vec w = \vec 0,
+				\]
+				which is a non-trivial linear combination of vectors in the given
+				set equalling the zero vector.
+			\end{solution}
 	\end{parts}
 	Suppose that
 	\[
@@ -1404,9 +1694,31 @@ it is not possible to do so.
 	\]
 	is the \emph{only} way to write $\vec a$ using $\vec u,\vec r,\vec s$.
 	\begin{parts}[resume]
-		\item Is $\{\vec u,\vec r,\vec s\}$ linearly independent?
-		\item Is $\{\vec u,\vec r\}$ linearly independent?
-		\item Is $\{\vec u,\vec v,\vec w,\vec r\}$ linearly independent?
+		\item Is $\Set{\vec u,\vec r,\vec s}$ linearly independent?
+			\begin{solution}
+				Yes. If it were not, there would exist scalars $a_1, a_2, a_3$, 
+				not all of which are zero, such that:
+				\[
+					a_1 \vec u + a_2 \vec r + a_3\vec s = \vec 0.
+				\]
+				But then 
+				\[
+					\vec u+6\vec r-\vec s + (a_1 \vec u + a_2 \vec r + a_3\vec s)
+				\]
+				would be another way to write $\vec a$ using only the same three
+				vectors. 
+			\end{solution}
+		\item Is $\Set{\vec u,\vec r}$ linearly independent?
+			\begin{solution}
+				Yes. If it were not, we would necessarily have $\vec u = a \vec r$
+				for some scalar $a$. But then 
+				\[
+					(a + 6) \vec r - \vec s
+				\]
+				would be another way to write $\vec a$ using only the same three
+				vectors. 
+			\end{solution}
+		\item Is $\Set{\vec u,\vec v,\vec w,\vec r}$ linearly independent?
 	\end{parts}
 
 
@@ -1494,32 +1806,62 @@ examples.
 	\end{definition}
 
 	\begin{definition}[Dot Product]
-	If $\vec a=\begin{bmatrix}a_1\\ a_2\\ \vdots \\ a_n\end{bmatrix}$ and 
-	$\vec b=\begin{bmatrix}b_1\\ b_2\\ \vdots \\ b_n\end{bmatrix}$ are two vectors in $n$-dimensional
+		If $\vec a=\mat{a_1\\a_2\\ \vdots\\a_n}$ and 
+		$\vec b=\mat{b_1\\b_2\\ \vdots\\b_n}$ are two vectors in $n$-dimensional 
 		space, then the \emph{dot product} of $\vec a$ an $\vec b$ is
-	\[
-		\vec a\cdot\vec b = a_1b_1+a_2b_2+\cdots+a_nb_n.
-	\]
-	Equivalently, the dot product is defined by the geometric formula
-	\[
-		\vec a\cdot \vec b = \|\vec a\|\|\vec b\|\cos \theta
-	\]
-	where $\theta$ is the angle between $\vec a$ and $\vec b$.
+		\[
+			\vec a\cdot\vec b = a_1b_1+a_2b_2+\cdots+a_nb_n.
+		\]
+		Equivalently, the dot product is defined by the geometric formula
+		\[
+			\vec a\cdot \vec b = \|\vec a\|\|\vec b\|\cos \theta
+		\]
+		where $\theta$ is the angle between $\vec a$ and $\vec b$.
 	\end{definition}
 	
 	\question
-		Let $\vec a=\begin{bmatrix}1\\1\end{bmatrix}$, $\vec b=\begin{bmatrix}3\\2\end{bmatrix}$, and $\vec u=\begin{bmatrix}1\\2\\1\end{bmatrix}$.
+		Let $\vec a=\mat{1\\1}$, $\vec b=\mat{3\\2}$, and $\vec u=\mat{1\\2\\1}$.
 	\begin{parts}
 		\item 
 		\begin{enumerate}	
 			\item Draw a picture of $\vec a $ and $\vec b$.
+				\begin{solution}
+					XXXX
+				\end{solution}
 			\item Compute $\vec a\cdot \vec b$.
+				\begin{solution}[inline]
+					$\vec a\cdot \vec b = (1)(3) + (1)(2) = 5$.
+				\end{solution}
 			\item Find $\|\vec a\|$ and $\|\vec b\|$ and use your knowledge of
 			the multiple ways to compute the dot product to find $\theta$,
 			the angle between $\vec a$ and $\vec b$. Label $\theta$ on your picture.
+				\begin{solution}
+					$\|\vec a\| = \sqrt{(1)^2 + (1)^2} = \sqrt{2}$ and 
+					$\|\vec b\| = \sqrt{(3)^2 + (2)^2} = \sqrt{13}$.
+
+					Using the two definitions of the dot product we have:
+					\begin{align*}
+						\vec a\cdot \vec b &= \|\vec a\|\|\vec b\|\cos \theta \\
+						\implies 5 &= (\sqrt{2})(\sqrt{13}) \cos \theta \\
+						\implies \theta &= \arccos\left( \frac{5}{\sqrt{26}}\right)
+					\end{align*}
+				\end{solution}
 		\end{enumerate}
-		\item Draw the graph of $\cos$ and identify which angles make $\cos$ negative, zero,
-		or positive.
+		\item Draw the graph of $\cos$ and identify which angles make $\cos$ 
+			negative, zero,	or positive.
+			\begin{solution}
+				INSERT GRAPH HERE
+
+				\
+
+				$\cos$ is positive for angles in the interval $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$,
+				as well as all shifts of this interval by a multiple of $2\pi$ in
+				either direction. 
+
+				$\cos$ is positive for angles in the interval $\left(\frac{\pi}{2},\frac{3\pi}{2}\right)$,
+				as well as all shifts of this interval by a multiple of $2\pi$ in
+				either direction.  
+			\end{solution}
 
 		\item Draw a new picture of $\vec a$ and $\vec b$ and on that picture draw
 		\begin{enumerate}	
@@ -1527,17 +1869,67 @@ examples.
 			\item a vector $\vec d$ where $\vec d\cdot \vec a=0$ and $\vec d\cdot \vec b < 0$.
 			\item a vector $\vec e$ where $\vec e\cdot \vec a=0$ and $\vec e\cdot \vec b>0$.
 			\item Could you find a vector $\vec f$ where $\vec f\cdot \vec a=0$ and $\vec f\cdot \vec b=0$?
-			Explain why or why not.
+				Explain why or why not.
+				\begin{solution}
+					INSERT A PICTURE HERE
+
+					\ 
+
+					(d) $\vec f = \vec 0$ is the only possibility. For any vector 
+					$\vec f = \mat{x\\y}$, we can compute:
+					\[
+						\vec f\cdot \vec a = x + y 
+						\qquad \text{and} \qquad
+						\vec f\cdot \vec b = 3x + 2y.
+					\]
+					If these both equal zero, the first equation says that $y = -x$,
+					and in turn the second one says $x = 0$ (and so $y = 0$ as well).
+				\end{solution}
 		\end{enumerate}
 
 		\item Recall the vector $\vec u$ whose coordinates are given at the beginning of this problem.
 		\begin{enumerate}
-			\item Write down a vector $\vec v$ so that the angle between $\vec u$ and $\vec v$
-			is $\pi/2$. (Hint, how does this relate to the dot product?)
-			\item Write down another vector $\vec w$ (in a different direction from $\vec v$)
-			so that the angle between $\vec w$ and $\vec u$ is $\pi/2$.
-			\item Can you write down other vectors different than both $\vec v$ and $\vec w$ that still
-			form an angle of $\pi/2$ with $\vec u$?  How many such vectors are there?
+			\item Write down a vector $\vec v$ so that the angle between $\vec u$ 
+				and $\vec v$ is $\pi/2$. (Hint, how does this relate to the dot 
+				product?)
+				\begin{solution}
+					$\vec v = \mat{1\\1\\-3}$ is one such vector. 
+
+					Since $\cos(\pi/2) = 0$, from the second definition of the dot 
+					product above we know we are looking for a $\vec v$ such that
+					$\vec u \cdot \vec v = 0$. Using the first definition of the 
+					dot product, we can see that the $\vec v$ given above is one 
+					possibility. 
+				\end{solution}
+			\item Write down another vector $\vec w$ (in a different direction from 
+				$\vec v$) so that the angle between $\vec w$ and $\vec u$ is $\pi/2$.
+				\begin{solution}
+					$\vec w = \mat{-1\\1\\-1}$ is a possible answer. 
+
+					$\vec u \cdot \vec w = 0$, and $\vec w$ is clearly not parallel 
+					to $\vec v$ from above.
+				\end{solution}
+			\item Can you write down other vectors different than both $\vec v$ 
+				and $\vec w$ that still	form an angle of $\pi/2$ with $\vec u$? 
+				How many such vectors are there?
+				\begin{solution}
+					Yes. $\mat{0\\2\\-4}$ is one possibility. 
+
+					There are actually infinitely many such vectors; any linear
+					combination of $\vec w$ and $\vec v$ will work. 
+
+					To see this, note that any such vector $\vec x$ is of the form
+					\[
+						\vec x = t \mat{1\\1\\-3} + s \mat{-1\\1\\-1} 
+						= \matc{t-s\\t+s\\-3t-s},
+					\]
+					for scalars $t$ and $s$. We can then compute
+					\[
+						\vec u \cdot \vec x = (1)(t-s) + (2)(t+s) + (1)(-3t-s) = 0,
+					\]
+					and so any such vector $\vec x$ forms an angle of $\pi/2$ 
+					with $\vec u$. 
+				\end{solution}
 		\end{enumerate}
 	\end{parts}
 
@@ -1561,9 +1953,23 @@ examples.
 	Let $\vec u=\mat{1\\2\\1}$ and $\vec v=\mat{1\\1\\3}$.
 	\begin{parts}
 		\item Find the distance between $\vec u$ and $\vec v$.
+			\begin{solution}
+				$\vec u - \vec v = \mat{0\\1\\-2}$, and so $\|\vec u-\vec v\| = \sqrt{5}$. 
+			\end{solution}
 		\item Find a unit vector in the direction of $\vec u$.
+			\begin{solution}
+				$\frac{1}{\sqrt{6}} \vec u = \mat{\frac{1}{\sqrt{6}}\\\frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{6}}}$.
+
+				$\|\vec u\| = \sqrt{6}$, and so if we multiply $\vec u$ by $\frac{1}{\sqrt{6}}$,
+				the length of the resulting vector will be 1. 
+			\end{solution}
 		\item Does there exists a \emph{unit vector} $\vec x$ that is distance
 			$1$ from $\vec u$?
+			\begin{solution}
+				No. $\|\vec u\| = \sqrt{6}$, and so the shortest length that a
+				vector whose distance from $\vec u$ is 1 can have is $\sqrt{6} - 1$, 
+				which is greater than 1. 
+			\end{solution}
 		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ and
 			$\vec u$ is $2$.  What is the angle between $\vec y$ and $\vec u$?
 	\end{parts}
