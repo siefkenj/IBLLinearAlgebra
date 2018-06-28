@@ -1970,8 +1970,29 @@ examples.
 				vector whose distance from $\vec u$ is 1 can have is $\sqrt{6} - 1$, 
 				which is greater than 1. 
 			\end{solution}
-		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ and
-			$\vec u$ is $2$.  What is the angle between $\vec y$ and $\vec u$?
+		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ 
+			and	$\vec u$ is $2$. What is the angle between $\vec y$ and $\vec u$?
+			\begin{solution}
+				The angle between them is $\arccos\left(-\frac{3}{2\sqrt{6}}\right)$. 
+
+				\
+
+				From the theorem above, we know that $2=\|\vec u-\vec y\|=\sqrt{(\vec u-\vec y)\cdot(\vec u-\vec y)}$.
+
+				Squaring both sides and distributing the dot product, we obtain
+				\[
+					4 = \vec u\cdot\vec u - 2\vec u\cdot\vec y + \vec y\cdot\vec y
+					= \|\vec u\|^2 - 2\vec u\cdot\vec y + \|\vec y\|^2
+					= 6 - 2\vec u\cdot\vec y + 1,
+				\]
+				and rearrange to find that $\vec u\cdot \vec y = -\frac{3}{2}$.
+
+				Using this in the second definition of the dot product, we see:
+				\[
+					-\frac{3}{2} = \left(\sqrt{6}\right)(1) \cos \theta,
+				\]
+				where $\theta$ is the angle between $\vec u$ and $\vec y$. 
+			\end{solution}
 	\end{parts}
 
 
