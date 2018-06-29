@@ -1988,7 +1988,7 @@ examples.
 			\begin{solution}
 				Two such vectors are $\mat{3\\1}$ and $\mat{-6\\-2}$. 
 
-				It is not possible to find two non-parallel vectors that are both 
+				It is impossible for two non-parallel vectors to both be
 				orthogonal to $\vec a$. If $\vec b = \mat{x\\y}$ is orthogonal to
 				$\vec a$, then we must have that $x - 3y = 0$, or in other words 
 				that $x = 3y$. Any $\vec b$ satisfying this is a multiple of 
@@ -2002,7 +2002,7 @@ examples.
 				These two vectors are not parallel. 
 			\end{solution}
 		\item Suppose $\vec x$ and $\vec y$ are orthogonal to each other and 
-			$\|\vec x\|=5$ and $\|\vec y\|=3$. What is the distance between 
+			$\norm{\vec x}=5$ and $\norm{\vec y}=3$. What is the distance between 
 			$\vec x$ and $\vec y$?
 			\begin{solution}
 				The distance between them must be $\sqrt{34}$. 
@@ -2015,8 +2015,8 @@ examples.
 				An equivalent way to see this is to use what we know about dot 
 				products to calculate $\|\vec x-\vec y\|$ as follows:
 				\[
-					\|\vec x-\vec y\| = \sqrt{(\vec x-\vec y)\cdot(\vec x-\vec y)}
-					= \sqrt{\|\vec x\|^2 - 2(\vec x\cdot\vec y) + \|\vec y\|^2}
+					\norm{\vec x-\vec y} = \sqrt{(\vec x-\vec y)\cdot(\vec x-\vec y)}
+					= \sqrt{\norm{\vec x}^2 - 2(\vec x\cdot\vec y) + \norm{\vec y}^2}
 					= \sqrt{5^2 + 2(0) + 3^2},
 				\]
 				where in the last step we've used the fact that $\vec x$ and $\vec y$
