@@ -2093,16 +2093,43 @@ examples.
 	\question
 	Let $\vec d=\mat{1\\2}$ and $\vec p=\mat{1\\-1}$, and define the lines
 	\[
-		\ell_1 = \Span\{\vec d\}\qquad\text{and}\qquad \ell_2=\{\vec p\}+\Span\{\vec d\}.
+		\ell_1 = \Span\Set{\vec d}\qquad\text{and}\qquad \ell_2=\Span\Set{\vec p}+\Span\Set{\vec d}.
 	\]
 	\begin{parts}
-		\item Find a vector $\vec n$ that is a normal vector for both $\ell_1$ and
-			$\ell_2$.
-		\item Let $\vec v\in \ell_1$ and $\vec u\in \ell_2$.
+		\item Find a vector $\vec n$ that is a normal vector for both $\ell_1$
+			and	$\ell_2$.
+			\begin{solution}
+				$\vec n=\mat{2\\-1}$ is one possibility. 
+
+				This vector is orthogonal to $\vec d$, which is a direction 
+				vector for both lines.				
+			\end{solution}
+		\item Let $\vec v\in \ell_1$ and $\vec u\in \ell_2$. 
 			What is $\vec n\cdot \vec v$? What about $\vec n\cdot \vec u$?
-		\item A line is expressed in \emph{normal form} if it is represented by an
-			equation of the form $\vec n\cdot (\vec x-\vec q)=0$ for some $\vec n$ and 
-			$\vec q$. Express $\ell_1$ and $\ell_2$ in normal form.
+			\begin{solution}
+				$\vec n\cdot \vec v = 0$, since any $\vec v \in \ell_1$ is a multiple
+				of $\vec d$. 
+
+				$\vec n\cdot \vec u=3$, since any such $\vec u$ is of the form 
+				$\vec u=\vec p+t\vec d$ for some scalar $t$, and so
+				\[
+					\vec n\cdot \vec u
+					=\vec n\cdot (\vec p+t\vec d)
+					=\vec n\cdot \vec p+t(\vec n\cdot \vec d)
+					=3+t(0)
+					=3.
+				\]
+			\end{solution}
+		\item A line is expressed in \emph{normal form} if it is represented by
+			an equation of the form $\vec n\cdot (\vec x-\vec q)=0$ for some 
+			$\vec n$ and $\vec q$. Express $\ell_1$ and $\ell_2$ in normal form.
+			\begin{solution}
+				The normal form of $\ell_1$ is $\vec n\cdot \vec x=0$. 
+
+				The normal form of $\ell_2$ is $\vec n\cdot(\vec x-\vec p)=0$. 
+				In the previous part we saw that $\vec n\cdot \vec x=\vec n\cdot \vec p$
+				for all $\vec x\in \ell_2$. 
+			\end{solution}
 	\end{parts}
 	
 	\question
