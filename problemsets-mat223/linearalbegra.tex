@@ -1954,26 +1954,44 @@ examples.
 	\begin{parts}
 		\item Find the distance between $\vec u$ and $\vec v$.
 			\begin{solution}
-				$\vec u - \vec v = \mat{0\\1\\-2}$, and so $\|\vec u-\vec v\| = \sqrt{5}$. 
+				$\vec u - \vec v = \mat{0\\1\\-2}$, and so $\norm{\vec u-\vec v} = \sqrt{5}$. 
 			\end{solution}
 		\item Find a unit vector in the direction of $\vec u$.
 			\begin{solution}
 				$\frac{1}{\sqrt{6}} \vec u = \mat{\frac{1}{\sqrt{6}}\\\frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{6}}}$.
 
-				$\|\vec u\| = \sqrt{6}$, and so if we multiply $\vec u$ by $\frac{1}{\sqrt{6}}$,
+				$\norm{\vec u} = \sqrt{6}$, and so if we multiply $\vec u$ by $\frac{1}{\sqrt{6}}$,
 				the length of the resulting vector will be 1. 
 			\end{solution}
 		\item Does there exists a \emph{unit vector} $\vec x$ that is distance
 			$1$ from $\vec u$?
 			\begin{solution}
-				No. $\|\vec u\| = \sqrt{6}$, and so the shortest length that a
+				No. $\norm{\vec u} = \sqrt{6}$, and so the shortest length that a
 				vector whose distance from $\vec u$ is 1 can have is $\sqrt{6} - 1$, 
 				which is greater than 1. 
 			\end{solution}
-		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ and
-			$\vec u$ is $2$.  What is the angle between $\vec y$ and $\vec u$?
-	\end{parts}
+		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ 
+			and	$\vec u$ is $2$. What is the angle between $\vec y$ and $\vec u$?
+			\begin{solution}
+				The angle between $\vec u$ and $\vec y$ is $\arccos\left(-\frac{3}{2\sqrt{6}}\right)$. 
 
+				By assumption, $2=\norm{\vec u-\vec y}$, and so
+				\begin{align*}
+					4 &= \norm{\vec u-\vec y}^2\\
+					&= (\vec u-\vec y)\cdot(\vec u-\vec y)\\
+					&= \vec u\cdot\vec u - 2(\vec u\cdot\vec y) + \vec y\cdot\vec y\\
+					&=\norm{\vec u}^2 - 2\vec u\cdot\vec y + \norm{\vec y}^2\\
+					&=6 - 2\vec u\cdot\vec y + 1.
+				\end{align*}
+				Then we rearrange to find that $\vec u\cdot \vec y = -\frac{3}{2}$.
+
+				Using this in the second definition of the dot product, we see:
+				\[
+					-\frac{3}{2} = \left(\sqrt{6}\right)(1) \cos \theta,
+				\]
+				where $\theta$ is the angle between $\vec u$ and $\vec y$. 
+			\end{solution}
+	\end{parts}
 
 	\begin{definition}[Orthogonal]
 		Two vectors $\vec u$ and $\vec v$ are \emph{orthogonal} to each other
