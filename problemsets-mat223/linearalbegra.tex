@@ -2013,13 +2013,26 @@ examples.
 	
 	\question
 	\begin{parts}
-		\item Draw $\vec u=\begin{bmatrix}2\\3\end{bmatrix}$ and \emph{all}
-		vectors orthogonal to it. Call this set $A$.
-		\item If $\vec x=\begin{bmatrix}x\\y\end{bmatrix}$ and $\vec x$ is 
-		orthogonal to $\vec u$, what is $\vec x\cdot \vec u$?
-		\item Expand the dot product $\vec u\cdot \vec x$ to get an equation
-		for $A$.
+		\item Draw $\vec u=\mat{2\\3}$ and \emph{all} vectors orthogonal to it. 
+			Call this set $A$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item If $\vec x=\mat{x\\y}$ and $\vec x$ is orthogonal to $\vec u$, 
+			what is $\vec x\cdot \vec u$?
+			\begin{solution}[inline]
+				$\vec x\cdot \vec u = 0$, by the definition of orthogonality.
+			\end{solution}
+		\item Expand the dot product $\vec u\cdot \vec x$ to get an equation for $A$.
+			\begin{solution}
+				$A$ is the line with vector equation $\vec x = t\mat{3\\-2}$. 
+
+				If $\vec x=\mat{x\\y} \in A$, then $\vec x\cdot\vec u = 2x + 3y = 0$.
+			\end{solution}
 		\item If possible, express $A$ as a span.
+			\begin{solution}[inline]
+				$A = \Span\Set*{\mat{3\\-2}}$.
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Normal Vector]
