@@ -3134,7 +3134,31 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
 	\begin{parts}
 		\item Show that the null space of $T$ is a subspace.
+			\begin{solution}
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in\Null(T)$. Then 
+						$T(\vec u+\vec v)=T(\vec u)+T(\vec v)=\vec 0+\vec 0=\vec 0$,
+						and so $\vec u+\vec v\in\Null(T)$. 
+					\item Let $\vec u\in\Null(T)$ and let $\alpha$ be any scalar.
+						Then $T(\alpha\vec u)=\alpha T(\vec u)=\alpha\vec 0=\vec 0$,
+						and so $\alpha\vec u\in\Null(T)$.
+				\end{enumerate}
+			\end{solution}
 		\item Show that the range of $T$ is a subspace.
+			\begin{solution}
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec y,\vec z\in\Range(T)$. 
+						Then there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec y$
+						and $T(\vec v)=\vec z$. Then
+						$\vec y+\vec z=T(\vec u)+T(\vec v)=T(\vec u+\vec v)$,
+						and so $\vec y+\vec z\in\Range(T)$. 
+					\item Let $\vec y\in\Range(T)$ and let $\alpha$ be any scalar.
+						Then there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec y$,
+						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$,
+						and so $\alpha\vec y\in\Range(T)$.
+				\end{enumerate}
+
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Induced Transformation]
