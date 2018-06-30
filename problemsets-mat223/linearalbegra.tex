@@ -2353,43 +2353,44 @@ examples.
 
 		\begin{notes}
 			\begin{itemize}
-				\item Students will claim $V$ is $\R^2$ and fail to distinguish $\R^2$ and the
-					$xy$-plane in $\R^3$.
+				\item Students will claim $V$ is $\R^2$ and fail to distinguish 
+					$\R^2$ and the $xy$-plane in $\R^3$.
 				\item Parts 2, 3, 4, 6 will be easy; don't belabor them.
-				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$ from $\{\vec u,\vec v\}$. Make sure this distinction
-					comes out.
+				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$ 
+					from $\{\vec u,\vec v\}$. Make sure this distinction comes out.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\Span\{\vec u,\vec v,\vec w\}$.
+	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, 
+	and $V=\Span\Set{\vec u,\vec v,\vec w}$.
 	\begin{parts}
 		\item Describe $V$.
-			\begin{solution}
+			\begin{solution}[inline]
 				$V$ is the $xy$-plane in $\R^3$.
 			\end{solution}
-		\item Is $\{\vec u,\vec v,\vec w\}$ a basis for $V$?  Why or why not?
+		\item Is $\Set{\vec u,\vec v,\vec w}$ a basis for $V$?  Why or why not?
 			\begin{solution}
-				No. The set $\{\vec u,\vec v,\vec w\}$ is linearly dependent since $\vec w=\vec u+\vec v$.
+				No. The set $\Set{\vec u,\vec v,\vec w}$ is linearly dependent since $\vec w=\vec u+\vec v$.
 			\end{solution}
 		\item Give a basis for $V$.
-			\begin{solution}
-				$\{\vec u,\vec v\}$
+			\begin{solution}[inline]
+				$\Set{\vec u,\vec v}$.
 			\end{solution}
 		\item Give another basis for $V$.
-			\begin{solution}
-				$\{\vec u,\vec w\}$ or $\{\vec v,\vec w\}$.
+			\begin{solution}[inline]
+				$\Set{\vec u,\vec w}$ or $\Set{\vec v,\vec w}$.
 			\end{solution}
-		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
+		\item Is $\Span\Set{\vec u,\vec v}$ a basis for $V$?  Why or why not?
 			\begin{solution}
-				No. $\Span\{\vec u,\vec v\}$ is an infinite set of vectors
+				No. $\Span\Set{\vec u,\vec v}$ is an infinite set of vectors
 				which includes $\vec 0$, so it cannot be linearly independent and
 				therefore isn't a basis.
 			\end{solution}
 		\item What is the dimension of $V$?
 			\begin{solution}
-				A basis for $V$ has two vectors so it is two dimensional. We also
-				know this because $V$ is the $xy$-plane in $\R^3$ and all planes are two
-				dimensional.
+				A basis for $V$ has two vectors so it is two-dimensional. We also
+				know this because $V$ is the $xy$-plane in $\R^3$ and all planes 
+				are two-dimensional.
 			\end{solution}
 	\end{parts}
 
@@ -2397,12 +2398,25 @@ examples.
 	\question
 	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ (notice these vectors
 	are linearly independent) and 
-	let $P=\Span\{\vec a,\vec b\}$ and $Q=\Span\{\vec b,\vec c\}$.
+	let $P=\Span\Set{\vec a,\vec b}$ and $Q=\Span\Set{\vec b,\vec c}$.
 	\begin{parts}
 		\item Give a basis for and the dimension of $P$.
+			\begin{solution}
+				$\Set{\vec a,\vec b}$ is a basis for $P$, and so its dimension is 2. 
+			\end{solution}
 		\item Give a basis for and the dimension of $Q$.
+			\begin{solution}
+				$\Set{\vec b,\vec c}$ is a basis for $Q$, and so its dimension is 2. 
+			\end{solution}
 		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
+			\begin{solution}
+				Yes. $\Set{\vec b}$ is a basis for $P\cap Q$, and so its dimension is 1. 
+			\end{solution}
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
+			\begin{solution}
+				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but 
+				$\vec a+\vec c \notin P \cup Q$.
+			\end{solution}
 	\end{parts}
 
 
@@ -2437,22 +2451,65 @@ examples.
 	Let $A=\mat{1&2\\3&3}$, $\vec x=\mat{x\\y}$, and $\vec b=\mat{-2\\-1}$.
 	\begin{parts}
 		\item Compute the product $A\vec x$.
+			\begin{solution}
+				$A \vec x = \mat{x+2y\\3x+3y}$.
+			\end{solution}
 		\item Write down a system of equations that corresponds to the matrix equation
 			$A\vec x=\vec b$.
+			\begin{solution}
+				\begin{align*}
+					x + 2y &= -2 \\
+					3x + 3y &= -1
+				\end{align*}
+			\end{solution}
 		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
 			$x_0$ and $y_0$ mean in terms of \emph{linear combinations} (hint: think
 			about the columns of $A$).
+			\begin{solution}
+				$x_0$ and $y_0$, when used as scalars in a linear combination of
+				the columns of $A$, make the vector $\vec b$. In other words:
+				\[
+					x_0 \mat{1\\3} + y_0 \mat{2\\3} = \mat{-2\\-1}.
+				\]
+			\end{solution}
 		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
 			$x_0$ and $y_0$ mean in terms of \emph{intersecting lines} (hint: think
 			about systems of equations).
+			\begin{solution}
+				The lines represented by the equations in the system above intersect
+				at the point $\mat{x_0\\y_0}$.
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $\vec u=\mat{1\\2\\3}$, $\vec v=\mat{4\\5\\6}$, $\vec w=\mat{7\\8\\9}$.
 	\begin{parts}
-		\item How could you determine if $\{\vec u,\vec v,\vec w\}$ was a linearly
+		\item How could you determine if $\Set{\vec u,\vec v,\vec w}$ was a linearly
 			independent set?
+			\begin{solution}
+				The set is is linearly independent if and only if the only linear
+				combination	of them that equals $\vec 0$ is the trivial one. That
+				is, if $x, y, z$ are scalars such that $x\vec u+y\vec v+z\vec w = \vec 0$,
+				then $x=y=z=0$.
+
+				In other words, the only solution of the following
+				system of equations is $x=y=z=0$.
+				\begin{align*}
+					x + 4y + 7z &= 0 \\
+					2x + 5y + 8z &= 0 \\
+					3x + 6y + 9z &= 0 \\
+				\end{align*}
+			\end{solution}
 		\item Can your method be rephrased in terms of a matrix equation? Explain.
+			\begin{solution}
+				The system of linear equations above can be represented by the
+				matrix equation $A\vec x = \vec 0$, where $A = \mat{1&4&7\\2&5&8\\3&6&9}$
+				and $\vec x=\mat{x\\y\\z}$.
+
+				So another way to say the above is that the set is linearly independent
+				if and only if the only solution to the equation $A \vec x = \vec 0$
+				is $\vec x = \vec 0$.
+			\end{solution}
 	\end{parts}
 
 
