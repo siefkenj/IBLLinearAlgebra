@@ -3084,10 +3084,57 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Find a matrix $P$ so that $P\vec x=\mathcal P(\vec x)$ for all $\vec x\in\R^2$.
+			\begin{solution}
+				$P = \frac{1}{13}\mat{4&6\\6&9}$ is such a matrix.
+
+				We know from an earlier exercise that 
+				$\mathcal P(\vec x)=\dfrac{\vec x\cdot\vec u}{\norm{u}^2}\vec u$.
+				So if $\Set{\vec e_1,\vec e_2}$ is the standard basis for $\R^2$,
+				we can compute
+				\[
+					\mathcal P(\vec e_1)=\frac{2}{13}\vec u=\frac{1}{13}\mat{4\\6}
+					\qquad \text{and} \qquad
+					\mathcal P(\vec e_2)=\frac{3}{13}\vec u=\frac{1}{13}\mat{6\\9}.
+				\]
+				So since we know $\mathcal P$ is linear, for any $\vec x=\mat{x\\y}$,
+				we can compute:
+				\[
+					\mathcal P(\vec x)
+					=x\mathcal P(\vec e_1)+y\mathcal P(\vec e_2)
+					=\frac{x}{13}\mat{4\\6}+\frac{y}{13}\mat{6\\9}.
+				\]
+				The matrix that acts like this is $P = \frac{1}{13}\mat{4&6\\6&9}$.
+			\end{solution}
 		\item Find a matrix $R$ so that $R\vec x=\mathcal R(\vec x)$ for all $\vec x\in\R^2$.
-		\item Write down matrices $A$ and $B$
-			for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+			\begin{solution}
+				$R=\mat{0&-1\\1&0}$ is such a matrix, 
+				found using the same reasoning as the previous part
+			\end{solution}
+		\item Write down matrices $A$ and $B$ for $\mathcal P\circ\mathcal R$ 
+			and $\mathcal R\circ \mathcal P$.
+			\begin{solution}
+				$A=\frac{1}{13}\mat{6&-4\\9&-6}$ and $B=\frac{1}{13}\mat{-6&-9\\4&6}$
+				are two such matrices, found using the same reasoning as above.
+			\end{solution}
 		\item How do the matrices $A$ and $B$ relate to the matrices $P$ and $R$?
+			Using the results of the two parts, we have
+			\begin{solution}
+				$A = PR$ and $B = RP$. 
+
+				From the first two parts, we have
+				\[
+					(\mathcal P\circ\mathcal R)(\vec x)
+					=\mathcal P(\mathcal R(\vec x))
+					=\mathcal P(R\vec x)
+					=PR\vec x.
+					\quad \text{and} \quad
+					(\mathcal R\circ\mathcal P)(\vec x)
+					=\mathcal R(\mathcal P(\vec x)
+					=\mathcal R(P\vec x)
+					=RP\vec x.
+				\]
+			\end{solution}
+				
 	\end{parts}
 
 	\begin{definition}[Range]
