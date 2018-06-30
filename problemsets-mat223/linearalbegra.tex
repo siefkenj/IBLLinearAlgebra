@@ -2579,9 +2579,9 @@ examples.
 		\item The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates.
 			Find their east-north coordinates.
 			\begin{solution}
-				$A=\frac{1}{5}(5,-4)$ in east-north coordinates.
+				$A=\frac{1}{5}(5,-4)$ and $B=(3,1)$ in east-north coordinates.
 
-				We obtain this by finding the vector $2\vec d_1+\vec d_2$. 
+				We obtain $A$ for example by finding the vector $2\vec d_1+\vec d_2$. 
 			\end{solution}
 		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. 
 			Find their street coordinates.
@@ -2626,21 +2626,44 @@ examples.
 	\end{definition}
 
 	\question
-	Let $\mathcal E=\{\vec e_1,\vec e_2\}$ be the standard basis for $\R^2$ and 
-	let $\mathcal C=\{\vec c_1,\vec c_2\}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
+	Let $\mathcal E=\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and 
+	let $\mathcal C=\Set{\vec c_1,\vec c_2}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
 	and $\vec c_2=\mat{5\\3}_{\mathcal E}$ be another basis for $\R^2$.
 	\begin{parts}
 		\item Express $\vec c_1$ and $\vec c_2$ as a linear combination of $\vec e_1$ and $\vec e_2$.
 			\begin{solution}[inline]
-				
+				$\vec c_1=2\vec e_1+\vec e_2$ and $\vec c_2=5\vec e_1+3\vec e_2$.
 			\end{solution}
 		\item Express $\vec e_1$ and $\vec e_2$ as a linear combination of $\vec c_1$ and $\vec c_2$.
+			\begin{solution}[inline]
+				$\vec e_1=3\vec c_1-\vec c_2$ and $\vec e_2=-5\vec c_1+2\vec c_2$.
+			\end{solution}
 		\item Let $\vec v=2\vec e_1+2\vec e_2$. Find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
-		\item Can you find a matrix $X$ so that $X[\vec w]_{\mathcal C} = [\vec w]_{\mathcal E}$ for any
-			$\vec w$?
-		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$ for any
-			$\vec w$?
+			\begin{solution}
+				$[\vec v]_{\mathcal E} = \mat{2\\2}$ and 
+				$[\vec v]_{\mathcal C} = \mat{-4\\2}$.
+
+				The second one is since
+				\[
+					\vec v=2\vec e_1+2\vec e_2
+					=2(3\vec c_1-\vec c_2)+2(-5\vec c_1+2\vec c_2)
+					=-4c_1+2c_2.
+				\]
+			\end{solution}
+		\item Can you find a matrix $X$ so that $X[\vec w]_{\mathcal C} = [\vec w]_{\mathcal E}$
+			for any	$\vec w$?
+			\begin{solution}[inline]
+				$X = \mat{2&5\\1&3}$ is such a matrix. 
+			\end{solution}
+		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$
+			for any	$\vec w$?
+			\begin{solution}[inline]
+				$Y = \mat{3&-5\\-1&2}$ is such a matrix. 
+			\end{solution}
 		\item What is $YX$?
+			\begin{solution}[inline]
+				$YX = \mat{1&0\\0&1}$.
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
