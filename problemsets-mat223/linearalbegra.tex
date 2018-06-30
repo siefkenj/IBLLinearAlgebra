@@ -3091,25 +3091,43 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 	\begin{definition}[Range]
-		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ is the set of vectors that
-		$T$ can output.  That is,
+		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ 
+		is the set of vectors that $T$ can output. That is,
 		\[
-			\Range(T)=\{\vec y\in W:\vec y=T\vec x\text{ for some }\vec x\in V\}.
+			\Range(T)=\Set{\vec y\in W \given \vec y=T\vec x\text{ for some }\vec x\in V}.
 		\]
 	\end{definition}
 	\begin{definition}[Null Space]
-		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$ is the
-		set of vectors that get mapped to zero under $T$.  That is,
+		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$
+		is the set of vectors that get mapped to zero under $T$. That is,
 		\[
-			\Null(T)=\{\vec x\in V:T\vec x=\vec 0\}.
+			\Null(T)=\Set{\vec x\in V \given T\vec x=\vec 0}.
 		\]
 	\end{definition}
 
 	\question
-	Let $\mathcal P:\R^2\to\R^2$ be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$ (like before).
+	Let $\mathcal P:\R^2\to\R^2$ be projection onto $\Span\Set{\vec u}$ where
+	$\vec u=\mat{2\\3}$ (like before).
 	\begin{parts}
 		\item What is the range of $\mathcal P$?
+			\begin{solution}
+				$\Range(\mathcal P)=\Span\Set{\vec u}$.
+
+				Clearly $\mathcal P(\vec x) \in \Span\Set{\vec u}$ for all $\vec x\in\R^2$,
+				so $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$. 
+				
+				On the other hand, $\mathcal P(\vec x)=\vec x$ for any 
+				$\vec x\in\Span\Set{\vec u}$, so $\Range(\mathcal P)\supseteq\Span\Set{\vec u}$
+			\end{solution}
 		\item What is the null space of $\mathcal P$?
+			\begin{solution}
+				\begin{solution}
+					$\Null(\mathcal P)=\Span\Set*{\mat{3\\-2}}$.
+
+					A vector $\vec x$ projects to $\vec 0$ if and only if $\vec x$
+					is on the line perpendicular to $\Span\Set{\vec u}$. 
+				\end{solution}
+			\end{solution}
 	\end{parts}
 
 	\question
