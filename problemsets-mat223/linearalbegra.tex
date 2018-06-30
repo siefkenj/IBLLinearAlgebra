@@ -2943,14 +2943,50 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 
 	\question
 	\begin{parts}
-		\item Classify the following as linear transformation or not
+		\item Classify the following as linear transformations or not.
 			\begin{enumerate}
 				\item $\mathcal R$ from before (rotation counter-clockwise by $90^\circ$).
+					\begin{solution}
+						A linear transformation. We proved this in the previous problem.
+					\end{solution}
 				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+					\begin{solution}
+						Not a linear transformation, since for example 
+						$W\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2W\mat{1\\0}$. 
+					\end{solution}
 				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+					\begin{solution}
+						Not a linear transformation, since for example
+						$T\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2T\mat{1\\0}$. 
+					\end{solution}
 				\item $\mathcal P:\R^2\to\R^2$ where 
 					$\mathcal P\mat{x\\y}=\Comp_{\vec u}\mat{x\\y}$ and 
 					$\vec u=\mat{2\\3}$.
+					\begin{solution}
+						A linear transformation.
+
+						We found a general formula for $\Comp_{\vec u}$ in a previous
+						exercise:
+						\[
+							\Comp_{\vec u}\vec x
+							=\frac{\vec u\cdot\vec x}{\norm{\vec u}^2}\vec u
+							=\frac{\vec u\cdot\vec x}{13}\vec u.
+						\]
+
+						For any two vectors $\vec x$ and $\vec y$, we have
+						\begin{align*}
+							\Comp_{\vec u}(\vec x + \vec y)&=\frac{\vec u\cdot(\vec x + \vec y)}{13}\vec u\\
+							&=\frac{\vec u\cdot\vec x}{13}\vec u + \frac{\vec u\cdot\vec y}{13}\vec u\\
+							&=\Comp_{\vec u}\vec x + \Comp_{\vec u}\vec y.
+						\end{align*}
+						For any $\vec x$ and scalar $\alpha$, we have
+						\[
+							\Comp_{\vec u}(\alpha\vec x)
+							=\frac{\vec u\cdot(\alpha\vec x)}{13}\vec u
+							=\frac{\alpha(\vec u\cdot\vec x)}{13}\vec u
+							=\alpha\Comp_{\vec u}\vec x.
+						\]
+					\end{solution}
 			\end{enumerate}
 	\end{parts}
 
