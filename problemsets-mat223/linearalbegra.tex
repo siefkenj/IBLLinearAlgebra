@@ -2179,9 +2179,36 @@ examples.
 	\begin{parts}
 		\item Make a sketch with $\vec c$, $K$, and $\Proj_K\vec c$ (you don't need to compute 
 		$\Proj_K\vec c$ exactly).
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item What should $(\vec c-\Proj_K\vec c)\cdot \mat{1\\2}$ be? Explain.
+			\begin{solution}
+				It should equal zero. 
+
+				From our picture we can see that $c-\Proj_K\vec c$ is perpendicular
+				to the line $K$, and so the dot product of this vector with any 
+				direction vector for $K$ should be zero.
+			\end{solution}
 		\item Use your formula from the previous part to find $\Proj_K\vec c$
 			\emph{without} computing any distances.
+			\begin{solution}
+				$\Proj_K\vec c = \frac{1}{5}\mat{11\\12}$
+
+				If $\Proj_K\vec c = \mat{x\\y}$, the previous part tells us
+				\[
+					\left(\mat{1\\3}-\mat{x\\y}\right)\cdot \mat{1\\2}
+					=1-x+6-2y=0
+					\quad \iff \quad
+					x+2y=7
+				\]
+				So we need a point on $K$ that satisfies this equation. In other 
+				words, we need
+				\[
+					(t+1) + 2(2t) = 7 \quad \implies \quad t = \frac{6}{5}.
+				\]
+				The point on $K$ for this value of $t$ is $\frac{1}{5}\mat{11\\12}$.
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Component]
@@ -2208,8 +2235,28 @@ examples.
 	\question
 	Let $\vec a,\vec b\in \R^3$ be unknown vectors.
 	\begin{parts}
-		\item List two conditions that $\Comp_{\vec b} \vec a$ must satisfy.
+		\item List two conditions that $\Comp_{\vec b}\vec a$ must satisfy.
+			\begin{solution}
+				$\Comp_{\vec b} \vec a$ must be a scalar multiple of $\vec b$.
+
+				$\vec a - \Comp_{\vec b} \vec a$ must be orthogonal to $\vec b$,
+				or in other words $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$. 
+			\end{solution}
 		\item Find a formula for $\Comp_{\vec b}\vec a$.
+			\begin{solution}
+				$\Comp_{\vec b}\vec a = \dfrac{\vec a\cdot\vec b}{\norm{\vec b}^2} \vec b$.
+
+				From the previous part, we should have $\Comp_{\vec b}\vec a=t\vec b$
+				for some scalar $t$, and $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$.
+
+				Combining these, we get:
+				\[
+					0=(\vec a-t \vec b)\cdot \vec b
+					=\vec a\cdot\vec b - t\vec b\cdot\vec b
+					=\vec a\cdot\vec b - t\norm{\vec b}^2.
+				\]
+				Solving for $t$, we get $t = \dfrac{\vec a\cdot\vec b}{\norm{\vec b}^2}$.
+			\end{solution}
 	\end{parts}
 
 
