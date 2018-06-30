@@ -2649,9 +2649,9 @@ examples.
 	two. Add a vector in the top partition (appropriately ordered) and you get
 	a positive orientation; add to the bottom and you get a negative orientation.
 	There's no way to get from one to the other without passing through the
-	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw. Eventually
-	we will compute orientation from the determinant, but it's nice to have
-	a grounding in where it comes from.
+	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw. 
+	Eventually we will compute orientation from the determinant, but it's nice
+	to have a grounding in where it comes from.
 
 	While we're thinking dynamically, we can start thinking about transformation.
 	We already know how to multiply a matrix and a vector and interpret it in
@@ -2668,25 +2668,44 @@ examples.
 
 	\begin{definition}[Orientation of a Basis]
 		The ordered basis $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is \emph{right-handed}
-		or \emph{positively oriented} if it can be continuously transformed 
-		to the standard basis (with
-		$\vec b_i\mapsto \vec e_i$) while remaining linearly independent
-		throughout the transformation. Otherwise, $\mathcal B$ is called
-		\emph{left-handed} or \emph{negatively oriented}.
+		or \emph{positively oriented} if it can be continuously transformed to 
+		the standard basis (with $\vec b_i\mapsto \vec e_i$) while remaining 
+		linearly independent throughout the transformation. Otherwise, $\mathcal B$ 
+		is called \emph{left-handed} or \emph{negatively oriented}.
 	\end{definition}
 
 	\question
-	Let $\{\vec e_1,\vec e_2\}$ be the standard basis for $\R^2$ and let
+	Let $\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and let
 	$\vec u_{\theta}$ be a unit vector. Let $\theta$ be the angle between $\vec u_{\theta}$ and
-	$\vec e_1$ measured counter clockwise.
+	$\vec e_1$ measured counter clockwise starting at $\vec e_1$.
 	\begin{parts}
-		\item For which $\theta$ is $\{\vec e_1,\vec u_{\theta}\}$ a linearly independent set?
-		\item For which $\theta$ can $\{\vec e_1,\vec u_{\theta}\}$ be continuously
-			transformed into $\{\vec e_1,\vec e_2\}$ and remain linearly independent the
+		\item For which $\theta$ is $\Set{\vec e_1,\vec u_{\theta}}$ a linearly independent set?
+			\begin{solution}[inline]
+				Every $\theta\in(0,\pi)\cup(\pi,2\pi)$. 
+			\end{solution}
+		\item For which $\theta$ can $\Set{\vec e_1,\vec u_{\theta}}$ be continuously
+			transformed into $\Set{\vec e_1,\vec e_2}$ and remain linearly independent the
 			whole time?
-		\item For which $\theta$ is $\{\vec e_1,\vec u_{\theta}\}$ right-handed? Left-handed?
-		\item For which $\theta$ is $\{\vec u_{\theta},\vec e_1\}$ (in that order) right-handed? 
+			\begin{solution}
+				Every $\theta \in (0, \pi)$. 
+
+				For $\theta\in(\pi,2\pi)$, a continuous transformation of 
+				$\vec u_\theta$	to $\vec e_2$ would have to cross the $x$-axis,
+				at which point $\Set{\vec e_1,\vec u_\theta}$ would cease to be 
+				linearly independent. 
+			\end{solution}
+		\item For which $\theta$ is $\Set{\vec e_1,\vec u_{\theta}}$ right-handed?	
 			Left-handed?
+			\begin{solution}
+				It is right-handed for $\theta\in(0, \pi)$, and left handed for
+				$\theta\in(\pi,2\pi)$.
+			\end{solution}
+		\item For which $\theta$ is $\Set{\vec u_{\theta},\vec e_1}$ (in that order) 
+			right-handed? Left-handed?
+			\begin{solution}
+				It is right-handed for $\theta\in(\pi,2\pi)$, and left handed
+				for $\theta\in(0,\pi)$.
+			\end{solution}
 	\end{parts}
 
 
