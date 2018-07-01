@@ -2245,7 +2245,7 @@ examples.
 			\end{solution}
 		\item Find a formula for $\Comp_{\vec b}\vec a$.
 			\begin{solution}
-				$\Comp_{\vec b}\vec a = \dfrac{\vec a\cdot\vec b}{\norm{\vec b}^2} \vec b$.
+				$\Comp_{\vec b}\vec a = \dfrac{\vec a\cdot\vec b}{\vec b\cdot\vec b} \vec b$.
 
 				From the previous part, we should have $\Comp_{\vec b}\vec a=t\vec b$
 				for some scalar $t$, and $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$.
@@ -2254,9 +2254,9 @@ examples.
 				\[
 					0=(\vec a-t \vec b)\cdot \vec b
 					=\vec a\cdot\vec b - t\vec b\cdot\vec b
-					=\vec a\cdot\vec b - t\norm{\vec b}^2.
+					=\vec a\cdot\vec b - t(\vec b\cdot\vec b).
 				\]
-				Solving for $t$, we get $t = \dfrac{\vec a\cdot\vec b}{\norm{\vec b}^2}$.
+				Solving for $t$, we get $t = \dfrac{\vec a\cdot\vec b}{\vec b\cdot\vec b}$.
 			\end{solution}
 	\end{parts}
 
