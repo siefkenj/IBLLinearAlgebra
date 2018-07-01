@@ -2471,14 +2471,16 @@ examples.
 		\item If $\vec b=\mat{1\\1\\0}$, is the set of solutions to this system
 			a point, line, plane, or other?
 			\begin{solution}
-				A line.	The system would be
+				A line. The system would be
 				\begin{align*}
 					x - 3y &= 1 \\
 					z &= 1 \\
 					0 &= 0
 				\end{align*}
-				$\vec x=\mat{x\\y\\z}$ satisfies this system if and only if it is
-				on the line $\vec x = t \mat{3\\1\\0} + \mat{1\\0\\1}$.
+				A vector $\vec x=\mat{x\\y\\z}$ that satisfies this system must have
+				$z=1$, and by the first equation in the system any value of $x$
+				determines the value of $y$, and vice versa. In other words the
+				system has one free variable, and so its set of solutions is a line.
 			\end{solution}
 	\end{parts}
 
@@ -2511,8 +2513,8 @@ examples.
 				$K = \mat{1&1&2\\-1&1&0\\0&0&0}$. $K$ and $M$ are transposes of 
 				one another.
 
-				The conditions in the previous part translate to the following 
-				system of equations:
+				The conditions $\vec n\cdot\vec d_1=0$ and $\vec n\cdot\vec d_2=0$
+				from the previous part translate to the following system of equations:
 				\begin{align*}
 					x + y + 2z &= 0 \\
 					-x + y &= 0.
