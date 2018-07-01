@@ -2412,30 +2412,19 @@ examples.
 			\begin{solution}
 				Yes. $\Set{\vec b}$ is a basis for $P\cap Q$, and so its dimension is 1. 
 
-				To see that it's a subspace, note that if $\vec u,\vec v\in P\cap Q$
-				and $\alpha$ is a scalar, then $\vec u+\vec v,\alpha\vec u\in P$
-				since $P$ is a subspace, and $\vec u+\vec v,\alpha\vec u\in Q$ since $Q$ 
-				is a subspace subspaces. Therefore $\vec u+\vec v,\alpha\vec u\in P\cap Q$. 
-
-				Now if $\vec x\in P\cap Q$, we know that there are scalars 
-				$\alpha_1,\alpha_2,\beta_1,\beta_2$ such that
-				\[
-					\vec x=\alpha_1\vec a+\alpha_2\vec b 
-					\quad \text{and} \quad 
-					\vec x=\beta_1\vec b+\beta_2\vec c.
-				\]
-				Equating these and rearranging, we get
-				\[
-					\alpha_1\vec a=(\beta_1-\alpha_2)\vec b+\beta_2\vec c \in Q,
-				\]
-				from which it follows that $\alpha_1=0$, since $\vec a\notin Q$.
-				Therefore, $\vec x$ is a multiple of $\vec b$.
-				In other words, $P\cap Q=\Span\Set{\vec b}$. 
+				$P$ and $Q$ are both planes and are not parallel (since 
+				$\vec a,\vec b,\vec c$ are linearly independent). The intersection
+				of any two non-parallel	planes intersect in a line. 
+				We know that $\vec 0$ and $\vec c$ are on this line, and therefore
+				the line is $\Span\Set{\vec c}$
 			\end{solution}
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 			\begin{solution}
 				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but 
 				$\vec a+\vec c \notin P\cup Q$. 
+
+				A vector is in $P\cup Q$ if it is in $P$ or $Q$, so we must show
+				that $\vec a+\vec c\notin P$ and $\vec a+\vec c\notin Q$
 
 				$\vec a+\vec c \notin P$ since if it was, we would also have
 				$(\vec a+\vec c)-\vec a=\vec c\in P$. We know this is impossible
@@ -2443,7 +2432,7 @@ examples.
 				and so $\vec c$ does not equal a linear combination of $\vec a$
 				and $\vec b$. 
 
-				An exactly analogous argument shows that $\vec a+\vec c \notin Q$. 
+				An analogous argument shows that $\vec a+\vec c \notin Q$. 
 			\end{solution}
 	\end{parts}
 
