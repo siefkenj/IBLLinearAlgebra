@@ -2201,15 +2201,46 @@ examples.
 	\end{definition}
 
 	\question
-	Let $\vec a=\mat{1\\0}$, $\vec b=\mat{3\\0}$, $\vec v=\mat{1\\1}$ and
-	$\ell=\Span\{\vec a\}$.
+	Let $\vec a=\mat{1\\0}$, $\vec b=\mat{4\\0}$, $\vec v=\mat{2\\2}$ and
+	$\ell=\Span\Set{\vec a}$.
 	\begin{parts}
 		\item Draw $\vec a$, $\vec b$, and $\vec v$ in the same picture.
-		\item Find $\Proj_{\{\vec b\}}\vec v$, $\Proj_{\{\vec a,\vec b\}}\vec v$.
-		\item Find $\Proj_\ell \vec v$. (Recall that a quadratic $at^2+bt+c$ has a
-			minimum at $t=-\tfrac{b}{2a}$).
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Find $\Proj_{\Set{\vec b}}\vec v$, $\Proj_{\Set{\vec a,\vec b}}\vec v$.
+			\begin{solution}
+				$\Proj_{\Set{\vec b}}\vec v = \vec b$. Since there is only one
+				point in $\Set{\vec b}$, it must be the closest point to $\vec v$. 
+
+				$\Proj_{\Set{\vec a,\vec b}}\vec v=\vec a$. We can simply compute
+				$\norm{\vec v-\vec a} = \sqrt{5}$ and $\norm{\vec v-\vec b} = \sqrt{13}$,
+				so $\vec a$ is closer to $\vec v$. 
+			\end{solution}
+		\item Find $\Proj_\ell \vec v$. (Recall that a quadratic $at^2+bt+c$ has 
+			a minimum at $t=-\tfrac{b}{2a}$).
+			\begin{solution}
+				$\Proj_\ell \vec v = 2\vec a$.
+
+				Any point in $\ell$ is of the form $t\vec a$ for some scalar 
+				$t$. The distance between such a point and $\vec v$ is
+				\[
+					\norm{\vec v - t\vec a}
+					=\sqrt{\norm{v}^2 - 2t(\vec v\cdot \vec a) + t^2 \norm{a}^2}
+					=\sqrt{8 - 4t + t^2}
+				\]
+				The quadratic inside the square root has a minimum at 
+				$t = 2$, so $2 \vec a$ is the closest point in the line
+				to $\vec v$. 
+			\end{solution}
 		\item Is $\vec v-\Proj_\ell \vec v$ a normal vector for $\ell$?
 			Why or why not?
+			\begin{solution}
+				Yes. 
+
+				By the previous part, $\vec v-\Proj_\ell \vec v=\vec v-2\vec a=\mat{0\\2}$.
+				This vector is orthogonal to $\vec a$, and therefore to $\ell$. 
+			\end{solution}
 	\end{parts}
 
 	\question
