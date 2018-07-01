@@ -2411,11 +2411,39 @@ examples.
 		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
 			\begin{solution}
 				Yes. $\Set{\vec b}$ is a basis for $P\cap Q$, and so its dimension is 1. 
+
+				To see that it's a subspace, note that if $\vec u,\vec v\in P\cap Q$
+				and $\alpha$ is a scalar, then $\vec u+\vec v,\alpha\vec u\in P$
+				since $P$ is a subspace, and $\vec u+\vec v,\alpha\vec u\in Q$ since $Q$ 
+				is a subspace subspaces. Therefore $\vec u+\vec v,\alpha\vec u\in P\cap Q$. 
+
+				Now if $\vec x\in P\cap Q$, we know that there are scalars 
+				$\alpha_1,\alpha_2,\beta_1,\beta_2$ such that
+				\[
+					\vec x=\alpha_1\vec a+\alpha_2\vec b 
+					\quad \text{and} \quad 
+					\vec x=\beta_1\vec b+\beta_2\vec c.
+				\]
+				Equating these and rearranging, we get
+				\[
+					\alpha_1\vec a=(\beta_1-\alpha_2)\vec b+\beta_2\vec c \in Q,
+				\]
+				from which it follows that $\alpha_1=0$, since $\vec a\notin Q$.
+				Therefore, $\vec x$ is a multiple of $\vec b$.
+				In other words, $P\cap Q=\Span\Set{\vec b}$. 
 			\end{solution}
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 			\begin{solution}
 				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but 
-				$\vec a+\vec c \notin P \cup Q$.
+				$\vec a+\vec c \notin P\cup Q$. 
+
+				$\vec a+\vec c \notin P$ since if it was, we would also have
+				$(\vec a+\vec c)-\vec a=\vec c\in P$. We know this is impossible
+				since the vectors $\vec a,\vec b,\vec c$ are linearly independent,
+				and so $\vec c$ does not equal a linear combination of $\vec a$
+				and $\vec b$. 
+
+				An exactly analogous argument shows that $\vec a+\vec c \notin Q$. 
 			\end{solution}
 	\end{parts}
 
@@ -2476,8 +2504,8 @@ examples.
 			$x_0$ and $y_0$ mean in terms of \emph{intersecting lines} (hint: think
 			about systems of equations).
 			\begin{solution}
-				The lines represented by the equations in the system above intersect
-				at the point $\mat{x_0\\y_0}$.
+				The lines represented by the equations $x+2y=-2$ and $3x+3y=-1$
+				from the system of equations above intersect at the point $\mat{x_0\\y_0}$.
 			\end{solution}
 	\end{parts}
 
@@ -2487,10 +2515,10 @@ examples.
 		\item How could you determine if $\Set{\vec u,\vec v,\vec w}$ was a linearly
 			independent set?
 			\begin{solution}
-				The set is is linearly independent if and only if the only linear
-				combination	of them that equals $\vec 0$ is the trivial one. That
-				is, if $x, y, z$ are scalars such that $x\vec u+y\vec v+z\vec w = \vec 0$,
-				then $x=y=z=0$.
+				The set is linearly independent if and only if no non-trivial linear
+				combination of the vectors $\vec u,\vec v,\vec w$ equals $\vec 0$.
+				That is, if $x, y, z$ are scalars such that
+				$x\vec u+y\vec v+z\vec w=\vec 0$, then $x=y=z=0$.
 
 				In other words, the only solution of the following
 				system of equations is $x=y=z=0$.
