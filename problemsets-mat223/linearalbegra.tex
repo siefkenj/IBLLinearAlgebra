@@ -3113,11 +3113,13 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$\Range(\mathcal P)=\Span\Set{\vec u}$.
 
-				Clearly $\mathcal P(\vec x) \in \Span\Set{\vec u}$ for all $\vec x\in\R^2$,
-				so $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$. 
+				$\mathcal P(\vec x)$ is by definition the vector in $\Span\Set{\vec u}$ 
+				that is closest to $\vec x$, so in particular 
+				$\mathcal P(\vec x) \in \Span\Set{\vec u}$ for all $\vec x\in\R^2$.
+				Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$. 
 				
-				On the other hand, $\mathcal P(\vec x)=\vec x$ for any 
-				$\vec x\in\Span\Set{\vec u}$, so $\Range(\mathcal P)\supseteq\Span\Set{\vec u}$
+				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$ 
+				for any scalar $\alpha$, and so $\Range(\mathcal P)\supseteq\Span\Set{\vec u}$
 			\end{solution}
 		\item What is the null space of $\mathcal P$?
 			\begin{solution}
@@ -3125,7 +3127,8 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					$\Null(\mathcal P)=\Span\Set*{\mat{3\\-2}}$.
 
 					A vector $\vec x$ projects to $\vec 0$ if and only if $\vec x$
-					is on the line perpendicular to $\Span\Set{\vec u}$. 
+					is on the line perpendicular to $\Span\Set{\vec u}$ passing
+					through the origin. 
 				\end{solution}
 			\end{solution}
 	\end{parts}
@@ -3136,11 +3139,13 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Show that the null space of $T$ is a subspace.
 			\begin{solution}
 				\begin{enumerate}[label=(\roman*)]
-					\item Let $\vec u,\vec v\in\Null(T)$. Then 
+					\item Let $\vec u,\vec v\in\Null(T)$. 
+						Applying the linearity of $T$ we see
 						$T(\vec u+\vec v)=T(\vec u)+T(\vec v)=\vec 0+\vec 0=\vec 0$,
 						and so $\vec u+\vec v\in\Null(T)$. 
 					\item Let $\vec u\in\Null(T)$ and let $\alpha$ be any scalar.
-						Then $T(\alpha\vec u)=\alpha T(\vec u)=\alpha\vec 0=\vec 0$,
+						Again using the linearity of $T$ we see
+						$T(\alpha\vec u)=\alpha T(\vec u)=\alpha\vec 0=\vec 0$,
 						and so $\alpha\vec u\in\Null(T)$.
 				\end{enumerate}
 			\end{solution}
@@ -3151,11 +3156,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 						Then there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec y$
 						and $T(\vec v)=\vec z$. Then
 						$\vec y+\vec z=T(\vec u)+T(\vec v)=T(\vec u+\vec v)$,
-						and so $\vec y+\vec z\in\Range(T)$. 
+						since $T$ is linear, and so $\vec y+\vec z\in\Range(T)$. 
 					\item Let $\vec y\in\Range(T)$ and let $\alpha$ be any scalar.
 						Then there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec y$,
-						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$,
-						and so $\alpha\vec y\in\Range(T)$.
+						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$, 
+						since $T$ is linear, and so $\alpha\vec y\in\Range(T)$.
 				\end{enumerate}
 
 			\end{solution}
