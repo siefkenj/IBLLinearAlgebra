@@ -2487,7 +2487,7 @@ examples.
 	\question
 	Let $\vec d_1=\mat{1\\1\\2}$ and $\vec d_2=\mat{-1\\1\\0}$. 
 	Let $\mathcal P$ be the plane given in vector form by $\vec x=t\vec d_1+s\vec d_2$.
-	Further, suppose $M$ is a matrix so that $M\vec r\in\mathcal P$ for any $\vec r$.
+	Further, suppose $M$ is a matrix so that $M\vec r\in\mathcal P$ for any $\vec r\in\R^2$.
 	\begin{parts}
 		\item How many rows does $M$ have?
 			\begin{solution}
@@ -2496,10 +2496,10 @@ examples.
 			\end{solution}
 		\item Find such an $M$.
 			\begin{solution}
-				$M=\mat{1&-1&0\\1&1&0\\2&0&0}$ is one possible answer, since if
-				$\vec r = \mat{a\\b\\c}$, then $M \vec r = a \vec d_1 + b \vec d_2$. 
+				$M=\mat{1&-1\\1&1\\2&0}$ is one possible answer, since if
+				$\vec r = \mat{a\\b}$, then $M \vec r = a \vec d_1 + b \vec d_2$. 
 
-				Another less interesting answer is the zero matrix. 
+				Another less interesting answer is the $3\times2$ zero matrix. 
 			\end{solution}
 		\item Find necessary and sufficient conditions (phrased as equations) for 
 			$\vec n$ to be a normal vector for $\mathcal P$.
@@ -2510,7 +2510,7 @@ examples.
 		\item Find a matrix $K$ so that solutions to $K\vec x=\vec 0$ are normal
 			vectors for $\mathcal P$. How do $K$ and $M$ relate?
 			\begin{solution}
-				$K = \mat{1&1&2\\-1&1&0\\0&0&0}$. $K$ and $M$ are transposes of 
+				$K = \mat{1&1&2\\-1&1&0}$. $K$ and $M$ are transposes of 
 				one another.
 
 				The conditions $\vec n\cdot\vec d_1=0$ and $\vec n\cdot\vec d_2=0$
@@ -2521,7 +2521,7 @@ examples.
 				\end{align*}
 				This system of equations can be represented by the matrix equation 
 				\[
-					\mat{1&1&2\\-1&1&0\\0&0&0}\mat{x\\y\\z} = \mat{0\\0\\0}.
+					\mat{1&1&2\\-1&1&0}\mat{x\\y\\z} = \mat{0\\0}.
 				\]
 			\end{solution}
 	\end{parts}
