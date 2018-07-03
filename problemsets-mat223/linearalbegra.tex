@@ -3033,17 +3033,27 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 			\begin{solution}
 				XXXX
 			\end{solution}
-		\item Suppose that $\ell=\Set{\text{all convex combinations of }\vec a\text{ and }\vec b}$
-			is a line segment with endpoints $\vec a$ and $\vec b$ and $A$ is a 
-			linear transformation. Must $A(\ell)$ be a line segment? 
+		\item Let $\ell=\Set{\text{all convex combinations of }\vec a\text{ and }\vec b}$
+			be a line segment with endpoints $\vec a$ and $\vec b$ and let $A$ be
+			a linear transformation. Must $A(\ell)$ be a line segment? 
 			What are its endpoints?
 			\begin{solution}
-				Yes, $A(\ell)$ must be a line segment.
-				Its endpoints are $A(\vec a)$ and $A(\vec b)$.
+				$A(\ell)$ must be a line segment, with endpoints $A(\vec a)$ and
+				$A(\vec b)$.
 
-				If $\vec x=\alpha_1\vec a+\alpha_2\vec b$ is a convex combination
-				from $\ell$, then $A(\vec x)=\alpha_1A(\vec a)+\alpha_2A(\vec b)$,
-				which is a convex combination of $A(\vec a)$ and $A(\vec b)$.
+				For any scalars $\alpha_1$ and $\alpha_2$, by the linearity of $A$
+				we have: $A(\alpha_1\vec a+\alpha_2\vec b)=\alpha_1A(\vec a)+\alpha_2A(\vec b)$.
+
+				If $\alpha_1+\alpha_2=1$, then the linear combination on the right
+				is also convex, and so $A(\ell)$ is the set of convex combinations 
+				of $A(\vec a)$ and $A(\vec b)$. 
+				This is precisely the straight line segment joining $A(\vec a)$
+				and $A(\vec b)$.
+
+				Note that if $A(\vec a)=A(\vec b)$ (for example, if $A$ is the
+				zero transformation), then $A(\ell)$ will consist of the single
+				point, which we think of as a ``degenerate'' line segment in this
+				situation. 
 			\end{solution}
 		\item Explain how images of sets relate to the \emph{Italicizing N} task.
 			\begin{solution}
