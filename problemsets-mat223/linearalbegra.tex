@@ -2313,21 +2313,21 @@ examples.
 	\question
 	For each set, draw it and explain whether or not it is a subspace of $\R^2$.
 	\begin{parts}
-		\item $A=\{\vec x\in\R^2:\vec x=\mat{a\\0}\text{ for some }a\in\Z\}$.
+		\item $A=\Set*{\vec x\in\R^2 \given \vec x=\mat{a\\0}\text{ for some }a\in\Z}$.
 			\begin{solution}
 				XXXX
 
 				$A$ is not a subspace, since for example $\mat{1\\0} \in A$ but 
 				$\frac{1}{2}\mat{1\\0}\notin A$. 
 			\end{solution}
-		\item $B=\{\vec x\in\R^2:\vec x\neq \mat{0\\0}\}$.
+		\item $B=\Set*{\vec x\in\R^2 \given \vec x\neq \mat{0\\0}}$.
 			\begin{solution}
 				XXXX
 					
 				$B$ is not a subspace, since for example $\mat{1\\0}$ and $\mat{-1\\0}$
 				are both in $B$, but their sum is $\mat{0\\0}$ which is not in $B$.
 			\end{solution}
-		\item $C=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ for some }t\in\R\}$.
+		\item $C=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
 					
@@ -2342,37 +2342,67 @@ examples.
 						Then $\alpha\vec u=\mat{0\\\alpha t}\in C$. 
 				\end{enumerate}
 			\end{solution}
-		\item $D=\{\vec x\in\R^2:\vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R\}$.
+		\item $D=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
 					
 				$D$ is not a subspace, since for example $\mat{1\\1}\in D$, but
 				$0\mat{1\\1}=\mat{0\\0}\notin D$. 
 			\end{solution}
-		\item $E=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R\}$.
+		\item $E=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
 
 				$E$ is not a subspace, since for example  $\mat{1\\0}$ and $\mat{0\\1}$
 				are both in $E$, but their sum is $\mat{1\\1}$ which is not in $E$.
 			\end{solution}
-		\item $F=\{\vec x\in\R^2:\vec x=t\mat{3\\1}\text{ for some }t\in\R\}$.
+		\item $F=\Set*{\vec x\in\R^2 \given \vec x=t\mat{3\\1}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
 					
 				$F$ is a subspace. 
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in F$. Then $\vec u=t\mat{3\\1}$ and
+						$\vec v=s\mat{3\\1}$ for some $s,t\in\R$. 
+
+						But then $\vec u+\vec v=(s+t)\mat{3\\1}\in F$. 
+					\item Let $\vec u=t\mat{3\\1}\in F$ and let $\alpha$ be any scalar.
+						Then $\alpha\vec u=(\alpha t)\mat{3\\1}\in F$. 
+				\end{enumerate}
 			\end{solution}
 		\item $G=\Span\left\{\mat{1\\1}\right\}$.
 			\begin{solution}
 				XXXX
 					
 				$G$ is a subspace. 
+
+				By definition of a span,
+				$G=\Set*{\vec x\in\R^2 \given \vec x=t\mat{1\\1}\text{ for some }t\in\R}$.
+
+				The proof that $G$ is a subspace is essentially the same as the
+				proof for $F$ above.
 			\end{solution}
-		\item $H=\Span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
+		\item $H=\Span\Set{\vec u,\vec v}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 			\begin{solution}
 				XXXX
 					
 				$H$ is a subspace. 
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec x,\vec y\in H$.
+						Then $\vec x=\alpha_1\vec u+\alpha_2\vec v$ and 
+						$\vec y=\beta_1\vec u+\beta_2\vec v$ for some scalars 
+						$\alpha_1,\alpha_2,\beta_1,\beta_2$. But then
+						\[
+							\vec x+\vec y
+							=\alpha_1\vec u+\alpha_2\vec v+\beta_1\vec u+\beta_2\vec v
+							=(\alpha_1+\beta_1)\vec u+(\alpha_2+\beta_2)\vec v\in H.
+						\]
+
+					\item Let $\vec x=\alpha_1\vec u+\alpha_2\vec v\in H$ and let $\beta$ be any scalar.
+						Then $\beta\vec u=(\beta\alpha_1)\vec u+(\beta\alpha_2)\vec v\in H$.
+				\end{enumerate}
 			\end{solution}
 	\end{parts}
 
