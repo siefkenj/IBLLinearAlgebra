@@ -3172,14 +3172,50 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 
 	\question
 	\begin{parts}
-		\item Classify the following as linear transformation or not
+		\item Classify the following as linear transformations or not.
 			\begin{enumerate}
 				\item $\mathcal R$ from before (rotation counter-clockwise by $90^\circ$).
+					\begin{solution}
+						A linear transformation. We proved this in the previous problem.
+					\end{solution}
 				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+					\begin{solution}
+						Not a linear transformation, since for example 
+						$W\left(2\mat{1\\0}\right)=\mat{4\\0}\neq\mat{2\\0}=2W\mat{1\\0}$. 
+					\end{solution}
 				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+					\begin{solution}
+						Not a linear transformation, since for example
+						$T\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2T\mat{1\\0}$. 
+					\end{solution}
 				\item $\mathcal P:\R^2\to\R^2$ where 
 					$\mathcal P\mat{x\\y}=\Comp_{\vec u}\mat{x\\y}$ and 
 					$\vec u=\mat{2\\3}$.
+					\begin{solution}
+						A linear transformation.
+
+						We found a general formula for $\Comp_{\vec u}$ in a previous
+						exercise:
+						\[
+							\Comp_{\vec u}\vec x
+							=\frac{\vec u\cdot\vec x}{\vec u\cdot\vec u}\vec u
+							=\frac{\vec u\cdot\vec x}{13}\vec u.
+						\]
+
+						For any two vectors $\vec x$ and $\vec y$, we have
+						\begin{align*}
+							\Comp_{\vec u}(\vec x + \vec y)&=\frac{\vec u\cdot(\vec x + \vec y)}{13}\vec u\\
+							&=\frac{\vec u\cdot\vec x}{13}\vec u + \frac{\vec u\cdot\vec y}{13}\vec u\\
+							&=\Comp_{\vec u}\vec x + \Comp_{\vec u}\vec y.
+						\end{align*}
+						For any $\vec x$ and scalar $\alpha$, we have
+						\[
+							\Comp_{\vec u}(\alpha\vec x)
+							=\frac{\vec u\cdot(\alpha\vec x)}{13}\vec u
+							=\frac{\alpha(\vec u\cdot\vec x)}{13}\vec u
+							=\alpha\Comp_{\vec u}\vec x.
+						\]
+					\end{solution}
 			\end{enumerate}
 	\end{parts}
 
@@ -3203,24 +3239,61 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 		Let $L:V\to W$ be a transformation and let $X\subset V$ be a set.
 		The \emph{image of the set $V$ under $L$}, denoted $L(V)$, is the set
 		\[
-			L(V)=\{\vec x: \vec x=L(\vec y)\text{ for some }\vec y\in V\}.
+			L(V)=\Set{\vec x\in W \given \vec x=L(\vec y)\text{ for some }\vec y\in V}.
 		\]
 	\end{definition}
 
 	\question
-	Let $S=\{\mat{x\\y}:0\leq x,y\leq 1\}\subseteq \R^2$ be the filled-in unit square
-	and let $C=\{\vec 0, \vec e_1,\vec e_2,\vec e_1+\vec e_2\}\subseteq \R^2$ be the corners of the 
-	unit square.
+	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit 
+	square and let $C=\Set{\vec 0, \vec e_1,\vec e_2,\vec e_1+\vec e_2}\subseteq \R^2$
+	be the corners of the unit square.
 	\begin{parts}
 		\item Find $\mathcal R(C)$, $W(C)$, and $T(C)$ (where $\mathcal R$, $W$,
 			and $T$ are from the previous question).
-		\item Draw $\mathcal R(S)$, $T(S)$, and $\mathcal P(S)$ (where $\mathcal R$, $T$,
-			and $\mathcal P$ are from the previous question).
-		\item Suppose that $\ell=\{\text{ all convex combinations of }\vec a\text{ and }\vec b\}$
-			is a line segment with endpoints $\vec a$ and $\vec b$
-			and $A$ is a linear transformation. Must $A(\ell)$ be a line segment? What are
-			its endpoints?
-		\item Explain how images of sets relate to the \emph{Italicising N} task.
+			\begin{solution}
+				$\mathcal R(C) = \Set{\vec 0,\vec e_2,-\vec e_1,-\vec e_1+\vec e_2}$.
+
+				$W(C) = C$.
+
+				$T(C) = \Set*{\mat{2\\0},\mat{3\\0},\mat{2\\1},\mat{3\\1}}$.
+			\end{solution}
+		\item Draw $\mathcal R(S)$, $T(S)$, and $\mathcal P(S)$ (where $\mathcal R$,
+			$T$, and $\mathcal P$ are from the previous question).
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Let $\ell=\Set{\text{all convex combinations of }\vec a\text{ and }\vec b}$
+			be a line segment with endpoints $\vec a$ and $\vec b$ and let $A$ be
+			a linear transformation. Must $A(\ell)$ be a line segment? 
+			What are its endpoints?
+			\begin{solution}
+				$A(\ell)$ must be a line segment, with endpoints $A(\vec a)$ and
+				$A(\vec b)$.
+
+				For any scalars $\alpha_1$ and $\alpha_2$, by the linearity of $A$
+				we have: $A(\alpha_1\vec a+\alpha_2\vec b)=\alpha_1A(\vec a)+\alpha_2A(\vec b)$.
+
+				If $\alpha_1+\alpha_2=1$, then the linear combination on the right
+				is also convex, and so $A(\ell)$ is the set of convex combinations 
+				of $A(\vec a)$ and $A(\vec b)$. 
+				This is precisely the straight line segment joining $A(\vec a)$
+				and $A(\vec b)$.
+
+				Note that if $A(\vec a)=A(\vec b)$ (for example, if $A$ is the
+				zero transformation), then $A(\ell)$ will consist of the single
+				point, which we think of as a ``degenerate'' line segment in this
+				situation. 
+			\end{solution}
+		\item Explain how images of sets relate to the \emph{Italicizing N} task.
+			\begin{solution}
+				The task asked us to find a linear transformation such that the
+				image of the regular ``N'' is the italicized ``N''. 
+
+				By the previous exercise, we now know it suffices to find a 
+				linear transformation that sends the four endpoints of line 
+				segments on the regular ``N'' to the corresponding four endpoints
+				on the italicized ``N''. 
+			\end{solution}
 	\end{parts}
 
 \newpage
