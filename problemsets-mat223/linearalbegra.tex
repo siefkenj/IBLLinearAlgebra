@@ -2335,7 +2335,7 @@ examples.
 
 				\begin{enumerate}[label=(\roman*)]
 					\item Let $\vec u,\vec v\in C$. Then $\vec u=\mat{0\\t}$ and
-						$\vec v=\mat{0\\s}$ for some $s,t\in\R$. 
+						$\vec v=\mat{0\\s}$ for some $s,t\in\R$.
 
 						But then $\vec u+\vec v=\mat{0\\s+t}\in C$. 
 					\item Let $\vec u=\mat{0\\t}\in C$ and let $\alpha$ be any scalar.
@@ -2360,7 +2360,7 @@ examples.
 			\begin{solution}
 				XXXX
 					
-				$F$ is a subspace. 
+				$F$ is a subspace.
 
 				\begin{enumerate}[label=(\roman*)]
 					\item Let $\vec u,\vec v\in F$. Then $\vec u=t\mat{3\\1}$ and
@@ -2380,9 +2380,19 @@ examples.
 				By definition of a span,
 				$G=\Set*{\vec x\in\R^2 \given \vec x=t\mat{1\\1}\text{ for some }t\in\R}$.
 
-				The proof that $G$ is a subspace is essentially the same as the
+				The proof that $G$ is a subspace now proceeds similarly to the
 				proof for $F$ above.
-			\end{solution}
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in G$. Then $\vec u=t\mat{1\\1}$ and
+						$\vec v=s\mat{1\\1}$ for some $s,t\in\R$. 
+
+						But then $\vec u+\vec v=(s+t)\mat{1\\1}\in G$. 
+					\item Let $\vec u=t\mat{1\\1}\in G$ and let $\alpha$ be any scalar.
+						Then $\alpha\vec u=(\alpha t)\mat{1\\1}\in G$. 
+				\end{enumerate}
+
+		\end{solution}
 		\item $H=\Span\Set{\vec u,\vec v}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 			\begin{solution}
 				XXXX
