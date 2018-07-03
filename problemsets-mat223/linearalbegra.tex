@@ -1303,11 +1303,34 @@ argument supporting your answer.
 	\question
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
 	\begin{parts}
-		\item Draw $\Span\{\vec v_1\}$.
-		\item Draw $\Span\{\vec v_2\}$.
-		\item Describe $\Span\{\vec v_1,\vec v_2\}$.
-		\item Describe $\Span\{\vec v_1,\vec v_3\}$.
-		\item Describe $\Span\{\vec v_1,\vec v_2,\vec v_3\}$.
+		\item Draw $\Span\Set{\vec v_1}$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Draw $\Span\Set{\vec v_2}$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Describe $\Span\Set{\vec v_1,\vec v_2}$.
+			\begin{solution}
+				$\Span\Set{\vec v_1,\vec v_2} = \R^2$
+
+				We can see this since for any $\mat{x\\y} \in \R^2$,
+				\[
+					\mat{x\\y}
+					=\frac{x}{2}\left(\mat{1\\1}+\mat{1\\-1}\right)+\frac{y}{2}\left(\mat{1\\1}-\mat{1\\-1}\right)
+					=\frac{x+y}{2}\vec v_1 + \frac{x-y}{2}\vec v_2
+				\]
+			\end{solution}
+		\item Describe $\Span\Set{\vec v_1,\vec v_3}$.
+			\begin{solution}[inline]
+				$\Span\Set{\vec v_1,\vec v_3} = \Span\Set{\vec v_1}$, 
+				a line through the origin with direction vector $\vec v_1$. 
+			\end{solution}
+		\item Describe $\Span\Set{\vec v_1,\vec v_2,\vec v_3}$.
+			\begin{solution}[inline]
+				$\Span\Set{\vec v_1,\vec v_2,\vec v_3} = \Span\Set{\vec v_1,\vec v_2} = \R^2$
+			\end{solution}
 	\end{parts}
 
 
@@ -1719,6 +1742,11 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 				vectors. 
 			\end{solution}
 		\item Is $\Set{\vec u,\vec v,\vec w,\vec r}$ linearly independent?
+			\begin{solution}
+				No. We know from earlier that $\vec u+\vec v+2\vec w=\vec 0$, and
+				so $\vec u+\vec v+2\vec w+0\vec r=\vec 0$ is a non-trivial linear 
+				combination of the vectors in this set that equals the zero vector.
+			\end{solution}
 	\end{parts}
 
 
