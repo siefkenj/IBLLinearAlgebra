@@ -3088,19 +3088,19 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				$P = \frac{1}{13}\mat{4&6\\6&9}$ is such a matrix.
 
 				We know from an earlier exercise that 
-				$\mathcal P(\vec x)=\dfrac{\vec x\cdot\vec u}{\norm{u}^2}\vec u$.
-				So if $\Set{\vec e_1,\vec e_2}$ is the standard basis for $\R^2$,
+				$\mathcal P(\vec x)=\dfrac{\vec x\cdot\vec u}{\vec u\cdot\vec u}\vec u$.
+				So if $\Set{\xhat,\yhat}$ is the standard basis for $\R^2$,
 				we can compute
 				\[
-					\mathcal P(\vec e_1)=\frac{2}{13}\vec u=\frac{1}{13}\mat{4\\6}
+					\mathcal P(\xhat)=\frac{2}{13}\vec u=\frac{1}{13}\mat{4\\6}
 					\qquad \text{and} \qquad
-					\mathcal P(\vec e_2)=\frac{3}{13}\vec u=\frac{1}{13}\mat{6\\9}.
+					\mathcal P(\yhat)=\frac{3}{13}\vec u=\frac{1}{13}\mat{6\\9}.
 				\]
 				So since we know $\mathcal P$ is linear, for any $\vec x=\mat{x\\y}$,
 				we can compute:
 				\[
 					\mathcal P(\vec x)
-					=x\mathcal P(\vec e_1)+y\mathcal P(\vec e_2)
+					=x\mathcal P(\xhat)+y\mathcal P(\yhat)
 					=\frac{x}{13}\mat{4\\6}+\frac{y}{13}\mat{6\\9}.
 				\]
 				The matrix that acts like this is $P = \frac{1}{13}\mat{4&6\\6&9}$.
@@ -3114,7 +3114,37 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			and $\mathcal R\circ \mathcal P$.
 			\begin{solution}
 				$A=\frac{1}{13}\mat{6&-4\\9&-6}$ and $B=\frac{1}{13}\mat{-6&-9\\4&6}$
-				are two such matrices, found using the same reasoning as above.
+				are two such matrices.
+
+				Using the same reasoning as part 1 above, if $\Set{\xhat,\yhat}$
+				is the standard basis for $\R^2$, we can compute
+				\[
+					(\mathcal P\circ\mathcal R)(\xhat)
+					=\mathcal P(\mathcal R(\xhat))
+					=\mathcal P(\yhat)
+					=\frac{1}{13}\mat{6\\9}
+					\qquad \text{and} \qquad
+					(\mathcal P\circ\mathcal R)(\yhat)
+					=\mathcal P(\mathcal R(\yhat))
+					=\mathcal P(-\xhat)
+					=\frac{1}{13}\mat{-4\\-6}.
+				\]
+				Therefore, the matrix $A$ for $\mathcal P\circ\mathcal R$ is the
+				matrix with the two vectors above as its respective columns. 
+
+				Similarly, for $\mathcal R\circ \mathcal P$, we can compute:
+				\begin{gather*}
+					(\mathcal R\circ\mathcal P)(\xhat)
+					=\mathcal R(\mathcal P(\xhat))
+					=\mathcal R\left(\frac{1}{13}\mat{4\\6}\right)
+					=\frac{1}{13}\mat{-6\\4} \\
+					(\mathcal R\circ\mathcal P)(\yhat)
+					=\mathcal R(\mathcal P(\yhat))
+					=\mathcal R\left(\frac{1}{13}\mat{6\\9}\right)
+					=\frac{1}{13}\mat{-9\\6}.
+				\end{gather*}
+				Therefore, the matrix $B$ for $\mathcal R\circ\mathcal P$ is the
+				matrix with these two vectors as its respective columns. 
 			\end{solution}
 		\item How do the matrices $A$ and $B$ relate to the matrices $P$ and $R$?
 			Using the results of the two parts, we have
