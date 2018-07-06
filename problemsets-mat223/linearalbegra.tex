@@ -3529,14 +3529,103 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\newpage
 \end{lesson}
 	\question
-	Define $\mathcal P$ to be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$,
+	Define $\mathcal P$ to be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Find a matrix $P$ so that $P\vec x=\mathcal P(\vec x)$ for all $\vec x\in\R^2$.
+			\begin{solution}
+				$P = \frac{1}{13}\mat{4&6\\6&9}$ is such a matrix.
+
+				The matrix $P$ corresponding to $\mathcal P$ is a $2\times 2$ matrix,
+				so suppose $P=\mat{a&b\\c&d}$ for some $a,b,c,d\in\R$. Then we
+				know that if $\Set{\xhat,\yhat}$ is the standard basis for $\R^2$,
+				\[
+					P(\xhat)=\mat{a\\c} \quad \text{and} \quad P(\yhat)=\mat{b\\d}.
+				\]
+				We know from an earlier exercise that 
+				$\mathcal P(\vec x)=\dfrac{\vec x\cdot\vec u}{\vec u\cdot\vec u}\vec u$.
+				Therefore, the first column of $P$ is
+				\[
+					\mat{a\\c}=\mathcal P(\xhat)=\frac{2}{13}\vec u=\frac{1}{13}\mat{4\\6}
+				\]
+				and the second column of $P$ is
+				\[
+					\mat{b\\d}=\mathcal P(\yhat)=\frac{3}{13}\vec u=\frac{1}{13}\mat{6\\9}.
+				\]
+			\end{solution}
 		\item Find a matrix $R$ so that $R\vec x=\mathcal R(\vec x)$ for all $\vec x\in\R^2$.
-		\item Write down matrices $A$ and $B$
-			for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+			\begin{solution}
+				$R=\mat{0&-1\\1&0}$ is such a matrix. 
+
+				Using the same reasoning as the previous part, we can compute
+				\[
+					\mathcal R(\xhat)=\yhat=\mat{0\\1}
+					\quad \text{and} \quad
+					\mathcal R(\yhat)=-\xhat=\mat{-1\\0}.
+				\]
+				Therefore, the matrix $R$ for $\mathcal R$ is the matrix with the
+				two vectors above as its respective columns.
+			\end{solution}
+		\item Write down matrices $A$ and $B$ for $\mathcal P\circ\mathcal R$ 
+			and $\mathcal R\circ \mathcal P$.
+			\begin{solution}
+				$A=\frac{1}{13}\mat{6&-4\\9&-6}$ and $B=\frac{1}{13}\mat{-6&-9\\4&6}$
+				are two such matrices.
+
+				Using the same reasoning as above, we can compute
+				\[
+					(\mathcal P\circ\mathcal R)(\xhat)
+					=\mathcal P(\mathcal R(\xhat))
+					=\mathcal P(\yhat)
+					=\frac{1}{13}\mat{6\\9}
+					\qquad \text{and} \qquad
+					(\mathcal P\circ\mathcal R)(\yhat)
+					=\mathcal P(\mathcal R(\yhat))
+					=\mathcal P(-\xhat)
+					=\frac{1}{13}\mat{-4\\-6}.
+				\]
+				Therefore, the matrix $A$ for $\mathcal P\circ\mathcal R$ is the
+				matrix with the two vectors above as its respective columns. 
+
+				Similarly, for $\mathcal R\circ \mathcal P$, we can compute:
+				\begin{gather*}
+					(\mathcal R\circ\mathcal P)(\xhat)
+					=\mathcal R(\mathcal P(\xhat))
+					=\mathcal R\left(\frac{1}{13}\mat{4\\6}\right)
+					=\frac{1}{13}\mat{-6\\4} \\
+					(\mathcal R\circ\mathcal P)(\yhat)
+					=\mathcal R(\mathcal P(\yhat))
+					=\mathcal R\left(\frac{1}{13}\mat{6\\9}\right)
+					=\frac{1}{13}\mat{-9\\6}.
+				\end{gather*}
+				Therefore, the matrix $B$ for $\mathcal R\circ\mathcal P$ is the
+				matrix with these two vectors as its respective columns. 
+			\end{solution}
 		\item How do the matrices $A$ and $B$ relate to the matrices $P$ and $R$?
+			\begin{solution}
+				$A = PR$ and $B = RP$. 
+
+				We can simply compute these matrix products to see this, but
+				from the previous parts we that for any vector $\vec x$
+				\[
+					A\vec x
+					=(\mathcal P\circ\mathcal R)(\vec x)
+					=\mathcal P(\mathcal R(\vec x))
+					=\mathcal P(R\vec x)
+					=PR\vec x.
+					\quad \text{and} \quad
+					B\vec x
+					=(\mathcal R\circ\mathcal P)(\vec x)
+					=\mathcal R(\mathcal P(\vec x)
+					=\mathcal R(P\vec x)
+					=RP\vec x.
+				\]
+				Using $\vec x = \xhat$ shows that first column of $A$ must equal
+				the first column of $PR$, and using $\vec x = \yhat$ shows that
+				the second column fo $A$ must equal the second column of $PR$,
+				and therefore $A = PR$. For the same reason, we must also have $B=RP$.
+			\end{solution}
+				
 	\end{parts}
 
 	\begin{definition}[Range]
