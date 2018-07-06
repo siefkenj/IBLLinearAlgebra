@@ -1303,11 +1303,34 @@ argument supporting your answer.
 	\question
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
 	\begin{parts}
-		\item Draw $\Span\{\vec v_1\}$.
-		\item Draw $\Span\{\vec v_2\}$.
-		\item Describe $\Span\{\vec v_1,\vec v_2\}$.
-		\item Describe $\Span\{\vec v_1,\vec v_3\}$.
-		\item Describe $\Span\{\vec v_1,\vec v_2,\vec v_3\}$.
+		\item Draw $\Span\Set{\vec v_1}$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Draw $\Span\Set{\vec v_2}$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Describe $\Span\Set{\vec v_1,\vec v_2}$.
+			\begin{solution}
+				$\Span\Set{\vec v_1,\vec v_2} = \R^2$
+
+				We can see this since for any $\mat{x\\y} \in \R^2$,
+				\[
+					\mat{x\\y}
+					=\frac{x}{2}\left(\mat{1\\1}+\mat{1\\-1}\right)+\frac{y}{2}\left(\mat{1\\1}-\mat{1\\-1}\right)
+					=\frac{x+y}{2}\vec v_1 + \frac{x-y}{2}\vec v_2
+				\]
+			\end{solution}
+		\item Describe $\Span\Set{\vec v_1,\vec v_3}$.
+			\begin{solution}[inline]
+				$\Span\Set{\vec v_1,\vec v_3} = \Span\Set{\vec v_1}$, 
+				a line through the origin with direction vector $\vec v_1$. 
+			\end{solution}
+		\item Describe $\Span\Set{\vec v_1,\vec v_2,\vec v_3}$.
+			\begin{solution}[inline]
+				$\Span\Set{\vec v_1,\vec v_2,\vec v_3} = \Span\Set{\vec v_1,\vec v_2} = \R^2$
+			\end{solution}
 	\end{parts}
 
 
@@ -1719,6 +1742,11 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 				vectors. 
 			\end{solution}
 		\item Is $\Set{\vec u,\vec v,\vec w,\vec r}$ linearly independent?
+			\begin{solution}
+				No. We know from earlier that $\vec u+\vec v+2\vec w=\vec 0$, and
+				so $\vec u+\vec v+2\vec w+0\vec r=\vec 0$ is a non-trivial linear 
+				combination of the vectors in this set that equals the zero vector.
+			\end{solution}
 	\end{parts}
 
 
@@ -2249,9 +2277,37 @@ examples.
 	\begin{parts}
 		\item Make a sketch with $\vec c$, $K$, and $\Proj_K\vec c$ (you don't need to compute 
 		$\Proj_K\vec c$ exactly).
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item What should $(\vec c-\Proj_K\vec c)\cdot \mat{1\\2}$ be? Explain.
+			\begin{solution}
+				$(\vec c-\Proj_K\vec c)\cdot \mat{1\\2} = 0$.
+
+				From our picture we can see that $c-\Proj_K\vec c$ is perpendicular
+				to the line $K$, and so the dot product of this vector with any 
+				direction vector for $K$ should be zero.
+			\end{solution}
 		\item Use your formula from the previous part to find $\Proj_K\vec c$
 			\emph{without} computing any distances.
+			\begin{solution}
+				$\Proj_K\vec c = \frac{1}{5}\mat{11\\12}$
+
+				If $\Proj_K\vec c = \mat{x\\y}$, the formula from the previous
+				part tells us
+				\[
+					\left(\mat{1\\3}-\mat{x\\y}\right)\cdot \mat{1\\2}
+					=1-x+6-2y=0
+					\quad \iff \quad
+					x+2y=7
+				\]
+				So we need a point on $K$ that satisfies this equation. In other 
+				words, we need
+				\[
+					(t+1) + 2(2t) = 7 \quad \implies \quad t = \frac{6}{5}.
+				\]
+				The point on $K$ for this value of $t$ is $\frac{1}{5}\mat{11\\12}$.
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Component]
@@ -2278,8 +2334,28 @@ examples.
 	\question
 	Let $\vec a,\vec b\in \R^3$ be unknown vectors.
 	\begin{parts}
-		\item List two conditions that $\Comp_{\vec b} \vec a$ must satisfy.
+		\item List two conditions that $\Comp_{\vec b}\vec a$ must satisfy.
+			\begin{solution}
+				$\Comp_{\vec b} \vec a$ must be a scalar multiple of $\vec b$.
+
+				$\vec a - \Comp_{\vec b} \vec a$ must be orthogonal to $\vec b$,
+				or in other words $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$. 
+			\end{solution}
 		\item Find a formula for $\Comp_{\vec b}\vec a$.
+			\begin{solution}
+				$\Comp_{\vec b}\vec a = \dfrac{\vec a\cdot\vec b}{\vec b\cdot\vec b} \vec b$.
+
+				From the previous part, we should have $\Comp_{\vec b}\vec a=t\vec b$
+				for some scalar $t$, and $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$.
+
+				Combining these, we get:
+				\[
+					0=(\vec a-t \vec b)\cdot \vec b
+					=\vec a\cdot\vec b - t\vec b\cdot\vec b
+					=\vec a\cdot\vec b - t(\vec b\cdot\vec b).
+				\]
+				Solving for $t$, we get $t = \dfrac{\vec a\cdot\vec b}{\vec b\cdot\vec b}$.
+			\end{solution}
 	\end{parts}
 
 
@@ -2336,10 +2412,35 @@ examples.
 	\begin{parts}
 		\item Draw $\vec d$, $\vec u$, $\Span\{\vec d\}$, and $\Proj_{\Span\{\vec d\}}\vec u$
 			in the same picture.
+			\begin{solution}
+				XXXX
+			\end{solution}
 		\item How do $\Proj_{\Span\{\vec d\}}\vec u$ and $\Comp_{\vec d}\vec u$ relate?
+			\begin{solution}[inline]
+				They are equal.
+			\end{solution}
 		\item Compute $\Proj_{\Span\{\vec d\}}\vec u$ and $\Comp_{\vec d}\vec u$.
+			\begin{solution}
+				Using our formula from the previous problem
+				\[
+					\Proj_{\Span\{\vec d\}}\vec u
+					=\Comp_{\vec d}\vec u
+					=\frac{\vec u\cdot \vec d}{\norm{\vec d}^2} \vec d
+					=\frac{9}{18}\vec d = \frac{1}{2}\mat{3\\3}.
+				\]
+			\end{solution}
 		\item Compute $\Comp_{-\vec d}\vec u$. Is this the same as or different from 
 			$\Comp_{\vec d}\vec u$? Explain.
+			\begin{solution}
+				\[
+					\Comp_{-\vec d}\vec u
+					=\frac{\vec u\cdot (-\vec d)}{\norm{-\vec d}^2} (-\vec d)
+					=\frac{-9}{18}(-\vec d) = \frac{1}{2}\mat{3\\3}
+					=\Comp_{\vec d}\vec u.
+				\]
+				We expect them to be equal since $\vec d$ and $-\vec d$ are 
+				in the same direction as one another.
+			\end{solution}
 	\end{parts}
 
 
@@ -2358,14 +2459,108 @@ examples.
 	\question
 	For each set, draw it and explain whether or not it is a subspace of $\R^2$.
 	\begin{parts}
-		\item $A=\{\vec x\in\R^2:\vec x=\mat{a\\0}\text{ for some }a\in\Z\}$.
-		\item $B=\{\vec x\in\R^2:\vec x\neq \mat{0\\0}\}$.
-		\item $C=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ for some }t\in\R\}$.
-		\item $D=\{\vec x\in\R^2:\vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R\}$.
-		\item $E=\{\vec x\in\R^2:\vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R\}$.
-		\item $F=\{\vec x\in\R^2:\vec x=t\mat{3\\1}\text{ for some }t\in\R\}$.
+		\item $A=\Set*{\vec x\in\R^2 \given \vec x=\mat{a\\0}\text{ for some }a\in\Z}$.
+			\begin{solution}
+				XXXX
+
+				$A$ is not a subspace, since for example $\mat{1\\0} \in A$ but 
+				$\frac{1}{2}\mat{1\\0}\notin A$. 
+			\end{solution}
+		\item $B=\Set*{\vec x\in\R^2 \given \vec x\neq \mat{0\\0}}$.
+			\begin{solution}
+				XXXX
+					
+				$B$ is not a subspace, since for example $\mat{1\\0}$ and $\mat{-1\\0}$
+				are both in $B$, but their sum is $\mat{0\\0}$ which is not in $B$.
+			\end{solution}
+		\item $C=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ for some }t\in\R}$.
+			\begin{solution}
+				XXXX
+					
+				$C$ is a subspace.
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in C$. Then $\vec u=\mat{0\\t}$ and
+						$\vec v=\mat{0\\s}$ for some $s,t\in\R$.
+
+						But then $\vec u+\vec v=\mat{0\\s+t}\in C$. 
+					\item Let $\vec u=\mat{0\\t}\in C$. For any scalar $\alpha$
+						we have $\alpha\vec u=\mat{0\\\alpha t}\in C$. 
+				\end{enumerate}
+			\end{solution}
+		\item $D=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R}$.
+			\begin{solution}
+				XXXX
+					
+				$D$ is not a subspace, since for example $\mat{1\\1}\in D$, but
+				$0\mat{1\\1}=\mat{0\\0}\notin D$. 
+			\end{solution}
+		\item $E=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R}$.
+			\begin{solution}
+				XXXX
+
+				$E$ is not a subspace, since for example  $\mat{1\\0}$ and $\mat{0\\1}$
+				are both in $E$, but their sum is $\mat{1\\1}$ which is not in $E$.
+			\end{solution}
+		\item $F=\Set*{\vec x\in\R^2 \given \vec x=t\mat{3\\1}\text{ for some }t\in\R}$.
+			\begin{solution}
+				XXXX
+					
+				$F$ is a subspace.
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in F$. Then $\vec u=t\mat{3\\1}$ and
+						$\vec v=s\mat{3\\1}$ for some $s,t\in\R$. 
+
+						But then $\vec u+\vec v=(s+t)\mat{3\\1}\in F$. 
+					\item Let $\vec u=t\mat{3\\1}\in F$. For any scalar $\alpha$
+						we have $\alpha\vec u=(\alpha t)\mat{3\\1}\in F$. 
+				\end{enumerate}
+			\end{solution}
 		\item $G=\Span\left\{\mat{1\\1}\right\}$.
-		\item $H=\Span\{\vec u,\vec v\}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
+			\begin{solution}
+				XXXX
+					
+				$G$ is a subspace. 
+
+				By definition of a span,
+				$G=\Set*{\vec x\in\R^2 \given \vec x=t\mat{1\\1}\text{ for some }t\in\R}$.
+
+				The proof that $G$ is a subspace now proceeds similarly to the
+				proof for $F$ above.
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in G$. Then $\vec u=t\mat{1\\1}$ and
+						$\vec v=s\mat{1\\1}$ for some $s,t\in\R$. 
+
+						But then $\vec u+\vec v=(s+t)\mat{1\\1}\in G$. 
+					\item Let $\vec u=t\mat{1\\1}\in G$. For any scalar $\alpha$
+						we have $\alpha\vec u=(\alpha t)\mat{1\\1}\in G$. 
+				\end{enumerate}
+
+		\end{solution}
+		\item $H=\Span\Set{\vec u,\vec v}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
+			\begin{solution}
+				XXXX
+					
+				$H$ is a subspace. 
+
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec x,\vec y\in H$.
+						Then $\vec x=\alpha_1\vec u+\alpha_2\vec v$ and 
+						$\vec y=\beta_1\vec u+\beta_2\vec v$ for some scalars 
+						$\alpha_1,\alpha_2,\beta_1,\beta_2$. But then
+						\[
+							\vec x+\vec y
+							=\alpha_1\vec u+\alpha_2\vec v+\beta_1\vec u+\beta_2\vec v
+							=(\alpha_1+\beta_1)\vec u+(\alpha_2+\beta_2)\vec v\in H.
+						\]
+
+					\item Let $\vec x=\alpha_1\vec u+\alpha_2\vec v\in H$.
+						For any	scalar $\beta$ we have 
+						$\beta\vec u=(\beta\alpha_1)\vec u+(\beta\alpha_2)\vec v\in H$.
+				\end{enumerate}
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -2423,43 +2618,44 @@ examples.
 
 		\begin{notes}
 			\begin{itemize}
-				\item Students will claim $V$ is $\R^2$ and fail to distinguish $\R^2$ and the
-					$xy$-plane in $\R^3$.
+				\item Students will claim $V$ is $\R^2$ and fail to distinguish 
+					$\R^2$ and the $xy$-plane in $\R^3$.
 				\item Parts 2, 3, 4, 6 will be easy; don't belabor them.
-				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$ from $\{\vec u,\vec v\}$. Make sure this distinction
-					comes out.
+				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$ 
+					from $\{\vec u,\vec v\}$. Make sure this distinction comes out.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, and $V=\Span\{\vec u,\vec v,\vec w\}$.
+	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, 
+	and $V=\Span\Set{\vec u,\vec v,\vec w}$.
 	\begin{parts}
 		\item Describe $V$.
-			\begin{solution}
+			\begin{solution}[inline]
 				$V$ is the $xy$-plane in $\R^3$.
 			\end{solution}
-		\item Is $\{\vec u,\vec v,\vec w\}$ a basis for $V$?  Why or why not?
+		\item Is $\Set{\vec u,\vec v,\vec w}$ a basis for $V$?  Why or why not?
 			\begin{solution}
-				No. The set $\{\vec u,\vec v,\vec w\}$ is linearly dependent since $\vec w=\vec u+\vec v$.
+				No. The set $\Set{\vec u,\vec v,\vec w}$ is linearly dependent since $\vec w=\vec u+\vec v$.
 			\end{solution}
 		\item Give a basis for $V$.
-			\begin{solution}
-				$\{\vec u,\vec v\}$
+			\begin{solution}[inline]
+				$\Set{\vec u,\vec v}$.
 			\end{solution}
 		\item Give another basis for $V$.
-			\begin{solution}
-				$\{\vec u,\vec w\}$ or $\{\vec v,\vec w\}$.
+			\begin{solution}[inline]
+				$\Set{\vec u,\vec w}$ or $\Set{\vec v,\vec w}$.
 			\end{solution}
-		\item Is $\Span\{\vec u,\vec v\}$ a basis for $V$?  Why or why not?
+		\item Is $\Span\Set{\vec u,\vec v}$ a basis for $V$?  Why or why not?
 			\begin{solution}
-				No. $\Span\{\vec u,\vec v\}$ is an infinite set of vectors
+				No. $\Span\Set{\vec u,\vec v}$ is an infinite set of vectors
 				which includes $\vec 0$, so it cannot be linearly independent and
 				therefore isn't a basis.
 			\end{solution}
 		\item What is the dimension of $V$?
 			\begin{solution}
-				A basis for $V$ has two vectors so it is two dimensional. We also
-				know this because $V$ is the $xy$-plane in $\R^3$ and all planes are two
-				dimensional.
+				A basis for $V$ has two vectors so it is two-dimensional. We also
+				know this because $V$ is the $xy$-plane in $\R^3$ and all planes 
+				are two-dimensional.
 			\end{solution}
 	\end{parts}
 
@@ -2467,12 +2663,42 @@ examples.
 	\question
 	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ (notice these vectors
 	are linearly independent) and 
-	let $P=\Span\{\vec a,\vec b\}$ and $Q=\Span\{\vec b,\vec c\}$.
+	let $P=\Span\Set{\vec a,\vec b}$ and $Q=\Span\Set{\vec b,\vec c}$.
 	\begin{parts}
 		\item Give a basis for and the dimension of $P$.
+			\begin{solution}
+				$\Set{\vec a,\vec b}$ is a basis for $P$, and so its dimension is 2. 
+			\end{solution}
 		\item Give a basis for and the dimension of $Q$.
+			\begin{solution}
+				$\Set{\vec b,\vec c}$ is a basis for $Q$, and so its dimension is 2. 
+			\end{solution}
 		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
+			\begin{solution}
+				Yes. $\Set{\vec b}$ is a basis for $P\cap Q$, and so its dimension is 1. 
+
+				$P$ and $Q$ are both planes and are not parallel (since 
+				$\vec a,\vec b,\vec c$ are linearly independent). The intersection
+				of any two non-parallel	planes is a line. 
+				We know that $\vec 0$ and $\vec c$ are on this line, and therefore
+				the line is $\Span\Set{\vec c}$
+			\end{solution}
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
+			\begin{solution}
+				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but 
+				$\vec a+\vec c \notin P\cup Q$. 
+
+				A vector is in $P\cup Q$ if it is in $P$ or $Q$, so we must show
+				that $\vec a+\vec c\notin P$ and $\vec a+\vec c\notin Q$
+
+				$\vec a+\vec c \notin P$ since if it were, we would also have
+				$(\vec a+\vec c)-\vec a=\vec c\in P$. We know this is impossible
+				since the vectors $\vec a,\vec b,\vec c$ are linearly independent,
+				and so $\vec c$ does not equal a linear combination of $\vec a$
+				and $\vec b$. 
+
+				An analogous argument shows that $\vec a+\vec c \notin Q$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -2507,22 +2733,65 @@ examples.
 	Let $A=\mat{1&2\\3&3}$, $\vec x=\mat{x\\y}$, and $\vec b=\mat{-2\\-1}$.
 	\begin{parts}
 		\item Compute the product $A\vec x$.
+			\begin{solution}
+				$A \vec x = \mat{x+2y\\3x+3y}$.
+			\end{solution}
 		\item Write down a system of equations that corresponds to the matrix equation
 			$A\vec x=\vec b$.
+			\begin{solution}
+				\begin{align*}
+					x + 2y &= -2 \\
+					3x + 3y &= -1
+				\end{align*}
+			\end{solution}
 		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
 			$x_0$ and $y_0$ mean in terms of \emph{linear combinations} (hint: think
 			about the columns of $A$).
+			\begin{solution}
+				$x_0$ and $y_0$, when used as scalars in a linear combination of
+				the columns of $A$, make the vector $\vec b$. In other words:
+				\[
+					x_0 \mat{1\\3} + y_0 \mat{2\\3} = \mat{-2\\-1}.
+				\]
+			\end{solution}
 		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
 			$x_0$ and $y_0$ mean in terms of \emph{intersecting lines} (hint: think
 			about systems of equations).
+			\begin{solution}
+				The lines represented by the equations $x+2y=-2$ and $3x+3y=-1$
+				from the system of equations above intersect at the point $\mat{x_0\\y_0}$.
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $\vec u=\mat{1\\2\\3}$, $\vec v=\mat{4\\5\\6}$, $\vec w=\mat{7\\8\\9}$.
 	\begin{parts}
-		\item How could you determine if $\{\vec u,\vec v,\vec w\}$ was a linearly
+		\item How could you determine if $\Set{\vec u,\vec v,\vec w}$ was a linearly
 			independent set?
+			\begin{solution}
+				The set is linearly independent if and only if no non-trivial linear
+				combination of the vectors $\vec u,\vec v,\vec w$ equals $\vec 0$.
+				That is, if $x, y, z$ are scalars such that
+				$x\vec u+y\vec v+z\vec w=\vec 0$, then $x=y=z=0$.
+
+				In other words, the only solution of the following
+				system of equations is $x=y=z=0$.
+				\begin{align*}
+					x + 4y + 7z &= 0 \\
+					2x + 5y + 8z &= 0 \\
+					3x + 6y + 9z &= 0 \\
+				\end{align*}
+			\end{solution}
 		\item Can your method be rephrased in terms of a matrix equation? Explain.
+			\begin{solution}
+				The system of linear equations above can be represented by the
+				matrix equation $A\vec x = \vec 0$, where $A = \mat{1&4&7\\2&5&8\\3&6&9}$
+				and $\vec x=\mat{x\\y\\z}$.
+
+				So another way to say the above is that the set is linearly independent
+				if and only if the only solution to the equation $A \vec x = \vec 0$
+				is $\vec x = \vec 0$.
+			\end{solution}
 	\end{parts}
 
 
@@ -2532,25 +2801,68 @@ examples.
 		\mat{1&-3&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\vec b.
 	\]
 	\begin{parts}
-		\item If $\vec b=\mat{1\\2\\3}$, is the set of solutions to this system a 
-		point, line, plane, or other?
-		\item If $\vec b=\mat{1\\1\\0}$, is the set of solutions to this system a 
-		point, line, plane, or other?
+		\item If $\vec b=\mat{1\\2\\3}$, is the set of solutions to this system
+			a point, line, plane, or other?
+			\begin{solution}
+				This system has no solutions, since the third equation would be
+				$0=3$, which is impossible. 
+			\end{solution}
+		\item If $\vec b=\mat{1\\1\\0}$, is the set of solutions to this system
+			a point, line, plane, or other?
+			\begin{solution}
+				A line. The system would be
+				\begin{align*}
+					x - 3y &= 1 \\
+					z &= 1 \\
+					0 &= 0
+				\end{align*}
+				A vector $\vec x=\mat{x\\y\\z}$ that satisfies this system must have
+				$z=1$, and by the first equation in the system any value of $x$
+				determines the value of $y$, and vice versa. In other words the
+				system has one free variable, and so its set of solutions is a line.
+			\end{solution}
 	\end{parts}
 
 	\question
-	Let $\vec d_1=\mat{1\\1\\2}$ and
-	$\vec d_2=\mat{-1\\1\\0}$. 
+	Let $\vec d_1=\mat{1\\1\\2}$ and $\vec d_2=\mat{-1\\1\\0}$. 
 	Let $\mathcal P$ be the plane given in vector form by $\vec x=t\vec d_1+s\vec d_2$.
-	Further, suppose $M$ is a matrix so that $M\vec r\in\mathcal P$ for any $\vec r$.
+	Further, suppose $M$ is a matrix so that $M\vec r\in\mathcal P$ for any $\vec r\in\R^2$.
 	\begin{parts}
 		\item How many rows does $M$ have?
+			\begin{solution}
+				Three. It must have three rows in order for $M\vec r$ to be an
+				element of $\R^3$. 
+			\end{solution}
 		\item Find such an $M$.
-		\item Find necessary and sufficient conditions (phrased as equations) for $\vec n$
-			to be a normal vector for $\vec p$.
-		\item Find a matrix $K$ so that solutions
-			to $K\vec x=\vec 0$ are normal vectors for $\mathcal P$.
-			How do $K$ and $M$ relate?
+			\begin{solution}
+				$M=\mat{1&-1\\1&1\\2&0}$ is one possible answer, since if
+				$\vec r = \mat{a\\b}$, then $M \vec r = a \vec d_1 + b \vec d_2$. 
+
+				Another less interesting answer is the $3\times2$ zero matrix. 
+			\end{solution}
+		\item Find necessary and sufficient conditions (phrased as equations) for 
+			$\vec n$ to be a normal vector for $\mathcal P$.
+			\begin{solution}
+				$\vec n$ is normal to $\mathcal P$ if and only if 
+				$\vec n\cdot\vec d_1=0$ \emph{and} $\vec n\cdot\vec d_2=0$
+			\end{solution}
+		\item Find a matrix $K$ so that solutions to $K\vec x=\vec 0$ are normal
+			vectors for $\mathcal P$. How do $K$ and $M$ relate?
+			\begin{solution}
+				$K = \mat{1&1&2\\-1&1&0}$. $K$ and $M$ are transposes of 
+				one another.
+
+				The conditions $\vec n\cdot\vec d_1=0$ and $\vec n\cdot\vec d_2=0$
+				from the previous part translate to the following system of equations:
+				\begin{align*}
+					x + y + 2z &= 0 \\
+					-x + y &= 0.
+				\end{align*}
+				This system of equations can be represented by the matrix equation 
+				\[
+					\mat{1&1&2\\-1&1&0}\mat{x\\y\\z} = \mat{0\\0}.
+				\]
+			\end{solution}
 	\end{parts}
 
 
@@ -2636,29 +2948,46 @@ examples.
 \end{center}
 
 
-	Instead, every street is parallel to
-	the vector $\vec d_1=\frac{1}{5}\mat{4\text{ east}\\3\text{ north}}$ or 
-	$\vec d_2=\tfrac{1}{5}\mat{-3\text{ east}\\4\text{ north}}$. The center of town
-	is City Hall at $\vec 0=\mat{0\text{ east}\\0\text{ north}}$. 
+	Instead, every street is parallel to the vector 
+	$\vec d_1=\frac{1}{5}\mat{4\text{ east}\\3\text{ north}}$ or 
+	$\vec d_2=\tfrac{1}{5}\mat{-3\text{ east}\\4\text{ north}}$. The center of 
+	town is City Hall at $\vec 0=\mat{0\text{ east}\\0\text{ north}}$. 
 
 	Locations in Oronto are typically specified in \emph{street coordinates}. That
 	is, as a pair $(a,b)$ where $a$ is how far you walk along streets in the $\vec d_1$ direction
 	and $b$ is how far you walk in the $\vec d_2$ direction, provided you start at city hall.
 
 	\begin{parts}
-		\item The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates. Find their  
-			east-north coordinates.
-		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. Find their
-			street coordinates.
+		\item The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates.
+			Find their east-north coordinates.
+			\begin{solution}
+				$A=\frac{1}{5}(5,-4)$ and $B=(3,1)$ in east-north coordinates.
+
+				We obtain $A$ for example by finding the vector $2\vec d_1+\vec d_2$. 
+			\end{solution}
+		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. 
+			Find their street coordinates.
+			\begin{solution}[inline]
+				$X=(5,0)$ and $Y=(5,5)$ in street coordinates.
+			\end{solution}
 		\item Define $\vec e_1=\mat{1\text{ east}\\0\text{ north}}$ and 
-			$\vec e_2=\mat{0\text{ east}\\1\text{ north}}$. Does $\Span\{\vec e_1,\vec e_2\}
-			=\Span\{\vec d_1,\vec d_2\}$?
+			$\vec e_2=\mat{0\text{ east}\\1\text{ north}}$.
+			Does $\Span\Set{\vec e_1,\vec e_2} = \Span\Set{\vec d_1,\vec d_2}$?
+			\begin{solution}
+				Yes. Both of these sets spans all of $\R^2$. 
+			\end{solution}
 		\item Notice that $Y=5\vec e_1+5\vec e_2 = \vec d_1+7\vec d_2$. Is the point $Y$
 			better represented by the pair $(5,5)$ or by the pair $(1,7)$? Explain.
+			\begin{solution}
+				It is equally well represented by either pair. For example, the
+				street coordinates might be more useful for a resident of Oronto,
+				while the east-north coordinates might be more useful for someone
+				looking at Oronto on a world map. 
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Representation in a Basis]
-		Let $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ be a basis for a subspace $V$
+		Let $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$ be a basis for a subspace $V$
 		and let $\vec v\in V$. The \emph{representation of $\vec v$ in the $\mathcal B$
 		basis}, notate $[\vec v]_{\mathcal B}$,
 		is the column matrix
@@ -2671,24 +3000,91 @@ examples.
 
 		Similarly,
 		\[
-			\mat{\alpha_1\\\vdots\\\alpha_n}_{\mathcal B} = \alpha_1\vec b_1+\cdots +\alpha_n\vec b_n
+			\mat{\alpha_1\\\vdots\\\alpha_n}_{\mathcal B}
+			= \alpha_1\vec b_1+\cdots +\alpha_n\vec b_n
 		\]
-		is notation for the linear combination of $\vec b_1,\ldots,\vec b_n$ with coefficients $\alpha_1,\ldots,\alpha_n$.
+		is notation for the linear combination of $\vec b_1,\ldots,\vec b_n$ with
+		coefficients $\alpha_1,\ldots,\alpha_n$.
 	\end{definition}
 
 	\question
-	Let $\mathcal E=\{\vec e_1,\vec e_2\}$ be the standard basis for $\R^2$ and let 
-	$\mathcal C=\{\vec c_1,\vec c_2\}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$ and $\vec c_2=\mat{5\\3}_{\mathcal E}$
-	be another basis for $\R^2$.
+	Let $\mathcal E=\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and 
+	let $\mathcal C=\Set{\vec c_1,\vec c_2}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
+	and $\vec c_2=\mat{5\\3}_{\mathcal E}$ be another basis for $\R^2$.
 	\begin{parts}
 		\item Express $\vec c_1$ and $\vec c_2$ as a linear combination of $\vec e_1$ and $\vec e_2$.
+			\begin{solution}[inline]
+				$\vec c_1=2\vec e_1+\vec e_2$ and $\vec c_2=5\vec e_1+3\vec e_2$.
+			\end{solution}
 		\item Express $\vec e_1$ and $\vec e_2$ as a linear combination of $\vec c_1$ and $\vec c_2$.
+			\begin{solution}[inline]
+				$\vec e_1=3\vec c_1-\vec c_2$ and $\vec e_2=-5\vec c_1+2\vec c_2$.
+			\end{solution}
 		\item Let $\vec v=2\vec e_1+2\vec e_2$. Find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
-		\item Can you find a matrix $X$ so that $X[\vec w]_{\mathcal C} = [\vec w]_{\mathcal E}$ for any
-			$\vec w$?
-		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$ for any
-			$\vec w$?
+			\begin{solution}
+				$[\vec v]_{\mathcal E} = \mat{2\\2}$ and 
+				$[\vec v]_{\mathcal C} = \mat{-4\\2}$.
+
+				The second one is since
+				\[
+					\vec v=2\vec e_1+2\vec e_2
+					=2(3\vec c_1-\vec c_2)+2(-5\vec c_1+2\vec c_2)
+					=-4\vec c_1+2\vec c_2.
+				\]
+			\end{solution}
+		\item Can you find a matrix $X$ so that $X[\vec w]_{\mathcal C} = [\vec w]_{\mathcal E}$
+			for any	$\vec w$?
+			\begin{solution}
+				$X = \mat{2&5\\1&3}$ is such a matrix.
+
+				We know $X$ must be a $2\times2$ matrix, so suppose $X=\mat{a&b\\c&b}$
+				for some $a,b,c,d\in\R$. 
+
+				From the first part above, we know
+				\[
+					\mat{1\\0}_{\mathcal C} = \mat{2\\1}_{\mathcal E}
+					\quad \text{and} \quad
+					\mat{0\\1}_{\mathcal C} = \mat{5\\3}_{\mathcal E},
+				\]
+				and so we need $X$ to satisfy
+				\[
+					X\mat{1\\0}=\mat{2\\1}
+					\quad \text{and} \quad
+					X\mat{0\\1}=\mat{5\\3}.
+				\]
+				But $X\mat{1\\0}=\mat{a\\c}$ and $X\mat{0\\1}=\mat{b\\d}$, so we
+				can now immediately solve for $a,b,c,d$ to find that $X$ must be
+				the matrix $\mat{2&5\\1&3}$.
+			\end{solution}
+		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$
+			for any	$\vec w$?
+			\begin{solution}
+				$Y = \mat{3&-5\\-1&2}$ is such a matrix. 
+
+				Using similar reasoning to the previous part, we know $Y$ must be
+				a $2\times2$ matrix, so suppose $Y=\mat{a&b\\c&b}$ for some 
+				$a,b,c,d\in\R$. 
+
+				From the second part above, we know
+				\[
+					\mat{1\\0}_{\mathcal E} = \mat{3\\-1}_{\mathcal C}
+					\quad \text{and} \quad
+					\mat{0\\1}_{\mathcal E} = \mat{-5\\2}_{\mathcal C},
+				\]
+				and so we need $Y$ to satisfy
+				\[
+					Y\mat{1\\0}=\mat{3\\-1}
+					\quad \text{and} \quad
+					Y\mat{0\\1}=\mat{-5\\2},
+				\]
+				But $Y\mat{1\\0}=\mat{a\\c}$ and $Y\mat{0\\1}=\mat{b\\d}$, so we
+				can now immediately solve for $a,b,c,d$ to find that $Y$ must be
+				the matrix $\mat{3&-5\\-1&2}$.
+			\end{solution}
 		\item What is $YX$?
+			\begin{solution}
+				$YX = \mat{1&0\\0&1}$.
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -2719,9 +3115,9 @@ examples.
 	two. Add a vector in the top partition (appropriately ordered) and you get
 	a positive orientation; add to the bottom and you get a negative orientation.
 	There's no way to get from one to the other without passing through the
-	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw. Eventually
-	we will compute orientation from the determinant, but it's nice to have
-	a grounding in where it comes from.
+	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw. 
+	Eventually we will compute orientation from the determinant, but it's nice
+	to have a grounding in where it comes from.
 
 	While we're thinking dynamically, we can start thinking about transformation.
 	We already know how to multiply a matrix and a vector and interpret it in
@@ -2738,25 +3134,44 @@ examples.
 
 	\begin{definition}[Orientation of a Basis]
 		The ordered basis $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is \emph{right-handed}
-		or \emph{positively oriented} if it can be continuously transformed 
-		to the standard basis (with
-		$\vec b_i\mapsto \vec e_i$) while remaining linearly independent
-		throughout the transformation. Otherwise, $\mathcal B$ is called
-		\emph{left-handed} or \emph{negatively oriented}.
+		or \emph{positively oriented} if it can be continuously transformed to 
+		the standard basis (with $\vec b_i\mapsto \vec e_i$) while remaining 
+		linearly independent throughout the transformation. Otherwise, $\mathcal B$ 
+		is called \emph{left-handed} or \emph{negatively oriented}.
 	\end{definition}
 
 	\question
-	Let $\{\vec e_1,\vec e_2\}$ be the standard basis for $\R^2$ and let
+	Let $\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and let
 	$\vec u_{\theta}$ be a unit vector. Let $\theta$ be the angle between $\vec u_{\theta}$ and
-	$\vec e_1$ measured counter clockwise.
+	$\vec e_1$ measured counter clockwise starting at $\vec e_1$.
 	\begin{parts}
-		\item For which $\theta$ is $\{\vec e_1,\vec u_{\theta}\}$ a linearly independent set?
-		\item For which $\theta$ can $\{\vec e_1,\vec u_{\theta}\}$ be continuously
-			transformed into $\{\vec e_1,\vec e_2\}$ and remain linearly independent the
+		\item For which $\theta$ is $\Set{\vec e_1,\vec u_{\theta}}$ a linearly independent set?
+			\begin{solution}[inline]
+				Every $\theta$ that is not a multiple of $\pi$. 
+			\end{solution}
+		\item For which $\theta$ can $\Set{\vec e_1,\vec u_{\theta}}$ be continuously
+			transformed into $\Set{\vec e_1,\vec e_2}$ and remain linearly independent the
 			whole time?
-		\item For which $\theta$ is $\{\vec e_1,\vec u_{\theta}\}$ right-handed? Left-handed?
-		\item For which $\theta$ is $\{\vec u_{\theta},\vec e_1\}$ (in that order) right-handed? 
+			\begin{solution}
+				Every $\theta \in (0, \pi)$. 
+
+				For $\theta\in(\pi,2\pi)$, a continuous transformation of 
+				$\vec u_\theta$	to $\vec e_2$ would have to cross the $x$-axis,
+				at which point $\Set{\vec e_1,\vec u_\theta}$ would cease to be 
+				linearly independent. 
+			\end{solution}
+		\item For which $\theta$ is $\Set{\vec e_1,\vec u_{\theta}}$ right-handed?	
 			Left-handed?
+			\begin{solution}
+				It is right-handed for $\theta\in(0, \pi)$, and left handed for
+				$\theta\in(\pi,2\pi)$.
+			\end{solution}
+		\item For which $\theta$ is $\Set{\vec u_{\theta},\vec e_1}$ (in that order) 
+			right-handed? Left-handed?
+			\begin{solution}
+				It is right-handed for $\theta\in(\pi,2\pi)$, and left handed
+				for $\theta\in(0,\pi)$.
+			\end{solution}
 	\end{parts}
 
 
@@ -2994,11 +3409,29 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 	by $90^\circ$.
 	\begin{parts}
 		\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
-		\item Compute $\mathcal R\mat{1\\1}$.  How does this relate to
+			\begin{solution}[inline]
+				$\mathcal R\mat{1\\0}=\mat{0\\1}$ and
+				$\mathcal R\mat{0\\1}=\mat{-1\\0}$.
+			\end{solution}
+		\item Compute $\mathcal R\mat{1\\1}$. How does this relate to
 			$\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$?
+			\begin{solution}
+				$\mathcal R\mat{1\\1}=\mat{-1\\1}=\mathcal R\mat{1\\0}+\mathcal R\mat{0\\1}$.
+			\end{solution}
 		\item What is $\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)$?
+			\begin{solution}
+				$\mathcal R\left(a\mat{1\\0}+b\mat{0\\1}\right)=a\mat{0\\1}+b\mat{-1\\0}$.
+
+				Rotating a vector and then multiplying by a scalar gives the same
+				result as multiplying first then rotating. Similarly, adding two
+				vectors and then rotating their sum gives the same result as rotating
+				them and then adding.
+			\end{solution}
 		\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
 			counter clockwise by $90^\circ$.
+			\begin{solution}
+				$R = \mat{0&-1\\1&0}$ is such a matrix. 
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Linear Transformation]
@@ -3013,14 +3446,50 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 
 	\question
 	\begin{parts}
-		\item Classify the following as linear transformation or not
+		\item Classify the following as linear transformations or not.
 			\begin{enumerate}
 				\item $\mathcal R$ from before (rotation counter-clockwise by $90^\circ$).
+					\begin{solution}
+						A linear transformation. We proved this in the previous problem.
+					\end{solution}
 				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+					\begin{solution}
+						Not a linear transformation, since for example 
+						$W\left(2\mat{1\\0}\right)=\mat{4\\0}\neq\mat{2\\0}=2W\mat{1\\0}$. 
+					\end{solution}
 				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+					\begin{solution}
+						Not a linear transformation, since for example
+						$T\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2T\mat{1\\0}$. 
+					\end{solution}
 				\item $\mathcal P:\R^2\to\R^2$ where 
 					$\mathcal P\mat{x\\y}=\Comp_{\vec u}\mat{x\\y}$ and 
 					$\vec u=\mat{2\\3}$.
+					\begin{solution}
+						A linear transformation.
+
+						We found a general formula for $\Comp_{\vec u}$ in a previous
+						exercise:
+						\[
+							\Comp_{\vec u}\vec x
+							=\frac{\vec u\cdot\vec x}{\vec u\cdot\vec u}\vec u
+							=\frac{\vec u\cdot\vec x}{13}\vec u.
+						\]
+
+						For any two vectors $\vec x$ and $\vec y$, we have
+						\begin{align*}
+							\Comp_{\vec u}(\vec x + \vec y)&=\frac{\vec u\cdot(\vec x + \vec y)}{13}\vec u\\
+							&=\frac{\vec u\cdot\vec x}{13}\vec u + \frac{\vec u\cdot\vec y}{13}\vec u\\
+							&=\Comp_{\vec u}\vec x + \Comp_{\vec u}\vec y.
+						\end{align*}
+						For any $\vec x$ and scalar $\alpha$, we have
+						\[
+							\Comp_{\vec u}(\alpha\vec x)
+							=\frac{\vec u\cdot(\alpha\vec x)}{13}\vec u
+							=\frac{\alpha(\vec u\cdot\vec x)}{13}\vec u
+							=\alpha\Comp_{\vec u}\vec x.
+						\]
+					\end{solution}
 			\end{enumerate}
 	\end{parts}
 
@@ -3044,24 +3513,61 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 		Let $L:V\to W$ be a transformation and let $X\subset V$ be a set.
 		The \emph{image of the set $V$ under $L$}, denoted $L(V)$, is the set
 		\[
-			L(V)=\{\vec x: \vec x=L(\vec y)\text{ for some }\vec y\in V\}.
+			L(V)=\Set{\vec x\in W \given \vec x=L(\vec y)\text{ for some }\vec y\in V}.
 		\]
 	\end{definition}
 
 	\question
-	Let $S=\{\mat{x\\y}:0\leq x,y\leq 1\}\subseteq \R^2$ be the filled-in unit square
-	and let $C=\{\vec 0, \vec e_1,\vec e_2,\vec e_1+\vec e_2\}\subseteq \R^2$ be the corners of the 
-	unit square.
+	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit 
+	square and let $C=\Set{\vec 0, \vec e_1,\vec e_2,\vec e_1+\vec e_2}\subseteq \R^2$
+	be the corners of the unit square.
 	\begin{parts}
 		\item Find $\mathcal R(C)$, $W(C)$, and $T(C)$ (where $\mathcal R$, $W$,
 			and $T$ are from the previous question).
-		\item Draw $\mathcal R(S)$, $T(S)$, and $\mathcal P(S)$ (where $\mathcal R$, $T$,
-			and $\mathcal P$ are from the previous question).
-		\item Suppose that $\ell=\{\text{ all convex combinations of }\vec a\text{ and }\vec b\}$
-			is a line segment with endpoints $\vec a$ and $\vec b$
-			and $A$ is a linear transformation. Must $A(\ell)$ be a line segment? What are
-			its endpoints?
-		\item Explain how images of sets relate to the \emph{Italicising N} task.
+			\begin{solution}
+				$\mathcal R(C) = \Set{\vec 0,\vec e_2,-\vec e_1,-\vec e_1+\vec e_2}$.
+
+				$W(C) = C$.
+
+				$T(C) = \Set*{\mat{2\\0},\mat{3\\0},\mat{2\\1},\mat{3\\1}}$.
+			\end{solution}
+		\item Draw $\mathcal R(S)$, $T(S)$, and $\mathcal P(S)$ (where $\mathcal R$,
+			$T$, and $\mathcal P$ are from the previous question).
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Let $\ell=\Set{\text{all convex combinations of }\vec a\text{ and }\vec b}$
+			be a line segment with endpoints $\vec a$ and $\vec b$ and let $A$ be
+			a linear transformation. Must $A(\ell)$ be a line segment? 
+			What are its endpoints?
+			\begin{solution}
+				$A(\ell)$ must be a line segment, with endpoints $A(\vec a)$ and
+				$A(\vec b)$.
+
+				For any scalars $\alpha_1$ and $\alpha_2$, by the linearity of $A$
+				we have: $A(\alpha_1\vec a+\alpha_2\vec b)=\alpha_1A(\vec a)+\alpha_2A(\vec b)$.
+
+				If $\alpha_1+\alpha_2=1$, then the linear combination on the right
+				is also convex, and so $A(\ell)$ is the set of convex combinations 
+				of $A(\vec a)$ and $A(\vec b)$. 
+				This is precisely the straight line segment joining $A(\vec a)$
+				and $A(\vec b)$.
+
+				Note that if $A(\vec a)=A(\vec b)$ (for example, if $A$ is the
+				zero transformation), then $A(\ell)$ will consist of the single
+				point, which we think of as a ``degenerate'' line segment in this
+				situation. 
+			\end{solution}
+		\item Explain how images of sets relate to the \emph{Italicizing N} task.
+			\begin{solution}
+				The task asked us to find a linear transformation such that the
+				image of the regular ``N'' is the italicized ``N''. 
+
+				By the previous exercise, we now know it suffices to find a 
+				linear transformation that sends the four endpoints of line 
+				segments on the regular ``N'' to the corresponding four endpoints
+				on the italicized ``N''. 
+			\end{solution}
 	\end{parts}
 
 \newpage
@@ -3150,43 +3656,179 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\newpage
 \end{lesson}
 	\question
-	Define $\mathcal P$ to be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$,
+	Define $\mathcal P$ to be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Find a matrix $P$ so that $P\vec x=\mathcal P(\vec x)$ for all $\vec x\in\R^2$.
+			\begin{solution}
+				$P = \frac{1}{13}\mat{4&6\\6&9}$ is such a matrix.
+
+				The matrix $P$ corresponding to $\mathcal P$ is a $2\times 2$ matrix,
+				so suppose $P=\mat{a&b\\c&d}$ for some $a,b,c,d\in\R$. Then we
+				know that if $\Set{\xhat,\yhat}$ is the standard basis for $\R^2$,
+				\[
+					P(\xhat)=\mat{a\\c} \quad \text{and} \quad P(\yhat)=\mat{b\\d}.
+				\]
+				We know from an earlier exercise that 
+				$\mathcal P(\vec x)=\dfrac{\vec x\cdot\vec u}{\vec u\cdot\vec u}\vec u$.
+				Therefore, the first column of $P$ is
+				\[
+					\mat{a\\c}=\mathcal P(\xhat)=\frac{2}{13}\vec u=\frac{1}{13}\mat{4\\6}
+				\]
+				and the second column of $P$ is
+				\[
+					\mat{b\\d}=\mathcal P(\yhat)=\frac{3}{13}\vec u=\frac{1}{13}\mat{6\\9}.
+				\]
+			\end{solution}
 		\item Find a matrix $R$ so that $R\vec x=\mathcal R(\vec x)$ for all $\vec x\in\R^2$.
-		\item Write down matrices $A$ and $B$
-			for $\mathcal P\circ\mathcal R$ and $\mathcal R\circ \mathcal P$.
+			\begin{solution}
+				$R=\mat{0&-1\\1&0}$ is such a matrix. 
+
+				Using the same reasoning as the previous part, we can compute
+				\[
+					\mathcal R(\xhat)=\yhat=\mat{0\\1}
+					\quad \text{and} \quad
+					\mathcal R(\yhat)=-\xhat=\mat{-1\\0}.
+				\]
+				Therefore, the matrix $R$ for $\mathcal R$ is the matrix with the
+				two vectors above as its respective columns.
+			\end{solution}
+		\item Write down matrices $A$ and $B$ for $\mathcal P\circ\mathcal R$ 
+			and $\mathcal R\circ \mathcal P$.
+			\begin{solution}
+				$A=\frac{1}{13}\mat{6&-4\\9&-6}$ and $B=\frac{1}{13}\mat{-6&-9\\4&6}$
+				are two such matrices.
+
+				Using the same reasoning as above, we can compute
+				\[
+					(\mathcal P\circ\mathcal R)(\xhat)
+					=\mathcal P(\mathcal R(\xhat))
+					=\mathcal P(\yhat)
+					=\frac{1}{13}\mat{6\\9}
+					\qquad \text{and} \qquad
+					(\mathcal P\circ\mathcal R)(\yhat)
+					=\mathcal P(\mathcal R(\yhat))
+					=\mathcal P(-\xhat)
+					=\frac{1}{13}\mat{-4\\-6}.
+				\]
+				Therefore, the matrix $A$ for $\mathcal P\circ\mathcal R$ is the
+				matrix with the two vectors above as its respective columns. 
+
+				Similarly, for $\mathcal R\circ \mathcal P$, we can compute:
+				\begin{gather*}
+					(\mathcal R\circ\mathcal P)(\xhat)
+					=\mathcal R(\mathcal P(\xhat))
+					=\mathcal R\left(\frac{1}{13}\mat{4\\6}\right)
+					=\frac{1}{13}\mat{-6\\4} \\
+					(\mathcal R\circ\mathcal P)(\yhat)
+					=\mathcal R(\mathcal P(\yhat))
+					=\mathcal R\left(\frac{1}{13}\mat{6\\9}\right)
+					=\frac{1}{13}\mat{-9\\6}.
+				\end{gather*}
+				Therefore, the matrix $B$ for $\mathcal R\circ\mathcal P$ is the
+				matrix with these two vectors as its respective columns. 
+			\end{solution}
 		\item How do the matrices $A$ and $B$ relate to the matrices $P$ and $R$?
+			\begin{solution}
+				$A = PR$ and $B = RP$. 
+
+				We can simply compute these matrix products to see this, but
+				from the previous parts we that for any vector $\vec x$
+				\[
+					A\vec x
+					=(\mathcal P\circ\mathcal R)(\vec x)
+					=\mathcal P(\mathcal R(\vec x))
+					=\mathcal P(R\vec x)
+					=PR\vec x.
+					\quad \text{and} \quad
+					B\vec x
+					=(\mathcal R\circ\mathcal P)(\vec x)
+					=\mathcal R(\mathcal P(\vec x)
+					=\mathcal R(P\vec x)
+					=RP\vec x.
+				\]
+				Using $\vec x = \xhat$ shows that first column of $A$ must equal
+				the first column of $PR$, and using $\vec x = \yhat$ shows that
+				the second column fo $A$ must equal the second column of $PR$,
+				and therefore $A = PR$. For the same reason, we must also have $B=RP$.
+			\end{solution}
+				
 	\end{parts}
 
 	\begin{definition}[Range]
-		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ is the set of vectors that
-		$T$ can output.  That is,
+		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ 
+		is the set of vectors that $T$ can output. That is,
 		\[
-			\Range(T)=\{\vec y\in W:\vec y=T\vec x\text{ for some }\vec x\in V\}.
+			\Range(T)=\Set{\vec y\in W \given \vec y=T\vec x\text{ for some }\vec x\in V}.
 		\]
 	\end{definition}
 	\begin{definition}[Null Space]
-		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$ is the
-		set of vectors that get mapped to zero under $T$.  That is,
+		The \emph{null space} (or \emph{kernel}) of a linear transformation $T:V\to W$
+		is the set of vectors that get mapped to zero under $T$. That is,
 		\[
-			\Null(T)=\{\vec x\in V:T\vec x=\vec 0\}.
+			\Null(T)=\Set{\vec x\in V \given T\vec x=\vec 0}.
 		\]
 	\end{definition}
 
 	\question
-	Let $\mathcal P:\R^2\to\R^2$ be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$ (like before).
+	Let $\mathcal P:\R^2\to\R^2$ be projection onto $\Span\Set{\vec u}$ where
+	$\vec u=\mat{2\\3}$ (like before).
 	\begin{parts}
 		\item What is the range of $\mathcal P$?
+			\begin{solution}
+				$\Range(\mathcal P)=\Span\Set{\vec u}$.
+
+				$\mathcal P(\vec x)$ is by definition the vector in $\Span\Set{\vec u}$ 
+				that is closest to $\vec x$, so in particular 
+				$\mathcal P(\vec x) \in \Span\Set{\vec u}$ for all $\vec x\in\R^2$.
+				Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$. 
+				
+				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$ 
+				for any scalar $\alpha$, and so $\Range(\mathcal P)=\Span\Set{\vec u}$.
+			\end{solution}
 		\item What is the null space of $\mathcal P$?
+			\begin{solution}
+				\begin{solution}
+					$\Null(\mathcal P)=\Span\Set*{\mat{3\\-2}}$.
+
+					A vector $\vec x$ projects to $\vec 0$ if and only if $\vec x$
+					is on the line perpendicular to $\Span\Set{\vec u}$ passing
+					through the origin. 
+				\end{solution}
+			\end{solution}
 	\end{parts}
 
 	\question
 	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
 	\begin{parts}
 		\item Show that the null space of $T$ is a subspace.
+			\begin{solution}
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec u,\vec v\in\Null(T)$. 
+						Applying the linearity of $T$ we see
+						$T(\vec u+\vec v)=T(\vec u)+T(\vec v)=\vec 0+\vec 0=\vec 0$,
+						and so $\vec u+\vec v\in\Null(T)$. 
+					\item Let $\vec u\in\Null(T)$ and let $\alpha$ be any scalar.
+						Again using the linearity of $T$ we see
+						$T(\alpha\vec u)=\alpha T(\vec u)=\alpha\vec 0=\vec 0$,
+						and so $\alpha\vec u\in\Null(T)$.
+				\end{enumerate}
+			\end{solution}
 		\item Show that the range of $T$ is a subspace.
+			\begin{solution}
+				\begin{enumerate}[label=(\roman*)]
+					\item Let $\vec y,\vec z\in\Range(T)$. 
+						Then there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec y$
+						and $T(\vec v)=\vec z$. Then
+						$\vec y+\vec z=T(\vec u)+T(\vec v)=T(\vec u+\vec v)$,
+						since $T$ is linear, and so $\vec y+\vec z\in\Range(T)$. 
+					\item Let $\vec y\in\Range(T)$ and let $\alpha$ be any scalar.
+						Then there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec y$,
+						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$, 
+						since $T$ is linear, and so $\alpha\vec y\in\Range(T)$.
+				\end{enumerate}
+
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Induced Transformation]
