@@ -2658,17 +2658,17 @@ examples.
 				We know $X$ must be a $2\times2$ matrix, so suppose $X=\mat{a&b\\c&b}$
 				for some $a,b,c,d\in\R$. 
 
-				We know from the first part above that
+				From the first part above, we know
 				\[
 					\mat{1\\0}_{\mathcal C} = \mat{2\\1}_{\mathcal E}
 					\quad \text{and} \quad
 					\mat{0\\1}_{\mathcal C} = \mat{5\\3}_{\mathcal E},
 				\]
-				and that we need $X$ to satisfy
+				and so we need $X$ to satisfy
 				\[
-					X\mat{1\\0}_{\mathcal C}=\mat{a\\c}=\mat{2\\1}_{\mathcal E}
+					X\mat{1\\0}=\mat{a\\c}=\mat{2\\1}
 					\quad \text{and} \quad
-					X\mat{0\\1}_{\mathcal C}=\mat{b\\d}=\mat{5\\3}_{\mathcal E}.
+					X\mat{0\\1}=\mat{b\\d}=\mat{5\\3}.
 				\]
 				We can now immediately solve for $a,b,c,d$ to find that $X$ must
 				be the matrix $\mat{2&5\\1&3}$.
@@ -2683,17 +2683,17 @@ examples.
 				a $2\times2$ matrix, so suppose $Y=\mat{a&b\\c&b}$ for some 
 				$a,b,c,d\in\R$. 
 
-				We know from the second part above that
+				From the second part above, we know
 				\[
 					\mat{1\\0}_{\mathcal E} = \mat{3\\-1}_{\mathcal C}
 					\quad \text{and} \quad
 					\mat{0\\1}_{\mathcal E} = \mat{-5\\2}_{\mathcal C},
 				\]
-				and that we need $Y$ to satisfy
+				and so we need $Y$ to satisfy
 				\[
-					Y\mat{1\\0}_{\mathcal E}=\mat{a\\c}=\mat{3\\-1}_{\mathcal C}
+					Y\mat{1\\0}=\mat{a\\c}=\mat{3\\-1}
 					\quad \text{and} \quad
-					Y\mat{0\\1}_{\mathcal E}=\mat{a\\c}=\mat{-5\\2}_{\mathcal C},
+					Y\mat{0\\1}=\mat{a\\c}=\mat{-5\\2},
 				\]
 				We can now immediately solve for $a,b,c,d$ to find that $Y$ must
 				be the matrix $\mat{3&-5\\-1&2}$.
@@ -2701,12 +2701,6 @@ examples.
 		\item What is $YX$?
 			\begin{solution}
 				$YX = \mat{1&0\\0&1}$.
-
-				We should expect this since for a vector $\vec w$, we should have:
-				\[
-					YX[\vec w]_{\mathcal C}=Y[\vec w]_{\mathcal E}=[\vec w]_{\mathcal C}.
-				\]
-				In other words, $YX$ should not change any vector to which it is applied.
 			\end{solution}
 	\end{parts}
 
