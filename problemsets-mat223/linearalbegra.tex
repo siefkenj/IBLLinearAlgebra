@@ -2948,29 +2948,46 @@ examples.
 \end{center}
 
 
-	Instead, every street is parallel to
-	the vector $\vec d_1=\frac{1}{5}\mat{4\text{ east}\\3\text{ north}}$ or 
-	$\vec d_2=\tfrac{1}{5}\mat{-3\text{ east}\\4\text{ north}}$. The center of town
-	is City Hall at $\vec 0=\mat{0\text{ east}\\0\text{ north}}$. 
+	Instead, every street is parallel to the vector 
+	$\vec d_1=\frac{1}{5}\mat{4\text{ east}\\3\text{ north}}$ or 
+	$\vec d_2=\tfrac{1}{5}\mat{-3\text{ east}\\4\text{ north}}$. The center of 
+	town is City Hall at $\vec 0=\mat{0\text{ east}\\0\text{ north}}$. 
 
 	Locations in Oronto are typically specified in \emph{street coordinates}. That
 	is, as a pair $(a,b)$ where $a$ is how far you walk along streets in the $\vec d_1$ direction
 	and $b$ is how far you walk in the $\vec d_2$ direction, provided you start at city hall.
 
 	\begin{parts}
-		\item The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates. Find their  
-			east-north coordinates.
-		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. Find their
-			street coordinates.
+		\item The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates.
+			Find their east-north coordinates.
+			\begin{solution}
+				$A=\frac{1}{5}(5,-4)$ and $B=(3,1)$ in east-north coordinates.
+
+				We obtain $A$ for example by finding the vector $2\vec d_1+\vec d_2$. 
+			\end{solution}
+		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. 
+			Find their street coordinates.
+			\begin{solution}[inline]
+				$X=(5,0)$ and $Y=(5,5)$ in street coordinates.
+			\end{solution}
 		\item Define $\vec e_1=\mat{1\text{ east}\\0\text{ north}}$ and 
-			$\vec e_2=\mat{0\text{ east}\\1\text{ north}}$. Does $\Span\{\vec e_1,\vec e_2\}
-			=\Span\{\vec d_1,\vec d_2\}$?
+			$\vec e_2=\mat{0\text{ east}\\1\text{ north}}$.
+			Does $\Span\Set{\vec e_1,\vec e_2} = \Span\Set{\vec d_1,\vec d_2}$?
+			\begin{solution}
+				Yes. Both of these sets spans all of $\R^2$. 
+			\end{solution}
 		\item Notice that $Y=5\vec e_1+5\vec e_2 = \vec d_1+7\vec d_2$. Is the point $Y$
 			better represented by the pair $(5,5)$ or by the pair $(1,7)$? Explain.
+			\begin{solution}
+				It is equally well represented by either pair. For example, the
+				street coordinates might be more useful for a resident of Oronto,
+				while the east-north coordinates might be more useful for someone
+				looking at Oronto on a world map. 
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Representation in a Basis]
-		Let $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ be a basis for a subspace $V$
+		Let $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$ be a basis for a subspace $V$
 		and let $\vec v\in V$. The \emph{representation of $\vec v$ in the $\mathcal B$
 		basis}, notate $[\vec v]_{\mathcal B}$,
 		is the column matrix
@@ -2983,24 +3000,91 @@ examples.
 
 		Similarly,
 		\[
-			\mat{\alpha_1\\\vdots\\\alpha_n}_{\mathcal B} = \alpha_1\vec b_1+\cdots +\alpha_n\vec b_n
+			\mat{\alpha_1\\\vdots\\\alpha_n}_{\mathcal B}
+			= \alpha_1\vec b_1+\cdots +\alpha_n\vec b_n
 		\]
-		is notation for the linear combination of $\vec b_1,\ldots,\vec b_n$ with coefficients $\alpha_1,\ldots,\alpha_n$.
+		is notation for the linear combination of $\vec b_1,\ldots,\vec b_n$ with
+		coefficients $\alpha_1,\ldots,\alpha_n$.
 	\end{definition}
 
 	\question
-	Let $\mathcal E=\{\vec e_1,\vec e_2\}$ be the standard basis for $\R^2$ and let 
-	$\mathcal C=\{\vec c_1,\vec c_2\}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$ and $\vec c_2=\mat{5\\3}_{\mathcal E}$
-	be another basis for $\R^2$.
+	Let $\mathcal E=\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and 
+	let $\mathcal C=\Set{\vec c_1,\vec c_2}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
+	and $\vec c_2=\mat{5\\3}_{\mathcal E}$ be another basis for $\R^2$.
 	\begin{parts}
 		\item Express $\vec c_1$ and $\vec c_2$ as a linear combination of $\vec e_1$ and $\vec e_2$.
+			\begin{solution}[inline]
+				$\vec c_1=2\vec e_1+\vec e_2$ and $\vec c_2=5\vec e_1+3\vec e_2$.
+			\end{solution}
 		\item Express $\vec e_1$ and $\vec e_2$ as a linear combination of $\vec c_1$ and $\vec c_2$.
+			\begin{solution}[inline]
+				$\vec e_1=3\vec c_1-\vec c_2$ and $\vec e_2=-5\vec c_1+2\vec c_2$.
+			\end{solution}
 		\item Let $\vec v=2\vec e_1+2\vec e_2$. Find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
-		\item Can you find a matrix $X$ so that $X[\vec w]_{\mathcal C} = [\vec w]_{\mathcal E}$ for any
-			$\vec w$?
-		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$ for any
-			$\vec w$?
+			\begin{solution}
+				$[\vec v]_{\mathcal E} = \mat{2\\2}$ and 
+				$[\vec v]_{\mathcal C} = \mat{-4\\2}$.
+
+				The second one is since
+				\[
+					\vec v=2\vec e_1+2\vec e_2
+					=2(3\vec c_1-\vec c_2)+2(-5\vec c_1+2\vec c_2)
+					=-4\vec c_1+2\vec c_2.
+				\]
+			\end{solution}
+		\item Can you find a matrix $X$ so that $X[\vec w]_{\mathcal C} = [\vec w]_{\mathcal E}$
+			for any	$\vec w$?
+			\begin{solution}
+				$X = \mat{2&5\\1&3}$ is such a matrix.
+
+				We know $X$ must be a $2\times2$ matrix, so suppose $X=\mat{a&b\\c&b}$
+				for some $a,b,c,d\in\R$. 
+
+				From the first part above, we know
+				\[
+					\mat{1\\0}_{\mathcal C} = \mat{2\\1}_{\mathcal E}
+					\quad \text{and} \quad
+					\mat{0\\1}_{\mathcal C} = \mat{5\\3}_{\mathcal E},
+				\]
+				and so we need $X$ to satisfy
+				\[
+					X\mat{1\\0}=\mat{2\\1}
+					\quad \text{and} \quad
+					X\mat{0\\1}=\mat{5\\3}.
+				\]
+				But $X\mat{1\\0}=\mat{a\\c}$ and $X\mat{0\\1}=\mat{b\\d}$, so we
+				can now immediately solve for $a,b,c,d$ to find that $X$ must be
+				the matrix $\mat{2&5\\1&3}$.
+			\end{solution}
+		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$
+			for any	$\vec w$?
+			\begin{solution}
+				$Y = \mat{3&-5\\-1&2}$ is such a matrix. 
+
+				Using similar reasoning to the previous part, we know $Y$ must be
+				a $2\times2$ matrix, so suppose $Y=\mat{a&b\\c&b}$ for some 
+				$a,b,c,d\in\R$. 
+
+				From the second part above, we know
+				\[
+					\mat{1\\0}_{\mathcal E} = \mat{3\\-1}_{\mathcal C}
+					\quad \text{and} \quad
+					\mat{0\\1}_{\mathcal E} = \mat{-5\\2}_{\mathcal C},
+				\]
+				and so we need $Y$ to satisfy
+				\[
+					Y\mat{1\\0}=\mat{3\\-1}
+					\quad \text{and} \quad
+					Y\mat{0\\1}=\mat{-5\\2},
+				\]
+				But $Y\mat{1\\0}=\mat{a\\c}$ and $Y\mat{0\\1}=\mat{b\\d}$, so we
+				can now immediately solve for $a,b,c,d$ to find that $Y$ must be
+				the matrix $\mat{3&-5\\-1&2}$.
+			\end{solution}
 		\item What is $YX$?
+			\begin{solution}
+				$YX = \mat{1&0\\0&1}$.
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
