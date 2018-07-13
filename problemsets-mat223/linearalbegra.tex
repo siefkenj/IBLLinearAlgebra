@@ -3863,8 +3863,38 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\begin{parts}
 		\item What is the difference between
 			``$M\vec v$'' and $M[\vec v]_{\mathcal E}$''?
-		\item What is $[T_M\vec e_1]_{\mathcal E}$?
+			\begin{solution}
+				
+			\end{solution}
+		\item What is $[T_M\vec \xhat]_{\mathcal E}$?
+			\begin{solution}
+				It is the first column of $M$. 
+
+				By definition,
+				$[T_M\xhat]_{\mathcal E}=M[\xhat]_{\mathcal E}=M\mat{1\\0}$,
+				which equals the first column of $M$. 
+			\end{solution}
 		\item Can you relate the columns of $M$ to the range of $T_M$?
+			\begin{solution}
+				The range of $T_M$ equals the span of the columns of $M$. 
+
+				By the previous part, the first column of $M$ is in the range of
+				$T_M$. By an identical argument, the second column of $M$ is also
+				in the range of $T_M$, since it equals $[T_M\yhat]_{\mathcal E}$.
+				Therefore the span of the columns of $M$ is a subset of the range
+				of $T_M$. 
+
+				On the other hand, if $\vec v_1=\mat{a\\c}$ and $\vec v_2=\mat{b\\d}$
+				are the columns of $M$ and $\vec x = \alpha_1\vec v_1+\alpha_2\vec v_2$
+				is an element of $\Span\Set*{\vec v_1,\vec v_2}$, then 
+				\[
+					[\vec x]_{\mathcal E}
+					=\alpha_1\mat{a\\c}+\alpha_2\mat{b\\d}
+					=\alpha_1[T_M\xhat]_{\mathcal E}+\alpha_2[T_M\yhat]_{\mathcal E}
+					=[T_M(\alpha_1\xhat+\alpha_2\yhat)].
+				\]
+				Therefore $\vec x$ is in the range of $T_M$.
+			\end{solution}
 	\end{parts}
 
 
