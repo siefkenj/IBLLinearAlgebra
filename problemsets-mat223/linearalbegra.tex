@@ -3880,10 +3880,46 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	Consider $A=\mat{1&0&0\\0&1&0}$.
 	\begin{parts}
 		\item Describe the row space of $A$.
+			\begin{solution}
+				The row space of $A$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
+				the $xy$-plane in $\R^3$. 
+			\end{solution}
 		\item Describe the column space of $A$.
+			\begin{solution}
+				The column space of $A$ is $\Span\Set*{\mat{1\\0},\mat{0\\1},\mat{0\\0}}
+					=\Span\Set*{\mat{1\\0},\mat{0\\1}}=\R^2$.
+			\end{solution}
 		\item Is the row space of $A$ the same as the column space of $A$?
+			\begin{solution}[inline]
+				No.
+			\end{solution}
 		\item Describe the set of all vectors perpendicular to the rows of $A$.
+			\begin{solution}
+				The $z$-axis in $\R^3$. 
+
+				A vector $\vec x=\mat{x\\y\\z}$ is perpendicular to the rows of $A$
+				if and only if its dot product with both rows is zero. That is
+				\[
+					\vec x\cdot\mat{1\\0\\0} = x = 0
+					\quad \text{and} \quad
+					\vec x\cdot\mat{0\\1\\0} = y = 0.
+				\]
+				$\vec x$ satisfies these equations if and only if $\vec x=\mat{0\\0\\t}$
+				for some real number $t$, or in other words if $\vec x$ is on the
+				$z$-axis. 
+			\end{solution}
 		\item Describe the null space of $A$.
+			\begin{solution}
+				The $z$-axis in $\R^3$. 
+
+				A vector $\vec x=\mat{x\\y\\z}$ is in the null space of $A$ if
+				and only if
+				\[
+					A\vec x = \mat{x\\y} = \vec 0,
+				\]
+				or in other words if $\vec x=\mat{0\\0\\t}$ for some real number $t$,
+				just like in the previous part.				
+			\end{solution}
 		\item Describe the range and null space of $T_A$, the transformation induced
 			by $A$.
 	\end{parts}
@@ -3894,8 +3930,50 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\]
 	\begin{parts}
 		\item How does the row space of $B$ relate to the row space of $C$?
+			\begin{solution}
+				They are equal.
+
+				Both rows of $C$ can be written as linear combinations of the 
+				rows of $B$, and so
+				\[
+					\Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\2}}
+					\subseteq
+					\Span\Set*{\mat{1\\2\\3},\mat{1\\1\\1}}.
+				\]
+				Similarly, both rows of $B$ can be written as linear combations
+				of the rows of $C$, and so:
+				\[
+					\Span\Set*{\mat{1\\2\\3},\mat{1\\1\\1}}
+					\subseteq
+					\Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\2}}.
+				\]
+				Therefore, the two spans are equal. 
+			\end{solution}
 		\item How does the null space of $B$ relate to the null space of $C$?
+			\begin{solution}
+				They are equal. 
+
+				A vector is in the null space of $B$ or the null space
+				of $C$ if and only if it is perpendicular to the row space of $B$
+				or the row space of $C$, respectively. But the row spaces of $B$
+				and $C$ are equal by the previous part, and so their null spaces
+				must also be equal. 
+			\end{solution}
 		\item Compute the null space of $B$.
+			\begin{solution}
+				We compute the null space of $C$, since it equals the null space
+				of $B$ by the previous part. 
+
+				$\vec x=\mat{x\\y\\z}$ is in the null space of $C$ if and only if
+				\[
+					C\vec x = \mat{x-z\\y+2z} = \vec 0.
+				\]
+				This is true if $x=z$ and $y=-\frac{z}{2}$, so the null space is
+				\[
+					\Set*{\mat{t\\-\frac{t}{2}\\t}\in\R^3 \given t\in\R}
+					=\Span\Set*{\mat{2\\-1\\2}}.
+				\]
+			\end{solution}
 	\end{parts}
 
 	\question
