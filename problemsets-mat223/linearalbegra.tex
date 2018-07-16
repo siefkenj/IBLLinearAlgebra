@@ -59,6 +59,8 @@
 \DeclareMathOperator{\Dim}{dim}
 \DeclareMathOperator{\Perp}{perp}
 \DeclareMathOperator{\Ker}{kernel}
+\DeclareMathOperator{\Row}{row}
+\DeclareMathOperator{\Col}{col}
 \newcommand{\proj}{\Proj}
 \newcommand{\rref}{\Rref}
 \newcommand{\xhat}{{\hat {\mathbf x}}}
@@ -3907,11 +3909,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 
 	\begin{definition}[Fundamental Subspaces]
-		Associated with any matrix $M$ are three fundamental subspaces: the \emph{row space}
-		of $M$ is the span of the rows of $M$; the \emph{column space} of $M$ is the span
-		of the columns of $M$; and the \emph{null space} of $M$ is the set of solutions
-		to $M\vec x=\vec 0$. 
-		
+		Associated with any matrix $M$ are three fundamental subspaces: 
+		the \emph{row space}, denoted $\Row(M)$, of $M$ is the span of the rows of $M$; 
+		the \emph{column space}, denoted $\Col(M)$, of $M$ is the span of the columns of $M$;
+		and the \emph{null space}, denoted $\Null(M)$, of $M$ is the set of solutions to $M\vec x=\vec 0$. 
 	\end{definition}
 
 	\question
@@ -3919,21 +3920,21 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\begin{parts}
 		\item Describe the row space of $A$.
 			\begin{solution}
-				The row space of $A$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
+				$\Row(A) = \Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
 				which is the $xy$-plane in $\R^3$. 
 			\end{solution}
 		\item Describe the column space of $A$.
 			\begin{solution}
-				The column space of $A$ is $\Span\Set*{\mat{1\\0},\mat{0\\1},\mat{0\\0}}
+				$\Col(A)=\Span\Set*{\mat{1\\0},\mat{0\\1},\mat{0\\0}}
 					=\Span\Set*{\mat{1\\0},\mat{0\\1}}=\R^2$.
 			\end{solution}
 		\item Is the row space of $A$ the same as the column space of $A$?
 			\begin{solution}
 				No. 
 
-				Although they are both two dimensional spaces, the row space is a
+				Although they are both two dimensional spaces, $\Row(A)$ is a
 				subspace of $\R^3$ and all vectors in it have three coordinates 
-				(with the third always being zero), while the column space is a
+				(with the third always being zero), while $\Col(A)$ is a
 				subspace of $\R^2$ and all vectors in it have two coordinates. 
 				Therefore, these two spaces are different.
 			\end{solution}
@@ -3956,7 +3957,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				The $z$-axis in $\R^3$. 
 
-				A vector $\vec x=\mat{x\\y\\z}$ is in the null space of $A$ if
+				A vector $\vec x=\mat{x\\y\\z}$ is in $\Null(A)$ if
 				and only if
 				\[
 					A\vec x = \mat{x\\y} = \vec 0.
@@ -3964,8 +3965,32 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				These are the same conditions as in the previous part, so the set
 				of vectors satisfying this is the $z$-axis.	
 			\end{solution}
-		\item Describe the range and null space of $T_A$, the transformation induced
-			by $A$.
+		\item Describe the range and null space of $T_A$, the transformation
+			induced by $A$.
+			\begin{solution}
+				$\Range(T_A)=\Set{\vec v\in\R^2 \given [\vec v]_{\mathcal E}\in\Col(A)}=\R^2$	
+				and $\Null(T_A)=\Set{\vec v\in\R^3 \given [\vec v]_{\mathcal E}\in\Null(A)}$, 
+				which is the $z$-axis in $\R^3$. 
+
+				First, by definition, $\vec v\in\Range(T_A)$ when 
+				$[\vec v]_{\mathcal E}=[T_A\vec x]_{\mathcal E}=A[\vec x]_{\mathcal E}$,
+				for some $\vec x\in\R^3$. But for any vector $\vec x\in\R^3$, if 
+				$[\vec x]_{\mathcal E}=\mat{x\\y\\z}$, we know that 
+				\[
+					A[\vec x]_{\mathcal E} = x\mat{1\\0}+y\mat{0\\1}.
+				\]
+				In other words $A[\vec x]_{\mathcal E}$ can be anything in $\Col(A)$,
+				and so $\Range(T_A)$ is the set of all vectors whose representation
+				in the standard basis is in $\Col(A)$. We know from a previous part
+				that $\Col(A)=\R^2$, and so any vector's representation in the
+				standard basis is in $\Col(A)$. 
+
+				Next, by definition $\vec v\in\Null(T_A)$ when 
+				$[T_A\vec v]_{\mathcal E}=A[\vec v]_{\mathcal E}=\vec 0$.
+				In other words, $\vec v\in\Null(T_A)$ if and only if 
+				$[\vec v]_{\mathcal E}\in\Null(A)$. We know from the previous
+				part that $\Null(A)$ is the $z$-axis in $\R^3$. 
+			\end{solution}
 	\end{parts}
 
 	\question
@@ -3979,12 +4004,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 				Row operations replace rows with linear combinations of rows.
 				Therefore, since $C$ is the matrix $B$ after the application of
-				some row operations, the row space of $C$ is a subset of the row
-				space of $B$. 
+				some row operations, $\Row(C)\subseteq\Row(B)$.
 
 				Since row operations are all reversible, we also know that $B$ 
-				can be obtained from $C$ by applying row operations, and so the
-				row space of $B$ is also a subset of the row space of $B$.
+				can be obtained from $C$ by applying row operations, and so 
+				$\Row(B)\subseteq\Row(C)$.
 
 				Therefore, the two spans are equal. 
 			\end{solution}
@@ -3992,23 +4016,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				They are equal. 
 
-				A vector is in the null space of $B$ or the null space of $C$ if
-				and only if it is orthogonal to all vectors in the row space of
-				$B$	or all vectors in the row space of $C$, respectively. 
-				But the row spaces of $B$ and $C$ are equal by the previous part,
-				and so their null spaces must also be equal. 
+				A vector is in $\Null(B)$ or $\Null(C)$ if and only if it is 
+				orthogonal to all vectors in $\Row(B)$ or all vectors in $\Row(C)$,
+				respectively. But the $\Row(B)=\Row(C)$ by the previous part, and 
+				so their null spaces must also be equal. 
 			\end{solution}
 		\item Compute the null space of $B$.
 			\begin{solution}
-				We compute the null space of $C$, since it equals the null space
-				of $B$ by the previous part. 
+				We compute $\Null(C)$, since it equals $\Null(B)$ by the previous part. 
 
-				$\vec x=\mat{x\\y\\z}$ is in the null space of $C$ if and only if
+				$\vec x=\mat{x\\y\\z}$ is in $\Null(C)$ if and only if
 				\[
 					C\vec x = \mat{x-z\\y+2z} = \vec 0.
 				\]
 				This is true if $x=z$ and $y=-\frac{z}{2}$, so the null space is
 				\[
+					\Null(C)=
 					\Set*{\mat{t\\-\frac{t}{2}\\t}\in\R^3 \given t\in\R}
 					=\Span\Set*{\mat{2\\-1\\2}}.
 				\]
