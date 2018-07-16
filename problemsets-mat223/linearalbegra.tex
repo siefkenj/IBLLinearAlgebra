@@ -3861,10 +3861,18 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
 	\begin{parts}
-		\item What is the difference between
-			``$M\vec v$'' and $M[\vec v]_{\mathcal E}$''?
+		\item What is the difference between	
+			``$M\vec v$'' and ``$M[\vec v]_{\mathcal E}$''?
 			\begin{solution}
-				
+				``$M\vec v$'' is ambiguous notation, as it is only defined if
+				$\vec v$ is a specific column vector. There are infinitely many
+				different bases of $\R^2$, and so a given vector $\vec v$ might
+				have infinitely many different representations as a column vector,
+				each in a different basis.
+
+				``$M[\vec v]_{\mathcal E}$'' is unambiguous, as 
+				$[\vec v]_{\mathcal E}$ is an explicit representation of $\vec v$
+				in a particular basis. 
 			\end{solution}
 		\item What is $[T_M\vec \xhat]_{\mathcal E}$?
 			\begin{solution}
@@ -3879,7 +3887,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				The range of $T_M$ equals the span of the columns of $M$. 
 
 				By the previous part, the first column of $M$ is in the range of
-				$T_M$. By an identical argument, the second column of $M$ is also
+				$T_M$. By a similar argument, the second column of $M$ is also
 				in the range of $T_M$, since it equals $[T_M\yhat]_{\mathcal E}$.
 				Therefore the span of the columns of $M$ is a subset of the range
 				of $T_M$. 
@@ -3891,7 +3899,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					[\vec x]_{\mathcal E}
 					=\alpha_1\mat{a\\c}+\alpha_2\mat{b\\d}
 					=\alpha_1[T_M\xhat]_{\mathcal E}+\alpha_2[T_M\yhat]_{\mathcal E}
-					=[T_M(\alpha_1\xhat+\alpha_2\yhat)].
+					=[T_M(\alpha_1\xhat+\alpha_2\yhat)]_{\mathcal E}.
 				\]
 				Therefore $\vec x$ is in the range of $T_M$.
 			\end{solution}
@@ -3912,7 +3920,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Describe the row space of $A$.
 			\begin{solution}
 				The row space of $A$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
-				the $xy$-plane in $\R^3$. 
+				which is the $xy$-plane in $\R^3$. 
 			\end{solution}
 		\item Describe the column space of $A$.
 			\begin{solution}
@@ -3920,8 +3928,14 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					=\Span\Set*{\mat{1\\0},\mat{0\\1}}=\R^2$.
 			\end{solution}
 		\item Is the row space of $A$ the same as the column space of $A$?
-			\begin{solution}[inline]
-				No.
+			\begin{solution}
+				No. 
+
+				Although they are both two dimensional spaces, the row space is a
+				subspace of $\R^3$ and all vectors in it have three coordinates 
+				(with the third always being zero), while the column space is a
+				subspace of $\R^2$ and all vectors in it have two coordinates. 
+				Therefore, these two spaces are different.
 			\end{solution}
 		\item Describe the set of all vectors perpendicular to the rows of $A$.
 			\begin{solution}
@@ -3945,10 +3959,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				A vector $\vec x=\mat{x\\y\\z}$ is in the null space of $A$ if
 				and only if
 				\[
-					A\vec x = \mat{x\\y} = \vec 0,
+					A\vec x = \mat{x\\y} = \vec 0.
 				\]
-				or in other words if $\vec x=\mat{0\\0\\t}$ for some real number $t$,
-				just like in the previous part.				
+				These are the same conditions as in the previous part, so the set
+				of vectors satisfying this is the $z$-axis.	
 			\end{solution}
 		\item Describe the range and null space of $T_A$, the transformation induced
 			by $A$.
@@ -3963,31 +3977,26 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				They are equal.
 
-				Both rows of $C$ can be written as linear combinations of the 
-				rows of $B$, and so
-				\[
-					\Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\2}}
-					\subseteq
-					\Span\Set*{\mat{1\\2\\3},\mat{1\\1\\1}}.
-				\]
-				Similarly, both rows of $B$ can be written as linear combations
-				of the rows of $C$, and so:
-				\[
-					\Span\Set*{\mat{1\\2\\3},\mat{1\\1\\1}}
-					\subseteq
-					\Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\2}}.
-				\]
+				Row operations replace rows with linear combinations of rows.
+				Therefore, since $C$ is the matrix $B$ after the application of
+				some row operations, the row space of $C$ is a subset of the row
+				space of $B$. 
+
+				Since row operations are all reversible, we also know that $B$ 
+				can be obtained from $C$ by applying row operations, and so the
+				row space of $B$ is also a subset of the row space of $B$.
+
 				Therefore, the two spans are equal. 
 			\end{solution}
 		\item How does the null space of $B$ relate to the null space of $C$?
 			\begin{solution}
 				They are equal. 
 
-				A vector is in the null space of $B$ or the null space
-				of $C$ if and only if it is perpendicular to the row space of $B$
-				or the row space of $C$, respectively. But the row spaces of $B$
-				and $C$ are equal by the previous part, and so their null spaces
-				must also be equal. 
+				A vector is in the null space of $B$ or the null space of $C$ if
+				and only if it is orthogonal to all vectors in the row space of
+				$B$	or all vectors in the row space of $C$, respectively. 
+				But the row spaces of $B$ and $C$ are equal by the previous part,
+				and so their null spaces must also be equal. 
 			\end{solution}
 		\item Compute the null space of $B$.
 			\begin{solution}
