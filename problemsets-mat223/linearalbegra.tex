@@ -59,6 +59,8 @@
 \DeclareMathOperator{\Dim}{dim}
 \DeclareMathOperator{\Perp}{perp}
 \DeclareMathOperator{\Ker}{kernel}
+\DeclareMathOperator{\Row}{row}
+\DeclareMathOperator{\Col}{col}
 \newcommand{\proj}{\Proj}
 \newcommand{\rref}{\Rref}
 \newcommand{\xhat}{{\hat {\mathbf x}}}
@@ -3904,7 +3906,17 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\]
 	\begin{parts}
 		\item How does the column space of $P$ relate to the column space of $Q$?
+			\begin{solution}
+				They are not equal.
+			\end{solution}
 		\item Describe the column space of $P$ and the column space of $Q$.
+			\begin{solution}
+				$\Col(P)=\Span\Set*{\mat{0\\1},\mat{0\\2}}=\Span\Set*{\mat{0\\1}}$,
+				which is the $y$-axis in $\R^2$. 
+
+				$\Col(Q)=\Span\Set*{\mat{1\\0},\mat{2\\0}}=\Span\Set*{\mat{1\\0}}$,
+				which is the $x$-axis in $\R^2$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -3934,15 +3946,54 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
-	Let $\mathcal P$ be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$,
+	Let $\mathcal P$ be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Describe $\Range(\mathcal P)$ and $\Range(\mathcal R)$.
+			\begin{solution}
+				$\Range(\mathcal P)=\Span\Set{\vec u}$, and $\Range(\mathcal R)=\R^2$.
+
+				For $\mathcal P$, by definition of projections $\mathcal P(\vec x)$
+				is the vector in $\Span\Set{\vec u}$ that is closest to $\vec x$,
+				so in particular $\mathcal P(\vec x) \in \Span\Set{\vec u}$ for
+				all $\vec x\in\R^2$. Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$.
+
+				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$ 
+				for any scalar $\alpha$, and so $\Range(\mathcal P)=\Span\Set{\vec u}$.
+
+				For $\mathcal Q$, we have that any vector $\vec x\in\R^2$, 
+				$\vec x=\mathcal Q(\vec y)$, where $\vec y$ is the rotation of 
+				$\vec x$ clockwise by $90^\circ$.
+			\end{solution}
 		\item What is the rank of $\mathcal P$ and the rank of $\mathcal R$?
+			\begin{solution}
+				$\Rank(\mathcal P)=1$ and $\Rank(\mathcal R)=2$.
+
+				By the previous part, we know $\Range(\mathcal P)$ is 1-dimensional
+				and $\Range(\mathcal Q)$ is 2-dimensional. 
+			\end{solution}
 		\item Let $P$ and $R$ be the matrices corresponding to $\mathcal P$ and
 			$\mathcal R$. What is the rank of $P$ and the rank of $R$?
-		\item Make a conjecture about how the rank of a transformation and
-			the rank of its corresponding matrix relate. Can you justify your claim?
+			\begin{solution}
+				$\Rank(P)=1$ and $\Rank(R)=2$.
+
+				By a previous exercise, $P=\frac{1}{13}\mat{4&6\\6&9}$ and 
+				$R=\mat{0&-1\\1&0}$ are the	matrices corresponding to $\mathcal P$
+				and $\mathcal R$. Then we compute:
+				\[
+					\rref(P)=\mat{1&\frac{3}{2}\\0&0}
+					\quad \text{and} \quad
+					\rref(R)=\mat{1&0\\0&1}.
+				\]
+				These matrices have 1 and 2 pivots, respectively. 
+			\end{solution}
+		\item Make a conjecture about how the rank of a transformation and the
+			rank of its corresponding matrix relate. Can you justify your claim?
+			\begin{solution}
+				They are equal. 
+
+				
+			\end{solution}
 	\end{parts}
 
 
