@@ -3868,8 +3868,8 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				``$M\vec v$'' is ambiguous notation, as it is only defined if
 				$\vec v$ is a specific column vector. There are infinitely many
-				different bases of $\R^2$, and so a given vector $\vec v$ might
-				have infinitely many different representations as a column vector,
+				different bases of $\R^2$, and so a given vector $\vec v$ has
+				infinitely many different representations as a column vector,
 				each in a different basis.
 
 				``$M[\vec v]_{\mathcal E}$'' is unambiguous, as 
@@ -3910,9 +3910,9 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	\begin{definition}[Fundamental Subspaces]
 		Associated with any matrix $M$ are three fundamental subspaces: 
-		the \emph{row space}, denoted $\Row(M)$, of $M$ is the span of the rows of $M$; 
-		the \emph{column space}, denoted $\Col(M)$, of $M$ is the span of the columns of $M$;
-		and the \emph{null space}, denoted $\Null(M)$, of $M$ is the set of solutions to $M\vec x=\vec 0$. 
+		the \emph{row space} of $M$, denoted $\Row(M)$, is the span of the rows of $M$; 
+		the \emph{column space} of $M$, denoted $\Col(M)$, is the span of the columns of $M$;
+		and the \emph{null space} of $M$, denoted $\Null(M)$, is the set of solutions to $M\vec x=\vec 0$. 
 	\end{definition}
 
 	\question
@@ -3968,22 +3968,12 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Describe the range and null space of $T_A$, the transformation
 			induced by $A$.
 			\begin{solution}
-				$\Range(T_A)=\Set{\vec v\in\R^2 \given [\vec v]_{\mathcal E}\in\Col(A)}=\R^2$	
-				and $\Null(T_A)=\Set{\vec v\in\R^3 \given [\vec v]_{\mathcal E}\in\Null(A)}$, 
+				$\Range(T_A)=\Col(A)=\R^2$ and $\Null(T_A)=\Null(A)$, 
 				which is the $z$-axis in $\R^3$. 
 
-				First, by definition, $\vec v\in\Range(T_A)$ when 
-				$[\vec v]_{\mathcal E}=[T_A\vec x]_{\mathcal E}=A[\vec x]_{\mathcal E}$,
-				for some $\vec x\in\R^3$. But for any vector $\vec x\in\R^3$, if 
-				$[\vec x]_{\mathcal E}=\mat{x\\y\\z}$, we know that 
-				\[
-					A[\vec x]_{\mathcal E} = x\mat{1\\0}+y\mat{0\\1}.
-				\]
-				In other words $A[\vec x]_{\mathcal E}$ can be anything in $\Col(A)$,
-				and so $\Range(T_A)$ is the set of all vectors whose representation
-				in the standard basis is in $\Col(A)$. We know from a previous part
-				that $\Col(A)=\R^2$, and so any vector's representation in the
-				standard basis is in $\Col(A)$. 
+				By the third part of the previous problem, the range of an induced
+				transformation equals the span of the columns of the matrix. In 
+				other words, $\Range(T_A)=\Col(A)$. 
 
 				Next, by definition $\vec v\in\Null(T_A)$ when 
 				$[T_A\vec v]_{\mathcal E}=A[\vec v]_{\mathcal E}=\vec 0$.
@@ -4007,10 +3997,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				some row operations, $\Row(C)\subseteq\Row(B)$.
 
 				Since row operations are all reversible, we also know that $B$ 
-				can be obtained from $C$ by applying row operations, and so 
+				can be obtained from $C$ by applying row operations, so 
 				$\Row(B)\subseteq\Row(C)$.
 
-				Therefore, the two spans are equal. 
+				Therefore, $\Row(B)=\Row(C)$.
 			\end{solution}
 		\item How does the null space of $B$ relate to the null space of $C$?
 			\begin{solution}
@@ -4018,18 +4008,17 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 				A vector is in $\Null(B)$ or $\Null(C)$ if and only if it is 
 				orthogonal to all vectors in $\Row(B)$ or all vectors in $\Row(C)$,
-				respectively. But the $\Row(B)=\Row(C)$ by the previous part, and 
-				so their null spaces must also be equal. 
+				respectively. But $\Row(B)=\Row(C)$ by the previous part, so
+				their null spaces must also be equal. 
 			\end{solution}
 		\item Compute the null space of $B$.
 			\begin{solution}
+				$\Null(C)=\Span\Set*{\mat{2\\-1\\2}}$.
+
 				We compute $\Null(C)$, since it equals $\Null(B)$ by the previous part. 
 
 				$\vec x=\mat{x\\y\\z}$ is in $\Null(C)$ if and only if
-				\[
-					C\vec x = \mat{x-z\\y+2z} = \vec 0.
-				\]
-				This is true if $x=z$ and $y=-\frac{z}{2}$, so the null space is
+				$C\vec x = \mat{x-z\\y+2z} = \vec 0$. The complete solution to this matrix equation is
 				\[
 					\Null(C)=
 					\Set*{\mat{t\\-\frac{t}{2}\\t}\in\R^3 \given t\in\R}
