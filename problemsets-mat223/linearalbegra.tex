@@ -59,6 +59,8 @@
 \DeclareMathOperator{\Dim}{dim}
 \DeclareMathOperator{\Perp}{perp}
 \DeclareMathOperator{\Ker}{kernel}
+\DeclareMathOperator{\Row}{row}
+\DeclareMathOperator{\Col}{col}
 \newcommand{\proj}{\Proj}
 \newcommand{\rref}{\Rref}
 \newcommand{\xhat}{{\hat {\mathbf x}}}
@@ -3861,31 +3863,124 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
 	\begin{parts}
-		\item What is the difference between
-			``$M\vec v$'' and $M[\vec v]_{\mathcal E}$''?
-		\item What is $[T_M\vec e_1]_{\mathcal E}$?
+		\item What is the difference between	
+			``$M\vec v$'' and ``$M[\vec v]_{\mathcal E}$''?
+			\begin{solution}
+				``$M\vec v$'' is ambiguous notation, as it is only defined if
+				$\vec v$ is a specific column vector. There are infinitely many
+				different bases of $\R^2$, and so a given vector $\vec v$ has
+				infinitely many different representations as a column vector,
+				each in a different basis.
+
+				``$M[\vec v]_{\mathcal E}$'' is unambiguous, as 
+				$[\vec v]_{\mathcal E}$ is an explicit representation of $\vec v$
+				in a particular basis. 
+			\end{solution}
+		\item What is $[T_M\vec \xhat]_{\mathcal E}$?
+			\begin{solution}
+				It is the first column of $M$. 
+
+				By definition,
+				$[T_M\xhat]_{\mathcal E}=M[\xhat]_{\mathcal E}=M\mat{1\\0}$,
+				which equals the first column of $M$. 
+			\end{solution}
 		\item Can you relate the columns of $M$ to the range of $T_M$?
+			\begin{solution}
+				The range of $T_M$ equals the span of the columns of $M$. 
+
+				By the previous part, the first column of $M$ is in the range of
+				$T_M$. By a similar argument, the second column of $M$ is also
+				in the range of $T_M$, since it equals $[T_M\yhat]_{\mathcal E}$.
+				Therefore the span of the columns of $M$ is a subset of the range
+				of $T_M$. 
+
+				On the other hand, if $\vec v_1=\mat{a\\c}$ and $\vec v_2=\mat{b\\d}$
+				are the columns of $M$ and $\vec x = \alpha_1\vec v_1+\alpha_2\vec v_2$
+				is an element of $\Span\Set*{\vec v_1,\vec v_2}$, then 
+				\[
+					[\vec x]_{\mathcal E}
+					=\alpha_1\mat{a\\c}+\alpha_2\mat{b\\d}
+					=\alpha_1[T_M\xhat]_{\mathcal E}+\alpha_2[T_M\yhat]_{\mathcal E}
+					=[T_M(\alpha_1\xhat+\alpha_2\yhat)]_{\mathcal E}.
+				\]
+				Therefore $\vec x$ is in the range of $T_M$.
+			\end{solution}
 	\end{parts}
 
 
 	\begin{definition}[Fundamental Subspaces]
-		Associated with any matrix $M$ are three fundamental subspaces: the \emph{row space}
-		of $M$ is the span of the rows of $M$; the \emph{column space} of $M$ is the span
-		of the columns of $M$; and the \emph{null space} of $M$ is the set of solutions
-		to $M\vec x=\vec 0$. 
-		
+		Associated with any matrix $M$ are three fundamental subspaces: 
+		the \emph{row space} of $M$, denoted $\Row(M)$, is the span of the rows of $M$; 
+		the \emph{column space} of $M$, denoted $\Col(M)$, is the span of the columns of $M$;
+		and the \emph{null space} of $M$, denoted $\Null(M)$, is the set of solutions to $M\vec x=\vec 0$. 
 	\end{definition}
 
 	\question
 	Consider $A=\mat{1&0&0\\0&1&0}$.
 	\begin{parts}
 		\item Describe the row space of $A$.
+			\begin{solution}
+				$\Row(A) = \Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
+				which is the $xy$-plane in $\R^3$. 
+			\end{solution}
 		\item Describe the column space of $A$.
+			\begin{solution}
+				$\Col(A)=\Span\Set*{\mat{1\\0},\mat{0\\1},\mat{0\\0}}
+					=\Span\Set*{\mat{1\\0},\mat{0\\1}}=\R^2$.
+			\end{solution}
 		\item Is the row space of $A$ the same as the column space of $A$?
+			\begin{solution}
+				No. 
+
+				Although they are both two dimensional spaces, $\Row(A)$ is a
+				subspace of $\R^3$ and all vectors in it have three coordinates 
+				(with the third always being zero), while $\Col(A)$ is a
+				subspace of $\R^2$ and all vectors in it have two coordinates. 
+				Therefore, these two spaces are different.
+			\end{solution}
 		\item Describe the set of all vectors perpendicular to the rows of $A$.
+			\begin{solution}
+				The $z$-axis in $\R^3$. 
+
+				A vector $\vec x=\mat{x\\y\\z}$ is perpendicular to the rows of $A$
+				if and only if its dot product with both rows is zero. That is
+				\[
+					\vec x\cdot\mat{1\\0\\0} = x = 0
+					\quad \text{and} \quad
+					\vec x\cdot\mat{0\\1\\0} = y = 0.
+				\]
+				$\vec x$ satisfies these equations if and only if $\vec x=\mat{0\\0\\t}$
+				for some real number $t$, or in other words if $\vec x$ is on the
+				$z$-axis. 
+			\end{solution}
 		\item Describe the null space of $A$.
-		\item Describe the range and null space of $T_A$, the transformation induced
-			by $A$.
+			\begin{solution}
+				The $z$-axis in $\R^3$. 
+
+				A vector $\vec x=\mat{x\\y\\z}$ is in $\Null(A)$ if
+				and only if
+				\[
+					A\vec x = \mat{x\\y} = \vec 0.
+				\]
+				These are the same conditions as in the previous part, so the set
+				of vectors satisfying this is the $z$-axis.	
+			\end{solution}
+		\item Describe the range and null space of $T_A$, the transformation
+			induced by $A$.
+			\begin{solution}
+				$\Range(T_A)=\Col(A)=\R^2$ and $\Null(T_A)=\Null(A)$, 
+				which is the $z$-axis in $\R^3$. 
+
+				By the third part of the previous problem, the range of an induced
+				transformation equals the span of the columns of the matrix. In 
+				other words, $\Range(T_A)=\Col(A)$. 
+
+				Next, by definition $\vec v\in\Null(T_A)$ when 
+				$[T_A\vec v]_{\mathcal E}=A[\vec v]_{\mathcal E}=\vec 0$.
+				In other words, $\vec v\in\Null(T_A)$ if and only if 
+				$[\vec v]_{\mathcal E}\in\Null(A)$. We know from the previous
+				part that $\Null(A)$ is the $z$-axis in $\R^3$. 
+			\end{solution}
 	\end{parts}
 
 	\question
@@ -3894,8 +3989,42 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\]
 	\begin{parts}
 		\item How does the row space of $B$ relate to the row space of $C$?
+			\begin{solution}
+				They are equal.
+
+				Row operations replace rows with linear combinations of rows.
+				Therefore, since $C$ is the matrix $B$ after the application of
+				some row operations, $\Row(C)\subseteq\Row(B)$.
+
+				Since row operations are all reversible, we also know that $B$ 
+				can be obtained from $C$ by applying row operations, so 
+				$\Row(B)\subseteq\Row(C)$.
+
+				Therefore, $\Row(B)=\Row(C)$.
+			\end{solution}
 		\item How does the null space of $B$ relate to the null space of $C$?
+			\begin{solution}
+				They are equal. 
+
+				A vector is in $\Null(B)$ or $\Null(C)$ if and only if it is 
+				orthogonal to all vectors in $\Row(B)$ or all vectors in $\Row(C)$,
+				respectively. But $\Row(B)=\Row(C)$ by the previous part, so
+				their null spaces must also be equal. 
+			\end{solution}
 		\item Compute the null space of $B$.
+			\begin{solution}
+				$\Null(C)=\Span\Set*{\mat{2\\-1\\2}}$.
+
+				We compute $\Null(C)$, since it equals $\Null(B)$ by the previous part. 
+
+				$\vec x=\mat{x\\y\\z}$ is in $\Null(C)$ if and only if
+				$C\vec x = \mat{x-z\\y+2z} = \vec 0$. The complete solution to this matrix equation is
+				\[
+					\Null(C)=
+					\Set*{\mat{t\\-\frac{t}{2}\\t}\in\R^3 \given t\in\R}
+					=\Span\Set*{\mat{2\\-1\\2}}.
+				\]
+			\end{solution}
 	\end{parts}
 
 	\question
