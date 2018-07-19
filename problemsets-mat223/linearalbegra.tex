@@ -203,18 +203,26 @@ copyright.
 	\Heading{Motivation} Students have differing levels of experience with vectors.
 	We want to establish a common notation for vectors and use vector notation
 	along with algebra to solve simple questions. E.g., ``How can I get to location
-	$X$ given that I can only walk parallel to the lines $y=4x$ and $y=-x$?''
+	$A$ given that I can only walk parallel to the lines $y=4x$ and $y=-x$?''
 
 
 	\begin{annotation}
 		\begin{notes}
+			\begin{itemize}
+			\item
 			We will use the language \emph{component of $\vec v$ in
 			the direction $\vec u$} in the future and it will be a \emph{vector}.
 			For this reason, try to refer to the entries of a column
-			vector as coordinates instead of components.
+			vector as \emph{coordinates} or \emph{entries} instead of components.
+			
+			\item
+			Though we will almost exclusively use
+			column vector notation in this course, students should be able to parse
+			questions phrased in terms of row vectors.
+			\end{itemize}
 		\end{notes}
 	\end{annotation}We will use column vector notation and the idea of equating
-	coordinates in order to solve problems.
+	coordinates in order to solve problems. 
 
 	\newpage
 \end{lesson}
@@ -240,8 +248,11 @@ copyright.
 	\begin{notes}
 
 		\begin{itemize}
-			\item There are many ways to solve this problem, and some
-				might start with equations. Make them draw a picture.
+			\item There are many ways to solve this problem.
+				Some students
+				might start with equations. After they use their
+				equations to solve the problem, make them draw a picture
+				and come up with a graphical solution.
 
 			\item When the students start coming up with vector equations,
 				give them the vocabulary of \emph{linear
@@ -931,7 +942,8 @@ argument supporting your answer.
 			\begin{enumerate}
 				\item linear combinations of $\vec a$ and $\vec b$?
 				\begin{solution}[inline]
-					All of them, since $\Span\{\vec a,\vec b\}=\R^2$.
+					All of them, since any vector in $\R^2$ can be written as a linear combination
+					of $\vec a$ and $\vec b$.
 				\end{solution}
 
 				\item non-negative linear combinations of $\vec a$ and $\vec b$?
@@ -981,15 +993,38 @@ argument supporting your answer.
 \section*{Lines and Planes}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Link prior knowledge to new notation/concepts.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Convert between $y=mx+b$ form of a line and
+					the set-builder definition of the same line.
+				\item Think about lines in terms of vectors rather
+					than equations.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This question is foreshadowing for vector form of a line.
+				\item In part 3, some will draw $\vec d$ from the origin and
+					some will draw it on the line. Both are fine, but make
+					sure they understand that $\vec d\notin A$ by the end of
+					part 4.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $A$ be the set of points $(x,y)\in\R^2$ such that $y=2x+1$.
 	\begin{parts}
 		\item Describe $A$ using set-builder notation.
 			\begin{solution}
-				$\Set*{\vec v\in\R^2 \given \vec v=\matc{x\\2x+1}\text{ for some } x\in\R}$
+				$\Set*{\vec v\in\R^2 \given \vec v=\matc{t\\2t+1}\text{ for some } t\in\R}$\\
 				or
 				$\Set*{\mat{x\\y}\in\R^2 \given y=2x+1}$
 				or
-				$\Set*{\matc{x\\2x+1}\in\R^2 \given x\in\R}$
+				$\Set*{\matc{t\\2t+1}\in\R^2 \given t\in\R}$
 			\end{solution}
 		\item Draw $A$ as a subset of $\R^2$.
 			\begin{solution}
@@ -1026,6 +1061,14 @@ argument supporting your answer.
 	is a shorthand for a particular set. Vector form has the upside that it makes it easy
 	to produce points on a line, but it has the downside that it is not unique.
 
+	\begin{annotation}
+		\begin{notes}
+			Giving a proper definition of vector form of a line is awkward and
+			shouldn't be the focus. For vector form, that they ``know it when they see it''
+			and can ``produce it'' is good enough. (This is in contrast to other definitions
+			which they must be able to correctly state).
+		\end{notes}
+	\end{annotation}
 	Vector form works because a line in any dimension can be defined by two
 	points or, equivalently, a point and a direction. Though we don't yet have
 	a systematic way to write solutions to a system of linear equations,
@@ -1053,13 +1096,39 @@ argument supporting your answer.
 		\[
 			\vec x=t\vec d+\vec p
 		\]
-		for some vector $\vec d$ and point $\vec p$. That is, $\ell = \{\vec x: \vec x=
-		t\vec d+\vec p\text{ for some } t\in\R \}$. The vector 
+		for some vector $\vec d$ and point $\vec p$. That is, $\ell = \Set{\vec x\given \vec x=
+		t\vec d+\vec p\text{ for some } t\in\R }$. The vector 
 		$\vec d$ is called a \emph{direction
 		vector} for $\ell$.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practice with vector form.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Express lines in $\R^2$ and $\R^3$ in
+					vector form.
+				\item Produce direction vectors by subtracting two points
+					on a line.
+				\item Recognize vector form is not unique.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item If students get stuck on part 1, ask them
+					to find a vector parallel to $\ell$. If
+					they're still stuck, ask them to find a vector
+					connecting two points on $\ell$.
+				\item Many students will intuit part 1 but get stuck on
+					part 2 because they can't draw it. Ask them
+					to start by finding some points on $L$.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\ell\subseteq \R^2$ be the line with equation $2x+y=3$,
 	and let $L\subseteq \R^3$ be the line with equations $2x+y=3$ and
 	$z=y$.
@@ -1069,15 +1138,16 @@ argument supporting your answer.
 				$\vec x = t \mat{1 \\ -2} + \mat{0 \\ 3}$
 
 				The vector form is not unique, as any non-zero scalar multiple of 
-				the direction vector will work in place of $\mat{1 \\ -2}$, as 
-				will any other point the line passes through work in place of 
-				$\mat{0 \\3}$. For example, another point on the line is 
-				$\mat{1 \\ 1}$, so the following vector equation describes the 
-				same line: $\vec x = t \mat{-4 \\ 8} + \mat{1 \\ 1}$.
+				$\mat{1 \\ -2}$ can serve as a direction vector. Additionally, 
+				any other point on the line can be used in place of 
+				$\mat{0 \\3}$. For example,  $\vec x = t \mat{-4 \\ 8} + \mat{1 \\ 1}$
+				is another vector form of $\ell$.
 			\end{solution}
 		\item Write $L$ in vector form.
 			\begin{solution}[inline]
-				$\vec x = t\mat{1 \\ -2 \\ -2} + \mat{0 \\ 3 \\ 3}$
+				$\vec x = t\mat{1 \\ -2 \\ -2} + \mat{0 \\ 3 \\ 3}$. This is obtained
+				by finding two points: one when $x=0$ and one when $x=1$ and subtracting
+				them to find a direction vector for $L$.
 			\end{solution}
 		\item Find another vector form for $L$ where both ``$\vec d$'' and
 			``$\vec p$'' are different from before.
@@ -1091,6 +1161,30 @@ argument supporting your answer.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Intersect lines in vector form.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice computing the intersection between lines
+					in vector form.
+				\item Recognize ``$t$'' as a dummy variable as used
+					in vector form and that, when comparing lines in
+					vector form, ``$t$'' needs to be replaced with
+					non-dummy variables.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The most common mistake is to set two lines
+					in vector form equal and use ``$t$'' as
+					the variable in each one. Make sure to have a discussion
+					about this.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $A$, $B$, and $C$ be given in vector form by 
 	\[
 	\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
@@ -1110,9 +1204,9 @@ argument supporting your answer.
 			\end{solution}
 		\item Do the lines $A$ and $C$ intersect? Justify your conclusion.
 			\begin{solution}
-				No. the vector equation 
+				No. The vector equation 
 				\[
-					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}.
+					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}
 				\]
 				has no solutions. This is equivalent to saying that the following 
 				system of equations has no solutions:
@@ -1123,8 +1217,8 @@ argument supporting your answer.
 				\end{gather*}
 				The third equation tells us that $s = 3t$, which when substituted 
 				into the first equation forces $t = -\tfrac{1}{5}$ and therefore
-				$s = -\tfrac{3}{5}$. These two numbers don't satisfy the second
-				equation, however.
+				$s = -\tfrac{3}{5}$. However, these two numbers don't satisfy the second
+				equation.
 			\end{solution}
 		\item Let $\vec p\neq \vec q$ and suppose
 			$X$ has vector form $\vec x=t\vec d+\vec p$ and $Y$ has
@@ -1132,11 +1226,11 @@ argument supporting your answer.
 			that $X$ and $Y$ intersect?
 			\begin{solution}
 				Yes. If $\vec q=\vec p+a\vec d$ for $a\neq 0$, then $X$ and $Y$
-				will actually be the same line, since in this case:
+				will actually be the same line, since in this case
 				\[
 					\vec x = t\vec d+\vec q 
 					= t\vec d+(\vec p+a\vec d) 
-					= (t+a)\vec d+\vec p
+					= (t+a)\vec d+\vec p.
 				\]
 
 				For example, the following two vector equations represent the 
@@ -1199,7 +1293,7 @@ argument supporting your answer.
 	\end{definition}
 
 	\question
-	Recall the lines $A$ and $B$ given in vector form by
+	Recall the intersecting lines $A$ and $B$ given in vector form by
 	\[
 		\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
 		\qquad
