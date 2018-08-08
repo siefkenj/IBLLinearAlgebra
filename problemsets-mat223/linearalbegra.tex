@@ -3860,13 +3860,14 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\newpage
 \end{lesson}
 	\question
+	\label{problem46}
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
 	\begin{parts}
 		\item What is the difference between
 			``$M\vec v$'' and $M[\vec v]_{\mathcal E}$''?
 		\item What is $[T_M\vec e_1]_{\mathcal E}$?
-		\item Can you relate the columns of $M$ to the range of $T_M$?
+		\item \label{problem46.3} Can you relate the columns of $M$ to the range of $T_M$?
 	\end{parts}
 
 
@@ -3953,7 +3954,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$\Range(\mathcal P)=\Span\Set{\vec u}$, and $\Range(\mathcal R)=\R^2$.
 
-				For $\mathcal P$, by definition of projections $\mathcal P(\vec x)$
+				For $\mathcal P$, by the definition of projection $\mathcal P(\vec x)$
 				is the vector in $\Span\Set{\vec u}$ that is closest to $\vec x$,
 				so in particular $\mathcal P(\vec x) \in \Span\Set{\vec u}$ for
 				all $\vec x\in\R^2$. Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$.
@@ -3963,7 +3964,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 				For $\mathcal Q$, we have that any vector $\vec x\in\R^2$, 
 				$\vec x=\mathcal Q(\vec y)$, where $\vec y$ is the rotation of 
-				$\vec x$ clockwise by $90^\circ$.
+				$\vec x$ clockwise by $90^\circ$. Therefore $\Range(\mathcal Q)=\R^2$. 
 			\end{solution}
 		\item What is the rank of $\mathcal P$ and the rank of $\mathcal R$?
 			\begin{solution}
@@ -3992,7 +3993,15 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				They are equal. 
 
-				
+				By Problem \ref{problem46}.\ref{problem46.3}, the range of a
+				transformation is equal to the column space of its corresponding
+				matrix, and therefore the dimensions of these two spaces are equal.
+				In other words, the rank of a transformation is equal to the
+				dimension of the the column space of its corresponding matrix. 
+
+				We already know that the dimension of the column space of a matrix
+				is equal to the number of pivots in its reduced row echelon form,
+				and that is by definition the rank of the matrix. 
 			\end{solution}
 	\end{parts}
 
