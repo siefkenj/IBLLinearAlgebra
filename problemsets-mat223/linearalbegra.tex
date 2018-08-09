@@ -3752,6 +3752,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\newpage
 \end{lesson}
 	\question
+	\label{projectionAndRotation}
 	Define $\mathcal P$ to be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
@@ -3954,6 +3955,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\newpage
 \end{lesson}
 	\question
+	\label{inducedTransform}
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
 	\begin{parts}
@@ -3978,7 +3980,8 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				$[T_M\xhat]_{\mathcal E}=M[\xhat]_{\mathcal E}=M\mat{1\\0}$,
 				which equals the first column of $M$. 
 			\end{solution}
-		\item Can you relate the columns of $M$ to the range of $T_M$?
+		\item \label{inducedTransform.3} 
+			Can you relate the columns of $M$ to the range of $T_M$?
 			\begin{solution}
 				The range of $T_M$ equals the span of the columns of $M$. 
 
@@ -4127,7 +4130,17 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\]
 	\begin{parts}
 		\item How does the column space of $P$ relate to the column space of $Q$?
+			\begin{solution}
+				They are not equal, but have the same dimension.
+			\end{solution}
 		\item Describe the column space of $P$ and the column space of $Q$.
+			\begin{solution}
+				$\Col(P)=\Span\Set*{\mat{0\\1},\mat{0\\2}}=\Span\Set*{\mat{0\\1}}$,
+				which is the $y$-axis in $\R^2$. 
+
+				$\Col(Q)=\Span\Set*{\mat{1\\0},\mat{2\\0}}=\Span\Set*{\mat{1\\0}}$,
+				which is the $x$-axis in $\R^2$. 
+			\end{solution}
 	\end{parts}
 
 
@@ -4157,15 +4170,63 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
-	Let $\mathcal P$ be projection onto $\Span\{\vec u\}$ where $\vec u=\mat{2\\3}$,
+	Let $\mathcal P$ be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Describe $\Range(\mathcal P)$ and $\Range(\mathcal R)$.
+			\begin{solution}
+				$\Range(\mathcal P)=\Span\Set{\vec u}$, and $\Range(\mathcal R)=\R^2$.
+
+				For $\mathcal P$, by the definition of projection $\mathcal P(\vec x)$
+				is the vector in $\Span\Set{\vec u}$ that is closest to $\vec x$,
+				so in particular $\mathcal P(\vec x) \in \Span\Set{\vec u}$ for
+				all $\vec x\in\R^2$. Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$.
+
+				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$ 
+				for any scalar $\alpha$, and so $\Range(\mathcal P)=\Span\Set{\vec u}$.
+
+				For $\mathcal Q$, we have that any vector $\vec x\in\R^2$, 
+				$\vec x=\mathcal Q(\vec y)$, where $\vec y$ is the rotation of 
+				$\vec x$ clockwise by $90^\circ$. Therefore $\Range(\mathcal Q)=\R^2$. 
+			\end{solution}
 		\item What is the rank of $\mathcal P$ and the rank of $\mathcal R$?
+			\begin{solution}
+				$\Rank(\mathcal P)=1$ and $\Rank(\mathcal R)=2$.
+
+				By the previous part, we know $\Range(\mathcal P)$ is 1-dimensional
+				and $\Range(\mathcal Q)$ is 2-dimensional. 
+			\end{solution}
 		\item Let $P$ and $R$ be the matrices corresponding to $\mathcal P$ and
 			$\mathcal R$. What is the rank of $P$ and the rank of $R$?
-		\item Make a conjecture about how the rank of a transformation and
-			the rank of its corresponding matrix relate. Can you justify your claim?
+			\begin{solution}
+				$\Rank(P)=1$ and $\Rank(R)=2$.
+
+				By Problem \ref{projectionAndRotation}, $P=\frac{1}{13}\mat{4&6\\6&9}$
+				and $R=\mat{0&-1\\1&0}$ are the	matrices corresponding to 
+				$\mathcal P$ and $\mathcal R$. Then we compute:
+				\[
+					\rref(P)=\mat{1&\frac{3}{2}\\0&0}
+					\quad \text{and} \quad
+					\rref(R)=\mat{1&0\\0&1}.
+				\]
+				These matrices have 1 and 2 pivots, respectively. 
+			\end{solution}
+		\item Make a conjecture about how the rank of a transformation and the
+			rank of its corresponding matrix relate. Can you justify your claim?
+			\begin{solution}
+				They are equal. 
+
+				By Problem \ref{inducedTransform}.\ref{inducedTransform.3}, the 
+				range of a transformation is equal to the column space of its 
+				corresponding matrix, and therefore the dimensions of these two
+				spaces are equal. In other words, the rank of a transformation is
+				equal to the dimension of the the column space of its corresponding 
+				matrix. 
+
+				We already know that the dimension of the column space of a matrix
+				is equal to the number of pivots in its reduced row echelon form,
+				and that is by definition the rank of the matrix. 
+			\end{solution}
 	\end{parts}
 
 
