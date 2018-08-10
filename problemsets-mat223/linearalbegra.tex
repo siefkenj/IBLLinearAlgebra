@@ -4492,6 +4492,10 @@ the ``N'' on the left.
 	\]
 	\begin{parts}
 		\item Which pairs of matrices above are inverses of each other?
+			\begin{solution}
+				$A$ and $D$ are inverses of each other, and $B$ and $C$ are 
+				inverses of each other. These are the only such pairs. 
+			\end{solution}
 	\end{parts}
 
 	\question
@@ -4499,13 +4503,37 @@ the ``N'' on the left.
 		B=\mat{1 &4\\0 &2}
 	\]
 	\begin{parts}
-		\item Use two row operations to reduce $B$ to $I_{2\times 2}$
-		and write an elementary matrix $E_1$ corresponding to the first operation
-		and $E_2$ corresponding to the second.
+		\item Use two row operations to reduce $B$ to $I_{2\times 2}$ and write
+			an elementary matrix $E_1$ corresponding to the first operation and
+			$E_2$ corresponding to the second.
+			\begin{solution}
+				$\mat{1&4\\0&2}\xrightarrow{R_2\to \frac{1}{2}R_2}\mat{1&4\\0&1}
+				\xrightarrow{R_1\to R_1-4R_2}\mat{1&0\\0&1}$.
+
+				The two elementary matrices are $E_1=\mat{1&0\\0&\frac{1}{2}}$
+				and $E_2=\mat{1&-4\\0&1}$.
+			\end{solution}
 		\item What is $E_2E_1B$?
+			\begin{solution}
+				$E_2E_1B=\mat{1&-4\\0&1}\mat{1&0\\0&\frac{1}{2}}\mat{1 &4\\0 &2}=\mat{1&0\\0&1}$.
+			\end{solution}
 		\item Find $B^{-1}$.
+			\begin{solution}
+				$B^{-1}=E_2E_1=\mat{1&-2\\0&\frac{1}{2}}=\frac{1}{2}\mat{2&-4\\0&1}$.
+
+				By previous part we already know that $(E_2E_1)B=I$. We can also
+				check that $B(E_2E_1)=I$, meaning $E_2E_1$ is the inverse of $B$.
+			\end{solution}
 		\item Can you outline a procedure for finding the inverse of a matrix
 		using elementary matrices?
+			\begin{solution}
+				Suppose $A$ is a matrix that can be row reduced to the identity.
+				Let $E_1, E_2, \dots, E_n$ be the elementary matrices corresponding
+				to the sequence of row operations that reduces $A$ to $I$. Then
+				as we have seen, we have $E_n E_{n-1} \cdots E_2 E_1 A = I$. 
+
+				Then $E_n E_{n-1} \cdots E_2 E_1$ is the inverse of $A$. 
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
