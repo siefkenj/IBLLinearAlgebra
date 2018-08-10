@@ -4410,8 +4410,14 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_1$.
+			\begin{solution}	
+				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\to R_3+2R_1} \mat{1&0&0\\0&1&0\\2&0&1}=E_1$.
+			\end{solution}	
 		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_2$.
+			\begin{solution}	
+				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\to R_3-2R_1} \mat{1&0&0\\0&1&0\\-2&0&1}=E_2$.
+			\end{solution}	
 	\end{parts}
 
 	\begin{definition}
@@ -4422,12 +4428,48 @@ the ``N'' on the left.
 		A=\mat{1&2&3\\4&5&6\\7&8&9}
 	\]
 	\begin{parts}[resume]
-		\item Compute $E_1A$ and $E_2A$.  How do the resulting matrices relate to row
+		\item Compute $E_1A$ and $E_2A$. How do the resulting matrices relate to row
 		operations?
+			\begin{solution}
+				$E_1A=\mat{1&2&3\\4&5&6\\9&12&15}$ and $E_2A=\mat{1&2&3\\4&5&6\\5&4&3}$.
+
+				Both of these matrices are the result of applying to $A$ the same
+				row operation that was applied to the respective $E_1$ or $E_2$. 
+
+				That is, $E_1A$ is the result applying the row operation $R_3\to R_3+2R_1$
+				to $A$, and similarly $E_2A$ is the result of applying the row
+				operation $R_3\to R_3-2R_1$ to $A$. 
+			\end{solution}
 		\item Without computing, what should the result of applying the row
-		operation $R_3\to R_3-2R_1$ to $E_1$ be?  Compute and verify.
-		\item Without computing, what should $E_1E_2$ be?  What about $E_2E_1$?
+		operation $R_3\to R_3-2R_1$ to $E_1$ be? Compute and verify.
+			\begin{solution}
+				It should be the identity matrix, since the row operation
+				$R_3\to R_3-2R_1$ should undo the operation $R_3\to R_3+2R_1$ that
+				turned the identity matrix into $E_1$. 
+			\end{solution}
+		\item Without computing, what should $E_1E_2$ be? What about $E_2E_1$?
 		Now compute and verify.
+			\begin{solution}
+				They should both be the identity matrix. 
+
+				The solution to part 3 above lead us to believe that applying $E_1$
+				to a matrix has the effect of applying the row operation $R_3\to R_3+2R_1$
+				to it. Applying that row operation to $E_2$ would produce the
+				identity matrix, so we expect that $E_1E_2$ should equal the
+				identity matrix. 
+
+				Similar reasoning leads us to believe that $E_2E_1$ should also
+				equal the identity matrix. 
+
+				Indeed, we can compute
+				\[
+					E_1E_2
+					=\mat{1&0&0\\0&1&0\\2&0&1}\mat{1&0&0\\0&1&0\\-2&0&1}
+					=\mat{1&0&0\\0&1&0\\0&0&1}
+					=\mat{1&0&0\\0&1&0\\-2&0&1}\mat{1&0&0\\0&1&0\\2&0&1}
+					=E_2E_1.
+				\]
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}
