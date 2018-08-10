@@ -4225,7 +4225,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 				We already know that the dimension of the column space of a matrix
 				is equal to the number of pivots in its reduced row echelon form,
-				and that is by definition the rank of the matrix. 
+				and that is by definition the rank of the matrix.
 			\end{solution}
 	\end{parts}
 
@@ -4240,6 +4240,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\item $\mat{3\\3\\2}$
 			\item $\mat{1&0&1\\0&1&0\\0&0&1}$.
 		\end{enumerate*}
+		\begin{solution}
+			For each part, we compute the reduced row echelon form of the matrix
+			and simply count the number of pivots.
+			\begin{enumerate}
+				\item $\rref\left(\mat{1&1\\2&2}\right)=\mat{1&1\\0&0}$, and so
+					the rank of this matrix is 1.
+				\item $\rref\left(\mat{1&2\\3&4}\right)=\mat{1&0\\0&1}$, and so
+					the rank of this matrix is 2.
+				\item This matrix is already in reduced row echelon form, and so
+					its rank is 2.
+				\item $\rref\left(\mat{3\\3\\2}\right)=\mat{1\\1\\1}$, and so
+					the rank of this matrix is 1.
+				\item $\rref\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=\mat{1&0&0\\0&1&0\\0&0&1}$, and so
+					the rank of this matrix is 3.
+			\end{enumerate}
+		\end{solution}
 	\end{parts}
 	
 	\question
@@ -4254,13 +4270,75 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	and the non-augmented matrix of coefficients $A=\mat{1&2&1\\1&2&3\\-1&-2&1}$.
 	\begin{parts}
 		\item What is $\Rank(A)$?
+			\begin{solution}
+				$\rref(A)=\mat{1&2&0\\0&0&1\\0&0&0}$, and so the rank of this
+				matrix is 2.
+			\end{solution}
 		\item Give the general solution to \eqref{eq4b}.
+			\begin{solution}
+				$\vec x$ is a solution to the system if 
+				$\vec x=t\mat{-2\\1\\0}$ for some real number $t$.
+
+				If $\vec x=\mat{x\\y\\z}$ is a solution to the system, then we
+				must have $\mat{1&2&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\mat{x+2y\\z\\0}=\mat{0\\0\\0}$,
+				from which it follows that $z=0$ and $x=-2y$. In other words, 
+				any scalar multiple of $\mat{-2\\1\\0}$ is a solution. 
+			\end{solution}
 		\item Are the column vectors of $A$ linearly independent?
+			\begin{solution}
+				No. The second column is two times the first column.
+			\end{solution}
 		\item Give a non-homogeneous system with the same coefficients as \eqref{eq4b} that has
 			\begin{enumerate}
 				\item infinitely many solutions
 				\item no solutions.
 			\end{enumerate}
+			\begin{solution}
+				\begin{enumerate}
+					\item The following system has infinitely many solutions:
+						\begin{equation}\label{eq4b}
+							\begin{array}{llll}
+								x&+2y&+z &= 1\\
+								x&+2y&+3z &= 1\\
+								-x&-2y&+z &= -1
+							\end{array}
+						\end{equation}
+						We know that for any $\vec x=\mat{x\\y\\z}$, $A\vec x$ is
+						a linear combination of the columns of $A$:
+						\[
+							A\vec x
+							=\mat{1&2&1\\1&2&3\\-1&-2&1}\mat{x\\y\\z}
+							=\mat{x+2y+z\\x+2y+3z\\-x-2y+z}
+							=x\mat{1\\1\\-1}+y\mat{2\\2\\-2}+z\mat{1\\3\\1}. 
+						\]
+						There are infinitely many ways to write $\vec b=\mat{1\\1\\-1}$
+						as a linear combination of the columns of $A$, since for
+						example
+						\[
+							\vec b
+							=\mat{1\\1\\-1}
+							=t\mat{1\\1\\-1}+s\mat{2\\2\\-2}
+							=(t+2s)\mat{1\\1\\-1}
+						\]
+						for any real numbers $s$ and $t$ that satisfy $t+2s=1$.
+						In other words, any $\vec x$ of the form $\mat{1-2s\\s\\0}$
+						is a solution to the system, for any $s \in \R$. 
+					\item The following system has no solutions:
+						\begin{equation}\label{eq4b}
+							\begin{array}{llll}
+								x&+2y&+z &= 0\\
+								x&+2y&+3z &= 0\\
+								-x&-2y&+z &= 1
+							\end{array}
+						\end{equation}
+						
+						By the same reasoning as above, for any $\vec x$, $A \vec x$
+						must be an element of $\Col(A)$. 
+						The vector $\vec b=\mat{0\\0\\1}$ is not in $\Col{A}$,
+						and so the system represented by $A\vec x=\vec b$ cannot
+						have a solution
+				\end{enumerate}
+			\end{solution}
 	\end{parts}
 
 	\question
