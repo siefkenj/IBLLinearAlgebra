@@ -4795,8 +4795,8 @@ the ``N'' on the left.
 	\newpage
 \end{lesson}
 	\question
-	Let $\mathcal S=\{\vec e_1,\vec e_2,\ldots,\vec e_n\}$ be the standard basis for $\R^n$.
-	Given a basis $\mathcal B=\{\vec b_1,\vec b_2,\ldots,\vec b_n\}$ for $\R^n$, the 
+	Let $\mathcal S=\Set{\vec e_1,\vec e_2,\ldots,\vec e_n}$ be the standard basis for $\R^n$.
+	Given a basis $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots,\vec b_n}$ for $\R^n$, the 
 	matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ converts
 	vectors from the $\mathcal B$ basis into the standard basis. In other words,
 	\[
@@ -4804,12 +4804,34 @@ the ``N'' on the left.
 	\]
 	\begin{parts}
 		\item Should $X^{-1}$ exist? Explain.
-		\item Consider the equation\[
+			\begin{solution}
+				Yes. $X$ converts vectors from the standard basis into the 
+				$\mathcal B$ basis, and this process be undone. $X^{-1}$ should
+				be the matrix that does this.
+			\end{solution}
+		\item Consider the equation
+			\[
 				X^{-1}[\vec v]_{?} = [\vec v]_{?}.
 			\]
 			Can you fill in the ``?''~symbols so that the equation makes sense?
+			\begin{solution}
+				$X^{-1}[\vec v]_{\mathcal S} = [\vec v]_{\mathcal B}$.
+
+				As we said in the previous part $X^{-1}$ should undo what $X$ does,
+				meaning it should convert vectors from the standard basis into 
+				the $\mathcal B$ basis. 
+			\end{solution}
 		\item What is $[\vec b_1]_{\mathcal B}$?  How about $[\vec b_2]_{\mathcal B}$?  Can
 			you generalize to $[\vec b_i]_{\mathcal B}$?
+			\begin{solution}
+				$[\vec b_1]_{\mathcal B}=\matc{1\\0\\0\\\vdots\\0}$, and 
+				$[\vec b_2]_{\mathcal B}=\matc{0\\1\\0\\\vdots\\0}$, where each of
+				these vectors have $n$ coordinates. 
+
+				In general, $[\vec b_i]_{\mathcal B}$ should be the column vector
+				with zeroes in all coordinates except for a 1 in the $i^\text{th}$
+				coordinate.
+			\end{solution}
 	\end{parts}
 
 	\question
