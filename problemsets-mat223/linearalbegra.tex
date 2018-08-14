@@ -4788,21 +4788,83 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
-	Let $\vec c_1=\mat{2\\1}$, $\vec c_2=\mat{5\\3}$, $\mathcal C=\{\vec c_1,\vec c_2\}$, and $A=\mat{2&5\\1&3}$.
+	Let $\vec c_1=\mat{2\\1}$, $\vec c_2=\mat{5\\3}$, $\mathcal C=\Set{\vec c_1,\vec c_2}$, and $A=\mat{2&5\\1&3}$.
 	Note that $A^{-1}=\mat{3&-5\\-1&2}$ and that $A$ changes vectors from the $\mathcal C$ basis to the standard
 	basis and $A^{-1}$ changes vectors from the standard basis to the $\mathcal C$ basis.
 	\begin{parts}
 		\item Compute $[\vec c_1]_{\mathcal C}$ and $[\vec c_2]_{\mathcal C}$.
+			\begin{solution}[inline]
+				$[\vec c_1]_{\mathcal C}=\mat{1\\0}$ and 
+				$[\vec c_2]_{\mathcal C}=\mat{0\\1}$.
+			\end{solution}
 	\end{parts}
 	Let $T:\R^2\to\R^2$ be the linear transformation that stretches in the $\vec c_1$ direction by a factor of $2$
 	and doesn't stretch in the $\vec c_2$ direction at all.
 	\begin{parts}[resume]
 		\item Compute $T\mat{2\\1}$ and $T\mat{5\\3}$.
+			\begin{solution}[inline]
+				$T\mat{2\\1}=\mat{4\\2}$ and $T\mat{5\\3}=\mat{5\\3}$.
+			\end{solution}
 		\item Compute $[T\vec c_1]_{\mathcal C}$ and $[T\vec c_2]_{\mathcal C}$.
+			\begin{solution}[inline]
+				$[T\vec c_1]_{\mathcal C}=[2\vec c_1]_{\mathcal C}=\mat{2\\0}$ and
+				$[T\vec c_2]_{\mathcal C}=[\vec c_2]_{\mathcal C}=\mat{0\\1}$.
+			\end{solution}
 		\item Compute the result of $T\mat{\alpha\\\beta}_{\mathcal C}$ and express the result in the
 			$\mathcal C$ basis (i.e., as a vector of the form $\mat{?\\?}_{\mathcal C}$).
+			\begin{solution}
+				$T\mat{\alpha\\\beta}_{\mathcal C}=\mat{2\alpha\\\beta}_{\mathcal C}$.
+
+				If $\vec v$ is a vector such that 
+				$[\vec v]_{\mathcal C}=\mat{\alpha\\\beta}_{\mathcal C}$, then 
+				$\vec v=\alpha\vec c_1+\beta\vec c_2$. Since $T$ is linear, we can
+				then compute
+				\[
+					T\vec v
+					=T(\alpha\vec c_1+\beta\vec c_2)
+					=\alpha T(\vec c_1)+\beta T(\vec c_2)
+					=2\alpha\vec c_1+\beta\vec c_2
+					=\mat{2\alpha\\\beta}_{\mathcal C}.
+				\]
+			\end{solution}
 		\item Find $[T]_{\mathcal C}$, the matrix for $T$ in the $\mathcal C$ basis.
+			\begin{solution}
+				$[T]_{\mathcal C}=\mat{2&0\\0&1}$. 
+
+				From the results of the previous parts, we know that we must have
+				$[T]_{\mathcal C}\mat{1\\0}_{\mathcal C}=\mat{2\\0}_{\mathcal C}$
+				and $[T]_{\mathcal C}\mat{0\\1}_{\mathcal C}=\mat{0\\1}_{\mathcal C}$,
+				so these two vectors must be the first and second columns of 
+				$[T]_{\mathcal C}$, respectively.
+			\end{solution}
 		\item Find $[T]_{\mathcal E}$, the matrix for $T$ in the standard basis.
+			\begin{solution}
+				$[T]_{\mathcal E}=\mat{7&-10\\3&-4}$
+				
+				To determine this, we first find $[T\xhat]_{\mathcal E}$ and 
+				$[T\yhat]_{\mathcal E}$, which by the same reasoning as the previous
+				part will be the first and second columns of $[T]_{\mathcal E}$, 
+				respectively. 
+
+				We first find that $\xhat=3\vec c_1-\vec c_2$ and 
+				$\yhat=-5\vec c_1+2\vec c_2$. Then since $T$ is linear we compute
+				\[
+					[T\xhat]_{\mathcal E}
+					=[T(3\vec c_1-\vec c_2)]_{\mathcal E}
+					=3[T(\vec c_1)]_{\mathcal E}-[T(\vec c_2)]_{\mathcal E}
+					=3\mat{4\\2}_{\mathcal E}-\mat{5\\3}_{\mathcal E}
+					=\mat{7\\3}_{\mathcal E}
+				\]
+				and
+				\[
+					[T\yhat]_{\mathcal E}
+					=[T(-5\vec c_1+2\vec c_2)]_{\mathcal E}
+					=-5[T(\vec c_1)]_{\mathcal E}+2[T(\vec c_2)]_{\mathcal E}
+					=-5\mat{4\\2}_{\mathcal E}+2\mat{5\\3}_{\mathcal E}
+					=\mat{-10\\-4}_{\mathcal E}
+				\]
+
+			\end{solution}
 	\end{parts}
 	\begin{definition}[Similar Matrices]
 		A matrices $A$ and $B$ are called \emph{similar matrices}, denoted $A\sim B$, if
