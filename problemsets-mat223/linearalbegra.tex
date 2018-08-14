@@ -4663,16 +4663,80 @@ the ``N'' on the left.
 	\]
 	\begin{parts}
 		\item What is $A^{-1}A$?
+			\begin{solution}
+				$A^{-1}A = I$. This is true by the definition of an inverse, 
+				but we can also verify it by hand.
+			\end{solution}
 		\item What is $\rref(A)$?
+			\begin{solution}
+				$\rref(A) = \mat{1&0&0\\0&1&0\\0&0&1} = I$. 
+			\end{solution}
 		\item What is $\rref(C)$? (Hint, there is no need to actually do row reduction!)
+			\begin{solution}
+				$\rref(C) = \left[I\middle|A^{-1}\vec b\right]
+				=\left[
+					\begin{array}{rrr|r}
+						1&0&0&-9\\
+						0&1&0&6\\
+						0&0&1&2
+					\end{array}
+				\right]$.
+
+				We know that the reduced row echelon form of $C$ must be of the 
+				form $[I|\vec c]$ for some $\vec c$, and we know that multiplying
+				on the left by $A^{-1}$ is equivalent to applying the sequence of
+				row operations that reduces $A$ to $\rref(A)=I$. So the same sequence
+				of row operations applied to $\vec b$, the last column of $C$, 
+				will produce the vector $\vec c=A^{-1}\vec b=\mat{-9\\6\\2}$. 
+			\end{solution}
+
 		\item Solve the system $A\vec x=\vec b$.
+			\begin{solution}
+				The system has one solution: $\vec x=A^{-1}\vec b=\mat{-9\\6\\2}$.
+
+				We can read this solution from the reduced row echelon form of the
+				augmented matrix $C$ representing this system. We can also multiply
+				both sides of the equation on the left by $A^{-1}$:
+				\[
+					A\vec x=\vec x 
+					\implies A^{-1}A\vec x=A^{-1}\vec b 
+					\implies \vec x=A^{-1}\vec b.
+				\]
+			\end{solution}
 	\end{parts}
 
 	\question
 	\begin{parts}
 		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
+			\begin{solution}
+				No. 
+
+				By the definition of an inverse we need $(XY)^{-1}(XY)=I$, so
+				that multiplying by $(XY)^{-1}$ undoes multiplication
+				by $XY$. To do this, we must first undo multiplication by $X$,
+				then undo multiplication by $Y$. That is, we must first multiply
+				by $X^{-1}$ then multiply by $Y^{-1}$.
+
+				In other words, we expect that $(XY)^{-1} = Y^{-1}X^{-1}$. We can
+				then verify this by computing
+				\[
+					(XY)(Y^{-1}X^{-1}) = XYY^{-1}X^{-1} = XIX^{-1} = XX^{-1} = I
+				\]
+				and
+				\[
+					(Y^{-1}X^{-1})(XY) = Y^{-1}X^{-1}XY = Y^{-1}IY = Y^{-1}Y = I.
+				\]
+			\end{solution}
 		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
 			could $M$ be invertible?
+			\begin{solution}
+				No. 
+
+				Suppose $M^{-1}$ exists. Then $M^{-1}M=MM^{-1}=I$. 
+				Let $S$ be the linear transformation induced by $M^{-1}$. 
+				Since $M$ is the matrix for $T$ we must have $ST=TS=\Id$. But 
+				then $S$ would be the inverse of $T$, which is impossible.
+			\end{solution}
 	\end{parts}
 
 \subsection*{More Change of Basis}
