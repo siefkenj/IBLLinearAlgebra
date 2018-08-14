@@ -4244,16 +4244,17 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			For each part, we compute the reduced row echelon form of the matrix
 			and count the number of pivots.
 			\begin{enumerate}
-				\item $\rref\left(\mat{1&1\\2&2}\right)=\mat{1&1\\0&0}$, and so
-					the rank of this matrix is 1.
-				\item $\rref\left(\mat{1&2\\3&4}\right)=\mat{1&0\\0&1}$, and so
-					the rank of this matrix is 2.
-				\item This matrix is already in reduced row echelon form, and so
-					its rank is 2.
-				\item $\rref\left(\mat{3\\3\\2}\right)=\mat{1\\0\\0}$, and so
-					the rank of this matrix is 1.
-				\item $\rref\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=\mat{1&0&0\\0&1&0\\0&0&1}$, and so
-					the rank of this matrix is 3.
+				\item $\Rank\left(\mat{1&1\\2&2}\right)=1$, since 
+					$\rref\left(\mat{1&1\\2&2}\right)=\mat{1&1\\0&0}$ has one pivot.
+				\item $\Rank\left(\mat{1&2\\3&4}\right)=2$, since 
+					$\rref\left(\mat{1&2\\3&4}\right)=\mat{1&0\\0&1}$ has two pivots
+				\item $\Rank\left(\mat{1&1&0\\0&0&1}\right)=2$.
+					This matrix is already in reduced row echelon form, and has two pivots.
+				\item $\Rank\left(\mat{3\\3\\2}\right)=1$, since 
+					$\rref\left(\mat{3\\3\\2}\right)=\mat{1\\0\\0}$ has one pivot.
+				\item $\Rank\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=3$, since
+					$\rref\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=\mat{1&0&0\\0&1&0\\0&0&1}$
+					has three pivots.
 			\end{enumerate}
 		\end{solution}
 	\end{parts}
@@ -4271,8 +4272,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\begin{parts}
 		\item What is $\Rank(A)$?
 			\begin{solution}
-				$\rref(A)=\mat{1&2&0\\0&0&1\\0&0&0}$, and so the rank of this
-				matrix is 2.
+				$\Rank(A)=2$, since $\rref(A)=\mat{1&2&0\\0&0&1\\0&0&0}$ as two pivots.
 			\end{solution}
 		\item Give the general solution to \eqref{eq4b}.
 			\begin{solution}
