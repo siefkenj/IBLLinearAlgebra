@@ -4274,16 +4274,16 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				No. A $3 \times 4$ matrix has four columns, each of which are 
 				vectors in $\R^3$. It is not possible for four different vectors
-				in $\R^3$ to be linearly indepedent (and if any two of the columns
-				are equal, they are linearly dependent).
+				in $\R^3$ to be linearly indepedent.
 			\end{solution}
 		\item The rank of a $4\times 3$ matrix $B$ is $3$.
 			Are the column vectors of $B$ linearly independent?
 			\begin{solution}
-				Yes. The rank of $B$ is the number of pivots in $\rref(B)$, which
-				we know is equal to the dimension of the column space of $B$. In
-				this case, since there are only three columns, if the dimension
-				of their span is 3, they must all be linearly independent. 
+				Yes. Since $\Rank(B)=3$, there are three pivots in $\rref(B)$.
+				Pivot positions in $\rref(B)$ indicate a maximal linearly 
+				independent subset of the columns of $B$. Since there are three
+				columns in $B$ and three pivots, the three columns of $B$ must be
+				linearly independent.
 			\end{solution}
 	\end{parts}
 
@@ -4340,13 +4340,12 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$\Rank(A^T)=2$ and $\Nullity(A^T)=1$.
 
-				$A^T$ is the matrix with $\vec u,\vec v$, and $\vec w$ as its 
-				respective rows. Since $\vec w$ is a linear combination of 
-				$\vec u$ and $\vec v$, the third row of $A^T$ can be reduced to 
-				a row of zeros by elementary row operations. Neither of the first
-				two rows can be reduced to rows of zeros since they are linearly
-				independent. Therefore $\rref(A^T)$ has two pivots, meaning
-				$\Rank(A^T)=2$. 
+				$A^T$ is the matrix with rows $\vec u,\vec v$, and $\vec w$. 
+				Since $\vec w=2\vec u-\vec v$, the third row of $A^T$ can be 
+				reduced to a row of zeros by the row operation 
+				$R_3 \to R_3 - 2R_1 + R_2$. Neither of the first two rows can be
+				reduced to rows of zeros since they are linearly independent. 
+				Therefore $\rref(A^T)$ has two pivots, meaning $\Rank(A^T)=2$. 
 
 				The rank-nullity theorem then says that $2+\Nullity(A^T)=3$, and so
 				$\Nullity(A^T)=1$
