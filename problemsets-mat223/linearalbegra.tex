@@ -4013,6 +4013,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
+	\label{fundamentalSubspaces}
 	Consider $A=\mat{1&0&0\\0&1&0}$.
 	\begin{parts}
 		\item Describe the row space of $A$.
@@ -4064,6 +4065,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{solution}
 		\item Describe the range and null space of $T_A$, the transformation
 			induced by $A$.
+			\label{fundamentalSubspaces.6}
 			\begin{solution}
 				$\Range(T_A)=\Col(A)=\R^2$ and $\Null(T_A)=\Null(A)$, 
 				which is the $z$-axis in $\R^3$. 
@@ -4170,6 +4172,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
+	\label{rankOfMatricesAndTransformations}
 	Let $\mathcal P$ be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
@@ -4213,6 +4216,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{solution}
 		\item Make a conjecture about how the rank of a transformation and the
 			rank of its corresponding matrix relate. Can you justify your claim?
+			\label{rankOfMatricesAndTransformations.4}
 			\begin{solution}
 				They are equal. 
 
@@ -4265,8 +4269,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	\question
 	\begin{parts}
-		\item The rank of a $3\times 4$ matrix $A$ is $3$.  Are the column vectors of $A$ linearly independent?
-		\item The rank of a $4\times 3$ matrix $B$ is $3$.  Are the column vectors of $B$ linearly independent?
+		\item The rank of a $3\times 4$ matrix $A$ is $3$. 
+			Are the column vectors of $A$ linearly independent?
+			\begin{solution}
+				No. A $3 \times 4$ matrix has four columns, each of which are 
+				vectors in $\R^3$. It is not possible for four different vectors
+				in $\R^3$ to be linearly indepedent.
+			\end{solution}
+		\item The rank of a $4\times 3$ matrix $B$ is $3$.
+			Are the column vectors of $B$ linearly independent?
+			\begin{solution}
+				Yes. Since $\Rank(B)=3$, there are three pivots in $\rref(B)$.
+				Pivot positions in $\rref(B)$ indicate a maximal linearly 
+				independent subset of the columns of $B$. Since there are three
+				columns in $B$ and three pivots, the three columns of $B$ must be
+				linearly independent.
+			\end{solution}
 	\end{parts}
 
 
@@ -4291,7 +4309,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	The rank-nullity theorem for a matrix $A$ states
 	\[
-		\Rank(A)+\Null(A) = \#\text{ of columns in }A.
+		\Rank(A)+\Nullity(A) = \#\text{ of columns in }A.
 	\]
 	\end{theorem}
 
@@ -4299,6 +4317,19 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\begin{parts}
 		\item Is here a version of the rank-nullity theorem that applies to linear
 			transformations instead of matrices? If so, state it.
+			\begin{solution}
+				Yes. If $T:V\to W$ is a linear transformation, then 
+				$\Rank(T)+\Dim(\Null(T))=\Dim(V)$.
+
+				If $A$ is the matrix corresponding to $T$, then $\Rank(T)=\Rank(A)$
+				by Problem \ref{rankOfMatricesAndTransformations}.\ref{rankOfMatricesAndTransformations.4}.
+				
+				$\Null(T)=\Null(A)$ by Problem \ref{fundamentalSubspaces}.\ref{fundamentalSubspaces.6}, 
+				since $T=T_A$, and so $\Dim(\Null(T))=\Nullity(A)$. 
+				
+				Finally, the number of columns of $A$ is equal to the dimension
+				of the domain of $T$.
+			\end{solution}
 	\end{parts}
 
 	\question
@@ -4306,7 +4337,30 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	Define $A=[\vec u|\vec v|\vec w]$.
 	\begin{parts}
 		\item What is the rank and nullity of $A^T$?
+			\begin{solution}
+				$\Rank(A^T)=2$ and $\Nullity(A^T)=1$.
+
+				$A^T$ is the matrix with rows $\vec u,\vec v$, and $\vec w$. 
+				Since $\vec w=2\vec u-\vec v$, the third row of $A^T$ can be 
+				reduced to a row of zeros by the row operation 
+				$R_3 \to R_3 - 2R_1 + R_2$. Neither of the first two rows can be
+				reduced to rows of zeros since they are linearly independent. 
+				Therefore $\rref(A^T)$ has two pivots, meaning $\Rank(A^T)=2$. 
+
+				The rank-nullity theorem then says that $2+\Nullity(A^T)=3$, and so
+				$\Nullity(A^T)=1$
+			\end{solution}
 		\item What is the rank and nullity of $A$?
+			\begin{solution}
+				$\Rank(A)=2$ and $\Nullity(A)=1$.
+
+				We know that $\Rank(A)$ equals the number of pivots in $\rref(A)$,
+				which in turn equals the dimension of $\Col(A)$. Since $A$ has two
+				linearly independent columns, $\Dim(\Col(A))=2$. 
+
+				Again, the rank-nullity theorem then says that $2+\Nullity(A)=3$,
+				and so $\Nullity(A)=1$
+			\end{solution}
 	\end{parts}
 
 
