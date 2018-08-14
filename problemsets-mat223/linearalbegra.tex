@@ -4433,10 +4433,7 @@ the ``N'' on the left.
 			\begin{solution}
 				$E_1A=\mat{1&2&3\\4&5&6\\9&12&15}$ and $E_2A=\mat{1&2&3\\4&5&6\\5&4&3}$.
 
-				Both of these matrices are the result of applying to $A$ the same
-				row operation that was applied to the respective $E_1$ or $E_2$. 
-
-				That is, $E_1A$ is the result applying the row operation $R_3\to R_3+2R_1$
+				$E_1A$ is the result applying the row operation $R_3\to R_3+2R_1$
 				to $A$, and similarly $E_2A$ is the result of applying the row
 				operation $R_3\to R_3-2R_1$ to $A$. 
 			\end{solution}
@@ -4444,8 +4441,7 @@ the ``N'' on the left.
 		operation $R_3\to R_3-2R_1$ to $E_1$ be? Compute and verify.
 			\begin{solution}
 				It should be the identity matrix, since the row operation
-				$R_3\to R_3-2R_1$ should undo the operation $R_3\to R_3+2R_1$ that
-				turned the identity matrix into $E_1$. 
+				$R_3\to R_3-2R_1$ should undo the operation $R_3\to R_3+2R_1$.
 			\end{solution}
 		\item Without computing, what should $E_1E_2$ be? What about $E_2E_1$?
 		Now compute and verify.
@@ -4493,8 +4489,8 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Which pairs of matrices above are inverses of each other?
 			\begin{solution}
-				$A$ and $D$ are inverses of each other, and $B$ and $C$ are 
-				inverses of each other. These are the only such pairs. 
+				$A$ and $D$ are inverses of each other, and $F$ is its own 
+				inverse. 
 			\end{solution}
 	\end{parts}
 
@@ -4521,7 +4517,7 @@ the ``N'' on the left.
 			\begin{solution}
 				$B^{-1}=E_2E_1=\mat{1&-2\\0&\frac{1}{2}}=\frac{1}{2}\mat{2&-4\\0&1}$.
 
-				By previous part we already know that $(E_2E_1)B=I$. We can also
+				By the previous part we already know that $(E_2E_1)B=I$. We can also
 				check that $B(E_2E_1)=I$, meaning $E_2E_1$ is the inverse of $B$.
 			\end{solution}
 		\item Can you outline a procedure for finding the inverse of a matrix
@@ -4532,7 +4528,7 @@ the ``N'' on the left.
 				to the sequence of row operations that reduces $A$ to $I$. Then
 				as we have seen, we have $E_n E_{n-1} \cdots E_2 E_1 A = I$. 
 
-				Then $E_n E_{n-1} \cdots E_2 E_1$ is the inverse of $A$. 
+				Thus $E_n E_{n-1} \cdots E_2 E_1$ is the inverse of $A$. 
 			\end{solution}
 	\end{parts}
 
