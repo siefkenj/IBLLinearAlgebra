@@ -1454,6 +1454,7 @@ argument supporting your answer.
 \end{lesson}
 
 	\question
+	\label{linesAsSpans}
 	Let $\ell_1\subseteq \R^2$ be the line with equation $x-y=0$ and $\ell_2\subseteq\R^2$
 	the line with equation $x-y=4$.
 	\begin{parts}
@@ -1466,6 +1467,7 @@ argument supporting your answer.
 			\end{solution}
 		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's 
 			not possible.
+			\label{linesAsSpans.2}
 			\begin{solution}
 				This is not possible. $\mat{0\\0}$ is an element of	the span of 
 				\emph{any} set of vectors, since we can use all zeroes as the 
@@ -1523,9 +1525,9 @@ argument supporting your answer.
 			and set addition?
 			\begin{solution}
 				$\ell_2$ cannot be described using only a span, for the same reason 
-				as the line $\ell_2$ in the last part of the previous exercise
+				as the line $\ell_2$ in Problem \ref{linesAsSpans}.\ref{linesAsSpans.2}
 				couldn't be. We know that the origin $\mat{0\\0}$ must be an element
-				of any span, but it is not a point on $\ell_2$. 
+				of any span, but it is not a point on $\ell_2$. xxx
 
 				$\ell_2$ can be described as a span plus a set addition though. 
 				Specifically, it is $\ell + A$. 
@@ -3104,26 +3106,26 @@ examples.
 	\end{definition}
 
 	\question
-	Let $\mathcal E=\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and 
+	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and 
 	let $\mathcal C=\Set{\vec c_1,\vec c_2}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
 	and $\vec c_2=\mat{5\\3}_{\mathcal E}$ be another basis for $\R^2$.
 	\begin{parts}
-		\item Express $\vec c_1$ and $\vec c_2$ as a linear combination of $\vec e_1$ and $\vec e_2$.
+		\item Express $\vec c_1$ and $\vec c_2$ as a linear combination of $\xhat$ and $\yhat$.
 			\begin{solution}[inline]
-				$\vec c_1=2\vec e_1+\vec e_2$ and $\vec c_2=5\vec e_1+3\vec e_2$.
+				$\vec c_1=2\xhat+\yhat$ and $\vec c_2=5\xhat+3\yhat$.
 			\end{solution}
-		\item Express $\vec e_1$ and $\vec e_2$ as a linear combination of $\vec c_1$ and $\vec c_2$.
+		\item Express $\xhat$ and $\yhat$ as a linear combination of $\vec c_1$ and $\vec c_2$.
 			\begin{solution}[inline]
-				$\vec e_1=3\vec c_1-\vec c_2$ and $\vec e_2=-5\vec c_1+2\vec c_2$.
+				$\xhat=3\vec c_1-\vec c_2$ and $\yhat=-5\vec c_1+2\vec c_2$.
 			\end{solution}
-		\item Let $\vec v=2\vec e_1+2\vec e_2$. Find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
+		\item Let $\vec v=2\xhat+2\yhat$. Find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
 			\begin{solution}
 				$[\vec v]_{\mathcal E} = \mat{2\\2}$ and 
 				$[\vec v]_{\mathcal C} = \mat{-4\\2}$.
 
 				The second one is since
 				\[
-					\vec v=2\vec e_1+2\vec e_2
+					\vec v=2\xhat+2\yhat
 					=2(3\vec c_1-\vec c_2)+2(-5\vec c_1+2\vec c_2)
 					=-4\vec c_1+2\vec c_2.
 				\]
@@ -3237,32 +3239,32 @@ examples.
 	\end{definition}
 
 	\question
-	Let $\Set{\vec e_1,\vec e_2}$ be the standard basis for $\R^2$ and let
+	Let $\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let
 	$\vec u_{\theta}$ be a unit vector. Let $\theta$ be the angle between $\vec u_{\theta}$ and
-	$\vec e_1$ measured counter clockwise starting at $\vec e_1$.
+	$\xhat$ measured counter-clockwise starting at $\xhat$.
 	\begin{parts}
-		\item For which $\theta$ is $\Set{\vec e_1,\vec u_{\theta}}$ a linearly independent set?
+		\item For which $\theta$ is $\Set{\xhat,\vec u_{\theta}}$ a linearly independent set?
 			\begin{solution}[inline]
 				Every $\theta$ that is not a multiple of $\pi$. 
 			\end{solution}
-		\item For which $\theta$ can $\Set{\vec e_1,\vec u_{\theta}}$ be continuously
-			transformed into $\Set{\vec e_1,\vec e_2}$ and remain linearly independent the
+		\item For which $\theta$ can $\Set{\xhat,\vec u_{\theta}}$ be continuously
+			transformed into $\Set{\xhat,\yhat}$ and remain linearly independent the
 			whole time?
 			\begin{solution}
 				Every $\theta \in (0, \pi)$. 
 
 				For $\theta\in(\pi,2\pi)$, a continuous transformation of 
-				$\vec u_\theta$	to $\vec e_2$ would have to cross the $x$-axis,
-				at which point $\Set{\vec e_1,\vec u_\theta}$ would cease to be 
+				$\vec u_\theta$	to $\yhat$ would have to cross the $x$-axis,
+				at which point $\Set{\xhat,\vec u_\theta}$ would cease to be 
 				linearly independent. 
 			\end{solution}
-		\item For which $\theta$ is $\Set{\vec e_1,\vec u_{\theta}}$ right-handed?	
+		\item For which $\theta$ is $\Set{\xhat,\vec u_{\theta}}$ right-handed?	
 			Left-handed?
 			\begin{solution}
 				It is right-handed for $\theta\in(0, \pi)$, and left handed for
 				$\theta\in(\pi,2\pi)$.
 			\end{solution}
-		\item For which $\theta$ is $\Set{\vec u_{\theta},\vec e_1}$ (in that order) 
+		\item For which $\theta$ is $\Set{\vec u_{\theta},\xhat}$ (in that order) 
 			right-handed? Left-handed?
 			\begin{solution}
 				It is right-handed for $\theta\in(\pi,2\pi)$, and left handed
@@ -3524,7 +3526,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 				them and then adding.
 			\end{solution}
 		\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
-			counter clockwise by $90^\circ$.
+			counter-clockwise by $90^\circ$.
 			\begin{solution}
 				$R = \mat{0&-1\\1&0}$ is such a matrix. 
 			\end{solution}
@@ -3615,13 +3617,13 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 
 	\question
 	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit 
-	square and let $C=\Set{\vec 0, \vec e_1,\vec e_2,\vec e_1+\vec e_2}\subseteq \R^2$
+	square and let $C=\Set{\vec 0, \xhat,\yhat,\xhat+\yhat}\subseteq \R^2$
 	be the corners of the unit square.
 	\begin{parts}
 		\item Find $\mathcal R(C)$, $W(C)$, and $T(C)$ (where $\mathcal R$, $W$,
 			and $T$ are from the previous question).
 			\begin{solution}
-				$\mathcal R(C) = \Set{\vec 0,\vec e_2,-\vec e_1,-\vec e_1+\vec e_2}$.
+				$\mathcal R(C) = \Set{\vec 0,\yhat,-\xhat,-\xhat+\yhat}$.
 
 				$W(C) = C$.
 
@@ -4070,9 +4072,9 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				$\Range(T_A)=\Col(A)=\R^2$ and $\Null(T_A)=\Null(A)$, 
 				which is the $z$-axis in $\R^3$. 
 
-				By the third part of the previous problem, the range of an induced
-				transformation equals the span of the columns of the matrix. In 
-				other words, $\Range(T_A)=\Col(A)$. 
+				By Problem \ref{inducedTransform}.\ref{inducedTransform.3}, the
+				range of an induced transformation equals the span of the columns
+				of the matrix. In other words, $\Range(T_A)=\Col(A)$. 
 
 				Next, by definition $\vec v\in\Null(T_A)$ when 
 				$[T_A\vec v]_{\mathcal E}=A[\vec v]_{\mathcal E}=\vec 0$.
@@ -4395,7 +4397,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				$A^T$ is the matrix with rows $\vec u,\vec v$, and $\vec w$. 
 				Since $\vec w=2\vec u-\vec v$, the third row of $A^T$ can be 
 				reduced to a row of zeros by the row operation 
-				$R_3 \to R_3 - 2R_1 + R_2$. Neither of the first two rows can be
+				$R_3\mapsto R_3-2R_1+R_2$. Neither of the first two rows can be
 				reduced to rows of zeros since they are linearly independent. 
 				Therefore $\rref(A^T)$ has two pivots, meaning $\Rank(A^T)=2$. 
 
@@ -4514,15 +4516,15 @@ the ``N'' on the left.
 
 	\question
 	\begin{parts}
-		\item Apply the row operation $R_3\to R_3+2R_1$ to the $3\times 3$ identity
+		\item Apply the row operation $R_3\mapsto R_3+2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_1$.
 			\begin{solution}	
-				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\to R_3+2R_1} \mat{1&0&0\\0&1&0\\2&0&1}=E_1$.
+				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\mapsto R_3+2R_1} \mat{1&0&0\\0&1&0\\2&0&1}=E_1$.
 			\end{solution}	
-		\item Apply the row operation $R_3\to R_3-2R_1$ to the $3\times 3$ identity
+		\item Apply the row operation $R_3\mapsto R_3-2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_2$.
 			\begin{solution}	
-				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\to R_3-2R_1} \mat{1&0&0\\0&1&0\\-2&0&1}=E_2$.
+				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\mapsto R_3-2R_1} \mat{1&0&0\\0&1&0\\-2&0&1}=E_2$.
 			\end{solution}	
 	\end{parts}
 
@@ -4539,15 +4541,15 @@ the ``N'' on the left.
 			\begin{solution}
 				$E_1A=\mat{1&2&3\\4&5&6\\9&12&15}$ and $E_2A=\mat{1&2&3\\4&5&6\\5&4&3}$.
 
-				$E_1A$ is the result applying the row operation $R_3\to R_3+2R_1$
+				$E_1A$ is the result applying the row operation $R_3\mapsto R_3+2R_1$
 				to $A$, and similarly $E_2A$ is the result of applying the row
-				operation $R_3\to R_3-2R_1$ to $A$. 
+				operation $R_3\mapsto R_3-2R_1$ to $A$. 
 			\end{solution}
 		\item Without computing, what should the result of applying the row
-		operation $R_3\to R_3-2R_1$ to $E_1$ be? Compute and verify.
+		operation $R_3\mapsto R_3-2R_1$ to $E_1$ be? Compute and verify.
 			\begin{solution}
 				It should be the identity matrix, since the row operation
-				$R_3\to R_3-2R_1$ should undo the operation $R_3\to R_3+2R_1$.
+				$R_3\mapsto R_3-2R_1$ should undo the operation $R_3\mapsto R_3+2R_1$.
 			\end{solution}
 		\item Without computing, what should $E_1E_2$ be? What about $E_2E_1$?
 		Now compute and verify.
@@ -4555,7 +4557,7 @@ the ``N'' on the left.
 				They should both be the identity matrix. 
 
 				The solution to part 3 above lead us to believe that applying $E_1$
-				to a matrix has the effect of applying the row operation $R_3\to R_3+2R_1$
+				to a matrix has the effect of applying the row operation $R_3\mapsto R_3+2R_1$
 				to it. Applying that row operation to $E_2$ would produce the
 				identity matrix, so we expect that $E_1E_2$ should equal the
 				identity matrix. 
@@ -4609,8 +4611,8 @@ the ``N'' on the left.
 			an elementary matrix $E_1$ corresponding to the first operation and
 			$E_2$ corresponding to the second.
 			\begin{solution}
-				$\mat{1&4\\0&2}\xrightarrow{R_2\to \frac{1}{2}R_2}\mat{1&4\\0&1}
-				\xrightarrow{R_1\to R_1-4R_2}\mat{1&0\\0&1}$.
+				$\mat{1&4\\0&2}\xrightarrow{R_2\mapsto \frac{1}{2}R_2}\mat{1&4\\0&1}
+				\xrightarrow{R_1\mapsto R_1-4R_2}\mat{1&0\\0&1}$.
 
 				The two elementary matrices are $E_1=\mat{1&0\\0&\frac{1}{2}}$
 				and $E_2=\mat{1&-4\\0&1}$.
@@ -4744,8 +4746,8 @@ the ``N'' on the left.
 	Let $\mathcal B=\{\vec b_1,\vec b_2\}$ where $\vec b_1=\mat{1\\1}$, $\vec b_2=\mat{1\\-1}$
 	and let $X=[\vec b_1|\vec b_2]$ be the matrix whose columns are $\vec b_1$ and $\vec b_2$.
 	\begin{parts}
-		\item Compute $[\vec e_1]_{\mathcal B}$ and $[\vec e_2]_{\mathcal B}$.
-		\item Compute $X[\vec e_1]_{\mathcal B}$ and $X[\vec e_2]_{\mathcal B}$.  
+		\item Compute $[\xhat]_{\mathcal B}$ and $[\yhat]_{\mathcal B}$.
+		\item Compute $X[\xhat]_{\mathcal B}$ and $X[\yhat]_{\mathcal B}$.  
 			What do you notice?
 		\item Find the matrix $X^{-1}$. How does $X^{-1}$ relate to change of basis?
 	\end{parts}
@@ -4771,7 +4773,7 @@ the ``N'' on the left.
 	Let $\mathcal S=\{\vec e_1,\vec e_2,\ldots,\vec e_n\}$ be the standard basis for $\R^n$.
 	Given a basis $\mathcal B=\{\vec b_1,\vec b_2,\ldots,\vec b_n\}$ for $\R^n$, the 
 	matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ converts
-	vectors from the $\mathcal B$ basis into the standard basis.  In other words,
+	vectors from the $\mathcal B$ basis into the standard basis. In other words,
 	\[
 		X[\vec v]_{\mathcal B} = [\vec v]_{\mathcal S}.
 	\]
@@ -4932,7 +4934,7 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
-	Suppose $R$ is a rotation counterclockwise by $30^\circ$.
+	Suppose $R$ is a rotation counter-clockwise by $30^\circ$.
 	\begin{parts}
 	\item Draw $C_2$ and $R(C_2)$.
 	\item Compute the area of $R(C_2)$.
@@ -4980,7 +4982,7 @@ the ``N'' on the left.
 	\begin{itemize}
 		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
 		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
-		\item $E_a$ is $I_{3\times 3}$ with $R_1\to R_1+2R_2$ applied.
+		\item $E_a$ is $I_{3\times 3}$ with $R_1\mapsto R_1+2R_2$ applied.
 	\end{itemize}
 
 	\begin{parts}
