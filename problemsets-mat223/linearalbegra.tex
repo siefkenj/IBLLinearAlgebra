@@ -4743,13 +4743,38 @@ the ``N'' on the left.
 
 \subsection*{More Change of Basis}
 	\question
-	Let $\mathcal B=\{\vec b_1,\vec b_2\}$ where $\vec b_1=\mat{1\\1}$, $\vec b_2=\mat{1\\-1}$
+	Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{1\\1}$, $\vec b_2=\mat{1\\-1}$
 	and let $X=[\vec b_1|\vec b_2]$ be the matrix whose columns are $\vec b_1$ and $\vec b_2$.
 	\begin{parts}
 		\item Compute $[\xhat]_{\mathcal B}$ and $[\yhat]_{\mathcal B}$.
+			\begin{solution}
+				$[\xhat]_{\mathcal B}=\frac{1}{2}\mat{1\\1}$ and
+				$[\yhat]_{\mathcal B}=\frac{1}{2}\mat{1\\-1}$.
+
+				This is because $\xhat=\frac{1}{2}(\vec b_1+\vec b_2)$ and
+				$\yhat=\frac{1}{2}(\vec b_1-\vec b_2)$
+			\end{solution}
 		\item Compute $X[\xhat]_{\mathcal B}$ and $X[\yhat]_{\mathcal B}$.  
 			What do you notice?
+			\begin{solution}
+				$X[\xhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\1}=\mat{1\\0}$
+				and 
+				$X[\yhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\-1}=\mat{0\\1}$
+
+				We notice that multiplying by $X$ seems to turn the representations
+				of these two vectors in the basis $\mathcal B$ into representations
+				in the standard basis.
+			\end{solution}
 		\item Find the matrix $X^{-1}$. How does $X^{-1}$ relate to change of basis?
+			\begin{solution}
+				$X^{-1}=\mat{1&1\\1&-1}$. 
+
+				$X^{-1}$ should undo what $X$ does. In the previous part we saw
+				that $X$ takes vectors represented in $\mathcal B$ and represents
+				them in the standard basis. So $X^{-1}$ should do the reverse, and
+				take vectors represented in the standard basis and represent them
+				in the basis $\mathcal B$. 
+			\end{solution}
 	\end{parts}
 
 	
