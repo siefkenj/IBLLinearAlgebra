@@ -4492,8 +4492,8 @@ the ``N'' on the left.
 	\begin{parts}
 		\item What is $A^{-1}A$?
 			\begin{solution}
-				$A^{-1}A = I$. This is true by definition of an inverse, but we
-				can also verify it by hand.
+				$A^{-1}A = I$. This is true by the definition of an inverse, 
+				but we can also verify it by hand.
 			\end{solution}
 		\item What is $\rref(A)$?
 			\begin{solution}
@@ -4539,14 +4539,20 @@ the ``N'' on the left.
 			\begin{solution}
 				No. 
 
-				By the definition of an inverse, we should want $(XY)(XY)^{-1}=I$. 
-				But there is no reason for $(XY)(X^{-1}Y^{-1})$ to equal the
-				identity, since we cannot in general rearrange the order of product
-				of matrices.
+				By the definition of an inverse we need $(XY)^{-1}(XY)=I$, so
+				that multiplying by $(XY)^{-1}$ undoes multiplication
+				by $XY$. To do this, we must first undo multiplication by $X$,
+				then undo multiplication by $Y$. That is, we must first multiply
+				by $X^{-1}$ then multiply by $Y^{-1}$.
 
-				In fact, we should expect $(XY)^{-1} = Y^{-1}X^{-1}$, since
+				In other words, we expect that $(XY)^{-1} = Y^{-1}X^{-1}$. We can
+				then verify this by computing
 				\[
-					(XY)(Y^{-1}X^{-1}) = XYY^{-1}X^{-1} = XIX^{-1} = XX^{-1} = I.
+					(XY)(Y^{-1}X^{-1}) = XYY^{-1}X^{-1} = XIX^{-1} = XX^{-1} = I
+				\]
+				and
+				\[
+					(Y^{-1}X^{-1})(XY) = Y^{-1}X^{-1}XY = Y^{-1}IY = Y^{-1}Y = I.
 				\]
 			\end{solution}
 		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
@@ -4554,9 +4560,10 @@ the ``N'' on the left.
 			\begin{solution}
 				No. 
 
-				If $M$ were invertible, then its inverse $M^{-1}$ would be a matrix
-				corresponding to the inverse of the transformation $T$, which is
-				impossible if $T$ is non-invertible. 
+				Suppose $M^{-1}$ exists. Then $M^{-1}M=MM^{-1}=I$. 
+				Let $S$ be the linear transformation induced by $M^{-1}$. 
+				Since $M$ is the matrix for $T$ we must have $ST=TS=\Id$. But 
+				then $S$ would be the inverse of $T$, which is impossible.
 			\end{solution}
 	\end{parts}
 
