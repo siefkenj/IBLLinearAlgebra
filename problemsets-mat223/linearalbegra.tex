@@ -4229,7 +4229,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 				We already know that the dimension of the column space of a matrix
 				is equal to the number of pivots in its reduced row echelon form,
-				and that is by definition the rank of the matrix. 
+				and that is by definition the rank of the matrix.
 			\end{solution}
 	\end{parts}
 
@@ -4244,6 +4244,23 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\item $\mat{3\\3\\2}$
 			\item $\mat{1&0&1\\0&1&0\\0&0&1}$.
 		\end{enumerate*}
+		\begin{solution}
+			For each part, we compute the reduced row echelon form of the matrix
+			and count the number of pivots.
+			\begin{enumerate}
+				\item $\Rank\left(\mat{1&1\\2&2}\right)=1$, since 
+					$\rref\left(\mat{1&1\\2&2}\right)=\mat{1&1\\0&0}$ has one pivot.
+				\item $\Rank\left(\mat{1&2\\3&4}\right)=2$, since 
+					$\rref\left(\mat{1&2\\3&4}\right)=\mat{1&0\\0&1}$ has two pivots
+				\item $\Rank\left(\mat{1&1&0\\0&0&1}\right)=2$.
+					This matrix is already in reduced row echelon form, and has two pivots.
+				\item $\Rank\left(\mat{3\\3\\2}\right)=1$, since 
+					$\rref\left(\mat{3\\3\\2}\right)=\mat{1\\0\\0}$ has one pivot.
+				\item $\Rank\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=3$, since
+					$\rref\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=\mat{1&0&0\\0&1&0\\0&0&1}$
+					has three pivots.
+			\end{enumerate}
+		\end{solution}
 	\end{parts}
 	
 	\question
@@ -4258,13 +4275,48 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	and the non-augmented matrix of coefficients $A=\mat{1&2&1\\1&2&3\\-1&-2&1}$.
 	\begin{parts}
 		\item What is $\Rank(A)$?
+			\begin{solution}
+				$\Rank(A)=2$, since $\rref(A)=\mat{1&2&0\\0&0&1\\0&0&0}$ as two pivots.
+			\end{solution}
 		\item Give the general solution to \eqref{eq4b}.
+			\begin{solution}
+				$\vec x$ is a solution to the system if 
+				$\vec x=t\mat{-2\\1\\0}$ for some real number $t$.
+
+				If $\vec x=\mat{x\\y\\z}$ is a solution to the system, then we
+				must have $\mat{1&2&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\mat{x+2y\\z\\0}=\mat{0\\0\\0}$,
+				from which it follows that $z=0$ and $x=-2y$. In other words, 
+				any scalar multiple of $\mat{-2\\1\\0}$ is a solution. 
+			\end{solution}
 		\item Are the column vectors of $A$ linearly independent?
+			\begin{solution}
+				No. The second column is two times the first column.
+			\end{solution}
 		\item Give a non-homogeneous system with the same coefficients as \eqref{eq4b} that has
 			\begin{enumerate}
 				\item infinitely many solutions
 				\item no solutions.
 			\end{enumerate}
+			\begin{solution}
+				\begin{enumerate}
+					\item
+						\begin{equation*}\label{eq4b}
+							\begin{array}{llll}
+								x&+2y&+z &= 1\\
+								x&+2y&+3z &= 1\\
+								-x&-2y&+z &= -1
+							\end{array}
+						\end{equation*}
+					\item
+						\begin{equation*}\label{eq4b}
+							\begin{array}{llll}
+								x&+2y&+z &= 0\\
+								x&+2y&+3z &= 0\\
+								-x&-2y&+z &= 1
+							\end{array}
+						\end{equation*}
+				\end{enumerate}
+			\end{solution}
 	\end{parts}
 
 	\question
