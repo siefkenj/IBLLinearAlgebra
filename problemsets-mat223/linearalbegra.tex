@@ -4838,7 +4838,7 @@ the ``N'' on the left.
 		The unit $n$-cube is the $n$-dimensional cube with side length 1 and lower-left
 		corner located at the origin.  That is 
 		\[
-			C_n = \left\{\vec x\in\R^n:\vec x=\sum_{i=1}^n \alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]\right\}=[0,1]^n.
+			C_n=\Set*{\vec x\in\R^n:\vec x=\sum_{i=1}^n\alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]}=[0,1]^n.
 		\]
 	\end{definition}
 	The volume of the unit $n$-cube is always 1.
@@ -4908,9 +4908,55 @@ the ``N'' on the left.
 
 	\begin{parts}
 		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
+			\begin{solution}
+				$T\mat{1\\0}=\mat{1\\\frac{1}{2}}$,
+				$T\mat{0\\1}=\mat{\frac{1}{2}\\1}$, and 
+				$T\mat{1\\1}=\mat{\frac{3}{2}\\\frac{3}{2}}$?
+
+				We can see first two directly in the picture.
+
+				Using the linearity of $T$, we can compute
+				\[
+					T\mat{1\\1}
+					=T\left(\mat{1\\0}+\mat{0\\1}\right)
+					=T\mat{1\\0}+T\mat{0\\1}
+					=\mat{1\\\frac{1}{2}}+\mat{\frac{1}{2}\\1}
+					=\mat{\frac{3}{2}\\\frac{3}{2}}.
+				\]
+				
+			\end{solution}
 		\item Write down a matrix for $T$.
-		\item What is the volume of the image of the unit square (i.e., the volume of $T(C_2)$)?  You may need
-			to use trigonometry.
+			\begin{solution}
+				The matrix for $T$ in the standard basis is 
+				$\mat{1&\frac{1}{2}\\\frac{1}{2}&1}$. 
+			\end{solution}
+		\item What is the volume of the image of the unit square 
+			(i.e., the volume of $T(C_2)$)? You may need to use trigonometry.
+			\begin{solution}
+				The volume is $\frac{3}{4}$. 
+
+				One way to compute this is as follows. Split the parallelogram
+				into two isosceles triangles of equal area by joining the two 
+				middle vertices. We compute the area of one of these triangles, 
+				and then double it.
+
+				The short side of the triangle will be the base. Its length is
+				the distance between the two middle vertices, or
+				\[
+					b=\sqrt{\left(\frac{1}{2}-1\right)^2+\left(1-\frac{1}{2}\right)^2}
+					=\sqrt{\frac{1}{2}}
+					=\frac{1}{\sqrt{2}}.
+				\]
+				The height of each triangle is half the distance from the origin
+				to the opposite corner of the parallelogram, or
+				\[
+					h=\frac{1}{2}\sqrt{\left(\frac{3}{2}\right)^2+\left(\frac{3}{2}\right)^2}
+					=\frac{1}{2}\sqrt{\frac{18}{4}}
+					=\frac{3\sqrt{2}}{4}.
+				\]
+				So the area of the triangle is $\frac{1}{2}bh=\frac{3}{8}$, and 
+				in turn the area of the parallelogram is $\frac{3}{4}$.
+			\end{solution}
 	\end{parts}
 	
 	\begin{definition}[Determinant]
@@ -4927,18 +4973,40 @@ the ``N'' on the left.
 		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
 	\]
 	\begin{parts}
-	\item Draw $C_2$ and $A(C_2)$, the image of the unit square
+		\item Draw $C_2$ and $A(C_2)$, the image of the unit square
 			under $A$.
-		\item Compute the area of $A (C_2)$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Compute the area of $A(C_2)$.
+			\begin{solution}[inline]
+				The area of this parallelogram is 2.
+			\end{solution}
 		\item Compute $\det(A)$.
+			\begin{solution}
+				$\det(A)=2$. 
+
+				$A=\mat{2&1\\0&1}$, and so $\det(A)=(2)(1)-(1)(0)=2$.
+			\end{solution}
 	\end{parts}
 
 	\question
 	Suppose $R$ is a rotation counter-clockwise by $30^\circ$.
 	\begin{parts}
-	\item Draw $C_2$ and $R(C_2)$.
-	\item Compute the area of $R(C_2)$.
+		\item Draw $C_2$ and $R(C_2)$.
+			\begin{solution}
+				XXXX
+			\end{solution}
+		\item Compute the area of $R(C_2)$.
+			\begin{solution}
+				The area is 1.
+
+				$R$ rotates the entire unit square, which does not change its area.
+			\end{solution}
 		\item Compute $\det(R)$.
+			\begin{solution}
+				
+			\end{solution}
 	\end{parts}
 	
 	\question
