@@ -4934,28 +4934,6 @@ the ``N'' on the left.
 			(i.e., the volume of $T(C_2)$)? You may need to use trigonometry.
 			\begin{solution}
 				The volume is $\frac{3}{4}$. 
-
-				One way to compute this is as follows. Split the parallelogram
-				into two isosceles triangles of equal area by joining the two 
-				middle vertices. We compute the area of one of these triangles, 
-				and then double it.
-
-				The short side of the triangle will be the base. Its length is
-				the distance between the two middle vertices, or
-				\[
-					b=\sqrt{\left(\frac{1}{2}-1\right)^2+\left(1-\frac{1}{2}\right)^2}
-					=\sqrt{\frac{1}{2}}
-					=\frac{1}{\sqrt{2}}.
-				\]
-				The height of each triangle is half the distance from the origin
-				to the opposite corner of the parallelogram, or
-				\[
-					h=\frac{1}{2}\sqrt{\left(\frac{3}{2}\right)^2+\left(\frac{3}{2}\right)^2}
-					=\frac{1}{2}\sqrt{\frac{18}{4}}
-					=\frac{3\sqrt{2}}{4}.
-				\]
-				So the area of the triangle is $\frac{1}{2}bh=\frac{3}{8}$, and 
-				in turn the area of the parallelogram is $\frac{3}{4}$.
 			\end{solution}
 	\end{parts}
 	
@@ -4986,7 +4964,8 @@ the ``N'' on the left.
 			\begin{solution}
 				$\det(A)=2$. 
 
-				$A=\mat{2&1\\0&1}$, and so $\det(A)=(2)(1)-(1)(0)=2$.
+				The paralellogram with sides $\mat{2\\0}$ and $\mat{0\\1}$ is
+				positively oriented, so $\det(A)=+2$. 
 			\end{solution}
 	\end{parts}
 
@@ -5005,7 +4984,8 @@ the ``N'' on the left.
 			\end{solution}
 		\item Compute $\det(R)$.
 			\begin{solution}
-				
+				Since $R$ preserves orientation, $\det(R)$ must be positive.
+				Since $R$ does not change the area of the unit square, $\det(R)=+1$.  
 			\end{solution}
 	\end{parts}
 	
