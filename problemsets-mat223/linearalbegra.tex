@@ -4757,9 +4757,14 @@ the ``N'' on the left.
 		\item Compute $X[\xhat]_{\mathcal B}$ and $X[\yhat]_{\mathcal B}$.  
 			What do you notice?
 			\begin{solution}
-				$X[\xhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\1}=\mat{1\\0}$
+				$X[\xhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\1}
+				=\frac{1}{2}\mat{1\\1}+\frac{1}{2}\mat{1\\-1}
+				=\frac{1}{2}\vec b_1+\frac{1}{2}\vec b_2=\mat{1\\0}$
 				and 
-				$X[\yhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\-1}=\mat{0\\1}$
+				
+				$X[\yhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\-1}
+				=\frac{1}{2}\mat{1\\1}-\frac{1}{2}\mat{1\\-1}
+				=\frac{1}{2}\vec b_1-\frac{1}{2}\vec b_2=\mat{0\\1}$
 
 				We notice that multiplying by $X$ turns the representations	of 
 				these two vectors in the basis $\mathcal B$ into representations
@@ -4806,7 +4811,7 @@ the ``N'' on the left.
 		\item Should $X^{-1}$ exist? Explain.
 			\begin{solution}
 				Yes. $X$ converts vectors from the standard basis into the 
-				$\mathcal B$ basis, and this can process be undone. 
+				$\mathcal B$ basis, and this process can be undone. 
 				$X^{-1}$ is the matrix that does this.
 			\end{solution}
 		\item Consider the equation
