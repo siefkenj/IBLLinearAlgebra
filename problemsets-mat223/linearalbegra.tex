@@ -110,6 +110,13 @@
 	\renewcommand{\headrulewidth}{0pt}
 }
 
+\DeclareDocumentEnvironment{iola}{o}{%
+	\newpage
+	\pagestyle{iola}
+}{%
+	\newpage
+}
+
 
 
 \begin{document}
@@ -179,6 +186,8 @@ Author's copyright. Please see the footnote of each page to verify the
 copyright.
 
 \newpage
+\pagestyle{siefken}
+
 
 \addcontentsline{toc}{chapter}{Lessons}
 
@@ -227,7 +236,7 @@ copyright.
 \end{lesson}
 
 \setcounter{page}{1}
-\pagestyle{iola}
+\begin{iola}
 \section*{Task 1.1: The Magic Carpet Ride}
 \addcontentsline{toc}{subsection}{Task 1.1: The Magic Carpet Ride}
 
@@ -318,7 +327,7 @@ get to the cabin with these modes of transportation, why is that the case?
 % the vector notation for each mode of transportation as part of your
 % explanation and use a diagram or graphic to help illustrate your
 % point(s).
-
+\end{iola}
 
 \begin{lesson}
 	\Title{Linear Combinations}
@@ -357,6 +366,7 @@ get to the cabin with these modes of transportation, why is that the case?
 
 \end{lesson}
 
+\begin{iola}
 \section*{Task 1.2: The Magic Carpet Ride, Hide and Seek}
 \addcontentsline{toc}{subsection}{Task 1.2: The Magic Carpet Ride, Hide and Seek}
 
@@ -446,12 +456,9 @@ argument supporting your answer.
 %\vspace{5mm} \par \textbf{Use your
 %group's whiteboard as a space to write out our work as your work together
 %on this problem.}
+\end{iola}
 
 
-
-
-\newpage
-\pagestyle{siefken}
 
 
 \section*{Sets and Set Notation}
@@ -1564,8 +1571,7 @@ argument supporting your answer.
 
 \end{lesson}
 
-\newpage
-\pagestyle{iola}
+\begin{iola}
 \section*{Task 1.3: The Magic Carpet, Getting Back Home}
 \addcontentsline{toc}{subsection}{Task 1.3: The Magic Carpet Ride, Getting Back Home}
 
@@ -1600,10 +1606,8 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	\item What is $\Span\Set*{\mat{1\\1\\1},\mat{6\\3\\8},\mat{4\\1\\6}}$?
 
 \end{enumerate}
+\end{iola}
 
-
-\newpage
-\pagestyle{siefken}
 
 	\begin{definition}[Linearly Dependent \& Independent]
 		We say the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
@@ -1829,8 +1833,7 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	\end{parts}
 
 
-\newpage
-\pagestyle{iola}
+\begin{iola}
 \section*{Task 1.4: Linear Independence and Dependence, Creating Examples}
 \addcontentsline{toc}{subsection}{Task 1.4: Linear Independence and Dependence, Creating Examples}
 
@@ -1866,9 +1869,7 @@ examples.
 
 \end{enumerate}
 
-
-\newpage
-\pagestyle{siefken}
+\end{iola}
 
 
 \begin{lesson}
@@ -3235,8 +3236,7 @@ examples.
 	\end{parts}
 
 
-\newpage
-\pagestyle{iola}
+\begin{iola}
 \section*{Task 2.1: Italicizing N}
 \addcontentsline{toc}{subsection}{Task 2.1: Italicizing N}
 
@@ -3284,7 +3284,7 @@ Suppose that the ``N'' on the left is written in regular 12-point font.  Find a 
 
 Work with your group to write out your solution and approach.  Make a list of any assumptions you
 notice your group making or any questions for further pursuit.
-\newpage
+\end{iola}
 
 
 \begin{lesson}
@@ -3301,6 +3301,8 @@ notice your group making or any questions for further pursuit.
 	\Heading{Motivation}
 
 \end{lesson}
+
+\begin{iola}
 \section*{Task 2.2: Beyond the N}
 \addcontentsline{toc}{subsection}{Task 2.2: Beyond the N}
 
@@ -3450,15 +3452,9 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 \end{minipage}
 \hfill
 \vfill
+\end{iola}
 
 
-
-
-
-
-
-\newpage
-\pagestyle{siefken}
 \section*{Linear Transformations}
 \vspace{-1.5em}
 	
@@ -3626,8 +3622,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 			\end{solution}
 	\end{parts}
 
-\newpage
-\pagestyle{iola}
+\begin{iola}
 \section*{Task 2.3: Pat and Jamie}
 \addcontentsline{toc}{subsection}{Task 2.3: Pat and Jamie}
 
@@ -3691,9 +3686,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		their approach, or (b) explain why their approach does not work.
 \end{enumerate}
 
-\newpage
-\pagestyle{siefken}
-
+\end{iola}
 
 \begin{lesson}
 	\Title{Range, Nullspace}
@@ -4374,8 +4367,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 
 
-\newpage
-\pagestyle{iola}
+\begin{iola}
 \section*{Task 2.4: Getting back N}
 \addcontentsline{toc}{subsection}{Task 2.4: Getting back N}
 
@@ -4439,10 +4431,8 @@ the ``N'' on the left.
 	\item Use a method similar to Pat and Jamie's method, only use it to find $C$ instead
 		of $A$.
 \end{enumerate}
+\end{iola}
 
-
-\newpage
-\pagestyle{siefken}
 
 \begin{lesson}
 	\Title{Inverses II, Elementary Matrices}
@@ -5080,9 +5070,6 @@ the ``N'' on the left.
 		\item Suppose $Y$ is not invertible.  What is $\det(Y)$?
 	\end{parts}
 
-\newpage
-\pagestyle{iola}
-
 \begin{lesson}
 	\Title{Eigenstuff I}
 
@@ -5097,6 +5084,7 @@ the ``N'' on the left.
 	\Heading{Motivation}
 
 \end{lesson}
+\begin{iola}
 \section*{Task 3.1: The Green and the Black}
 \addcontentsline{toc}{subsection}{Task 3.1: The Green and the Black}
 Consider the following two bases for $\R^2$: the green basis $\mathcal G=\{\vec g_1,\vec g_2\}$
@@ -5171,12 +5159,9 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\item When working with the transformation $T$, which basis do you prefer vectors be
 		represented in?
 \end{enumerate}
+\end{iola}
 
 
-
-
-\newpage
-\pagestyle{siefken}
 
 \begin{lesson}
 	\Title{Eigenstuff II}
