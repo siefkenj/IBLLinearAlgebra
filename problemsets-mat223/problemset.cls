@@ -294,17 +294,38 @@
 		\addtocounter{lessoncounter}{1}
 		\setlist{ label={\color{Plum!70!black}$\blacksquare$}, topsep=0pt}
 		\newpage
+		% increase the margin widths
+		\newgeometry{top=.5in,
+			headsep=0in, 
+			headheight=0in, 
+			left=1.2in, 
+			bottom=.3in, 
+			footskip=0in,
+			marginparsep=10pt, 
+			marginparwidth=2in,
+			right=10pt,
+			includeall}
+		
+		% put a banner on the left of the page
+		\begin{tikzpicture}[remember picture,overlay]
+		    \draw[line width=25mm,Plum] 
+		    ([shift={(0.55\pgflinewidth,-0.05\pgflinewidth)}]current page.north west) 
+		    --
+		    ([shift={(0.55\pgflinewidth,0.05\pgflinewidth)}]current page.south west) 
+			node[anchor=east,pos=0.1,text=white,rotate=90] {\Huge\sffamily Lesson \thelessoncounter};
+		\end{tikzpicture}
+		
 	}{%
 		\newpage
 	}
 	\DeclareDocumentCommand{\Title}{m}{%
 		\begin{center}
-			\color{Plum}{\sffamily\Large Lesson \thelessoncounter: #1}
+			\color{Plum}{\sffamily\Large  #1}
 			\addcontentsline{toc}{section}{Lesson \thelessoncounter: #1}
 		\end{center}\par
 	}
 	\DeclareDocumentCommand{\Heading}{m}{%
-		{\color{Plum}{\sffamily\large #1}}
+		{\color{Plum}{\hspace{-0.1in}\sffamily\large #1}}
 		\par
 	}
 
