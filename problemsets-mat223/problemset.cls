@@ -293,7 +293,9 @@
 	\DeclareDocumentEnvironment{lesson}{o}{%
 		\addtocounter{lessoncounter}{1}
 		\setlist{ label={\color{Plum!70!black}$\blacksquare$}, topsep=0pt}
+		\newpage
 	}{%
+		\newpage
 	}
 	\DeclareDocumentCommand{\Title}{m}{%
 		\begin{center}
