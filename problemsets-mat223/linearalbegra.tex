@@ -5048,6 +5048,12 @@ the ``N'' on the left.
 	\]
 	\begin{parts}
 		\item What is $\det(F)$?
+			\begin{solution}
+				$\det(F)=-1$. 
+
+				$F$ does not change the area of the unit square, but reverses its
+				orientation, so $\det(F)=-1$. 
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -5067,15 +5073,39 @@ the ``N'' on the left.
 	\newpage
 \end{lesson}
 	\question
-	Let $D=\{\vec x:\|\vec x\|\leq 1\}$ be the unit disk. You know the following about the 
-	linear transformations $M$, $T$, and $S$: $M$ is
-	defined by $\vec x\mapsto 2\vec x$; $T$ has determinant $2$; and $S$ has determinant $3$.
+	Let $D=\Set{\vec x \given \|\vec x\|\leq 1}$ be the unit disk. You know the 
+	following about the linear transformations $M$, $T$, and $S$: $M$ is defined
+	by $\vec x\mapsto 2\vec x$; $T$ has determinant $2$; and $S$ has determinant $3$.
 	\begin{parts}
 		\item Find the oriented volumes of $M(C_2)$, $T(C_2)$, and $S(C_2)$.
+			\begin{solution}
+				The volumes are $4$, $2$, and $3$, respectively. 
+
+				We can compute the the volume of $M(C_2)$ directly, since $M$ 
+				transforms $C_2$ into a square with side length $2$. For the 
+				other two, we are given their determinants and we know that the
+				volume of the image of the unit square equals the determinant of 
+				each transformation. 
+			\end{solution}
 		\item How does the volume of $T(C_2+\{\vec e_1\})$ compare to the volume 
 			of $T(C_2)$?
+			\begin{solution}
+				They are equal. The transformation $T$ scales the volumes of all
+				regions by $2$. 
+			\end{solution}
 		\item What is the oriented volume of $T\circ M(C_2)$? What is $\det(T\circ M)$?
+			\begin{solution}
+				They are both equal to $8$. 
+
+				$T\circ M(C_2)=T(M(C_2))$. We already know $M(C_2)$ has a volume
+				of $4$, and so $T(M(C_2))$ has a volume of 8, since $T$ scales
+				the volumes of all regions by $2$. The volume of $T\circ M(C_2)$
+				is the determinant of $T\circ M$ by definition. 
+			\end{solution}
 		\item What is the oriented volume of $S(D)$?
+			\begin{solution}
+				The volume is $3\pi$.
+			\end{solution}
 	\end{parts}
 
 	\question
