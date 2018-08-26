@@ -4817,7 +4817,7 @@ the ``N'' on the left.
 				$T\mat{\alpha\\\beta}_{\mathcal C}=\mat{2\alpha\\\beta}_{\mathcal C}$.
 
 				If $\vec v$ is a vector such that 
-				$[\vec v]_{\mathcal C}=\mat{\alpha\\\beta}_{\mathcal C}$, then 
+				$[\vec v]_{\mathcal C}=\mat{\alpha\\\beta}$, then 
 				$\vec v=\alpha\vec c_1+\beta\vec c_2$. Since $T$ is linear, we can
 				then compute
 				\[
@@ -4833,8 +4833,8 @@ the ``N'' on the left.
 				$[T]_{\mathcal C}=\mat{2&0\\0&1}$. 
 
 				From the results of the previous parts, we know that we must have
-				$[T]_{\mathcal C}\mat{1\\0}_{\mathcal C}=\mat{2\\0}$ and 
-				$[T]_{\mathcal C}\mat{0\\1}_{\mathcal C}=\mat{0\\1}$, so these 
+				$[T]_{\mathcal C}\mat{1\\0}=\mat{2\\0}$ and 
+				$[T]_{\mathcal C}\mat{0\\1}=\mat{0\\1}$, so these 
 				must be the first and second columns of $[T]_{\mathcal C}$, respectively.
 			\end{solution}
 		\item Find $[T]_{\mathcal E}$, the matrix for $T$ in the standard basis.
@@ -4850,16 +4850,16 @@ the ``N'' on the left.
 					[T\xhat]_{\mathcal E}
 					=[T(3\vec c_1-\vec c_2)]_{\mathcal E}
 					=3[T(\vec c_1)]_{\mathcal E}-[T(\vec c_2)]_{\mathcal E}
-					=3\mat{4\\2}_{\mathcal E}-\mat{5\\3}_{\mathcal E}
-					=\mat{7\\3}_{\mathcal E}
+					=3\mat{4\\2}-\mat{5\\3}
+					=\mat{7\\3}
 				\]
 				and
 				\[
 					[T\yhat]_{\mathcal E}
 					=[T(-5\vec c_1+2\vec c_2)]_{\mathcal E}
 					=-5[T(\vec c_1)]_{\mathcal E}+2[T(\vec c_2)]_{\mathcal E}
-					=-5\mat{4\\2}_{\mathcal E}+2\mat{5\\3}_{\mathcal E}
-					=\mat{-10\\-4}_{\mathcal E}.
+					=-5\mat{4\\2}+2\mat{5\\3}
+					=\mat{-10\\-4}.
 				\]
 				These two vectors are the respective columns of $[T]_{\mathcal E}$,
 				as usual.
