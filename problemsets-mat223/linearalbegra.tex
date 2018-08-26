@@ -5007,9 +5007,27 @@ the ``N'' on the left.
 	Suppose you know $\det(X)=4$.
 	\begin{parts}
 		\item What is $\det(X^{-1})$?
+			\begin{solution}
+				$\det(X^{-1})=\frac{1}{4}$.
+
+				We know that $XX^{-1}=I$. Therefore we must have that 
+				$\det(XX^{-1})=\det(X)\det(X^{-1})=\det(I)=1$, 
+				and so $\det(X^{-1})=\frac{1}{4}$.
+			\end{solution}
 		\item Derive a relationship between $\det(Y)$
 			and $\det(Y^{-1})$ for an arbitrary matrix $Y$.
-		\item Suppose $Y$ is not invertible.  What is $\det(Y)$?
+			\begin{solution}
+				$\det(Y^{-1})=\frac{1}{\det(Y)}$.
+
+				Using the same reasoning as the previous part, we know that
+				$YY^{-1}=I$. Therefore we must have 
+				$\det(Y)\det(Y^{-1})=\det(YY^{-1})=\det(I)=1$, and so 
+				$\det(Y^{-1})=\frac{1}{\det(Y)}$.
+			\end{solution}
+		\item Suppose $Y$ is not invertible. What is $\det(Y)$?
+			\begin{solution}
+				$\det(Y)=0$. 
+			\end{solution}
 	\end{parts}
 
 \newpage
@@ -5207,8 +5225,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	
 
 	\begin{parts}
-		\item Give an eigenvector for $T$.  What is the eigenvalue?
+		\item Give an eigenvector for $T$. What is the eigenvalue?
+			\begin{solution}
+				$\vec v=\mat{1\\1}$ is an eigenvector for $T$, with corresponding
+				eigenvalue $\frac{3}{2}$. 
+
+				We can see from the image that 
+				$T\mat{1\\1}=\mat{\frac{3}{2}\\\frac{3}{2}}=\frac{3}{2}\mat{1\\1}$.
+			\end{solution}
 		\item Can you give another?
+			\begin{solution}
+				Any scalar multiple of $\mat{1\\1}$ is also an eigenvector for $T$.
+
+				For any scalar $\alpha$, we have 
+				$T\left(\alpha\mat{1\\1}\right)=\alpha T\mat{1\\1}=\alpha\frac{3}{2}\mat{1\\1}$,
+				meaning $\alpha\mat{1\\1}$ is an eigenvector for $T$ with 
+				eigenvalue $\frac{3}{2}\alpha$.
+			\end{solution}
 	\end{parts}
 
 
@@ -5221,9 +5254,31 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\vspace{-.4cm}
 	\begin{parts}
 		\item Give an eigenvector and a corresponding eigenvalue for $A$.
+			\begin{solution}
+				$\mat{3\\3\\1}$ is an eigenvector for $A$, with corresdponding
+				eigenvalue $\frac{2}{3}$. 
+			\end{solution}
 		\item What is $B\mat{3\\3\\1}$?
-		\item What is the dimension of $\text{null}(B)$?
+			\begin{solution}
+				$B\mat{3\\3\\1}=\mat{0\\0\\0}$. 
+
+				We compute
+				\[
+					B\mat{3\\3\\1}
+					=(A-\frac{2}{3}I)\mat{3\\3\\1}
+					=A\mat{3\\3\\1} - \frac{2}{3}I\mat{3\\3\\1}
+					=\mat{2\\2\\2/3} - \mat{2\\2\\2/3}
+					=\mat{0\\0\\0}.
+				\]
+			\end{solution}
+		\item What is the dimension of $\Null(B)$?
+			\begin{solution}
+				
+			\end{solution}
 		\item What is $\det(B)$?
+			\begin{solution}[inline]
+				$\det(B)=0$. 
+			\end{solution}
 	\end{parts}
 
 	\vspace{-.2cm}
