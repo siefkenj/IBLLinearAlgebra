@@ -5027,6 +5027,10 @@ the ``N'' on the left.
 		\item Suppose $Y$ is not invertible. What is $\det(Y)$?
 			\begin{solution}
 				$\det(Y)=0$. 
+
+				This makes sense because for a square matrix $Y$, 
+				$\det(Y^{-1})=\frac{1}{\det(Y)}$ by the previous part. This 
+				formula always works, except when $\det(Y)=0$. 
 			\end{solution}
 	\end{parts}
 
@@ -5241,6 +5245,17 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				$T\left(\alpha\mat{1\\1}\right)=\alpha T\mat{1\\1}=\alpha\frac{3}{2}\mat{1\\1}$,
 				meaning $\alpha\mat{1\\1}$ is an eigenvector for $T$ with 
 				eigenvalue $\frac{3}{2}\alpha$.
+
+				More interestingly, $\mat{-1\\1}$ is an eigenvector with corresponding
+				eigenvalue $\frac{1}{2}$. We can compute:
+				\[
+					T\mat{-1\\1}
+					=T\left(\mat{0\\1}-\mat{1\\0}\right)
+					=T\mat{0\\1}-T\mat{1\\0}
+					=\mat{\frac{1}{2}\\1}-\mat{1\\\frac{1}{2}}
+					=\mat{-\frac{1}{2}\\\frac{1}{2}}
+					=\frac{1}{2}\mat{-1\\1}.
+				\]
 			\end{solution}
 	\end{parts}
 
@@ -5273,7 +5288,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{solution}
 		\item What is the dimension of $\Null(B)$?
 			\begin{solution}
-				
+				The most we can say is that $\Nullity(B)\geq1$. 
+
+				We know $\mat{3\\3\\1}\in\Null(B)$ by the previous part, and so
+				the dimension of $\Null(B)$ is at least 1. It could be larger, but
+				we do not have enough information to say for sure.
 			\end{solution}
 		\item What is $\det(B)$?
 			\begin{solution}[inline]
