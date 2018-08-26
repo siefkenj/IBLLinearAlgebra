@@ -5232,8 +5232,49 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\begin{parts}
 		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
 			null space?
+			\begin{solution}
+				$\lambda=-2$ and $\lambda=1$. 
+
+				$E_\lambda$ is represented by the matrix $\mat{-1-\lambda&2\\1&-\lambda}$. 
+				The determinant of this matrix is 
+				\[
+					(-1-\lambda)(-\lambda)-(1)(2)
+					=\lambda^2+\lambda-2
+					=(\lambda-1)(\lambda+2).
+				\]
+				We are looking for the values of $\lambda$ for which the matrix
+				has determinant zero, and from the factored form above we see that
+				this happens when $\lambda=-2$ and $\lambda=1$. 
+			\end{solution}
 		\item What are the eigenvalues of $C$?
+			\begin{solution}
+				$-2$ and $1$.
+
+				Eigenvalues of $C$ are exactly those values of $\lambda$ for which
+				$E_\lambda$ has a non-trivial null space, which we found in the
+				previous part. 
+
+				To see this, note that if $\vec v$ is an eigenvector
+				for $C$, then $C\vec v=\lambda\vec v$ for some $\lambda$, or in
+				other words $(C-\lambda I)\vec v=E_\lambda\vec v=\vec 0$, so
+				$\vec v\in\Null(E_\lambda)$.
+			\end{solution}
 		\item Find the eigenvectors of $C$.
+			\begin{solution}
+				$\mat{-2\\1}$ and $\mat{1\\1}$ (along with all scalar multiples
+				of these).
+
+				We know from the previous part that finding an eigenvector with
+				corresponding eigenvalue $-2$ amounts to finding the non-zero 
+				vectors	in the null space of $E_{-2}$. 
+
+				$E_{-2}=\mat{1&2\\1&2}$, and we compute that
+				$\Null(E_{-2})=\Span\Set*{\mat{-2\\1}}$.
+
+				Similarly, the eigenvectors with corresponding eigenvalue $1$ are
+				the non-zero vectors in the null space of $E_1=\mat{-2&2\\1&-1}$, 
+				and we compute that $\Null(E_1)=\Span\Set*{\mat{1\\1}}$.
+			\end{solution}
 	\end{parts}
 	
 \begin{lesson}
@@ -5264,7 +5305,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	Let $D=\mat{1&2\\3&0}$.
 	\begin{parts}
 		\item Compute $\chr(D)$.
+			\begin{solution}
+				$\chr(D)=\lambda^2-\lambda-6$. 
+
+				We compute:
+				\[
+					\det(D-\lambda I)
+					=\det\left(\mat{1-\lambda&2\\3&-\lambda}\right)
+					=(1-\lambda)(-\lambda)-(2)(3)
+					=\lambda^2-\lambda-6.
+				\]
+			\end{solution}
 		\item Find the eigenvalues of $D$.
+			\begin{solution}
+				The eigenvalues of $D$ are $-2$ and $3$. 
+
+				The eigenvalues of $D$ are the roots of $\chr(D)$. 
+			\end{solution}
 	\end{parts}
 
 	\vspace{-.3cm}
@@ -5274,8 +5331,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	matrix $E$.
 	\begin{parts}
 		\item What are the eigenvalues of $E$?
+			\begin{solution}
+				$0$, $2$, and $-3$. 
+
+				The eigenvalues of $E$ are the roots of $\chr(E)$. 
+			\end{solution}
 		\item Is $E$ invertible?
+			\begin{solution}
+				No. 
+
+				Since $0$ is an eigenvalue of $E$, there must be a non-zero vector
+				$\vec v$ such that $E\vec v=0\vec v=\vec 0$. This means $\Nullity(E)>0$,
+				which implies $E$ is not invertible. 
+			\end{solution}
 		\item What is $\Null(E)$, $\Null(E-3I)$, $\Null(E+3I)$?
+			\begin{solution}
+				
+			\end{solution}
 	\end{parts}
 
 	\question
