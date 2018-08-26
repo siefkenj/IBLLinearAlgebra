@@ -5235,16 +5235,16 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\begin{solution}
 				$\lambda=-2$ and $\lambda=1$. 
 
-				$E_\lambda$ is represented by the matrix $\mat{-1-\lambda&2\\1&-\lambda}$. 
-				The determinant of this matrix is 
+				$E_\lambda$ has a non-trivial null space exactly when its 
+				determinant is zero. We compute:
 				\[
-					(-1-\lambda)(-\lambda)-(1)(2)
+					\det(E_\lambda)
+					=\det\left(\mat{-1-\lambda&2\\1&-\lambda}\right)
+					=(-1-\lambda)(-\lambda)-(1)(2)
 					=\lambda^2+\lambda-2
 					=(\lambda-1)(\lambda+2).
 				\]
-				We are looking for the values of $\lambda$ for which the matrix
-				has determinant zero, and from the factored form above we see that
-				this happens when $\lambda=-2$ and $\lambda=1$. 
+				This equals zero exactly when $\lambda=-2$ and $\lambda=1$.
 			\end{solution}
 		\item What are the eigenvalues of $C$?
 			\begin{solution}
@@ -5254,15 +5254,15 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				$E_\lambda$ has a non-trivial null space, which we found in the
 				previous part. 
 
-				To see this, note that if $\vec v$ is an eigenvector
-				for $C$, then $C\vec v=\lambda\vec v$ for some $\lambda$, or in
-				other words $(C-\lambda I)\vec v=E_\lambda\vec v=\vec 0$, so
-				$\vec v\in\Null(E_\lambda)$.
+				To see this, note that a non-zero vector $\vec v$ is an eigenvector
+				for $C$ if and only if $C\vec v=\lambda\vec v$ for some $\lambda$,
+				or in other words if and only if $(C-\lambda I)\vec v=E_\lambda\vec v=\vec 0$,
+				so $\vec v\in\Null(E_\lambda)$.
 			\end{solution}
 		\item Find the eigenvectors of $C$.
 			\begin{solution}
-				$\mat{-2\\1}$ and $\mat{1\\1}$ (along with all scalar multiples
-				of these).
+				$\mat{-2\\1}$ and $\mat{1\\1}$ (along with all non-zero scalar
+				multiples of these).
 
 				We know from the previous part that finding an eigenvector with
 				corresponding eigenvalue $-2$ amounts to finding the non-zero 
@@ -5306,14 +5306,15 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\begin{parts}
 		\item Compute $\chr(D)$.
 			\begin{solution}
-				$\chr(D)=\lambda^2-\lambda-6$. 
+				$\chr(D)=(\lambda+2)(\lambda-3)$. 
 
 				We compute:
 				\[
 					\det(D-\lambda I)
 					=\det\left(\mat{1-\lambda&2\\3&-\lambda}\right)
 					=(1-\lambda)(-\lambda)-(2)(3)
-					=\lambda^2-\lambda-6.
+					=\lambda^2-\lambda-6
+					=(\lambda+2)(\lambda-3).
 				\]
 			\end{solution}
 		\item Find the eigenvalues of $D$.
@@ -5344,9 +5345,19 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				$\vec v$ such that $E\vec v=0\vec v=\vec 0$. This means $\Nullity(E)>0$,
 				which implies $E$ is not invertible. 
 			\end{solution}
-		\item What is $\Null(E)$, $\Null(E-3I)$, $\Null(E+3I)$?
+		\item What is $\Nullity(E)$, $\Nullity(E-3I)$, $\Nullity(E+3I)$?
 			\begin{solution}
-				
+				All three are equal to 1. 
+
+				$E$ has three eigenvalues. Each one corresponds to a set of
+				eigenvectors that is one of the null spaces in the problem.
+				For example, $E$ has an eigenvector $\vec v$ corresponding to the 
+				eigenvalue $0$, and $\vec v\in\Null(E_0)=\Null(E)$, as is any 
+				scalar multiple of $\vec v$. 
+
+				So these three null spaces all have dimension at least 1, and 
+				they are all linearly independent meaning none of them can have
+				dimension greater than 1 since they are subspaces of $\R^3$. 
 			\end{solution}
 	\end{parts}
 
