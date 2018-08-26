@@ -4987,20 +4987,59 @@ the ``N'' on the left.
 
 	\begin{parts}
 		\item What is $\det(E_f)$?
+			\begin{solution}
+				$\det(E_f)=-1$.
+
+				$\det(I_{3\times 3})=1$, and swapping one pair of rows of a matrix
+				changes the sign of its determinant.
+			\end{solution}
 		\item What is $\det(E_m)$?
+			\begin{solution}
+				$\det(E_m)=6$.
+
+				Multiplying one row of a matrix by a constant multiplies its
+				determinant by the same constant.
+			\end{solution}
 		\item What is $\det(E_a)$?
+			\begin{solution}
+				$\det(E_a)=1$.
+
+				Adding a multiple of one row of a matrix to another row has no 
+				effect on its determinant. 
+			\end{solution}
 		\item What is $\det(E_fE_m)$?
+			\begin{solution}[inline]
+				$\det(E_fE_m)=\det(E_f)\det(E_m)=(-1)(6)=-6$.
+			\end{solution}
 		\item What is $\det(4I_{3\times 3})$?
+			\begin{solution}[inline]
+				$\det(4I_{3\times 3})=4^3=64$.
+			\end{solution}
 		\item What is $\det(W)$ where $W=E_fE_aE_fE_mE_m$?
+			\begin{solution}
+				$\det(W)=\det(E_f)\det(E_a)\det(E_f)\det(E_m)\det(E_m)=(-1)(1)(-1)(6)(6)=36$.
+			\end{solution}
 	\end{parts}
 
 	\question
 	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
 	\begin{parts}
 		\item What is $\det(U)$?
+			\begin{solution}
+				$\det(U)=-12$.
+			\end{solution}
 		\item $V$ is a square matrix and rref$(V)$ has a row of zeros.
-		 What is $\det(V)$?
+			What is $\det(V)$?
+			\begin{solution}
+				$\det(V)=0$. 
+			\end{solution}
 		\item $P$ is projection onto the vector $\mat{-1\\-1}$. What is $\det(P)$?
+			\begin{solution}
+				$\det(P)=0$. 
+
+				The image of the unit square under $P$ is a line segment, which
+				has zero volume.
+			\end{solution}
 	\end{parts}
 
 	\question
