@@ -5289,15 +5289,65 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	and notice that $\vec v_1,\vec v_2,\vec v_3$ are eigenvectors for $A$.
 	\begin{parts}
 		\item Find the eigenvalues of $A$.
+			\begin{solution}
+				The eigenvalues of $A$ are $2$, $-1$, and $1$.
+
+				We compute that $A\vec v_1=2\vec v_1$, $A\vec v_2=-\vec v_2$,
+				and $A\vec v_3=\vec v_3$, so $2$, $-1$, and $1$ are eigenvalues 
+				of $A$. By the last part of the previous problem, there are no 
+				other eigenvalues. 
+			\end{solution}
 		\item Find the characteristic polynomial of $A$.
+			\begin{solution}
+				$\chr(A)=-(\lambda-2)(\lambda+1)(\lambda-1)$.
+
+				We compute
+				\[
+					\chr(A)
+					=\det(A-\lambda I)
+					=\det\left(\mat{1-\lambda&0&1\\0&1-\lambda&1\\1&1&-\lambda}\right)
+					=-\lambda^3+2\lambda^2+\lambda-2
+					=-(\lambda-2)(\lambda+1)(\lambda-1).
+				\]
+			\end{solution}
 		\item Compute $A\vec w$ where $w=2\vec v_1-\vec v_2$.
+			\begin{solution}
+				$A\vec w=4\vec v_1+\vec v_2$.
+
+				Using the computations we did in the first part above, we find
+				\[
+					A\vec w
+					=A(2\vec v_1-\vec v_2)
+					=2A\vec v_1-A\vec v_2
+					=2(2\vec v_1)-(-\vec v_2)
+					=4\vec v_1+\vec v_2.
+				\]
+			\end{solution}
 		\item Compute $A\vec u$ where $\vec u=a\vec v_1+b\vec v_2+c\vec v_3$ for
 			unknown scalar coefficients $a,b,c$.
+			\begin{solution}
+				$A\vec u=2a\vec v_1-b\vec v_2+c\vec v_3$.
+
+				Using the same reasoning as the previous part, we compute
+				\[
+					A\vec u
+					=aA\vec v_1+bA\vec v_2+cA\vec v_3
+					=2a\vec v_1-b\vec v_2+c\vec v_3.
+				\]
+			\end{solution}
 	\end{parts}
-	Notice that $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ is a basis for $\R^3$.
+	Notice that $\mathcal V=\Set{\vec v_1,\vec v_2,\vec v_3}$ is a basis for $\R^3$.
 	\begin{parts}[resume]
 	\item If $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$ is $\vec x$ written in the $\mathcal V$ basis,
 		compute $A\vec x$ in the $\mathcal V$ basis.
+		\begin{solution}
+			$[A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
+
+			If $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$, then
+			$\vec x=\vec v_1+3\vec v_2+4\vec v_3$. Using the previous part, we
+			then have that $A\vec x=2\vec v_1-3\vec v_2+4\vec v_3$, so 
+			$[A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
+		\end{solution}
 	\end{parts}
 	
 
