@@ -5322,27 +5322,139 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).  
 	\begin{parts}
 		\item Describe in words what $P$ does.
+			\begin{solution}
+				$P$ undoes what $P^{-1}$ does, which is to say that it takes vectors
+				in the $\mathcal V$ basis and outputs vectors in their representation
+				in the standard basis.
+			\end{solution}
 		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
 			$A\vec y$ for any $\vec y\in \R^3$.
+			\begin{solution}
+				The key observation is that $A$ acts in a very simple way on 
+				vectors represented in the $\mathcal V$ basis, as we found in the
+				previous problem. In other words, for any vector $\vec v$, it is
+				simple to compute $A[\vec v]_{\mathcal V}$. We also know from the
+				previous part that $P^{-1}[\vec v]_{\mathcal E}=[\vec v]_{\mathcal V}$,
+				where $\mathcal E$ is the standard basis. 
+
+				So given any vector $\vec v$ represented by $[\vec v]_{\mathcal E}$
+				in the standard basis, we have
+				\[
+					[A\vec v]_{\mathcal E}=PAP^{-1}[\vec v]_{\mathcal E}
+				\]
+				since
+				\[
+					PAP^{-1}[\vec v]_{\mathcal E}
+					=PA[\vec v]_{\mathcal V}
+					=P[A\vec v]_{\mathcal V}
+					=[A\vec v]_{\mathcal E}.
+				\]
+
+
+			\end{solution}
 		\item Can you find a matrix $D$ so that
 			\[
 				PDP^{-1}=A?
 			\]
-		\item $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$.  Compute $A^{100}\vec x$.
+			\begin{solution}
+				$D=\mat{2&0&0\\0&-1&0\\0&0&1}$ is such a matrix. 
+
+				We know, for example, that $A$ acts on $\vec v_1$ by multiplying
+				it by $2$. $P^{-1}\vec v_1=[\vec v_1]_{\mathcal V}=\mat{1\\0\\0}$,
+				so we should have that $D\mat{1\\0\\0}=\mat{2\\0\\0}=[2\vec v_1]_{\mathcal V}$. 
+				Then $P$ transforms this back into $[2\vec v_1]_{\mathcal E}$. 
+
+				By similar reasoning, the second and third columns of $D$ should be
+				$\mat{0\\-1\\0}$ and $\mat{0\\0\\1}$.  
+			\end{solution}
+		\item $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$. Compute $A^{100}\vec x$.
+			\begin{solution}
+				$A^{100}\vec x=\mat{2^{100}\\3\\4}_{\mathcal V}$.
+
+				By the previous problem, we know how $A$ acts on vectors represented
+				in the $\mathcal V$ basis: it multiplies the first coordinate by
+				$2$, the second by $-1$, and leaves the third coordinate unchanged.
+				So we compute
+				\[
+					A^{100}\mat{1\\3\\4}
+					=A^{99}\mat{2\\-3\\4}
+					=A^{98}\mat{2^2\\3\\4}
+					=A^{97}\mat{2^3\\-3\\4}
+					=\dots
+				\]
+			\end{solution}
 	\end{parts}
 
 
 	\question
-	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
+	For an $n\times n$ matrix $T$, suppose its eigenvectors $\Set{\vec v_1,\ldots \vec v_n}$
 	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
 	eigenvalues.
 	
 
 	\begin{parts}
-	\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
-		\item What if one of the eigenvalues of $T$ is zero?  Is $T$ diagonalizable?
+	\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)? 
+		If so, explain how to obtain its diagonalized form.
+		\begin{solution}
+			Yes. 
+
+			Let $\mathcal V=\Set{\vec v_1,\ldots \vec v_n}$ be the basis consisting
+			of eigenvectors of $T$. Then $T$ acts on each of these by multiplying 
+			them by the appropriate eigenvalue: $T\vec v_i=\lambda_i\vec v_i$. 
+
+			So if $P$ is the transformation that takes vectors represented in the
+			$\mathcal V$ basis and outputs their representations in the standard
+			basis $\mathcal E$, we should have that, for example, 
+			\[
+				P^{-1}TP\mat{1\\0\\\vdots\\0}
+				=P^{-1}TP[\vec v_1]_{\mathcal V}
+				=P^{-1}T[\vec v_1]_{\mathcal E}
+				=\lambda_1P^{-1}[\vec v_1]_{\mathcal E}
+				=\lambda_1[\vec v_1]_{\mathcal V}
+				=\mat{\lambda_1\\0\\\vdots\\0}.
+			\]
+			Therefore, the first column of $P^{-1}TP$ is $\mat{\lambda_1\\0\\\vdots\\0}$.
+
+			By similar reasoning, the $i^\text{th}$ column of $P^{-1}TP$ consists
+			of all zeroes except for $\lambda_i$ in the $i^\text{th}$ position. 
+
+			In other words, $T$ is similar to the diagonal matrix $D$ with 
+			$\lambda_1, \lambda_2, \dots, \lambda_n$ along the diagonal, in that
+			order. 
+		\end{solution}
+		\item What if one of the eigenvalues of $T$ is zero? Is $T$ diagonalizable?
+			\begin{solution}
+				Yes. 
+
+				The argument in the previous part does not depend on any of the
+				eigenvalues being non-zero.
+			\end{solution}
 		\item What if the eigenvectors of $T$ did not form a basis for $\R^n$.
 			Would $T$ be diagonalizable?
+			\begin{solution}
+				No. 
+
+				The argument we used in the first part definitely would not work.
+
+				Moreover, suppose $T$ were similar to diagonal matrix. That is, 
+				suppose there were a diagonal matrix $D$ and an invertible matrix
+				$P$ such that $T=PDP^{-1}$. Then, if $\vec v_1$ is the first column
+				of $P$ and $\lambda_1$ is the first entry on the diagonal of $D$,
+				we would have
+				\[
+					T\vec v_1
+					=PDP^{-1}\vec v_1
+					=PD\mat{1\\0\\\vdots\\0}
+					=\lambda_1P\mat{1\\0\\\vdots\\0}
+					=\lambda_1\vec v_1,
+				\]
+				meaning that $\vec v_1$ is an eigenvector of $T$. Similarly, all
+				of the columns of $P$ would be eigenvectors of $T$, with eigenvalues
+				equal to the corresponding entry on the diagonal of $D$. Since $P$ is 
+				invertible its columns must be linearly independent, and therefore
+				the $n$ columns of $P$ would form a basis of $\R^n$ consisting of
+				eigenvectors of $T$. 
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Eigenspace]
