@@ -5346,7 +5346,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\end{parts}
 
 	\begin{definition}[Eigenspace]
-	Let $A$ be a matrix with eigenvalues $\{\lambda_1,\ldots,\lambda_m\}$.  The
+	Let $A$ be a matrix with eigenvalues $\Set{\lambda_1,\ldots,\lambda_m}$.  The
 	\emph{eigenspace} of $A$ corresponding to the eigenvalue $\lambda_i$ is the
 	null space of $A-\lambda_i I$.  That is, it is the space spanned by all eigenvectors
 	that have the eigenvalue $\lambda_i$.
@@ -5377,13 +5377,56 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\question
 	Define $F=\mat{1&1\\0&1}$.
 	\begin{parts}
-		\item Is $F$ diagonalizable?  Why or why not?
+		\item Is $F$ diagonalizable? Why or why not?
+			\begin{solution}
+				No.
+
+				$\chr(F)=(1-\lambda)^2$, and so the only eigenvalue of $F$ is $1$.
+				$F$ is diagonalizable if and only if there is a basis of $\R^2$
+				consisting of eigenvectors of $F$, which are vectors in the 
+				eigenspace of $F$ corresponding to its one eigenvalue. We check 
+				that 
+				\[
+					\null(F-1I)
+					=\null\left(\mat{0&1\\0&0}\right)
+					=\Span\Set*{\mat{1\\0}},
+				\]
+				which is one-dimensional, and so there is no basis of $\R^2$ 
+				consisting of eigenvectors of $F$. 
+			\end{solution}
 		\item What is the geometric and algebraic multiplicity of each eigenvalue
 			of $F$?
+			\begin{solution}
+				The only eigenvalue is $1$. Its geometric multiplicity is $1$, 
+				and its algebraic multiplicity is $2$. 
+			\end{solution}
 		\item Suppose $A$ is a matrix where the geometric multiplicity of one of its eigenvalues
-			is smaller than the algebraic multiplicity of the same eigenvalue.  Is
-			$A$ diagonalizable?  What if all the geometric and algebraic multiplicities
+			is smaller than the algebraic multiplicity of the same eigenvalue. Is
+			$A$ diagonalizable? What if all the geometric and algebraic multiplicities
 			match?
+			\begin{solution}
+				If one of the geometric multiplicities is smaller than the corresponding
+				algebraic multiplicity, $A$ cannot be diagonalizable. If $A$ is 
+				$n\times n$, then the sum of the algebraic multiplicities of the
+				eigenvalues is at most $n$. If one of the geometric multiplicities
+				is less than the corresponding algebraic multiplicity, then 
+				the sum of the dimensions of the eigenspaces must be strictly
+				less than $n$, meaning there can be no basis for $\R^n$ consisting
+				of eigenvectors. 
+
+				If all the geometric and algebraic multiplicities match, the 
+				matrix may or may not be diagonalizable. If the sum of the geometric
+				multiplicities (or algebraic multiplicities, since they are equal
+				in this case) equals $n$, then the matrix is diagonalizable. This
+				could fail to happen if the characteristic polynomial $A$ does
+				not have all of its roots. 
+
+				For example, consider the matrix $A=\mat{1&0&0\\0&0&-1\\0&1&0}$.
+				We can compute $\chr(A)=-(\lambda-1)(\lambda^2+1)$, and so the 
+				only eigenvalue of $A$ is $\lambda=1$. The algebraic and geometric
+				multiplicity of this eigenvalue are both $1$, but this matrix
+				is not diagonalizable. 
+			\end{solution}
 	\end{parts}
 
 
