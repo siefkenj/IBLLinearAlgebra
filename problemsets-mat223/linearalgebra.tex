@@ -118,6 +118,23 @@
 }
 
 
+%%
+% Allow hiding of environments
+%%
+\usepackage{environ}% http://ctan.org/pkg/environ
+\makeatletter
+\newcommand{\voidenvironment}[1]{%
+  \expandafter\providecommand\csname env@#1@save@env\endcsname{}%
+  \expandafter\providecommand\csname env@#1@process\endcsname{}%
+  \@ifundefined{#1}{}{\RenewEnviron{#1}{}}%
+}
+\makeatother
+
+% Hide the non-problem environments
+\voidenvironment{solution}
+\voidenvironment{annotation}
+\voidenvironment{lesson}
+
 
 
 
