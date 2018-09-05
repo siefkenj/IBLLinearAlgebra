@@ -5279,6 +5279,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\end{parts}
 
 	\question
+	\label{actingOnEigenvectors}
 	Consider
 	\[
 		A=\mat{1&0&1\\0&1&1\\1&1&0}\qquad
@@ -5319,7 +5320,8 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \end{lesson}
 	\question
 	The transformation $P^{-1}$ takes vectors in the standard basis and outputs
-	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).  
+	vectors in their $\mathcal V$-basis representation. Here, $A$ and $\mathcal V$
+	come from Problem \ref{actingOnEigenvectors}.
 	\begin{parts}
 		\item Describe in words what $P$ does.
 			\begin{solution}
@@ -5330,24 +5332,22 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
 			$A\vec y$ for any $\vec y\in \R^3$.
 			\begin{solution}
-				The key observation is that $A$ acts in a very simple way on 
-				vectors represented in the $\mathcal V$ basis, as we found in the
-				previous problem. In other words, for any vector $\vec v$, it is
-				simple to compute $A[\vec v]_{\mathcal V}$. We also know from the
-				previous part that $P^{-1}[\vec v]_{\mathcal E}=[\vec v]_{\mathcal V}$,
-				where $\mathcal E$ is the standard basis. 
-
-				So given any vector $\vec v$ represented by $[\vec v]_{\mathcal E}$
+				Computing $[A]_{\mathcal V}[\vec y]_{\mathcal V}$ is easy, since
+				$[A]_{\mathcal V}$ just multiplies each coordinate of $[\vec y]_{\mathcal V}$
+				by a scalar. We know that $P^{-1}[\vec y]_{\mathcal E}=[\vec y]_{\mathcal V}$ 
+				and that $P[\vec x]_{\mathcal V}=[\vec x]_{\mathcal E}$ and so 
+				given any vector $\vec v$ represented by $[\vec v]_{\mathcal E}$
 				in the standard basis, we have
 				\[
-					[A\vec v]_{\mathcal E}=PAP^{-1}[\vec v]_{\mathcal E}
+					A[\vec v]_{\mathcal E}=P[A]_{\mathcal V}P^{-1}[\vec v]_{\mathcal E}
 				\]
 				since
 				\[
-					PAP^{-1}[\vec v]_{\mathcal E}
-					=PA[\vec v]_{\mathcal V}
+					P[A]_{\mathcal V}P^{-1}[\vec v]_{\mathcal E}
+					=P[A]_{\mathcal V}[\vec v]_{\mathcal V}
 					=P[A\vec v]_{\mathcal V}
-					=[A\vec v]_{\mathcal E}.
+					=[A\vec v]_{\mathcal E}
+					=A[\vec v]_{\mathcal E}.
 				\]
 
 
@@ -5357,15 +5357,13 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				PDP^{-1}=A?
 			\]
 			\begin{solution}
-				$D=\mat{2&0&0\\0&-1&0\\0&0&1}$ is such a matrix. 
+				$D=\mat{2&0&0\\0&-1&0\\0&0&1}$.
 
-				We know, for example, that $A$ acts on $\vec v_1$ by multiplying
-				it by $2$. $P^{-1}\vec v_1=[\vec v_1]_{\mathcal V}=\mat{1\\0\\0}$,
-				so we should have that $D\mat{1\\0\\0}=\mat{2\\0\\0}=[2\vec v_1]_{\mathcal V}$. 
-				Then $P$ transforms this back into $[2\vec v_1]_{\mathcal E}$. 
-
-				By similar reasoning, the second and third columns of $D$ should be
-				$\mat{0\\-1\\0}$ and $\mat{0\\0\\1}$.  
+				$D=[A]_{\mathcal V}$, so by the previous part we have that
+				that for any vector $\vec v$
+				\[
+					A[\vec v]_{\mathcal E}=PDP^{-1}[\vec v]_{\mathcal E}.
+				\]
 			\end{solution}
 		\item $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$. Compute $A^{100}\vec x$.
 			\begin{solution}
@@ -5399,12 +5397,12 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			Yes. 
 
 			Let $\mathcal V=\Set{\vec v_1,\ldots \vec v_n}$ be the basis consisting
-			of eigenvectors of $T$. Then $T$ acts on each of these by multiplying 
-			them by the appropriate eigenvalue: $T\vec v_i=\lambda_i\vec v_i$. 
+			of eigenvectors of $T$. Then by definition, $T\vec v_i=\lambda_i\vec v_i$
+			for each $i$. 
 
-			So if $P$ is the transformation that takes vectors represented in the
+			Let $P$ be the matrix that takes vectors represented in the
 			$\mathcal V$ basis and outputs their representations in the standard
-			basis $\mathcal E$, we should have that, for example, 
+			basis $\mathcal E$. Then, for example, we should have that
 			\[
 				P^{-1}TP\mat{1\\0\\\vdots\\0}
 				=P^{-1}TP[\vec v_1]_{\mathcal V}
@@ -5436,11 +5434,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 				The argument we used in the first part definitely would not work.
 
-				Moreover, suppose $T$ were similar to diagonal matrix. That is, 
-				suppose there were a diagonal matrix $D$ and an invertible matrix
-				$P$ such that $T=PDP^{-1}$. Then, if $\vec v_1$ is the first column
-				of $P$ and $\lambda_1$ is the first entry on the diagonal of $D$,
-				we would have
+				Consider the converse, and assume $T$ is similar to diagonal 
+				matrix $D$. That is, suppose there is an invertible matrix 
+				$P$ such that $T=PDP^{-1}$. Then, if $\vec v_1$ is the first 
+				column of $P$ and $\lambda_1$ is the first entry on	the diagonal
+				of $D$, we would have
 				\[
 					T\vec v_1
 					=PDP^{-1}\vec v_1
