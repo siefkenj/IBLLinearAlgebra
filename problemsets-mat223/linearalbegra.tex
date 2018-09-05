@@ -5381,17 +5381,19 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\begin{solution}
 				No.
 
-				$\chr(F)=(1-\lambda)^2$, and so the only eigenvalue of $F$ is $1$.
 				$F$ is diagonalizable if and only if there is a basis of $\R^2$
-				consisting of eigenvectors of $F$, which are vectors in the 
-				eigenspace of $F$ corresponding to its one eigenvalue. We check 
-				that 
+				consisting of eigenvectors of $F$, so we begin by computing all
+				eigenvectors of $F$.
+
+				$\chr(F)=(1-\lambda)^2$, so the only eigenvalue of $F$ is $1$, 
+				meaning that the eigenvectors of $F$ are precisely the non-zero
+				vectors in $\Null(F-1I)$. We check that 
 				\[
-					\null(F-1I)
-					=\null\left(\mat{0&1\\0&0}\right)
+					\Null(F-1I)
+					=\Null\left(\mat{0&1\\0&0}\right)
 					=\Span\Set*{\mat{1\\0}},
 				\]
-				which is one-dimensional, and so there is no basis of $\R^2$ 
+				which is one-dimensional, and so there cannot be a basis of $\R^2$
 				consisting of eigenvectors of $F$. 
 			\end{solution}
 		\item What is the geometric and algebraic multiplicity of each eigenvalue
@@ -5406,26 +5408,21 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			match?
 			\begin{solution}
 				If one of the geometric multiplicities is smaller than the corresponding
-				algebraic multiplicity, $A$ cannot be diagonalizable. If $A$ is 
-				$n\times n$, then the sum of the algebraic multiplicities of the
-				eigenvalues is at most $n$. If one of the geometric multiplicities
+				algebraic multiplicity, $A$ cannot be diagonalizable. Over the 
+				complex numbers, the sum of the algebraic multiplicites of an 
+				$n \times n$ matrix is always $n$. If one of the geometric multiplicities
 				is less than the corresponding algebraic multiplicity, then 
 				the sum of the dimensions of the eigenspaces must be strictly
 				less than $n$, meaning there can be no basis for $\R^n$ consisting
 				of eigenvectors. 
 
 				If all the geometric and algebraic multiplicities match, the 
-				matrix may or may not be diagonalizable. If the sum of the geometric
-				multiplicities (or algebraic multiplicities, since they are equal
-				in this case) equals $n$, then the matrix is diagonalizable. This
-				could fail to happen if the characteristic polynomial $A$ does
-				not have all of its roots. 
-
-				For example, consider the matrix $A=\mat{1&0&0\\0&0&-1\\0&1&0}$.
-				We can compute $\chr(A)=-(\lambda-1)(\lambda^2+1)$, and so the 
-				only eigenvalue of $A$ is $\lambda=1$. The algebraic and geometric
-				multiplicity of this eigenvalue are both $1$, but this matrix
-				is not diagonalizable. 
+				matrix is diagonalizable. Since the sum of the algebraic multiplicites 
+				of an $n \times n$ matrix over the complex numbers is always $n$,
+				the sum of the geometric multiplicities would also equal $n$ in
+				this case. So if we pick a basis for each eigenspace, their union
+				would form a linearly independent set of size $n$ (i.e., a basis
+				of $\R^n$) consisting of eigenvectors of $A$.
 			\end{solution}
 	\end{parts}
 
