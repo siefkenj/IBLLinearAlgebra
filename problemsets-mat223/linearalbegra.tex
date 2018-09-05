@@ -5244,7 +5244,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 					=\lambda^2+\lambda-2
 					=(\lambda-1)(\lambda+2).
 				\]
-				This equals zero exactly when $\lambda=-2$ and $\lambda=1$.
+				This equals zero exactly when $\lambda=-2$ or $\lambda=1$.
 			\end{solution}
 		\item What are the eigenvalues of $C$?
 			\begin{solution}
@@ -5257,7 +5257,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				To see this, note that a non-zero vector $\vec v$ is an eigenvector
 				for $C$ if and only if $C\vec v=\lambda\vec v$ for some $\lambda$,
 				or in other words if and only if $(C-\lambda I)\vec v=E_\lambda\vec v=\vec 0$,
-				so $\vec v\in\Null(E_\lambda)$.
+				so $\vec v$ is a non-trivial vector in $\Null(E_\lambda)$.
 			\end{solution}
 		\item Find the eigenvectors of $C$.
 			\begin{solution}
@@ -5347,17 +5347,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{solution}
 		\item What is $\Nullity(E)$, $\Nullity(E-3I)$, $\Nullity(E+3I)$?
 			\begin{solution}
-				All three are equal to 1. 
+				$\Nullity(E)=1$, $\Nullity(E-3I)=0$, $\Nullity(E+3I)=1$
 
-				$E$ has three eigenvalues. Each one corresponds to a set of
-				eigenvectors that is one of the null spaces in the problem.
-				For example, $E$ has an eigenvector $\vec v$ corresponding to the 
-				eigenvalue $0$, and $\vec v\in\Null(E_0)=\Null(E)$, as is any 
-				scalar multiple of $\vec v$. 
+				$E$ has three eigenvalues, and each eigenvalue $\lambda$
+				corresponds to a set of eigenvectors that is the null space	of
+				$E-\lambda I$. For example, $E$ has a non-zero eigenvector
+				$\vec v$ corresponding to the eigenvalue $0$, and $\vec v\in\Null(E_0)=\Null(E)$,
+				as is any scalar multiple of $\vec v$. 
 
-				So these three null spaces all have dimension at least 1, and 
-				they are all linearly independent meaning none of them can have
-				dimension greater than 1 since they are subspaces of $\R^3$. 
+				So the three null spaces corresponding to the three eigenvalues must
+				all have dimension at least 1, and they are all linearly independent
+				meaning none of them can have dimension greater than 1 since they
+				are subspaces of $\R^3$. Therefore $\Nullity(E)=\Nullity(E_0)=1$ and 
+				$\Nullity(E+3I)=\Nullity(E_{-3})=1$. 
+
+				$\Nullity(E-3I)=0$, since any non-zero vector in $\Null(E-3I)$
+				would be an eigenvector of $E$ with corresponding eigenvalue $3$,
+				but we know that $3$ is not an eigenvalue of $E$. 
 			\end{solution}
 	\end{parts}
 
