@@ -134,6 +134,9 @@
 \voidenvironment{solution}
 \voidenvironment{annotation}
 \voidenvironment{lesson}
+%\voidenvironment{displayonly}
+\newcommand{\displayonlynewpage}{\begin{displayonly}\newpage\end{displayonly}}
+
 
 
 
@@ -910,7 +913,7 @@ argument supporting your answer.
 
 \end{lesson}
 
-	\newpage
+	\displayonlynewpage
 	\begin{definition}[Non-negative \& Convex Linear Combinations]
 		The linear combination $\vec w=\alpha_1\vec v_1+\alpha_2\vec v_2+\cdots+\alpha_n\vec v_n$ is
 		called a \emph{non-negative} linear combination of $\vec v_1,\vec v_2,\ldots,\vec v_n$ if
@@ -1011,7 +1014,7 @@ argument supporting your answer.
 			\end{enumerate}Otherwise, explain why it's not possible.
 	\end{parts}
 
-	\newpage
+	\displayonlynewpage
 \section*{Lines and Planes}
 
 	\question
@@ -1309,6 +1312,28 @@ argument supporting your answer.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply vector form of a plane.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use direction vectors for lines given in vector form.
+				\item Think about planes in terms of vectors rather
+					than equations.
+				\item Combine direction vectors in a plane to produce new direction vectors.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Students may think they need to find the intersection
+					of the lines to serve as their ``$\vec p$''. 
+					They don't. All they need is a point
+					on the plane!
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Recall the intersecting lines $A$ and $B$ given in vector form by
 	\[
 		\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
@@ -1356,7 +1381,7 @@ argument supporting your answer.
 		\item Write $\mathcal P$ in vector form using different
 			direction vectors and a different point.
 			\begin{solution}
-				One possibile answer:
+				One possible answer:
 				\[
 					\vec x = t\mat{-1\\-2\\-3}+s\mat{-7\\7\\7}+\mat{-1\\1\\2}.
 				\]
@@ -1368,6 +1393,28 @@ argument supporting your answer.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Connect vector form and scalar form of a plane.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Produce direction vectors for a plane defined by
+					an equation.
+				\item Generalize the procedure for finding direction
+					vectors that was used for lines.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This problem is scaffolded and should be straight forward.
+				\item You have the opportunity to discuss if $\vec x=t\vec d+s(-\vec d)+\vec p$
+					is a valid vector form of $\mathcal P$. The two direction vectors
+					are different, after all.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\mathcal Q\subseteq \R^3$ be a plane with equation $x+y+z=1$.
 	\begin{parts}
 		\item Find three points in $\mathcal Q$.
@@ -1402,6 +1449,16 @@ argument supporting your answer.
 	\end{parts}
 
 \section*{Span}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item There's an opportunity for another ``for some'' vs. ``for all''
+					discussion involving the definition of span. Many students won't
+					understand why ``the set of all linear combinations'' should
+					be written with a ``for some $\vec v_1$\ldots''.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{definition}[Span]
 		The \emph{span} of a set of vectors $V$ is the set of
 		all linear combinations of vectors in $V$.  That is,
@@ -1413,6 +1470,28 @@ argument supporting your answer.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of \emph{span}.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice applying a new definition in a familiar context ($\R^2$).
+				\item Recognize spans as lines and planes through the origin.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item These vectors have been used in other problems,
+					so the bulk of the argument for part 3 has
+					already been made.
+				\item Parts 4 \& 5 foreshadow linear dependence. Emphasize
+					that you cannot tell the size (dimension) of $\Span X$
+					by knowing the number of vectors in $X$.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
 	\begin{parts}
 		\item Draw $\Span\Set{\vec v_1}$.
@@ -1468,6 +1547,32 @@ argument supporting your answer.
 \end{lesson}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Connect geometric figures to spans.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Identify a relationship between lines and spans.
+				\item Describe a line through the origin as a span.
+				\item Identify when a line cannot be described as a span.
+				\item Apply the definition of $\Span X$ even when $X$ is infinite.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The lines are not written in $y=mx+b$ form on purpose.
+					We avoid this form in linear algebra since it cannot
+					describe all lines.
+				\item Part 3 will really stretch their minds. Students at this point are not used
+					to applying definitions. They will have a conception of $\Span X$
+					where $X$ is finite and will forget the definition because
+					this conception is ``good enough''. This question forces
+					them to think back to the definition.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\label{linesAsSpans}
 	Let $\ell_1\subseteq \R^2$ be the line with equation $x-y=0$ and $\ell_2\subseteq\R^2$
 	the line with equation $x-y=4$.
@@ -1514,7 +1619,36 @@ argument supporting your answer.
 		\]
 	\end{definition}
 
+
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Describing geometry using sets.}
+			
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice applying a new definition in a familiar context ($\R^2$).
+				\item Gain an intuitive understanding of set addition.
+				\item Describe lines that don't pass through $\vec 0$ using
+					a combination of set addition and spans.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Set addition will be brand new to most students, even
+					those with a linear algebra background.
+				\item Special care must be taken to differentiate
+					$\vec a+\vec b$ and $\{\vec a\}+\{\vec b\}$.
+				\item We will use set addition mainly as a mathematical
+					notation to describe translated spans. In this
+					case the summands will be an infinite set
+					and a singleton. There is no need to explore the sum 
+					of two infinite sets.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $A=\Set*{\mat{1\\2}}$, $B=\Set*{\mat{1\\1},\mat{1\\-1}}$, 
 	and $\ell=\Span\Set*{\mat{1\\-1}}$.
 	\begin{parts}
@@ -5680,7 +5814,6 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			$A$ diagonalizable?  What if all the geometric and algebraic multiplicities
 			match?
 	\end{parts}
-
 
 
 

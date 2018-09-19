@@ -318,6 +318,11 @@
 	}{%
 		\newpage
 	}
+	% items in the displayonly environment only show up in "display mode";
+	% i.e., when the annotations environment is hidden
+	\DeclareDocumentEnvironment{displayonly}{o}{
+	}{%
+	}
 	\DeclareDocumentCommand{\Title}{m}{%
 		\begin{center}
 			\color{Plum}{\sffamily\Large  #1}
