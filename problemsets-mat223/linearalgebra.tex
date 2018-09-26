@@ -63,9 +63,9 @@
 \DeclareMathOperator{\Col}{col}
 \newcommand{\proj}{\Proj}
 \newcommand{\rref}{\Rref}
-\newcommand{\xhat}{{\hat {\mathbf x}}}
-\newcommand{\yhat}{{\hat {\mathbf y}}}
-\newcommand{\zhat}{{\hat {\mathbf z}}}
+\newcommand{\xhat}{{\vec e_1}}
+\newcommand{\yhat}{{\vec e_2}}
+\newcommand{\zhat}{{\vec e_3}}
 \newcommand{\mat}[1]{\begin{bmatrix*}[r]#1\end{bmatrix*}}
 \newcommand{\matc}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\formarg}[2]{\big(#1;\, #2\big)}
@@ -134,9 +134,9 @@
 \voidenvironment{solution}
 \voidenvironment{annotation}
 \voidenvironment{lesson}
+%\voidenvironment{notes}
 %\voidenvironment{displayonly}
 \newcommand{\displayonlynewpage}{\begin{displayonly}\newpage\end{displayonly}}
-
 
 
 
@@ -245,7 +245,7 @@ copyright.
 			the direction $\vec u$} in the future and it will be a \emph{vector}.
 			For this reason, try to refer to the entries of a column
 			vector as \emph{coordinates} or \emph{entries} instead of components.
-			
+
 			\item
 			Though we will almost exclusively use
 			column vector notation in this course, students should be able to parse
@@ -253,7 +253,7 @@ copyright.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}We will use column vector notation and the idea of equating
-	coordinates in order to solve problems. 
+	coordinates in order to solve problems.
 
 \end{lesson}
 
@@ -261,6 +261,7 @@ copyright.
 \begin{iola}
 \section*{Task 1.1: The Magic Carpet Ride}
 \addcontentsline{toc}{subsection}{Task 1.1: The Magic Carpet Ride}
+
 
 \begin{annotation}
 	\begin{goals}
@@ -295,7 +296,7 @@ You are a young traveler, leaving home for the first time. Your parents
 want to help you on your journey, so just before your departure, they give you two
 gifts. Specifically, they give you two forms of transportation: a hover board and
 a magic carpet. Your parents inform you that both the hover board and the magic carpet
-have restrictions in how they operate: 
+have restrictions in how they operate:
 
 \begin{minipage}{\textwidth}
 	\vspace{.5cm}
@@ -397,11 +398,11 @@ get to the cabin with these modes of transportation, why is that the case?
 	\begin{goals}
 		\Goal{Address an existential question involving vectors: ``Is it possible
 		to find a linear combination that does\ldots?''}
-			
+
 		The goal of this problem is to
 		\begin{itemize}
 			\item Formalize geometric questions using the language of vectors.
-			\item Find both geometric and algebraic arguments to support the same 
+			\item Find both geometric and algebraic arguments to support the same
 				conclusion.
 			\item Establish what a ``negative multiple'' of a vector should be.
 		\end{itemize}
@@ -409,7 +410,7 @@ get to the cabin with these modes of transportation, why is that the case?
 	\begin{notes}
 		\begin{itemize}
 			\item Both \emph{yes} and \emph{no} are valid answers to
-				this question depending on whether you are allowed 
+				this question depending on whether you are allowed
 				to go backwards. Establish that ``negative'' multiples of
 				a vector mean traveling backwards along that vector.
 			\item This problem can be solved with algebra by finding a formula
@@ -501,7 +502,7 @@ argument supporting your answer.
 		$X\subseteq Y$ and $Y\subseteq X$).
 
 		We can define a subset using \emph{set-builder notation}.
-		That is, if $X$ is a set, we can define the subset 
+		That is, if $X$ is a set, we can define the subset
 		\[
 			Y= \Set*{a\in X \given \text{some rule involving }a},
 		\]
@@ -618,7 +619,7 @@ argument supporting your answer.
 	\end{parts}
 
 	\begin{definition}[Unions \& Intersections]
-		Two common set operations are \emph{unions} and \emph{intersections}.  
+		Two common set operations are \emph{unions} and \emph{intersections}.
 		Let $X$ and $Y$ be sets.
 
 		\hfill\begin{minipage}{\dimexpr\textwidth-3cm}
@@ -682,7 +683,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Visualize sets of vectors.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Apply set-builder notation in the context of vectors.
@@ -733,7 +734,6 @@ argument supporting your answer.
 	    \draw[cyan!80!black, very thick] (0,-5) -- (0,5) node[near end, right] {$V$};
 	    \draw[orange!80!black, very thick] (-5,-5) -- (5,5) node[near end, below right] {$D$};
 
-
 	    \fill[fill=black] (0,0) circle[radius=2pt] node[below right, xshift=5pt] {\color{black}$\vec 0$};
     \end{axis}
 \end{tikzpicture}
@@ -775,7 +775,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Practice linear combinations.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Practice using the formal term \emph{linear combination}.
@@ -795,8 +795,8 @@ argument supporting your answer.
 	\end{annotation}
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec w=2\vec v_1+\vec v_2$.
 	\begin{parts}
-		\item Write $\vec w$ as a column vector. When $\vec w$ is written as a 
-			linear combination of $\vec v_1$ and $\vec v_2$, what are the 
+		\item Write $\vec w$ as a column vector. When $\vec w$ is written as a
+			linear combination of $\vec v_1$ and $\vec v_2$, what are the
 			coefficients of $\vec v_1$ and $\vec v_2$?
 			\begin{solution}
 				$\vec w=\mat{3\\2}$; the coefficients are $(2,1)$.
@@ -818,11 +818,11 @@ argument supporting your answer.
 		$\vec v_1$ and $\vec v_2$?
 			\begin{solution}
 				No. $\mat{1\\0}=\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2$ and
-				$\mat{0\\1}=\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2$. 
+				$\mat{0\\1}=\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2$.
 				Therefore
 				\[
 					\mat{a\\b}
-					= a\mat{1\\0}+b\mat{0\\1} 
+					= a\mat{1\\0}+b\mat{0\\1}
 					= a(\tfrac{1}{2}\vec v_1+\tfrac{1}{2}\vec v_2)
 						+b(\tfrac{1}{2}\vec v_1-\tfrac{1}{2}\vec v_2)
 					=(\tfrac{a+b}{2})\vec v_1+(\tfrac{a-b}{2})\vec v_2.
@@ -833,8 +833,8 @@ argument supporting your answer.
 		\item Can you find a vector in $\R^2$ that isn't a linear combination of
 			$\vec v_1$?
 			\begin{solution}
-				Yes. All linear combinations of $\vec v_1$ have equal $x$ and 
-				$y$ coordinates, therefore $\vec w=\mat{2\\1}$ is not a linear 
+				Yes. All linear combinations of $\vec v_1$ have equal $x$ and
+				$y$ coordinates, therefore $\vec w=\mat{2\\1}$ is not a linear
 				combination of $\vec v_1$.
 			\end{solution}
 	\end{parts}
@@ -854,26 +854,26 @@ argument supporting your answer.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Recall the \emph{Magic Carpet Ride} task where the hover board could 
-	travel in the direction $\vec h=\mat{3\\1}$ and the magic carpet could 
+	Recall the \emph{Magic Carpet Ride} task where the hover board could
+	travel in the direction $\vec h=\mat{3\\1}$ and the magic carpet could
 	move in the direction $\vec m=\mat{1\\2}$.
 	\begin{parts}
-		\item Rephrase the sentence \emph{``Gauss can be reached using just the 
-			magic carpet and the hover board''} using formal mathematical 
+		\item Rephrase the sentence \emph{``Gauss can be reached using just the
+			magic carpet and the hover board''} using formal mathematical
 			language.
 			\begin{solution}
-				Gauss's location can be written as a linear combination of 
+				Gauss's location can be written as a linear combination of
 				$\vec m$ and $\vec h$.
 			\end{solution}
-		\item Rephrase the sentence \emph{``There is nowhere Gauss can hide 
-			where he is inaccessible by magic carpet and hover board''} using 
+		\item Rephrase the sentence \emph{``There is nowhere Gauss can hide
+			where he is inaccessible by magic carpet and hover board''} using
 			formal mathematical language.
 			\begin{solution}
-				Every vector in $\R^2$ can be written as a linear combination 
+				Every vector in $\R^2$ can be written as a linear combination
 				of $\vec m$ and	$\vec h$.
 			\end{solution}
-		\item Rephrase the sentence \emph{``$\R^2$ is the set of all linear 
-			combinations of $\vec h$ and $\vec m$''} using formal mathematical 
+		\item Rephrase the sentence \emph{``$\R^2$ is the set of all linear
+			combinations of $\vec h$ and $\vec m$''} using formal mathematical
 			language.
 			\begin{solution}
 				$\R^2=\Set{\vec v\given \vec v=t\vec m+s\vec h\text{ for some }t,s\in \R}$.
@@ -917,8 +917,8 @@ argument supporting your answer.
 	\begin{definition}[Non-negative \& Convex Linear Combinations]
 		The linear combination $\vec w=\alpha_1\vec v_1+\alpha_2\vec v_2+\cdots+\alpha_n\vec v_n$ is
 		called a \emph{non-negative} linear combination of $\vec v_1,\vec v_2,\ldots,\vec v_n$ if
-		$\alpha_1,\alpha_2,\ldots,\alpha_n\geq 0$. 
-		
+		$\alpha_1,\alpha_2,\ldots,\alpha_n\geq 0$.
+
 		If $\alpha_1,\alpha_2,\ldots,\alpha_n\geq 0$
 		and $\alpha_1+\alpha_2+\cdots+\alpha_n=1$, then $\vec w$ is called a \emph{convex} linear combination
 		of  $\vec v_1,\vec v_2,\ldots,\vec v_n$.
@@ -930,7 +930,7 @@ argument supporting your answer.
 			\Goal{Geometric meaning of \emph{non-negative} and \emph{convex}
 			linear
 			combinations.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Read and apply the definition of non-negative and convex
@@ -1021,7 +1021,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Link prior knowledge to new notation/concepts.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Convert between $y=mx+b$ form of a line and
@@ -1052,17 +1052,39 @@ argument supporting your answer.
 				$\Set*{\matc{t\\2t+1}\in\R^2 \given t\in\R}$
 			\end{solution}
 		\item Draw $A$ as a subset of $\R^2$.
-			\begin{solution}
-				XXXX
-			\end{solution}
 		\item Add the vectors $\vec a=\mat{-1\\-1}$, $\vec b=\mat{1\\3}$ and
 			$\vec d=\vec b-\vec a$ to your drawing.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis lines=middle,
+					    axis line style = {black},
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[Green, very thick] (-5,-9) -- (5,11) node[pos=.3, above left] {$A$};
+				    \draw[cyan!80!black, very thick, ->] (0,0) -- (-1,-1) node[pos=.2, below] {$\vec a$};
+				    \draw[cyan!80!black, very thick, ->] (0,0) -- (1,3) node[pos=.5, right] {$\vec b$};
+				    \draw[orange!80!black, very thick, ->] (-1,-1) -- (1,3) node[near end, above, xshift=-3pt] {$\vec d$};
+
+			    \end{axis}
+				\end{tikzpicture}
 			\end{solution}
 		\item For which $t\in\R$ is it true that $\vec a+t\vec d\in A$? Explain using your picture.
 			\begin{solution}
-				XXXX
+				$\vec a +t\vec d\in A$ for all $t\in \R$. We can see this because if we start at the
+				vector $\vec a$ and the displace by $t\vec d$, we will always be on the line $A$.
 			\end{solution}
 	\end{parts}
 
@@ -1104,7 +1126,7 @@ argument supporting your answer.
 		\begin{notes}
 			The biggest stumbling block for finding the intersection of two lines
 			in vector form will be choosing different dummy variables before
-			setting the lines equal. 
+			setting the lines equal.
 		\end{notes}
 	\end{annotation}
 	One thing vector form makes difficult is finding intersections, but intersections
@@ -1118,7 +1140,7 @@ argument supporting your answer.
 			\vec x=t\vec d+\vec p
 		\]
 		for some vector $\vec d$ and point $\vec p$. That is, $\ell = \Set{\vec x\given \vec x=
-		t\vec d+\vec p\text{ for some } t\in\R }$. The vector 
+		t\vec d+\vec p\text{ for some } t\in\R }$. The vector
 		$\vec d$ is called a \emph{direction
 		vector} for $\ell$.
 	\end{definition}
@@ -1127,7 +1149,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Practice with vector form.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Express lines in $\R^2$ and $\R^3$ in
@@ -1158,9 +1180,9 @@ argument supporting your answer.
 			\begin{solution}
 				$\vec x = t \mat{1 \\ -2} + \mat{0 \\ 3}$
 
-				The vector form is not unique, as any non-zero scalar multiple of 
-				$\mat{1 \\ -2}$ can serve as a direction vector. Additionally, 
-				any other point on the line can be used in place of 
+				The vector form is not unique, as any non-zero scalar multiple of
+				$\mat{1 \\ -2}$ can serve as a direction vector. Additionally,
+				any other point on the line can be used in place of
 				$\mat{0 \\3}$. For example,  $\vec x = t \mat{-4 \\ 8} + \mat{1 \\ 1}$
 				is another vector form of $\ell$.
 			\end{solution}
@@ -1175,9 +1197,9 @@ argument supporting your answer.
 			\begin{solution}
 				$\vec x = t \mat{-3 \\ 6 \\ 6} + \mat{1 \\ 1 \\ 1}$.
 
-				Again, any non-zero scalar multiple of the direction vector 
-				will work for $\vec d$, as will any other point on the line 
-				work for $\vec p$. 
+				Again, any non-zero scalar multiple of the direction vector
+				will work for $\vec d$, as will any other point on the line
+				work for $\vec p$.
 			\end{solution}
 	\end{parts}
 
@@ -1185,7 +1207,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Intersect lines in vector form.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Practice computing the intersection between lines
@@ -1206,7 +1228,7 @@ argument supporting your answer.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $A$, $B$, and $C$ be given in vector form by 
+	Let $A$, $B$, and $C$ be given in vector form by
 	\[
 	\overbrace{\vec x=t\mat{1\\2\\3}+\mat{0\\0\\1}}^{\displaystyle A}
 	\qquad \overbrace{\vec x=t\mat{-1\\1\\1}+\mat{-1\\1\\2}}^{\displaystyle B}
@@ -1221,22 +1243,22 @@ argument supporting your answer.
 				\[
 					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}.
 				\]
-				One solution is when $t = 0$ and $s = -1$. 
+				One solution is when $t = 0$ and $s = -1$.
 			\end{solution}
 		\item Do the lines $A$ and $C$ intersect? Justify your conclusion.
 			\begin{solution}
-				No. The vector equation 
+				No. The vector equation
 				\[
 					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}
 				\]
-				has no solutions. This is equivalent to saying that the following 
+				has no solutions. This is equivalent to saying that the following
 				system of equations has no solutions:
 				\begin{gather*}
 					t = 2s + 1 \\
 					2t = -s + 1 \\
 					3t + 1 = s + 1
 				\end{gather*}
-				The third equation tells us that $s = 3t$, which when substituted 
+				The third equation tells us that $s = 3t$, which when substituted
 				into the first equation forces $t = -\tfrac{1}{5}$ and therefore
 				$s = -\tfrac{3}{5}$. However, these two numbers don't satisfy the second
 				equation.
@@ -1249,21 +1271,21 @@ argument supporting your answer.
 				Yes. If $\vec q=\vec p+a\vec d$ for $a\neq 0$, then $X$ and $Y$
 				will actually be the same line, since in this case
 				\[
-					\vec x = t\vec d+\vec q 
-					= t\vec d+(\vec p+a\vec d) 
+					\vec x = t\vec d+\vec q
+					= t\vec d+(\vec p+a\vec d)
 					= (t+a)\vec d+\vec p.
 				\]
 
-				For example, the following two vector equations represent the 
+				For example, the following two vector equations represent the
 				same line.
 				\[
-					\vec x = t \mat{1\\1\\1} + \mat{0\\0\\0} 
+					\vec x = t \mat{1\\1\\1} + \mat{0\\0\\0}
 					\qquad \text{and} \qquad
 					\vec x = t \mat{1\\1\\1} + \mat{7\\7\\7}.
 				\]
 			\end{solution}
 	\end{parts}
-	
+
 
 \begin{lesson}
 	\Title{Planes, Span}
@@ -1304,9 +1326,9 @@ argument supporting your answer.
 		\[
 			\vec x=t\vec d_1 +s\vec d_2+\vec p
 		\]
-		for some vectors $\vec d_1$ and $\vec d_2$ and 
+		for some vectors $\vec d_1$ and $\vec d_2$ and
 		point $\vec p$. That is, $\mathcal P = \{\vec x: \vec x=
-		t\vec d_1+s\vec d_2 +\vec p\text{ for some } t,s\in\R \}$. The vectors 
+		t\vec d_1+s\vec d_2 +\vec p\text{ for some } t,s\in\R \}$. The vectors
 		$\vec d_1$ and $\vec d_2$ are called \emph{direction
 		vectors} for $\mathcal P$.
 	\end{definition}
@@ -1315,7 +1337,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Apply vector form of a plane.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Use direction vectors for lines given in vector form.
@@ -1328,7 +1350,7 @@ argument supporting your answer.
 		\begin{notes}
 			\begin{itemize}
 				\item Students may think they need to find the intersection
-					of the lines to serve as their ``$\vec p$''. 
+					of the lines to serve as their ``$\vec p$''.
 					They don't. All they need is a point
 					on the plane!
 			\end{itemize}
@@ -1350,10 +1372,10 @@ argument supporting your answer.
 					\qquad \text{and} \qquad
 					\vec d_2 = \mat{-1\\1\\1}.
 				\]
-				These are the two direction vectors we already know are in the 
+				These are the two direction vectors we already know are in the
 				plane---the ones from the two lines:
-				
-				Note that neither of these is a multiple of the other, so they 
+
+				Note that neither of these is a multiple of the other, so they
 				really are two unique direction vectors in $\mathcal P$.
 			\end{solution}
 		\item Write $\mathcal P$ in vector form.
@@ -1363,19 +1385,19 @@ argument supporting your answer.
 					= t \mat{1\\2\\3} + s \mat{-1\\1\\1} + \mat{0\\0\\1}.
 				\]
 				We already have two direction vectors, so we just needed a point
-				on the plane. We used the point $\vec p = \mat{0\\0\\1}$ 
-				that we already know is on line $A$. 
+				on the plane. We used the point $\vec p = \mat{0\\0\\1}$
+				that we already know is on line $A$.
 			\end{solution}
 		\item Describe how vector form of a plane relates to linear
 			combinations.
 			\begin{solution}
 				The vector form of a plane says that a vector $\vec x$ is on the
-				plane exactly when it is equal to any linear combination of 
-				$\vec d_1$ and $\vec d_2$, plus $\vec p$. 
+				plane exactly when it is equal to any linear combination of
+				$\vec d_1$ and $\vec d_2$, plus $\vec p$.
 
-				Another way of saying 
+				Another way of saying
 				the same thing is that the vector $\vec x$ is on the plane
-				exactly when $\vec x - \vec p$ is equal	to some linear 
+				exactly when $\vec x - \vec p$ is equal	to some linear
 				combination of $\vec d_1$ and $\vec d_2$.
 			\end{solution}
 		\item Write $\mathcal P$ in vector form using different
@@ -1385,18 +1407,19 @@ argument supporting your answer.
 				\[
 					\vec x = t\mat{-1\\-2\\-3}+s\mat{-7\\7\\7}+\mat{-1\\1\\2}.
 				\]
-				As with the equations of lines from before, we can use any 
-				non-zero scalar multiple of either direction vector and get the 
-				same plane. We also used the point $\vec q = \mat{-1\\1\\2}$ 
-				that we already knew is on line $B$. 
+				As with the equations of lines from before, we can use any
+				non-zero scalar multiple of either direction vector and get the
+				same plane. We also used the point $\vec q = \mat{-1\\1\\2}$
+				that we already knew is on line $B$.
 			\end{solution}
 	\end{parts}
 
 	\question
+	\label{ProbPlane}
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Connect vector form and scalar form of a plane.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Produce direction vectors for a plane defined by
@@ -1430,7 +1453,7 @@ argument supporting your answer.
 			\end{solution}
 		\item Find two direction vectors for $\mathcal Q$.
 			\begin{solution}
-				Now that we have three points on the plane, we can use the 
+				Now that we have three points on the plane, we can use the
 				direction vectors joining any two pairs of them. For example:
 				\[
 					\vec d_1 = \vec p_1 - \vec p_2 = \mat{1\\-1\\0}
@@ -1463,7 +1486,7 @@ argument supporting your answer.
 		The \emph{span} of a set of vectors $V$ is the set of
 		all linear combinations of vectors in $V$.  That is,
 		\[
-			\Span V = \Set{\vec v \given \vec v=\alpha_1\vec v_1+\alpha_2\vec v_2 + \cdots 
+			\Span V = \Set{\vec v \given \vec v=\alpha_1\vec v_1+\alpha_2\vec v_2 + \cdots
 			+\alpha_n\vec v_n\text{ for some }\vec v_1,\vec v_2,\ldots,\vec v_n\in V
 			\text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n}.
 		\]
@@ -1473,7 +1496,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Apply the definition of \emph{span}.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Practice applying a new definition in a familiar context ($\R^2$).
@@ -1495,12 +1518,30 @@ argument supporting your answer.
 	Let $\vec v_1=\mat{1\\1}$, $\vec v_2=\mat{1\\-1}$, and $\vec v_3=\mat{2\\2}$.
 	\begin{parts}
 		\item Draw $\Span\Set{\vec v_1}$.
-			\begin{solution}
-				XXXX
-			\end{solution}
 		\item Draw $\Span\Set{\vec v_2}$.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis lines=middle,
+					    axis line style = {black},
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[Green, very thick] (-5,-5) -- (5,5) node[pos=.3, above left] {$\Span\Set{\vec v_1}$};
+				    \draw[cyan!80!black, very thick] (-5,5) -- (5,-5) node[pos=.3, above right] {$\Span\Set{\vec v_2}$};
+			    \end{axis}
+				\end{tikzpicture}
 			\end{solution}
 		\item Describe $\Span\Set{\vec v_1,\vec v_2}$.
 			\begin{solution}
@@ -1515,8 +1556,8 @@ argument supporting your answer.
 			\end{solution}
 		\item Describe $\Span\Set{\vec v_1,\vec v_3}$.
 			\begin{solution}[inline]
-				$\Span\Set{\vec v_1,\vec v_3} = \Span\Set{\vec v_1}$, 
-				a line through the origin with direction vector $\vec v_1$. 
+				$\Span\Set{\vec v_1,\vec v_3} = \Span\Set{\vec v_1}$,
+				a line through the origin with direction vector $\vec v_1$.
 			\end{solution}
 		\item Describe $\Span\Set{\vec v_1,\vec v_2,\vec v_3}$.
 			\begin{solution}[inline]
@@ -1550,7 +1591,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Connect geometric figures to spans.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Identify a relationship between lines and spans.
@@ -1577,35 +1618,35 @@ argument supporting your answer.
 	Let $\ell_1\subseteq \R^2$ be the line with equation $x-y=0$ and $\ell_2\subseteq\R^2$
 	the line with equation $x-y=4$.
 	\begin{parts}
-		\item If possible, describe $\ell_1$ as a span. Otherwise explain why 
+		\item If possible, describe $\ell_1$ as a span. Otherwise explain why
 			it's not possible.
 			\begin{solution}
-				$\ell_1 = \Span\Set*{\mat{1\\1}}$, since $\mat{x\\y} \in \ell_1$ 
-				if and only if $x = y$, which in turn is true if and only if it 
-				is a scalar multiple of $\mat{1\\1}$. 
+				$\ell_1 = \Span\Set*{\mat{1\\1}}$, since $\mat{x\\y} \in \ell_1$
+				if and only if $x = y$, which in turn is true if and only if it
+				is a scalar multiple of $\mat{1\\1}$.
 			\end{solution}
-		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's 
+		\item If possible, describe $\ell_2$ as a span. Otherwise explain why it's
 			not possible.
 			\label{linesAsSpans.2}
 			\begin{solution}
-				This is not possible. $\mat{0\\0}$ is an element of	the span of 
-				\emph{any} set of vectors, since we can use all zeroes as the 
+				This is not possible. $\mat{0\\0}$ is an element of	the span of
+				\emph{any} set of vectors, since we can use all zeroes as the
 				scalars in a linear combination, but $\mat{0\\0} \notin \ell_2$.
 			\end{solution}
-		\item Does the expression $\Span(\ell_1)$ make sense? If so, what is it? 
+		\item Does the expression $\Span(\ell_1)$ make sense? If so, what is it?
 			How about $\Span(\ell_2)$?
 			\begin{solution}
 				Both of these expressions do make sense. One can compute the span
-				of any set of vectors, and these lines are just special set of 
+				of any set of vectors, and these lines are just special set of
 				points in $\R^2$ which we are already used to thinking of as vectors.
 
-				$\Span(\ell_1) = \ell_1$, since all of the vectors on 
-				the line $\ell_1$ are already multiples of $\mat{1\\1}$, as we 
-				discovered earlier. 
+				$\Span(\ell_1) = \ell_1$, since all of the vectors on
+				the line $\ell_1$ are already multiples of $\mat{1\\1}$, as we
+				discovered earlier.
 
-				$\Span(\ell_2)$ equals all of $\R^2$. It's easy to see that the 
-				vectors $v = \mat{4\\0}$ and $w = \mat{0\\-4}$ are both on $\ell_2$, 
-				and the span of these two vectors alone is all of $\R^2$. 
+				$\Span(\ell_2)$ equals all of $\R^2$. It's easy to see that the
+				vectors $v = \mat{4\\0}$ and $w = \mat{0\\-4}$ are both on $\ell_2$,
+				and the span of these two vectors alone is all of $\R^2$.
 			\end{solution}
 	\end{parts}
 
@@ -1625,7 +1666,7 @@ argument supporting your answer.
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Describing geometry using sets.}
-			
+
 			The goal of this problem is to
 			\begin{itemize}
 				\item Practice applying a new definition in a familiar context ($\R^2$).
@@ -1644,46 +1685,101 @@ argument supporting your answer.
 				\item We will use set addition mainly as a mathematical
 					notation to describe translated spans. In this
 					case the summands will be an infinite set
-					and a singleton. There is no need to explore the sum 
+					and a singleton. There is no need to explore the sum
 					of two infinite sets.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $A=\Set*{\mat{1\\2}}$, $B=\Set*{\mat{1\\1},\mat{1\\-1}}$, 
+	Let $A=\Set*{\mat{1\\2}}$, $B=\Set*{\mat{1\\1},\mat{1\\-1}}$,
 	and $\ell=\Span\Set*{\mat{1\\-1}}$.
 	\begin{parts}
 		\item Draw $A$, $B$, and $A+B$ in the same picture.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    %\draw[Green, very thick] (-5,0) -- (5,0) node[near end, below] {$H$};
+				    %\draw[cyan!80!black, very thick] (0,-5) -- (0,5) node[near end, right] {$V$};
+				    %\draw[orange!80!black, very thick] (-5,-5) -- (5,5) node[near end, below right] {$D$};
+
+
+				    \fill[fill=Green] (1,2) circle[radius=2pt] node[left] {\color{Green}$A$};
+				    \fill[fill=Red]
+				    	(1,1) circle[radius=2pt]
+				    	(1,-1) circle[radius=2pt] node[below right] {\color{Red}$B$}
+				    ;
+				    \fill[fill=Blue]
+				    	(2,3) circle[radius=2pt]
+				    	(2,1) circle[radius=2pt] node[below right] {\color{Blue}$A+B$}
+				    ;
+			    \end{axis}
+			\end{tikzpicture}
 			\end{solution}
 		\item Is $A+B$ the same as $B+A$?
 			\begin{solution}
 				Yes. Since $A$ and $B$ are such small sets we could just
-				compute all the vectors in $A+B$ and $B+A$ and see that they're 
-				equal. However, we know that real numbers can be added up in any 
-				order, and the coordinates of an element of $A+B$ or $B+A$ are 
-				simply sums of the corresponding coordinates of elements of $A$ and $B$. 
+				compute all the vectors in $A+B$ and $B+A$ and see that they're
+				equal. However, we know that real numbers can be added up in any
+				order, and the coordinates of an element of $A+B$ or $B+A$ are
+				simply sums of the corresponding coordinates of elements of $A$ and $B$.
 			\end{solution}
 		\item Draw $\ell+A$.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[Red, thin, dashed] (-5,5) -- (5,-5) node[near end, below] {$\ell$};
+				    \draw[Blue, very thick] (-4,7) -- (6,-3) node[near end, below left] {$\ell+A$};
+				    \fill[fill=Green] (1,2) circle[radius=2pt] node[above right] {\color{Green}$A$};
+			    \end{axis}
+			\end{tikzpicture}
 			\end{solution}
 		\item Consider the line $\ell_2$ given in vector form by $\vec x=t\mat{1\\-1}+\mat{1\\2}$.
 			Can $\ell_2$ be described using only a span? What about using a span
 			and set addition?
 			\begin{solution}
-				$\ell_2$ cannot be described using only a span, for the same reason 
+				$\ell_2$ cannot be described using only a span, for the same reason
 				as the line $\ell_2$ in Problem \ref{linesAsSpans}.\ref{linesAsSpans.2}
 				couldn't be. We know that the origin $\mat{0\\0}$ must be an element
-				of any span, but it is not a point on $\ell_2$. xxx
+				of any span, but it is not a point on $\ell_2$.
 
-				$\ell_2$ can be described as a span plus a set addition though. 
-				Specifically, it is $\ell + A$. 
+				$\ell_2$ can be described as a span plus a set addition though.
+				Specifically, $\ell_2=\ell + A$.
 			\end{solution}
 	\end{parts}
 
 
-	
+
 \begin{lesson}
 	\Title{Linear Independence \& Dependence}
 
@@ -1699,15 +1795,15 @@ argument supporting your answer.
 	\end{itemize}
 
 	\Heading{Motivation}
-	Linear independence/dependence is one of the biggest concepts in linear algebra. 
+	Linear independence/dependence is one of the biggest concepts in linear algebra.
 	Linear independence/dependence tells us whether a set has redundant information
 	in it with respect to spans. The idea of a having redundant information vs\mbox{.}
 	not comes up all the time in the world (sometimes it's a plus, sometimes it's not).
-	
+
 	Knowing
 	a set is independent tells us what its span will look like (in terms of what dimension
 	it will be). It is also an abstract concept that has both a ``geometric'' definition
-	and an ``algebraic'' one. 
+	and an ``algebraic'' one.
 	\begin{annotation}
 		\begin{notes}
 			Don't define a linearly dependent \emph{set}, define
@@ -1731,6 +1827,34 @@ argument supporting your answer.
 \section*{Task 1.3: The Magic Carpet, Getting Back Home}
 \addcontentsline{toc}{subsection}{Task 1.3: The Magic Carpet Ride, Getting Back Home}
 
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Span in higher dimensions.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Examine subtleties that exist in three dimensions that are
+					missing in two dimensions.
+				\item Apply linear algebra tools to answer open-ended questions.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			This problem is set up to prime
+			theorems about linearly dependent vectors. In particular, it
+			\begin{itemize}
+				\item gives an example of a non-trivial linear combination giving $\vec 0$;
+				\item shows that if there is one non-trivial linear combination giving $\vec 0$,
+					there are others;
+				\item shows that 3 non-parallel vectors in $\R^3$ need not span $\R^3$.
+			\end{itemize}
+
+			The problem also allows linking to previous linear algebra ideas. A system
+			of equations can be used to find \emph{all} non-trivial solutions, and showing
+			a particular system of equations is inconsistent will show that the span
+			is not $\R^3$.
+		\end{notes}
+	\end{annotation}
 Suppose you are now in a three-dimensional world for the carpet
 ride problem, and you have three modes of transportation:
 \[
@@ -1747,8 +1871,8 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 
 
 \begin{enumerate}
-	\item  Find the amounts of time on each mode of transportation ($c_1$, $c_2$, 
-		and $c_3$, respectively) needed to go on a journey that starts and ends 
+	\item  Find the amounts of time on each mode of transportation ($c_1$, $c_2$,
+		and $c_3$, respectively) needed to go on a journey that starts and ends
 		at home \emph{or} explain why it is not possible to do so.
 
 	\item Is there more than one way to make a journey that meets the
@@ -1765,7 +1889,27 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 \end{iola}
 
 
-	\begin{definition}[Linearly Dependent \& Independent]
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Geometric definition of linear independence/dependence.}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This definition is conceptually simple but notationally hard.
+				\item The definition is phrased in terms of a list of vectors (instead of
+					a set) to avoid issues with the fact that sets cannot have repeated elements. (e.g.,
+					if $\vec a\neq \vec 0$, then the set $\{\vec a,\vec a\}=\{\vec a\}$ is linearly
+					independent, whereas the list of vectors $\vec a,\vec a$ is linearly dependent.)
+				\item Many students will not realize that $\vec v_i$ is being ``left out''
+					of the span.
+				\item Students might assume, for example, that $\vec v_1$ could always be removed
+					from the span. This misconception is targeted in a later problem.
+				\item Have students rephrase this definition in plain language.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	\begin{definition}[Linearly Dependent \& Independent (Geometric)]
 		We say the vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
 		\emph{linearly dependent} if for at least one $i$,
 		\[
@@ -1776,11 +1920,31 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the (geometric) definition of linear independence/dependence.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Develop a mental picture linking linear dependence and
+					``redundant'' vectors.
+				\item Practice applying a new definition.
+				\item Find multiple linearly independent subsets of a linearly dependent set.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Students won't find this problem hard.
+				\item There may be some confusion about what ``describe'' means.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 		Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
 	\begin{parts}
 		\item Describe $\Span\Set{\vec u,\vec v,\vec w}$.
 			\begin{solution}
-				This is the set of all vectors in $\R^3$ with $z$-coordinate
+				The $xy$-plane in $\R^3$. That is, the set of all vectors in $\R^3$ with $z$-coordinate
 				equal to zero.
 			\end{solution}
 		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent? Why or why not?
@@ -1800,44 +1964,62 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 		\item Give a subset $Z\subseteq X$ so that $\Span Z=\Span X$ and $Z$ is
 			linearly independent and $Z\neq Y$.
 			\begin{solution}
-				$Z = \Set{\vec u, \vec w}$ and $Z = \Set{\vec v, \vec w}$ both have 
+				$Z = \Set{\vec u, \vec w}$ and $Z = \Set{\vec v, \vec w}$ both have
 				the same span as $Y$ above.
 			\end{solution}
 	\end{parts}
 
 
 	\begin{definition}[Trivial Linear Combination]
-	We say a linear combination 
+	We say a linear combination
 	$a_1\vec v_1+a_2\vec v_2+\cdots +a_n\vec v_n$
 	is \emph{trivial} if $a_1=a_2=\cdots=a_n=0$.
 	\end{definition}
-	
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Link trivial/non-trivial linear combinations to linear independence/dependence.}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 2 is a chance to practice writing arguments.
+				\item Many students will mistakenly assume that non-trivial means
+					\emph{all} coefficients are non-zero and use this in
+					their argument. Bring out this misconception.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 		Recall $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, and $\vec w=\mat{1\\1\\0}$.
 	\begin{parts}
-		\item Consider the linearly dependent 
-			set $\Set{\vec u,\vec v,\vec w}$ (where $\vec u,\vec v,\vec w$ are 
-			defined as above). Can you write $\vec 0$ as a non-trivial linear 
+		\item Consider the linearly dependent
+			set $\Set{\vec u,\vec v,\vec w}$ (where $\vec u,\vec v,\vec w$ are
+			defined as above). Can you write $\vec 0$ as a non-trivial linear
 			combination of vectors in this set?
 			\begin{solution}[inline]
-				$\vec 0 = \vec u + \vec v - \vec w$. 
+				$\vec 0 = \vec u + \vec v - \vec w$.
 			\end{solution}
-		\item Consider the linearly independent set $\Set{\vec u,\vec v}$. 
-			Can you write $\vec 0$ as a non-trivial linear combination of 
+		\item Consider the linearly independent set $\Set{\vec u,\vec v}$.
+			Can you write $\vec 0$ as a non-trivial linear combination of
 			vectors in this set?
 			\begin{solution}
-				No. If we could do that, it would look like:
+				No. Suppose
 				\[
-					a_1 \vec u + a_2 \vec v = \vec 0.
+					a_1 \vec u + a_2 \vec v = \vec 0
 				\]
-				Since neither of $\vec u$ or $\vec v$ is the zero vector, 
-				this would mean neither of $a_1$ or $a_2$ is zero. But
-				then we could rearrange the equation above to this:
+				was a non-trivial linear combination. Then at least one of $a_1$ or $a_2$
+				is non-zero. If $a_1$ is non-zero, then
 				\[
-					\vec u = \frac{a_2}{a_1} \vec v,
+					\vec u = -\frac{a_2}{a_1}\vec v
 				\]
-				which is impossible since $\Set{\vec u, \vec v}$ is linearly
-				independent. 
+				and so $\vec u\in\Span\Set{\vec v}$.
+				If $a_2$ is non-zero, then
+				\[
+					\vec v=-\frac{a_1}{a_2}\vec u.
+				\]
+				and so $\vec v\in\Span\Set{\vec u}$.
+				In either case, $\{\vec u,\vec v\}$ would be linearly dependent.
 			\end{solution}
 	\end{parts}
 
@@ -1866,8 +2048,16 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 \end{lesson}
 
 	We now have an equivalent definition of linear dependence.
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item The algebraic definition of linear independence/dependence
+					is good for proofs but hard to intuit.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 
-	\begin{definition}[Linearly Dependent \& Independent]
+	\begin{definition}[Linearly Dependent \& Independent (Algebraic)]
 	The vectors $\vec v_1,\vec v_2,\ldots,\vec v_n$ are
 	\emph{linearly dependent} if there is a non-trivial
 	linear combination of $\vec v_1,\ldots,\vec v_n$ that
@@ -1875,63 +2065,93 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Link algebraic and geometric definitions of linear independence/dependence.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Understand how the algebraic and geometric definitions of linear
+					independence/dependence relate.
+				\item Practice writing mathematical arguments.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item You could easily spend an entire class working with students
+					to get well-written proofs. Be mindful of time. Since
+					this is not a proofs-based course, we want to focus on the intuition here.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Explain how this new definition implies the old one.
 			\begin{solution}
-				Suppose the vectors $\vec v_1, \vec v_2, \dots, \vec v_n$ is 
-				linearly dependent in this new sense. That means there are 
-				scalars	$a_1, a_2, \dots, a_n$, at least one of which is not 
-				zero, such that
+				Suppose the vectors $\vec v_1, \vec v_2, \dots, \vec v_n$ is
+				linearly dependent in this new sense. That means there are
+				scalars	$a_1, a_2, \dots, a_n$, at least one of which is non-zero,
+				such that
 				\[
 					a_1 \vec v_1 + \cdots + a_n \vec v_n = 0.
 				\]
-				For the sake of example, let's suppose that $a_1$ is not zero. 
-				Then we can divide by it and rearrange this equation to this:
+				Suppose $a_i\neq 0$. Then
 				\[
-					\vec v_1=\frac{a_2}{a_1}\vec v_2 +cdots+\frac{a_n}{a_1}\vec v_n,
+					\vec v_i = \tfrac{a_1}{a_i}\vec v_1+\cdots +\tfrac{a_{i-1}}{a_i}\vec v_{i-1}
+					+\tfrac{a_{i+1}}{a_i}\vec v_{i+1}+\cdots+\tfrac{a_n}{a_i}\vec v_n.
 				\]
-				which means that $v_1$ is in $\Span\Set{\vec v_2, \dots, \vec v_n}$. 
-				This is precisely the old definition of linear dependence.
+				This means $\vec v_i\in \Span\Set{\vec v_1,\ldots,\vec v_{i-1},\vec v_{i+1},\ldots,\vec v_n}$,
+				which is precisely the old definition of linear dependence.
 			\end{solution}
 		\item Explain how the old definition implies this new one.
 			\begin{solution}
-				Suppose that $\vec v_1, \vec v_2, \dots, \vec v_n$ are linearly 
-				dependent according to the old definition. One way this can 
-				happen is if one of the	$\vec v_i$ equals the zero vector, 
-				since $\vec 0$ is in the span of any set of vectors. If for 
-				example $\vec v_1 = \vec 0$, then the linear combination
-				\[
-					7 \vec v_1 + 0 \vec v_2 + \cdots 0 \vec v_n
-				\]
-				is non-trivial and equals the zero vector, meaning the set of 
-				vectors is	linearly dependent according to the new definition.
+				Suppose that $\vec v_1, \vec v_2, \dots, \vec v_n$ are linearly
+				dependent according to the old definition. Fix $i$ so that
+				$\vec v_i\in \Span\Set{\vec v_1,\ldots,\vec v_{i-1},\vec v_{i+1},\ldots,\vec v_n}$.
 
-				On the other hand, if none of the $\vec v_i$ equal the zero 
-				vector, then the old definition says that one of the vectors is 
-				in the span of the others. For the sake of example, suppose 
-				$\vec v_1$ is in the span of $\vec v_2, \dots \vec v_n$. That 
-				means there are scalars $a_2, \dots, a_n$ such that 
+				By the definition of $\Span$, we know that
 				\[
-					\vec v_1 = a_2 \vec v_2 + a_3 \vec v_3 + \cdots + a_n \vec v_n,
+					\vec v_i=\beta_1\vec v_1+\cdots +\beta_{i-1}\vec v_{i-1}+\beta_{i+1}\vec v_{i+1}
+					+\cdots +\beta_n\vec v_{n}.
 				\]
-				and since $\vec v_1 \neq \vec 0$, at least one of the scalars 
-				$a_i$ must not be zero. But then
+				Thus
 				\[
-					\vec v_1-a_2 \vec v_2-a_3 \vec v_3-\cdots-a_n \vec v_n=\vec 0,
+					\vec 0 = -\vec v_i+\beta_1\vec v_1+\cdots +\beta_{i-1}\vec v_{i-1}+\beta_{i+1}\vec v_{i+1}
+					+\cdots +\beta_n\vec v_{n},
 				\]
-				and this linear combination is non-trivial. 
+				and this is a non-trivial linear combination since the coefficient of $\vec v_i$ is $-1\neq 0$.
 			\end{solution}
 	\end{parts}
 
-	Since we have old def $\implies$ new def, and new def $\implies$ old def 
+	Since we have old def $\implies$ new def, and new def $\implies$ old def
 	($\implies$ should be read aloud as `implies'), the two definitions
 	are \emph{equivalent} (which we write as new def $\iff$ old def).
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Linear dependence and infinite solutions.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Connect linear dependence with infinite solutions.
+				\item Connect linear independence with unique solutions.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 1 won't give the students much trouble.
+				\item Part 2 will be hard. The idea that you could add $\vec 0$
+					but change the coefficients of a linear combination
+					is hard to thin of and even harder to write correctly.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Suppose for some unknown $\vec u, \vec v, \vec w$, and $\vec a$,
 	\[
-		\vec a = 3\vec u+2\vec v +\vec w\qquad \text{and}\qquad 
+		\vec a = 3\vec u+2\vec v +\vec w\qquad \text{and}\qquad
 		\vec a = 2\vec u+\vec v -\vec w.
 	\]
 	\begin{parts}
@@ -1958,32 +2178,32 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	\begin{parts}[resume]
 		\item Is $\Set{\vec u,\vec r,\vec s}$ linearly independent?
 			\begin{solution}
-				Yes. If it were not, there would exist scalars $a_1, a_2, a_3$, 
+				Yes. If it were not, there would exist scalars $a_1, a_2, a_3$,
 				not all of which are zero, such that:
 				\[
 					a_1 \vec u + a_2 \vec r + a_3\vec s = \vec 0.
 				\]
-				But then 
+				But then
 				\[
 					\vec u+6\vec r-\vec s + (a_1 \vec u + a_2 \vec r + a_3\vec s)
 				\]
 				would be another way to write $\vec a$ using only the same three
-				vectors. 
+				vectors.
 			\end{solution}
 		\item Is $\Set{\vec u,\vec r}$ linearly independent?
 			\begin{solution}
-				Yes. If it were not, we would necessarily have $\vec u = a \vec r$
-				for some scalar $a$. But then 
+				Yes. If it were not, we would necessarily have $\vec u = \beta \vec r$
+				for some scalar $\beta$. But then
 				\[
-					(a + 6) \vec r - \vec s
+					(\beta + 6) \vec r - \vec s
 				\]
 				would be another way to write $\vec a$ using only the same three
-				vectors. 
+				vectors.
 			\end{solution}
 		\item Is $\Set{\vec u,\vec v,\vec w,\vec r}$ linearly independent?
 			\begin{solution}
 				No. We know from earlier that $\vec u+\vec v+2\vec w=\vec 0$, and
-				so $\vec u+\vec v+2\vec w+0\vec r=\vec 0$ is a non-trivial linear 
+				so $\vec u+\vec v+2\vec w+0\vec r=\vec 0$ is a non-trivial linear
 				combination of the vectors in this set that equals the zero vector.
 			\end{solution}
 	\end{parts}
@@ -2018,10 +2238,18 @@ examples.
 	\hline
 \end{tabular}
 \end{center}
-	
+
 		\item Write at least two generalizations that can
 			be made from these examples and the strategies you
 			used to create them.
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Make sure ``more than $n$ vectors in $\R^n$
+					is linearly dependent'' comes out.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 
 \end{enumerate}
 
@@ -2048,17 +2276,25 @@ examples.
 	Studying $\R^n$ we're in a natural inner product space with lengths and
 	angles. The dot product allows us to get at lengths and angles. It will
 	also give an alternative way to compute matrix products (dot product with rows
-	instead of linear combination of columns). 
+	instead of linear combination of columns).
 
 	Most importantly, the dot product tells us how much two vectors point in
-	the same direction as well as when they're orthogonal. 
+	the same direction as well as when they're orthogonal.
 
 \end{lesson}
 
 
 \section*{Dot Product}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item It'd be great to say $\norm{\vec v}=\sqrt{\vec v\cdot \vec v}$,
+					but that would make the geometric definition of the dot product circular.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{definition}[Norm]
-		The \emph{norm} of a vector $\vec v=\mat{v_1\\\vdots\\v_n}$ is the
+		The \emph{norm} of a vector $\vec v=\matc{v_1\\\vdots\\v_n}$ is the
 		length/magnitude of $\vec v$. It is written $\|\vec v\|$ and can be computed from
 		the Pythagorean formula
 		\[
@@ -2066,9 +2302,19 @@ examples.
 		\]
 	\end{definition}
 
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item The two definitions are useful in different contexts.
+				\item Students will gravitate towards the algebraic definition because
+					it has an easier formula. Emphasize that if they don't know
+					both definitions, there will be problems they can't solve.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{definition}[Dot Product]
-		If $\vec a=\mat{a_1\\a_2\\ \vdots\\a_n}$ and 
-		$\vec b=\mat{b_1\\b_2\\ \vdots\\b_n}$ are two vectors in $n$-dimensional 
+		If $\vec a=\matc{a_1\\a_2\\ \vdots\\a_n}$ and
+		$\vec b=\matc{b_1\\b_2\\ \vdots\\b_n}$ are two vectors in $n$-dimensional
 		space, then the \emph{dot product} of $\vec a$ an $\vec b$ is
 		\[
 			\vec a\cdot\vec b = a_1b_1+a_2b_2+\cdots+a_nb_n.
@@ -2079,67 +2325,155 @@ examples.
 		\]
 		where $\theta$ is the angle between $\vec a$ and $\vec b$.
 	\end{definition}
-	
+
 	\question
-		Let $\vec a=\mat{1\\1}$, $\vec b=\mat{3\\2}$, and $\vec u=\mat{1\\2\\1}$.
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practicing dot products.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use both the algebraic and geometric definitions of the dot product
+					as appropriate to compute dot products.
+				\item Gain an intuition that positive dot product
+					means ``pointing in similar directions'', negative dot product
+					means ``pointing in opposite directions'', and zero dot product
+					means ``pointing in orthogonal directions''.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item For part 3(d), some students will suggest a vector
+					that ``points out of the page''. This is a great idea!
+					Except that such a vector would have the wrong number of components,
+					so the dot products wouldn't be defined.
+				\item For part 4, students will try to solve an equation. Encourage them
+					to guess-and-check instead. It will be much faster.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+
+		Let $\vec a=\mat{1\\1}$, $\vec b=\mat{3\\1}$, and $\vec u=\mat{1\\2\\1}$.
 	\begin{parts}
-		\item 
-		\begin{enumerate}	
+		\item
+		\begin{enumerate}
 			\item Draw a picture of $\vec a $ and $\vec b$.
 				\begin{solution}
-					XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=.5,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-.5,
+					 xmax=4.5,
+					 ymin=-.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[Red, very thick, ->] (0,0) -- (1,1) node[near end, above] {$\vec a$};
+				    \draw[Blue, very thick, ->] (0,0) -- (3,2) node[near end, below] {$\vec b$};
+			    \end{axis}
+			\end{tikzpicture}
 				\end{solution}
 			\item Compute $\vec a\cdot \vec b$.
 				\begin{solution}[inline]
-					$\vec a\cdot \vec b = (1)(3) + (1)(2) = 5$.
+					$\vec a\cdot \vec b = (1)(3) + (1)(1) = 4$.
 				\end{solution}
 			\item Find $\|\vec a\|$ and $\|\vec b\|$ and use your knowledge of
 			the multiple ways to compute the dot product to find $\theta$,
 			the angle between $\vec a$ and $\vec b$. Label $\theta$ on your picture.
 				\begin{solution}
-					$\|\vec a\| = \sqrt{(1)^2 + (1)^2} = \sqrt{2}$ and 
-					$\|\vec b\| = \sqrt{(3)^2 + (2)^2} = \sqrt{13}$.
+					$\|\vec a\| = \sqrt{(1)^2 + (1)^2} = \sqrt{2}$ and
+					$\|\vec b\| = \sqrt{(3)^2 + (1)^2} = \sqrt{10}$.
 
 					Using the two definitions of the dot product we have:
 					\begin{align*}
 						\vec a\cdot \vec b &= \|\vec a\|\|\vec b\|\cos \theta \\
-						\implies 5 &= (\sqrt{2})(\sqrt{13}) \cos \theta \\
-						\implies \theta &= \arccos\left( \frac{5}{\sqrt{26}}\right)
+						\implies 4 &= (\sqrt{2})(\sqrt{10}) \cos \theta \\
+						\implies \theta &= \arccos\left( \frac{2}{\sqrt{5}}\right)
 					\end{align*}
 				\end{solution}
 		\end{enumerate}
-		\item Draw the graph of $\cos$ and identify which angles make $\cos$ 
+		\item Draw the graph of $\cos$ and identify which angles make $\cos$
 			negative, zero,	or positive.
 			\begin{solution}
-				INSERT GRAPH HERE
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=.5,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-.5,
+					 xmax=6.5,
+					 ymin=-1.5,
+					 ymax=1.5,
+					 major grid style={dotted, gray},
+					 xtick={0,.7854,...,6.284},
+					 xticklabels={,,$\tfrac{\pi}{2}$,,\footnotesize $\pi$,,$\tfrac{3\pi}{2}$,,\footnotesize $2\pi$},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
 
-				\
+					 \addplot[domain=0:6.283,samples=100] {cos(180/3.1415*x)};
+			    \end{axis}
+				\end{tikzpicture}
 
-				$\cos$ is positive for angles in the interval $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$,
+				Cosine is positive for angles in the interval $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$,
 				as well as all shifts of this interval by a multiple of $2\pi$ in
-				either direction. 
+				either direction.
 
 				$\cos$ is positive for angles in the interval $\left(\frac{\pi}{2},\frac{3\pi}{2}\right)$,
 				as well as all shifts of this interval by a multiple of $2\pi$ in
-				either direction.  
+				either direction.
 			\end{solution}
 
 		\item Draw a new picture of $\vec a$ and $\vec b$ and on that picture draw
-		\begin{enumerate}	
+		\begin{enumerate}
 			\item a vector $\vec c$ where $\vec c\cdot \vec a$ is negative.
 			\item a vector $\vec d$ where $\vec d\cdot \vec a=0$ and $\vec d\cdot \vec b < 0$.
 			\item a vector $\vec e$ where $\vec e\cdot \vec a=0$ and $\vec e\cdot \vec b>0$.
 			\item Could you find a vector $\vec f$ where $\vec f\cdot \vec a=0$ and $\vec f\cdot \vec b=0$?
 				Explain why or why not.
 				\begin{solution}
-					INSERT A PICTURE HERE
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
 
-					\ 
+				    \draw[Red, very thick, ->] (0,0) -- (1,1) node[near end, above] {$\vec a$};
+				    \draw[Blue, very thick, ->] (0,0) -- (3,1) node[near end, below] {$\vec b$};
+				    \draw[Yellow!70!black, very thick, ->] (0,0) -- (-2,0) node[near end, below] {$\vec c$};
+				    \draw[Orange, very thick, ->] (0,0) -- (-2,2) node[near end, below] {$\vec d$};
+				    \draw[Green, very thick, ->] (0,0) -- (2,-2) node[near end, below] {$\vec e$};
+			    \end{axis}
+			\end{tikzpicture}
 
-					(d) $\vec f = \vec 0$ is the only possibility. For any vector 
+					(d) $\vec f = \vec 0$ is the only possibility. For any vector
 					$\vec f = \mat{x\\y}$, we can compute:
 					\[
-						\vec f\cdot \vec a = x + y 
+						\vec f\cdot \vec a = x + y
 						\qquad \text{and} \qquad
 						\vec f\cdot \vec b = 3x + 2y.
 					\]
@@ -2150,46 +2484,46 @@ examples.
 
 		\item Recall the vector $\vec u$ whose coordinates are given at the beginning of this problem.
 		\begin{enumerate}
-			\item Write down a vector $\vec v$ so that the angle between $\vec u$ 
-				and $\vec v$ is $\pi/2$. (Hint, how does this relate to the dot 
+			\item Write down a vector $\vec v$ so that the angle between $\vec u$
+				and $\vec v$ is $\pi/2$. (Hint, how does this relate to the dot
 				product?)
 				\begin{solution}
-					$\vec v = \mat{1\\1\\-3}$ is one such vector. 
+					$\vec v = \mat{1\\1\\-3}$ is one such vector.
 
-					Since $\cos(\pi/2) = 0$, from the second definition of the dot 
+					Since $\cos(\pi/2) = 0$, from the second definition of the dot
 					product above we know we are looking for a $\vec v$ such that
-					$\vec u \cdot \vec v = 0$. Using the first definition of the 
-					dot product, we can see that the $\vec v$ given above is one 
-					possibility. 
+					$\vec u \cdot \vec v = 0$. Using the first definition of the
+					dot product, we can see that the $\vec v$ given above is one
+					possibility.
 				\end{solution}
-			\item Write down another vector $\vec w$ (in a different direction from 
+			\item Write down another vector $\vec w$ (in a different direction from
 				$\vec v$) so that the angle between $\vec w$ and $\vec u$ is $\pi/2$.
 				\begin{solution}
-					$\vec w = \mat{-1\\1\\-1}$ is a possible answer. 
+					$\vec w = \mat{-1\\1\\-1}$ is a possible answer.
 
-					$\vec u \cdot \vec w = 0$, and $\vec w$ is clearly not parallel 
+					$\vec u \cdot \vec w = 0$, and $\vec w$ is clearly not parallel
 					to $\vec v$ from above.
 				\end{solution}
-			\item Can you write down other vectors different than both $\vec v$ 
-				and $\vec w$ that still	form an angle of $\pi/2$ with $\vec u$? 
+			\item Can you write down other vectors different than both $\vec v$
+				and $\vec w$ that still	form an angle of $\pi/2$ with $\vec u$?
 				How many such vectors are there?
 				\begin{solution}
-					Yes. $\mat{0\\2\\-4}$ is one possibility. 
+					Yes. $\mat{0\\2\\-4}$ is one possibility.
 
 					There are actually infinitely many such vectors; any linear
-					combination of $\vec w$ and $\vec v$ will work. 
+					combination of $\vec w$ and $\vec v$ will work.
 
 					To see this, note that any such vector $\vec x$ is of the form
 					\[
-						\vec x = t \mat{1\\1\\-3} + s \mat{-1\\1\\-1} 
+						\vec x = t \mat{1\\1\\-3} + s \mat{-1\\1\\-1}
 						= \matc{t-s\\t+s\\-3t-s},
 					\]
 					for scalars $t$ and $s$. We can then compute
 					\[
 						\vec u \cdot \vec x = (1)(t-s) + (2)(t+s) + (1)(-3t-s) = 0,
 					\]
-					and so any such vector $\vec x$ forms an angle of $\pi/2$ 
-					with $\vec u$. 
+					and so any such vector $\vec x$ forms an angle of $\pi/2$
+					with $\vec u$.
 				\end{solution}
 		\end{enumerate}
 	\end{parts}
@@ -2208,32 +2542,59 @@ examples.
 	\begin{definition}[Unit Vector]
 		A vector $\vec v$ is called a \emph{unit vector} if $\|\vec v\|=1$.
 	\end{definition}
-	
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practice using norms.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice finding the distance between two vectors.
+				\item Produce a unit vector pointing in the same direction as another vector.
+				\item Intuitively apply the triangle inequality: $\norm{\vec a+\vec b}\leq \norm{\vec a}+\norm{\vec b}$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 1 will be easy.
+				\item Many will have trouble with part 2. Encourage them to write definitions! $\vec a$ is
+					in the direction of $\vec u$ if $\vec a=k\vec u$ and $\vec a$ is a unit vector if $\norm{\vec a}=1$.
+					Now, solve for $k$.
+
+					They will forget that $\sqrt{k^2}=\abs{k}$ and so there are two solutions
+					unless you insist on $k\geq 0$. You could mention ``in the direction of'' vs. the
+					more specific ``in the positive direction of'' if you want to have a detailed discussion.
+				\item Have them draw a picture for part 3.
+				\item Part 4 will be very hard. Only go into it if you have plenty of time.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec u=\mat{1\\2\\1}$ and $\vec v=\mat{1\\1\\3}$.
 	\begin{parts}
 		\item Find the distance between $\vec u$ and $\vec v$.
 			\begin{solution}
-				$\vec u - \vec v = \mat{0\\1\\-2}$, and so $\norm{\vec u-\vec v} = \sqrt{5}$. 
+				$\vec u - \vec v = \mat{0\\1\\-2}$, and so $\norm{\vec u-\vec v} = \sqrt{5}$.
 			\end{solution}
 		\item Find a unit vector in the direction of $\vec u$.
 			\begin{solution}
 				$\frac{1}{\sqrt{6}} \vec u = \mat{\frac{1}{\sqrt{6}}\\\frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{6}}}$.
 
 				$\norm{\vec u} = \sqrt{6}$, and so if we multiply $\vec u$ by $\frac{1}{\sqrt{6}}$,
-				the length of the resulting vector will be 1. 
+				the length of the resulting vector will be 1.
 			\end{solution}
 		\item Does there exists a \emph{unit vector} $\vec x$ that is distance
 			$1$ from $\vec u$?
 			\begin{solution}
 				No. $\norm{\vec u} = \sqrt{6}$, and so the shortest length that a
-				vector whose distance from $\vec u$ is 1 can have is $\sqrt{6} - 1$, 
-				which is greater than 1. 
+				vector whose distance from $\vec u$ is 1 can have is $\sqrt{6} - 1$,
+				which is greater than 1.
 			\end{solution}
-		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$ 
+		\item Suppose $\vec y$ is a unit vector and the distance between $\vec y$
 			and	$\vec u$ is $2$. What is the angle between $\vec y$ and $\vec u$?
 			\begin{solution}
-				The angle between $\vec u$ and $\vec y$ is $\arccos\left(-\frac{3}{2\sqrt{6}}\right)$. 
+				The angle between $\vec u$ and $\vec y$ is $\arccos\left(-\frac{3}{2\sqrt{6}}\right)$.
 
 				By assumption, $2=\norm{\vec u-\vec y}$, and so
 				\begin{align*}
@@ -2249,7 +2610,7 @@ examples.
 				\[
 					-\frac{3}{2} = \left(\sqrt{6}\right)(1) \cos \theta,
 				\]
-				where $\theta$ is the angle between $\vec u$ and $\vec y$. 
+				where $\theta$ is the angle between $\vec u$ and $\vec y$.
 			\end{solution}
 	\end{parts}
 
@@ -2258,39 +2619,64 @@ examples.
 		if $\vec u\cdot \vec v=0$.  The word orthogonal is synonymous with the
 		word perpendicular.
 	\end{definition}
-	
+
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of \emph{orthogonal}.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Gain an intuitive understanding of \emph{orthogonal vectors}.
+				\item Produce orthogonal vectors via guess-and-check.
+				\item Apply the Pythagorean theorem to orthogonal vectors to find lengths.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item It won't occur to most students that $\vec 0$ is orthogonal to everything. Make sure
+					this come up.
+				\item Guessing-and-checking is a valid and useful mathematical technique. Student aren't
+					comfortable with this method because there's no algorithm for it (and so it
+					doesn't seem reliable and repeatable). We should change their attitude. Most problems
+					in their lives won't be solved with repeatable algorithms (unless they work on
+					an assembly line).
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
-		\item Find two vectors orthogonal to $\vec a=\mat{1\\-3}$.  Can you find 
+		\item Find two vectors orthogonal to $\vec a=\mat{1\\-3}$.  Can you find
 			two such vectors that are not parallel?
 			\begin{solution}
-				Two such vectors are $\mat{3\\1}$ and $\mat{-6\\-2}$. 
+				Two such vectors are $\mat{3\\1}$ and $\mat{-6\\-2}$.
 
 				It is impossible for two non-parallel vectors to both be
 				orthogonal to $\vec a$. If $\vec b = \mat{x\\y}$ is orthogonal to
-				$\vec a$, then we must have that $x - 3y = 0$, or in other words 
-				that $x = 3y$. Any $\vec b$ satisfying this is a multiple of 
-				$\mat{3\\1}$. 
+				$\vec a$, then we must have that $x - 3y = 0$, or in other words
+				that $x = 3y$. Any $\vec b$ satisfying this is a multiple of
+				$\mat{3\\1}$.
 			\end{solution}
-		\item Find two vectors orthogonal to $\vec b=\mat{1\\-3\\4}$.  Can you 
+		\item Find two vectors orthogonal to $\vec b=\mat{1\\-3\\4}$.  Can you
 			find two such vectors that are not parallel?
 			\begin{solution}
 				Two such vectors are $\mat{7\\1\\-1}$ and $\mat{2\\2\\1}$.
 
-				These two vectors are not parallel. 
+				These two vectors are not parallel.
 			\end{solution}
-		\item Suppose $\vec x$ and $\vec y$ are orthogonal to each other and 
-			$\norm{\vec x}=5$ and $\norm{\vec y}=3$. What is the distance between 
+		\item Suppose $\vec x$ and $\vec y$ are orthogonal to each other and
+			$\norm{\vec x}=5$ and $\norm{\vec y}=3$. What is the distance between
 			$\vec x$ and $\vec y$?
 			\begin{solution}
-				The distance between them must be $\sqrt{34}$. 
+				The distance between them must be $\sqrt{34}$.
 
-				One way to see this is with Pythagoras' theorem. Two perpendicular 
-				line segments of lengths 3 and 5 form the two shorter sides of a 
+				One way to see this is with Pythagoras' theorem. Two perpendicular
+				line segments of lengths 3 and 5 form the two shorter sides of a
 				right angle triangle, and so the length of the third side is
-				$\sqrt{5^2 + 3^2} = \sqrt{34}$. 
+				$\sqrt{5^2 + 3^2} = \sqrt{34}$.
 
-				An equivalent way to see this is to use what we know about dot 
+				An equivalent way to see this is to use what we know about dot
 				products to calculate $\norm{\vec x-\vec y}$ as follows:
 				\[
 					\norm{\vec x-\vec y} = \sqrt{(\vec x-\vec y)\cdot(\vec x-\vec y)}
@@ -2298,7 +2684,7 @@ examples.
 					= \sqrt{5^2 + 2(0) + 3^2},
 				\]
 				where in the last step we've used the fact that $\vec x$ and $\vec y$
-				are orthogonal, so $\vec x\cdot\vec y = 0$. 
+				are orthogonal, so $\vec x\cdot\vec y = 0$.
 			\end{solution}
 	\end{parts}
 
@@ -2306,7 +2692,7 @@ examples.
 	\Title{Normal Form of Lines and Planes}
 
 	\Heading{Textbook}
-	Section 1.2
+	Section 1.3
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -2319,22 +2705,66 @@ examples.
 	about lines and planes in terms of right angles will help when visualizing orthogonal projections.
 
 \end{lesson}
-	
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Generate lines using orthogonality.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Visually see how the set of all vectors orthogonal to
+					a given vector forms a line.
+				\item Given a line defined as the set of all vectors orthogonal
+					to a given vector, express the line using an equation or
+					span.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This problem won't be hard, so don't spend too much time on it.
+				\item For part 1, students might insist on drawing arrowheads and tails
+					on their vectors. This is an opportunity to discuss when you should
+					draw arrowheads/tails and when you shouldn't.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
-		\item Draw $\vec u=\mat{2\\3}$ and \emph{all} vectors orthogonal to it. 
+		\item Draw $\vec u=\mat{2\\3}$ and \emph{all} vectors orthogonal to it.
 			Call this set $A$.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[Red, very thick, ->] (0,0) -- (2,3) node[near end, left] {$\vec u$};
+				    \draw[Green, very thick] (-6,4) -- (6,-4) node[near end, below left] {$A$};
+			    \end{axis}
+			\end{tikzpicture}
 			\end{solution}
-		\item If $\vec x=\mat{x\\y}$ and $\vec x$ is orthogonal to $\vec u$, 
+		\item If $\vec x=\mat{x\\y}$ and $\vec x$ is orthogonal to $\vec u$,
 			what is $\vec x\cdot \vec u$?
 			\begin{solution}[inline]
 				$\vec x\cdot \vec u = 0$, by the definition of orthogonality.
 			\end{solution}
 		\item Expand the dot product $\vec u\cdot \vec x$ to get an equation for $A$.
 			\begin{solution}
-				$A$ is the line with vector equation $\vec x = t\mat{3\\-2}$. 
+				$A$ is the line with vector equation $\vec x = t\mat{3\\-2}$.
 
 				If $\vec x=\mat{x\\y} \in A$, then $\vec x\cdot\vec u = 2x + 3y = 0$.
 			\end{solution}
@@ -2349,26 +2779,56 @@ examples.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Express lines in normal form.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Express lines, including lines that don't pass through $\vec 0$,
+					in normal form.
+				\item See the $\vec q$ in $\vec n\cdot (\vec x-\vec q)=0$ is similar
+					to the $\vec p$ in the vector form $\vec x=t\vec d+\vec p$ in
+					that it accommodates lines that don't pass through $\vec 0$.
+				\item Use the dot product to represent a line compactly.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item For part 2, encourage students to use the definition of \emph{span}
+					to produce an argument.
+				\item In part 3, have a discussion about the role that $\vec q$ plays. Namely,
+					that it ``translates'', in a similar way that $\vec p$ in the vector
+					form $\vec x=t\vec d+\vec p$ translates.
+
+					However, be careful about the discussion here. Students may find it very
+					confusing that we ``subtract $\vec q$'' to translate in normal form, whereas in
+					vector form we add $\vec p$. Have a good explanation prepared if you go
+					down this route.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec d=\mat{1\\2}$ and $\vec p=\mat{1\\-1}$, and define the lines
 	\[
-		\ell_1 = \Span\Set{\vec d}\qquad\text{and}\qquad \ell_2=\Span\Set{\vec p}+\Span\Set{\vec d}.
+		\ell_1 = \Span\Set{\vec d}\qquad\text{and}\qquad \ell_2=\Span\Set{\vec p}+\Set{\vec d}.
 	\]
 	\begin{parts}
 		\item Find a vector $\vec n$ that is a normal vector for both $\ell_1$
 			and	$\ell_2$.
 			\begin{solution}
-				$\vec n=\mat{2\\-1}$ is one possibility. 
+				$\vec n=\mat{2\\-1}$ is one possibility.
 
-				This vector is orthogonal to $\vec d$, which is a direction 
-				vector for both lines.				
+				This vector is orthogonal to $\vec d$, which is a direction
+				vector for both lines.
 			\end{solution}
-		\item Let $\vec v\in \ell_1$ and $\vec u\in \ell_2$. 
+		\item Let $\vec v\in \ell_1$ and $\vec u\in \ell_2$.
 			What is $\vec n\cdot \vec v$? What about $\vec n\cdot \vec u$?
 			\begin{solution}
 				$\vec n\cdot \vec v = 0$, since any $\vec v \in \ell_1$ is a multiple
-				of $\vec d$. 
+				of $\vec d$.
 
-				$\vec n\cdot \vec u=3$, since any such $\vec u$ is of the form 
+				$\vec n\cdot \vec u=3$, since any such $\vec u$ is of the form
 				$\vec u=\vec p+t\vec d$ for some scalar $t$, and so
 				\[
 					\vec n\cdot \vec u
@@ -2379,18 +2839,40 @@ examples.
 				\]
 			\end{solution}
 		\item A line is expressed in \emph{normal form} if it is represented by
-			an equation of the form $\vec n\cdot (\vec x-\vec q)=0$ for some 
+			an equation of the form $\vec n\cdot (\vec x-\vec q)=0$ for some
 			$\vec n$ and $\vec q$. Express $\ell_1$ and $\ell_2$ in normal form.
 			\begin{solution}
-				The normal form of $\ell_1$ is $\mat{2\\-1}\cdot\vec x=0$. test 
+				The normal form of $\ell_1$ is $\mat{2\\-1}\cdot\vec x=0$. test
 
 				The normal form of $\ell_2$ is $\mat{2\\-1}\cdot\left(\vec x-\mat{1\\-1}\right)=0$.
 				In the previous part we saw that $\vec n\cdot \vec x=\vec n\cdot \vec p$
-				for all $\vec x\in \ell_2$, or in other words $\vec n\cdot (\vec x-\vec p) = 0$. 
+				for all $\vec x\in \ell_2$, or in other words $\vec n\cdot (\vec x-\vec p) = 0$.
 			\end{solution}
 	\end{parts}
-	
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Planes in normal form.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Observe that the set of all vectors orthogonal to another in $\R^3$
+					is a plane.
+				\item Translate descriptions of sets into precise mathematical statements using
+					set-builder notation.
+				\item Express a plane in multiple ways.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Students have already worked witht this plane in problem \ref{ProbPlane},
+					but they won't remember. Emphasize part 1 and go quickly through the other parts,
+					referring to problem \ref{ProbPlane} if needed.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec n=\mat{1\\1\\1}$.
 	\begin{parts}
 		\item Use set-builder notation to write down the set, $X$, of
@@ -2399,8 +2881,8 @@ examples.
 			\begin{solution}
 				$X = \Set*{\vec x\in \R^3 \given \vec x\cdot \vec n = 0}$.
 
-				Geometrically, this is a plane through the origin and 
-				perpendicular to $\vec n$. 
+				Geometrically, this is a plane through the origin and
+				perpendicular to $\vec n$.
 			\end{solution}
 		\item Describe $X$ using an equation.
 			\begin{solution}[inline]
@@ -2408,7 +2890,7 @@ examples.
 			\end{solution}
 		\item Describe $X$ as a span.
 			\begin{solution}[inline]
-				$X = \Span\Set*{\mat{1\\-2\\1}}$ is one way to do this.
+				$X = \Span\Set*{\mat{1\\-1\\0},\mat{1\\0\\-1}}$ is one way to do this.
 			\end{solution}
 	\end{parts}
 
@@ -2442,78 +2924,174 @@ examples.
 			The other is $\frac{\vec u\cdot \vec v}{\vec v\cdot \vec v}\vec v$.
 		\end{notes}
 	\end{annotation}
-	$\Comp_{\vec v}\vec u$ is the component of a vector in the direction of another, 
+	$\Comp_{\vec v}\vec u$ is the component of a vector in the direction of another,
 	which is sometimes called the projection of $\vec u$ onto $\vec v$. It relates
 	to how much one vector points in the direction of another and
-	provides a decomposition of vectors in terms of orthogonal components. 
-	
+	provides a decomposition of vectors in terms of orthogonal components.
+
 
 \end{lesson}
 \section*{Projections}
-	
+
 	\begin{definition}[Projection]
 		Let $X$ be a set. The \emph{projection} of the vector $\vec v$
-		onto $X$, written $\Proj_X\vec v$, is the closest point to $\vec v$ in $X$.
+		onto $X$, written $\Proj_X\vec v$, is the closest point in $X$ to $\vec v$.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of projection.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use the definition of projection to compute projections onto finite sets and lines.
+				\item Pick an appropriate representation of a line to solve a projection problem.
+			\end{itemize}
+		\end{goals}
+		\begin{notes}
+			\begin{itemize}
+				\item Projections will be new and strange. Some students will be familiar with
+					the notation $\Proj_{\vec b}\vec a$ and will confuse this
+					with $\Proj_{\{\vec b\}}\vec a$. Make them apply the definition of projection.
+				\item When visualizing projections, it is often better to draw vectors as dots instead
+					of line segments. Students will have a cluttered diagram if they try to
+					draw vectors with ``tails''.
+				\item General projections have no formula. This might make students unhappy, but it's an
+					important point to emphasize.
+				\item The goal of part 3 is to have students pick a from the many representations of $\ell$
+					a suitable one. Vector avoids multivariable calculus.
+
+				\item Some students might already know about a relationship between orthogonality and
+					a closest point. If you don't want to optimize a quadratic,
+					you may ask students to do part 4 first with a picture and then do part 3 by inspection.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec a=\mat{1\\0}$, $\vec b=\mat{4\\0}$, $\vec v=\mat{2\\2}$ and
 	$\ell=\Span\Set{\vec a}$.
 	\begin{parts}
 		\item Draw $\vec a$, $\vec b$, and $\vec v$ in the same picture.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \fill[fill=Red] (1,0) circle[radius=2pt] node[below right] {\color{Red}$\vec a$};
+				    \fill[fill=Green] (4,0) circle[radius=2pt] node[below right] {\color{Green}$\vec b$};
+				    \fill[fill=Orange] (2,2) circle[radius=2pt] node[below right] {\color{Orange}$\vec v$};
+			    \end{axis}
+			\end{tikzpicture}
 			\end{solution}
 		\item Find $\Proj_{\Set{\vec b}}\vec v$, $\Proj_{\Set{\vec a,\vec b}}\vec v$.
 			\begin{solution}
 				$\Proj_{\Set{\vec b}}\vec v = \vec b$. Since there is only one
-				point in $\Set{\vec b}$, it must be the closest point to $\vec v$. 
+				point in $\Set{\vec b}$, it must be the closest point to $\vec v$.
 
 				$\Proj_{\Set{\vec a,\vec b}}\vec v=\vec a$. We can simply compute
 				$\norm{\vec v-\vec a} = \sqrt{5}$ and $\norm{\vec v-\vec b} = \sqrt{13}$,
-				so $\vec a$ is closer to $\vec v$. 
+				so $\vec a$ is closer to $\vec v$.
 			\end{solution}
-		\item Find $\Proj_\ell \vec v$. (Recall that a quadratic $at^2+bt+c$ has 
+		\item Find $\Proj_\ell \vec v$. (Recall that a quadratic $at^2+bt+c$ has
 			a minimum at $t=-\tfrac{b}{2a}$).
 			\begin{solution}
-				$\Proj_\ell \vec v = 2\vec a$.
+				$\Proj_\ell \vec v = 2\vec a=\mat{2\\0}$.
 
-				Any point in $\ell$ is of the form $t\vec a$ for some scalar 
+				Any point in $\ell$ is of the form $t\vec a$ for some scalar
 				$t$. The distance between such a point and $\vec v$ is
 				\[
 					\norm{\vec v - t\vec a}
 					=\sqrt{\norm{v}^2 - 2t(\vec v\cdot \vec a) + t^2 \norm{a}^2}
 					=\sqrt{8 - 4t + t^2}
 				\]
-				The quadratic inside the square root has a minimum at 
+				The quadratic inside the square root has a minimum at
 				$t = 2$, so $2 \vec a$ is the closest point in the line
-				to $\vec v$. 
+				to $\vec v$.
 			\end{solution}
 		\item Is $\vec v-\Proj_\ell \vec v$ a normal vector for $\ell$?
 			Why or why not?
 			\begin{solution}
-				Yes. 
+				Yes.
 
 				By the previous part, $\vec v-\Proj_\ell \vec v=\vec v-2\vec a=\mat{0\\2}$.
-				This vector is orthogonal to $\vec a$, and therefore to $\ell$. 
+				This vector is orthogonal to $\vec a$, and therefore to $\ell$.
 			\end{solution}
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Project onto lines.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use orthogonality to compute the projection onto a line.
+				\item Project onto lines that don't pass through $\vec 0$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This is not a calculus class, so we want to avoid
+					doing projections via calculus. This problem forces
+					the use of orthogonality to solve a projection question.
+				\item When drawing pictures for part 2, there will be a question
+					of where you should root your vectors. Rooting your vectors
+					on $K$ makes the picture clearer.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $K$ be the line given in vector form by $\vec x=t\mat{1\\2}+\mat{1\\0}$ and let
 	$\vec c=\mat{1\\3}$.
 	\begin{parts}
-		\item Make a sketch with $\vec c$, $K$, and $\Proj_K\vec c$ (you don't need to compute 
+		\item Make a sketch with $\vec c$, $K$, and $\Proj_K\vec c$ (you don't need to compute
 		$\Proj_K\vec c$ exactly).
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-4.5,
+					 xmax=4.5,
+					 ymin=-4.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[Green, very thick] (-2,-6) -- (4,6) node[pos=.4, below right] {$K$};
+
+				    \fill[fill=Orange] (1,3) circle[radius=2pt] node[below left] {\color{Orange}$\vec c$};
+				    \fill[fill=blue] (.2*11,.2*12) circle[radius=2pt] node[below right] {\color{blue}$\Proj_K\vec c$};
+			    \end{axis}
+			\end{tikzpicture}
 			\end{solution}
 		\item What should $(\vec c-\Proj_K\vec c)\cdot \mat{1\\2}$ be? Explain.
 			\begin{solution}
 				$(\vec c-\Proj_K\vec c)\cdot \mat{1\\2} = 0$.
 
 				From our picture we can see that $c-\Proj_K\vec c$ is perpendicular
-				to the line $K$, and so the dot product of this vector with any 
+				to the line $K$, and so the dot product of this vector with any
 				direction vector for $K$ should be zero.
 			\end{solution}
 		\item Use your formula from the previous part to find $\Proj_K\vec c$
@@ -2529,7 +3107,7 @@ examples.
 					\quad \iff \quad
 					x+2y=7
 				\]
-				So we need a point on $K$ that satisfies this equation. In other 
+				So we need a point on $K$ that satisfies this equation. In other
 				words, we need
 				\[
 					(t+1) + 2(2t) = 7 \quad \implies \quad t = \frac{6}{5}.
@@ -2538,8 +3116,9 @@ examples.
 			\end{solution}
 	\end{parts}
 
+
 	\begin{definition}[Component]
-		Let $\vec u$ and $\vec v\neq \vec 0$ be vectors. The 
+		Let $\vec u$ and $\vec v\neq \vec 0$ be vectors. The
 		\emph{component of $\vec u$ in the $\vec v$ direction}, written $\Comp_{\vec v}\vec u$,
 		is the vector in the direction of $\vec v$ so that $\vec u-\Comp_{\vec v}\vec u$
 		is orthogonal to $\vec v$.
@@ -2550,7 +3129,7 @@ examples.
 		\draw[->,thick,black] (0,0) -- (3,0) node [above] {$\vec v$};
 		\draw[->,thick,black,yshift=-.07cm] (0,0) -- (2,0);
 		\draw[decoration={brace, mirror}, decorate, yshift=-.15cm] (0,0) -- (2,0) node [midway,below,yshift=-4pt] {$\Comp_{\vec v}\vec u$};
-		
+
 		\draw[dashed,thick,black] (2,0) -- (2,1);
 		\draw[decoration={brace, mirror}, decorate, xshift=1.15cm] (2,0) -- (2,1) node [midway,right,xshift=4pt] {$\vec u-\Comp_{\vec v}\vec u$};
 		\draw[thin,black] (1.85,0)--(1.85,.15)--(2,.15);
@@ -2558,8 +3137,39 @@ examples.
 	\end{tikzpicture}
 	\end{center}
 	\end{definition}
-	
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item This is called $\Proj_{\vec v}\vec u$ in some courses. This
+					operation is renamed \emph{component \ldots} to avoid
+					possible notational confusion with $\Proj_{\Set{\vec v}}\vec u$.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Component of a vector in the direction of another.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Read and apply a new definition.
+				\item Use orthogonality to obtain a formula for components in terms of
+					dot products.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item For part 1, ask students to codify their conditions
+					with formulas. This will be \emph{hard}. Students
+					will not know how to read the definition, They will
+					get one property easily, but a second property will escape them.
+				\item Part 2 is an exercise in applying the two formulas from part 1.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec a,\vec b\in \R^3$ be unknown vectors.
 	\begin{parts}
 		\item List two conditions that $\Comp_{\vec b}\vec a$ must satisfy.
@@ -2567,7 +3177,7 @@ examples.
 				$\Comp_{\vec b} \vec a$ must be a scalar multiple of $\vec b$.
 
 				$\vec a - \Comp_{\vec b} \vec a$ must be orthogonal to $\vec b$,
-				or in other words $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$. 
+				or in other words $(\vec a-\Comp_{\vec b}\vec a)\cdot \vec b=0$.
 			\end{solution}
 		\item Find a formula for $\Comp_{\vec b}\vec a$.
 			\begin{solution}
@@ -2613,7 +3223,7 @@ examples.
 			\begin{itemize}
 			\item	Philosophically, a subspace should be defined
 			as a non-empty set closed under linear combinations.
-			However, defining it as closed under addition and scalar 
+			However, defining it as closed under addition and scalar
 			multiplication gives students new to proofs
 			something explicit to hang on to when attempting a proof.
 			\item Some people define a subspace as a set containing
@@ -2621,11 +3231,17 @@ examples.
 			as a non-empty set satisfying closure. We won't be trying
 			to trick students by asking if an empty set is a subspace,
 			so don't belabor the point.
+			\item Proving a set is a subspace is one of the few proofs
+				that we will hold students accountable for. That is,
+					it is one of the few things we expect
+					students to be able to write down completely
+					correctly using formal mathematical language.
+					They will need practice to be able to do this!
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
 	Since we do not do abstract vector spaces in this course, subspaces are
-	the first place (unless you count projections) students will encounter 
+	the first place (unless you count projections) students will encounter
 	a set defined by its properties. Subspaces are suitable for a first-encounter
 	because 1) the properties are simple and familiar and 2) subspaces of $\R^n$
 	have a concrete geometric interpretation.
@@ -2633,12 +3249,58 @@ examples.
 \end{lesson}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Relate components and projections.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Find a connection between components and projections
+					onto spans.
+				\item Recognize that $\Comp_{\vec u}\vec v=\Comp_{-\vec u}\vec v$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 4 will be counterintuitive. Students may
+					think $\Comp_{-\vec d}\vec u=-\Comp_{\vec d}\vec u$.
+					Referring back to part 2 and noticing $\Span\Set{\vec d}=\Span\Set{-\vec d}$
+					should be enlightening.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec d=\mat{3\\3}$ and $\vec u=\mat{1\\2}$.
 	\begin{parts}
 		\item Draw $\vec d$, $\vec u$, $\Span\{\vec d\}$, and $\Proj_{\Span\{\vec d\}}\vec u$
 			in the same picture.
 			\begin{solution}
-				XXXX
+				\begin{tikzpicture}[scale=1.2, >=latex]
+			    \begin{axis}[scale=1,
+					    axis equal image,
+					    axis line style={black},
+					    axis lines=middle,
+					    tick style={draw=none},
+					    yticklabels={,,},
+					    xticklabels={,,},
+					 xmin=-.5,
+					 xmax=4.5,
+					 ymin=-.5,
+					 ymax=4.5,
+					 major grid style={dotted, gray},
+					 xtick={-10,-9,...,10},
+					 ytick={-10,-9,...,10},
+					 grid=both,
+					 anchor=origin]
+
+				    \draw[thin, densely dotted, black] (1.5,1.5) -- (1,2);
+				    \draw[Green, very thick] (-1,-1) -- (5,5) node[pos=.7, below right] {$\Span\Set{\vec d}$};
+
+				    \draw[blue, ->, very thick] (0,0) -- (1,2) node[above] {\color{blue}$\vec u$};
+				    \draw[Orange, ->, very thick] (0,0) -- (3,3) node[above left] {\color{Orange}$\vec d$};
+				    \fill[fill=purple] (1.5,1.5) circle[radius=2pt] node[below right] {\color{Purple}$\Proj_{\Span\Set{\vec d}}\vec u$};
+			    \end{axis}
+			\end{tikzpicture}
 			\end{solution}
 		\item How do $\Proj_{\Span\{\vec d\}}\vec u$ and $\Comp_{\vec d}\vec u$ relate?
 			\begin{solution}[inline]
@@ -2651,19 +3313,19 @@ examples.
 					\Proj_{\Span\{\vec d\}}\vec u
 					=\Comp_{\vec d}\vec u
 					=\frac{\vec u\cdot \vec d}{\norm{\vec d}^2} \vec d
-					=\frac{9}{18}\vec d = \frac{1}{2}\mat{3\\3}.
+					=\tfrac{9}{18}\vec d = \tfrac{1}{2}\mat{3\\3}.
 				\]
 			\end{solution}
-		\item Compute $\Comp_{-\vec d}\vec u$. Is this the same as or different from 
+		\item Compute $\Comp_{-\vec d}\vec u$. Is this the same as or different from
 			$\Comp_{\vec d}\vec u$? Explain.
 			\begin{solution}
 				\[
 					\Comp_{-\vec d}\vec u
 					=\frac{\vec u\cdot (-\vec d)}{\norm{-\vec d}^2} (-\vec d)
-					=\frac{-9}{18}(-\vec d) = \frac{1}{2}\mat{3\\3}
+					=\tfrac{-9}{18}(-\vec d) = \tfrac{1}{2}\mat{3\\3}
 					=\Comp_{\vec d}\vec u.
 				\]
-				We expect them to be equal since $\vec d$ and $-\vec d$ are 
+				We expect them to be equal since $\vec d$ and $-\vec d$ are
 				in the same direction as one another.
 			\end{solution}
 	\end{parts}
@@ -2682,43 +3344,82 @@ examples.
 	Subspaces give a mathematically precise definition of a ``flat space through the origin.''
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Visualizing subspaces.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Read and apply the definition of subspace.
+				\item Identify from a picture whether or not a set is a subspace.
+				\item Write formal arguments showing whether or not certain sets are subspaces.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			Every part of this problem highlights a misconception or builds an abstraction.
+			\begin{enumerate}
+				\item[1.] Satisfies (i) but not (ii).
+				\item[2.] Looks fairly flat, but violates (i) and (ii) in a specify way.
+				\item[3.] First subspace.
+				\item[4.] Looks flat, but violates (i) and (ii).
+				\item[5.] Satisfies (ii) but not (i).
+				\item[6.] Second subspace.
+				\item[7.] Alternate notation which requires unpacking a definition.
+				\item[8.] Abstractly defined subspace requires an abstract proof.
+			\end{enumerate}
+			\begin{itemize}
+				\item Proving a set is a subset is one of the few \emph{proofs} we hold
+					students accountable for, and they need practice. Remind them
+					that to prove something is not a subspace they only need to
+					prove that one condition is violated, and this can be done with
+					an example. However, to prove something is a subspace, we need
+					to make an argument about every single vector.
+				\item Subspace proofs can follow a template. ``Let $\vec u,\vec v\in X$ and
+					let $\alpha$ be a scalar. By definition \ldots, and so \ldots''. Let
+					students try to write a proof on their own. Then, give them
+					the template. Applying the template is harder than it seems, so
+					emphasize for every subspace proof how it fits the template.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	For each set, draw it and explain whether or not it is a subspace of $\R^2$.
 	\begin{parts}
 		\item $A=\Set*{\vec x\in\R^2 \given \vec x=\mat{a\\0}\text{ for some }a\in\Z}$.
 			\begin{solution}
 				XXXX
 
-				$A$ is not a subspace, since for example $\mat{1\\0} \in A$ but 
-				$\frac{1}{2}\mat{1\\0}\notin A$. 
+				$A$ is not a subspace, since for example $\mat{1\\0} \in A$ but
+				$\frac{1}{2}\mat{1\\0}\notin A$.
 			\end{solution}
 		\item $B=\Set*{\vec x\in\R^2 \given \vec x\neq \mat{0\\0}}$.
 			\begin{solution}
 				XXXX
-					
+
 				$B$ is not a subspace, since for example $\mat{1\\0}$ and $\mat{-1\\0}$
 				are both in $B$, but their sum is $\mat{0\\0}$ which is not in $B$.
 			\end{solution}
 		\item $C=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
-					
+
 				$C$ is a subspace.
 
 				\begin{enumerate}[label=(\roman*)]
 					\item Let $\vec u,\vec v\in C$. Then $\vec u=\mat{0\\t}$ and
 						$\vec v=\mat{0\\s}$ for some $s,t\in\R$.
 
-						But then $\vec u+\vec v=\mat{0\\s+t}\in C$. 
+						But then $\vec u+\vec v=\mat{0\\s+t}\in C$.
 					\item Let $\vec u=\mat{0\\t}\in C$. For any scalar $\alpha$
-						we have $\alpha\vec u=\mat{0\\\alpha t}\in C$. 
+						we have $\alpha\vec u=\mat{0\\\alpha t}\in C$.
 				\end{enumerate}
 			\end{solution}
 		\item $D=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}+\mat{1\\1}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
-					
+
 				$D$ is not a subspace, since for example $\mat{1\\1}\in D$, but
-				$0\mat{1\\1}=\mat{0\\0}\notin D$. 
+				$0\mat{1\\1}=\mat{0\\0}\notin D$.
 			\end{solution}
 		\item $E=\Set*{\vec x\in\R^2 \given \vec x=\mat{0\\t}\text{ or }\vec x=\mat{t\\0}\text{ for some }t\in\R}$.
 			\begin{solution}
@@ -2730,23 +3431,23 @@ examples.
 		\item $F=\Set*{\vec x\in\R^2 \given \vec x=t\mat{3\\1}\text{ for some }t\in\R}$.
 			\begin{solution}
 				XXXX
-					
+
 				$F$ is a subspace.
 
 				\begin{enumerate}[label=(\roman*)]
 					\item Let $\vec u,\vec v\in F$. Then $\vec u=t\mat{3\\1}$ and
-						$\vec v=s\mat{3\\1}$ for some $s,t\in\R$. 
+						$\vec v=s\mat{3\\1}$ for some $s,t\in\R$.
 
-						But then $\vec u+\vec v=(s+t)\mat{3\\1}\in F$. 
+						But then $\vec u+\vec v=(s+t)\mat{3\\1}\in F$.
 					\item Let $\vec u=t\mat{3\\1}\in F$. For any scalar $\alpha$
-						we have $\alpha\vec u=(\alpha t)\mat{3\\1}\in F$. 
+						we have $\alpha\vec u=(\alpha t)\mat{3\\1}\in F$.
 				\end{enumerate}
 			\end{solution}
 		\item $G=\Span\left\{\mat{1\\1}\right\}$.
 			\begin{solution}
 				XXXX
-					
-				$G$ is a subspace. 
+
+				$G$ is a subspace.
 
 				By definition of a span,
 				$G=\Set*{\vec x\in\R^2 \given \vec x=t\mat{1\\1}\text{ for some }t\in\R}$.
@@ -2756,24 +3457,24 @@ examples.
 
 				\begin{enumerate}[label=(\roman*)]
 					\item Let $\vec u,\vec v\in G$. Then $\vec u=t\mat{1\\1}$ and
-						$\vec v=s\mat{1\\1}$ for some $s,t\in\R$. 
+						$\vec v=s\mat{1\\1}$ for some $s,t\in\R$.
 
-						But then $\vec u+\vec v=(s+t)\mat{1\\1}\in G$. 
+						But then $\vec u+\vec v=(s+t)\mat{1\\1}\in G$.
 					\item Let $\vec u=t\mat{1\\1}\in G$. For any scalar $\alpha$
-						we have $\alpha\vec u=(\alpha t)\mat{1\\1}\in G$. 
+						we have $\alpha\vec u=(\alpha t)\mat{1\\1}\in G$.
 				\end{enumerate}
 
 		\end{solution}
 		\item $H=\Span\Set{\vec u,\vec v}$ for some unknown vectors $\vec u,\vec v\in\R^2$.
 			\begin{solution}
 				XXXX
-					
-				$H$ is a subspace. 
+
+				$H$ is a subspace.
 
 				\begin{enumerate}[label=(\roman*)]
 					\item Let $\vec x,\vec y\in H$.
-						Then $\vec x=\alpha_1\vec u+\alpha_2\vec v$ and 
-						$\vec y=\beta_1\vec u+\beta_2\vec v$ for some scalars 
+						Then $\vec x=\alpha_1\vec u+\alpha_2\vec v$ and
+						$\vec y=\beta_1\vec u+\beta_2\vec v$ for some scalars
 						$\alpha_1,\alpha_2,\beta_1,\beta_2$. But then
 						\[
 							\vec x+\vec y
@@ -2782,7 +3483,7 @@ examples.
 						\]
 
 					\item Let $\vec x=\alpha_1\vec u+\alpha_2\vec v\in H$.
-						For any	scalar $\beta$ we have 
+						For any	scalar $\beta$ we have
 						$\beta\vec u=(\beta\alpha_1)\vec u+(\beta\alpha_2)\vec v\in H$.
 				\end{enumerate}
 			\end{solution}
@@ -2828,7 +3529,7 @@ examples.
 	\question
 	\begin{annotation}
 		\begin{goals}
-			\Goal{Apply the definitions of basis and dimension to an easy example.}
+			\Goal{Apply the definitions of basis and dimension to a simple example.}
 
 			The goal of this problem is to learn
 			\begin{itemize}
@@ -2841,15 +3542,15 @@ examples.
 
 		\begin{notes}
 			\begin{itemize}
-				\item Students will claim $V$ is $\R^2$ and fail to distinguish 
+				\item Students will claim $V$ is $\R^2$ and fail to distinguish
 					$\R^2$ and the $xy$-plane in $\R^3$.
 				\item Parts 2, 3, 4, 6 will be easy; don't belabor them.
-				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$ 
+				\item Students will fail to distinguish $\Span\{\vec u,\vec v\}$
 					from $\{\vec u,\vec v\}$. Make sure this distinction comes out.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$, 
+	Let $\vec u=\mat{1\\0\\0}$, $\vec v=\mat{0\\1\\0}$, $\vec w=\mat{1\\1\\0}$,
 	and $V=\Span\Set{\vec u,\vec v,\vec w}$.
 	\begin{parts}
 		\item Describe $V$.
@@ -2877,39 +3578,62 @@ examples.
 		\item What is the dimension of $V$?
 			\begin{solution}
 				A basis for $V$ has two vectors so it is two-dimensional. We also
-				know this because $V$ is the $xy$-plane in $\R^3$ and all planes 
+				know this because $V$ is the $xy$-plane in $\R^3$ and all planes
 				are two-dimensional.
 			\end{solution}
 	\end{parts}
 
-
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{The relationship between subspaces, bases, unions, and intersections.}
+
+			The goal of this problem is to learn
+			\begin{itemize}
+				\item Recognize intersections of subspaces as subspaces.
+				\item Recognize the union of subspaces need not be a subspace.
+				\item Visualize planes in $\R^3$ to solve problems without computations.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Remind students that if they're stuck, they can always create a system
+					of equations to help answer their question.
+				\item For part 3, students could row-reduce if they're stuck, but the nicer
+					way is to notice $\vec b$ is common to both spans and so, since the
+					planes are not parallel, their intersection must be the line $\Span\Set{\vec b}$.
+				\item Part 4 is hard to prove, but you can make a hand-wavy argument without
+					too much trouble. Don't worry about getting a rock-solid proof for this part.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec a=\mat{1\\2\\3}$, $\vec b=\mat{4\\5\\6}$, $\vec c=\mat{7\\8\\8}$ (notice these vectors
-	are linearly independent) and 
+	are linearly independent) and
 	let $P=\Span\Set{\vec a,\vec b}$ and $Q=\Span\Set{\vec b,\vec c}$.
 	\begin{parts}
 		\item Give a basis for and the dimension of $P$.
 			\begin{solution}
-				$\Set{\vec a,\vec b}$ is a basis for $P$, and so its dimension is 2. 
+				$\Set{\vec a,\vec b}$ is a basis for $P$, and so its dimension is 2.
 			\end{solution}
 		\item Give a basis for and the dimension of $Q$.
 			\begin{solution}
-				$\Set{\vec b,\vec c}$ is a basis for $Q$, and so its dimension is 2. 
+				$\Set{\vec b,\vec c}$ is a basis for $Q$, and so its dimension is 2.
 			\end{solution}
 		\item Is $P\cap Q$ a subspace? If so, give a basis for it and its dimension.
 			\begin{solution}
-				Yes. $\Set{\vec b}$ is a basis for $P\cap Q$, and so its dimension is 1. 
+				Yes. $\Set{\vec b}$ is a basis for $P\cap Q$, and so its dimension is 1.
 
-				$P$ and $Q$ are both planes and are not parallel (since 
+				$P$ and $Q$ are both planes and are not parallel (since
 				$\vec a,\vec b,\vec c$ are linearly independent). The intersection
-				of any two non-parallel	planes is a line. 
+				of any two non-parallel	planes is a line.
 				We know that $\vec 0$ and $\vec c$ are on this line, and therefore
 				the line is $\Span\Set{\vec c}$
 			\end{solution}
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 			\begin{solution}
-				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but 
-				$\vec a+\vec c \notin P\cup Q$. 
+				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but
+				$\vec a+\vec c \notin P\cup Q$.
 
 				A vector is in $P\cup Q$ if it is in $P$ or $Q$, so we must show
 				that $\vec a+\vec c\notin P$ and $\vec a+\vec c\notin Q$
@@ -2918,9 +3642,9 @@ examples.
 				$(\vec a+\vec c)-\vec a=\vec c\in P$. We know this is impossible
 				since the vectors $\vec a,\vec b,\vec c$ are linearly independent,
 				and so $\vec c$ does not equal a linear combination of $\vec a$
-				and $\vec b$. 
+				and $\vec b$.
 
-				An analogous argument shows that $\vec a+\vec c \notin Q$. 
+				An analogous argument shows that $\vec a+\vec c \notin Q$.
 			\end{solution}
 	\end{parts}
 
@@ -2935,7 +3659,7 @@ examples.
 	\begin{itemize}
 		\item Write a system of linear equations as a matrix equation.
 		\item Write a matrix equation as a system of linear equations.
-		\item Pose familiar problems (e.g., ``find a normal vector'', or 
+		\item Pose familiar problems (e.g., ``find a normal vector'', or
 			``do these planes intersect\mbox{?}'') as matrix-equation
 			questions.
 	\end{itemize}
@@ -2949,7 +3673,7 @@ examples.
 
 \end{lesson}
 \section*{Matrices}
-	
+
 	\question
 	Let $A=\mat{1&2\\3&3}$, $\vec x=\mat{x\\y}$, and $\vec b=\mat{-2\\-1}$.
 	\begin{parts}
@@ -3026,7 +3750,7 @@ examples.
 			a point, line, plane, or other?
 			\begin{solution}
 				This system has no solutions, since the third equation would be
-				$0=3$, which is impossible. 
+				$0=3$, which is impossible.
 			\end{solution}
 		\item If $\vec b=\mat{1\\1\\0}$, is the set of solutions to this system
 			a point, line, plane, or other?
@@ -3045,32 +3769,32 @@ examples.
 	\end{parts}
 
 	\question
-	Let $\vec d_1=\mat{1\\1\\2}$ and $\vec d_2=\mat{-1\\1\\0}$. 
+	Let $\vec d_1=\mat{1\\1\\2}$ and $\vec d_2=\mat{-1\\1\\0}$.
 	Let $\mathcal P$ be the plane given in vector form by $\vec x=t\vec d_1+s\vec d_2$.
 	Further, suppose $M$ is a matrix so that $M\vec r\in\mathcal P$ for any $\vec r\in\R^2$.
 	\begin{parts}
 		\item How many rows does $M$ have?
 			\begin{solution}
 				Three. It must have three rows in order for $M\vec r$ to be an
-				element of $\R^3$. 
+				element of $\R^3$.
 			\end{solution}
 		\item Find such an $M$.
 			\begin{solution}
 				$M=\mat{1&-1\\1&1\\2&0}$ is one possible answer, since if
-				$\vec r = \mat{a\\b}$, then $M \vec r = a \vec d_1 + b \vec d_2$. 
+				$\vec r = \mat{a\\b}$, then $M \vec r = a \vec d_1 + b \vec d_2$.
 
-				Another less interesting answer is the $3\times2$ zero matrix. 
+				Another less interesting answer is the $3\times2$ zero matrix.
 			\end{solution}
-		\item Find necessary and sufficient conditions (phrased as equations) for 
+		\item Find necessary and sufficient conditions (phrased as equations) for
 			$\vec n$ to be a normal vector for $\mathcal P$.
 			\begin{solution}
-				$\vec n$ is normal to $\mathcal P$ if and only if 
+				$\vec n$ is normal to $\mathcal P$ if and only if
 				$\vec n\cdot\vec d_1=0$ \emph{and} $\vec n\cdot\vec d_2=0$
 			\end{solution}
 		\item Find a matrix $K$ so that solutions to $K\vec x=\vec 0$ are normal
 			vectors for $\mathcal P$. How do $K$ and $M$ relate?
 			\begin{solution}
-				$K = \mat{1&1&2\\-1&1&0}$. $K$ and $M$ are transposes of 
+				$K = \mat{1&1&2\\-1&1&0}$. $K$ and $M$ are transposes of
 				one another.
 
 				The conditions $\vec n\cdot\vec d_1=0$ and $\vec n\cdot\vec d_2=0$
@@ -3079,7 +3803,7 @@ examples.
 					x + y + 2z &= 0 \\
 					-x + y &= 0.
 				\end{align*}
-				This system of equations can be represented by the matrix equation 
+				This system of equations can be represented by the matrix equation
 				\[
 					\mat{1&1&2\\-1&1&0}\mat{x\\y\\z} = \mat{0\\0}.
 				\]
@@ -3127,7 +3851,7 @@ examples.
 	\question
 	The fictional town of Oronto is not aligned with the usual
 	compass directions. The streets are laid out as follows:
-	
+
 \begin{center}
 	\begin{tikzpicture}[scale=1.2, >=latex]
     \begin{axis}[scale=1,
@@ -3167,10 +3891,10 @@ examples.
 \end{center}
 
 
-	Instead, every street is parallel to the vector 
-	$\vec d_1=\frac{1}{5}\mat{4\text{ east}\\3\text{ north}}$ or 
-	$\vec d_2=\tfrac{1}{5}\mat{-3\text{ east}\\4\text{ north}}$. The center of 
-	town is City Hall at $\vec 0=\mat{0\text{ east}\\0\text{ north}}$. 
+	Instead, every street is parallel to the vector
+	$\vec d_1=\frac{1}{5}\mat{4\text{ east}\\3\text{ north}}$ or
+	$\vec d_2=\tfrac{1}{5}\mat{-3\text{ east}\\4\text{ north}}$. The center of
+	town is City Hall at $\vec 0=\mat{0\text{ east}\\0\text{ north}}$.
 
 	Locations in Oronto are typically specified in \emph{street coordinates}. That
 	is, as a pair $(a,b)$ where $a$ is how far you walk along streets in the $\vec d_1$ direction
@@ -3182,18 +3906,18 @@ examples.
 			\begin{solution}
 				$A=\frac{1}{5}(5,-4)$ and $B=(3,1)$ in east-north coordinates.
 
-				We obtain $A$ for example by finding the vector $2\vec d_1+\vec d_2$. 
+				We obtain $A$ for example by finding the vector $2\vec d_1+\vec d_2$.
 			\end{solution}
-		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates. 
+		\item The points $X=(4,3)$ and $Y=(1,7)$ are given in east-north coordinates.
 			Find their street coordinates.
 			\begin{solution}[inline]
 				$X=(5,0)$ and $Y=(5,5)$ in street coordinates.
 			\end{solution}
-		\item Define $\vec e_1=\mat{1\text{ east}\\0\text{ north}}$ and 
+		\item Define $\vec e_1=\mat{1\text{ east}\\0\text{ north}}$ and
 			$\vec e_2=\mat{0\text{ east}\\1\text{ north}}$.
 			Does $\Span\Set{\vec e_1,\vec e_2} = \Span\Set{\vec d_1,\vec d_2}$?
 			\begin{solution}
-				Yes. Both of these sets spans all of $\R^2$. 
+				Yes. Both of these sets spans all of $\R^2$.
 			\end{solution}
 		\item Notice that $Y=5\vec e_1+5\vec e_2 = \vec d_1+7\vec d_2$. Is the point $Y$
 			better represented by the pair $(5,5)$ or by the pair $(1,7)$? Explain.
@@ -3201,7 +3925,7 @@ examples.
 				It is equally well represented by either pair. For example, the
 				street coordinates might be more useful for a resident of Oronto,
 				while the east-north coordinates might be more useful for someone
-				looking at Oronto on a world map. 
+				looking at Oronto on a world map.
 			\end{solution}
 	\end{parts}
 
@@ -3227,7 +3951,7 @@ examples.
 	\end{definition}
 
 	\question
-	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and 
+	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and
 	let $\mathcal C=\Set{\vec c_1,\vec c_2}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
 	and $\vec c_2=\mat{5\\3}_{\mathcal E}$ be another basis for $\R^2$.
 	\begin{parts}
@@ -3241,7 +3965,7 @@ examples.
 			\end{solution}
 		\item Let $\vec v=2\xhat+2\yhat$. Find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
 			\begin{solution}
-				$[\vec v]_{\mathcal E} = \mat{2\\2}$ and 
+				$[\vec v]_{\mathcal E} = \mat{2\\2}$ and
 				$[\vec v]_{\mathcal C} = \mat{-4\\2}$.
 
 				The second one is since
@@ -3257,7 +3981,7 @@ examples.
 				$X = \mat{2&5\\1&3}$ is such a matrix.
 
 				We know $X$ must be a $2\times2$ matrix, so suppose $X=\mat{a&b\\c&b}$
-				for some $a,b,c,d\in\R$. 
+				for some $a,b,c,d\in\R$.
 
 				From the first part above, we know
 				\[
@@ -3278,11 +4002,11 @@ examples.
 		\item Can you find a matrix $Y$ so that $Y[\vec w]_{\mathcal E} = [\vec w]_{\mathcal C}$
 			for any	$\vec w$?
 			\begin{solution}
-				$Y = \mat{3&-5\\-1&2}$ is such a matrix. 
+				$Y = \mat{3&-5\\-1&2}$ is such a matrix.
 
 				Using similar reasoning to the previous part, we know $Y$ must be
-				a $2\times2$ matrix, so suppose $Y=\mat{a&b\\c&b}$ for some 
-				$a,b,c,d\in\R$. 
+				a $2\times2$ matrix, so suppose $Y=\mat{a&b\\c&b}$ for some
+				$a,b,c,d\in\R$.
 
 				From the second part above, we know
 				\[
@@ -3310,13 +4034,13 @@ examples.
 	\Title{Orientation, Matrix Transformations}
 
 	\Heading{Textbook}
-	Section 3.2
+	Section 3.2, 3.3
 
 	\Heading{Objectives}
 	\begin{itemize}
 		\item Identify the orientation of ordered bases in $\R^2$.
-		\item Given a set of input and output vectors for a 
-			linear transformation $L:\R^2\to\R^2$, find 
+		\item Given a set of input and output vectors for a
+			linear transformation $L:\R^2\to\R^2$, find
 			a matrix for the transformation.
 		\item Given a picture $X$ and its image under a linear transformation,
 			find a matrix for the transformation.
@@ -3333,7 +4057,7 @@ examples.
 	two. Add a vector in the top partition (appropriately ordered) and you get
 	a positive orientation; add to the bottom and you get a negative orientation.
 	There's no way to get from one to the other without passing through the
-	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw. 
+	hyperplane. We focus on $\R^2$ so that the pictures are easy to draw.
 	Eventually we will compute orientation from the determinant, but it's nice
 	to have a grounding in where it comes from.
 
@@ -3351,9 +4075,9 @@ examples.
 
 	\begin{definition}[Orientation of a Basis]
 		The ordered basis $\mathcal B=\{\vec b_1,\ldots,\vec b_n\}$ is \emph{right-handed}
-		or \emph{positively oriented} if it can be continuously transformed to 
-		the standard basis (with $\vec b_i\mapsto \vec e_i$) while remaining 
-		linearly independent throughout the transformation. Otherwise, $\mathcal B$ 
+		or \emph{positively oriented} if it can be continuously transformed to
+		the standard basis (with $\vec b_i\mapsto \vec e_i$) while remaining
+		linearly independent throughout the transformation. Otherwise, $\mathcal B$
 		is called \emph{left-handed} or \emph{negatively oriented}.
 	\end{definition}
 
@@ -3364,26 +4088,26 @@ examples.
 	\begin{parts}
 		\item For which $\theta$ is $\Set{\xhat,\vec u_{\theta}}$ a linearly independent set?
 			\begin{solution}[inline]
-				Every $\theta$ that is not a multiple of $\pi$. 
+				Every $\theta$ that is not a multiple of $\pi$.
 			\end{solution}
 		\item For which $\theta$ can $\Set{\xhat,\vec u_{\theta}}$ be continuously
 			transformed into $\Set{\xhat,\yhat}$ and remain linearly independent the
 			whole time?
 			\begin{solution}
-				Every $\theta \in (0, \pi)$. 
+				Every $\theta \in (0, \pi)$.
 
-				For $\theta\in(\pi,2\pi)$, a continuous transformation of 
+				For $\theta\in(\pi,2\pi)$, a continuous transformation of
 				$\vec u_\theta$	to $\yhat$ would have to cross the $x$-axis,
-				at which point $\Set{\xhat,\vec u_\theta}$ would cease to be 
-				linearly independent. 
+				at which point $\Set{\xhat,\vec u_\theta}$ would cease to be
+				linearly independent.
 			\end{solution}
-		\item For which $\theta$ is $\Set{\xhat,\vec u_{\theta}}$ right-handed?	
+		\item For which $\theta$ is $\Set{\xhat,\vec u_{\theta}}$ right-handed?
 			Left-handed?
 			\begin{solution}
 				It is right-handed for $\theta\in(0, \pi)$, and left handed for
 				$\theta\in(\pi,2\pi)$.
 			\end{solution}
-		\item For which $\theta$ is $\Set{\vec u_{\theta},\xhat}$ (in that order) 
+		\item For which $\theta$ is $\Set{\vec u_{\theta},\xhat}$ (in that order)
 			right-handed? Left-handed?
 			\begin{solution}
 				It is right-handed for $\theta\in(\pi,2\pi)$, and left handed
@@ -3451,11 +4175,24 @@ notice your group making or any questions for further pursuit.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item Use the fact that linear transformations take lines to lines and preserve
+			ratios to classify transformations as linear or not.
+		\item Use the formal definition of a linear transformation to prove whether or not a
+			transformation is linear.
 	\end{itemize}
 
 	\Heading{Motivation}
+		Linear transformations are one of the fundamental objects of study in linear algebra.
+		It's time to see what they look like and what they can do.
 
+		We want to develop both a visual and algebraic intuition for linear transformations.
+		Visually, a linear transformation takes straight lines to straight lines and preserves ``ratios'' between
+		vectors (making this statement precise is hard). Algebraically, linear transformations are exactly
+		the functions that factor in and out of linear combinations, making them easy to work with.
+
+		Though few things in our world are linear, calculus shows us how to approximate
+		non-linear functions with linear ones. As a consequence, linear transformations show
+		up all over the place, and so it's worth spending time to understand them.
 \end{lesson}
 
 \begin{iola}
@@ -3463,7 +4200,7 @@ notice your group making or any questions for further pursuit.
 \addcontentsline{toc}{subsection}{Task 2.2: Beyond the N}
 
 	A few students were wondering how letters placed in other
-locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}$. 
+locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}$.
 	If an ``E'' is placed around the
 	``N,'' the students argued over four different possible results for the
 	transformed E's. Which choice below, if any, is correct, and why? If none of
@@ -3613,9 +4350,9 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 
 \section*{Linear Transformations}
 \vspace{-1.5em}
-	
+
 	\question
-	$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise 
+	$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise
 	by $90^\circ$.
 	\begin{parts}
 		\item Compute $\mathcal R\mat{1\\0}$ and $\mathcal R\mat{0\\1}$.
@@ -3640,13 +4377,13 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 		\item Write down a matrix $R$ so that $R\vec v$ is $\vec v$ rotated
 			counter-clockwise by $90^\circ$.
 			\begin{solution}
-				$R = \mat{0&-1\\1&0}$ is such a matrix. 
+				$R = \mat{0&-1\\1&0}$ is such a matrix.
 			\end{solution}
 	\end{parts}
 
 	\begin{definition}[Linear Transformation]
 		Let $V$ and $W$ be subspaces. A function $T:V\to W$ is called a \emph{linear transformation}
-		if 
+		if
 		\[
 			T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad
 			T(\alpha \vec v)=\alpha T\vec v
@@ -3664,16 +4401,16 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 					\end{solution}
 				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
 					\begin{solution}
-						Not a linear transformation, since for example 
-						$W\left(2\mat{1\\0}\right)=\mat{4\\0}\neq\mat{2\\0}=2W\mat{1\\0}$. 
+						Not a linear transformation, since for example
+						$W\left(2\mat{1\\0}\right)=\mat{4\\0}\neq\mat{2\\0}=2W\mat{1\\0}$.
 					\end{solution}
 				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
 					\begin{solution}
 						Not a linear transformation, since for example
-						$T\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2T\mat{1\\0}$. 
+						$T\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2T\mat{1\\0}$.
 					\end{solution}
-				\item $\mathcal P:\R^2\to\R^2$ where 
-					$\mathcal P\mat{x\\y}=\Comp_{\vec u}\mat{x\\y}$ and 
+				\item $\mathcal P:\R^2\to\R^2$ where
+					$\mathcal P\mat{x\\y}=\Comp_{\vec u}\mat{x\\y}$ and
 					$\vec u=\mat{2\\3}$.
 					\begin{solution}
 						A linear transformation.
@@ -3707,14 +4444,31 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 	\Title{Linear Transformations II, Composition of Linear Transformations}
 
 	\Heading{Textbook}
-	Section 1.2
+	Section 3.2, 3.3
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item Draw the image of a set under a (not necessarily linear) transformation.
+		\item Recognize composition of functions as not commutative.
+		\item Decompose complicated transformations in terms of simpler ones.
 	\end{itemize}
 
 	\Heading{Motivation}
+		Linear transformations are a big topic, and we're continuing our study.
+
+		We start by introducing the technical term \emph{image} so that we can describe
+		a transformation changing a bunch of points at once. This term will be used again when
+		we start looking at determinants, which measure how transformations change volumes.
+
+		Linear transformations are nice because the composition of two linear transformations
+		is another linear transformation. That means, given a complicated transformation, we can
+		search for a sequence of simple transformations that will have the same effect. This is
+		where many of the matrix decompositions (which we aren't covering in this course) come from.
+
+		Geometrically, it's easier to reason about simple transformations in a sequence than a complicated
+		transformation. Algebraically, we will be relying on composition of linear functions and its relationship
+		to matrices when we decompose a matrix into a product of elementary matrices (which in turn will
+		allow us to think about the determinant algebraically).
 
 \end{lesson}
 	\begin{definition}[Image of a Set]
@@ -3726,7 +4480,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 	\end{definition}
 
 	\question
-	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit 
+	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit
 	square and let $C=\Set{\vec 0, \xhat,\yhat,\xhat+\yhat}\subseteq \R^2$
 	be the corners of the unit square.
 	\begin{parts}
@@ -3746,7 +4500,7 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 			\end{solution}
 		\item Let $\ell=\Set{\text{all convex combinations of }\vec a\text{ and }\vec b}$
 			be a line segment with endpoints $\vec a$ and $\vec b$ and let $A$ be
-			a linear transformation. Must $A(\ell)$ be a line segment? 
+			a linear transformation. Must $A(\ell)$ be a line segment?
 			What are its endpoints?
 			\begin{solution}
 				$A(\ell)$ must be a line segment, with endpoints $A(\vec a)$ and
@@ -3756,25 +4510,25 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 				we have: $A(\alpha_1\vec a+\alpha_2\vec b)=\alpha_1A(\vec a)+\alpha_2A(\vec b)$.
 
 				If $\alpha_1+\alpha_2=1$, then the linear combination on the right
-				is also convex, and so $A(\ell)$ is the set of convex combinations 
-				of $A(\vec a)$ and $A(\vec b)$. 
+				is also convex, and so $A(\ell)$ is the set of convex combinations
+				of $A(\vec a)$ and $A(\vec b)$.
 				This is precisely the straight line segment joining $A(\vec a)$
 				and $A(\vec b)$.
 
 				Note that if $A(\vec a)=A(\vec b)$ (for example, if $A$ is the
 				zero transformation), then $A(\ell)$ will consist of the single
 				point, which we think of as a ``degenerate'' line segment in this
-				situation. 
+				situation.
 			\end{solution}
 		\item Explain how images of sets relate to the \emph{Italicizing N} task.
 			\begin{solution}
 				The task asked us to find a linear transformation such that the
-				image of the regular ``N'' is the italicized ``N''. 
+				image of the regular ``N'' is the italicized ``N''.
 
-				By the previous exercise, we now know it suffices to find a 
-				linear transformation that sends the four endpoints of line 
+				By the previous exercise, we now know it suffices to find a
+				linear transformation that sends the four endpoints of line
 				segments on the regular ``N'' to the corresponding four endpoints
-				on the italicized ``N''. 
+				on the italicized ``N''.
 			\end{solution}
 	\end{parts}
 
@@ -3845,17 +4599,32 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 \end{iola}
 
 \begin{lesson}
-	\Title{Range, Nullspace}
+	\Title{Composition \& Matrix Transformations, Range, Nullspace}
 
 	\Heading{Textbook}
 	Section 3.4
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item Recognize matrix multiplication as an operation related to function composition.
+		\item Define \emph{range} and \emph{null space} for both a matrix and a transformation.
+		\item Compute the range and null space of linear transformations described
+			with a formula or geometrically.
 	\end{itemize}
 
 	\Heading{Motivation}
+		We've studied composition of linear transformations in detail, and we have explored
+		matrix transformations. Now it is time to see how the two relate. That is, given
+		two matrix transformations, the matrix for their composition can be obtained by
+		multiplying the matrices in the proper order.
+
+		Every linear transformation has a range and a null space. The dimension of the range
+		will give the rank of the transformation, and the dimension of the null space
+		will tell how far a transformation is from being one-to-one. These two subspaces come up
+		a lot when posing and solving problems, so we'd like to get some familiarity with them,
+		both computationally
+		and visually.
+
 
 \end{lesson}
 	\question
@@ -3873,7 +4642,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				\[
 					P(\xhat)=\mat{a\\c} \quad \text{and} \quad P(\yhat)=\mat{b\\d}.
 				\]
-				We know from an earlier exercise that 
+				We know from an earlier exercise that
 				$\mathcal P(\vec x)=\dfrac{\vec x\cdot\vec u}{\vec u\cdot\vec u}\vec u$.
 				Therefore, the first column of $P$ is
 				\[
@@ -3886,7 +4655,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{solution}
 		\item Find a matrix $R$ so that $R\vec x=\mathcal R(\vec x)$ for all $\vec x\in\R^2$.
 			\begin{solution}
-				$R=\mat{0&-1\\1&0}$ is such a matrix. 
+				$R=\mat{0&-1\\1&0}$ is such a matrix.
 
 				Using the same reasoning as the previous part, we can compute
 				\[
@@ -3897,7 +4666,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				Therefore, the matrix $R$ for $\mathcal R$ is the matrix with the
 				two vectors above as its respective columns.
 			\end{solution}
-		\item Write down matrices $A$ and $B$ for $\mathcal P\circ\mathcal R$ 
+		\item Write down matrices $A$ and $B$ for $\mathcal P\circ\mathcal R$
 			and $\mathcal R\circ \mathcal P$.
 			\begin{solution}
 				$A=\frac{1}{13}\mat{6&-4\\9&-6}$ and $B=\frac{1}{13}\mat{-6&-9\\4&6}$
@@ -3916,7 +4685,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					=\frac{1}{13}\mat{-4\\-6}.
 				\]
 				Therefore, the matrix $A$ for $\mathcal P\circ\mathcal R$ is the
-				matrix with the two vectors above as its respective columns. 
+				matrix with the two vectors above as its respective columns.
 
 				Similarly, for $\mathcal R\circ \mathcal P$, we can compute:
 				\begin{gather*}
@@ -3930,11 +4699,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					=\frac{1}{13}\mat{-9\\6}.
 				\end{gather*}
 				Therefore, the matrix $B$ for $\mathcal R\circ\mathcal P$ is the
-				matrix with these two vectors as its respective columns. 
+				matrix with these two vectors as its respective columns.
 			\end{solution}
 		\item How do the matrices $A$ and $B$ relate to the matrices $P$ and $R$?
 			\begin{solution}
-				$A = PR$ and $B = RP$. 
+				$A = PR$ and $B = RP$.
 
 				We can simply compute these matrix products to see this, but
 				from the previous parts we that for any vector $\vec x$
@@ -3956,11 +4725,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				the second column fo $A$ must equal the second column of $PR$,
 				and therefore $A = PR$. For the same reason, we must also have $B=RP$.
 			\end{solution}
-				
+
 	\end{parts}
 
 	\begin{definition}[Range]
-		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$ 
+		The \emph{range} (or \emph{image}) of a linear transformation $T:V\to W$
 		is the set of vectors that $T$ can output. That is,
 		\[
 			\Range(T)=\Set{\vec y\in W \given \vec y=T\vec x\text{ for some }\vec x\in V}.
@@ -3982,12 +4751,12 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$\Range(\mathcal P)=\Span\Set{\vec u}$.
 
-				$\mathcal P(\vec x)$ is by definition the vector in $\Span\Set{\vec u}$ 
-				that is closest to $\vec x$, so in particular 
+				$\mathcal P(\vec x)$ is by definition the vector in $\Span\Set{\vec u}$
+				that is closest to $\vec x$, so in particular
 				$\mathcal P(\vec x) \in \Span\Set{\vec u}$ for all $\vec x\in\R^2$.
-				Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$. 
-				
-				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$ 
+				Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$.
+
+				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$
 				for any scalar $\alpha$, and so $\Range(\mathcal P)=\Span\Set{\vec u}$.
 			\end{solution}
 		\item What is the null space of $\mathcal P$?
@@ -3997,7 +4766,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 					A vector $\vec x$ projects to $\vec 0$ if and only if $\vec x$
 					is on the line perpendicular to $\Span\Set{\vec u}$ passing
-					through the origin. 
+					through the origin.
 				\end{solution}
 			\end{solution}
 	\end{parts}
@@ -4008,10 +4777,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Show that the null space of $T$ is a subspace.
 			\begin{solution}
 				\begin{enumerate}[label=(\roman*)]
-					\item Let $\vec u,\vec v\in\Null(T)$. 
+					\item Let $\vec u,\vec v\in\Null(T)$.
 						Applying the linearity of $T$ we see
 						$T(\vec u+\vec v)=T(\vec u)+T(\vec v)=\vec 0+\vec 0=\vec 0$,
-						and so $\vec u+\vec v\in\Null(T)$. 
+						and so $\vec u+\vec v\in\Null(T)$.
 					\item Let $\vec u\in\Null(T)$ and let $\alpha$ be any scalar.
 						Again using the linearity of $T$ we see
 						$T(\alpha\vec u)=\alpha T(\vec u)=\alpha\vec 0=\vec 0$,
@@ -4021,29 +4790,19 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Show that the range of $T$ is a subspace.
 			\begin{solution}
 				\begin{enumerate}[label=(\roman*)]
-					\item Let $\vec y,\vec z\in\Range(T)$. 
+					\item Let $\vec y,\vec z\in\Range(T)$.
 						Then there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec y$
 						and $T(\vec v)=\vec z$. Then
 						$\vec y+\vec z=T(\vec u)+T(\vec v)=T(\vec u+\vec v)$,
-						since $T$ is linear, and so $\vec y+\vec z\in\Range(T)$. 
+						since $T$ is linear, and so $\vec y+\vec z\in\Range(T)$.
 					\item Let $\vec y\in\Range(T)$ and let $\alpha$ be any scalar.
 						Then there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec y$,
-						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$, 
+						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$,
 						since $T$ is linear, and so $\alpha\vec y\in\Range(T)$.
 				\end{enumerate}
 
 			\end{solution}
 	\end{parts}
-
-	\begin{definition}[Induced Transformation]
-		Let $M$ be an $n\times m$ matrix. We say $M$ \emph{induces} 
-		a linear transformation $T_M:\R^m\to\R^n$ defined by
-		\[
-			[T_M\vec v]_{\mathcal E'} = M[\vec v]_{\mathcal E},
-		\]
-		where $\mathcal E$ is the standard basis for $\R^m$ and $\mathcal E'$
-		is the standard basis for $\R^n$.
-	\end{definition}
 
 \begin{lesson}
 	\Title{Fundamental Subspaces}
@@ -4053,18 +4812,51 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item Recognize a matrix as the representation of a linear transformation in a basis.
+		\item Distinguish between matrices and linear transformations.
+		\item Compute the fundamental subspaces of a matrix and relate them to the range and null space
+			of the corresponding linear transformation.
+		\item Identify which subspaces of a matrix are changed when row operations are performed.
 	\end{itemize}
 
 	\Heading{Motivation}
+		Just like column vectors were really a shorthand for describing linear combinations
+		of standard basis vectors,
+		matrices are a shorthand for describing linear transformations. Most of the time we play fast
+		and loose with notation and treat matrices as linear transformations. However there are times,
+		like when talking about change of basis, when it is important to distinguish between
+		a transformation and its representation. In preparation for this, we are going to spend some
+		time studying the relationship between linear transformations and matrices.
+
+		Once we find a matrix for a linear transformation, we have a natural set of row vectors and column
+		vectors (coming from the matrix). These span the row space and the column space,
+		and together with the null space give the fundamental subspaces of a matrix. The column space of
+		a matrix corresponds to the range of a transformation and the null space of a matrix corresponds
+		to the null space of a transformation. The row space is the odd one out, but is included since it is
+		the orthogonal compliment to the null space (which will allow us to tie together normal form and vector
+		form of planes through the origin).
+
+		In this setting, we also start studying row reduction as a ``transformation''. It changes
+		the column space but not the null space. When we study elementary matrices and inverses, we will
+		see row reduction in terms of matrix multiplication.
 
 \end{lesson}
+
+	\begin{definition}[Induced Transformation]
+		Let $M$ be an $n\times m$ matrix. We say $M$ \emph{induces}
+		a linear transformation $T_M:\R^m\to\R^n$ defined by
+		\[
+			[T_M\vec v]_{\mathcal E'} = M[\vec v]_{\mathcal E},
+		\]
+		where $\mathcal E$ is the standard basis for $\R^m$ and $\mathcal E'$
+		is the standard basis for $\R^n$.
+	\end{definition}
 	\question
 	\label{inducedTransform}
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
 	\begin{parts}
-		\item What is the difference between	
+		\item What is the difference between
 			``$M\vec v$'' and ``$M[\vec v]_{\mathcal E}$''?
 			\begin{solution}
 				``$M\vec v$'' is ambiguous notation, as it is only defined if
@@ -4073,32 +4865,32 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				infinitely many different representations as a column vector,
 				each in a different basis.
 
-				``$M[\vec v]_{\mathcal E}$'' is unambiguous, as 
+				``$M[\vec v]_{\mathcal E}$'' is unambiguous, as
 				$[\vec v]_{\mathcal E}$ is an explicit representation of $\vec v$
-				in a particular basis. 
+				in a particular basis.
 			\end{solution}
-		\item What is $[T_M\vec \xhat]_{\mathcal E}$?
+		\item What is $[T_M\xhat]_{\mathcal E}$?
 			\begin{solution}
-				It is the first column of $M$. 
+				It is the first column of $M$.
 
 				By definition,
 				$[T_M\xhat]_{\mathcal E}=M[\xhat]_{\mathcal E}=M\mat{1\\0}$,
-				which equals the first column of $M$. 
+				which equals the first column of $M$.
 			\end{solution}
-		\item \label{inducedTransform.3} 
+		\item \label{inducedTransform.3}
 			Can you relate the columns of $M$ to the range of $T_M$?
 			\begin{solution}
-				The range of $T_M$ equals the span of the columns of $M$. 
+				The range of $T_M$ equals the span of the columns of $M$.
 
 				By the previous part, the first column of $M$ is in the range of
 				$T_M$. By a similar argument, the second column of $M$ is also
 				in the range of $T_M$, since it equals $[T_M\yhat]_{\mathcal E}$.
 				Therefore the span of the columns of $M$ is a subset of the range
-				of $T_M$. 
+				of $T_M$.
 
 				On the other hand, if $\vec v_1=\mat{a\\c}$ and $\vec v_2=\mat{b\\d}$
 				are the columns of $M$ and $\vec x = \alpha_1\vec v_1+\alpha_2\vec v_2$
-				is an element of $\Span\Set*{\vec v_1,\vec v_2}$, then 
+				is an element of $\Span\Set*{\vec v_1,\vec v_2}$, then
 				\[
 					[\vec x]_{\mathcal E}
 					=\alpha_1\mat{a\\c}+\alpha_2\mat{b\\d}
@@ -4111,10 +4903,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 
 	\begin{definition}[Fundamental Subspaces]
-		Associated with any matrix $M$ are three fundamental subspaces: 
-		the \emph{row space} of $M$, denoted $\Row(M)$, is the span of the rows of $M$; 
+		Associated with any matrix $M$ are three fundamental subspaces:
+		the \emph{row space} of $M$, denoted $\Row(M)$, is the span of the rows of $M$;
 		the \emph{column space} of $M$, denoted $\Col(M)$, is the span of the columns of $M$;
-		and the \emph{null space} of $M$, denoted $\Null(M)$, is the set of solutions to $M\vec x=\vec 0$. 
+		and the \emph{null space} of $M$, denoted $\Null(M)$, is the set of solutions to $M\vec x=\vec 0$.
 	\end{definition}
 
 	\question
@@ -4124,7 +4916,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Describe the row space of $A$.
 			\begin{solution}
 				$\Row(A) = \Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
-				which is the $xy$-plane in $\R^3$. 
+				which is the $xy$-plane in $\R^3$.
 			\end{solution}
 		\item Describe the column space of $A$.
 			\begin{solution}
@@ -4133,17 +4925,17 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{solution}
 		\item Is the row space of $A$ the same as the column space of $A$?
 			\begin{solution}
-				No. 
+				No.
 
 				Although they are both two dimensional spaces, $\Row(A)$ is a
-				subspace of $\R^3$ and all vectors in it have three coordinates 
+				subspace of $\R^3$ and all vectors in it have three coordinates
 				(with the third always being zero), while $\Col(A)$ is a
-				subspace of $\R^2$ and all vectors in it have two coordinates. 
+				subspace of $\R^2$ and all vectors in it have two coordinates.
 				Therefore, these two spaces are different.
 			\end{solution}
 		\item Describe the set of all vectors perpendicular to the rows of $A$.
 			\begin{solution}
-				The $z$-axis in $\R^3$. 
+				The $z$-axis in $\R^3$.
 
 				A vector $\vec x=\mat{x\\y\\z}$ is perpendicular to the rows of $A$
 				if and only if its dot product with both rows is zero. That is
@@ -4154,11 +4946,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				\]
 				$\vec x$ satisfies these equations if and only if $\vec x=\mat{0\\0\\t}$
 				for some real number $t$, or in other words if $\vec x$ is on the
-				$z$-axis. 
+				$z$-axis.
 			\end{solution}
 		\item Describe the null space of $A$.
 			\begin{solution}
-				The $z$-axis in $\R^3$. 
+				The $z$-axis in $\R^3$.
 
 				A vector $\vec x=\mat{x\\y\\z}$ is in $\Null(A)$ if
 				and only if
@@ -4166,24 +4958,24 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					A\vec x = \mat{x\\y} = \vec 0.
 				\]
 				These are the same conditions as in the previous part, so the set
-				of vectors satisfying this is the $z$-axis.	
+				of vectors satisfying this is the $z$-axis.
 			\end{solution}
 		\item Describe the range and null space of $T_A$, the transformation
 			induced by $A$.
 			\label{fundamentalSubspaces.6}
 			\begin{solution}
-				$\Range(T_A)=\Col(A)=\R^2$ and $\Null(T_A)=\Null(A)$, 
-				which is the $z$-axis in $\R^3$. 
+				$\Range(T_A)=\Col(A)=\R^2$ and $\Null(T_A)=\Null(A)$,
+				which is the $z$-axis in $\R^3$.
 
 				By Problem \ref{inducedTransform}.\ref{inducedTransform.3}, the
 				range of an induced transformation equals the span of the columns
-				of the matrix. In other words, $\Range(T_A)=\Col(A)$. 
+				of the matrix. In other words, $\Range(T_A)=\Col(A)$.
 
-				Next, by definition $\vec v\in\Null(T_A)$ when 
+				Next, by definition $\vec v\in\Null(T_A)$ when
 				$[T_A\vec v]_{\mathcal E}=A[\vec v]_{\mathcal E}=\vec 0$.
-				In other words, $\vec v\in\Null(T_A)$ if and only if 
+				In other words, $\vec v\in\Null(T_A)$ if and only if
 				$[\vec v]_{\mathcal E}\in\Null(A)$. We know from the previous
-				part that $\Null(A)$ is the $z$-axis in $\R^3$. 
+				part that $\Null(A)$ is the $z$-axis in $\R^3$.
 			\end{solution}
 	\end{parts}
 
@@ -4200,26 +4992,26 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				Therefore, since $C$ is the matrix $B$ after the application of
 				some row operations, $\Row(C)\subseteq\Row(B)$.
 
-				Since row operations are all reversible, we also know that $B$ 
-				can be obtained from $C$ by applying row operations, so 
+				Since row operations are all reversible, we also know that $B$
+				can be obtained from $C$ by applying row operations, so
 				$\Row(B)\subseteq\Row(C)$.
 
 				Therefore, $\Row(B)=\Row(C)$.
 			\end{solution}
 		\item How does the null space of $B$ relate to the null space of $C$?
 			\begin{solution}
-				They are equal. 
+				They are equal.
 
-				A vector is in $\Null(B)$ or $\Null(C)$ if and only if it is 
+				A vector is in $\Null(B)$ or $\Null(C)$ if and only if it is
 				orthogonal to all vectors in $\Row(B)$ or all vectors in $\Row(C)$,
 				respectively. But $\Row(B)=\Row(C)$ by the previous part, so
-				their null spaces must also be equal. 
+				their null spaces must also be equal.
 			\end{solution}
 		\item Compute the null space of $B$.
 			\begin{solution}
 				$\Null(C)=\Span\Set*{\mat{2\\-1\\2}}$.
 
-				We compute $\Null(C)$, since it equals $\Null(B)$ by the previous part. 
+				We compute $\Null(C)$, since it equals $\Null(B)$ by the previous part.
 
 				$\vec x=\mat{x\\y\\z}$ is in $\Null(C)$ if and only if
 				$C\vec x = \mat{x-z\\y+2z} = \vec 0$. The complete solution to this matrix equation is
@@ -4243,10 +5035,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\item Describe the column space of $P$ and the column space of $Q$.
 			\begin{solution}
 				$\Col(P)=\Span\Set*{\mat{0\\1},\mat{0\\2}}=\Span\Set*{\mat{0\\1}}$,
-				which is the $y$-axis in $\R^2$. 
+				which is the $y$-axis in $\R^2$.
 
 				$\Col(Q)=\Span\Set*{\mat{1\\0},\mat{2\\0}}=\Span\Set*{\mat{1\\0}}$,
-				which is the $x$-axis in $\R^2$. 
+				which is the $x$-axis in $\R^2$.
 			\end{solution}
 	\end{parts}
 
@@ -4255,14 +5047,34 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\Title{Rank}
 
 	\Heading{Textbook}
-	Section 3.4
+	Section 2.2, 3.4
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item Compute the rank of a linear transformation or a matrix.
+		\item Relate rank, linear independence of column vectors, and number of solutions.
 	\end{itemize}
 
 	\Heading{Motivation}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Students will gravitate towards rank for matrices because it's definition
+					is ``easier''. Further, the book emphasizes this definition more. However,
+					when viewed as a fact about transformations, it won't matter which
+					basis you write down a transformation in. For this reason, we study the
+					rank of a transformation directly.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	Rank is a number that tells us a lot about a linear transformation or a matrix. In particular,
+	if a linear transformation $T$ is full rank, we know it is one-to-one and onto and that there are unique
+	solutions to $T(\vec x)=\vec b$. In contrast, if the rank is not full, we know the transformation either fails to be
+	one-to-one or fails to be onto. By considering the domain of $T$, we can decide which property fails.
+
+	The language of rank will help us reason about dimension, and for us the main application will be the
+	rank-nullity theorem. We will not use the ideas of rank to their full potential, but in
+	future courses, students will hear the term ``rank'' thrown around a lot.
 
 \end{lesson}
 	\begin{definition}[Rank]
@@ -4287,19 +5099,19 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				so in particular $\mathcal P(\vec x) \in \Span\Set{\vec u}$ for
 				all $\vec x\in\R^2$. Therefore $\Range(\mathcal P)\subseteq\Span\Set{\vec u}$.
 
-				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$ 
+				On the other hand, $\mathcal P(\alpha \vec u)=\alpha\mathcal P(\vec u)=\alpha\vec u$
 				for any scalar $\alpha$, and so $\Range(\mathcal P)=\Span\Set{\vec u}$.
 
-				For $\mathcal Q$, we have that any vector $\vec x\in\R^2$, 
-				$\vec x=\mathcal Q(\vec y)$, where $\vec y$ is the rotation of 
-				$\vec x$ clockwise by $90^\circ$. Therefore $\Range(\mathcal Q)=\R^2$. 
+				For $\mathcal Q$, we have that any vector $\vec x\in\R^2$,
+				$\vec x=\mathcal Q(\vec y)$, where $\vec y$ is the rotation of
+				$\vec x$ clockwise by $90^\circ$. Therefore $\Range(\mathcal Q)=\R^2$.
 			\end{solution}
 		\item What is the rank of $\mathcal P$ and the rank of $\mathcal R$?
 			\begin{solution}
 				$\Rank(\mathcal P)=1$ and $\Rank(\mathcal R)=2$.
 
 				By the previous part, we know $\Range(\mathcal P)$ is 1-dimensional
-				and $\Range(\mathcal Q)$ is 2-dimensional. 
+				and $\Range(\mathcal Q)$ is 2-dimensional.
 			\end{solution}
 		\item Let $P$ and $R$ be the matrices corresponding to $\mathcal P$ and
 			$\mathcal R$. What is the rank of $P$ and the rank of $R$?
@@ -4307,27 +5119,27 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				$\Rank(P)=1$ and $\Rank(R)=2$.
 
 				By Problem \ref{projectionAndRotation}, $P=\frac{1}{13}\mat{4&6\\6&9}$
-				and $R=\mat{0&-1\\1&0}$ are the	matrices corresponding to 
+				and $R=\mat{0&-1\\1&0}$ are the	matrices corresponding to
 				$\mathcal P$ and $\mathcal R$. Then we compute:
 				\[
 					\rref(P)=\mat{1&\frac{3}{2}\\0&0}
 					\quad \text{and} \quad
 					\rref(R)=\mat{1&0\\0&1}.
 				\]
-				These matrices have 1 and 2 pivots, respectively. 
+				These matrices have 1 and 2 pivots, respectively.
 			\end{solution}
 		\item Make a conjecture about how the rank of a transformation and the
 			rank of its corresponding matrix relate. Can you justify your claim?
 			\label{rankOfMatricesAndTransformations.4}
 			\begin{solution}
-				They are equal. 
+				They are equal.
 
-				By Problem \ref{inducedTransform}.\ref{inducedTransform.3}, the 
-				range of a transformation is equal to the column space of its 
+				By Problem \ref{inducedTransform}.\ref{inducedTransform.3}, the
+				range of a transformation is equal to the column space of its
 				corresponding matrix, and therefore the dimensions of these two
 				spaces are equal. In other words, the rank of a transformation is
-				equal to the dimension of the the column space of its corresponding 
-				matrix. 
+				equal to the dimension of the the column space of its corresponding
+				matrix.
 
 				We already know that the dimension of the column space of a matrix
 				is equal to the number of pivots in its reduced row echelon form,
@@ -4350,13 +5162,13 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			For each part, we compute the reduced row echelon form of the matrix
 			and count the number of pivots.
 			\begin{enumerate}
-				\item $\Rank\left(\mat{1&1\\2&2}\right)=1$, since 
+				\item $\Rank\left(\mat{1&1\\2&2}\right)=1$, since
 					$\rref\left(\mat{1&1\\2&2}\right)=\mat{1&1\\0&0}$ has one pivot.
-				\item $\Rank\left(\mat{1&2\\3&4}\right)=2$, since 
+				\item $\Rank\left(\mat{1&2\\3&4}\right)=2$, since
 					$\rref\left(\mat{1&2\\3&4}\right)=\mat{1&0\\0&1}$ has two pivots
 				\item $\Rank\left(\mat{1&1&0\\0&0&1}\right)=2$.
 					This matrix is already in reduced row echelon form, and has two pivots.
-				\item $\Rank\left(\mat{3\\3\\2}\right)=1$, since 
+				\item $\Rank\left(\mat{3\\3\\2}\right)=1$, since
 					$\rref\left(\mat{3\\3\\2}\right)=\mat{1\\0\\0}$ has one pivot.
 				\item $\Rank\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=3$, since
 					$\rref\left(\mat{1&0&1\\0&1&0\\0&0&1}\right)=\mat{1&0&0\\0&1&0\\0&0&1}$
@@ -4364,10 +5176,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{enumerate}
 		\end{solution}
 	\end{parts}
-	
+
+
 	\question
-	Consider the homogeneous system 
-		\begin{equation}\label{eq4b}
+	Consider the homogeneous system
+		\begin{equation}\label{eq4bx}
 			\begin{array}{llll}
 				x&+2y&+z &= 0\\
 				x&+2y&+3z &= 0\\
@@ -4380,21 +5193,21 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$\Rank(A)=2$, since $\rref(A)=\mat{1&2&0\\0&0&1\\0&0&0}$ as two pivots.
 			\end{solution}
-		\item Give the general solution to \eqref{eq4b}.
+		\item Give the general solution to system \eqref{eq4bx}.
 			\begin{solution}
-				$\vec x$ is a solution to the system if 
+				$\vec x$ is a solution to the system if
 				$\vec x=t\mat{-2\\1\\0}$ for some real number $t$.
 
 				If $\vec x=\mat{x\\y\\z}$ is a solution to the system, then we
 				must have $\mat{1&2&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\mat{x+2y\\z\\0}=\mat{0\\0\\0}$,
-				from which it follows that $z=0$ and $x=-2y$. In other words, 
-				any scalar multiple of $\mat{-2\\1\\0}$ is a solution. 
+				from which it follows that $z=0$ and $x=-2y$. In other words,
+				any scalar multiple of $\mat{-2\\1\\0}$ is a solution.
 			\end{solution}
 		\item Are the column vectors of $A$ linearly independent?
 			\begin{solution}
 				No. The second column is two times the first column.
 			\end{solution}
-		\item Give a non-homogeneous system with the same coefficients as \eqref{eq4b} that has
+		\item Give a non-homogeneous system with the same coefficients as \eqref{eq4bx} that has
 			\begin{enumerate}
 				\item infinitely many solutions
 				\item no solutions.
@@ -4402,7 +5215,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				\begin{enumerate}
 					\item
-						\begin{equation*}\label{eq4b}
+						\begin{equation*}
 							\begin{array}{llll}
 								x&+2y&+z &= 1\\
 								x&+2y&+3z &= 1\\
@@ -4410,7 +5223,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 							\end{array}
 						\end{equation*}
 					\item
-						\begin{equation*}\label{eq4b}
+						\begin{equation*}
 							\begin{array}{llll}
 								x&+2y&+z &= 0\\
 								x&+2y&+3z &= 0\\
@@ -4423,10 +5236,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	\question
 	\begin{parts}
-		\item The rank of a $3\times 4$ matrix $A$ is $3$. 
+		\item The rank of a $3\times 4$ matrix $A$ is $3$.
 			Are the column vectors of $A$ linearly independent?
 			\begin{solution}
-				No. A $3 \times 4$ matrix has four columns, each of which are 
+				No. A $3 \times 4$ matrix has four columns, each of which are
 				vectors in $\R^3$. It is not possible for four different vectors
 				in $\R^3$ to be linearly indepedent.
 			\end{solution}
@@ -4434,7 +5247,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			Are the column vectors of $B$ linearly independent?
 			\begin{solution}
 				Yes. Since $\Rank(B)=3$, there are three pivots in $\rref(B)$.
-				Pivot positions in $\rref(B)$ indicate a maximal linearly 
+				Pivot positions in $\rref(B)$ indicate a maximal linearly
 				independent subset of the columns of $B$. Since there are three
 				columns in $B$ and three pivots, the three columns of $B$ must be
 				linearly independent.
@@ -4446,14 +5259,38 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\Title{Rank-nullity Theorem, Inverses I}
 
 	\Heading{Textbook}
-	Section 1.2
+	Section 3.4, 3.5
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item Relate the rank-nullity theorem for matrices and the rank-nullity theorem for transformations.
+		\item Use the rank-nullity theorem to compute ranks and nullities.
+		\item View an inverse transformation as one that ``undoes'' the transformation.
+		\item Recognize the rank of $A$ and $A^T$ are equal.
 	\end{itemize}
 
 	\Heading{Motivation}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item The fact that $\Rank(A)=\Rank(A^T)$ is easy to see by reasoning
+					about the dimensions of the row space and column space of $A$
+					via row-reduction and pivots. This is where RREF really shines.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	The rank-nullity theorem is our big application of rank. It states that whatever
+	left-over dimenstions of the domain are not accounted for by the rank end up in the null space.
+	This is valuabel to know because a matrix equation $A\vec x=\vec b$ has infinitely many
+	solutions if and only if $A\vec x=\vec b$ is consisten and $A$ has a non-trivial null space. Using
+	the rank-nullity theorem, we can connect the rank of a matrix to wheither a matrix equation has infinitely
+	many solutions. And, pulling this back into the world of transformations, we can start reasoning
+	about the number of solutions to an abstract equation $T(\vec x)=\vec b$ where $T$ is a linear
+	transformation.
+
+	We also start talking about inverses. Invertible transformations always have full rank, but
+	our goal here is to start thinking about transformations that ``undo'' other transformations. We
+	are building up to things like an intuitive understanding of $(T\circ S)^{-1} = S^{-1}\circ T^{-1}$.
 
 \end{lesson}
 	\begin{theorem}[Rank-nullity Theorem]
@@ -4467,18 +5304,18 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 	\question
 	\begin{parts}
-		\item Is here a version of the rank-nullity theorem that applies to linear
+		\item Is there a version of the rank-nullity theorem that applies to linear
 			transformations instead of matrices? If so, state it.
 			\begin{solution}
-				Yes. If $T:V\to W$ is a linear transformation, then 
+				Yes. If $T:V\to W$ is a linear transformation, then
 				$\Rank(T)+\Dim(\Null(T))=\Dim(V)$.
 
 				If $A$ is the matrix corresponding to $T$, then $\Rank(T)=\Rank(A)$
 				by Problem \ref{rankOfMatricesAndTransformations}.\ref{rankOfMatricesAndTransformations.4}.
-				
-				$\Null(T)=\Null(A)$ by Problem \ref{fundamentalSubspaces}.\ref{fundamentalSubspaces.6}, 
-				since $T=T_A$, and so $\Dim(\Null(T))=\Nullity(A)$. 
-				
+
+				$\Null(T)=\Null(A)$ by Problem \ref{fundamentalSubspaces}.\ref{fundamentalSubspaces.6},
+				since $T=T_A$, and so $\Dim(\Null(T))=\Nullity(A)$.
+
 				Finally, the number of columns of $A$ is equal to the dimension
 				of the domain of $T$.
 			\end{solution}
@@ -4492,12 +5329,12 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$\Rank(A^T)=2$ and $\Nullity(A^T)=1$.
 
-				$A^T$ is the matrix with rows $\vec u,\vec v$, and $\vec w$. 
-				Since $\vec w=2\vec u-\vec v$, the third row of $A^T$ can be 
-				reduced to a row of zeros by the row operation 
+				$A^T$ is the matrix with rows $\vec u,\vec v$, and $\vec w$.
+				Since $\vec w=2\vec u-\vec v$, the third row of $A^T$ can be
+				reduced to a row of zeros by the row operation
 				$R_3\mapsto R_3-2R_1+R_2$. Neither of the first two rows can be
-				reduced to rows of zeros since they are linearly independent. 
-				Therefore $\rref(A^T)$ has two pivots, meaning $\Rank(A^T)=2$. 
+				reduced to rows of zeros since they are linearly independent.
+				Therefore $\rref(A^T)$ has two pivots, meaning $\Rank(A^T)=2$.
 
 				The rank-nullity theorem then says that $2+\Nullity(A^T)=3$, and so
 				$\Nullity(A^T)=1$
@@ -4508,7 +5345,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 				We know that $\Rank(A)$ equals the number of pivots in $\rref(A)$,
 				which in turn equals the dimension of $\Col(A)$. Since $A$ has two
-				linearly independent columns, $\Dim(\Col(A))=2$. 
+				linearly independent columns, $\Dim(\Col(A))=2$.
 
 				Again, the rank-nullity theorem then says that $2+\Nullity(A)=3$,
 				and so $\Nullity(A)=1$
@@ -4598,7 +5435,7 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -4611,14 +5448,14 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Apply the row operation $R_3\mapsto R_3+2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_1$.
-			\begin{solution}	
+			\begin{solution}
 				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\mapsto R_3+2R_1} \mat{1&0&0\\0&1&0\\2&0&1}=E_1$.
-			\end{solution}	
+			\end{solution}
 		\item Apply the row operation $R_3\mapsto R_3-2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_2$.
-			\begin{solution}	
+			\begin{solution}
 				$\mat{1&0&0\\0&1&0\\0&0&1} \xrightarrow{R_3\mapsto R_3-2R_1} \mat{1&0&0\\0&1&0\\-2&0&1}=E_2$.
-			\end{solution}	
+			\end{solution}
 	\end{parts}
 
 	\begin{definition}
@@ -4636,7 +5473,7 @@ the ``N'' on the left.
 
 				$E_1A$ is the result applying the row operation $R_3\mapsto R_3+2R_1$
 				to $A$, and similarly $E_2A$ is the result of applying the row
-				operation $R_3\mapsto R_3-2R_1$ to $A$. 
+				operation $R_3\mapsto R_3-2R_1$ to $A$.
 			\end{solution}
 		\item Without computing, what should the result of applying the row
 		operation $R_3\mapsto R_3-2R_1$ to $E_1$ be? Compute and verify.
@@ -4647,16 +5484,16 @@ the ``N'' on the left.
 		\item Without computing, what should $E_1E_2$ be? What about $E_2E_1$?
 		Now compute and verify.
 			\begin{solution}
-				They should both be the identity matrix. 
+				They should both be the identity matrix.
 
 				The solution to part 3 above lead us to believe that applying $E_1$
 				to a matrix has the effect of applying the row operation $R_3\mapsto R_3+2R_1$
 				to it. Applying that row operation to $E_2$ would produce the
 				identity matrix, so we expect that $E_1E_2$ should equal the
-				identity matrix. 
+				identity matrix.
 
 				Similar reasoning leads us to believe that $E_2E_1$ should also
-				equal the identity matrix. 
+				equal the identity matrix.
 
 				Indeed, we can compute
 				\[
@@ -4676,7 +5513,7 @@ the ``N'' on the left.
 	\end{definition}
 
 	\question
-	Consider the matrices 
+	Consider the matrices
 	\[
 		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
 		B=\mat{1&0&0\\0&1&0}\qquad
@@ -4690,8 +5527,8 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Which pairs of matrices above are inverses of each other?
 			\begin{solution}
-				$A$ and $D$ are inverses of each other, and $F$ is its own 
-				inverse. 
+				$A$ and $D$ are inverses of each other, and $F$ is its own
+				inverse.
 			\end{solution}
 	\end{parts}
 
@@ -4727,9 +5564,9 @@ the ``N'' on the left.
 				Suppose $A$ is a matrix that can be row reduced to the identity.
 				Let $E_1, E_2, \dots, E_n$ be the elementary matrices corresponding
 				to the sequence of row operations that reduces $A$ to $I$. Then
-				as we have seen, we have $E_n E_{n-1} \cdots E_2 E_1 A = I$. 
+				as we have seen, we have $E_n E_{n-1} \cdots E_2 E_1 A = I$.
 
-				Thus $E_n E_{n-1} \cdots E_2 E_1$ is the inverse of $A$. 
+				Thus $E_n E_{n-1} \cdots E_2 E_1$ is the inverse of $A$.
 			\end{solution}
 	\end{parts}
 
@@ -4741,7 +5578,7 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -4757,12 +5594,12 @@ the ``N'' on the left.
 	\begin{parts}
 		\item What is $A^{-1}A$?
 			\begin{solution}
-				$A^{-1}A = I$. This is true by the definition of an inverse, 
+				$A^{-1}A = I$. This is true by the definition of an inverse,
 				but we can also verify it by hand.
 			\end{solution}
 		\item What is $\rref(A)$?
 			\begin{solution}
-				$\rref(A) = \mat{1&0&0\\0&1&0\\0&0&1} = I$. 
+				$\rref(A) = \mat{1&0&0\\0&1&0\\0&0&1} = I$.
 			\end{solution}
 		\item What is $\rref(C)$? (Hint, there is no need to actually do row reduction!)
 			\begin{solution}
@@ -4775,12 +5612,12 @@ the ``N'' on the left.
 					\end{array}
 				\right]$.
 
-				We know that the reduced row echelon form of $C$ must be of the 
+				We know that the reduced row echelon form of $C$ must be of the
 				form $[I|\vec c]$ for some $\vec c$, and we know that multiplying
 				on the left by $A^{-1}$ is equivalent to applying the sequence of
 				row operations that reduces $A$ to $\rref(A)=I$. So the same sequence
-				of row operations applied to $\vec b$, the last column of $C$, 
-				will produce the vector $\vec c=A^{-1}\vec b=\mat{-9\\6\\2}$. 
+				of row operations applied to $\vec b$, the last column of $C$,
+				will produce the vector $\vec c=A^{-1}\vec b=\mat{-9\\6\\2}$.
 			\end{solution}
 
 		\item Solve the system $A\vec x=\vec b$.
@@ -4791,8 +5628,8 @@ the ``N'' on the left.
 				augmented matrix $C$ representing this system. We can also multiply
 				both sides of the equation on the left by $A^{-1}$:
 				\[
-					A\vec x=\vec x 
-					\implies A^{-1}A\vec x=A^{-1}\vec b 
+					A\vec x=\vec x
+					\implies A^{-1}A\vec x=A^{-1}\vec b
 					\implies \vec x=A^{-1}\vec b.
 				\]
 			\end{solution}
@@ -4802,7 +5639,7 @@ the ``N'' on the left.
 	\begin{parts}
 		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
 			\begin{solution}
-				No. 
+				No.
 
 				By the definition of an inverse we need $(XY)^{-1}(XY)=I$, so
 				that multiplying by $(XY)^{-1}$ undoes multiplication
@@ -4823,11 +5660,11 @@ the ``N'' on the left.
 		\item If $M$ is a matrix corresponding to a non-invertible linear transformation $T$,
 			could $M$ be invertible?
 			\begin{solution}
-				No. 
+				No.
 
-				Suppose $M^{-1}$ exists. Then $M^{-1}M=MM^{-1}=I$. 
-				Let $S$ be the linear transformation induced by $M^{-1}$. 
-				Since $M$ is the matrix for $T$ we must have $ST=TS=\Id$. But 
+				Suppose $M^{-1}$ exists. Then $M^{-1}M=MM^{-1}=I$.
+				Let $S$ be the linear transformation induced by $M^{-1}$.
+				Since $M$ is the matrix for $T$ we must have $ST=TS=\Id$. But
 				then $S$ would be the inverse of $T$, which is impossible.
 			\end{solution}
 	\end{parts}
@@ -4845,35 +5682,35 @@ the ``N'' on the left.
 				This is because $\xhat=\frac{1}{2}(\vec b_1+\vec b_2)$ and
 				$\yhat=\frac{1}{2}(\vec b_1-\vec b_2)$
 			\end{solution}
-		\item Compute $X[\xhat]_{\mathcal B}$ and $X[\yhat]_{\mathcal B}$.  
+		\item Compute $X[\xhat]_{\mathcal B}$ and $X[\yhat]_{\mathcal B}$.
 			What do you notice?
 			\begin{solution}
 				$X[\xhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\1}
 				=\frac{1}{2}\mat{1\\1}+\frac{1}{2}\mat{1\\-1}
 				=\frac{1}{2}\vec b_1+\frac{1}{2}\vec b_2=\mat{1\\0}$
-				and 
-				
+				and
+
 				$X[\yhat]_{\mathcal B}=\frac{1}{2}\mat{1&1\\1&-1}\mat{1\\-1}
 				=\frac{1}{2}\mat{1\\1}-\frac{1}{2}\mat{1\\-1}
 				=\frac{1}{2}\vec b_1-\frac{1}{2}\vec b_2=\mat{0\\1}$
 
-				We notice that multiplying by $X$ turns the representations	of 
+				We notice that multiplying by $X$ turns the representations	of
 				these two vectors in the basis $\mathcal B$ into representations
-				in the standard basis. 
+				in the standard basis.
 			\end{solution}
 		\item Find the matrix $X^{-1}$. How does $X^{-1}$ relate to change of basis?
 			\begin{solution}
-				$X^{-1}=\mat{1&1\\1&-1}$. 
+				$X^{-1}=\mat{1&1\\1&-1}$.
 
 				$X^{-1}$ should undo what $X$ does. In the previous part we saw
 				that $X$ takes vectors represented in $\mathcal B$ and represents
 				them in the standard basis. So $X^{-1}$ should do the reverse, and
 				take vectors represented in the standard basis and represent them
-				in the basis $\mathcal B$. 
+				in the basis $\mathcal B$.
 			\end{solution}
 	\end{parts}
 
-	
+
 \begin{lesson}
 	\Title{Applications of Inverses II, Change of Basis}
 
@@ -4882,7 +5719,7 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -4890,7 +5727,7 @@ the ``N'' on the left.
 \end{lesson}
 	\question
 	Let $\mathcal S=\Set{\vec e_1,\vec e_2,\ldots,\vec e_n}$ be the standard basis for $\R^n$.
-	Given a basis $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots,\vec b_n}$ for $\R^n$, the 
+	Given a basis $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots,\vec b_n}$ for $\R^n$, the
 	matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ converts
 	vectors from the $\mathcal B$ basis into the standard basis. In other words,
 	\[
@@ -4899,8 +5736,8 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Should $X^{-1}$ exist? Explain.
 			\begin{solution}
-				Yes. $X$ converts vectors from the standard basis into the 
-				$\mathcal B$ basis, and this process can be undone. 
+				Yes. $X$ converts vectors from the standard basis into the
+				$\mathcal B$ basis, and this process can be undone.
 				$X^{-1}$ is the matrix that does this.
 			\end{solution}
 		\item Consider the equation
@@ -4912,15 +5749,15 @@ the ``N'' on the left.
 				$X^{-1}[\vec v]_{\mathcal S} = [\vec v]_{\mathcal B}$.
 
 				As we said in the previous part $X^{-1}$ should undo what $X$ does,
-				meaning it should convert vectors from the standard basis into 
-				the $\mathcal B$ basis. 
+				meaning it should convert vectors from the standard basis into
+				the $\mathcal B$ basis.
 			\end{solution}
 		\item What is $[\vec b_1]_{\mathcal B}$?  How about $[\vec b_2]_{\mathcal B}$?  Can
 			you generalize to $[\vec b_i]_{\mathcal B}$?
 			\begin{solution}
-				$[\vec b_1]_{\mathcal B}=\matc{1\\0\\0\\\vdots\\0}$, and 
+				$[\vec b_1]_{\mathcal B}=\matc{1\\0\\0\\\vdots\\0}$, and
 				$[\vec b_2]_{\mathcal B}=\matc{0\\1\\0\\\vdots\\0}$, where each of
-				these vectors have $n$ coordinates. 
+				these vectors have $n$ coordinates.
 
 				In general, $[\vec b_i]_{\mathcal B}$ should be the column vector
 				with zeroes in all coordinates except for a 1 in the $i^\text{th}$
@@ -4935,7 +5772,7 @@ the ``N'' on the left.
 	\begin{parts}
 		\item Compute $[\vec c_1]_{\mathcal C}$ and $[\vec c_2]_{\mathcal C}$.
 			\begin{solution}[inline]
-				$[\vec c_1]_{\mathcal C}=\mat{1\\0}$ and 
+				$[\vec c_1]_{\mathcal C}=\mat{1\\0}$ and
 				$[\vec c_2]_{\mathcal C}=\mat{0\\1}$.
 			\end{solution}
 	\end{parts}
@@ -4944,7 +5781,7 @@ the ``N'' on the left.
 	\begin{parts}[resume]
 		\item Compute $T\mat{2\\1}$ and $T\mat{5\\3}$.
 			\begin{solution}[inline]
-				$T\mat{2\\1}=T\vec c_1=2\vec c_1=\mat{4\\2}$ and 
+				$T\mat{2\\1}=T\vec c_1=2\vec c_1=\mat{4\\2}$ and
 				$T\mat{5\\3}=T\vec c_2=\vec c_2=\mat{5\\3}$.
 			\end{solution}
 		\item Compute $[T\vec c_1]_{\mathcal C}$ and $[T\vec c_2]_{\mathcal C}$.
@@ -4957,8 +5794,8 @@ the ``N'' on the left.
 			\begin{solution}
 				$T\mat{\alpha\\\beta}_{\mathcal C}=\mat{2\alpha\\\beta}_{\mathcal C}$.
 
-				If $\vec v$ is a vector such that 
-				$[\vec v]_{\mathcal C}=\mat{\alpha\\\beta}$, then 
+				If $\vec v$ is a vector such that
+				$[\vec v]_{\mathcal C}=\mat{\alpha\\\beta}$, then
 				$\vec v=\alpha\vec c_1+\beta\vec c_2$. Since $T$ is linear, we can
 				then compute
 				\[
@@ -4971,20 +5808,20 @@ the ``N'' on the left.
 			\end{solution}
 		\item Find $[T]_{\mathcal C}$, the matrix for $T$ in the $\mathcal C$ basis.
 			\begin{solution}
-				$[T]_{\mathcal C}=\mat{2&0\\0&1}$. 
+				$[T]_{\mathcal C}=\mat{2&0\\0&1}$.
 
 				From the results of the previous parts, we know that we must have
-				$[T]_{\mathcal C}\mat{1\\0}=\mat{2\\0}$ and 
-				$[T]_{\mathcal C}\mat{0\\1}=\mat{0\\1}$, so these 
+				$[T]_{\mathcal C}\mat{1\\0}=\mat{2\\0}$ and
+				$[T]_{\mathcal C}\mat{0\\1}=\mat{0\\1}$, so these
 				must be the first and second columns of $[T]_{\mathcal C}$, respectively.
 			\end{solution}
 		\item Find $[T]_{\mathcal E}$, the matrix for $T$ in the standard basis.
 			\begin{solution}
 				$[T]_{\mathcal E}=\mat{7&-10\\3&-4}$
-				
+
 				There are two methods to determine this.
 
-				Method 1: 
+				Method 1:
 				Since $\xhat=3\vec c_1-\vec c_2$ and $\yhat=-5\vec c_1+2\vec c_2$,
 				we compute
 				\[
@@ -5008,7 +5845,7 @@ the ``N'' on the left.
 				Method 2:
 				Since $A$ changes vectors from the $\mathcal C$ basis to the standard
 				basis and $A^{-1}$ changes vectors from the standard basis to the
-				$\mathcal C$ basis, we know $[T]_{\mathcal E} = A[T]_{\mathcal C}A^{-1}$. 
+				$\mathcal C$ basis, we know $[T]_{\mathcal E} = A[T]_{\mathcal C}A^{-1}$.
 				Using $[T]_{\mathcal C}$ from the previous part, we compute
 				\[
 					[T]_{\mathcal E}
@@ -5030,7 +5867,7 @@ the ``N'' on the left.
 
 
 
-	
+
 \begin{lesson}
 	\Title{Determinants}
 
@@ -5039,7 +5876,7 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -5048,7 +5885,7 @@ the ``N'' on the left.
 \section*{Determinants}
 	\begin{definition}[Unit $n$-cube]
 		The unit $n$-cube is the $n$-dimensional cube with side length 1 and lower-left
-		corner located at the origin.  That is 
+		corner located at the origin.  That is
 		\[
 			C_n=\Set*{\vec x\in\R^n:\vec x=\sum_{i=1}^n\alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]}=[0,1]^n.
 		\]
@@ -5122,7 +5959,7 @@ the ``N'' on the left.
 		\item What is $T\mat{1\\0}$, $T\mat{0\\1}$, $T\mat{1\\1}$?
 			\begin{solution}
 				$T\mat{1\\0}=\mat{1\\\frac{1}{2}}$,
-				$T\mat{0\\1}=\mat{\frac{1}{2}\\1}$, and 
+				$T\mat{0\\1}=\mat{\frac{1}{2}\\1}$, and
 				$T\mat{1\\1}=\mat{\frac{3}{2}\\\frac{3}{2}}$?
 
 				We can see first two directly in the picture.
@@ -5135,24 +5972,24 @@ the ``N'' on the left.
 					=\mat{1\\\frac{1}{2}}+\mat{\frac{1}{2}\\1}
 					=\mat{\frac{3}{2}\\\frac{3}{2}}.
 				\]
-				
+
 			\end{solution}
 		\item Write down a matrix for $T$.
 			\begin{solution}
-				The matrix for $T$ in the standard basis is 
-				$\mat{1&\frac{1}{2}\\\frac{1}{2}&1}$. 
+				The matrix for $T$ in the standard basis is
+				$\mat{1&\frac{1}{2}\\\frac{1}{2}&1}$.
 			\end{solution}
-		\item What is the volume of the image of the unit square 
+		\item What is the volume of the image of the unit square
 			(i.e., the volume of $T(C_2)$)? You may need to use trigonometry.
 			\begin{solution}
-				The volume is $\frac{3}{4}$. 
+				The volume is $\frac{3}{4}$.
 			\end{solution}
 	\end{parts}
-	
+
 	\begin{definition}[Determinant]
-	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the 
+	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the
 	oriented volume of the image of the unit $n$-cube.  The determinant
-	of a square matrix is the oriented volume of the parallelepiped 
+	of a square matrix is the oriented volume of the parallelepiped
 		($n$-dimensional parallelogram) given by the column vectors (or the row
 		vectors).
 	\end{definition}
@@ -5174,10 +6011,10 @@ the ``N'' on the left.
 			\end{solution}
 		\item Compute $\det(A)$.
 			\begin{solution}
-				$\det(A)=2$. 
+				$\det(A)=2$.
 
 				The paralellogram with sides $\mat{2\\0}$ and $\mat{0\\1}$ is
-				positively oriented, so $\det(A)=+2$. 
+				positively oriented, so $\det(A)=+2$.
 			\end{solution}
 	\end{parts}
 
@@ -5197,10 +6034,10 @@ the ``N'' on the left.
 		\item Compute $\det(R)$.
 			\begin{solution}
 				Since $R$ preserves orientation, $\det(R)$ must be positive.
-				Since $R$ does not change the area of the unit square, $\det(R)=+1$.  
+				Since $R$ does not change the area of the unit square, $\det(R)=+1$.
 			\end{solution}
 	\end{parts}
-	
+
 	\question
 	We know the following about the transformation $F$:
 	\[
@@ -5209,10 +6046,10 @@ the ``N'' on the left.
 	\begin{parts}
 		\item What is $\det(F)$?
 			\begin{solution}
-				$\det(F)=-1$. 
+				$\det(F)=-1$.
 
 				$F$ does not change the area of the unit square, but reverses its
-				orientation, so $\det(F)=-1$. 
+				orientation, so $\det(F)=-1$.
 			\end{solution}
 	\end{parts}
 
@@ -5224,41 +6061,41 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
 
 \end{lesson}
 	\question
-	Let $D=\Set{\vec x \given \|\vec x\|\leq 1}$ be the unit disk. You know the 
+	Let $D=\Set{\vec x \given \|\vec x\|\leq 1}$ be the unit disk. You know the
 	following about the linear transformations $M$, $T$, and $S$: $M$ is defined
 	by $\vec x\mapsto 2\vec x$; $T$ has determinant $2$; and $S$ has determinant $3$.
 	\begin{parts}
 		\item Find the oriented volumes of $M(C_2)$, $T(C_2)$, and $S(C_2)$.
 			\begin{solution}
-				The volumes are $4$, $2$, and $3$, respectively. 
+				The volumes are $4$, $2$, and $3$, respectively.
 
-				We can compute the the volume of $M(C_2)$ directly, since $M$ 
-				transforms $C_2$ into a square with side length $2$. For the 
+				We can compute the the volume of $M(C_2)$ directly, since $M$
+				transforms $C_2$ into a square with side length $2$. For the
 				other two, we are given their determinants and we know that the
-				volume of the image of the unit square equals the determinant of 
-				each transformation. 
+				volume of the image of the unit square equals the determinant of
+				each transformation.
 			\end{solution}
-		\item How does the volume of $T(C_2+\{\vec e_1\})$ compare to the volume 
+		\item How does the volume of $T(C_2+\{\vec e_1\})$ compare to the volume
 			of $T(C_2)$?
 			\begin{solution}
 				They are equal. The transformation $T$ scales the volumes of all
-				regions by $2$. 
+				regions by $2$.
 			\end{solution}
 		\item What is the oriented volume of $T\circ M(C_2)$? What is $\det(T\circ M)$?
 			\begin{solution}
-				They are both equal to $8$. 
+				They are both equal to $8$.
 
 				$T\circ M(C_2)=T(M(C_2))$. We already know $M(C_2)$ has a volume
 				of $4$, and so $T(M(C_2))$ has a volume of 8, since $T$ scales
 				the volumes of all regions by $2$. The volume of $T\circ M(C_2)$
-				is the determinant of $T\circ M$ by definition. 
+				is the determinant of $T\circ M$ by definition.
 			\end{solution}
 		\item What is the oriented volume of $S(D)$?
 			\begin{solution}
@@ -5292,8 +6129,8 @@ the ``N'' on the left.
 			\begin{solution}
 				$\det(E_a)=1$.
 
-				Adding a multiple of one row of a matrix to another row has no 
-				effect on its determinant. 
+				Adding a multiple of one row of a matrix to another row has no
+				effect on its determinant.
 			\end{solution}
 		\item What is $\det(E_fE_m)$?
 			\begin{solution}[inline]
@@ -5319,11 +6156,11 @@ the ``N'' on the left.
 		\item $V$ is a square matrix and rref$(V)$ has a row of zeros.
 			What is $\det(V)$?
 			\begin{solution}
-				$\det(V)=0$. 
+				$\det(V)=0$.
 			\end{solution}
 		\item $P$ is projection onto the vector $\mat{-1\\-1}$. What is $\det(P)$?
 			\begin{solution}
-				$\det(P)=0$. 
+				$\det(P)=0$.
 
 				The image of the unit square under $P$ is a line segment, which
 				has zero volume.
@@ -5337,8 +6174,8 @@ the ``N'' on the left.
 			\begin{solution}
 				$\det(X^{-1})=\frac{1}{4}$.
 
-				We know that $XX^{-1}=I$. Therefore we must have that 
-				$\det(XX^{-1})=\det(X)\det(X^{-1})=\det(I)=1$, 
+				We know that $XX^{-1}=I$. Therefore we must have that
+				$\det(XX^{-1})=\det(X)\det(X^{-1})=\det(I)=1$,
 				and so $\det(X^{-1})=\frac{1}{4}$.
 			\end{solution}
 		\item Derive a relationship between $\det(Y)$
@@ -5347,17 +6184,17 @@ the ``N'' on the left.
 				$\det(Y^{-1})=\frac{1}{\det(Y)}$.
 
 				Using the same reasoning as the previous part, we know that
-				$YY^{-1}=I$. Therefore we must have 
-				$\det(Y)\det(Y^{-1})=\det(YY^{-1})=\det(I)=1$, and so 
+				$YY^{-1}=I$. Therefore we must have
+				$\det(Y)\det(Y^{-1})=\det(YY^{-1})=\det(I)=1$, and so
 				$\det(Y^{-1})=\frac{1}{\det(Y)}$.
 			\end{solution}
 		\item Suppose $Y$ is not invertible. What is $\det(Y)$?
 			\begin{solution}
-				$\det(Y)=0$. 
+				$\det(Y)=0$.
 
-				This makes sense because for a square matrix $Y$, 
-				$\det(Y^{-1})=\frac{1}{\det(Y)}$ by the previous part. This 
-				formula always works, except when $\det(Y)=0$. 
+				This makes sense because for a square matrix $Y$,
+				$\det(Y^{-1})=\frac{1}{\det(Y)}$ by the previous part. This
+				formula always works, except when $\det(Y)=0$.
 			\end{solution}
 	\end{parts}
 
@@ -5369,7 +6206,7 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -5403,7 +6240,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		 \coordinate (D) at (0, 9.5);
 		\draw[<->, very thick, black!50!white] (A) -- (B);
 		\draw[<->, very thick, black!50!white] (C) -- (D);
-		
+
 
 	    \foreach \ival in {-40,-36,...,40} {
 	    	\edef\temp{\noexpand\draw[PineGreen!40!white] (-12,36+\ival) -- (12,-36+\ival);}
@@ -5441,10 +6278,10 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		by a factor of $2$ and leaves vectors in the $y=x$ direction fixed.
 
 		Describe what happens to the vectors $\vec u$, $\vec v$, and $\vec w$ when
-		$T$ is applied given that 
+		$T$ is applied given that
 		\[
-			[\vec u]_{\mathcal G} = \mat{6\\1} \qquad 
-			[\vec v]_{\mathcal G} = \mat{4\\-3} \qquad 
+			[\vec u]_{\mathcal G} = \mat{6\\1} \qquad
+			[\vec v]_{\mathcal G} = \mat{4\\-3} \qquad
 			[\vec u]_{\mathcal B} = \mat{-8\\-7}.
 		\]
 	\item When working with the transformation $T$, which basis do you prefer vectors be
@@ -5462,7 +6299,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -5477,7 +6314,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\[
 		X\vec v=\lambda \vec v
 	\]
-	for some scalar $\lambda$.  We call $\lambda$ the \emph{eigenvalue} 
+	for some scalar $\lambda$.  We call $\lambda$ the \emph{eigenvalue}
 	of $X$ corresponding
 	to the eigenvector $\vec v$.
 	\end{definition}
@@ -5544,28 +6381,28 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
     \end{axis}
 \end{tikzpicture}
 \end{center}
-	
+
 
 	\begin{parts}
 		\item Give an eigenvector for $T$. What is the eigenvalue?
 			\begin{solution}
 				$\vec v=\mat{1\\1}$ is an eigenvector for $T$, with corresponding
-				eigenvalue $\frac{3}{2}$. 
+				eigenvalue $\frac{3}{2}$.
 
-				We can see from the image that 
+				We can see from the image that
 				$T\mat{1\\1}=\mat{\frac{3}{2}\\\frac{3}{2}}=\frac{3}{2}\mat{1\\1}$.
 			\end{solution}
 		\item Can you give another?
 			\begin{solution}
 				Any scalar multiple of $\mat{1\\1}$ is also an eigenvector for $T$.
 
-				For any scalar $\alpha$, we have 
+				For any scalar $\alpha$, we have
 				$T\left(\alpha\mat{1\\1}\right)=\alpha T\mat{1\\1}=\alpha\frac{3}{2}\mat{1\\1}$,
-				meaning $\alpha\mat{1\\1}$ is an eigenvector for $T$ with 
+				meaning $\alpha\mat{1\\1}$ is an eigenvector for $T$ with
 				eigenvalue $\frac{3}{2}\alpha$.
 
 				More interestingly, since $T\mat{-1\\1}=\frac{1}{2}\mat{-1\\1}$,
-				$\mat{-1\\1}$ is an eigenvector with corresponding eigenvalue 
+				$\mat{-1\\1}$ is an eigenvector with corresponding eigenvalue
 				$\frac{1}{2}$.
 			\end{solution}
 	\end{parts}
@@ -5582,11 +6419,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\item Give an eigenvector and a corresponding eigenvalue for $A$.
 			\begin{solution}
 				$\mat{3\\3\\1}$ is an eigenvector for $A$, with corresdponding
-				eigenvalue $\frac{2}{3}$. 
+				eigenvalue $\frac{2}{3}$.
 			\end{solution}
 		\item What is $B\mat{3\\3\\1}$?
 			\begin{solution}
-				$B\mat{3\\3\\1}=\mat{0\\0\\0}$. 
+				$B\mat{3\\3\\1}=\mat{0\\0\\0}$.
 
 				We compute
 				\[
@@ -5599,7 +6436,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{solution}
 		\item What is the dimension of $\Null(B)$?
 			\begin{solution}
-				The most we can say is that $\Nullity(B)\geq1$. 
+				The most we can say is that $\Nullity(B)\geq1$.
 
 				We know $\mat{3\\3\\1}\in\Null(B)$ by the previous part, and so
 				the dimension of $\Null(B)$ is at least 1. It could be larger, but
@@ -5607,7 +6444,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{solution}
 		\item What is $\det(B)$?
 			\begin{solution}[inline]
-				$\det(B)=0$. 
+				$\det(B)=0$.
 			\end{solution}
 	\end{parts}
 
@@ -5620,7 +6457,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\item What are the eigenvalues of $C$?
 		\item Find the eigenvectors of $C$.
 	\end{parts}
-	
+
 \begin{lesson}
 	\Title{Characteristic Polynomial, Diagonalization I}
 
@@ -5629,7 +6466,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -5642,7 +6479,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\]
 	\end{definition}
 	\vspace{-.4cm}
-	
+
 	\question
 	Let $D=\mat{1&2\\3&0}$.
 	\begin{parts}
@@ -5676,9 +6513,9 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				The eigenvalues of $A$ are $2$, $-1$, and $1$.
 
 				We compute that $A\vec v_1=2\vec v_1$, $A\vec v_2=-\vec v_2$,
-				and $A\vec v_3=\vec v_3$, so $2$, $-1$, and $1$ are eigenvalues 
-				of $A$. By the last part of the previous problem, there are no 
-				other eigenvalues. 
+				and $A\vec v_3=\vec v_3$, so $2$, $-1$, and $1$ are eigenvalues
+				of $A$. By the last part of the previous problem, there are no
+				other eigenvalues.
 			\end{solution}
 		\item Find the characteristic polynomial of $A$.
 			\begin{solution}
@@ -5728,11 +6565,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 			If $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$, then
 			$\vec x=\vec v_1+3\vec v_2+4\vec v_3$. Using the previous part, we
-			then have that $A\vec x=2\vec v_1-3\vec v_2+4\vec v_3$, so 
+			then have that $A\vec x=2\vec v_1-3\vec v_2+4\vec v_3$, so
 			$[A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
 		\end{solution}
 	\end{parts}
-	
+
 
 \begin{lesson}
 	\Title{Diagonalization II}
@@ -5742,7 +6579,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -5750,7 +6587,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \end{lesson}
 	\question
 	The transformation $P^{-1}$ takes vectors in the standard basis and outputs
-	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).  
+	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).
 	\begin{parts}
 		\item Describe in words what $P$ does.
 		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
@@ -5767,7 +6604,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
 	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
 	eigenvalues.
-	
+
 
 	\begin{parts}
 	\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
@@ -5797,7 +6634,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item 
+		\item
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -5826,7 +6663,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 %\section*{Span Again}
 %	\question
-%	Consider the system 
+%	Consider the system
 %		\begin{equation}\label{eq4bc}
 %			\begin{array}{llll}
 %				x&-y&-z &= 0\\
@@ -5858,15 +6695,15 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\question
 %	Suppose when you use an augmented matrix to solve
 %	$a\vec u+b\vec v+c\vec w=\vec 0$ you have no free variables.
-%	
+%
 %	\begin{parts}
 %		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
 %	\end{parts}
-%	
+%
 %	Suppose when you use an augmented matrix to solve
-%	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a 
+%	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a
 %	free variable.
-%	
+%
 %	\begin{parts}[resume]
 %		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
 %		\item Is $\{\vec u,\vec w\}$ linearly independent?
@@ -5874,9 +6711,9 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\end{parts}
 %
 %	\begin{definition}[Maximal Linearly Independent Subset]
-%	Given a set of vectors $X$, a 
+%	Given a set of vectors $X$, a
 %	\emph{maximal linearly independent subset} of $X$ is a linearly independent
-%	subset $V\subseteq X$ with the most possible vectors in it 
+%	subset $V\subseteq X$ with the most possible vectors in it
 %	(i.e., if you took any subset of $X$ with more vectors, it would be linearly
 %	dependent).
 %	\end{definition}
@@ -5980,7 +6817,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %	\question
 %	\begin{definition}
-%		A matrix $X$ is called \emph{symmetric} if $X=X^T$.  
+%		A matrix $X$ is called \emph{symmetric} if $X=X^T$.
 %	\end{definition}
 %	Symmetric matrices have many useful properties,
 %	and have deep connections with orthogonality and eigenvectors (which we will get to later on).
@@ -6079,11 +6916,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %	Matrix equations involving orthogonal matrices are easy to solve because the
 %	inverse of an orthogonal matrix is so easy to compute!
-%	
+%
 %	\question
 %	Let $A=[\vec a_1|\vec a_2|\vec a_3|\vec a_4]$ be an orthogonal matrix.
 %	\begin{parts}
-%		\item Explain why 
+%		\item Explain why
 %			$\vec x=\mat{\vec a_1\cdot \vec b\\
 %				     \vec a_2\cdot \vec b\\
 %			     	     \vec a_3\cdot \vec b\\
@@ -6102,7 +6939,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\end{definition}
 %
 %	Projections are normally hard to compute and a priori might require some sort
-%	of calculus-style optimization to find.  However, from geometry we know that 
+%	of calculus-style optimization to find.  However, from geometry we know that
 %	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
 %	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
 %	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
@@ -6121,8 +6958,8 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\end{parts}
 %	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
 %	\[
-%		\|\vec c_1\| = 
-%		\|\vec c_2\| = 
+%		\|\vec c_1\| =
+%		\|\vec c_2\| =
 %		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
 %		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
 %	\]
@@ -6133,7 +6970,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\end{parts}
 %
 %	\question
-%	Let's put this all together.  
+%	Let's put this all together.
 %	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
 %	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
 %	by
@@ -6150,7 +6987,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %%\newpage
 %\subsection*{Gram-Schmidt Orthogonalization}
-%	We've seen how useful orthonormal bases are.  The incredible thing is that we can 
+%	We've seen how useful orthonormal bases are.  The incredible thing is that we can
 %	turn any basis into an orthonormal basis through a process called
 %	Gram-Schmidt orthogonalization.
 %
@@ -6160,7 +6997,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
 %		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
 %			$\vec c$ and $\vec b$.
-%		\item Can you write $\vec a$ as the sum of two vectors, one in 
+%		\item Can you write $\vec a$ as the sum of two vectors, one in
 %			the direction of $\vec b$ and one orthogonal to $\vec b$?
 %			If so, do it.
 %	\end{parts}
@@ -6182,7 +7019,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %		with the same span.  The idea is to iteratively produce a set of
 %		vectors where each new vector you produce is orthogonal to the previous vectors.
 %
-%		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of 
+%		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of
 %		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
 %		to $ v_1$ by subtracting off the respective projections
 %		of $ v_2,\ldots, v_n$
@@ -6195,10 +7032,10 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\end{definition}
 %
 %	\question
-%	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and 
+%	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and
 %	$\vec x_3=\mat{2\\2\\1\\2}$.
 %	\begin{parts}
-%		\item Use the Gram-Schmidt procedure to find an orthonormal basis for 
+%		\item Use the Gram-Schmidt procedure to find an orthonormal basis for
 %			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
 %		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
 %			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
@@ -6214,7 +7051,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\question
 %	Let
 %	\[
-%		\vec y_1=\mat{1\\1\\2}\qquad 
+%		\vec y_1=\mat{1\\1\\2}\qquad
 %		\vec y_2=\mat{-1\\-1\\2}\qquad
 %		\vec y_3=\mat{1\\1\\6}.
 %	\]
@@ -6234,7 +7071,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %	\begin{parts}[resume]
 %		\item Find the orthogonal complement of $\span \mathcal W$.
-%		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where 
+%		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where
 %			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
 %	\end{parts}
 %
@@ -6282,7 +7119,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\begin{parts}[resume]
 %		\item Find a matrix $R$ so that $A=QR$.
 %	\end{parts}
-%	
+%
 %	We've just discovered one process to find the $QR$ decomposition of a matrix.
 %	It's really as simple as doing Gram-Schmidt and keeping track of your coefficients.
 %	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
@@ -6298,7 +7135,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
 %	it's sometimes hard to grasp the significance of certain properties of a matrix.
 %
-%	Symmetric matrices are easy to forget at first, but they have many profound 
+%	Symmetric matrices are easy to forget at first, but they have many profound
 %	properties (not to mention they are one of the key concepts of Quantum Mechanics).
 %
 %	\question
@@ -6306,7 +7143,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
 %	we are thinking of $\vec v$ and $\vec w$ as column vectors.
 %	\begin{parts}
-%		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$, 
+%		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$,
 %		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
 %		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
 %		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
@@ -6318,16 +7155,16 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
 %	top of that, symmetric matrices always have a basis of eigenvectors.  That means
-%	that not only can you always diagonalize a symmetric matrix, but you can 
+%	that not only can you always diagonalize a symmetric matrix, but you can
 %	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
-%	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the 
+%	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the
 %	best of all worlds in one!
 %
 %
 %
 %\section*{Systems of Linear Equations}
-%	
-%	\emph{Linear equations} are equations only involving variables, 
+%
+%	\emph{Linear equations} are equations only involving variables,
 %	multiplication by constants, and addition/subtraction.  \emph{Systems}
 %	of equations are sets of equations that share common variables.
 %
@@ -6342,15 +7179,15 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %	\begin{parts}
 %		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
-%		\item Algebraically solve the system (\ref{eq2}).  What does this 
+%		\item Algebraically solve the system (\ref{eq2}).  What does this
 %		solution represent on your graph?
 %	\end{parts}
-%	
+%
 %	\question
 %	Let $L$ be the line given by $x-y=2$.
 %	\begin{parts}
 %		\item Write an equation of a line that doesn't intersect $L$.
-%		\item Write an equation of a line that intersects $L$ in 
+%		\item Write an equation of a line that intersects $L$ in
 %		\begin{enumerate}
 %			\item one place.
 %			\item infinitely many places
@@ -6378,8 +7215,8 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %		\item Use an augmented matrix to solve the system (\ref{eq3}).
 %	\end{parts}
 %
-%	The system (\ref{eq3}) can be interpreted in two ways (and switching between these 
-%	interpretations when appropriate is one of the most powerful tools of Linear 
+%	The system (\ref{eq3}) can be interpreted in two ways (and switching between these
+%	interpretations when appropriate is one of the most powerful tools of Linear
 %	Algebra).  We can think of solutions to (\ref{eq3})
 %	as the intersection of three planes, or we can interpret the solution
 %	as coefficients of a linear combination.
@@ -6430,7 +7267,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %
 %\subsection*{Free Variables}
 %	\question
-%	Suppose the row-reduced augmented matrix corresponding to 
+%	Suppose the row-reduced augmented matrix corresponding to
 %	a system is
 %	\[
 %		B=\left[\begin{array}{cc|c}
@@ -6441,7 +7278,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	After reducing, we have 1 equation and 2 unknowns, so we can make
 %	$2-1=1$ choices when writing a solution.  Let's make the
 %	choice $y=t$.
-%	
+%
 %	\begin{parts}
 %		\item With the added equation $y=t$, solve the
 %		system represented by $B$.
@@ -6471,15 +7308,15 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %	\question
 %	\begin{parts}
 %		\item An unknown system $U$ is represented by an augmented
-%		matrix with 4 rows and 6 columns.  What is 
+%		matrix with 4 rows and 6 columns.  What is
 %		the minimum number of
 %		free variables solutions to $U$ will have?
 %		\item An unknown system $V$ is represented by an augmented
-%		matrix with 6 rows and 4 columns.  What is 
+%		matrix with 6 rows and 4 columns.  What is
 %		the minimum number of
 %		free variables solutions to $V$ will have?
 %	\end{parts}
-%	
+%
 %	\question
 %	\begin{definition}[Homogeneous]
 %		A system is called \emph{homogeneous} if all equations equal $0$.
@@ -6496,7 +7333,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 %		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
 %		equation equals 0)?
 %
-%		\item Suppose when you use an augmented matrix to solve the system $A$, you only have 
+%		\item Suppose when you use an augmented matrix to solve the system $A$, you only have
 %		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
 %	\end{parts}
 %
