@@ -1532,7 +1532,7 @@ argument supporting your answer.
 
 				To find the intersection, if there is one, we must solve the vector equation:
 				\[
-					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{2\\-1\\1}+\mat{1\\1\\1}.
+					t\mat{1\\2\\3}+\mat{0\\0\\1} = s\mat{-1\\1\\1}+\mat{-1\\1\\2}.
 				\]
 				One solution is when $t = 0$ and $s = -1$.
 			\end{solution}
@@ -3160,7 +3160,7 @@ examples.
 
 		\begin{notes}
 			\begin{itemize}
-				\item Students have already worked witht this plane in problem \ref{ProbPlane},
+				\item Students have already worked with this plane in problem \ref{ProbPlane},
 					but they won't remember. Emphasize part 1 and go quickly through the other parts,
 					referring to problem \ref{ProbPlane} if needed.
 			\end{itemize}
@@ -3969,6 +3969,26 @@ examples.
 \section*{Matrices}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Relate matrix equations and systems of linear equations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use matrix-vector multiplication to represent a system of equations
+					with compact notation.
+				\item View a matrix equation as a statement about (i) linear combinations of column vectors
+					and (ii) a system of equations coming from the rows.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Students know two different interpretations of matrix multiplication from
+					the homework.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $A=\mat{1&2\\3&3}$, $\vec x=\mat{x\\y}$, and $\vec b=\mat{-2\\-1}$.
 	\begin{parts}
 		\item Compute the product $A\vec x$.
@@ -4003,6 +4023,25 @@ examples.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Rephrase previous questions using matrix equations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Rephrase the question of linear independence as the special
+					matrix equation $A\vec x=\vec 0$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item We haven't formally introduced the term \emph{homogeneous system}
+					yet. Now is a good time. The equation $A\vec x=\vec 0$ will be used
+					again when talking about null spaces.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec u=\mat{1\\2\\3}$, $\vec v=\mat{4\\5\\6}$, $\vec w=\mat{7\\8\\9}$.
 	\begin{parts}
 		\item How could you determine if $\Set{\vec u,\vec v,\vec w}$ was a linearly
@@ -4035,6 +4074,24 @@ examples.
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Interpret matrix equations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use knowledge about systems of linear equations to answer questions
+					about matrix equations.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This is mainly an exercise in applying existing knowledge about
+					interpreting RREF to matrix equations.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Consider the system represented by
 	\[
 		\mat{1&-3&0\\0&0&1\\0&0&0}\mat{x\\y\\z}=\vec b.
@@ -4043,7 +4100,8 @@ examples.
 		\item If $\vec b=\mat{1\\2\\3}$, is the set of solutions to this system
 			a point, line, plane, or other?
 			\begin{solution}
-				This system has no solutions, since the third equation would be
+				This system has no solutions, since, if we expand the matrix
+				equation into a system of equations, the third equation would be
 				$0=3$, which is impossible.
 			\end{solution}
 		\item If $\vec b=\mat{1\\1\\0}$, is the set of solutions to this system
@@ -4063,6 +4121,28 @@ examples.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply matrix equations to planes.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Rephrase properties of a plane in terms of matrix equations.
+				\item Be able to describe one application of the transpose.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item We are using the range of a matrix operator to describe a plane and the
+					null space of a matrix to define normal vectors.
+				\item Part 2 admits some trivial answers, but the interesting one is when 
+					the range is $\mathcal P$.
+				\item The matrices $K$ and $M$ do not have to be transposes of each other,
+					but arrange it so they are.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\vec d_1=\mat{1\\1\\2}$ and $\vec d_2=\mat{-1\\1\\0}$.
 	Let $\mathcal P$ be the plane given in vector form by $\vec x=t\vec d_1+s\vec d_2$.
 	Further, suppose $M$ is a matrix so that $M\vec r\in\mathcal P$ for any $\vec r\in\R^2$.
@@ -4085,7 +4165,7 @@ examples.
 				$\vec n$ is normal to $\mathcal P$ if and only if
 				$\vec n\cdot\vec d_1=0$ \emph{and} $\vec n\cdot\vec d_2=0$
 			\end{solution}
-		\item Find a matrix $K$ so that solutions to $K\vec x=\vec 0$ are normal
+		\item Find a matrix $K$ so that non-zero solutions to $K\vec x=\vec 0$ are normal
 			vectors for $\mathcal P$. How do $K$ and $M$ relate?
 			\begin{solution}
 				$K = \mat{1&1&2\\-1&1&0}$. $K$ and $M$ are transposes of
@@ -4143,6 +4223,32 @@ examples.
 \section*{Change of Basis \& Coordinates}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Motivate change of basis.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Describe points in multiple bases when given a visual description of the basis
+					or when given the basis vectors numerically.
+				\item Recognize ambiguity when faced with the question, ``Which basis is better?''
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The Oronto streets are set up like 3,4,5 right triangle and all the numbers are easy.
+					This question can be answered from the picture or algebraically.
+				\item Part 4 is important. A convincing argument is that one basis is not intrinsically
+					``better'' than the other is that if the compass rose were
+					not shown, you couldn't tell from the picture which way was north (since the streets are orthogonal
+					to each other just like north and east are)!
+
+					Emphasize that the ``best'' representation of a point will depend on what
+					question you're trying to answer.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	The fictional town of Oronto is not aligned with the usual
 	compass directions. The streets are laid out as follows:
 
@@ -4226,12 +4332,12 @@ examples.
 	\begin{definition}[Representation in a Basis]
 		Let $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$ be a basis for a subspace $V$
 		and let $\vec v\in V$. The \emph{representation of $\vec v$ in the $\mathcal B$
-		basis}, notate $[\vec v]_{\mathcal B}$,
+		basis}, notated $[\vec v]_{\mathcal B}$,
 		is the column matrix
 		\[
 			[\vec v]_{\mathcal B} = \mat{\alpha_1\\\vdots\\\alpha_n}.
 		\]
-		such that $
+		where $\alpha_1,\ldots,\alpha_n$ uniquely satisfy $
 			\vec v=\alpha_1\vec b_1+\cdots+\alpha_n\vec b_n.
 		$
 
@@ -4245,6 +4351,35 @@ examples.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Change of basis notation.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice using change-of-basis notation.
+				\item Compute representations of vectors in different bases.
+				\item Find a matrix that computes a change of basis.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Up to this point, we have been sloppy, writing $\mat{1\\2}$ when
+					we mean $\mat{1\\2}_{\mathcal C}$. For this problem, be precise.
+					Unscripted matrices are boxes of numbers with no meaning other
+					than what we give them. Subscripted matrices are actual vectors.
+
+					We will be sloppy again in the future---if we interpret $\mat{1\\2}$
+					as a vector, we will always assume it is $\mat{1\\2}_{\mathcal E}$ unless
+					specified otherwise. But, at the start of change-of-basis, we will be careful.
+				\item For part 5, we do not know about inverse matrices yet. This question should
+					be answered from first principles.
+				\item It will be hard for students to get their head around this notation. $\mat{1\\2}$ and $[\vec v]_{\mathcal X}$
+					are boxes of numbers while $\vec v$ and $\mat{1\\2}_{\mathcal X}$ are vectors.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and
 	let $\mathcal C=\Set{\vec c_1,\vec c_2}$ where $\vec c_1=\mat{2\\1}_{\mathcal E}$
 	and $\vec c_2=\mat{5\\3}_{\mathcal E}$ be another basis for $\R^2$.
@@ -4347,7 +4482,7 @@ examples.
 	prove anything rigorously about orientation, but to get students to
 	make pictures for themselves of vectors moving.
 
-	The Idea is simple: $n-1$ vectors span a space that partitions $\R^n$ in
+	The idea is simple: $n-1$ vectors span a space that partitions $\R^n$ in
 	two. Add a vector in the top partition (appropriately ordered) and you get
 	a positive orientation; add to the bottom and you get a negative orientation.
 	There's no way to get from one to the other without passing through the
@@ -4376,6 +4511,36 @@ examples.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Visually understand orientation.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Determine the orientation of a basis froma  pciture.
+				\item Recognize the order of vectors in a basis relates to the
+					orientation of that basis.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Orientation in $\R^2$ is graphically easy, but conceptually very abstract.
+					The definition references ``continuously transformed''. Do not try
+					to make this precise. It is sufficient to have a visual representation.
+				\item For part 2, have them draw some examples of $\Set{\xhat, \vec u_\theta}$
+					and $\Set{\xhat, \yhat}$ on the same set of axes and a dotted line
+					showing how one can transform into the other.
+				\item Most students will picture transformations that preserve the length of $\vec u_\theta$,
+					but that need not be the case.
+
+					The (hidden) quantifier order in the definition may be a stumbling block for students. Some might
+					claim that since there exists a transformation that takes $\vec u_\theta$ through $\vec 0$
+					before its destination, $\Set{\xhat,\vec u_\theta}$ must always be left-handed.
+					Don't spend time on this unless students bring it up.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let
 	$\vec u_{\theta}$ be a unit vector. Let $\theta$ be the angle between $\vec u_{\theta}$ and
 	$\xhat$ measured counter-clockwise starting at $\xhat$.
@@ -4406,6 +4571,10 @@ examples.
 			\begin{solution}
 				It is right-handed for $\theta\in(\pi,2\pi)$, and left handed
 				for $\theta\in(0,\pi)$.
+			\end{solution}
+		\item Is $\Set{2\xhat, 3\yhat}$ right-handed or left-handed? What about $\Set{2\xhat, -3\yhat}$?
+			\begin{solution}
+				$\Set{2\xhat, 3\yhat}$ is right-handed and $\Set{2\xhat, -3\yhat}$ is left-handed.
 			\end{solution}
 	\end{parts}
 
@@ -4452,6 +4621,29 @@ examples.
 	 \draw[black, thick] (0,0) -- (1,4) -- (2,0) -- (3,4);
     \end{axis}
 \end{tikzpicture}\hfill
+
+
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Students might need some hints. Good starting hints are: ``Discuss
+					what size the inputs and outputs to your matrix are and then what size
+					the matrix must be.'' and ``If you're stuck, try making a matrix of variables
+					and then figuring out what the variables are.''
+				\item Many groups will miss the ``12''-point and ``16''-point designations, assuming that each
+					grid line indicates one unit.
+				\item Groups will pick different vectors: some will pick
+					vectors rooted in the lower-left and others will pick vectors
+					that go ``along'' the $N$. Have a discussion about how
+					these relate via linear combinations and why you get the
+					same matrix either way.
+				\item Most groups will only deal with the ``corners'' of the $N$ and ignore
+					the fact that the $N$ is made of up line segments. Using the language
+					of convex linear combinations and linearity of matrix multiplication,
+					we can come up with a proof that generalizes the corners to the whole $N$.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 
 Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
 	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
@@ -4638,6 +4830,19 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 \end{tikzpicture}
 \end{minipage}
 \hfill
+
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Every picture focuses on a different
+					property of linear transformations. (D) will
+					be the easiest to argue against. Be warned, the numbers
+					don't work out so nicely, and the correct answer is not
+					aligned to the grid.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+
 \vfill
 \end{iola}
 
@@ -4646,6 +4851,34 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 \vspace{-1.5em}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply geometric transformations to vectors.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Given a transformation described in words, compute the result
+					of the transformation applied to particular vectors.
+				\item Use linear combinations to compute the result of rotations applied
+					to unknown vectors.
+				\item Distinguish between a general transformation and a matrix transformation.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Expect at least one student to say $\mathcal R\mat{1\\0}=\mat{1&0}$.
+				\item In part 2, emphasize the relationship between linear combinations
+					in the input and linear combinations in the output.
+				\item I part 4, emphasize that $\mathcal R$ is \emph{not} the matrix $R$.
+					That multiplication by $R$ is just one way to write $\mathcal R$.
+					(For analogy, the squaring function is \emph{not} ``$x^2$'', nor is it ``$x\cdot x$''.
+					Those are both sequences of symbols that describe how to square a number $x$, but
+					the squaring function itself is an abstract \emph{function}.)
+					
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	$\mathcal R:\R^2\to\R^2$ is the transformation that rotates vectors counter-clockwise
 	by $90^\circ$.
 	\begin{parts}
@@ -4686,6 +4919,30 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of a linear transformation to examples.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Distinguish between a linear transformation and a non-linear transformation.
+				\item Provide a proof of whether a transformation is linear or not.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item When talking about transformations, it is common
+					to drop the parentheses around the function argument. 
+					E.g., $T(\vec x)\equiv T\vec x$. Point this out to students.
+				\item Part (a) is hard to write down a proof for. Don't spend so much time on it.
+				\item Spend time on the remaining parts having students write proofs. Proofs 
+					of whether something is linear follow a template. Motivate the template as: 
+					\emph{Start with the definitions, then write what you want. Next, write what you know.}
+					By that point, the problem is almost finished.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Classify the following as linear transformations or not.
 			\begin{enumerate}
@@ -4774,6 +5031,27 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Work with \emph{Images}.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute images of sets under transformations.
+				\item Develop geometric intuition for transformations of $\R^n$
+					in terms of inputs and outputs.
+				\item Relate \emph{images} to graphical problems like italicising $N$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The idea of images applies to linear and non-linear functions.
+					Though soon we will only consider linear functions, now
+					we will work in generality.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit
 	square and let $C=\Set{\vec 0, \xhat,\yhat,\xhat+\yhat}\subseteq \R^2$
 	be the corners of the unit square.
@@ -4875,6 +5153,28 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 Suppose that the ``N'' on the left is written in regular 12-point font.  Find a matrix $A$ that will transform
 	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
 \end{minipage}
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Decompose a transformation into a composition of simpler transformations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Decompose a transformation into simpler ones.
+				\item Produce examples showing matrix multiplication is not commutative.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Carefully plan how to name your matrices. For example, $T$ for 
+					the matrix that makes it \emph{taller} and $L$ for the matrix
+					that \emph{leans} the $N$.
+				\item Some students will have the question, ``Do we lean the taller $N$ or the original $N$?''
+					Make sure this discussion point comes out.
+					
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 
 Two students---Pat and Jamie---explained their approach to the Italicizing N task as follows:
 \begin{quote}\itshape
@@ -4922,6 +5222,30 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 \end{lesson}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Connect function composition and matrix multiplication.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Distinguish between matrices and linear transformations.
+				\item Explain the relationship between matrix multiplication and composition
+					of linear transformations.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Many students won't distinguish between $\mathcal P$ and $P$. Nor
+					will the understand that the fact that $PR$ is the matrix for $P\circ R$
+					is a theorem---they will think it's obvious.
+				\item For part 3, many students will multiply matrices (based on intuition),
+					but couldn't answer the question without matrix multiplication. Encourage
+					them to return to the definition of function composition and the procedure
+					for finding a matrix for a linear transformation.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\label{projectionAndRotation}
 	Define $\mathcal P$ to be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
@@ -5038,6 +5362,26 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Understanding ranges and null spaces.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Read and apply the definition of range and null space.
+				\item Geometrically visualize the range and null space of a projection.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The definition of range is \emph{much} harder for students
+					because there is an extra quantifier.
+				\item Encourage students to draw pictures. Projections are nice because you can illustrate
+					a set and its image in the same drawing without the drawing becoming too cluttered.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto $\Span\Set{\vec u}$ where
 	$\vec u=\mat{2\\3}$ (like before).
 	\begin{parts}
@@ -5066,6 +5410,25 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Practicing proofs.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Practice proving an abstract set (the range or the null space) is a subspace.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item These proofs have the same template as the previous subspace proofs but
+					are more abstract and so will present a new challenge to students. When
+					they are stuck, emphasize the technique: \emph{write the definitions; write what you want; 
+					write what you know.} Most will not have internalized this procedure!
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $T:\R^n\to\R^m$ be an arbitrary linear transformation.
 	\begin{parts}
 		\item Show that the null space of $T$ is a subspace.
@@ -5136,6 +5499,13 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 \end{lesson}
 
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Students will ask if $\mathcal E$ and $\mathcal E'$ are the same thing.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{definition}[Induced Transformation]
 		Let $M$ be an $n\times m$ matrix. We say $M$ \emph{induces}
 		a linear transformation $T_M:\R^m\to\R^n$ defined by
@@ -5145,7 +5515,44 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		where $\mathcal E$ is the standard basis for $\R^m$ and $\mathcal E'$
 		is the standard basis for $\R^n$.
 	\end{definition}
+	
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Formalizing the connection between matrices and linear transformations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Distinguish between linear transformations and matrices.
+				\item Explain how to relate matrices and linear transformations.
+				\item Practice using formal language and notation, avoiding category errors.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item At this point, students have a notion that linear transformations
+					and matrices are connected, and some will know that matrices and linear
+					transformations are not the same thing. However, most will not know how to
+					create correct sentences that distinguish between matrices and linear transformations.
+
+					This problem forces the use of precise language and terminology (e.g., that of 
+					change of basis) to discuss a matrix and its induced transformation.
+				\item Throughout most of the course, we are sloppy in distinguishing $\mat{1\\2}$ and
+					$\mat{1\\2}_{\mathcal E}$. This allows us to write $T\left(\mat{1\\2}\right)$ when $T:\R^2\to\R^2$
+					is a linear transformation (instead of the correct $T\left(\mat{1\\2}_{\mathcal E}\right)$). 
+					
+					Acknowledge this---we will continue to be sloppy some times, but when push comes to
+					shove, we must be able to be precise.
+				\item Saying ``$T$ is the transformation induced by $M$'' is slightly faster
+					than saying ``$T$ is the transformation given by multiplication by $M$ when
+					vectors are written in the standard basis'',
+					but both are formal and correct. We might also say, ``Consider the matrix transformation
+					$M:\R^m\to\R^n$.'' When we say this, we mean that we are using the letter $M$ 
+					to represent both the matrix and the induced transformation.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\label{inducedTransform}
 	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
 	be the transformation induced by $M$.
@@ -5204,6 +5611,29 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Fundamental subspaces of a matrix.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute row and column spaces of a matrix.
+				\item Recognize that row and column spaces may be unrelated.
+				\item Geometrically relate the row space to the null space.
+				\item Connect the fundamental subspaces of a matrix to the
+					range and null space of a transformation.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 3, a lot of students will say they're both $\R^2$.
+				\item In part 4, students might claim $\R^3\backslash\Set{\text{$xy$-plane}}$.
+					These students are still thinking about rooted vectors that can be moved anywhere.
+				\item In part 5, emphasize the new geometric interpretation of null space.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\label{fundamentalSubspaces}
 	Consider $A=\mat{1&0&0\\0&1&0}$.
 	\begin{parts}
@@ -5274,6 +5704,25 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Fundamental subspaces and row reduction.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Explain why row reduction doesn't change the row space or the null space.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 2, encourage students to think both geometrically
+					and algebraically. How do the solutions to $B\vec x=\vec 0$ and
+					$C\vec x=\vec 0$ relate? What is the orthogonal compliment to their row
+					spaces?
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\[
 		B=\mat{1&2&3\\1&1&1}\qquad C=\rref(B)=\mat{1&0&-1\\0&1&2}
 	\]
@@ -5318,6 +5767,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Fundamental subspaces and row reduction.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Recognize that row reduction may change the column space of a matrix.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This question should be straightforward for students.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\[
 		P=\mat{0&0\\1&2}\qquad Q=\rref(P)=\mat{1&2\\0&0}
 	\]
@@ -5380,6 +5845,24 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Rank of linear transformations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Apply the definition of \emph{rank} to compute the rank of a linear transformation.
+				\item Use geometric intuition to compute the rank of a linear transformation.
+				\item Relate the rank of a linear transformation to the rank of its matrix.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Don't labor over proofs in this quesiton.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\label{rankOfMatricesAndTransformations}
 	Let $\mathcal P$ be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
 	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
@@ -5432,7 +5915,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				range of a transformation is equal to the column space of its
 				corresponding matrix, and therefore the dimensions of these two
 				spaces are equal. In other words, the rank of a transformation is
-				equal to the dimension of the the column space of its corresponding
+				equal to the dimension of the column space of its corresponding
 				matrix.
 
 				We already know that the dimension of the column space of a matrix
@@ -5443,6 +5926,22 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Rank of matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use the definition of rank  to compute the rank of matrices.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part (d) will be the only hard one; don't spend much time on this quesiton.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Determine the rank of
 		\begin{enumerate*}
@@ -5473,6 +5972,23 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Connect rank to existing concepts.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Connect $\Rank(A)$ to the number of solutions to $A\vec x=\vec 0$.
+				\item Connect $\Rank(A)$ to linear independence or dependence of the columns of $A$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This problem is a warmup to the abstract one that follows.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Consider the homogeneous system
 		\begin{equation}\label{eq4bx}
 			\begin{array}{llll}
@@ -5529,13 +6045,24 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Connect the rank of a matrix to the linear independence/dependence of its columns.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Determine the linear independence/dependence of the columns of a matrix
+					based on its size and rank.
+			\end{itemize}
+		\end{goals}
+	\end{annotation}
 	\begin{parts}
 		\item The rank of a $3\times 4$ matrix $A$ is $3$.
 			Are the column vectors of $A$ linearly independent?
 			\begin{solution}
 				No. A $3 \times 4$ matrix has four columns, each of which are
 				vectors in $\R^3$. It is not possible for four different vectors
-				in $\R^3$ to be linearly indepedent.
+				in $\R^3$ to be linearly independent.
 			\end{solution}
 		\item The rank of a $4\times 3$ matrix $B$ is $3$.
 			Are the column vectors of $B$ linearly independent?
@@ -5574,10 +6101,10 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\end{notes}
 	\end{annotation}
 	The rank-nullity theorem is our big application of rank. It states that whatever
-	left-over dimenstions of the domain are not accounted for by the rank end up in the null space.
-	This is valuabel to know because a matrix equation $A\vec x=\vec b$ has infinitely many
-	solutions if and only if $A\vec x=\vec b$ is consisten and $A$ has a non-trivial null space. Using
-	the rank-nullity theorem, we can connect the rank of a matrix to wheither a matrix equation has infinitely
+	left-over dimensions of the domain are not accounted for by the rank end up in the null space.
+	This is valuable to know because a matrix equation $A\vec x=\vec b$ has infinitely many
+	solutions if and only if $A\vec x=\vec b$ is consistent and $A$ has a non-trivial null space. Using
+	the rank-nullity theorem, we can connect the rank of a matrix to whether a matrix equation has infinitely
 	many solutions. And, pulling this back into the world of transformations, we can start reasoning
 	about the number of solutions to an abstract equation $T(\vec x)=\vec b$ where $T$ is a linear
 	transformation.
@@ -5597,6 +6124,26 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{theorem}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Relate linear transformation concepts with matrix concepts.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Rephrase the rank-nullity theorem as stated for matrices as
+					the rank-nullity theorem for linear transformations.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The rank-nullity theorem for matrices is easy to argue for using
+					the reduced row echelon form. The rank-nullity theorem for 
+					linear transformations is much harder to prove (unless you exploit
+					the links between transformations and their corresponding matrices).
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Is there a version of the rank-nullity theorem that applies to linear
 			transformations instead of matrices? If so, state it.
@@ -5616,6 +6163,16 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the rank-nullity theorem.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Apply the rank-nullity theorem to compute the rank or nullity of unknown matrices.
+			\end{itemize}
+		\end{goals}
+	\end{annotation}
 	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
 	Define $A=[\vec u|\vec v|\vec w]$.
 	\begin{parts}
@@ -5711,6 +6268,20 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	will give the desired matrix $A$.
 \end{quote}
 
+
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item This is the time to think about composition and ``undoing'' 
+					transformations. In particular, the order that you undo
+					them in matters!
+				\item Plan the names of your transformations carefully. If you use
+					$T$ for matrix that makes it taller, $L$ for the matrix that leans,
+					$U$ for the matrix that unleans, and $S$ for the matrix that shortens,
+					you might get giggles if you compute the matrix product $SLUT$.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 Consider the new task: find a matrix $C$ that transforms the ``N'' on the right to
 the ``N'' on the left.
 \begin{enumerate}
@@ -5725,14 +6296,41 @@ the ``N'' on the left.
 	\Title{Inverses II, Elementary Matrices}
 
 	\Heading{Textbook}
-	Section 3.5
+	Section 3.5, 3.6
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Define the \emph{inverse} of a matrix.
+		\item Define an \emph{elementary matrix}.
+		\item Use elementary matrices to compute inverses.
 	\end{itemize}
 
 	\Heading{Motivation}
+	A common mathematical technique is to decompose a complicated problem into lost of simpler ones.
+	In this lesson, the complicated problem is that of finding the inverse of a matrix. We will do this
+	by recasting row reduction in terms of elementary matrices and using the rules of matrix arithmetic
+	to produce the inverse of a matrix. This is not the most efficient way to produce the inverse, but we
+	do it this way for three reasons:
+	\begin{enumerate}
+		\item Elementary matrices bring row reduction out of the realm of ``algorithms on entries'' and into
+			the realm of matrices and function composition.
+		\item Decomposition into elementary matrices foreshadows further matrix decompositions (like $LU$ or $QR$, etc.),
+			even though we won't be working with those decompositions in this course.
+		\item Decomposition into elementary matrices will be used to compute general determinants.
+	\end{enumerate}
+
+
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Most students won't know the definition of the inverse of a function.
+					They think of the inverse of a function in terms of ``the reflection of the graph
+					across $y=x$''. This is a big problem for us.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	As far as inverses are concerned, they will allow us to recast solutions to systems of equations as ``inverse problems''.
+
 
 \end{lesson}
 
@@ -5872,10 +6470,17 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Recognize applying an inverse as ``undoing'' a transformation.
+		\item Use inverses to solve matrix equations.
+		\item Relate inverses to row reduction.
+		\item Correctly reproduce a formula for $(XY)^{-1}$.
+		\item Apply inverses to change of basis.
 	\end{itemize}
 
 	\Heading{Motivation}
+	Inverses give a new way to solve systems of equations. Using row reduction, solving $A\vec x=\vec b_i$ for $i=1,\ldots, 7$
+	would involve row-reducing 7 times. But, if we compute $A^{-1}$ we can do matrix multiplication instead of row reduction!
+
 
 \end{lesson}
 	\question
@@ -6013,10 +6618,27 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Create and use change-of-basis matrices.
+		\item Describe in words what a change-of-basis matrix and its inverse does.
+		\item Given a linear transformation, explain how to get from a matrix representation in a basis $\mathcal A$
+			to a matrix representation in a basis $\mathcal B$.
 	\end{itemize}
 
 	\Heading{Motivation}
+	Change of basis is one of \emph{the} big ideas in linear algebra. The universe has no
+	privileged basis. Some bases are nicer than others, they may be orthonormal, for example, but
+	other than that, all bases are created equal. Therefore, we must understand the relationship 
+	\emph{between} bases. We need facility in converting from one basis to another. And, lo and behold,
+	converting between representations in a basis is a linear transformation!
+
+	Just as coordinates represent vectors with respect to a basis, matrices represent
+	linear transformations with respect to a basis. And, just as the same vector can
+	have two different representations in terms of coordinates, the same transformation
+	can have different representations in terms of a basis. If two matrices represent the
+	same transformation, we call them \emph{similar}. The question of ``given two
+	matrices, how can you tell if they're similar?'' is answered in the next course, MAT224, with
+	the study of Jordan forms.
+
 
 \end{lesson}
 	\question
@@ -6170,10 +6792,26 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Define the determinant as an oriented volume.
+		\item Given a linear transformation $T:\R^2\to\R^2$, 
+			compute the determinant from the definition.
+		\item Correctly extend the definition of orientation of a basis to the sign
+			of the determinant.
 	\end{itemize}
 
 	\Heading{Motivation}
+	Determinants are geometric and combinatoric objects. We leave the combinatoric perspective for another
+	course and focus only on the geometric perspective. We do this because:
+	\begin{enumerate}
+		\item Seeing determinants as change of volumes explains the use of the Jacobian in multivariable calculus.
+		\item Determinants of linear transformations, by definition, don't depend on a choice of basis.
+		\item The product rule for determinants is a consequence of composition of functions.
+		\item $\det(T) = 0$ $\implies$ $T$ is not invertible has a straightforward explanation: If the volume
+			becomes zero, a dimension was ``crushed'' and therefore $T$ has a non-trivial null space.
+	\end{enumerate}
+	The disadvantage of the purely geometric approach is that $\det(A)=\det(A^T)$ becomes a mysterious theorem.
+
+
 
 \end{lesson}
 \section*{Determinants}
@@ -6283,9 +6921,7 @@ the ``N'' on the left.
 	\begin{definition}[Determinant]
 	The \emph{determinant} of a linear transformation $X:\R^n\to \R^n$ is the
 	oriented volume of the image of the unit $n$-cube.  The determinant
-	of a square matrix is the oriented volume of the parallelepiped
-		($n$-dimensional parallelogram) given by the column vectors (or the row
-		vectors).
+	of a square matrix is the determinant of its induced transformation.
 	\end{definition}
 
 	\question
@@ -6347,18 +6983,71 @@ the ``N'' on the left.
 			\end{solution}
 	\end{parts}
 
+	\begin{theorem}[Volume Theorem I]
+		For a square matrix $M$, $\det(M)$ is the oriented volume of the parallelepiped
+		($n$-dimensional parallelogram) given by the column vectors of $M$.
+	\end{theorem}
+	\begin{theorem}[Volume Theorem II]
+		For a square matrix $M$, $\det(M)$ is the oriented volume of the parallelepiped
+		($n$-dimensional parallelogram) given by the row vectors of $M$.
+	\end{theorem}
+	\question
+	\begin{parts}
+		\item Explain Volume Theorem I using the definition of determinant.
+		\item Based on Volume Theorems I and II, how should $\det(M)$ and $\det(M^T)$
+			relate for a square matrix $M$?
+	\end{parts}
+
 \begin{lesson}
 	\Title{Determinants and Compositions}
 
 	\Heading{Textbook}
-	Section 5.2
+	Section 5.4, 5.2
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Compute the volume/area of a figure after multiple linear transformations
+			have been applied.
+		\item Explain the multiplicative property $\det(A\circ B)=\det(A)\det(B)$ in terms
+			of function composition and change of area.
+		\item Compute the determinant of each type of elementary matrix.
+		\item Quickly compute the determinant of triangular matrices.
+		\item Compute the determinant of an arbitrary matrix by decomposing it into the product of elementary matrices.
+		\item Explain the relationship $\det(X^{-1})=1/\det(X)$.
 	\end{itemize}
 
 	\Heading{Motivation}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Students will have memorized the formula for $2\times 2$ and $3\times 3$ determinants
+					from their homework.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	Determinants, especially higher-dimensional ones, are difficult to compute from the definition. However,
+	since $\det(A\circ B)=\det(A)\det(B)$, we can compute the determinant of complicated transformations/matrices
+	by decomposing them into simple ones.
+
+	Elementary matrices come in three types, one for each type of elementary operation. Two of the elementary
+	matrices change the determinant by a multiplicative factor, and the last one (the workhorse of row reduction) doesn't
+	change the determinant at all. Given a decomposition of a matrix as the product of elementary matrices,
+	it is easy to compute the determinant. However, if we just want to compute the determinant, it's easier than that.
+	By row reducing while keeping track of row swaps and when
+	we normalize rows, we can efficiently compute the determinant of any matrix.
+
+	Elementary matrices also nail down two theorems:
+	\begin{enumerate}
+		\item[(1)] $\det(A) = 0$ $\iff$ $A$ is not invertible.
+		\item[(2)] $\det(A)=\det(A^T)$.
+	\end{enumerate}
+
+	The first theorem is proved because, for a matrix $A$, we have $A=X\!\Rref(A)$ where $X$ is the product of elementary matrices.
+	If $\Rref(A)\neq I$, the matrix cannot be invertible and $\det(A)=0$. If $\Rref(A)=I$, then $\det(A)\neq 0$.
+
+	The second theorem follows by noticing that if $E$ is an elementary matrix, $E^T$ is an elementary matrix 
+	of the same type and it changes volume by the same amount. Thus, by decomposing $A$ as a product of elementary
+	matrices (assume it is invertible), we see $\det(A)=\det(A^T)$.
 
 \end{lesson}
 	\question
@@ -6370,7 +7059,7 @@ the ``N'' on the left.
 			\begin{solution}
 				The volumes are $4$, $2$, and $3$, respectively.
 
-				We can compute the the volume of $M(C_2)$ directly, since $M$
+				We can compute the volume of $M(C_2)$ directly, since $M$
 				transforms $C_2$ into a square with side length $2$. For the
 				other two, we are given their determinants and we know that the
 				volume of the image of the unit square equals the determinant of
@@ -6500,10 +7189,20 @@ the ``N'' on the left.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Compute linear transformations presented in different bases.
+		\item Recognize a preferred basis (the eigen basis) for transformations
+			which can be described as stretching in particular directions.
 	\end{itemize}
 
 	\Heading{Motivation}
+	Eigenvectors and diagonalization are the capstones of this course. However,
+	they are a major stumbling block for students because they can easily get lost in
+	the algebraic procedure of finding eigenvectors/values and not have any grounding
+	of their meaning.
+
+	We will start out with a very concrete example where we see that
+	describing a transformation in terms of stretch directions gives us a preferred basis.
+	We will later realize this basis as the eigen basis.
 
 \end{lesson}
 \begin{iola}
@@ -6593,10 +7292,23 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Define eigenvector/value.
+		\item Compute eigenvectors/values given a geometric description of a linear transformation.
+		\item Argue that $A-\lambda I$ has a non-trivial null space $\iff$ $\lambda$ is an eigenvector for $A$.
 	\end{itemize}
 
 	\Heading{Motivation}
+	We want students to be able to explain how the procedure for finding eigenvectors/values
+	relates to the definition of eigenvectors/values. Therefore, we proceed slowly, exploring
+	properties of eigenvectors/values one step at a time.
+
+	As we've already seen, if $\vec v$ is an eigenvector for $A$, then $A\vec v$ is easy to compute.
+	It's less obvious to students that $(A+tI)\vec v$ is equally easy to compute. 
+	The algorithm for
+	finding eigenvectors/values relies on (i) our ability to compute the null space of $A-\lambda I$,
+	and (ii) our ability to algorithmically determine if $A-\lambda I$ is invertible. In this lesson we
+	establish both needs, but don't yet practice an algorithm.
+
 
 \end{lesson}
 \section*{Eigenvectors}
@@ -6760,10 +7472,39 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Define \emph{characteristic polynomial}
+		\item Explain how the characteristic polynomial relates to eigenvalues.
+		\item Use the characteristic polynomial to determine if a matrix is invertible.
+		\item Compute eigenvalues given eigenvectors.
+		\item Compute the image of a vector written in an eigen basis.
 	\end{itemize}
 
 	\Heading{Motivation}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item We define $\Char(A)=\det(A-\lambda I)$.
+					Some define $\Char(A)=\det(\lambda I-A)$.
+
+					The up side of the second definition is
+					that the characteristic polynomial is always monic.
+					The up side of our definition is that
+					$\Char(A)(0)=\det(A)$, and the down side is that
+					the leading coefficient of $\Char(A)$ is $\pm\lambda^n$ depending
+					on whether $n$ is even or odd.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	We are building up to diagonalization. One of the tools along the way is the characteristic polynomial,
+	which connects algebra (in particular the fundamental theorem of algebra) to matrices. It is a deep
+	and mysterious connection and is not technically needed to study eigenvalues and eigenvectors\footnote{
+		For example, see \emph{Linear Algebra Done Right}'s approach.}, but characteristic polynomials
+	are used in many fields and provide a quick way to find eigenvalues.
+
+	We are not studying characteristic polynomials outright. Instead, they are a clever object
+	that allows us to determine when a matrix $A-\lambda I$ has a non-trivial null space. (Alas, the
+	study of minimal polynomials must wait for a different course.)
+	\emph{Our end-goal is to see that the eigen basis is useful.}
 
 \end{lesson}
 	\begin{definition}[Characteristic Polynomial]
@@ -6873,10 +7614,17 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\Heading{Objectives}
 	\begin{itemize}
-		\item
+		\item Explain how diagonalization can be used to compute large matrix powers.
+		\item Explain a link between eigenvectors, eigenvalues, and diagonalization.
+
 	\end{itemize}
 
 	\Heading{Motivation}
+	We finally have all the tools we need to diagonalize a matrix, and explain why diagonalization is useful.
+	Let's do it!
+
+	However, not all matrices are diagonalizable. We need to carefully outline that we need a
+	basis of eigenvectors to diagonalize a matrix, and that this condition is an if and only if.
 
 \end{lesson}
 	\question
@@ -6894,6 +7642,9 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\end{parts}
 
 
+	\begin{definition}[Diagonalizable]
+		A matrix is \emph{diagonalizable} if it is similar to a diagonal matrix.
+	\end{definition}
 	\question
 	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
 	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
@@ -6906,6 +7657,40 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\item What if the eigenvectors of $T$ did not form a basis for $\R^n$.
 			Would $T$ be diagonalizable?
 	\end{parts}
+
+\begin{lesson}
+	\Title{Diagonalization III}
+
+	\Heading{Textbook}
+	Section 6.2
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Define \emph{eigenspace}, \emph{geometric multiplicity}, and \emph{algebraic multiplicity}.
+		\item State the theorem a matrix is diagonalizable iff the algebraic multiplicities match the geometric
+			multiplicities and sum to the dimension of the space.
+		\item Show a particular matrix is not diagonalizable.
+		\item Produce a non-diagonalizable matrix.
+	\end{itemize}
+
+	\Heading{Motivation}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item Half of the students in this class have never seen complex
+					numbers before. We aren't holding students accountable
+					for knowing how to use complex numbers, but the fundamental
+					theorem of algebra is worth mentioning.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	Diagonalization is great, but not all matrices can be diagonalized. This is because the we might not
+	have a basis of eigenvectors. The sum of the geometric multiplicities gives the dimension of the span
+	of all the eigenvectors. If it is not $n$ (for an $n\times n$ matrix), the we cannot be diagonalizable.
+	This is the start of the theory of Jordan forms. We aren't developing this theory, but we do want to understand
+	the limitations of diagonalization.
+
+\end{lesson}
 
 	\begin{definition}[Eigenspace]
 	Let $A$ be a matrix with eigenvalues $\{\lambda_1,\ldots,\lambda_m\}$.  The
@@ -6920,20 +7705,6 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	occurs as a factor).
 	\end{definition}
 
-\begin{lesson}
-	\Title{Diagonalization III}
-
-	\Heading{Textbook}
-	Section 6.2
-
-	\Heading{Objectives}
-	\begin{itemize}
-		\item
-	\end{itemize}
-
-	\Heading{Motivation}
-
-\end{lesson}
 	\question
 	Define $F=\mat{1&1\\0&1}$.
 	\begin{parts}
