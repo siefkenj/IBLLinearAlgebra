@@ -6308,7 +6308,7 @@ the ``N'' on the left.
 	\end{itemize}
 
 	\Heading{Motivation}
-	A common mathematical technique is to decompose a complicated problem into lost of simpler ones.
+	A common mathematical technique is to decompose a complicated problem into lots of simpler ones.
 	In this lesson, the complicated problem is that of finding the inverse of a matrix. We will do this
 	by recasting row reduction in terms of elementary matrices and using the rules of matrix arithmetic
 	to produce the inverse of a matrix. This is not the most efficient way to produce the inverse, but we
@@ -6339,6 +6339,31 @@ the ``N'' on the left.
 \section*{Inverses}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Elementary matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Define \emph{elementary matrices}.
+				\item Relate elementary matrices to row reduction.
+				\item Use the ``reversibility'' of elementary row
+					operations to create inverses to elementary matrices.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item One punchline is that elementary matrices
+					allow do the same thing as elementary row
+					operations. This means we can understand row
+					reduction in terms of matrix multiplication instead
+					of as an algorithm that operates on matrix entries.
+				\item Parts 4 and 5 foreshadow inverses. They're meant to start
+					building the intuition that inverses ``undo'' operations.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Apply the row operation $R_3\mapsto R_3+2R_1$ to the $3\times 3$ identity
 		matrix and call the result $E_1$.
@@ -6400,6 +6425,15 @@ the ``N'' on the left.
 			\end{solution}
 	\end{parts}
 
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item The definition is written as $AB=I$ and $BA=I$ instead
+					of $AB=BA=I$ so that a simple dimension argument cannot rule
+					out invertibility.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{definition}
 		The \emph{inverse} of a matrix $A$ is a
 		matrix $B$ such that $AB=I$ and $BA=I$.
@@ -6407,6 +6441,27 @@ the ``N'' on the left.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of \emph{inverse matrix}.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use the definition of \emph{inverse matrix} to
+					identify whether two matrices are inverses of each other.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In a large class, students will find all pairs, but many will miss
+					$F,F$ as a pair.
+				\item Make sure to have a discussion of $B,C$, since $BC=I$ but $CB\neq I$.
+					The fact you can multiply both ways and get $I$ is a really important
+					part of the definition!
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Consider the matrices
 	\[
 		A=\mat{1&2&0\\0&1&0\\-3&-6&1}\qquad
@@ -6427,6 +6482,31 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Compute inverses.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use elementary matrices to compute matrix inverses.
+				\item Decompose an invertible matrix into the product of elementary matrices.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item There are two different ways to row reduce $B$ using two elementary row
+					operations. They give different pairs of elementary matrices, but produce
+					the same inverse. This is a good discussion point.
+				\item In part 3, many will forget to check that $B(E_2E_1)=I$. They don't know
+					the theorem that for a square matrix a left inverse is also a right inverse,
+					so they must check this!
+				\item In part 4, emphasize the order in which the elementary matrices must be multiplied.
+				\item You can use the two different decompositions of $B^{-1}$ as an opportunity to
+					show that order matters.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\[
 		B=\mat{1 &4\\0 &2}
 	\]
@@ -6486,6 +6566,27 @@ the ``N'' on the left.
 
 \end{lesson}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Solve systems with inverses.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Relate inverse matrices to the previous methods for solving
+					equations, row reduction.
+				\item Symbolically the solution to a matrix equation using inverses.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Many will not know how to answer part 3. Ask them
+					to think about the definition of matrix-matrix multiplication.
+				\item In part 4, emphasize that order matters and that $\vec bA^{-1}$ doesn't
+					even make sense as a product.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\[
 		A=\mat{1&2&-1\\2&2&4\\1&3&-3}\qquad
 		\vec b=\mat{1\\2\\3}\qquad
@@ -6537,6 +6638,25 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Inverses and composition.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Create a correct formula for $(XY)^{-1}$ and
+					explain it algebraically or in terms of 
+					function composition.
+				\item Relate invertibility of a matrix and its induced transformation.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Depending on time, you can do a ``soft'' argument for part 2.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item For two square matrices $X,Y$, should $(XY)^{-1}=X^{-1}Y^{-1}$?
 			\begin{solution}
@@ -6572,6 +6692,25 @@ the ``N'' on the left.
 
 \subsection*{More Change of Basis}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Inverses and change of basis.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use inverses to answer change-of-basis questions.
+				\item Explain why the inverse of a change-of-basis matrix is another
+					change of basis matrix.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item It's been a while since change of basis. Students might be rusty.
+				\item This question was foreshadowed in the initial change-of-basis exercises.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{1\\1}$, $\vec b_2=\mat{1\\-1}$
 	and let $X=[\vec b_1|\vec b_2]$ be the matrix whose columns are $\vec b_1$ and $\vec b_2$.
 	\begin{parts}
