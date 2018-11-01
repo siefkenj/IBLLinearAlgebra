@@ -1374,7 +1374,7 @@ argument supporting your answer.
 			\end{solution}
 		\item For which $t\in\R$ is it true that $\vec a+t\vec d\in A$? Explain using your picture.
 			\begin{solution}
-				$\vec a +t\vec d\in A$ for all $t\in \R$. We can see this because if we start at the
+				$\vec a +t\vec d\in A$ for any $t\in \R$. We can see this because if we start at the
 				vector $\vec a$ and the displace by $t\vec d$, we will always be on the line $A$.
 			\end{solution}
 	\end{parts}
@@ -3795,8 +3795,6 @@ examples.
 		\item Define Dimension.
 		\item Find a basis for a subspace.
 		\item Find the dimension of a subspace.
-		\item Explain why every vector has a unique representation as a linear
-			combination of basis vectors.
 	\end{itemize}
 
 	\Heading{Motivation}
@@ -3920,7 +3918,7 @@ examples.
 
 				$P$ and $Q$ are both planes and are not parallel (since
 				$\vec a,\vec b,\vec c$ are linearly independent). The intersection
-				of any two non-parallel	planes is a line.
+				of any two non-parallel	planes in $\R^3$ is a line.
 				We know that $\vec 0$ and $\vec c$ are on this line, and therefore
 				the line is $\Span\Set{\vec c}$
 			\end{solution}
@@ -3929,7 +3927,7 @@ examples.
 				No. For example $\vec a$ and $\vec c$ are both in $P\cup Q$, but
 				$\vec a+\vec c \notin P\cup Q$.
 
-				A vector is in $P\cup Q$ if it is in $P$ or $Q$, so we must show
+				Proof: A vector is in $P\cup Q$ if it is in $P$ or $Q$, so we must show
 				that $\vec a+\vec c\notin P$ and $\vec a+\vec c\notin Q$
 
 				$\vec a+\vec c \notin P$ since if it were, we would also have
@@ -4138,6 +4136,7 @@ examples.
 					null space of a matrix to define normal vectors.
 				\item Part 2 admits some trivial answers, but the interesting one is when 
 					the range is $\mathcal P$.
+				\item For part 3, students might miss the $\vec n\neq \vec 0$ condition.
 				\item The matrices $K$ and $M$ do not have to be transposes of each other,
 					but arrange it so they are.
 			\end{itemize}
@@ -4162,8 +4161,8 @@ examples.
 		\item Find necessary and sufficient conditions (phrased as equations) for
 			$\vec n$ to be a normal vector for $\mathcal P$.
 			\begin{solution}
-				$\vec n$ is normal to $\mathcal P$ if and only if
-				$\vec n\cdot\vec d_1=0$ \emph{and} $\vec n\cdot\vec d_2=0$
+				$\vec n$ is normal to $\mathcal P$ if and only if $\vec n\neq \vec 0$,
+				$\vec n\cdot\vec d_1=0$, \emph{and} $\vec n\cdot\vec d_2=0$
 			\end{solution}
 		\item Find a matrix $K$ so that non-zero solutions to $K\vec x=\vec 0$ are normal
 			vectors for $\mathcal P$. How do $K$ and $M$ relate?
@@ -4304,7 +4303,7 @@ examples.
 		\item The points $A=(2,1)$ and $B=(3,-1)$ are given in street coordinates.
 			Find their east-north coordinates.
 			\begin{solution}
-				$A=\frac{1}{5}(5,-4)$ and $B=(3,1)$ in east-north coordinates.
+				$A=(1,2)$ and $B=(3,1)$ in east-north coordinates.
 
 				We obtain $A$ for example by finding the vector $2\vec d_1+\vec d_2$.
 			\end{solution}
@@ -4342,7 +4341,7 @@ examples.
 			\vec v=\alpha_1\vec b_1+\cdots+\alpha_n\vec b_n.
 		$
 
-		Similarly,
+		Conversely,
 		\[
 			\mat{\alpha_1\\\vdots\\\alpha_n}_{\mathcal B}
 			= \alpha_1\vec b_1+\cdots +\alpha_n\vec b_n
@@ -4519,7 +4518,7 @@ examples.
 
 			The goal of this problem is to
 			\begin{itemize}
-				\item Determine the orientation of a basis froma  pciture.
+				\item Determine the orientation of a basis from a  picture.
 				\item Recognize the order of vectors in a basis relates to the
 					orientation of that basis.
 			\end{itemize}
@@ -5325,15 +5324,17 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{solution}
 				$A = PR$ and $B = RP$.
 
-				We can simply compute these matrix products to see this, but
-				from the previous parts we that for any vector $\vec x$
+				We can compute these matrix products to see this, but
+				from the previous parts, we know that for any vector $\vec x$
 				\[
 					A\vec x
 					=(\mathcal P\circ\mathcal R)(\vec x)
 					=\mathcal P(\mathcal R(\vec x))
 					=\mathcal P(R\vec x)
-					=PR\vec x.
-					\quad \text{and} \quad
+					=PR\vec x
+				\]
+				and
+				\[
 					B\vec x
 					=(\mathcal R\circ\mathcal P)(\vec x)
 					=\mathcal R(\mathcal P(\vec x)
@@ -5342,7 +5343,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				\]
 				Using $\vec x = \xhat$ shows that first column of $A$ must equal
 				the first column of $PR$, and using $\vec x = \yhat$ shows that
-				the second column fo $A$ must equal the second column of $PR$,
+				the second column of $A$ must equal the second column of $PR$,
 				and therefore $A = PR$. For the same reason, we must also have $B=RP$.
 			\end{solution}
 
@@ -5492,7 +5493,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		and together with the null space give the fundamental subspaces of a matrix. The column space of
 		a matrix corresponds to the range of a transformation and the null space of a matrix corresponds
 		to the null space of a transformation. The row space is the odd one out, but is included since it is
-		the orthogonal compliment to the null space (which will allow us to tie together normal form and vector
+		the orthogonal complement to the null space (which will allow us to tie together normal form and vector
 		form of planes through the origin).
 
 		In this setting, we also start studying row reduction as a ``transformation''. It changes
@@ -5721,7 +5722,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\begin{itemize}
 				\item In part 2, encourage students to think both geometrically
 					and algebraically. How do the solutions to $B\vec x=\vec 0$ and
-					$C\vec x=\vec 0$ relate? What is the orthogonal compliment to their row
+					$C\vec x=\vec 0$ relate? What is the orthogonal complement to their row
 					spaces?
 			\end{itemize}
 		\end{notes}
@@ -5755,7 +5756,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{solution}
 		\item Compute the null space of $B$.
 			\begin{solution}
-				$\Null(C)=\Span\Set*{\mat{2\\-1\\2}}$.
+				$\Null(C)=\Span\Set*{\mat{1\\-2\\1}}$.
 
 				We compute $\Null(C)$, since it equals $\Null(B)$ by the previous part.
 
@@ -5763,8 +5764,8 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				$C\vec x = \mat{x-z\\y+2z} = \vec 0$. The complete solution to this matrix equation is
 				\[
 					\Null(C)=
-					\Set*{\mat{t\\-\frac{t}{2}\\t}\in\R^3 \given t\in\R}
-					=\Span\Set*{\mat{2\\-1\\2}}.
+					\Set*{\mat{t\\-2{t}\\t}\in\R^3 \given t\in\R}
+					=\Span\Set*{\mat{1\\-2\\1}}.
 				\]
 			\end{solution}
 	\end{parts}
@@ -5862,7 +5863,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 		\begin{notes}
 			\begin{itemize}
-				\item Don't labor over proofs in this quesiton.
+				\item Don't labor over proofs in this question.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
@@ -5942,7 +5943,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 
 		\begin{notes}
 			\begin{itemize}
-				\item Part (d) will be the only hard one; don't spend much time on this quesiton.
+				\item Part (d) will be the only hard one; don't spend much time on this question.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
@@ -6182,7 +6183,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\begin{parts}
 		\item What is the rank and nullity of $A^T$?
 			\begin{solution}
-				$\Rank(A^T)=2$ and $\Nullity(A^T)=1$.
+				$\Rank(A^T)=2$ and $\Nullity(A^T)=7$.
 
 				$A^T$ is the matrix with rows $\vec u,\vec v$, and $\vec w$.
 				Since $\vec w=2\vec u-\vec v$, the third row of $A^T$ can be
@@ -6191,8 +6192,8 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				reduced to rows of zeros since they are linearly independent.
 				Therefore $\rref(A^T)$ has two pivots, meaning $\Rank(A^T)=2$.
 
-				The rank-nullity theorem then says that $2+\Nullity(A^T)=3$, and so
-				$\Nullity(A^T)=1$
+				The rank-nullity theorem then says that $2+\Nullity(A^T)=9$, and so
+				$\Nullity(A^T)=7$
 			\end{solution}
 		\item What is the rank and nullity of $A$?
 			\begin{solution}
@@ -7859,696 +7860,6 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			$A$ diagonalizable?  What if all the geometric and algebraic multiplicities
 			match?
 	\end{parts}
-
-
-
-
-
-
-
-
-
-
-%\section*{Span Again}
-%	\question
-%	Consider the system
-%		\begin{equation}\label{eq4bc}
-%			\begin{array}{llll}
-%				x&-y&-z &= 0\\
-%				0x&+1y&+2z &= 0\\
-%				3x&-3y&+3z &= 0
-%			\end{array}
-%		\end{equation}
-%	which has the unique solution $(x,y,z)=(0,0,0)$.
-%	\begin{parts}
-%		\item Give vectors $\vec u,\vec v,\vec w$ so that the system \eqref{eq4bc}
-%			corresponds to the vector equation $x\vec u+y\vec v+z\vec w = \vec 0$.
-%		\item Is $\vec w\in\Span\{\vec u,\vec v\}$? If so, write it as a linear combination
-%			of $\vec u$ and $\vec v$.
-%	\end{parts}
-%
-%	The matrix $M$ is the non-augmented matrix corresponding to a homogeneous system of linear equations.
-%	$M$ also corresponds to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.  Further, we know
-%	\[
-%		\rref(M) = \mat{1&0&1\\0&1&-2\\0&0&0}.
-%	\]
-%	\begin{parts}[resume]
-%		\item Give a solution to the vector equation $x\vec a+y\vec b+z\vec c=\vec 0$.
-%		\item Is $\vec c\in\Span\{\vec a,\vec b\}$?  If so, write it as a linear combination
-%			of $\vec a$ and $\vec b$.
-%		\item Do you have enough information to tell if $\{\vec a,\vec b\}$ is linearly independent?  Why or why not?
-%	\end{parts}
-%
-%\subsection*{Finding Linearly Independent Subsets}
-%	\question
-%	Suppose when you use an augmented matrix to solve
-%	$a\vec u+b\vec v+c\vec w=\vec 0$ you have no free variables.
-%
-%	\begin{parts}
-%		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
-%	\end{parts}
-%
-%	Suppose when you use an augmented matrix to solve
-%	$a\vec u+b\vec v+c\vec w=\vec 0$, the second column corresponds to a
-%	free variable.
-%
-%	\begin{parts}[resume]
-%		\item Is $\{\vec u,\vec v,\vec w\}$ linearly independent?
-%		\item Is $\{\vec u,\vec w\}$ linearly independent?
-%		\item Is $\{\vec u,\vec v\}$ linearly independent?
-%	\end{parts}
-%
-%	\begin{definition}[Maximal Linearly Independent Subset]
-%	Given a set of vectors $X$, a
-%	\emph{maximal linearly independent subset} of $X$ is a linearly independent
-%	subset $V\subseteq X$ with the most possible vectors in it
-%	(i.e., if you took any subset of $X$ with more vectors, it would be linearly
-%	dependent).
-%	\end{definition}
-%
-%	\question
-%	\begin{parts}
-%		\item Give a maximal linearly independent subset, $T$, of
-%		$\left\{\mat{a\\b\\c}:a,b,c\in \R\right\}$.
-%		\item What is the size of $T$?
-%	\end{parts}
-%
-%	\question
-%	Consider the vectors
-%	\[
-%		\vec v_1=\mat{1\\2\\1}
-%		\qquad
-%		\vec v_2=\mat{-1\\-1\\-1}
-%		\qquad
-%		\vec v_3=\mat{0\\1\\0}
-%		\qquad
-%		\vec v_4=\mat{-1\\2\\0}
-%		\qquad
-%		\vec v_5=\mat{1\\-1\\1}
-%	\]
-%	and the matrices
-%	\[
-%		A=\mat{1&-1&0&-1&1\\ 2&-1&1&2&-1\\1 & -1&0&0&1}
-%		\qquad \rref (A)
-%		=\mat{1&0&1&0&-2\\0&1&1&0&-3\\0&0&0&1&0}.
-%	\]
-%	(Notice that the columns of $A$ are the vectors $\vec v_1,\ldots, \vec v_5$)
-%
-%	\begin{parts}
-%		\item Is $V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4,\vec v_5\}$ linearly
-%		independent?
-%		\item Pick a maximal linearly independent subset of $V$.
-%		\item Pick another (different) maximal linearly independent subset of $V$.
-%		\item Give a basis for $\Span(V)$.
-%		\item What is the dimension of $\Span(V)$?
-%	\end{parts}
-%
-%	\newpage
-%\section*{Matrices}
-%	\question
-%	\[
-%		A=\mat{1&2\\3&1\\0&-1}
-%		\qquad
-%		B=\mat{-1&-1\\0&1\\1&-2}
-%		\qquad
-%		C=\mat{1&2&0\\-1&-1&-1}
-%	\]
-%	\begin{parts}
-%		\item Write the shape of the matrices $A,B,C$ (i.e., for each one,
-%		write the dimensions in $m\times n$ form).
-%		\item List \emph{all} products between the matrices $A,B,C$ that are
-%		defined. (Your list will be some subset of $AB,AC,BA,CA,BC,CB$.)
-%		\item Compute $AC$ and $CA$.
-%	\end{parts}
-%
-%	\question
-%	\begin{parts}
-%		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
-%		does $XY=YX$?  Explain.
-%		\item If the matrices $X$ and $Y$ are both square $n\times n$ matrices,
-%		does $X+Y=Y+X$?  Explain.
-%	\end{parts}
-%
-%	\question
-%	The entries of a matrix are specified by (row,column) pairs of integers.  If
-%	$a_{ij}$ is the $(i,j)$ entry of a matrix $A$, we may write $A=[a_{ij}]$.
-%	\begin{parts}
-%		\item Write the $2\times 2$ matrix $A$ with entries $a_{11} = 4$, $a_{12}=3$,
-%			$a_{21} = 7$ and $a_{22}=9$.
-%		\item Let $B=[b_{ij}]$ be the $3\times 3$ matrix where $b_{ij} = i+j$.  Write $B$.
-%		\item Let $C=[c_{ij}]$ be the $3\times 4$ matrix where $c_{ij} = 0$ if $i=j$ and
-%			$c_{ij}=1$ if $i\neq j$.
-%	\end{parts}
-%
-%	\question
-%	\begin{definition}
-%		The \emph{transpose} of a matrix $A=[a_{ij}]$ is the matrix $A^{T}=[a_{ji}]$.
-%	\end{definition}
-%	Visually, the transpose of a matrix swaps rows and columns.
-%
-%	\[
-%		A=\mat{1&1&2\\2&2&1}
-%	\]
-%	\begin{parts}
-%		\item What is the shape of $A$ and $A^T$?
-%		\item Write down $A^T$.
-%	\end{parts}
-%
-%	$B$ and $D$ are $4\times 6$ matrices and $C$ is a $6\times 4$ matrix.
-%
-%	\begin{parts}[resume]
-%		\item Does $(BC)^T=B^TC^T$? Explain.
-%		\item Does $(B+D)^T=B^T+D^T$? Explain.
-%		\item Compute $AA^T$ and $A^TA$ (where $A$ is the matrix defined earlier).
-%		What do you notice?
-%	\end{parts}
-%
-%	\question
-%	\begin{definition}
-%		A matrix $X$ is called \emph{symmetric} if $X=X^T$.
-%	\end{definition}
-%	Symmetric matrices have many useful properties,
-%	and have deep connections with orthogonality and eigenvectors (which we will get to later on).
-%
-%	\begin{parts}
-%		\item Prove that if $W$ is a square matrix, then $V=W^TW+W+W^T$ is a symmetric
-%		matrix.
-%	\end{parts}
-%
-%	\question
-%	\begin{definition}
-%		A \emph{zero matrix} is a matrix whose entries are all zeros.
-%		An \emph{identity matrix} is a square matrix whose diagonal
-%		entries are $1$ and non-diagonal entries are $0$.
-%	\end{definition}
-%	We write the $m\times n$ zero matrix as $0_{m\times n}$ or just $0$ if the shape
-%	is determined by context.  The $n\times n$ identity matrix is notated $I_{n\times n}$ or just
-%	$I$ if the shape is determined by context.
-%
-%	Let $A=\mat{1&2&3\\4&5&6\\7&8&9}$.
-%	\begin{parts}
-%		\item Write down the $3\times 3$ identity matrix and the $3\times 3$ zero
-%		matrix.
-%		\item Compute $I_{3\times 3}A$, $AI_{3\times 3}$, $0_{3\times 3}A$,
-%		and $A0_{3\times 3}$.
-%		\item If we were to think of matrices as numbers, what numbers would the
-%		zero matrix and the identity matrix correspond to?
-%	\end{parts}
-%
-%	\question
-%	\begin{parts}
-%		\item Solve the matrix equation
-%		\[
-%			I_{4\times 4}\mat{x\\y\\z\\w} = \mat{2\\3\\1\\-1}.
-%		\]
-%	\end{parts}
-%
-%
-%
-%\newpage
-%
-%
-%
-%
-%
-%\newpage
-%
-%\section*{Orthogonality}
-%	\begin{definition}[Orthogonal \& Orthonormal]
-%		A set of vectors is \emph{orthogonal} if every pair of vectors
-%		in the set is orthogonal.  A set of vectors is \emph{orthonormal}
-%		if it is both an orthogonal set and every vector is a unit vector.
-%	\end{definition}
-%
-%	\question
-%	\[
-%		\mathcal B=\{\vec b_1,\vec b_2\}\qquad\vec b_1=\mat{1/2\\\sqrt{3}/2}
-%		\qquad \vec b_2=\mat{-\sqrt{3}/2\\1/2}
-%	\]
-%	The matrix $A=[\vec b_1|\vec b_2]$ takes vectors in the $\mathcal B$ basis
-%	and rewrites them in the standard basis.
-%	\begin{parts}
-%		\item What does $A^{-1}$ do?
-%		\item Find a matrix $B$ that takes vectors in the standard basis
-%			and rewrites them in the $\mathcal B$ basis.
-%		\item Write $\vec x=\mat{1\\2}$ in the $\mathcal B$ basis.
-%		\item What is the relationship between $A$ and $B$?
-%	\end{parts}
-%
-%	\begin{definition}[Orthogonal Matrix]
-%		An \emph{orthogonal matrix} is a square matrix whose columns are
-%		orthonormal (Yes, a better name would be orthonormal matrix, but that
-%		is not the term the rest of the world uses).
-%	\end{definition}
-%
-%	\question
-%	Suppose $X=[\vec x_1|\vec x_2|\vec x_3|\vec x_4]$ is an orthogonal matrix.
-%	\begin{parts}
-%		\item What is the shape of $X$ (i.e., it is a what$\times$what matrix)?
-%		\item Compute $X^TX$.
-%		\item What is $X^{-1}$?
-%	\end{parts}
-%
-%	\question
-%	\[
-%		Y=\mat{1&1&1&-1\\1&-1&-1&-1\\1&1&-1&1\\1&-1&1&1}
-%	\]
-%	\begin{parts}
-%		\item Is $Y$ an orthogonal matrix?
-%		\item Fix $Y$ so it is an orthogonal matrix.  Call the new matrix $X$.
-%		\item Compute $X^{-1}$.
-%		\item Compute $Y^{-1}$.
-%		\item Compute $|\det(X)|$ and $|\det(Y)|$ (the absolute value of
-%			the determinant of $X$ and $Y$).
-%	\end{parts}
-%
-%	Matrix equations involving orthogonal matrices are easy to solve because the
-%	inverse of an orthogonal matrix is so easy to compute!
-%
-%	\question
-%	Let $A=[\vec a_1|\vec a_2|\vec a_3|\vec a_4]$ be an orthogonal matrix.
-%	\begin{parts}
-%		\item Explain why
-%			$\vec x=\mat{\vec a_1\cdot \vec b\\
-%				     \vec a_2\cdot \vec b\\
-%			     	     \vec a_3\cdot \vec b\\
-%			     	     \vec a_4\cdot \vec b}$ is a solution to $A\vec x=\vec b$.
-%		\item Find scalars $a,b,c,d$ so $\vec b=a\vec a_1+b\vec a_2+c\vec a_3+d\vec a_4$
-%			(your answers will have variables in them).
-%	\end{parts}
-%
-%	Orthogonal matrices also allow us to compute projections quite easily.
-%
-%	\begin{definition}[Orthogonal Projection]
-%		If $V$ is a subspace of $\R^n$, the \emph{projection}
-%		(sometimes called the orthogonal projection) of $\vec x$ onto $V$
-%		is the closest point in $V$ to $\vec x$. We notate the projection
-%		of $\vec x$ onto $V$ as $\proj_V\vec x$.
-%	\end{definition}
-%
-%	Projections are normally hard to compute and a priori might require some sort
-%	of calculus-style optimization to find.  However, from geometry we know that
-%	if we travel from $\proj_V \vec x$ to $\vec x$, we should always trace out a path
-%	perpendicular to $V$.  Otherwise, we could find a point in $V$ that was slightly closer
-%	to $\vec x$, violating the definition of $\proj_V \vec x$.  Thus, orthogonality
-%	will be our savior.
-%
-%	\question
-%	Let $\mathcal S=\{\vec e_1,\vec e_2,\vec e_3\}$ be the standard basis.
-%	\begin{parts}
-%		\item If $\vec x=1\vec e_1+2\vec e_2+3\vec e_3$, find the projection of $\vec x$
-%			onto the $xy$-plane.
-%	\end{parts}
-%	Suppose $\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}$ is an orthonormal basis for $\R^3$.
-%	\begin{parts}[resume]
-%		\item If $\vec y=3\vec b_1-2\vec b_2+2\vec b_3$, find the projection of $\vec y$
-%			onto $\span\{\vec b_1,\vec b_3\}$.
-%	\end{parts}
-%	Suppose $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$ is a basis for $\R^3$ with
-%	\[
-%		\|\vec c_1\| =
-%		\|\vec c_2\| =
-%		\|\vec c_3\| = 1\qquad \vec c_1\cdot \vec c_2=0\qquad \vec c_1\cdot \vec c_3=0
-%		\qquad \vec c_2\cdot \vec c_3=\sqrt{2}/2.
-%	\]
-%	\vspace{-.35in}
-%	\begin{parts}[resume]
-%		\item If $\vec z=5\vec c_1+2\vec c_2-\vec c_3$, find the projection of $\vec z$
-%			onto $\span\left\{\vec c_1,\vec c_2\right\}$.
-%	\end{parts}
-%
-%	\question
-%	Let's put this all together.
-%	$\mathcal B=\left\{\mat{2\\1\\1},\mat{1\\-1\\-1},\mat{0\\1\\-1}\right\}$ is an
-%	orthogonal basis for $\R^3$.  Let $\mathcal P$ be the plane defined
-%	by
-%	\[
-%		0x+y-z=0.
-%	\]
-%	\begin{parts}
-%		\item Write $\mathcal P$ in vector form (Hint: think about the vectors
-%			listed in the $\mathcal B$ basis).
-%		\item Find an orthonormal basis $\mathcal C=\{\vec c_1,\vec c_2,\vec c_3\}$
-%			for $\R^3$ so $\mathcal P=\span\{\vec c_1,\vec c_2\}$.
-%		\item Let $\vec x=\mat{1\\2\\3}$.  Find $\proj_{\mathcal P}\vec x$.
-%	\end{parts}
-%
-%%\newpage
-%\subsection*{Gram-Schmidt Orthogonalization}
-%	We've seen how useful orthonormal bases are.  The incredible thing is that we can
-%	turn any basis into an orthonormal basis through a process called
-%	Gram-Schmidt orthogonalization.
-%
-%	\question
-%	Let $\vec a=\mat{1\\2}$ and $\vec b=\mat{3\\1}$.
-%	\begin{parts}
-%		\item Draw $\vec a$ and $\vec b$ and find $\vec w=\proj_{\vec b}\vec a$.
-%		\item Add $\vec c=\vec a-\vec w$ to your drawing.  What is the angle between
-%			$\vec c$ and $\vec b$.
-%		\item Can you write $\vec a$ as the sum of two vectors, one in
-%			the direction of $\vec b$ and one orthogonal to $\vec b$?
-%			If so, do it.
-%	\end{parts}
-%
-%	\question
-%	Let $\vec a=\mat{1\\2\\6}$ and $\vec b=\mat{1\\1\\-1}$.
-%	\begin{parts}
-%		\item Write $\vec a=\vec u+\vec v$ where $\vec u$ is parallel to
-%			$\vec b$ and $\vec v$ is orthogonal to $\vec b$.
-%		\item Find an orthonormal basis for $\span\{\vec a,\vec b\}$.
-%	\end{parts}
-%
-%	With two vectors, making an orthonormal set without changing the span
-%	is quite easy.  With more vectors, it is only slightly harder.
-%
-%	\begin{definition}[Gram-Schmidt Process]
-%		The \emph{Gram-Schmidt} orthogonalization procedure
-%		takes in a set of vectors and outputs a set of orthonormal vectors
-%		with the same span.  The idea is to iteratively produce a set of
-%		vectors where each new vector you produce is orthogonal to the previous vectors.
-%
-%		The algorithm is as follows: Let $\{ v_1,\ldots, v_n\}$ be a set of
-%		vectors.  Produce a set $\{ v_2',\ldots, v_n'\}$ that is orthogonal
-%		to $ v_1$ by subtracting off the respective projections
-%		of $ v_2,\ldots, v_n$
-%		onto $ v_1$.  Next, produce a set $\{ v_3'',\ldots, v_n''\}$
-%		orthogonal to both $ v_1$ and $ v_2'$ by subtracting off the
-%		respective projections
-%		onto $ v_2'$.  Continue this process until you have a set
-%		$V=\{ v_1, v_2', v_3'', v_4''',\ldots\}$ that is orthogonal.
-%		Finally, normalize $V$ so all vectors have unit length.
-%	\end{definition}
-%
-%	\question
-%	Let $\vec x_1=\mat{1\\-1\\-1\\1}$, $\vec x_2=\mat{2\\1\\0\\1}$, and
-%	$\vec x_3=\mat{2\\2\\1\\2}$.
-%	\begin{parts}
-%		\item Use the Gram-Schmidt procedure to find an orthonormal basis for
-%			$\span\{\vec x_1,\vec x_2,\vec x_3\}$.
-%		\item Find an orthonormal basis $\mathcal V=\{\vec v_1,\vec v_2,\vec v_3,\vec v_4\}$
-%			for $\R^4$ so that $\span\{\vec v_1,\vec v_2,\vec v_3\}=
-%			\span\{\vec x_1,\vec x_2,\vec x_3\}$.
-%	\end{parts}
-%	Let $R=\mat{1&-1&-1&1\\2&1&0&1\\2&2&1&2}$.
-%	\begin{parts}[resume]
-%		\item Find an orthonormal basis for the row space of $R$.
-%		\item Find the null space of $R$ (Hint, you've already done the work, so
-%			there is no need to row reduce).
-%	\end{parts}
-%
-%	\question
-%	Let
-%	\[
-%		\vec y_1=\mat{1\\1\\2}\qquad
-%		\vec y_2=\mat{-1\\-1\\2}\qquad
-%		\vec y_3=\mat{1\\1\\6}.
-%	\]
-%	\begin{parts}
-%		\item Find an orthonormal basis $\mathcal W$ so that $\span\mathcal W=
-%			\span\{\vec y_1,\vec y_2,\vec y_3\}$.
-%	\end{parts}
-%
-%	\begin{definition}[Orthogonal Complement]
-%		The \emph{orthogonal complement} of a subspace $V$ is written
-%		$V^\perp$ and defined as
-%		\[
-%			V^\perp=\{\vec x:\vec x\text{ is orthogonal to }V\}.
-%		\]
-%		\vspace{-.2in}
-%	\end{definition}
-%
-%	\begin{parts}[resume]
-%		\item Find the orthogonal complement of $\span \mathcal W$.
-%		\item Write $\vec v=\mat{1\\0\\1}$ in the form $\vec v=\vec r+\vec n$ where
-%			$\vec r\in\span\mathcal W$ and $\vec n\in(\span \mathcal W)^\perp$.
-%	\end{parts}
-%
-%
-%\subsection*{$QR$ Decomposition}
-%
-%	\begin{definition}[$QR$ Decomposition]
-%		For a matrix $A$, we can rewrite $A=QR$ where $Q$ is an
-%		orthogonal matrix and $R$ is an upper triangular matrix.  Writing
-%		$A$ as $QR$ is called the \emph{$QR$ decomposition} of $A$.
-%	\end{definition}
-%
-%	\question
-%	Suppose $A,B,C$ are square matrices and $C=AB$.
-%	\begin{parts}
-%		\item How do the column spaces of $A$ and $C$ relate?
-%		\item How do the column spaces of $B$ and $C$ relate?
-%	\end{parts}
-%
-%	\question
-%	$\mathcal V=\{\vec v_1,\vec v_2,\vec v_3\}$ forms a basis for $\R^3$.
-%	When we apply the Gram-Schmidt process to $\mathcal V$, we get
-%	\[
-%		\begin{array}{rl}
-%			q_1' &=\vec v\\
-%			q_2' &= \vec v_2-\frac{1}{2}\vec v_2\\
-%			q_3' &= \vec v_3-\vec v_1+2\vec v_2
-%		\end{array}
-%	\]
-%	form an orthogonal set.  Normalizing we get
-%	\[
-%		\begin{array}{rl}
-%			\vec q_1 &= 2q_1'\\
-%			\vec q_2 &= 3q_2'\\
-%			\vec q_3 &=\frac{1}{2}q_3'
-%		\end{array}
-%	\]
-%	form an orthonormal set.
-%	\begin{parts}
-%		\item Write $\vec v_1$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
-%		\item Write $\vec v_2$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
-%		\item Write $\vec v_3$ as a linear combination of $\vec q_1,\vec q_2,\vec q_3$.
-%	\end{parts}
-%	Define $A=[\vec v_1|\vec v_2|\vec v_2]$ and $Q=[\vec q_1|\vec q_2|\vec q_3]$.
-%	\begin{parts}[resume]
-%		\item Find a matrix $R$ so that $A=QR$.
-%	\end{parts}
-%
-%	We've just discovered one process to find the $QR$ decomposition of a matrix.
-%	It's really as simple as doing Gram-Schmidt and keeping track of your coefficients.
-%	Now, we have another way to the matrix equation $A\vec x=\vec b$.  If we do a $QR$
-%	decomposition and exploit the fact that $Q^{-1}=Q^T$, we have
-%	\[
-%		A\vec x=QR\vec x=\vec b\qquad\implies\qquad R\vec x=Q^T\vec b
-%	\]
-%	and $R$ is a triangular matrix, so we can just do back substitution! (It turns
-%	out that if you solve systems this way, there is less rounding error than if you
-%	use row reduction.)
-%
-%\subsection*{Symmetric Matrices}
-%	When you're new to Linear Algebra, learning lots of new concepts and algorithms,
-%	it's sometimes hard to grasp the significance of certain properties of a matrix.
-%
-%	Symmetric matrices are easy to forget at first, but they have many profound
-%	properties (not to mention they are one of the key concepts of Quantum Mechanics).
-%
-%	\question
-%	Let $A$ be a symmetric matrix and let $\vec v$ be an eigenvector with eigenvalue
-%	3 and $\vec w$ be an eigenvector with eigenvalue 4.  Note, for this problem,
-%	we are thinking of $\vec v$ and $\vec w$ as column vectors.
-%	\begin{parts}
-%		\item Write $A\vec v$, $\vec v^TA^T$, $\vec v^TA$, $A\vec w$, $\vec w^TA^T$,
-%		and $\vec w^TA$ in terms of $\vec v$, $\vec w$ and scalars.
-%		\item How do $\vec v^T\vec w$ and $\vec w^T\vec v$ relate?
-%		\item What should $\vec v^TA\vec w$ be in terms of $\vec v^T$ and
-%			$\vec w$? (Note, you could compute $(\vec v^TA)\vec w$
-%			or $\vec v^T(A\vec w)$.  Better do both to be safe).
-%		\item What can you conclude about $\vec v^T\vec w$?  How about
-%			$\vec v\cdot \vec w$?
-%	\end{parts}
-%
-%	We've just deduced that all eigenspaces of a symmetric matrix are orthogonal! On
-%	top of that, symmetric matrices always have a basis of eigenvectors.  That means
-%	that not only can you always diagonalize a symmetric matrix, but you can
-%	\emph{orthogonally} diagonalize a symmetric matrix. (i.e. if $A$ is symmetric,
-%	then $A=QDQ^T$ where $Q$ is orthogonal and $D$ is diagonal).  This is like the
-%	best of all worlds in one!
-%
-%
-%
-%\section*{Systems of Linear Equations}
-%
-%	\emph{Linear equations} are equations only involving variables,
-%	multiplication by constants, and addition/subtraction.  \emph{Systems}
-%	of equations are sets of equations that share common variables.
-%
-%	\question
-%	Consider the system
-%	\begin{equation}\label{eq2}
-%		\begin{array}{rcrl}
-%			x &-&y &= 2\\
-%			2x &+&y &= 1
-%		\end{array}
-%	\end{equation}
-%
-%	\begin{parts}
-%		\item Draw the lines in (\ref{eq2}) on the same coordinate plane.
-%		\item Algebraically solve the system (\ref{eq2}).  What does this
-%		solution represent on your graph?
-%	\end{parts}
-%
-%	\question
-%	Let $L$ be the line given by $x-y=2$.
-%	\begin{parts}
-%		\item Write an equation of a line that doesn't intersect $L$.
-%		\item Write an equation of a line that intersects $L$ in
-%		\begin{enumerate}
-%			\item one place.
-%			\item infinitely many places
-%			\item exactly two places
-%		\end{enumerate}
-%		or explain why no such equation exists.
-%		\item For each equation you came up with, solve the system algebraically.
-%		How can you tell algebraically how many solutions there are?
-%	\end{parts}
-%
-%\subsection*{The Row Reduction Algorithm}
-%
-%	\question
-%	\begin{parts}
-%		\item Solve the system
-%		\begin{equation}\label{eq3}
-%			\begin{array}{rcrcrl}
-%				x&-&y&-&2z &= -5\\
-%				2x&+&3y&+&z &= 5\\
-%				0x&+&2y&+&3z &= 8
-%			\end{array}
-%		\end{equation}
-%		any way you like.
-%
-%		\item Use an augmented matrix to solve the system (\ref{eq3}).
-%	\end{parts}
-%
-%	The system (\ref{eq3}) can be interpreted in two ways (and switching between these
-%	interpretations when appropriate is one of the most powerful tools of Linear
-%	Algebra).  We can think of solutions to (\ref{eq3})
-%	as the intersection of three planes, or we can interpret the solution
-%	as coefficients of a linear combination.
-%
-%	\begin{parts}[resume]
-%		\item Rewrite (\ref{eq3}) as a vector equation of the form
-%		\[
-%			x\vec v_1+y\vec v_2+z\vec v_3 = \vec p
-%		\]
-%		where $x,y,z$ are interpreted as scalar quantities.
-%
-%		\item If $(x,y,z)$ is a solution to (\ref{eq3}), explain how to get from the
-%		origin to $\vec p$ using only $\vec v_1, \vec v_2, \vec v_3$.
-%		\item If $(x,y,z)$ is a solution to \eqref{eq3}, is $\vec p\in\Span\{\vec v_1,\vec v_2,\vec v_3\}$?
-%	\end{parts}
-%
-%	\question
-%	Consider the augmented matrix
-%	\[
-%		A=\left[\begin{array}{ccc|c}
-%			1 & 2 & -1 & -7\\
-%			0 & 2 & 3 & 9\\
-%			0 & 0 & 1 & 1
-%		\end{array}\right].
-%	\]
-%	\begin{parts}
-%		\item Write the system of equations corresponding to $A$.
-%		\item Solve the system of equations corresponding to $A$.
-%	\end{parts}
-%
-%\subsection*{Infinite Solutions}
-%	\question
-%	Consider the system
-%	\begin{equation}\label{eq4}
-%		\begin{array}{rcrl}
-%			x&+&2y &= 3\\
-%			2x&+&4y &= 6
-%		\end{array}
-%	\end{equation}
-%
-%	\begin{parts}
-%		\item How many solutions does (\ref{eq4}) have?
-%		\item Write the solutions to (\ref{eq4}) in vector form.
-%		\item What happens when you use an augmented matrix
-%		to solve (\ref{eq4})?
-%	\end{parts}
-%
-%
-%\subsection*{Free Variables}
-%	\question
-%	Suppose the row-reduced augmented matrix corresponding to
-%	a system is
-%	\[
-%		B=\left[\begin{array}{cc|c}
-%			1 & 2 & 3\\
-%			0 & 0 & 0
-%		\end{array}\right].
-%	\]
-%	After reducing, we have 1 equation and 2 unknowns, so we can make
-%	$2-1=1$ choices when writing a solution.  Let's make the
-%	choice $y=t$.
-%
-%	\begin{parts}
-%		\item With the added equation $y=t$, solve the
-%		system represented by $B$.
-%	\end{parts}
-%
-%	\question
-%	Consider the system given by the augmented matrix
-%	\[
-%		C=\left[\begin{array}{ccccc|c}
-%			1&0&1&2&0&-1\\
-%			0&1&1&0&0&3\\
-%			0&0&0&0&1&4
-%		\end{array}\right].
-%	\]
-%	and call the variables in this system $x_1,x_2,
-%	x_3,x_4,x_5$.
-%
-%	\begin{parts}
-%		\item Write the system of equations represented by $C$.
-%		\item Identify how many choices you can make when writing
-%		down a solution corresponding to $C$.
-%		\item Add one equation (of the form $x_i=t$ or $x_j=s$, etc.)
-%		for each choice you must make when solving the system.
-%		\item Write in vector form all solutions to $C$.
-%	\end{parts}
-%
-%	\question
-%	\begin{parts}
-%		\item An unknown system $U$ is represented by an augmented
-%		matrix with 4 rows and 6 columns.  What is
-%		the minimum number of
-%		free variables solutions to $U$ will have?
-%		\item An unknown system $V$ is represented by an augmented
-%		matrix with 6 rows and 4 columns.  What is
-%		the minimum number of
-%		free variables solutions to $V$ will have?
-%	\end{parts}
-%
-%	\question
-%	\begin{definition}[Homogeneous]
-%		A system is called \emph{homogeneous} if all equations equal $0$.
-%	\end{definition}
-%
-%		Let $A$ be an unknown system of $3$ equations and $3$ variables and suppose
-%		 $(x,y,z)=(1,2,1)$ and
-%		$(x,y,z)=(-1,1,1)$ are solutions to $A$.
-%	\begin{parts}
-%		\item Can you produce another solution
-%		to the system?
-%
-%		\item  Can you
-%		produce a solution to the homogeneous version of $A$ (the version of $A$ where every
-%		equation equals 0)?
-%
-%		\item Suppose when you use an augmented matrix to solve the system $A$, you only have
-%		one free variable.  Could $A$ be homogeneous?  Can you produce all solutions to the system $A$?
-%	\end{parts}
-%
-
-
-
-
 
 
 
