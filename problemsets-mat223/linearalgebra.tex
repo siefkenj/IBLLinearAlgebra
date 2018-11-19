@@ -3919,8 +3919,8 @@ examples.
 				$P$ and $Q$ are both planes and are not parallel (since
 				$\vec a,\vec b,\vec c$ are linearly independent). The intersection
 				of any two non-parallel	planes in $\R^3$ is a line.
-				We know that $\vec 0$ and $\vec c$ are on this line, and therefore
-				the line is $\Span\Set{\vec c}$
+				We know that $\vec 0$ and $\vec b$ are on this line, and therefore
+				the line is $\Span\Set{\vec b}$
 			\end{solution}
 		\item Is $P\cup Q$ a subspace? If so, give a basis for it and its dimension.
 			\begin{solution}
@@ -6403,7 +6403,7 @@ the ``N'' on the left.
 				It should be the identity matrix, since the row operation
 				$R_3\mapsto R_3-2R_1$ should undo the operation $R_3\mapsto R_3+2R_1$.
 			\end{solution}
-		\item Without computing, what should $E_1E_2$ be? What about $E_2E_1$?
+		\item Without computing, what should $E_2E_1$ be? What about $E_1E_2$?
 		Now compute and verify.
 			\begin{solution}
 				They should both be the identity matrix.
@@ -6577,14 +6577,15 @@ the ``N'' on the left.
 			\begin{itemize}
 				\item Relate inverse matrices to the previous methods for solving
 					equations, row reduction.
-				\item Symbolically the solution to a matrix equation using inverses.
+				\item Symbolically write the solution to a matrix equation using inverses.
 			\end{itemize}
 		\end{goals}
 
 		\begin{notes}
 			\begin{itemize}
 				\item Many will not know how to answer part 3. Ask them
-					to think about the definition of matrix-matrix multiplication.
+					to think $A^{-1}$ as representing a series of elementary row
+					operations (because it is a product of elementary matrices).
 				\item In part 4, emphasize that order matters and that $\vec bA^{-1}$ doesn't
 					even make sense as a product.
 			\end{itemize}
@@ -6688,7 +6689,7 @@ the ``N'' on the left.
 
 				Suppose $M^{-1}$ exists. Then $M^{-1}M=MM^{-1}=I$.
 				Let $S$ be the linear transformation induced by $M^{-1}$.
-				Since $M$ is the matrix for $T$ we must have $ST=TS=\Id$. But
+				Since $M$ is the matrix for $T$ we must have $S\circ T=T\circ S=\Id$. But
 				then $S$ would be the inverse of $T$, which is impossible.
 			\end{solution}
 	\end{parts}
@@ -6783,15 +6784,46 @@ the ``N'' on the left.
 	matrices, how can you tell if they're similar?'' is answered in the next course, MAT224, with
 	the study of Jordan forms.
 
-
 \end{lesson}
 	\question
-	Let $\mathcal S=\Set{\vec e_1,\vec e_2,\ldots,\vec e_n}$ be the standard basis for $\R^n$.
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Inverses and change of basis in arbitrary dimensions.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Recognize $[\vec b_1|\cdots|\vec b_n]$ as a change-of-basis matrix.
+				\item Explain why changing basis is an invertible operation.
+				\item Explain how the representation of the standard basis vectors as columns
+					of $0$'s and one $1$ is a result of representing a vector in its own
+					basis and not something special about the standard basis.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This problem abstracts the previous and should come easily.
+				\item In part 1, The existence of $X^{-1}$ can be argued by arguing that change of basis
+					is invertible, or that $X$ has $n$ linearly independent columns and
+					so is a square matrix with full rank. Ideally, both these arguments come out.
+				\item In part 3, many students will assert ``$[\vec b_1]_{\mathcal B}=\vec e_1$''.
+					We are often loose with our notation, writing $\mat{1\\0}$
+					when we mean $\mat{1\\0}_{\mathcal E}$. However, in this case,
+					$[\vec b_1]_{\mathcal B}$ is explicitly a list of numbers and we're
+					not allowed to be sloppy with notation.
+				\item A student might ask how $[\vec b_1|\cdots|\vec b_n]$ is a matrix if the $\vec b_i$
+					are vectors and not lists of numbers. In this case, we're sloppy and actually
+					mean $\Big[[\vec b_1]_{\mathcal E}|\cdots|[\vec b_n]_{\mathcal E}\Big]$. However, that is
+					notational overload for most students. Don't bring it up unless they do.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	Let $\mathcal E=\Set{\vec e_1,\vec e_2,\ldots,\vec e_n}$ be the standard basis for $\R^n$.
 	Given a basis $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots,\vec b_n}$ for $\R^n$, the
 	matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ converts
 	vectors from the $\mathcal B$ basis into the standard basis. In other words,
 	\[
-		X[\vec v]_{\mathcal B} = [\vec v]_{\mathcal S}.
+		X[\vec v]_{\mathcal B} = [\vec v]_{\mathcal E}.
 	\]
 	\begin{parts}
 		\item Should $X^{-1}$ exist? Explain.
@@ -6806,7 +6838,7 @@ the ``N'' on the left.
 			\]
 			Can you fill in the ``?''~symbols so that the equation makes sense?
 			\begin{solution}
-				$X^{-1}[\vec v]_{\mathcal S} = [\vec v]_{\mathcal B}$.
+				$X^{-1}[\vec v]_{\mathcal E} = [\vec v]_{\mathcal B}$.
 
 				As we said in the previous part $X^{-1}$ should undo what $X$ does,
 				meaning it should convert vectors from the standard basis into
@@ -6826,7 +6858,37 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
-	Let $\vec c_1=\mat{2\\1}$, $\vec c_2=\mat{5\\3}$, $\mathcal C=\Set{\vec c_1,\vec c_2}$, and $A=\mat{2&5\\1&3}$.
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Representations of transformations.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Represent a transformation as a matrix in different bases.
+				\item Recognize that some bases give \emph{nicer} matrix representations
+					than others.
+				\item Connect the definition of similar matrices to change-of-basis.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This problem is coming back again after we do eigenvectors.
+				\item Since we have vectors in multiple bases and transformations in
+					multiple bases, it's especially important to be consistent
+					with vector/list of numbers notation.
+				\item Students have been primed for this problem for a long time. It won't
+					be \emph{so} hard, but they'll need the instructors help to connect the
+					pieces.
+				\item Part 6 can be solved in two ways: (i) find $[T]_{\mathcal E}$ by ``calibrating''
+					using vectors written in the $\mathcal E$ basis, and (ii) using $[T]_{\mathcal C}$
+					and the change of basis matrices $X$ and $X^{-1}$. Make sure both of these come out.
+					You'll have more wow-factor if they come out in order (i) (the one
+					they already know) then (ii) (the one that gives a new perspective).
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	Let $\vec c_1=\mat{2\\1}_{\mathcal E}$, $\vec c_2=\mat{5\\3}_{\mathcal E}$, $\mathcal C=\Set{\vec c_1,\vec c_2}$, and $A=\mat{2&5\\1&3}$.
 	Note that $A^{-1}=\mat{3&-5\\-1&2}$ and that $A$ changes vectors from the $\mathcal C$ basis to the standard
 	basis and $A^{-1}$ changes vectors from the standard basis to the $\mathcal C$ basis.
 	\begin{parts}
@@ -6839,10 +6901,10 @@ the ``N'' on the left.
 	Let $T:\R^2\to\R^2$ be the linear transformation that stretches in the $\vec c_1$ direction by a factor of $2$
 	and doesn't stretch in the $\vec c_2$ direction at all.
 	\begin{parts}[resume]
-		\item Compute $T\mat{2\\1}$ and $T\mat{5\\3}$.
+		\item Compute $T\mat{2\\1}_{\mathcal E}$ and $T\mat{5\\3}_{\mathcal E}$.
 			\begin{solution}[inline]
-				$T\mat{2\\1}=T\vec c_1=2\vec c_1=\mat{4\\2}$ and
-				$T\mat{5\\3}=T\vec c_2=\vec c_2=\mat{5\\3}$.
+				$T\mat{2\\1}_{\mathcal E}=T\vec c_1=2\vec c_1=\mat{4\\2}_{\mathcal E}$ and
+				$T\mat{5\\3}_{\mathcal E}=T\vec c_2=\vec c_2=\mat{5\\3}_{\mathcal E}$.
 			\end{solution}
 		\item Compute $[T\vec c_1]_{\mathcal C}$ and $[T\vec c_2]_{\mathcal C}$.
 			\begin{solution}[inline]
@@ -6944,6 +7006,16 @@ the ``N'' on the left.
 	\end{itemize}
 
 	\Heading{Motivation}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item From the online homework, students already know how to compute $2\times 2$ and
+					$3\times 3$ determinants.
+				\item At this point in the class, everything is coming together. In particular, orientation
+					of a basis, images of sets, null spaces, and invertibility.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Determinants are geometric and combinatoric objects. We leave the combinatoric perspective for another
 	course and focus only on the geometric perspective. We do this because:
 	\begin{enumerate}
@@ -6953,22 +7025,44 @@ the ``N'' on the left.
 		\item $\det(T) = 0$ $\implies$ $T$ is not invertible has a straightforward explanation: If the volume
 			becomes zero, a dimension was ``crushed'' and therefore $T$ has a non-trivial null space.
 	\end{enumerate}
-	The disadvantage of the purely geometric approach is that $\det(A)=\det(A^T)$ becomes a mysterious theorem.
+	The disadvantage of the purely geometric approach is that $\det(A)=\det(A^T)$ becomes a mysterious theorem
+	(though this can be explained with elementary matrices).
 
 
 
 \end{lesson}
 \section*{Determinants}
 	\begin{definition}[Unit $n$-cube]
-		The unit $n$-cube is the $n$-dimensional cube with side length 1 and lower-left
+		The \emph{unit $n$-cube} is the $n$-dimensional cube with sides given by the standard
+		basis vectors and lower-left
 		corner located at the origin.  That is
 		\[
 			C_n=\Set*{\vec x\in\R^n:\vec x=\sum_{i=1}^n\alpha_i\vec e_i\text{ for some }\alpha_1,\ldots,\alpha_n\in[0,1]}=[0,1]^n.
 		\]
 	\end{definition}
-	The volume of the unit $n$-cube is always 1.
+	The sides of the unit $n$-cube are always length 1 and its volume is always 1.
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Volumes of images.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Apply the definitions of \emph{unit $n$-cube} and \emph{image of a set}.
+				\item Use tools from outside of linear algebra class to compute the area of a polygon.
+				\item Be comfortable using the word ``volume'' in $\R^2$.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Most of this problem is review.
+				\item Students will struggle computing the area of the rhombus. By dividing
+					the figure into right triangles you can compute its area quickly.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	The picture shows what the linear transformation $T$ does to the unit square (i.e., the unit $2$-cube).
 
 	\begin{center}
@@ -7056,7 +7150,7 @@ the ``N'' on the left.
 				$\mat{1&\frac{1}{2}\\\frac{1}{2}&1}$.
 			\end{solution}
 		\item What is the volume of the image of the unit square
-			(i.e., the volume of $T(C_2)$)? You may need to use trigonometry.
+			(i.e., the volume of $T(C_2)$)? You may use trigonometry.
 			\begin{solution}
 				The volume is $\frac{3}{4}$.
 			\end{solution}
@@ -7069,6 +7163,23 @@ the ``N'' on the left.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of determinant.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute a determinant from the definition.
+				\item Practice finding the area of a parallelogram.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This example is very hands-on with minimal complications.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	We know the following about the transformation $A$:
 	\[
 		A\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad A\mat{0\\1}=\mat{1\\1}.
@@ -7087,12 +7198,28 @@ the ``N'' on the left.
 			\begin{solution}
 				$\det(A)=2$.
 
-				The paralellogram with sides $\mat{2\\0}$ and $\mat{0\\1}$ is
+				The parallelogram with sides $\mat{2\\0}$ and $\mat{0\\1}$ is
 				positively oriented, so $\det(A)=+2$.
 			\end{solution}
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of determinant.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute a determinant from the definition by applying geometric reasoning.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This example is difficult to ``compute'' without thinking about it.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Suppose $R$ is a rotation counter-clockwise by $30^\circ$.
 	\begin{parts}
 		\item Draw $C_2$ and $R(C_2)$.
@@ -7112,7 +7239,18 @@ the ``N'' on the left.
 			\end{solution}
 	\end{parts}
 
+	\displayonlynewpage
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of determinant.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute a determinant from the definition when orientation is reversed.
+			\end{itemize}
+		\end{goals}
+	\end{annotation}
 	We know the following about the transformation $F$:
 	\[
 		F\mat{1\\0}=\mat{0\\1}\qquad\text{and}\qquad F\mat{0\\1}=\mat{1\\0}.
@@ -7136,10 +7274,41 @@ the ``N'' on the left.
 		($n$-dimensional parallelogram) given by the row vectors of $M$.
 	\end{theorem}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Relate determinants of transformations and matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Relate the image of the unit cube under a transformation $T$ to the columns
+					of $T$'s matrix representation.
+				\item Relate the determinant of a matrix and its transpose.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item The explanation for part 1 harks back to the relationship between
+					the range of a transformation and the column space of its matrix.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{parts}
 		\item Explain Volume Theorem I using the definition of determinant.
+			\begin{solution}
+				If $T:\R^n\to\R^n$ is a transformation with standard matrix $M=[\vec c_1|\cdots|\vec c_n]$, 
+				then
+				$T(\vec e_i)$ (represented in the standard basis) will be $c_i$, the $i$th
+				column of $M$. The image of the unit cube will be a parallelepiped
+				with sides $T(\vec e_1)=\vec c_1$, \ldots, $T(\vec e_n)=\vec c_n$, and so $\det(T)$
+				will be the oriented volume of the parallelepiped with sides given by $\vec c_1$, \ldots, $\vec c_n$.
+			\end{solution}
 		\item Based on Volume Theorems I and II, how should $\det(M)$ and $\det(M^T)$
 			relate for a square matrix $M$?
+			\begin{solution}
+				$\det(M)=\det(M^T)$. Since the transpose switches columns for rows,
+				this is an immediate consequence of Volume Theorems I and II.
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -7195,8 +7364,38 @@ the ``N'' on the left.
 
 \end{lesson}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Determinants and areas.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use determinants to compute areas/volumes of images of
+					arbitrary sets.
+				\item See determinants as a ``change of area/volume'' \emph{factor}.
+				\item Explain the multiplicative property of determinants in
+					terms of area/volume changes.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item So far, determinants have only been used to compute
+					the volume of $T(C_n)$. However, they can be used to compute
+					the volume of $T(X)$ given that you know the volume of $X$.
+
+					The argument comes from calculus: if we can show it works
+					for translated and scaled copies of $C_n$, it works for any 
+					reasonable shape.
+				\item When concluding part 3, make sure the formula $\det(T\circ M)=
+					\det(T)\det(M)$ comes up.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $D=\Set{\vec x \given \|\vec x\|\leq 1}$ be the unit disk. You know the
-	following about the linear transformations $M$, $T$, and $S$: $M$ is defined
+	following about the linear transformations $M$, $T$, and $S$. 
+	
+	$M$ is defined
 	by $\vec x\mapsto 2\vec x$; $T$ has determinant $2$; and $S$ has determinant $3$.
 	\begin{parts}
 		\item Find the oriented volumes of $M(C_2)$, $T(C_2)$, and $S(C_2)$.
@@ -7209,11 +7408,25 @@ the ``N'' on the left.
 				volume of the image of the unit square equals the determinant of
 				each transformation.
 			\end{solution}
-		\item How does the volume of $T(C_2+\{\vec e_1\})$ compare to the volume
-			of $T(C_2)$?
+		\item How does the volume of $S(C_2+\Set{\vec e_1})$ compare to the volume
+			of $S(C_2)$?
 			\begin{solution}
-				They are equal. The transformation $T$ scales the volumes of all
-				regions by $2$.
+				They are equal. 
+				
+				By linearity
+				\[
+					S(C_2+\Set{\vec e_1})=S(C_2)+S(\Set{\vec e_1}) = S(C_2)+\Set{S(\vec e_1)},
+				\]
+				and so $S(C_2+\Set{\vec e_1})$ is a translation of $S(C_2)$ and translations never change
+				areas/volumes.
+			\end{solution}
+		\item What is the oriented volume of $S(D)$?
+			\begin{solution}
+				The volume is $3\pi$. 
+				
+				We can arbitrarily approximate $D$ by translated and scaled down copies of
+				$C_2$. Since we know the volume of each copy of $C_2$ will change by a factor of $3$, we know the volume
+				of $D$ will change by a factor of $3$.
 			\end{solution}
 		\item What is the oriented volume of $T\circ M(C_2)$? What is $\det(T\circ M)$?
 			\begin{solution}
@@ -7224,13 +7437,36 @@ the ``N'' on the left.
 				the volumes of all regions by $2$. The volume of $T\circ M(C_2)$
 				is the determinant of $T\circ M$ by definition.
 			\end{solution}
-		\item What is the oriented volume of $S(D)$?
-			\begin{solution}
-				The volume is $3\pi$.
-			\end{solution}
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Determinants of elementary matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Memorize the determinant of each type of elementary matrix.
+				\item Justify why the determinant of an elementary matrix of type ``add a
+					multiple of one row to another'' is always $1$.
+				\item Outline a method to compute determinants of arbitrary matrices.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 1 and 2 will be easy.
+				\item Part 3 makes sense if it is explained right. Carefully
+					plan out what pictures you will use to explain this.
+					It's helpful to draw the parallelepiped with the $z$-axis sticking
+					straight out of the board, effectively reducing it to the 2d case.
+				\item The punchline from part 6 is that you can now compute the determinant
+					of any matrix by decomposing it into the product of elementary matrices.
+					If you haven't explicitly talked about this decomposition before, now is
+					the time.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\begin{itemize}
 		\item $E_f$ is $I_{3\times 3}$ with the first two rows swapped.
 		\item $E_m$ is $I_{3\times 3}$ with the third row multiplied by 6.
@@ -7274,18 +7510,47 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Determinants of triangular matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Develop a shortcut for computing determinants of triangular matrices.
+				\item Reason about the determinant of a matrix when given its reduced
+					row echelon form.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 1, give the hint, ``imagine that you decomposed
+					$U$ into the product of elementary matrices. What types of
+					elementary matrices would you need?''
+				\item For part 1, a good way to to explain it is by explaining that 
+					reducing $U$ to a diagonal matrix won't affect the determinant.
+					Now reason geometrically about a diagonal matrix.
+				\item For part 2, emphasize the geometry: if there is a row of zeros, 
+					the columns are linearly dependent and so the column vectors will
+					specify a ``flattened'' parallelepiped, which must have zero volume.
+				\item For part 3, reemphasize the ``flattening'' picture. You can also mention
+					that if the transformation is not invertible, the image of $C_n$ will
+					be flattened.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	$U=\mat{1&2&1&2\\0&3&-2&4\\0&0&-1&0\\0&0&0&4}$
 	\begin{parts}
 		\item What is $\det(U)$?
 			\begin{solution}
 				$\det(U)=-12$.
 			\end{solution}
-		\item $V$ is a square matrix and rref$(V)$ has a row of zeros.
+		\item $V$ is a square matrix and $\Rref(V)$ has a row of zeros.
 			What is $\det(V)$?
 			\begin{solution}
 				$\det(V)=0$.
 			\end{solution}
-		\item $P$ is projection onto the vector $\mat{-1\\-1}$. What is $\det(P)$?
+		\item $P$ is projection onto $\Span\Set*{\mat{-1\\-1}}$. What is $\det(P)$?
 			\begin{solution}
 				$\det(P)=0$.
 
@@ -7295,6 +7560,18 @@ the ``N'' on the left.
 	\end{parts}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Determinants and invertibility.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Produce the determinant of $X^{-1}$ give the determinant of $X$.
+				\item Explain why a transformation $T$ is invertible if and only if 
+					$\det(T)\neq 0$.
+			\end{itemize}
+		\end{goals}
+	\end{annotation}
 	Suppose you know $\det(X)=4$.
 	\begin{parts}
 		\item What is $\det(X^{-1})$?
@@ -7319,8 +7596,12 @@ the ``N'' on the left.
 			\begin{solution}
 				$\det(Y)=0$.
 
-				This makes sense because for a square matrix $Y$,
-				$\det(Y^{-1})=\frac{1}{\det(Y)}$ by the previous part. This
+				If $Y$ is not invertible, it has linearly dependent columns. Therefore
+				the parallelepiped formed by the columns of $Y$ will be ``flattened''
+				and have zero volume.
+
+				This is consistent with our previous findings. For a square matrix $Y$,
+				$\det(Y^{-1})=\frac{1}{\det(Y)}$. This
 				formula always works, except when $\det(Y)=0$.
 			\end{solution}
 	\end{parts}
