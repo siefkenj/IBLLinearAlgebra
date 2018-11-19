@@ -7161,6 +7161,19 @@ the ``N'' on the left.
 	oriented volume of the image of the unit $n$-cube.  The determinant
 	of a square matrix is the determinant of its induced transformation.
 	\end{definition}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item This is the first time orientation has shown up since we saw it last. Spend some
+					time explaining how orientation of a basis relates to orientation of $T(C_n)$.
+
+					It's helpful to draw an analogy with ``area under the curve'' and ``integral'' 
+					from calculus. Rectangles with positive integral have sides in the $\vec e_1,\vec e_2$
+					directions (right-handed basis), and rectangles with negative integral
+					have sides in the $\vec e_1,-\vec e_2$ directions (left-handed basis).
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 
 	\question
 	\begin{annotation}
@@ -7684,6 +7697,28 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \end{tikzpicture}
 \end{center}
 
+	\begin{annotation}
+		\begin{notes}
+			This problem is very similar to a previous problem except that
+			the vectors are more complicated and most of the information
+			is presented graphically instead of numerically. It is also
+			longer and has less scaffolding.
+
+			\begin{itemize}
+				\item In part 2, of course $Y=X^{-1}$. Some students will
+					compute it that way and others will find $Y$ from
+					first principles.
+				\item In part 4, we have an opportunity to practice communicating
+					a value judgement. Ask students to prepare a 20 second explanation
+					that they might give in a business meeting where an excavation
+					team was trying to decide what basis to record measurements
+					in.
+				\item Though the problem doesn't explicitly ask it, you have the opportunity
+					to discuss inverse matrices (in terms of change of basis) and similar
+					matrices (giving different, but equivalent, representations of $T$).
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 
 
 \begin{enumerate}
@@ -7752,6 +7787,27 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\vspace{-.2cm}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of eigenvector/value geometrically.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Find eigenvectors/values from transformations defined geometrically.
+				\item Produce new eigenvectors from existing ones by scaling.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Most students will miss the eigenvector $\mat{-1\\1}$, but they
+					may succeed in finding multiple eigenvectors by scaling the obvious one.
+					Scaling is a great idea! But, after they figure out how to produce multiple
+					eigenvectors by scaling, ask them if they can find another linearly independent
+					eigenvector.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	The picture shows what the linear transformation $T$ does to the unit square (i.e., the unit $2$-cube).
 
 	\begin{center}
@@ -7840,6 +7896,28 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of eigenvector/value algebraically.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Identify numerically whether a vector is an eigenvector.
+				\item Use numerical evidence to compute an eigenvalue.
+				\item Reason about the matrix $A-\lambda I$ given $\lambda$ is an eigenvalue.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 1, students might need a hint like, ``try testing the only vector
+					that you're given information about.''
+				\item Part 2 will be surprisingly hard for students.
+				\item Part 3 has no exact answer. Many students will claim $\Nullity(B)=3$.
+					Make sure you discuss why you can only draw a limited conclusion.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	For some matrix $A$,
 	\vspace{-.2cm}
 	\[
@@ -7881,12 +7959,80 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 	\vspace{-.2cm}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Explore the matrix $C-\lambda I$.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Relate the matrix $C-\lambda I$ to the problem of finding eigenvectors/values.
+				\item Relate the equation $C\vec x=\lambda \vec x$ to the null
+					space of the matrix $E_{\lambda} = C-\lambda I$.
+				\item Use the determinant to determine when a parameterized family of matrices
+					is invertible or not.
+				\item Numerically compute eigenvalues/vectors without extra geometric information.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This example combines lots of linear algebra tools. Make sure to draw
+					connections with our previous work so that students see that
+					everything we did was for a reason.
+				\item In part 1, students might need a little push along the lines of:
+					``what can the determinant tell you about a null space?''
+				\item In part 2, it's time to make the connection explicit: $C\vec v=\lambda \vec v$
+					if and only if $\vec v$ is in the null space of $C-\lambda I$. And in this case,
+					$\lambda$ is the eigenvalue.
+				\item In part 3, students might need a little push: ``remember, you know how
+					to compute the null space of any matrix (using row reduction)!''
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $C=\mat{-1&2\\1&0}$ and $E_\lambda = C-\lambda I$.
 	\begin{parts}
 		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
 			null space?
+			\begin{solution}
+				$\lambda=-2$ and $\lambda=1$. 
+
+				$E_\lambda$ has a non-trivial null space exactly when its 
+				determinant is zero. We compute:
+				\[
+					\det(E_\lambda)
+					=\det\left(\mat{-1-\lambda&2\\1&-\lambda}\right)
+					=(-1-\lambda)(-\lambda)-(1)(2)
+					=\lambda^2+\lambda-2
+					=(\lambda-1)(\lambda+2).
+				\]
+				This equals zero exactly when $\lambda=-2$ or $\lambda=1$.
+			\end{solution}
 		\item What are the eigenvalues of $C$?
+			\begin{solution}
+				$-2$ and $1$.
+
+				The scalar $\lambda$ is an eigenvalue of $C$ if and only if $C\vec v=\lambda \vec v$ for
+				some $\vec v\neq \vec 0$. Thus
+				\[
+					\vec 0=C\vec v-\lambda \vec v=(C-\lambda I)\vec v=E_\lambda \vec v,
+				\]
+				and so $E_{\lambda}$ has a non-trivial null space if and only if $\lambda$ is
+				an eigenvalue of $C$.
+			\end{solution}
 		\item Find the eigenvectors of $C$.
+			\begin{solution}
+				$\mat{-2\\1}$ and $\mat{1\\1}$ (along with all non-zero scalar
+				multiples of these).
+
+				We know from the previous part that finding an eigenvector with
+				corresponding eigenvalue $-2$ amounts to finding the non-zero 
+				vectors	in the null space of  
+				$E_{-2}=\mat{1&2\\1&2}$. Computing,
+				\[\Null(E_{-2})=\Span\Set*{\mat{-2\\1}}.\]
+				Similarly, the eigenvectors with corresponding eigenvalue $1$ are
+				the non-zero vectors in the null space of $E_1=\mat{-2&2\\1&-1}$, 
+				and we compute that $\Null(E_1)=\Span\Set*{\mat{1\\1}}$.
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -7938,27 +8084,154 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\chr(A)=\det(A-\lambda I).
 	\]
 	\end{definition}
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+				\item $\chr(A)$ could be defined as $\det(\lambda I-A)$
+					but if done this way, the constant term of the polynomial
+					is not equal to the determinant. The
+					downside of our definition is that $\chr(A)$ is not always monic.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\vspace{-.4cm}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Apply the definition of the characteristic polynomial.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute a characteristic polynomial by applying the definition.
+				\item Relate the characteristic polynomial to eigenvalues.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item This problem is largely a sanity check to see if students
+					remember what was done in the previous problem.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Let $D=\mat{1&2\\3&0}$.
 	\begin{parts}
 		\item Compute $\chr(D)$.
+			\begin{solution}
+				$\chr(D)=(\lambda+2)(\lambda-3)$. 
+
+				We compute:
+				\[
+					\det(D-\lambda I)
+					=\det\left(\mat{1-\lambda&2\\3&-\lambda}\right)
+					=(1-\lambda)(-\lambda)-(2)(3)
+					=\lambda^2-\lambda-6
+					=(\lambda+2)(\lambda-3).
+				\]
+			\end{solution}
 		\item Find the eigenvalues of $D$.
+			\begin{solution}
+				The eigenvalues of $D$ are $-2$ and $3$. 
+				The eigenvalues of $D$ are the roots of $\chr(D)$. 
+			\end{solution}
 	\end{parts}
 
 	\vspace{-.3cm}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Getting information from the characteristic polynomial.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Use the characteristic polynomial to determine eigenvalues
+					and invertibility of matrices.
+				\item Relate the characteristic polynomial to determinants.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 2 will seem obvious to students, but only
+					in retrospect. They will forget that the characteristic polynomial
+					relates to the determinant!
+				\item Part 3 requires carefully keeping track of signs. The definition of characteristic
+					polynomial is $\det(A-\lambda I)$, not $\det(A+\lambda I)$.
+
+					This part also requires a lot of sophistication to pin down.
+					It's easy to argue that the appropriate nullities will be $\geq 1$
+					and $<3$, but arguing that they are equal to $1$ (and not $2$) takes work.
+					Don't bother completing the argument pinning down the exact nullities,
+					though the students will be happier know the exact nullities.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	\vspace{-.2cm}
-	Suppose $\chr(E)=\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
+	Suppose $\chr(E)=-\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
 	matrix $E$.
 	\begin{parts}
 		\item What are the eigenvalues of $E$?
+			\begin{solution}
+				$0$, $2$, and $-3$. 
+
+				The eigenvalues of $E$ are the roots of $\chr(E)$. 
+			\end{solution}
 		\item Is $E$ invertible?
-		\item What is $\Null(E)$, $\Null(E-3I)$, $\Null(E+3I)$?
+			\begin{solution}
+				No. 
+
+				Since $0$ is an eigenvalue of $E$, there must be a non-zero vector
+				$\vec v$ such that $E\vec v=0\vec v=\vec 0$. This means $\Nullity(E)>0$,
+				which implies $E$ is not invertible. 
+			\end{solution}
+		\item What is $\Nullity(E)$, $\Nullity(E-3I)$, $\Nullity(E+3I)$?
+			\begin{solution}
+				$\Nullity(E)=1$, $\Nullity(E-3I)=0$, $\Nullity(E+3I)=1$
+
+				Notice that evaluating the characteristic polynomial at $\lambda$
+				give the determinant of $E-\lambda I$. From this, we can determine the
+				invertibility of any matrix of the form $E-\lambda I$.
+
+				Since $E$ is not invertible, $\Nullity(E)\geq 1$. Since $E-3I$ is
+				invertible, $\Nullity(E-3I)=0$, and since $E+3I$ is not invertible,
+				$\Nullity(E+3I)\geq 1$.
+
+				To pin down the nullities of $E$ and $E+3I$ exactly takes more work.
+				$E$ has three distinct eigenvalues and so $E$ must have three linearly
+				independent eigenvectors $\vec v_2,\vec v_{-1},\vec v_1$. Further, $\Span\Set{\vec v_i}\subseteq 
+				\Null(E-\lambda_i I)$.				
+				Since $\vec v_2,\vec v_{-1},\vec v_1\in\R^3$, it must be the case that $\Null(E-\lambda_i I)$ is one
+				dimensional for $i\in\Set{2,-1,1}$.
+			\end{solution}
 	\end{parts}
 
 	\question
+	\label{actingOnEigenvectors}
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Eigen bases.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Compute eigenvalues when given eigenvectors.
+				\item Compute a characteristic polynomial without using a determinant
+					when given eigenvalues.
+				\item Compute the result of a transformation when vectors are written in an eigen basis.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 2, many students will waste their time computing a determinant instead
+					of using the information they already have. For those that use the eigenvalues
+					directly, many will miss the fact that the leading coefficient of $\chr(A)$ is $-1$.
+					This point is not important.
+				\item Parts 4 and 5 should look very familiar to students. We have done them again and again.
+					The moral is, some bases are better than others, and the eigen basis is awesome!
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Consider
 	\[
 		A=\mat{1&0&1\\0&1&1\\1&1&0}\qquad
@@ -7966,7 +8239,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		\vec v_2=\mat{1\\1\\-2}\qquad
 		\vec v_3=\mat{-1\\1\\0}
 	\]
-	and notice that $\vec v_1,\vec v_2,\vec v_3$ are eigenvectors for $A$.
+	and notice that $\vec v_1,\vec v_2,\vec v_3$ are eigenvectors for $A$. Let $T_A$ be the transformation induced by $A$.
 	\begin{parts}
 		\item Find the eigenvalues of $A$.
 			\begin{solution}
@@ -7979,16 +8252,11 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{solution}
 		\item Find the characteristic polynomial of $A$.
 			\begin{solution}
-				$\chr(A)=-(\lambda-2)(\lambda+1)(\lambda-1)$.
-
-				We compute
-				\[
-					\chr(A)
-					=\det(A-\lambda I)
-					=\det\left(\mat{1-\lambda&0&1\\0&1-\lambda&1\\1&1&-\lambda}\right)
-					=-\lambda^3+2\lambda^2+\lambda-2
-					=-(\lambda-2)(\lambda+1)(\lambda-1).
-				\]
+				$\chr(A)=(2-\lambda)(1-\lambda)(-1-\lambda)=-(\lambda-2)(\lambda+1)(\lambda-1)$.
+				
+				Sine we know the roots of the characteristic polynomial are the eigenvalues and
+				we know $\chr(A)$ is a cubic, we can immediately write down
+				$\chr(A)=(2-\lambda)(1-\lambda)(-1-\lambda)$ without computing a determinant.
 			\end{solution}
 		\item Compute $A\vec w$ where $w=2\vec v_1-\vec v_2$.
 			\begin{solution}
@@ -8003,14 +8271,14 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 					=4\vec v_1+\vec v_2.
 				\]
 			\end{solution}
-		\item Compute $A\vec u$ where $\vec u=a\vec v_1+b\vec v_2+c\vec v_3$ for
+		\item Compute $T_A\vec u$ where $\vec u=a\vec v_1+b\vec v_2+c\vec v_3$ for
 			unknown scalar coefficients $a,b,c$.
 			\begin{solution}
-				$A\vec u=2a\vec v_1-b\vec v_2+c\vec v_3$.
+				$T_A\vec u=2a\vec v_1-b\vec v_2+c\vec v_3$.
 
 				Using the same reasoning as the previous part, we compute
 				\[
-					A\vec u
+					T_A\vec u
 					=aA\vec v_1+bA\vec v_2+cA\vec v_3
 					=2a\vec v_1-b\vec v_2+c\vec v_3.
 				\]
@@ -8019,14 +8287,14 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	Notice that $\mathcal V=\Set{\vec v_1,\vec v_2,\vec v_3}$ is a basis for $\R^3$.
 	\begin{parts}[resume]
 	\item If $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$ is $\vec x$ written in the $\mathcal V$ basis,
-		compute $A\vec x$ in the $\mathcal V$ basis.
+		compute $T_A\vec x$ in the $\mathcal V$ basis.
 		\begin{solution}
-			$[A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
+			$[T_A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
 
 			If $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$, then
 			$\vec x=\vec v_1+3\vec v_2+4\vec v_3$. Using the previous part, we
-			then have that $A\vec x=2\vec v_1-3\vec v_2+4\vec v_3$, so
-			$[A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
+			then have that $T_A\vec x=2\vec v_1-3\vec v_2+4\vec v_3$, so
+			$[T_A\vec x]_{\mathcal V}=\mat{2\\-3\\4}$.
 		\end{solution}
 	\end{parts}
 
@@ -8045,7 +8313,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\end{itemize}
 
 	\Heading{Motivation}
-	We finally have all the tools we need to diagonalize a matrix, and explain why diagonalization is useful.
+	We finally have all the tools we need to diagonalize a matrix and to explain why diagonalization is useful.
 	Let's do it!
 
 	However, not all matrices are diagonalizable. We need to carefully outline that we need a
@@ -8053,17 +8321,90 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 \end{lesson}
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Diagonalizing matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Diagonalize a matrix.
+				\item Explain diagonalization in terms of change of basis.
+				\item Use diagonalization to compute large matrix powers.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 2, students will struggle to articulate their ideas.
+				\item In part 4, students are regularly impressed seeing the $P$'s and
+					$P^{-1}$'s cancel in $PDP^{-1}PDP^{-1}\cdots$.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	The transformation $P^{-1}$ takes vectors in the standard basis and outputs
-	vectors in their $\mathcal V$-basis representation (where $\mathcal V$ is from above).
+	vectors in their $\mathcal V$-basis representation. Here, $A$, $T_A$, and $\mathcal V$
+	come from Problem \ref{actingOnEigenvectors}.
 	\begin{parts}
 		\item Describe in words what $P$ does.
+			\begin{solution}
+				$P$ undoes what $P^{-1}$ does, which is to say that it takes vectors
+				in the $\mathcal V$ basis and outputs vectors in their representation
+				in the standard basis.
+			\end{solution}
 		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
-			$A\vec y$ for any $\vec y\in \R^3$.
+			$T_A\vec y$ for any $\vec y\in \R^3$.
+			\begin{solution}
+				Computing $[T_A]_{\mathcal V}[\vec y]_{\mathcal V}$ is easy, since
+				$[T_A]_{\mathcal V}$ just multiplies each coordinate of $[\vec y]_{\mathcal V}$
+				by a scalar. We know that $P^{-1}[\vec y]_{\mathcal E}=[\vec y]_{\mathcal V}$ 
+				and that $P[\vec x]_{\mathcal V}=[\vec x]_{\mathcal E}$ and so 
+				given any vector $\vec v$ represented by $[\vec v]_{\mathcal E}$
+				in the standard basis, we have
+				\[
+					A[\vec v]_{\mathcal E}=P[T_A]_{\mathcal V}P^{-1}[\vec v]_{\mathcal E}
+				\]
+				since
+				\[
+					P[T_A]_{\mathcal V}P^{-1}[\vec v]_{\mathcal E}
+					=P[T_A]_{\mathcal V}[\vec v]_{\mathcal V}
+					=P[T_A\vec v]_{\mathcal V}
+					=[T_A\vec v]_{\mathcal E}
+					=A[\vec v]_{\mathcal E}.
+				\]
+			\end{solution}
 		\item Can you find a matrix $D$ so that
 			\[
 				PDP^{-1}=A?
 			\]
+			\begin{solution}
+				$D=\mat{2&0&0\\0&-1&0\\0&0&1}$.
+
+				$D=[A]_{\mathcal V}$, so by the previous part we have that
+				that for any vector $\vec v$
+				\[
+					A[\vec v]_{\mathcal E}=PDP^{-1}[\vec v]_{\mathcal E}.
+				\]
+			\end{solution}
 		\item $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$.  Compute $A^{100}\vec x$.
+			\begin{solution}
+				$A^{100}\vec x=\mat{2^{100}\\3\\4}_{\mathcal V}$.
+
+				By the previous problem, we know how $A$ acts on vectors represented
+				in the $\mathcal V$ basis: it multiplies the first coordinate by
+				$2$, the second by $-1$, and leaves the third coordinate unchanged.
+				So we compute
+				\[
+					A^{100}\mat{1\\3\\4}
+					=A^{99}\mat{2\\-3\\4}
+					=A^{98}\mat{2^2\\3\\4}
+					=A^{97}\mat{2^3\\-3\\4}
+					=\dots
+				\]
+				To express $A^{100}\vec x$ in the standard basis, we use $P$.
+				\[
+					[A^{100}\vec x]_{\mathcal E} = P[A^{100}\vec x]_{\mathcal V} = \mat{2^{100}-1\\2^{100}+7\\2^{100}-6}.
+				\]
+			\end{solution}
 	\end{parts}
 
 
@@ -8071,16 +8412,92 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		A matrix is \emph{diagonalizable} if it is similar to a diagonal matrix.
 	\end{definition}
 	\question
-	For an $n\times n$ matrix $T$, suppose its eigenvectors $\{\vec v_1,\ldots \vec v_n\}$
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Eigenvectors and diagonalization.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Explain how the existence of a basis of eigenvectors implies diagonalizability.
+				\item Explain how if there isn't a basis of eigenvectors a matrix is not diagonalizable.
+				\item Not confuse diagonalizability and invertibility.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item In part 2, many students will answer ``no'' on autopilot. Make
+					sure they think about this. It's a common error that students
+					conflate diagonalizability with invertibility.
+				\item Part 3 is hard to explain. Prepare your explanation carefully.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	For an $n\times n$ matrix $T$, suppose its eigenvectors $\Set{\vec v_1,\ldots \vec v_n}$
 	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
 	eigenvalues.
 
 
 	\begin{parts}
-	\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
+		\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
+		\begin{solution}
+			Yes. 
+
+			Let $\mathcal V=\Set{\vec v_1,\ldots \vec v_n}$ be the basis consisting
+			of eigenvectors of $T$. Then by definition, $T\vec v_i=\lambda_i\vec v_i$
+			for each $i$. 
+
+			Let $P$ be the matrix that takes vectors represented in the
+			$\mathcal V$ basis and outputs their representations in the standard
+			basis $\mathcal E$. Then, for example, we should have that
+			\[
+				P^{-1}TP\matc{1\\0\\\vdots\\0}
+				=P^{-1}TP[\vec v_1]_{\mathcal V}
+				=P^{-1}T[\vec v_1]_{\mathcal E}
+				=\lambda_1P^{-1}[\vec v_1]_{\mathcal E}
+				=\lambda_1[\vec v_1]_{\mathcal V}
+				=\matc{\lambda_1\\0\\\vdots\\0}.
+			\]
+			Therefore, the first column of $P^{-1}TP$ is $\matc{\lambda_1\\0\\\vdots\\0}$.
+			By similar reasoning, the $i^\text{th}$ column of $P^{-1}TP$ consists
+			of all zeroes except for $\lambda_i$ in the $i^\text{th}$ position. 
+			In other words, $T$ is similar to the diagonal matrix $D$ with 
+			$\lambda_1, \lambda_2, \dots, \lambda_n$ along the diagonal, in that
+			order. 
+		\end{solution}
 		\item What if one of the eigenvalues of $T$ is zero?  Is $T$ diagonalizable?
+			\begin{solution}
+				Yes. 
+
+				The argument in the previous part does not depend on any of the
+				eigenvalues being non-zero.
+			\end{solution}
 		\item What if the eigenvectors of $T$ did not form a basis for $\R^n$.
 			Would $T$ be diagonalizable?
+			\begin{solution}
+				No. 
+
+				The argument we used in the first part definitely would not work.
+
+				Consider the converse, and assume $T$ is similar to diagonal 
+				matrix $D$. That is, suppose there is an invertible matrix 
+				$P$ such that $T=PDP^{-1}$. Then, if $\vec v_1$ is the first 
+				column of $P$ and $\lambda_1$ is the first entry on	the diagonal
+				of $D$, we would have
+				\[
+					T\vec v_1
+					=PDP^{-1}\vec v_1
+					=PD\matc{1\\0\\\vdots\\0}
+					=\lambda_1P\matc{1\\0\\\vdots\\0}
+					=\lambda_1\vec v_1,
+				\]
+				meaning that $\vec v_1$ is an eigenvector of $T$. Similarly, all
+				of the columns of $P$ would be eigenvectors of $T$, with eigenvalues
+				equal to the corresponding entry on the diagonal of $D$. Since $P$ is 
+				invertible its columns must be linearly independent, and therefore
+				the $n$ columns of $P$ would form a basis of $\R^n$ consisting of
+				eigenvectors of $T$. 
+			\end{solution}
 	\end{parts}
 
 \begin{lesson}
@@ -8131,15 +8548,91 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\end{definition}
 
 	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Non-diagonalizable matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Explain why not all matrices are diagonalizable.
+				\item Memorize an example of a non-diagonalizable matrix.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item Part 1 asks students to do all the diagonalization steps
+					without any scaffolding. This will take time and may take
+					some prodding.
+				\item The explanation for part 3 depends on whether you allow complex numbers.
+					If you allow complex numbers, then $\sum$ algebraic multiplicities = dim
+					of space. If not, it's $\leq$ dim of space. In either case, geometric
+					multiplicity $<$ algebraic multiplicity implies not diagonalizable. 
+					But only in the case of an algebraically closed field do you get
+					converse.
+				\item If you like, you can bring up an example of a rotation that has non-real
+					eigenvalues, and so isn't real-diagonalizable for a different reason.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
 	Define $F=\mat{1&1\\0&1}$.
 	\begin{parts}
 		\item Is $F$ diagonalizable?  Why or why not?
+			\begin{solution}
+				No.
+				$F$ is diagonalizable if and only if there is a basis of $\R^2$
+				consisting of eigenvectors of $F$, so we begin by computing all
+				eigenvectors of $F$.
+				$\chr(F)=(1-\lambda)^2$, so the only eigenvalue of $F$ is $1$, 
+				meaning that the eigenvectors of $F$ are precisely the non-zero
+				vectors in $\Null(F-1I)$. We check that 
+				\[
+					\Null(F-1I)
+					=\Null\left(\mat{0&1\\0&0}\right)
+					=\Span\Set*{\mat{1\\0}},
+				\]
+				which is one-dimensional, and so there cannot be a basis of $\R^2$
+				consisting of eigenvectors of $F$. 
+			\end{solution}
 		\item What is the geometric and algebraic multiplicity of each eigenvalue
 			of $F$?
+			\begin{solution}
+				The only eigenvalue is $1$. Its geometric multiplicity is $1$, 
+				and its algebraic multiplicity is $2$. 
+			\end{solution}
 		\item Suppose $A$ is a matrix where the geometric multiplicity of one of its eigenvalues
 			is smaller than the algebraic multiplicity of the same eigenvalue.  Is
 			$A$ diagonalizable?  What if all the geometric and algebraic multiplicities
 			match?
+		\begin{solution}
+				If one of the geometric multiplicities is smaller than the corresponding
+				algebraic multiplicity, $A$ cannot be diagonalizable. 
+				
+				Since the characteristic polynomial of an $n\times n$ matrix has degree $n$,
+				it has at most $n$ real roots. Since each root is an eigenvalue, we have
+				\[
+					\sum \text{ algebraic multiplicities }\leq n.
+				\]
+				If one of the geometric multiplicities is smaller than the algebraic multiplicities,
+				we have
+				\[
+					\sum \text{ geometric multiplicities } < n,
+				\]
+				and so there cannot be a basis for $\R^n$ consisting of eigenvectors.
+
+				For the converse statement, we need the fundamental theorem of algebra:\emph{
+					a degree $n$ polynomial has exactly $n$ complex roots, counting multiplicity.}
+
+				If we allow eigenvalues to be complex numbers, then
+				\[
+					\sum \text{ algebraic multiplicities }= n,
+				\]
+				and so if all geometric and algebraic multiplicities are equal, we have
+				\[
+					\sum \text{ geometric multiplicities } = n.
+				\]
+				Thus, there would be a basis of eigenvectors.
+			\end{solution}
 	\end{parts}
 
 
