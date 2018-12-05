@@ -8575,30 +8575,37 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Define $F=\mat{1&1\\0&1}$.
+	Let $F=\mat{3&1\\0&3}$ and $G=\mat{3&0\\0&3}$.
 	\begin{parts}
 		\item Is $F$ diagonalizable?  Why or why not?
 			\begin{solution}
 				No.
+
 				$F$ is diagonalizable if and only if there is a basis of $\R^2$
 				consisting of eigenvectors of $F$, so we begin by computing all
 				eigenvectors of $F$.
-				$\chr(F)=(1-\lambda)^2$, so the only eigenvalue of $F$ is $1$, 
+				$\chr(F)=(3-\lambda)^2$, so the only eigenvalue of $F$ is $3$, 
 				meaning that the eigenvectors of $F$ are precisely the non-zero
-				vectors in $\Null(F-1I)$. We check that 
+				vectors in $\Null(F-3I)$. We check that 
 				\[
-					\Null(F-1I)
+					\Null(F-3I)
 					=\Null\left(\mat{0&1\\0&0}\right)
 					=\Span\Set*{\mat{1\\0}},
 				\]
 				which is one-dimensional, and so there cannot be a basis of $\R^2$
 				consisting of eigenvectors of $F$. 
 			\end{solution}
-		\item What is the geometric and algebraic multiplicity of each eigenvalue
-			of $F$?
+		\item Is $G$ diagonalizable?  Why or why not?
 			\begin{solution}
-				The only eigenvalue is $1$. Its geometric multiplicity is $1$, 
+				Yes. $G$ is already diagonal (and is necessarily similar to itself).
+			\end{solution}
+		\item What is the geometric and algebraic multiplicity of each eigenvalue
+			of $F$? What about the multiplicities for each eigenvalue of $G$?
+			\begin{solution}
+				The only eigenvalue for $F$ is $3$. Its geometric multiplicity is $1$, 
 				and its algebraic multiplicity is $2$. 
+				
+				The only eigenvalue for $G$ is $3$. Its geometric and algebraic multiplicity is $2$.
 			\end{solution}
 		\item Suppose $A$ is a matrix where the geometric multiplicity of one of its eigenvalues
 			is smaller than the algebraic multiplicity of the same eigenvalue.  Is
