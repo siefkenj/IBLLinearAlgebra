@@ -1,0 +1,421 @@
+\documentclass[red]{tutorial}
+\usepackage[no-math]{fontspec}
+\usepackage{xpatch}
+	\renewcommand{\ttdefault}{ul9}
+	\xpatchcmd{\ttfamily}{\selectfont}{\fontencoding{T1}\selectfont}{}{}
+	\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
+\usepackage{polyglossia} % English please
+	\setdefaultlanguage[variant=us]{english}
+%\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{avant}
+\usepackage{microtype} % Less badboxes
+
+
+\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{euler}
+ 
+\usepackage{blindtext}
+\usepackage{calc, ifthen, xparse, xspace}
+\usepackage{makeidx}
+\usepackage[hidelinks, urlcolor=blue]{hyperref}   % Internal hyperlinks
+\usepackage{mathtools} % replaces amsmath
+\usepackage{bbm} %lower case blackboard font
+\usepackage{amsthm, bm}
+\usepackage{thmtools} % be able to repeat a theorem
+\usepackage{thm-restate}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{fnpct} % fancy footnote spacing
+%\usepackage[dvipsnames]{color}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+ 
+\newcommand{\xh}{{{\mathbf e}_1}}
+\newcommand{\yh}{{{\mathbf e}_2}}
+\newcommand{\zh}{{{\mathbf e}_3}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Comp}{\mathrm{comp}}
+\newcommand{\Perp}{\mathrm{perp}}
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\Span}{\mathrm{span}\,}
+\newcommand{\Img}{\mathrm{img}\,}
+\newcommand{\Null}{\mathrm{null}\,}
+\newcommand{\Range}{\mathrm{range}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\chr}{\mathrm{char}}
+\renewcommand{\d}{\mathrm{d}}
+
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+
+\pgfkeys{/tutorial,
+	name={Tutorial 4},
+	author={Jason Siefken},
+	course={MAT 223},
+	date={February 10--16},
+	term={Spring 2019},
+	title={Projections}
+	}
+
+\begin{document}
+	\begin{tutorial}
+
+		\begin{objectives}
+			Projections are used in mathematics, physics, computer science, and
+			statistics.
+	In this tutorial you will obtain a deeper understanding of projections.
+
+	These problems relate to the following course learning objectives:
+			\textit{Translate between algebraic and geometric viewpoints to solve problems},
+			and
+			\textit{work independently to understand concepts and procedures that have not been previously
+			explained to you}.
+		\end{objectives}
+
+		\vspace{-.5em}
+		\subsection*{Problems}
+		\vspace{-.5em}
+
+		Let $R$ be the square with side-length 1 and lower-left corner at $(0,0)$;
+		let $C$ be the corners of $R$; and, let $S$ be the circle of radius $\sqrt{2}$ centered
+		at $(0,0)$.
+
+\begin{enumerate}
+	\item Write down a mathematically precise definition of the projection of the vector $\vec v$ onto the set $X$.
+	\item Let $\vec v_1=\mat{1/3\\0}$, $\vec v_2=\mat{2\\2}$, $\vec v_3=\mat{2\\1}$ and $\vec v_4=\mat{1/3\\2}$.
+	\begin{enumerate}
+		\item Draw $R$, $C$, and $S$ on separate grids.
+		\item Using your drawings, estimate the projections of $\vec v_1$, \ldots, $\vec v_4$ onto $R$, $C$, and $S$.
+		\item Compute exactly the projections of $\vec v_1$, \ldots, $\vec v_4$ onto $R$, $C$, and $S$.
+	\end{enumerate}
+
+
+	\item Let $\ell$ be the line given in vector form by $\vec x=t\vec d$ where $\vec d=\mat{1\\2}$, and let $\vec r=\mat{2\\2}$.
+		\begin{enumerate}
+			\item Find a formula for the distance between $t\vec d$ and $\vec r$ in terms of $t$.
+			\item Compute $\Proj_\ell \vec r$.
+			\item What is the angle between $\vec d$ and $\vec r-\Proj_\ell \vec r$?
+			\item Explain the link between $\Proj_\ell \vec r$ and $\Comp_{\vec d}\vec r$.
+		\end{enumerate}
+
+	\item In $\R^3$, the projection of a vector onto the $xy$-plane can be thought of as the shadow
+		of the vector at high noon. But where would this shadow be when it's not high noon?\
+
+		To simplify things, let's work in $\R^2$. Assume the $x$-axis is the ``ground'' and the $y$-axis is
+		pointing straight up. If the sun is located far off in the distance in the direction of $\vec e_2$,
+		the shadow of a vector will be its projection onto the $x$-axis.
+		\begin{enumerate}
+			\item Find a formula for where the shadow of the vector $\vec x=\mat{x\\y}$ will be at high noon.
+			\item Suppose the ground is modeled with the equation $y=\tfrac{1}{2}x$ and that at 4:00pm, the sun shines
+				perpendicularly to the ground. That is, the sun is far away in the direction $\mat{-1\\2}$.
+				Find a formula for the shadow of the vector $\vec x=\mat{x\\y}$ on the slanted ground at 4:00pm.
+			\item The vector $\vec y=\mat{a\\b}$ is above flat ground (i.e., the ground is modeled by the $x$-axis).
+				Find a formula for the position of the shadow of $\vec y$ at 4:00pm.
+		\end{enumerate}
+
+\end{enumerate}
+	\end{tutorial}
+
+
+	\begin{solutions}
+		\begin{enumerate}
+			\item The \emph{projection} of $\vec v$ onto $X$ is the closest point in $X$ to $\vec v$.
+			\item \begin{enumerate}
+					\item $\phantom{x}$
+
+\begin{center}
+	\begin{tikzpicture}[scale=.8, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    %axis line style={draw=none},
+		    axis lines=middle,
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=1.5,
+		 ymin=-.5,
+		 ymax=1.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	  \draw[green!50!black, very thick] 
+	    (0,0)-- (0,1)--
+	    (1,1) node[above right, black] {$R$}-- (1,0) -- cycle
+	    ;
+    \end{axis}
+\end{tikzpicture}
+	\begin{tikzpicture}[scale=.8, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    %axis line style={draw=none},
+		    axis lines=middle,
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=1.5,
+		 ymin=-.5,
+		 ymax=1.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	  \fill[fill=blue] 
+	    (0,0) circle[radius=2pt] (0,1) circle[radius=2pt]
+	    (1,1) circle[radius=2pt] node[above right] {$C$} (1,0) circle[radius=2pt]
+	    ;
+    \end{axis}
+\end{tikzpicture}
+	\begin{tikzpicture}[scale=.8, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    %axis line style={draw=none},
+		    axis lines=middle,
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-1.5,
+		 xmax=1.5,
+		 ymin=-1.5,
+		 ymax=1.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	  \draw[red, very thick] 
+	    (0,0) circle[radius=1.41]
+	    ;
+	   \path (1,1) node[above right] {$S$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+					\item $\phantom{x}$
+
+\begin{center}
+	\begin{tikzpicture}[scale=.8, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    %axis line style={draw=none},
+		    axis lines=middle,
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=2.5,
+		 ymin=-.5,
+		 ymax=2.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	  \draw[green!50!black, very thick] 
+	    (0,0)-- (0,1)--
+	    (1,1) node[above right, black] {$R$}-- (1,0) -- cycle
+	    ;
+	    \draw[orange, ->, very thick] (0,0) -- (.333,0) node[below] {$\vec v_1$};
+	    \draw[orange, ->, very thick] (0,0) -- (2,2) node[below right] {$\vec v_2$};
+	    \draw[orange, ->, very thick] (0,0) -- (2,1) node[right] {$\vec v_3$};
+	    \draw[orange, ->, very thick] (0,0) -- (.333,2) node[above right] {$\vec v_4$};
+    \end{axis}
+\end{tikzpicture}
+	\begin{tikzpicture}[scale=.8, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    %axis line style={draw=none},
+		    axis lines=middle,
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-.5,
+		 xmax=2.5,
+		 ymin=-.5,
+		 ymax=2.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	  \fill[fill=blue] 
+	    (0,0) circle[radius=2pt] (0,1) circle[radius=2pt]
+	    (1,1) circle[radius=2pt] node[above right] {$C$} (1,0) circle[radius=2pt]
+	    ;
+	    \draw[orange, ->, very thick] (0,0) -- (.333,0) node[below] {$\vec v_1$};
+	    \draw[orange, ->, very thick] (0,0) -- (2,2) node[below right] {$\vec v_2$};
+	    \draw[orange, ->, very thick] (0,0) -- (2,1) node[right] {$\vec v_3$};
+	    \draw[orange, ->, very thick] (0,0) -- (.333,2) node[above right] {$\vec v_4$};
+    \end{axis}
+\end{tikzpicture}
+	\begin{tikzpicture}[scale=.8, >=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    %axis line style={draw=none},
+		    axis lines=middle,
+		    tick style={draw=none},
+		    yticklabels={,,},
+		    xticklabels={,,},
+		 xmin=-1.5,
+		 xmax=2.5,
+		 ymin=-1.5,
+		 ymax=2.5,
+		 major grid style={dotted, gray},
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both,
+		 anchor=origin]
+
+	  \draw[red, very thick] 
+	    (0,0) circle[radius=1.41]
+	    ;
+	   \path (1,1) node[above right] {$S$};
+	    \draw[orange, ->, very thick] (0,0) -- (.333,0) node[below] {$\vec v_1$};
+	    \draw[orange, ->, very thick] (0,0) -- (2,2) node[below right] {$\vec v_2$};
+	    \draw[orange, ->, very thick] (0,0) -- (2,1) node[right] {$\vec v_3$};
+	    \draw[orange, ->, very thick] (0,0) -- (.333,2) node[above right] {$\vec v_4$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+	\item 
+		\[
+			\Proj_R\vec v_1=\vec v_1\qquad
+			\Proj_R\vec v_2=\mat{1\\1}\qquad
+			\Proj_R\vec v_3=\mat{1\\1}\qquad
+			\Proj_R\vec v_4=\mat{1/3\\1}
+		\]
+		\[
+			\Proj_C\vec v_1=\mat{0\\0}\qquad
+			\Proj_C\vec v_2=\mat{1\\1}\qquad
+			\Proj_C\vec v_3=\mat{1\\1}\qquad
+			\Proj_C\vec v_4=\mat{0\\1}
+		\]
+		\[
+			\Proj_S\vec v_1=\mat{\sqrt{2}\\0}\qquad
+			\Proj_S\vec v_2=\mat{1\\1}\qquad
+			\Proj_S\vec v_3=\frac{\sqrt{2}\vec v_3}{\|\vec v_3\|}\qquad
+			\Proj_S\vec v_4=\frac{\sqrt{2}\vec v_4}{\|\vec v_4\|}
+		\]
+
+\end{enumerate}
+
+	\item \begin{enumerate}
+			\item $f(t) = \sqrt{(t-2)^2+(2t-2)^2} = \sqrt{5t^2-12t+8}$.
+			\item $\Proj_\ell \vec r$ must be the multiple of $\vec d$ that is
+				closest to $\vec r$. Notice that $f(t)$ is minimized when
+				$5t^2-12t+8$ is minimized which happens when $t=6/5$. Therefore
+				\[
+					\Proj_\ell \vec r = \tfrac{6}{5}\mat{1\\2}.
+				\]
+			\item $90^\circ$.
+			\item They are the same thing! To find the closest point on a line
+				to a point, you draw a perpendicular to the line passing through the point.
+				The intersection with the line is the closest point and is therefore the projection.
+				However, the line in this case is given by
+				all multiples of $\vec d$, so geometrically, 
+				$\Comp_{\vec d}\vec r$ is defined in the exact same way as $\Proj_\ell \vec r$ (in this case).
+	\end{enumerate}
+		\item  \begin{enumerate}
+				\item $\mat{x\\y}\mapsto \mat{x\\0}$.
+			\item Let $\vec d=\mat{2\\1}$ and $\vec x=\mat{x\\y}$. 
+				Then $\vec x\mapsto \Comp_{\vec d}\vec x = \frac{2x+y}{5}\mat{2\\1}$.
+			\item Let $\vec s=\mat{-1\\2}$ be the direction of the sunlight and let $\vec x$ be as before. 
+				We are looking for when $\vec x+t\vec s$ has a zero $y$-coordinate, which happens when
+				$t=-y/2$. Therefore
+				\[
+					\mat{x\\y}\mapsto \mat{x\\y}+\tfrac{-y}{2}\mat{-1\\2} = \mat{x+y/2\\0}.
+				\]
+		\end{enumerate}
+
+		\end{enumerate}
+	
+
+
+	\end{solutions}
+	\begin{instructions}
+\subsection*{Learning Objectives}
+	Students need to be able to\ldots
+	\begin{itemize}
+		\item Compute projections from the definition without memorizing a formula
+		\item Exploit right angles to compute projections that would otherwise be
+			difficult
+	\end{itemize}
+
+\subsection*{Context}
+	Students have covered projections and components in class two weeks ago. Last week they started
+		working with matrices/matrix multiplication.
+
+	In this class, $\Proj_X\vec v$ is defined as the closest vector in $X$ to $\vec v$. It is \emph{not}
+		defined in terms of a formula. Also, to avoid confusion, we \emph{don't write}
+		$\Proj_{\vec u}\vec v$, since this is easily confused with projection onto a singleton.
+		Instead, the ``component of $\vec v$ in the direction $\vec u$'', written $\Comp_{\vec u}\vec v$
+		is defined to be the vector in the direction of $\vec u$ so that $\vec v-\Comp_{\vec u}\vec v$
+		is orthogonal to $\vec u$. There is a formula for this operation (unlike projections), and they
+		should all know it since they've used it on their homework.
+
+\subsection*{What to Do}
+	Introduce the learning objectives for the day's tutorial. Explain that, like most things in life,
+		there is no algorithm to compute projections---the only way to do it is to understand
+		the idea. Since we're practicing learning and understanding non-algorithmic tasks in this
+		class, projections provide the perfect place to practice.
+
+	Have students pair up and write the definition of projection. Again, make them
+		write it. These definitions will show up on the midterms and many will
+		write them wrong. Again, you might have some groups come up to the board and
+		write their definitions and then have a short class discussion on whether they are right.
+		This definition will be easier for them since there aren't any quantifiers.
+
+		After everyone is on the same page with the definition, have them continue on \#2.
+		The point of \#2 is to have them cement in their minds the link between projections
+		and orthogonality. Don't give this point away too readily--it's best if they discover it themselves, so
+		they \emph{own} it.
+
+		After most of finished \#2, have a class discussion and repeat with \#3. Remember, your goal
+		is not to get through problems. This tutorial has \emph{way} more problems than the students
+		will be able to get through.
+
+		7 minutes before the end of class, pick a problem that most students have started working on
+		to do as a wrap-up.
+
+\subsection*{Notes}
+	\begin{itemize}
+		\item The definition of $\Proj_X\vec v$ is written mostly with words instead of with
+			set notation. This might throw some students off---they won't be able to tell that it's precise.
+		\item Projections relate to orthogonality, but not always. \#2 is designed to tease this out---that
+			for non-smooth shapes projections might not relate to orthogonality.
+		\item With our definition, $\Proj_X\vec v$ might not be unique and so might not be well defined. We will
+			never try to trick a student by giving them a non-unique projection. If a student asks about
+			this, you can tell them that on tests the projection will always be unique.
+		\item For \#3, student \emph{should} know how to minimize a parabola, but many won't. However, almost all
+			have taken calculus in high school, so feel free to use basic calculus to answer that question.
+		\item You won't get to \#4, but if students are working on it, make sure they draw a picture. It's very
+			hard to do in one's head.
+	\end{itemize}
+
+	\end{instructions}
+
+\end{document}

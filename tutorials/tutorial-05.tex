@@ -1,0 +1,227 @@
+\documentclass[red]{tutorial}
+\usepackage[no-math]{fontspec}
+\usepackage{xpatch}
+	\renewcommand{\ttdefault}{ul9}
+	\xpatchcmd{\ttfamily}{\selectfont}{\fontencoding{T1}\selectfont}{}{}
+	\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
+\usepackage{polyglossia} % English please
+	\setdefaultlanguage[variant=us]{english}
+%\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{avant}
+\usepackage{microtype} % Less badboxes
+
+
+\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{euler}
+ 
+\usepackage{blindtext}
+\usepackage{calc, ifthen, xparse, xspace}
+\usepackage{makeidx}
+\usepackage[hidelinks, urlcolor=blue]{hyperref}   % Internal hyperlinks
+\usepackage{mathtools} % replaces amsmath
+\usepackage{bbm} %lower case blackboard font
+\usepackage{amsthm, bm}
+\usepackage{thmtools} % be able to repeat a theorem
+\usepackage{thm-restate}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{fnpct} % fancy footnote spacing
+
+ 
+\newcommand{\xh}{{{\mathbf e}_1}}
+\newcommand{\yh}{{{\mathbf e}_2}}
+\newcommand{\zh}{{{\mathbf e}_3}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Perp}{\mathrm{perp}}
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\Span}{\mathrm{span}\,}
+\newcommand{\Img}{\mathrm{img}\,}
+\newcommand{\Null}{\mathrm{null}\,}
+\newcommand{\Range}{\mathrm{range}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\chr}{\mathrm{char}}
+\renewcommand{\d}{\mathrm{d}}
+
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+
+\pgfkeys{/tutorial,
+	name={Tutorial 5},
+	author={Jason Siefken},
+	course={MAT 223},
+	date={February~23--March~2},
+	term={Spring 2019},
+	title={Change of Basis}
+	}
+
+\begin{document}
+	\begin{tutorial}
+
+		\begin{objectives}
+	In this tutorial you will examine the pros and cons of different bases.
+
+	These problems relate to the following course learning objectives:
+	\textit{Write vectors in
+different bases and pick an appropriate basis when working on problems}.
+		\end{objectives}
+
+
+\subsection*{Problems}
+
+\begin{enumerate}
+	\item Write down the definition of what it means for a set $\mathcal B$ to be a \emph{basis}
+		for the subspace $V$.
+	\item Let $\mathcal E=\{\vec e_1,\vec e_2,\vec e_3\}$, $\mathcal B=\left\{\mat{1\\-1\\0},\mat{0\\1\\0},\mat{2\\-2\\1}\right\}$,
+		and $\mathcal C=\left\{\mat{1\\-1\\1},\mat{0\\1\\1},\mat{2\\-2\\3}\right\}$
+		be ordered bases, and let $\vec v=4\vec e_1-4\vec e_2+2\vec e_3$. 
+	\begin{enumerate}
+		\item Are the vectors in $\mathcal B$ and $\mathcal C$ written in a basis? If so, which one(s)?
+			What about the vectors in $\mathcal E$?\
+		\item Compute $[\vec v]_{\mathcal E}$, $[\vec v]_{\mathcal B}$, and $[\vec v]_{\mathcal C}$.
+		\item Compute $[7\vec v]_{\mathcal E}$, $[7\vec v]_{\mathcal B}$, and $[7\vec v]_{\mathcal C}$. \emph{Hint: look
+			at what you've already done; you might not have to do much more work.}
+		\item Suppose, during a scientific experiment, you repeatedly measure multiples of the vector $\vec v$. Which
+			basis would you prefer to write down your measurements in? Why?
+	\end{enumerate}
+\item Let $\mathcal E=\left\{\vec e_1, \vec e_2\right\}$ and $\mathcal B=\left\{\mat{1\\0},\mat{1\\1}\right\}$
+		be bases for $\R^2$ and let $R:\R^2\to\R^2$ be rotation counter-clockwise by 90$^\circ$.
+		\begin{enumerate}
+			\item Find a matrix, $P$, for $R$ in the basis $\mathcal E$. That is $P[\vec x]_{\mathcal E} = [R\vec x]_{\mathcal E}$.
+			\item Find a matrix, $Q$, for $R$ in the basis $\mathcal B$. That is $Q[\vec x]_{\mathcal B} = [R\vec x]_{\mathcal B}$.
+		\end{enumerate}
+	\item In math, a real number can have infinitely many digits. In a computer, however, there is limited space, so a computer
+		will \emph{truncate} numbers it stores\footnote{ \emph{Truncate} means erasing digits after a certain point. So $3.14159\ldots$ might become
+		$3.141$.}. Consider the bases
+		\[
+			\mathcal E_1=\left\{\mat{1\\0},\mat{1\\1}\right\}\qquad
+			\mathcal E_2=\left\{\mat{1\\0},\mat{1\\.1}\right\}\qquad
+			\mathcal E_3=\left\{\mat{1\\0},\mat{1\\.01}\right\}\qquad
+			\mathcal E_4=\left\{\mat{1\\0},\mat{1\\.001}\right\}\qquad\cdots
+		\]
+		and the vector $\vec v=\mat{1\\0.1234567\ldots}$, written in the standard basis. Suppose your computer can only store two decimal places
+		(after the decimal point) when it stores a number. Which basis should you use to represent $\vec v$? Why? 
+	
+\end{enumerate}
+	\end{tutorial}
+
+
+	\begin{solutions}
+		\begin{enumerate}
+			\item $\mathcal B$ is a basis for $V$ if it is a linearly independent set of
+				vectors that spans $V$.
+			\item \begin{enumerate}
+					\item Yes. The vectors in $\mathcal B$ and $\mathcal C$ are written in
+						the standard basis. The vectors in $\mathcal E$ are not written in
+						any basis---they are referred to directly by name.
+					\item $[\vec v]_{\mathcal E} = \mat{4\\-4\\2}$,
+						$[\vec v]_{\mathcal B} = \mat{0\\0\\2}$, and
+						$[\vec v]_{\mathcal C} = \mat{8\\0\\-2}$.
+					\item $[7\vec v]_{\mathcal E} = \mat{28\\-28\\14}$,
+						$[7\vec v]_{\mathcal B} = \mat{0\\0\\14}$, and
+						$[7\vec v]_{\mathcal C} = \mat{56\\0\\-14}$.
+					\item I would pick basis $\mathcal B$ since every multiple of $\vec v$ written
+						in the basis $\mathcal B$ takes the form $\mat{0\\0\\t}$, so there are
+						fewer numbers to write down.
+
+			\end{enumerate}
+			\item \begin{enumerate}
+					\item $[R]_{\mathcal E} = P=\mat{0&-1\\1&0}$.
+					\item $[R]_{\mathcal B} = Q=\mat{-1&-2\\1&1}$.
+			\end{enumerate}
+
+			\item Computing, we see
+				\[
+					[\vec v]_{\mathcal E_1} = \mat{0.8765\ldots\\0.1234\ldots}\quad
+					[\vec v]_{\mathcal E_2} = \mat{-0.2345\ldots\\1.2345\ldots}\quad
+					[\vec v]_{\mathcal E_3} = \mat{-11.3456\ldots\\12.3456\ldots}\quad
+					[\vec v]_{\mathcal E_4} = \mat{-122.4567\ldots\\123.4567\ldots}
+				\]
+			Given the pattern, it might be best to pick $\mathcal E_i$ for $i$ as large as possible.
+				However, if the computer were to also store the basis in standard form, 
+				$\mathcal E_i$ for $i\geq 4$ couldn't be stored. Thus, the most accuracy we
+				could get is by using $\mathcal E_3$.
+		\end{enumerate}
+	
+	\end{solutions}
+	\begin{instructions}
+
+\subsection*{Learning Objectives}
+	Students need to be able to\ldots
+	\begin{itemize}
+		\item Write vectors in multiple bases
+		\item Write matrices for linear transformations in multiple bases
+		\item Explain the pros and cons for one basis over another in a particular problem
+	\end{itemize}
+
+\subsection*{Context}
+	In class, students have gone over bases, subspaces, dimension, linear transformations, and
+		matrix transformations. In this class, we only work with $\R^n$ and subspaces of $\R^n$,
+		so we won't be talking about bases for abstract spaces. 
+	
+	Bases are especially hard for students---they're used to thinking of lists of numbers
+		as the actual vectors instead of representations of the vectors. They need
+		a lot of hand-holding to make this transition.
+
+\subsection*{What to Do}
+	Start by explaining to students that bases and linear transformations are \emph{the}
+		two big ideas from linear algebra and that today we're going to focus on bases.
+		Further tell them that up till now we've been considering vectors and lists
+		of numbers as interchangeable, but now we think of lists of numbers
+		as a \emph{representation} of a vector instead of a true vector (kind of like
+		the symbol ``4'' is not literally four, it is a graphical representation of
+		the abstract idea of the number four).
+	
+	Proceed as usual, asking students to form small groups and start working.
+		Again, this tutorial starts with a definition question, which they all need to actually write out.
+		The meat of this tutorial is problem \#2.
+		When most groups are on \#2(c), have a class discussion on 2(a) and 2(b), to
+		make sure everyone is on the same page.
+
+
+	Remember, the point of this tutorial (and all tutorials) is not to get through all the problems.
+	It is to get practice with difficult and new mathematics. Don't cut thinking time short trying
+	to get through more problems!
+
+	8 minutes before the end of class, pick a problem that most groups have started, or a problem
+		that they've finished but you think needs more attention, and do that problem as a wrap-up.
+
+
+\subsection*{Notes}
+		\begin{enumerate}
+			\item To talk about representations in a basis we technically need \emph{ordered} sets. In this class,
+				when writing a set down and declaring it a basis, we imply that the order of the basis vectors
+				is the left-to-right order that they're written in. The student's won't think about regular sets lacking
+				order,
+				so don't bring it up unless they ask.
+			\item We use the notation $[\vec v]_{\mathcal X}$ to mean the list of numbers representing
+				$\vec v$ in the basis $\mathcal X=\{\vec x_1,\vec x_2,\ldots\}$. We use $\mat{1\\2\\\vdots}_{\mathcal X}$ to
+				mean the linear combination $1\vec x_1+2\vec x_2+\cdots$. Thus $[[\vec v]_{\mathcal X}]_{\mathcal X}=\vec v$.
+			\item Lists of number that are not subscripted and are treated as vectors have an implicit
+				subscript of $\mathcal E$, the standard basis. Students may be uncomfortable
+				that sometimes we demand subscripts and sometimes we don't. It should always be clear from context
+				whether we are talking about a list of numbers or a vector written in the standard basis, and on
+				tests we will be very clear.
+			\item For 2(c), make sure that the shortcut comes out that $[7\vec v]_{\mathcal X} = 7[\vec v]_{\mathcal X}$ and,
+				in fact, changing basis is a linear operation.
+			\item Problems 2(d) and 4 ask for value judgments. There's no ``right'' answer to these questions, but 
+				some answers are better reasoned than others. Hold the students accountable for coming
+				up with good reasons.
+			\item No one will get to \#4, but if they do, encourage them to use a calculator to speed things along.
+		\end{enumerate}
+	\end{instructions}
+
+\end{document}

@@ -1,0 +1,264 @@
+\documentclass[red]{tutorial}
+\usepackage[no-math]{fontspec}
+\usepackage{xpatch}
+	\renewcommand{\ttdefault}{ul9}
+	\xpatchcmd{\ttfamily}{\selectfont}{\fontencoding{T1}\selectfont}{}{}
+	\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
+\usepackage{polyglossia} % English please
+	\setdefaultlanguage[variant=us]{english}
+%\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{avant}
+\usepackage{microtype} % Less badboxes
+
+
+\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{euler}
+ 
+\usepackage{blindtext}
+\usepackage{calc, ifthen, xparse, xspace}
+\usepackage{makeidx}
+\usepackage[hidelinks, urlcolor=blue]{hyperref}   % Internal hyperlinks
+\usepackage{mathtools} % replaces amsmath
+\usepackage{bbm} %lower case blackboard font
+\usepackage{amsthm, bm}
+\usepackage{thmtools} % be able to repeat a theorem
+\usepackage{thm-restate}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{fnpct} % fancy footnote spacing
+
+ 
+\newcommand{\xh}{{{\mathbf e}_1}}
+\newcommand{\yh}{{{\mathbf e}_2}}
+\newcommand{\zh}{{{\mathbf e}_3}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Perp}{\mathrm{perp}}
+\renewcommand{\span}{\mathrm{span}\,}
+\newcommand{\Span}{\mathrm{span}\,}
+\newcommand{\Img}{\mathrm{img}\,}
+\newcommand{\Null}{\mathrm{null}\,}
+\newcommand{\Range}{\mathrm{range}\,}
+\newcommand{\rref}{\mathrm{rref}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\nnul}{\mathrm{nullity}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\chr}{\mathrm{char}}
+\renewcommand{\d}{\mathrm{d}}
+
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+
+\pgfkeys{/tutorial,
+	name={Tutorial 9},
+	author={Jason Siefken},
+	course={MAT 223},
+	date={March~31--April~5},
+	term={Spring 2019},
+	title={Eigenstuff}
+	}
+
+\begin{document}
+	\begin{tutorial}
+
+		\begin{objectives}
+	In this tutorial you will be working with eigenvectors and eigenvalues.
+
+	These problems relate to the following course learning objectives:
+			\textit{Clearly and correctly express the mathematical ideas of linear algebra to others}
+			and \textit{translate between algebraic and geometric viewpoints to solve problems}.
+		\end{objectives}
+
+
+\begin{enumerate}
+	\item Let $T:\R^n\to\R^n$ be a linear transformation.
+	\begin{enumerate}
+		\item Write a mathematically precise definition of what it means for $\vec v$ to be an eigenvector
+			for $T$.
+		\item Describe in plain English what it means for $\vec v$ to be an eigenvector for $T$.
+	\end{enumerate}
+	\item Consider
+		\[
+			A=\mat{3&-2\\2&-2}\qquad
+			B=\mat{5&-6\\3&-4}\qquad
+			C=\mat{-3&3\\-3&3}
+		\]
+		\[
+			\vec v_1=\mat{1\\2}\qquad
+			\vec v_2=\mat{2\\1}\qquad
+			\vec v_3=\mat{3\\4}\qquad
+			\vec v_4=\mat{1\\1}\qquad
+			\vec v_5=\mat{1\\0}\qquad
+			\vec v_6=\mat{0\\0}
+		\]
+		For each $\vec v_i$, determine whether $\vec v_i$ is an eigenvector for $A$, $B$, or $C$. If so,
+		identify the corresponding eigenvalue.
+	\item Let $\mathcal P:\R^2\to\R^2$ be projection onto the $x$-axis and $\mathcal R:\R^2\to\R^2$ be rotation
+		counter-clockwise by $90^\circ$.
+
+		Find all eigenvectors and eigenvalues for $\mathcal P$ and $\mathcal R$.
+	\item Suppose $T:\R^n\to\R^n$ is a linear transformation and that $\vec v$ is an eigenvector for
+		$T$ with eigenvalue $2$. Is it possible that $7\vec v$ is an eigenvector for $T$ with eigenvalue
+		$14$? Prove your answer.
+
+	\item Let $T:\R^2\to\R^2$ be a linear transformation. $T$ has an eigenvector $\vec v_1$ with eigenvalue $1$
+		and an eigenvector $\vec v_2$ with eigenvalue $1/2$. Further, $\|\vec v_1\|,\|\vec v_2\|\leq 100$.
+		\begin{enumerate}
+			\item Let $\vec w=\vec v_1+\vec v_2$. Approximate $T^{100}\vec w$.
+			\item Is $\{\vec v_1,\vec v_2\}$ a basis for $\R^2$? Prove your answer.
+			\item Suppose $\vec v_1=\mat{1\\2}$ and $\vec v_2=\mat{3\\5}$. With this information,
+				can you approximate $T^{100}\mat{a\\b}$?
+			\item Can you generalize your procedure from (c) to any linear transformation $S:\R^2\to\R^2$
+				that has two positive, distinct eigenvalues?
+		\end{enumerate}
+
+\end{enumerate}
+	\end{tutorial}
+
+	\begin{solutions}
+		\begin{enumerate}
+			\item \begin{enumerate}
+					\item $\vec v$ is an eigenvector for $T$ if $\vec v\neq \vec 0$ and
+						$T\vec v=\lambda \vec v$ for some scalar $\lambda$.
+					\item $\vec v$ is an eigenvector for $T$ if it doesn't change directions
+						when $T$ is applied.
+			\end{enumerate}
+			\item 
+				For $A$: 
+				$\vec v_1$ is an eigenvector with eigenvalue $-1$;
+				$\vec v_2$ is an eigenvector with eigenvalue $2$.
+
+				For $B$: 
+				$\vec v_2$ is an eigenvector with eigenvalue $2$;
+				$\vec v_4$ is an eigenvector with eigenvalue $-1$.
+				
+				For $C$: 
+				$\vec v_4$ is an eigenvector with eigenvalue $0$.
+			\item $\mathcal P$ has eigenvalues of $0$ and $1$. All non-zero multiples of $\mat{0\\1}$
+				have eigenvalue $0$ and non-zero multiples of $\mat{1\\0}$ have eigenvalue $1$.
+
+				$\mathcal R$ has no real eigenvalues and no real eigenvectors. Every non-zero 
+				vector changes direction when $\mathcal R$ is applied.
+			\item It is not possible.
+
+				\emph{Proof:} Since $\vec v$ is an eigenvector for $T$ with eigenvalue
+				$2$, we know $T\vec v=2\vec v$. Since $T$ is linear, we know
+				\[
+					T(7\vec v)=7T\vec v=14\vec v,
+				\]
+				and so $7\vec v$ is an eigenvector for $T$ with eigenvalue $2$. There is no
+				other possibility.
+			\item \begin{enumerate}
+				\item $T^{100}\vec w=\vec v_1+\tfrac{1}{2^{100}}\vec v_2 \approx \vec v_1$.
+				\item Yes. Since $\vec v_1$ and $\vec v_2$ are eigenvectors, neither is zero.
+				Suppose $\{\vec v_1,\vec v_2\}$ is linearly dependent. Then, $\vec v_1=t\vec v_2$
+					for some $t$ (because $\vec v_2\neq \vec 0$). Computing,
+					\[
+						T\vec v_1=T(t\vec v_2)=tT\vec v_2=\tfrac{t}{2}\vec v_2 = \tfrac{1}{2}\vec v_1,
+					\]
+					and so $\vec v_1$ would have an eigenvalue of $\tfrac{1}{2}$. But, this
+					is a contradiction since the eigenvalue
+					of $\vec v_1$ is $1$. Thus $\{\vec v_1,\vec v_2\}$ must be linearly independent.
+
+					Finally, a linearly independent set of two vectors in $\R^2$ must span all of $\R^2$,
+					and so $\{\vec v_1,\vec v_2\}$ is a basis for $\R^2$.
+				\item Yes. First write $\mat{a\\b}$ in the $\{\vec v_1,\vec v_2\}$ basis. Then throw away
+					the $\vec v_2$ component.
+
+					The matrix that converts from the standard basis to the $\{\vec v_1,\vec v_2\}$ basis is
+					\[
+						C=\mat{-5&3\\2&-1}.
+					\]
+					The matrix that drops second coordinate of a vector is 
+					\[
+						D=\mat{1&0\\0&0}.
+					\]
+					Thus
+					\[
+						T^{100}\mat{a\\b} \approx C^{-1}DC\mat{a\\b}=\mat{-5a+3b\\-10a+6b}.
+					\]
+				\item Yes. Suppose $S$ has a unique, largest, positive eigenvalue $\lambda$. Then $S'=\tfrac{1}{\lambda}S$
+					behaves similarly to $T$. Approximate the same way, then multiply by $\lambda$.
+			\end{enumerate}
+		\end{enumerate}
+	\end{solutions}
+	\begin{instructions}
+\subsection*{Learning Objectives}
+	Students need to be able to\ldots
+	\begin{itemize}
+		\item Define eigenvector and eigenvalue
+		\item Have an intuitive geometric understanding of eigenvectors
+		\item Use the definition of eigenvector to classify vectors as eigenvectors or not
+		\item Apply eigenvectors to solve problems
+	\end{itemize}
+
+\subsection*{Context}
+	Students have been introduced to determinants, characteristic polynomials, and the definition
+		of eigenvectors/values in lecture. Some students may have started diagonalization in
+		lecture.
+
+	In this course we will only pursue real eigenvalues/vectors. Some students may know complex
+		numbers from high school, but most will not. 
+		
+
+\subsection*{What to Do}
+	Start the tutorial by stating the day's learning objectives. Emphasize that eigenvectors/values
+		are the capstone of this course and they take a while to get used to. Today we are getting used
+		to them.
+
+		Have students start in groups on \#1. They should be used to the style of part (a) by now,
+		but they will probably struggle with part (b). Try to get them to produce something better than
+		reading the mathematical definition aloud.
+
+		\#2 is a computational question that follows straight from the definition. If you like,
+		divide the class into three teams. 
+		One team will check for $A$, another for $B$, and the last for $C$. Write up (or have each
+		team write up) a summary of their results. Then have everyone verify each team's result.
+
+		Before finishing \#2, make sure to have a discussion about $\vec v_6$. Is it an eigenvector?
+		Does it go to a multiple of itself?
+
+		It is likely that \#1 and \#2 will take most of class time. If you do have extra time, continue as usual,
+		letting students work in small groups on \#3 and then having a mini-discussion when half the groups
+		have figured it out.
+
+		6 minutes before the end of class, pick a suitable problem to do as a wrap-up.
+	
+
+\subsection*{Notes}
+	\begin{itemize}
+		\item For \#1(b), many students will write ``$\vec v$ is an eigenvector for $T$ if
+			$\vec v$ is non-zero and $T$ of $\vec v$ is $\lambda$ times $\vec v$ for some scalar
+			$\lambda$.'' This is reading the mathematical definition aloud and is not what we want. 
+			We want students to rephrase $T\vec v=\lambda \vec v$ in terms of a vector not changing 
+			direction.
+		\item For \#2, some students will get confused between $\vec v\neq \vec 0$ and $\lambda \neq 0$.
+			$C,\vec v_4$ has eigenvalue $0$ precisely so this confusion will come up. Make sure to
+			have a conversation about this whether or not it comes up naturally.
+		\item Encourage students to draw pictures for \#3. They will naturally try to start by writing
+			down a matrix for $\mathcal P$ and $\mathcal R$, but that short-circuits thinking.
+		\item 
+		When talking about eigenvalues of a transformation $T$
+		not existing, always make sure to say ``$T$ has no real eigenvalues''. Students who
+		know about complex numbers can have a deeper conversation with you about them after class.
+		\item In \#4, some might find it so ``obvious'' that they don't know how to prove it. That's largely
+			the point. They should be able to prove obvious things!
+		\item \#5 culminates in diagonalization, but it asks students to make a judgement about whether
+			a vector is ``approximated''. The fact that $\|\vec v_1\|,\|\vec v_2\|\leq 100$ is essential
+			for this, but isn't the point of the problem. The point is that there is a unique, largest, positive
+			eigenvalue.
+
+	\end{itemize}
+	\end{instructions}
+
+\end{document}
