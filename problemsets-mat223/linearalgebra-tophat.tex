@@ -210,6 +210,8 @@
 	\voidenvironment{annotation}
 	\voidenvironment{lesson}
 	\voidenvironment{iola}
+	
+	
 
 	\let\oldquestion\question 
 	%Redfine \question to add a \newpage to all questions, and take up a bit less space 
@@ -249,6 +251,10 @@
 	\geometry{papersize={110mm,200mm},top=0mm,bottom=0mm,left=11mm,right=0mm,marginpar=0mm}
 	
 	\renewcommand{\coversubtitle}{}
+	
+	
+	\usepackage{blowup} %Makes the page size and text 3x bigger, which seems to be about right for image resolution that works well on tophat (if the resolution is too small, it looks pixely and if the resolution is too large tophat only displays a piece of the question instead of the whole question
+	\blowUp{target=x3}
 }{}
 %\voidenvironment{solution}
 %\voidenvironment{annotation}
