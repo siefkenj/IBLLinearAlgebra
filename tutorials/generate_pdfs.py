@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+# splits a pdf into 3 versions based on the information in the
+# <pdf-base-name>.pagebounds file
+
 import sys, os
 import argparse
 from pdftools.pdftools import pdf_copy

@@ -1327,14 +1327,14 @@ argument supporting your answer.
 				\item This question is foreshadowing for vector form of a line.
 				\item In part 3, some will draw $\vec d$ from the origin and
 					some will draw it on the line. Both are fine, but make
-					sure they understand that $\vec d\notin A$ by the end of
+					sure they understand that $\vec d\notin L$ by the end of
 					part 4.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $A$ be the set of points $(x,y)\in\R^2$ such that $y=2x+1$.
+	Let $L$ be the set of points $(x,y)\in\R^2$ such that $y=2x+1$.
 	\begin{parts}
-		\item Describe $A$ using set-builder notation.
+		\item Describe $L$ using set-builder notation.
 			\begin{solution}
 				$\Set*{\vec v\in\R^2 \given \vec v=\matc{t\\2t+1}\text{ for some } t\in\R}$\\
 				or
@@ -1342,7 +1342,7 @@ argument supporting your answer.
 				or
 				$\Set*{\matc{t\\2t+1}\in\R^2 \given t\in\R}$
 			\end{solution}
-		\item Draw $A$ as a subset of $\R^2$.
+		\item Draw $L$ as a subset of $\R^2$.
 		\item Add the vectors $\vec a=\mat{-1\\-1}$, $\vec b=\mat{1\\3}$ and
 			$\vec d=\vec b-\vec a$ to your drawing.
 			\begin{solution}
@@ -1364,7 +1364,7 @@ argument supporting your answer.
 					 grid=both,
 					 anchor=origin]
 
-				    \draw[Green, very thick] (-5,-9) -- (5,11) node[pos=.3, above left] {$A$};
+				    \draw[Green, very thick] (-5,-9) -- (5,11) node[pos=.3, above left] {$L$};
 				    \draw[cyan!80!black, very thick, ->] (0,0) -- (-1,-1) node[pos=.2, below] {$\vec a$};
 				    \draw[cyan!80!black, very thick, ->] (0,0) -- (1,3) node[pos=.5, right] {$\vec b$};
 				    \draw[orange!80!black, very thick, ->] (-1,-1) -- (1,3) node[near end, above, xshift=-3pt] {$\vec d$};
@@ -1372,10 +1372,14 @@ argument supporting your answer.
 			    \end{axis}
 				\end{tikzpicture}
 			\end{solution}
-		\item For which $t\in\R$ is it true that $\vec a+t\vec d\in A$? Explain using your picture.
+		\item Is $\vec d\in L$? Explain.
 			\begin{solution}
-				$\vec a +t\vec d\in A$ for any $t\in \R$. We can see this because if we start at the
-				vector $\vec a$ and the displace by $t\vec d$, we will always be on the line $A$.
+				No. $\vec d=\mat{2\\4}$ and so its entries don't satisfy $y=2x+1$.
+			\end{solution}
+		\item For which $t\in\R$ is it true that $\vec a+t\vec d\in L$? Explain using your picture.
+			\begin{solution}
+				$\vec a +t\vec d\in L$ for any $t\in \R$. We can see this because if we start at the
+				vector $\vec a$ and the displace by $t\vec d$, we will always be on the line $L$.
 			\end{solution}
 	\end{parts}
 
@@ -1655,7 +1659,7 @@ argument supporting your answer.
 	\]
 	Let $\mathcal P$ the plane that contains the lines $A$ and $B$.
 	\begin{parts}
-		\item Find two direction vectors in $\mathcal P$.
+		\item Find two direction vectors for $\mathcal P$.
 			\begin{solution}
 				Two possible answers are:
 				\[
@@ -3066,6 +3070,7 @@ examples.
 			\end{solution}
 	\end{parts}
 
+	\displayonlynewpage
 	\begin{definition}[Normal Vector]
 		A \emph{normal vector} to a line (or plane or hyperplane) is a non-zero vector that is orthogonal to all
 		direction vectors for the line (or plane or hyperplane).
@@ -3089,8 +3094,9 @@ examples.
 
 		\begin{notes}
 			\begin{itemize}
-				\item For part 2, encourage students to use the definition of \emph{span}
-					to produce an argument.
+				\item In part 2 there may be some lingering confusion about the difference between
+					a vector and a point. In particular, $\vec u-\vec p$ is a direction vector for $\ell_2$,
+					but is not \emph{contained in} $\ell_2$.
 				\item In part 3, have a discussion about the role that $\vec q$ plays. Namely,
 					that it ``translates'', in a similar way that $\vec p$ in the vector
 					form $\vec x=t\vec d+\vec p$ translates.
@@ -3116,10 +3122,13 @@ examples.
 				vector for both lines.
 			\end{solution}
 		\item Let $\vec v\in \ell_1$ and $\vec u\in \ell_2$.
-			What is $\vec n\cdot \vec v$? What about $\vec n\cdot \vec u$?
+			What is $\vec n\cdot \vec v$? What about $\vec n\cdot (\vec u-\vec p)$? Explain using a picture.
 			\begin{solution}
-				$\vec n\cdot \vec v = 0$, since any $\vec v \in \ell_1$ is a multiple
-				of $\vec d$.
+				$\vec n\cdot \vec v =\vec n\cdot(\vec u-\vec p)= 0$.
+				
+				This is because any $\vec v \in \ell_1$ is a multiple
+				of $\vec d$, which is orthogonal to $\vec n$. Similarly, for any $\vec u\in \ell_2$,
+				the vector $\vec u-\vec p$ is a direction vector for $\ell_2$, and so it is orthogonal to $\vec n$.
 
 				$\vec n\cdot \vec u=3$, since any such $\vec u$ is of the form
 				$\vec u=\vec p+t\vec d$ for some scalar $t$, and so
@@ -3135,11 +3144,25 @@ examples.
 			an equation of the form $\vec n\cdot (\vec x-\vec q)=0$ for some
 			$\vec n$ and $\vec q$. Express $\ell_1$ and $\ell_2$ in normal form.
 			\begin{solution}
-				The normal form of $\ell_1$ is $\mat{2\\-1}\cdot\vec x=0$. test
+				A normal form of $\ell_1$ is $\mat{2\\-1}\cdot\vec x=0$. test
 
-				The normal form of $\ell_2$ is $\mat{2\\-1}\cdot\left(\vec x-\mat{1\\-1}\right)=0$.
+				A normal form of $\ell_2$ is $\mat{2\\-1}\cdot\left(\vec x-\mat{1\\-1}\right)=0$.
 				In the previous part we saw that $\vec n\cdot \vec x=\vec n\cdot \vec p$
 				for all $\vec x\in \ell_2$, or in other words $\vec n\cdot (\vec x-\vec p) = 0$.
+			\end{solution}
+		\item Some textbooks would claim that $\ell_2$ could be expressed in normal form as {\color{cyan}$\mat{2\\-1}\cdot \vec x=3$}.
+			How does this relate to the $\vec n\cdot(\vec x-\vec p)=0$ normal form? Where does the $3$ come from?
+			\begin{solution}
+				Let $\vec n=\mat{2\\-1}$ be a normal vector for $\ell_2$ and let $\vec x\in \ell_2$. We know
+				\[
+					0=\vec n\cdot (\vec x-\vec p)
+					=\vec n\cdot \vec x-\vec n\cdot \vec p
+					=\vec n\cdot \vec x-3.
+				\]
+				Therefore
+				\[
+					\vec n\cdot \vec x= 3.
+				\]
 			\end{solution}
 	\end{parts}
 
