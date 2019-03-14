@@ -7632,55 +7632,83 @@ the ``N'' on the left.
 					The argument comes from calculus: if we can show it works
 					for translated and scaled copies of $C_n$, it works for any 
 					reasonable shape.
-				\item When concluding part 3, make sure the formula $\det(T\circ M)=
+
+					The pieces of this argument are there, but it isn't put together.
+					Put this together for the students in part 4.
+				\item When concluding part 4, make sure the formula $\det(T\circ M)=
 					\det(T)\det(M)$ comes up.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $D=\Set{\vec x \given \|\vec x\|\leq 1}$ be the unit disk. You know the
-	following about the linear transformations $M$, $T$, and $S$. 
+\begin{minipage}{.45\textwidth}
+\begin{tikzpicture}[>=latex]
+    \begin{axis}[scale=1,
+		    axis equal image,
+		    axis lines=middle,
+		 xmin=-.2,
+		 xmax=1.2,
+		 ymin=-.2,
+		 ymax=1.2,
+		 major grid style={black!30!white},
+		 minor grid style={dotted, gray},
+		 minor tick num=1,
+                 xtick={-10,-9,...,10},
+                 ytick={-10,-9,...,10},
+                 grid=both]
+
+		\fill[blue!50!white, opacity=0.3] (0,0) -- (0,1) -- (1,1) -- (1,0) -- cycle;
+		\draw[black!30!white] (.5,0) -- (.5,1) (0, .5) -- (1, .5);
+		\node at (.25,.25) {$R_1$};
+		\node at (.75,.25) {$R_2$};
+		\node at (.75,.75) {$R_3$};
+		\node at (.25,.75) {$R_4$};
+    \end{axis}
+\end{tikzpicture}\hspace{.55cm}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+	Let $R=R_1\cup R_2\cup R_3\cup R_4$. You know the following about the linear transformations $M$, $T$, and $S$.
 	
-	$M$ is defined
-	by $\vec x\mapsto 2\vec x$; $T$ has determinant $2$; and $S$ has determinant $3$.
+	\[M\mat{x\\y}=\mat{2x\\y}\]
+	\[T:\R^2\to\R^2\text{ has determinant }2\]
+	\[S:\R^2\to\R^2\text{ has determinant }3\]
+
+
+\end{minipage}
+
 	\begin{parts}
-		\item Find the oriented volumes of $M(C_2)$, $T(C_2)$, and $S(C_2)$.
+		\item Find the volumes (areas) of $R_1$, $R_2$, $R_3$, $R_4$, and $R$.
 			\begin{solution}
-				The volumes are $4$, $2$, and $3$, respectively.
-
-				We can compute the volume of $M(C_2)$ directly, since $M$
-				transforms $C_2$ into a square with side length $2$. For the
-				other two, we are given their determinants and we know that the
-				volume of the image of the unit square equals the determinant of
-				each transformation.
+				The volumes of $R_1$, $R_2$, $R_3$, and $R_4$ are $\tfrac{1}{4}$. The
+				volume of $R$ is $1$.
 			\end{solution}
-		\item How does the volume of $S(C_2+\Set{\vec e_1})$ compare to the volume
-			of $S(C_2)$?
+		\item Compute the oriented volume of $M(R_1)$, $M(R_2)$, and $M(R)$.
 			\begin{solution}
-				They are equal. 
+				The oriented volumes of $M(R_1)$ and $M(R_2)$ are $\tfrac{1}{2}$ and the oriented volume of
+				$M(R)$ is $2$. 
+			\end{solution}
+		\item Do you have enough information to compute the oriented volume of $T(R_2)$? What about the oriented volume of $T(R+\Set{\yhat})$?
+			\begin{solution}
+				Yes. The oriented volume of $T(R_2)=\tfrac{1}{2}$ and the oriented volume of $T(R+\Set{\vec e_2})=2$.
 				
-				By linearity
+				We don't have enough information to determine what $T(R_2)$ looks like, but we do know (i) $T(R_2)$ 
+				will be a parallelogram, (ii) $T(R)$ has oriented volume $2$, and (iii) $T(R)$ is made of
+				four translated copies of $T(R_2)$. From this we deduce that the oriented volume of $T(R_2)=\tfrac{1}{4}\big($oriented
+				volume of $T(R)\big)=(\tfrac{1}{4})(2)$.
+
+				To find the oriented volume of $T(R+\Set{\yhat})$, we use linearity to observe
 				\[
-					S(C_2+\Set{\vec e_1})=S(C_2)+S(\Set{\vec e_1}) = S(C_2)+\Set{S(\vec e_1)},
+					T(R+\Set{\yhat})=T(R)+T(\Set{\yhat}) = T(R)+\Set{T\yhat}.
 				\]
-				and so $S(C_2+\Set{\vec e_1})$ is a translation of $S(C_2)$ and translations never change
-				areas/volumes.
+				This shows that $T(R+\Set{\yhat})$ is just a translation of $T(R)$ and therefore has the same oriented volume.
 			\end{solution}
-		\item What is the oriented volume of $S(D)$?
+		\item What is the oriented volume of $S\circ T(R)$? What is $\det(S\circ T)$?
 			\begin{solution}
-				The volume is $3\pi$. 
-				
-				We can arbitrarily approximate $D$ by translated and scaled down copies of
-				$C_2$. Since we know the volume of each copy of $C_2$ will change by a factor of $3$, we know the volume
-				of $D$ will change by a factor of $3$.
-			\end{solution}
-		\item What is the oriented volume of $T\circ M(C_2)$? What is $\det(T\circ M)$?
-			\begin{solution}
-				They are both equal to $8$.
+				They are both equal to $6$.
 
-				$T\circ M(C_2)=T(M(C_2))$. We already know $M(C_2)$ has a volume
-				of $4$, and so $T(M(C_2))$ has a volume of 8, since $T$ scales
-				the volumes of all regions by $2$. The volume of $T\circ M(C_2)$
-				is the determinant of $T\circ M$ by definition.
+				$S\circ T(R)=S(T(R))$. We already know $T(R)$ has a volume
+				of $2$, and so $S(T(R))$ has a volume of $6$, since $S$ scales
+				the volumes of all regions by $3$. The oriented volume of $S\circ T(R)$
+				is the determinant of $S\circ T$ by definition.
 			\end{solution}
 	\end{parts}
 
@@ -7757,7 +7785,7 @@ the ``N'' on the left.
 	\question
 	\begin{annotation}
 		\begin{goals}
-			\Goal{Determinants of triangular matrices.}
+			\Goal{Reasoning about determinants via elementary matrices.}
 
 			The goal of this problem is to
 			\begin{itemize}
@@ -7775,12 +7803,9 @@ the ``N'' on the left.
 				\item For part 1, a good way to to explain it is by explaining that 
 					reducing $U$ to a diagonal matrix won't affect the determinant.
 					Now reason geometrically about a diagonal matrix.
-				\item For part 2, emphasize the geometry: if there is a row of zeros, 
-					the columns are linearly dependent and so the column vectors will
-					specify a ``flattened'' parallelepiped, which must have zero volume.
-				\item For part 3, reemphasize the ``flattening'' picture. You can also mention
-					that if the transformation is not invertible, the image of $C_n$ will
-					be flattened.
+				\item For part 2, argue algebraically: there is a matrix $R$ so $V=R\Rref(V)$.
+					Therefore $\det(V)=\det(R\Rref(V))=\det(V)\det(\Rref(V))$, but $\Rref(V)$
+					has a zero on the diagonal! The geometric perspective will come in the next problem.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
@@ -7791,6 +7816,39 @@ the ``N'' on the left.
 				$\det(U)=-12$.
 			\end{solution}
 		\item $V$ is a square matrix and $\Rref(V)$ has a row of zeros.
+			What is $\det(V)$?
+			\begin{solution}
+				$\det(V)=0$.
+			\end{solution}
+	\end{parts}
+	
+	\question
+	\begin{annotation}
+		\begin{goals}
+			\Goal{Determinants of singular matrices.}
+
+			The goal of this problem is to
+			\begin{itemize}
+				\item Reason geometrically about why a transformation that isn't one-to-one
+					has a zero determinant.
+			\end{itemize}
+		\end{goals}
+
+		\begin{notes}
+			\begin{itemize}
+				\item For part 1, emphasize the geometry first: if 
+					the columns are linearly dependent they will
+					specify a ``flattened'' parallelepiped, which must have zero volume.
+
+					Then, connect this to the previous question where $\Rref(V)$ had a row of zeros.
+				\item For part 2, reemphasize the ``flattening'' picture. You can also mention
+					that if the transformation is not invertible, the image of $C_n$ will
+					be flattened.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}
+	\begin{parts}
+		\item $V$ is a square matrix whose columns are linearly dependent.
 			What is $\det(V)$?
 			\begin{solution}
 				$\det(V)=0$.
@@ -8295,6 +8353,16 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 					$\Char(A)(0)=\det(A)$, and the down side is that
 					the leading coefficient of $\Char(A)$ is $\pm\lambda^n$ depending
 					on whether $n$ is even or odd.
+
+					When writing a factored characteristic polynomial, write
+					\[
+						(\lambda_1-x)(\lambda_2-x)\cdots
+					\]
+					instead of
+					\[
+						\pm(x-\lambda_1)(x-\lambda_2)\cdots
+					\]
+					to avoid issues.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
@@ -8351,7 +8419,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\begin{parts}
 		\item Compute $\chr(D)$.
 			\begin{solution}
-				$\chr(D)=(\lambda+2)(\lambda-3)$. 
+				$\chr(D)=(-2-\lambda)(3-\lambda)$. 
 
 				We compute:
 				\[
@@ -8359,7 +8427,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 					=\det\left(\mat{1-\lambda&2\\3&-\lambda}\right)
 					=(1-\lambda)(-\lambda)-(2)(3)
 					=\lambda^2-\lambda-6
-					=(\lambda+2)(\lambda-3).
+					=(-2-\lambda)(3-\lambda).
 				\]
 			\end{solution}
 		\item Find the eigenvalues of $D$.
@@ -8394,13 +8462,13 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 					This part also requires a lot of sophistication to pin down.
 					It's easy to argue that the appropriate nullities will be $\geq 1$
 					and $<3$, but arguing that they are equal to $1$ (and not $2$) takes work.
-					Don't bother completing the argument pinning down the exact nullities,
-					though the students will be happier know the exact nullities.
+					Don't bother completing the argument pinning down the exact nullities 
+					(but feel free to tell them the exact nullities).
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
 	\vspace{-.2cm}
-	Suppose $\chr(E)=-\lambda(\lambda -2)(\lambda +3)$ for some unknown $3\times 3$
+	Suppose $\chr(E)=-\lambda(2-\lambda)(-3-\lambda)$ for some unknown $3\times 3$
 	matrix $E$.
 	\begin{parts}
 		\item What are the eigenvalues of $E$?
