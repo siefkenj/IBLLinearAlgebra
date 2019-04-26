@@ -107,7 +107,7 @@
 
 
 \fancypagestyle{siefken}{%
-	\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015--2018 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+	\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015--2019 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
 	\lfoot{}
 	\renewcommand{\headrulewidth}{0pt}
 }
@@ -440,7 +440,7 @@
 
 \vspace{.7in}
 {
-\it \copyright\,Jason Siefken, 2016--2018 \\
+\it \copyright\,Jason Siefken, 2016--2019 \\
 Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}
 }
 \end{center}
@@ -448,42 +448,43 @@ Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[he
 \section*{About the Document}
 
 This document is a hybrid of many linear algebra resources, including those of
-the IOLA (Inquiry Oriented Linear Algebra) project, Jason Siefken's
-IBLLinearAlgebra project, and Asaki, Camfield, Moon, and Snipes' Radiograph and
-Tomography project.
+the IOLA (Inquiry Oriented Linear Algebra) project and Jason Siefken's
+IBL Linear Algebra project.
 
-This document is a mix of student projects, problem sets, and labs. A typical
+This document is a mix of short problems and more involved exploratory question. A typical
 class day looks like:
 \begin{enumerate}
 	\item {\bf Introduction by instructor.} This may involve giving a definition,
 		a broader context for the day's topics, or answering questions.
 
-	\item {\bf Students work on problems.} Students work individually or in pairs
+	\item {\bf Students work on problems.} Students work individually or in pairs/small groups
 		on the prescribed problem. During this time the instructor moves
 		around the room addressing questions that students may have and giving
 		one-on-one coaching.
 
-	\item {\bf Instructor intervention.} If most students have successfully solved
-		the problem, the instructor regroups the class by providing a concise
-		explanation so that everyone is ready to move to the next concept.
+	\item {\bf Instructor intervention.} When most students have successfully solved
+		the problem, the instructor refocuses the class by providing an
+		explanation or soliciting explanations from students.
 		This is also time for the instructor to ensure that everyone has
 		understood the main point of the exercise (since it is sometimes
-		easy to do some computation while being oblivious to the larger context).
+		easy to miss the point!).
 
-		If students are having trouble, the instructor can give hints to
-		the group, and additional guidance to ensure the students don't get
-		frustrated to the point of giving up.
+		If students are having trouble, the instructor can give hints
+		and additional guidance to ensure students' struggle is productive.
 
 	\item {\bf Repeat step 2.}
 \end{enumerate}
 
-Using this format, students are working (and happily so) most of the class. Further,
-they are especially primed to hear the insights of the instructor, having already
-invested substantially into each problem.
+Using this format, students are thinking (and happily so) most of the class. Further,
+after struggling with a question especially primed to hear the insights of the instructor.
 
-This problem-set is geared towards concepts instead of computation, though some problems
-focus on simple computation.
+These problems are geared towards concepts instead of computation, though some problems
+focus on simple computation. The questions also have a geometric lean. Vectors are initially
+introduced with familiar coordinate notation, but eventually, coordinates are understood to be
+\emph{representations} of vectors rather than ``true'' geometric vectors, and objects like the
+determinant are defined via oriented volumes rather than formulas involving matrix entries.
 
+\bigskip
 {\bf License} Unless otherwise mentioned, pages of this document are licensed under
 the Creative Commons By-Attribution Share-Alike License. That means, you are free
 to use, copy, and modify this document provided that you provide attribution to the
@@ -1429,13 +1430,14 @@ argument supporting your answer.
 
 \end{lesson}
 	\begin{definition}[Vector Form of a Line]
-		A line $\ell$ is written in \emph{vector form} if it is expressed
-		as
+		Let $\ell$ be a line and let $\vec d$ and $\vec p$ be vectors.
+		If $\ell=\Set{\vec x\given \vec x=
+		t\vec d+\vec p\text{ for some } t\in\R }$ we say the equation
 		\[
 			\vec x=t\vec d+\vec p
 		\]
-		for some vector $\vec d$ and point $\vec p$. That is, $\ell = \Set{\vec x\given \vec x=
-		t\vec d+\vec p\text{ for some } t\in\R }$. The vector
+		is $\ell$ expressed in \emph{vector form}.
+		The vector
 		$\vec d$ is called a \emph{direction
 		vector} for $\ell$.
 	\end{definition}
@@ -2392,8 +2394,8 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 				\]
 				Suppose $a_i\neq 0$. Then
 				\[
-					\vec v_i = \tfrac{a_1}{a_i}\vec v_1+\cdots +\tfrac{a_{i-1}}{a_i}\vec v_{i-1}
-					+\tfrac{a_{i+1}}{a_i}\vec v_{i+1}+\cdots+\tfrac{a_n}{a_i}\vec v_n.
+					\vec v_i = \tfrac{-a_1}{a_i}\vec v_1+\cdots +\tfrac{-a_{i-1}}{a_i}\vec v_{i-1}
+					+\tfrac{-a_{i+1}}{a_i}\vec v_{i+1}+\cdots+\tfrac{-a_n}{a_i}\vec v_n.
 				\]
 				This means $\vec v_i\in \Span\Set{\vec v_1,\ldots,\vec v_{i-1},\vec v_{i+1},\ldots,\vec v_n}$,
 				which is precisely the geometric definition of linear dependence.
@@ -8547,32 +8549,32 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\]
 	and notice that $\vec v_1,\vec v_2,\vec v_3$ are eigenvectors for $A$. Let $T_A$ be the transformation induced by $A$.
 	\begin{parts}
-		\item Find the eigenvalues of $A$.
+		\item Find the eigenvalues of $T_A$.
 			\begin{solution}
-				The eigenvalues of $A$ are $2$, $-1$, and $1$.
+				The eigenvalues of $T_A$ are $2$, $-1$, and $1$.
 
-				We compute that $A\vec v_1=2\vec v_1$, $A\vec v_2=-\vec v_2$,
-				and $A\vec v_3=\vec v_3$, so $2$, $-1$, and $1$ are eigenvalues
-				of $A$. By the last part of the previous problem, there are no
+				We compute that $T_A\vec v_1=2\vec v_1$, $T_A\vec v_2=-\vec v_2$,
+				and $T_A\vec v_3=\vec v_3$, so $2$, $-1$, and $1$ are eigenvalues
+				of $T_A$. By the last part of the previous problem, there are no
 				other eigenvalues.
 			\end{solution}
-		\item Find the characteristic polynomial of $A$.
+		\item Find the characteristic polynomial of $T_A$.
 			\begin{solution}
 				$\chr(A)=(2-\lambda)(1-\lambda)(-1-\lambda)=-(\lambda-2)(\lambda+1)(\lambda-1)$.
 				
 				Sine we know the roots of the characteristic polynomial are the eigenvalues and
-				we know $\chr(A)$ is a cubic, we can immediately write down
-				$\chr(A)=(2-\lambda)(1-\lambda)(-1-\lambda)$ without computing a determinant.
+				we know $\chr(T_A)$ is a cubic, we can immediately write down
+				$\chr(T_A)=(2-\lambda)(1-\lambda)(-1-\lambda)$ without computing a determinant.
 			\end{solution}
-		\item Compute $A\vec w$ where $w=2\vec v_1-\vec v_2$.
+		\item Compute $T_A\vec w$ where $w=2\vec v_1-\vec v_2$.
 			\begin{solution}
-				$A\vec w=4\vec v_1+\vec v_2$.
+				$T_A\vec w=4\vec v_1+\vec v_2$.
 
 				Using the computations we did in the first part above, we find
 				\[
-					A\vec w
-					=A(2\vec v_1-\vec v_2)
-					=2A\vec v_1-A\vec v_2
+					T_A\vec w
+					=T_A(2\vec v_1-\vec v_2)
+					=2T_A\vec v_1-A\vec v_2
 					=2(2\vec v_1)-(-\vec v_2)
 					=4\vec v_1+\vec v_2.
 				\]
@@ -8647,7 +8649,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	The transformation $P^{-1}$ takes vectors in the standard basis and outputs
+	The matrix $P^{-1}$ takes vectors in the standard basis and outputs
 	vectors in their $\mathcal V$-basis representation. Here, $A$, $T_A$, and $\mathcal V$
 	come from Problem \ref{actingOnEigenvectors}.
 	\begin{parts}
@@ -8657,7 +8659,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 				in the $\mathcal V$ basis and outputs vectors in their representation
 				in the standard basis.
 			\end{solution}
-		\item Describe how you can use $P$ and $P^{-1}$ to easily compute
+		\item Describe how you can use $P$ and $P^{-1}$ to compute
 			$T_A\vec y$ for any $\vec y\in \R^3$.
 			\begin{solution}
 				Computing $[T_A]_{\mathcal V}[\vec y]_{\mathcal V}$ is easy, since
@@ -8691,24 +8693,25 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 					A[\vec v]_{\mathcal E}=PDP^{-1}[\vec v]_{\mathcal E}.
 				\]
 			\end{solution}
-		\item $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$.  Compute $A^{100}\vec x$.
+		\item $[\vec x]_{\mathcal V}=\mat{1\\3\\4}$.  Compute $T_A^{100}\vec x$. Express
+			your answer in both the $\mathcal V$ bais and the standard basis.
 			\begin{solution}
-				$A^{100}\vec x=\mat{2^{100}\\3\\4}_{\mathcal V}$.
+				$T_A^{100}\vec x=\mat{2^{100}\\3\\4}_{\mathcal V}$.
 
-				By the previous problem, we know how $A$ acts on vectors represented
+				By the previous problem, we know how $T_A$ acts on vectors represented
 				in the $\mathcal V$ basis: it multiplies the first coordinate by
 				$2$, the second by $-1$, and leaves the third coordinate unchanged.
 				So we compute
 				\[
-					A^{100}\mat{1\\3\\4}
-					=A^{99}\mat{2\\-3\\4}
-					=A^{98}\mat{2^2\\3\\4}
-					=A^{97}\mat{2^3\\-3\\4}
+					T_A^{100}\mat{1\\3\\4}
+					=T_A^{99}\mat{2\\-3\\4}
+					=TA^{98}\mat{2^2\\3\\4}
+					=T_A^{97}\mat{2^3\\-3\\4}
 					=\dots
 				\]
-				To express $A^{100}\vec x$ in the standard basis, we use $P$.
+				To express $T_A^{100}\vec x$ in the standard basis, we use $P$.
 				\[
-					[A^{100}\vec x]_{\mathcal E} = P[A^{100}\vec x]_{\mathcal V} = \mat{2^{100}-1\\2^{100}+7\\2^{100}-6}.
+					[T_A^{100}\vec x]_{\mathcal E} = P[T_A^{100}\vec x]_{\mathcal V} = \mat{2^{100}-1\\2^{100}+7\\2^{100}-6}.
 				\]
 			\end{solution}
 	\end{parts}
@@ -8739,70 +8742,79 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	For an $n\times n$ matrix $T$, suppose its eigenvectors $\Set{\vec v_1,\ldots \vec v_n}$
-	form a basis for $\R^n$.  Let $\lambda_1,\ldots,\lambda_n$ be the corresponding
+	Let $B$ be an $n\times n$ matrix and let $T_B$ be the induced transformation.
+	Suppose $T_B$ has eigenvectors $\vec v_1,\ldots, \vec v_n$ which
+	form a basis for $\R^n$, and let $\lambda_1,\ldots,\lambda_n$ be the corresponding
 	eigenvalues.
 
 
 	\begin{parts}
-		\item Is $T$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
+		\item How do the eigenvalues and eigenvectors of $B$ and $T_B$ relate?
+		\begin{solution}
+			The eigenvalues of $B$ and $T_B$ are the same. The eigen vectors
+			are also the same, execpt eigenvectors for $B$ must be written
+			in the standard basis. E.g., $[\vec v_1]_{\mathcal E},\ldots,[\vec v_n]_{\mathcal E}$
+			are eigenvectors for $B$.
+		\end{solution}
+		\item Is $B$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
 		\begin{solution}
 			Yes. 
 
-			Let $\mathcal V=\Set{\vec v_1,\ldots \vec v_n}$ be the basis consisting
-			of eigenvectors of $T$. Then by definition, $T\vec v_i=\lambda_i\vec v_i$
+			$\mathcal V=\Set{\vec v_1,\ldots \vec v_n}$ is a basis consisting
+			of eigenvectors for $T_B$. By definition, $B[\vec v_i]_{\mathcal E}=\lambda_i[\vec v_i]_{\mathcal E}$
 			for each $i$. 
 
 			Let $P$ be the matrix that takes vectors represented in the
 			$\mathcal V$ basis and outputs their representations in the standard
 			basis $\mathcal E$. Then, for example, we should have that
 			\[
-				P^{-1}TP\matc{1\\0\\\vdots\\0}
-				=P^{-1}TP[\vec v_1]_{\mathcal V}
-				=P^{-1}T[\vec v_1]_{\mathcal E}
+				P^{-1}BP\matc{1\\0\\\vdots\\0}
+				=P^{-1}BP[\vec v_1]_{\mathcal V}
+				=P^{-1}B[\vec v_1]_{\mathcal E}
 				=\lambda_1P^{-1}[\vec v_1]_{\mathcal E}
 				=\lambda_1[\vec v_1]_{\mathcal V}
 				=\matc{\lambda_1\\0\\\vdots\\0}.
 			\]
-			Therefore, the first column of $P^{-1}TP$ is $\matc{\lambda_1\\0\\\vdots\\0}$.
-			By similar reasoning, the $i^\text{th}$ column of $P^{-1}TP$ consists
+			Therefore, the first column of $P^{-1}BP$ is $\matc{\lambda_1\\0\\\vdots\\0}$.
+			By similar reasoning, the $i^\text{th}$ column of $P^{-1}BP$ consists
 			of all zeroes except for $\lambda_i$ in the $i^\text{th}$ position. 
-			In other words, $T$ is similar to the diagonal matrix $D$ with 
+			In other words, $B$ is similar to the diagonal matrix $D$ with 
 			$\lambda_1, \lambda_2, \dots, \lambda_n$ along the diagonal, in that
 			order. 
 		\end{solution}
-		\item What if one of the eigenvalues of $T$ is zero?  Is $T$ diagonalizable?
+		\item What if one of the eigenvalues of $T_B$ is zero?  Would $B$ be diagonalizable?
 			\begin{solution}
 				Yes. 
 
 				The argument in the previous part does not depend on any of the
 				eigenvalues being non-zero.
 			\end{solution}
-		\item What if the eigenvectors of $T$ did not form a basis for $\R^n$.
-			Would $T$ be diagonalizable?
+		\item What if the eigenvectors of $T_B$ did not form a basis for $\R^n$.
+			Would $B$ be diagonalizable?
 			\begin{solution}
 				No. 
 
 				The argument we used in the first part definitely would not work.
 
-				Consider the converse, and assume $T$ is similar to diagonal 
+				Consider the converse, and assume $B$ is similar to diagonal 
 				matrix $D$. That is, suppose there is an invertible matrix 
-				$P$ such that $T=PDP^{-1}$. Then, if $\vec v_1$ is the first 
+				$P$ such that $B=PDP^{-1}$. Then, if $\vec v_1$ is the first 
 				column of $P$ and $\lambda_1$ is the first entry on	the diagonal
 				of $D$, we would have
 				\[
-					T\vec v_1
-					=PDP^{-1}\vec v_1
+					B[\vec v_1]_{\mathcal E}
+					=PDP^{-1}[\vec v_1]_{\mathcal E}
+					=PD[\vec v_1]_{\mathcal V}
 					=PD\matc{1\\0\\\vdots\\0}
 					=\lambda_1P\matc{1\\0\\\vdots\\0}
-					=\lambda_1\vec v_1,
+					=\lambda_1[\vec v_1]_{\mathcal E},
 				\]
-				meaning that $\vec v_1$ is an eigenvector of $T$. Similarly, all
-				of the columns of $P$ would be eigenvectors of $T$, with eigenvalues
+				meaning that $[\vec v_1]_{\mathcal E}$ is an eigenvector of $B$. Similarly, all
+				of the columns of $P$ would be eigenvectors of $B$, with eigenvalues
 				equal to the corresponding entry on the diagonal of $D$. Since $P$ is 
-				invertible its columns must be linearly independent, and therefore
+				invertible, its columns must be linearly independent, and therefore
 				the $n$ columns of $P$ would form a basis of $\R^n$ consisting of
-				eigenvectors of $T$. 
+				eigenvectors of $B$. 
 			\end{solution}
 	\end{parts}
 
@@ -8841,13 +8853,13 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \end{lesson}
 
 	\begin{definition}[Eigenspace]
-	Let $A$ be a matrix with eigenvalues $\{\lambda_1,\ldots,\lambda_m\}$.  The
+	Let $A$ be an $n\times n$ matrix with eigenvalues $\lambda_1,\ldots,\lambda_m$.  The
 	\emph{eigenspace} of $A$ corresponding to the eigenvalue $\lambda_i$ is the
 	null space of $A-\lambda_i I$.  That is, it is the space spanned by all eigenvectors
 	that have the eigenvalue $\lambda_i$.
 
 	The \emph{geometric multiplicity} of an eigenvalue $\lambda_i$ is the dimension
-	of the eigenspace corresponding to $\lambda_i$.  The \emph{algebraic multiplicity}
+	of the corresponding eigenspace.  The \emph{algebraic multiplicity}
 	of $\lambda_i$ is the number of times $\lambda_i$ occurs as a root of the
 	characteristic polynomial of $A$ (i.e., the number of times $x-\lambda_i$
 	occurs as a factor).
@@ -8905,7 +8917,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			\begin{solution}
 				Yes. $G$ is already diagonal (and is necessarily similar to itself).
 			\end{solution}
-		\item What is the geometric and algebraic multiplicity of each eigenvalue
+		\item What are the geometric and algebraic multiplicities of each eigenvalue
 			of $F$? What about the multiplicities for each eigenvalue of $G$?
 			\begin{solution}
 				The only eigenvalue for $F$ is $3$. Its geometric multiplicity is $1$, 
