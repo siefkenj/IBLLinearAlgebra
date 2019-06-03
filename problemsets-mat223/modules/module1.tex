@@ -1,0 +1,516 @@
+\Heading{Sets}
+Modern mathematics makes heavy use of \emph{sets}\index{set}.  
+A set is an unordered collection of distinct objects.  We won't try and pin
+it down more than this---our intuition about collections
+of objects will suffice\footnote{ When you pursue more rigorous math,
+you rely on definitions to get yourself out of philosophical jams.  For instance,
+with our definition of set, consider ``the set of all sets that don't
+contain themselves.''  Such a set cannot exist!
+This is called \emph{Russel's Paradox}, and shows
+that if we start talking about sets of sets, we may need more than
+intuition.}. We write a set with curly-braces $\{$ and $\}$ and
+list the objects inside.  For instance
+\[
+	\Set{1,2,3}.
+\]
+This would be read aloud as ``the set containing the elements $1$, $2$, and $3$.''
+Things in a set are called \emph{elements}\index{element of a set},
+and the symbol $\in$\index{$\in$} is used to specify that something is an element of a set.
+In contrast, $\notin$ is used to specify something is not an element of a set.  For example,
+\[
+	3\in\Set{1,2,3}\qquad 4\notin\Set{1,2,3}.
+\]
+Sets can contain mixtures of objects, including other sets.  For example,
+\[
+	\Set{1,2,a,\Set{-70,\infty}, x}
+\]
+is a perfectly valid set.
+
+It is tradition to use capital letters to name sets.  So we might say $A=\{6,7,12\}$
+or $X=\{7\}$.  However there are some special sets which
+already have names/symbols associated with them.
+The \emph{empty set} is the set containing no elements
+and is written $\emptyset$ or $\Set{}$.  Note that $\Set{\emptyset}$ is \emph{not}
+the empty set---it is the set containing the empty set!  It is also traditional
+to call elements of a set \emph{points}\index{point} regardless of whether you
+consider them ``point-like'' objects.
+
+\Heading{Operations on Sets}
+If the set $A$ contains all the elements that the set $B$ does, we call $B$ a \emph{subset}\index{subset}
+of $A$. Conversely, we call $A$ a \emph{superset}\index{superset} of $B$.  
+\SavedDefinitionRender{SubsetSuperset}
+
+Some simple examples are $\Set{1,2,3}\subseteq \Set{1,2,3,4}$ and $\Set{1,2,3}\subseteq\Set{1,2,3}$.
+There's something funny about that last example, though.  Those two sets are not only subsets/supersets
+of each other, they're \emph{equal}.  As surprising as it seems, we actually need to define
+what it means for two sets to be equal.
+\SavedDefinitionRender{SetEquality}
+Having a definition of equality to lean on will help us when we need to prove things about sets.
+
+\begin{example}
+	Let $A$ be the set of numbers that can be expressed
+	as $2n$ for some whole number $n$, and let $B$ be the
+	set of numbers that can be expressed as $m+1$ where $m$ is
+	an odd whole number.  We will show $A=B$.
+
+	First, let us show $A\subseteq B$.  If $x\in A$ then $x=2n$
+	for some whole number $n$.  Therefore 
+	\[x=2n=2(n-1)+1+1=m+1\] where
+	$m=2(n-1)+1$ is, by definition, an odd number.  Thus $x\in B$,
+	which proves $A\subseteq B$.
+
+	Now we will show $B\subseteq A$.  Let $x\in B$.  By definition,
+	$x=m+1$ for some odd $m$ and so by the definition of oddness, $m=2k+1$
+	for some whole number $k$.  Thus 
+	\begin{align*}
+		x=m+1&=(2k+1)+1=2k+2\\
+		&=2(k+1)=2n,
+	\end{align*} where $n=k+1$, and so $x\in A$.  Since $A\subseteq B$
+	and $B\subseteq A$, by definition $A=B$.
+\end{example}
+
+
+\Heading{Set-builder Notation}
+Specifying sets by listing all their elements can be a hassle, and if there are an infinite
+number of elements, it's impossible!  Fortunately, \emph{set-builder notation}\index{set-builder notation}
+solves these problems.
+If $X$ is a set, we can define a subset 
+\[
+	Y= \Set{a\in X\given\text{some rule involving }a},
+\]
+which is read ``$Y$ is the set of $a$ in $X$ \emph{such that} some rule
+involving $a$ is true.''  If $X$ is intuitive, we may omit it and
+simply write $Y=\Set{a\given\text{some rule involving }a}$\footnote{ If you want
+to get technical, to make this notation unambiguous, you define a 
+\emph{universe of discourse}.  That is, a set $\mathcal U$ containing
+every object you might want to talk about.  Then $\Set{a\given\text{some rule involving }a}$
+is short for $\Set{a\in\mathcal U\given\text{some rule involving }a}$}.  You may equivalently
+use ``$|$'' instead of ``$:$'', writing $Y=\{a\,|\,\text{some rule involving }a\}$.
+
+There are also some common operations we can do with two sets.
+\SavedDefinitionRender{UnionsIntersections}
+
+For example, if $A=\Set{1,2,3}$ and $B=\Set{-1,0,1,2}$, then $A\cap B=\Set{1,2}$ and $A\cup B=
+\Set{-1,0,1,2,3}$.  Set unions and intersections are \emph{associative}, which means it doesn't
+matter how you apply parentheses to an expression involving just unions or just intersections.
+For example $(A\cup B)\cup C=A\cup(B\cup C)$, which means
+we can give an unambiguous meaning to an expression like $A\cup B\cup C$ (just put
+the parentheses wherever you like).  But watch out, $(A\cup B)\cap C$ means something
+different than $A\cup(B\cap C)$!
+
+%\SavedDefinitionRender{SetSubtraction}
+
+Some common sets have special notation:
+\begin{align*}
+	\emptyset &= \Set{}\text{, the empty set}\\
+	\N &= \Set{0,1,2,3,\ldots}=\Set{\text{natural numbers}}\\
+	\Z &= \Set{\ldots, -3,-2,-1,0,1,2,3,\ldots}=\Set{\text{integers}}\\
+	\Q &= \Set{\text{rational numbers}}\\
+	\R &= \Set{\text{real numbers}}\\
+	\R^n &= \Set{\text{vectors in $n$-dimensional Euclidean space}}\\
+\end{align*}
+
+
+
+\Heading{Vectors \& Scalars}
+A \emph{scalar} number (also referred to as a \emph{scalar} or just an ordinary
+\emph{number}) models a relationship between quantities. For example,
+a recipe might call for \emph{six} times as much flour as sugar. In 
+contrast, a \emph{vector} models a relationship between points. For example,
+the store might be \emph{2km East and 4km North} from my house.
+In this way, a vector may be thought of as a \emph{displacement} with a \emph{direction}
+and a \emph{magnitude}\footnote{
+	Though in this book we will treat vectors as geometric objects 
+	relating to Euclidean
+	space, they are much more general.  For instance, someone's internet
+	browsing habits could be described by a vector---the topics they
+	find most interesting might be the ``direction'' and the amount
+	of time they browse might be the ``magnitude.''
+}.
+
+Given points $P=(1,1)$ and $Q=(3,2)$, we specify the
+\emph{displacement}\index{displacement} from $P$ to $Q$ as a vector
+$\overrightarrow{PQ}$ whose magnitude is $\sqrt{5}$ (as given by the Pythagorean
+theorem) and whose direction is specified by a directed line segment from $P$ to $Q$.
+
+\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (3,2);
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=5,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\draw [mypink,fill] (A) circle (1.5pt) node [below right] {$P$};
+		\draw [mypink,fill] (B) circle (1.5pt) node [below right] {$Q$};
+		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,above,yshift=2pt] {$\overrightarrow{PQ}$};
+
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+
+
+\Heading{Vector Notation}
+There are many ways to represent vector quantities in writing.  If
+we have two points, $P$ and $Q$, we write $\overrightarrow{PQ}$ to represent the
+vector from $P$ to $Q$.  Absent points, a bold-faced letter (like {\bfseries a})
+or an arrow over 
+a letter (like $\vec a$) are the most common vector notations.
+In this text, we will use $\vec a$ to represent a vector.
+The notation $\norm{\vec a}$\index{$\norm{\:\cdot\:}$}\index{magnitude}\index{norm}
+represents the magnitude of the vector $\vec a$, which is sometimes called
+the \emph{norm} or \emph{length} of $\vec a$.
+
+
+Graphically, we may represent vectors as directed line segments (a
+line segment with an arrow at one end), however we must take care to
+distinguish between the picture we draw and the ``true'' vector.
+For example, directed line segments always \emph{start} somewhere, but a vector
+models a displacement and has no sense of ``origin''.
+
+Consider the following: for the points $A=(1,1)$, $B=(3,2)$, $X=(1,0)$, and $Y=(3,1)$, define the vectors
+$\vec a = \overrightarrow{AB}$ and $\vec x=\overrightarrow{XY}$.  
+
+
+\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}
+		\coordinate (A) at (2,1);
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=5,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[->,thick,myred!60!white] (1,1) -- +(A) node [midway,above,xshift=-8pt] {$\vec a=\overrightarrow{AB}$};
+			\draw[->,thick,mypink] (1,0) -- +(A) node [midway,above,xshift=-8pt] {$\vec x=\overrightarrow{XY}$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+Are these 
+the same or different vectors?  As directed line segments,
+they are different because they are at different locations in space.  
+However, both $\vec a$ and $\vec x$ have the same
+magnitude and direction.  Thus, $\vec a=\vec x$ despite the fact that $A\neq X$\footnote{
+	Some theories use \emph{rooted vectors}\index{rooted vector} instead of
+	vectors as the fundamental object of study. A rooted vector
+	represents a magnitude, direction, \emph{and} a starting point. And, 
+	as rooted vectors, $\vec a\neq \vec x$ (from the example above).
+	But for us, vectors will always be unrooted, even though our graphical
+	representations of vectors might appear rooted.
+}.
+\begin{emphbox}[Takeaway]
+	A vector is not the same as a line segment and a vector by itself
+	has no ``origin''.
+\end{emphbox}
+
+
+\Heading{Vectors and Points}
+The distinction between vectors and points is sometimes nebulous because
+the two are so closely related.  A \emph{point}\index{point}
+in Euclidean space specifies an absolute position whereas a vector
+specifies a displacement (i.e., a magnitude and direction).  However, given a point $P$,
+one associates $P$ with the vector $\vec p=\overrightarrow{OP}$, where $O$
+is the origin.  Similarly, we associate the vector $\vec v$ with
+the point $V$ so that $\overrightarrow{OV}=\vec v$.
+Thus, we have a way to unambiguously go back and forth between vectors and
+points\footnote{ Mathematically, we say there is an \emph{isomorphism} between
+vectors and points (once an origin is fixed, of course!).}.  As such, \emph{we will treat vectors and points
+interchangeably}.
+
+\begin{emphbox}[Takeaway]
+	Vectors and points can and will be treated interchangeably.
+\end{emphbox}
+
+\Heading{Vector Arithmetic}
+
+Vectors provide a natural way to give directions.
+For example, suppose $\xhat$ points one kilometer eastwards and $\yhat$
+points one kilometer northwards.  Now, if you were standing at the origin
+and wanted to move to a location 3 kilometers east and 2 kilometers north, you might say:
+``Walk 3 times the length of $\xhat$  in the $\xhat$ direction and 2 times
+the length of $\yhat$ in the $\yhat$ direction.''  Mathematically, we express this
+as
+\[
+	3\xhat+2\yhat.
+\]
+Of course, we've incidentally described a new vector.  Namely, let $P$
+be the point at 3-east and 2-north.  Then
+\[
+	\overrightarrow{OP}=3\xhat+2\yhat.
+\]
+If the vector $\vec r$ points north but has a length of 10 kilometers, we have
+a similar formula:
+\[
+	\overrightarrow{OP}=3\xhat+\tfrac{1}{5}\vec r,
+\]
+and we have the relationship $\vec r=10\yhat$.
+Our notation here is very suggestive.  Indeed, if we could make
+sense of ``$\alpha\vec v$'' (scalar multiplication) and ``$\vec v+\vec w$'' (vector addition)
+for any scalar $\alpha$ and any vectors
+$\vec v$ and $\vec w$, we could
+do algebra with vectors.
+
+We will define scalar multiplication and vector addition intuitively:
+For a vector $\vec v$ and a scalar $\alpha>0$, the
+vector $\vec w=\alpha\vec v$ is the vector pointing in the same direction as
+$\vec v$ but with length scaled up by $\alpha$.  That is, $\norm{\vec w}=\alpha\norm{\vec v}$.
+Similarly, $-\vec v$ is the vector of the same length as $\vec v$ but
+pointing in the exact opposite direction.
+
+\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}
+		\coordinate (A) at (2,1);
+
+		\draw[->,thick,green!50!black] (1,0) -- +($(A) + (A)$) node [midway,below right ] {$2\vec v$};
+		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,above left] {$\vec v$};
+		\draw[->,thick,mypink] (-1,0) -- +($-.5*(A)$) node [midway,right,xshift=4pt] {$-\tfrac{1}{2}\vec v$};
+	\end{tikzpicture}
+\end{center}
+
+For two vectors $\vec u$ and $\vec v$, the sum $\vec w=\vec u+\vec v$ represents
+the displacement vector created by first displacing along $\vec u$
+and then displacing along $\vec v$.
+
+\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (-.5,2);
+		\coordinate (C) at (3,3);
+
+		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,below left] {$\vec u$};
+		\draw[->,thick,mypink] (B) -- (C) node [midway,above left] {$\vec v$};
+		\draw[->,thick,green!50!black] (A) -- (C) node [midway,below right] {$\vec w=\vec u+\vec v$};
+	\end{tikzpicture}
+\end{center}
+
+
+\begin{emphbox}[Takeaway]
+	You add vectors tip to tail and you scale vectors by changing their length.
+\end{emphbox}
+Now, there is one snag.  What should $\vec v+(-\vec v)$ be?  Well, first we
+displace along $\vec v$ and then we displace in the exact opposite direction
+by the same amount.  So, we have gone nowhere.  This corresponds to a displacement
+with zero magnitude.  But, what direction did we displace?  Here we make a philosophical
+stand.
+
+\SavedDefinitionRender{ZeroVector}
+
+We will be pragmatic about the direction of the zero vector and say,
+\emph{the zero vector does not have a well-defined direction}\footnote{
+	In the mathematically precise definition of vector, the idea of ``magnitude''
+	and ``direction'' are dropped.  Instead, a set of vectors is defined to be
+	a set over which you can reasonably define addition and scalar multiplication.
+}.  That means
+sometimes we consider the zero vector to point in every direction and sometimes
+we consider it to point in no directions.  It depends on our mood---but we must
+never talk about \emph{the} direction of the zero vector, since it's not defined.
+
+Formalizing, for vectors $\vec u$, $\vec v$, $\vec w$ and scalars $\alpha$ and $\beta$
+are scalars, the
+following are laws are always satisfied:
+\begin{align*}
+	(\vec u+\vec v)+\vec w&=\vec u+(\vec v+\vec w)\tag{Associativity}\\
+	\vec u+\vec v&=\vec v+\vec u\tag{Commutativity}\\
+	\alpha(\vec u+\vec v)&=\alpha\vec u+\alpha \vec v\tag{Distributivity}
+\end{align*}
+and
+\begin{align*}
+	(\alpha\beta)\vec v&=\alpha(\beta \vec v)\tag{Associativity II}\\
+	(\alpha+\beta)\vec v&=\alpha\vec v+\beta \vec v\tag{Distributivity II}
+\end{align*}
+
+Indeed, if we intuitively think about vectors in flat (Euclidean) space,
+all of these properties are satisfied\footnote{
+	If we deviate from flat space, some of these
+	rules are no longer respected.  Consider moving 100 kilometers
+	north then 100 kilometers east on a sphere.  Is this the
+	same as moving 100 kilometers east and then 100 kilometers north?
+}.  From now on, these properties of vector operations will be considered
+the
+\emph{laws (or axioms) of vector arithmetic}.
+
+We group scalar multiplication
+and vector addition under one name: \emph{linear combinations}.
+
+\SavedDefinitionRender{LinearCombination}
+
+\Heading{Coordinates and the Standard Basis}
+
+Consider the standard, flat, Euclidean plane (which is notated by $\R^2$).
+A coordinate system for $\R$ is a way to assign a unique pair of numbers to every point
+in $\R^2$.
+Though there are infinitely many coordinate systems we could choose for the plane,
+there is one standard one: the $xy$ coordinate system depicted below, which you're already familiar with. 
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-1,ymax=2,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={->},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel={$x$}, ylabel={$y$},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south}
+		]
+
+		\end{axis}
+		\draw[] (.2,1) node[right,myorange!60!black] {Standard Coordinate System};
+	\end{tikzpicture}
+	\hspace{1cm}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-1,ymax=2,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={->},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel={$x$}, ylabel={$y$},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south}
+		]
+
+		\end{axis}
+		\draw[->, mypink, very thick] (0,0)--(1,0) node[below,midway,mypink] {$\xhat$};
+		\draw[->, myorange, very thick] (0,0)--(0,1) node[left,midway,myorange!80!black] {$\yhat$};
+	\end{tikzpicture}
+\end{center}
+
+In conjunction with the standard coordinate system, there are also \emph{standard basis vectors}.
+The vector $\xhat$ always points one unit in the direction of the positive $x$-axis and $\yhat$
+aways points one unit in the direction of the positive $y$-axis.
+
+Using the standard basis, we can represent every point (or vector) in the plane 
+as a linear combination. If the point $P$ has $xy$-coordinates $(\alpha,\beta)$, then
+$\overrightarrow{OP}=\alpha\xhat+\beta\yhat$. Not only that, but this is the
+\emph{only} way to represent the vector $\overrightarrow{OP}$ as a linear combination of
+$\alpha$ and $\beta$.
+
+\begin{emphbox}[Takeaway]
+	Every vector in $\R^2$ can be written uniquely as a linear combination of the standard basis vectors.
+\end{emphbox}
+
+For a vector $\vec w=\alpha\xhat+\beta\yhat$,
+we call the pair $(\alpha,\beta)$  the
+\emph{standard coordinates}\index{coordinates} of the vector $\vec w$.  There
+are many equivalent notations used to represent a vector in coordinates.
+\begin{center}
+	\begin{tabular}{c p{7cm}}
+		$(\alpha,\beta)$ & parenthesis\\
+		$\langle \alpha,\beta\rangle$ & angle brackets\\
+		$\mat{\alpha&\beta}$ & square brackets in a row (a row matrix)\\
+		$\mat{\alpha\\\beta}$ & square brackets in a column (a column matrix)\\
+	\end{tabular}
+\end{center}
+
+Coordinates and vectors go hand in hand, and we will often write
+\[
+	\vec v=\mat{\alpha\\\beta}
+\]
+as a shorthand for ``$\vec v=\alpha\xhat+\beta\yhat$''.
+
+\Heading{Solving Problems with Coordinates}
+
+Coordinates allow for vector arithmetic to be carried out in a mechanical way.
+ Suppose $\vec u=\mat{a\\b}$ and $\vec v=\mat{x\\y}$.
+Then,
+\[
+	\vec u=\vec v\qquad\iff\qquad \mat{a\\b}=\mat{x\\y}\qquad\iff\qquad a=x\text{ and }b=y.
+\]
+Further,
+\[
+	\vec u+\vec v=\mat{a\\b}+\mat{x\\y}=\mat{a+x\\b+y}\qquad\text{and}\qquad t\vec v=t\mat{a\\b}=\mat{ta\\tb}
+\]
+for any scalar $t$.
+
+Using these rules, otherwise complicated questions about vectors can be reduced
+to simple algebra questions\footnote{ So simple, that computers are able to answer billions of
+such question a second as you play your favorite video game!}.
+
+\begin{example}
+	Let $\vec x=\xhat-\yhat$, $\vec y=3\xhat-\yhat$, and $\vec r=2\xhat+2\yhat$. Is
+	$\vec r$ a linear combination of $\vec x$ and $\vec y$?
+
+	XXX Finish
+\end{example}
+
+\Heading{Higher Dimensions}
+We coordinatize three dimensional space (notated by $\R^3$) by constructing $x$, $y$, and $z$ axes.
+Again, $\R^3$ has standard basis vectors $\xhat$, $\yhat$, and $\zhat$ which each
+point one unit along the $x$, $y$, and $z$ axes, respectively.
+
+Since we live in three dimensional space, its study has a long history and many notations
+for the standard basis are in use. This text will use $\xhat$, $\yhat$, $\zhat$, but other common
+notations include:
+\begin{center}
+	\begin{tabular}{c  c  c}
+		$\hat{\mathbf{x}}$ & $\hat{\mathbf{y}}$ &$\hat{\mathbf{z}}$\\
+		$\hat{\imath}$ & $\hat{\jmath}$ &$\hat{k}$\\
+		$\mathbf{i}$ & $\mathbf j$ & $\mathbf k$\\
+		$\vec e_1$ & $\vec e_2$ & $\vec e_3$
+	\end{tabular}
+\end{center}
+
+Beyond three dimensions, drawing pictures becomes hard, but we can still use vectors.
+We use $\R^n$ to notate $n$-dimensional Euclidean space. The standard basis for $\R^n$ is
+$\sbasis{1}$, $\sbasis{2}$, \ldots, $\sbasis{n}$. Again, every vector in $\R^n$ can be written
+uniquely as a linear combination of the standard basis, and a coordinate representation
+of a vector in $\R^n$ is the list of $n$ scalars.
+
+\begin{example}
+	Let $\vec x,\vec y\in\R^3$ be given by $\vec x=2\xhat-\zhat$ and $\vec y=6\yhat+3\zhat$.
+	Compute $\vec z=\vec x+2\vec y$.
+
+	\[
+		\vec z=\vec x+2\vec y=\quad\mat{2\\0\\-1}+2\mat{0\\6\\3}\quad
+		=\quad\mat{2\\0\\-1}+\mat{0\\12\\6}\quad=\quad\mat{2\\12\\5}\quad=2\xhat+12\yhat+6\zhat
+	\]
+\end{example}

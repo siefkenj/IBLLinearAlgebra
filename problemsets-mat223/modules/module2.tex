@@ -1,0 +1,527 @@
+With a handle on vectors, we can now use them to describe some common geometric
+objects: lines and planes.
+
+\Heading{Lines}
+Consider for a moment the line $\ell$ through the points $P$ and $Q$.  When $P,Q\in\R^2$, we
+can describe $\ell$ with an equation of the form $y=mx+b$ (provided it isn't a vertical line), but if
+$P,Q\in\R^3$, it's much harder to describe $\ell$ with an equation.  Using vectors
+provides an easier way.
+
+Let $\vec d=\overrightarrow{PQ}$ and consider the set of points (or vectors) $\vec x$ that can be expressed as
+\[
+	\vec x=t\vec d+P
+\]
+for $t\in \R$.  Geometrically, this is the set of all points we get by starting at $P$ and
+displacing by some multiple of $\vec d$.  This is a line!
+
+
+\begin{center}
+	\begin{tikzpicture}
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (3,2);
+		\coordinate (D) at ($(B)-(A)$);
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=5,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\draw [Green,fill] (A) circle (1.5pt) node [below right] {$P$};
+		\draw [Green,fill] (B) circle (1.5pt) node [below right] {$Q$};
+		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,below right,yshift=2pt] {$\vec d$};
+
+
+		\end{axis}
+		\foreach \x in {-1,5} {
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt) node [left] {\footnotesize$\tfrac{\x}{3}\vec d+P$};
+		}
+		\foreach \x in {-3,-2,4,6} {
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt);
+		}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (3,2);
+		\coordinate (D) at ($(B)-(A)$);
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=5,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\draw [Green,fill] (A) circle (1.5pt) node [below right] {$P$};
+		\draw [Green,fill] (B) circle (1.5pt) node [below right] {$Q$};
+		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,below right,yshift=2pt] {$\vec d$};
+
+		\end{axis}
+
+		\foreach \x in {-3,-2,-1,0,4,5,6} {
+			\draw [->, gray!50!white] (0,0) -- ($(A)+\x/3*(D)$);
+		}
+		\foreach \x in {-1,5} {
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt) node [left] {\footnotesize$\tfrac{\x}{3}\vec d+P$};
+		}
+		\foreach \x in {-3,-2,4,6} {
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt);
+		}
+	\end{tikzpicture}
+\end{center}
+We simultaneously interpret this line as a set of points (the points that make up
+the line) and as a set of vectors 
+rooted at the origin (the vectors pointing from the origin to the line).
+Note that sometimes we draw vectors as directed line segments.
+Other times, drawing drawing vectors as line segments makes
+it hard to see what is going on, and so it is better to draw
+each vector by marking only its ending point.
+
+Which picture below do you think best represents $\ell$?
+\begin{center}
+	\begin{tikzpicture}
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (3,2);
+		\coordinate (D) at ($(B)-(A)$);
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=5,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\node[above right] at (0,3) {~Vectors in $\ell$ as dots};
+		\draw [mypink, thick] ($(A)-3*(D)$) -- ($(A)+3*(D)$);
+		\end{axis}
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (3,2);
+		\coordinate (D) at ($(B)-(A)$);
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=5,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\node[above right] at (0,3) {~Vectors in $\ell$ as arrows from $(0,0)$};
+		\end{axis}
+
+		\foreach \x in {-8,...,14} {
+			\draw [->, mypink] (0,0) -- ($(A)+\x/6*(D)$);
+		}
+	\end{tikzpicture}
+\end{center}
+
+
+\begin{emphbox}[Takeaway]
+	When drawing a picture depicting several vectors, make an appropriate choice (arrows, dots, or
+	a mix) so that the picture is clear.
+\end{emphbox}
+
+The line $\ell$ described above can be written in set-builder notation
+as:
+\[
+	\ell=\Set{\vec x\given \vec x=t\vec d+P\text{ for some }t\in \R}.
+\]
+Notice that in set-builder notation, we write ``for some $t\in \R$.'' Make sure you
+understand why replacing ``for some $t\in\R$'' with ``for
+all $t\in \R$'' would be incorrect.
+
+Writing lines with set-builder notation all the time can be overkill,
+so we will allow ourselves to describe lines in a shorthand called \emph{vector form}\footnote{
+	$y=mx+b$ form of a line is also shorthand.  The line $\ell$ described by the equation
+	$y=mx+b$ is actually the set $\Set{(x,y)\in\R^2\given y=mx+b}$.
+}.
+
+\SavedDefinitionRender{VectorFormofaLine}
+
+We can also use coordinates when writing a line in vector form. For example,
+\[
+	\mat{x\\y}=t\mat{d_1\\d_2}+\mat{p_1\\p_2}
+\]
+corresponds to the line passing through $\mat{p_1\\p_2}$ with $\mat{d_1\\d_2}$ as a direction vector.
+
+The ``$t$'' that appears in a vector form is called the \emph{parameter variable}, and for this
+reason, some textbooks use the term \emph{parametric form} in place of ``vector form''. 
+
+Writing a line in vector form only requires a point on the line and a direction for the line.
+Thus, converting to vector form from another form is straightforward.
+\begin{example}
+	Find vector form of the line $\ell\subseteq\R^2$ with equation $y=2x+3$.
+
+	First, we find two
+	points on the line.  By guess-and-check we see $P=(0,3)$ and $Q=(1,5)$ are on $\ell$.
+	Thus, a direction vector for $\ell$ is given by
+	\[
+		\vec d = (1,5)-(0,3)=(1,2).
+	\]
+	We may now express $\ell$ in vector form as
+	\[
+		\vec x=t\vec d+P
+	\]
+	or, in components,
+	\[
+		\mat{x\\y} = t\mat{1\\2}+\mat{0\\3}.
+	\]
+\end{example}
+
+It's important to note that when we write a line in vector form, it is a \emph{specific shorthand} notation.
+If we augment the notation, we no longer have written a line in ``vector form''.
+
+\begin{example} Let $\ell$ and let $\vec d$ be a direction vector for $\ell$ and let $\vec p\in \ell$
+	be a point on $\ell$. Writing
+	\[
+		\vec x=t\vec d+\vec p
+	\]
+	or 
+	\[
+		\vec x=t\vec d+\vec p\quad\text{ where }\quad t\in \R
+	\]
+	specifies $\ell$ in vector form and are both shorthands for $\Set{\vec x\given
+	\vec x=t\vec d+\vec p\text{ for some }t\in \R}$. But,
+	\[
+		\vec x=t\vec d+\vec p\quad\text{ for some }\quad t\in \R
+	\]
+	and
+	\[
+		\vec x=t\vec d+\vec p\quad\text{ for all }\quad t\in \R
+	\]
+	are logical statements about the vectors $\vec x$, $\vec d$, and
+	$\vec p$. These statements are either true or false; they do \emph{not} 
+	specify $\ell$ in vector form.
+
+	Similarly, the statement
+	\[
+		\ell = t\vec d+\vec p
+	\]
+	is mathematically nonsensical and does not specify $\ell$ in vector form. (On the
+	left is a \emph{set} and on the right is a \emph{vector}!)
+
+\end{example}
+
+But, why is vector form useful? For starters, every line can be expressed in vector form 
+(you cannot write a vertical line in $y=mx+b$ form, and in $\R^3$, you would need two linear equations
+to represent a line). But, the most useful thing about expressing a line in vector form is that
+you can easily generate points on that line.
+
+Suppose $\ell$ can be reprsented in vector form as $\vec x=t\vec d+\vec p$.
+Then, for every $t\in \R$, the vector $t\vec d +\vec p\in\ell$. Not only that, but as $t$ ranges over
+$\R$, all points on $\ell$ are ``traced out''. Thus, we can find points on $\ell$ without having to ``solve''
+any equations.
+
+The downside to using vector form is that it is not unique. There are multiple direction vectors and multiple points
+for every line.  Thus, merely by looking at the vector equation for two lines, it can be hard to tell if
+they're equal.
+
+For example,
+\[
+	\mat{x\\y} = t\mat{1\\2}+\mat{0\\3},\qquad
+	\mat{x\\y} = t\mat{2\\4}+\mat{0\\3},\quad\text{and}\quad
+	\mat{x\\y} = t\mat{1\\2}+\mat{1\\5}
+\]
+all represent the same line.  In the second equation, the direction vector is parallel but scaled, and in
+the third equation, a different point on the line was chosen.
+
+Recall that in vector form, the variable $t$ is called the \emph{parameter variable}.  It is an instance of
+a \emph{dummy variable}. In other words, $t$ is a placeholder---just because ``$t$'' appears in two different vector
+forms, doesn't mean it's the same quantity.
+
+To drive this point home, we need to remember that vector
+form is shorthand for a set described in set-builder notation.
+
+\bigskip
+Let $\vec d_1,\vec d_2\neq\vec 0$ and $\vec p_1,\vec p_2$ be vectors and define the lines
+\[
+	\ell_1=\Set{\vec x\given \vec x=t\vec d_1+\vec p_1\text{ for some }t\in\R}
+\]
+\[
+	\ell_2=\Set{\vec x\given \vec x=t\vec d_2+\vec p_2\text{ for some }t\in\R}.
+\]
+These lines have vector forms $\vec x=t\vec d_1+\vec p_1$ and $\vec x=t\vec d_2+\vec p_2$.
+However, declaring that $\ell_1=\ell_2$ if and only if $t\vec d_1+\vec p_1=t\vec d_2+\vec p_2$
+does \emph{not} make sense.   Instead, as per the definition, $\ell_1=\ell_2$ if $\ell_1\subseteq\ell_2$ and $\ell_2\subseteq\ell_1$.
+If $\vec x\in\ell_1$ then $\vec x=t\vec d_1+\vec p_1$ for some $t\in\R$.  If $\vec x\in\ell_2$
+then $\vec x=t\vec d_2+\vec p_2$ for some \emph{possibly different} $t\in \R$.  This can get
+confusing really quickly.  The easiest way to avoid confusion is to use different parameter variables 
+when comparing different vector forms.
+
+\begin{example}
+	Determine if the lines $\ell_1$ and $\ell_2$, given in vector form as 
+	\[
+		\vec x=t\mat{1\\1}+\mat{2\\1}\qquad\text{and}\qquad
+		\vec x=t\mat{2\\2}+\mat{4\\3},
+	\]
+	are the same line.  
+	
+	To determine this, we need to figure out if $\vec x\in\ell_1$
+	implies $\vec x\in \ell_2$ and if $\vec x\in\ell_2$ implies $\vec x\in\ell_1$.
+
+	If $\vec x\in\ell_1$, then $\vec x=t\mat{1\\1}+\mat{2\\1}$ for some $t\in\R$.  If
+	$\vec x\in\ell_2$, then $\vec x=s\mat{2\\2}+\mat{4\\3}$ for some $s\in \R$.  Thus if
+	\[
+		t\mat{1\\1}+\mat{2\\1} = \vec x = s\mat{2\\2}+\mat{4\\3}
+	\]
+	always has a solution, $\ell_1=\ell_2$.  Moving everything to one side we see
+	\begin{align*}
+		\vec 0 = \mat{4\\3}-\mat{2\\1} + s\mat{2\\2}-t\mat{1\\1}
+		&=\mat{2\\2}+s\mat{2\\2}-t\mat{1\\1}\\
+		&=(s+1)\mat{2\\2}-\tfrac{t}{2}\mat{2\\2}\\
+		&= (s+1-\tfrac{t}{2})\mat{2\\2}.
+	\end{align*}
+	This has a solution whenever $0=s+1-t/2$.  Since for every $t\in\R$ we can find an $s\in\R$ satisfying
+	this equation
+	and for every $s\in \R$ we can find a $t\in \R$ satisfying this equation, we know $\ell_1=\ell_2$.
+\end{example}
+
+
+\Heading{Vector Form in Higher Dimensions}
+The geometry of lines in space ($\R^3$ and above) is a bit more complicated than that of lines
+in the plane.  Lines in the plane either intersect or are parallel.
+In space,  we have to be a more careful about what we mean by
+``parallel lines,'' since lines with entirely different directions can
+still fail to intersect\footnote{ Recall that in Euclidean geometry
+two lines are defined to be parallel if they coincide or never intersect.}.
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[grid=major,view={20}{40},z buffer=sort,
+	    zmin=0,
+	    xticklabels={,,}, yticklabels={,,}, zticklabels={,,}
+	    ]
+	    \addplot3 [no marks,orange,ultra thick] coordinates {(0,10,10) (20,10,30)};
+	    \addplot3 [no marks,orange,dashed, thick] coordinates {(0,10,0) (20,10,0)};
+	    \addplot3 [no marks,mypink,ultra thick] coordinates {(0,0,20) (20,20,0)};
+	    \addplot3 [no marks,mypink,dashed, thick] coordinates {(0,0,0) (20,20,0)};
+	%\addplot3[domain=4:30,samples=80,samples y=0,mark=none,orange, opacity=0.5,ultra thick]
+	%    ({x},{118.89/x},{2*x});
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+\begin{example}
+Consider the lines described by
+\begin{align*}
+\vec x &= t( 1, 3, -2 ) + ( 1, 2, 1 ) \\
+\vec x &= t( -2, -6, 4) + ( 3, 1, 0 ).
+\end{align*}
+They have parallel directions since $( -2, -6, 4 ) = -2( 1, 3,-2 )$.
+Hence, in this case, we say the lines are \emph{parallel}\index{parallel lines}.  (How can
+we be sure the lines are not the same?)
+\end{example}
+
+\begin{example}
+Consider the lines described by
+\begin{align*}
+	\vec x &= t(1, 3, -2 ) + ( 1, 2, 1 ) \\
+	\vec x &= t( 0, 2, 3) + ( 0, 3, 9 ).
+\end{align*}
+They are not parallel because neither of the direction
+vectors is a multiple
+of the other.  They may or may not intersect.  (If they don't,
+	we say the lines are \emph{skew}\index{skew lines}.)  How can we find out?
+	Mirroring our earlier approach,
+	we can set their equations equal and see if we can solve for the point
+	of intersection \emph{after ensuring we give their parametric variables
+	different names}.   We'll keep one parametric variable named $t$ and name the
+	other one $s$.  Thus, we want
+\[
+\vec x = t( 1, 3, -2 ) + ( 1, 2, 1 ) =
+s( 0, 2, 3) + ( 0, 3, 9 ),
+\]
+which after collecting terms yields
+\[
+    ( t + 1, 3t + 2, -2t + 1 ) = ( 0, 2s + 3, 3s + 9).
+\]
+Picking out the components yields three equations
+\begin{align*}
+    t + 1 &= 0 \\
+    3t +2 &= 2s + 3 \\
+    -2t + 1 &=  3s + 9
+\end{align*}
+in 2 unknowns  $s$ and $t$.  This is an {\it overdetermined\/}
+system, and it may or may not have a consistent solution.
+The first two equations yield $t = -1$  and $s = -2$.  Putting
+these values in the last equation yields $(-2)(-1) + 1 = 3(-2) + 9$,
+which is indeed true.
+Hence, the equations are consistent, and the lines
+intersect.   To find the point of intersection, put $t = -1$
+in the equation for the first line (or
+$s = -2$ in that for the second) to obtain  $( 0, -1, 3 )$.
+\end{example}
+
+\Heading{Planes}
+
+Any two distinct points define a line.  To define a plane, we
+need three points.  But there's a caveat: the three points cannot
+be on the same line, otherwise they'd define a line
+and not a plane.  Let $A,B,C\in\R^3$ be three points that are not
+collinear and let $\mathcal P$ be the plane that passes through $A$,
+$B$, and $C$.
+
+Just like lines, planes have direction vectors.  For $\mathcal P$, both
+$\vec d_1=\overrightarrow{AB}$ and $\vec d_2=\overrightarrow{AC}$ are direction
+vectors for $\mathcal P$.  Of course, $\vec d_1$, $\vec d_2$ and their multiples
+are not the only direction vectors for $\mathcal P$. There are infinitely many more, including
+$\vec d_1+\vec d_2$, and $\vec d_1-7\vec d_2$, and so on.  However, since a plane
+is a \emph{two}-dimensional object, we only need two different direction vectors to describe it.
+
+Like lines, planes have a vector form.  Using the direction vectors $\vec d_1=\overrightarrow{AB}$ and 
+$\vec d_2=\overrightarrow{AC}$,
+the plane $\mathcal P$ can be written in vector form as
+\[
+	\mat{x\\y\\z} = t\vec d_1+s\vec d_2+A.
+\]
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[grid=major,view={20}{40},z buffer=sort,
+	    %zmin=0,
+	    xticklabels={,,}, yticklabels={,,}, zticklabels={,,}
+	    ]
+		\addplot3 [data cs=cart,surf,domain=-10:10,samples=2, opacity=0.5]
+		{x+y};
+		\coordinate (A) at (axis cs:-3,-3,-6);
+		\coordinate (B) at (axis cs:3,4,7);
+		\coordinate (C) at (axis cs:-4,4,0);
+
+		\draw [mypink,fill] (A) circle (1.5pt) node [below right] {$A$};
+		\draw [->, thick] (A) -- (B) node [midway,below right] {$\vec d_1$};
+		\draw [->, thick] (A) -- (C) node [midway,above left] {$\vec d_2$};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+\SavedDefinitionRender{VectorFormofaPlane}
+
+\begin{example}
+	Describe the plane $\mathcal P\subseteq \R^3$ with equation $z=2x+y+3$ in vector form.
+
+	To describe $\mathcal P$ in vector form, we need a point on $\mathcal P$ and two direction
+	vectors for $\mathcal P$. By guess-and-check, we see the points
+	\[
+		A=\mat{0\\0\\3}\qquad B=\mat{1\\0\\5}\qquad C=\mat{0\\1\\4}
+	\]
+	are all on $\mathcal P$. Thus
+	\[
+		\vec d_1=B-A=\mat{1\\0\\2}\qquad \text{and}\qquad
+		\vec d_2=C-A=\mat{0\\1\\1}
+	\]
+	are both direction vectors for $\mathcal P$.  Therefore, we can express $\mathcal P$ in vector
+	form as
+	\[
+		\vec x=t\vec d_1+s\vec d_2+A=t\mat{1\\0\\2}+s\mat{0\\1\\1}+\mat{0\\0\\3}.
+	\]
+\end{example}
+
+
+\begin{example}
+	Find the line of intersection between $\mathcal P_1$ and $\mathcal P_2$ where 
+	$\mathcal P_1$ and $\mathcal P_2$ are expressed in vector form as ...
+
+	XXX Finish
+\end{example}
+
+\Heading{Restricted Linear Combinations}
+
+Using vectors, we can describe more than just lines and planes---we can describe 
+all sorts of geometric objects.
+
+Recall that when we write $\vec x=t\vec d+\vec p$
+to describe the line $\ell$,
+what we mean is
+\[
+	\ell=\Set{\vec x\given \vec x=t\vec d+\vec p\text{ for some }t\in \R}.
+\]
+The line $\ell$ stretches off infinitely in both directions. But, what if we wanted
+to describe just a part of $\ell$? We can do this by placing additional restrictions
+on $t$.
+For example, consider the ray $R$
+and the line segment $S$:
+\begin{align*}
+	R&=\Set{\vec x\given \vec x=t\vec d+\vec p\text{ for some }t\geq 0}\\
+	S&=\Set{\vec x\given \vec x=t\vec d+\vec p\text{ for some }t\in [0,2]}
+\end{align*}
+
+XXX Figure
+
+We can also make polygons by adding restrictions to the vector form of a plane. Let
+$\vec a=\mat{2\\1}$ and $\vec b=\mat{-1\\1}$ and consider the unit square $U$ and
+the parallelogram $P$ defined by
+\begin{align*}
+	U&=\Set{\vec x\given \vec x=t\xhat+s\yhat\text{ for some }t,s\in [0,1]}\\
+	P&=\Set{\vec x\given \vec x=t\vec a+s\vec b\text{ for some }t\in [0,1]\text{ and }s\in[-1,1]}
+\end{align*}
+
+XXX Figure
+
+Each set so far is a set of linear combinations, and we 
+have made different shapes by restricting the coefficients of those linear
+combinations. There are two ways of restricting linear combinations that arise
+up often enough to get their own names.
+
+\SavedDefinitionRender{NonnegativeConvexLinearCombinations}
+
+You can think of a non-negative linear combinations as vector you can arrive at by
+only displacing ``forward'' along your vectors.
+Convex linear combinations can be thought of as weighted averages of vectors (the average of $\vec v_1,\ldots,
+\vec v_n$ would be the convex linear combination with coefficients $\alpha_i=\frac{1}{n}$). 
+A convex linear combination
+of two vectors gives a point on the line segment connecting them. 
+
+\begin{example}
+	Let $\vec a=\mat{2\\1}$ and $\vec b=\mat{-1\\1}$ and define
+	\begin{align*}
+		A&=\Set{\vec x\given \vec x\text{ is a convex linear combination of }\vec a\text{ and }\vec b}\\
+		&=\Set{\vec x\given \vec x=\alpha\vec a+(1-\alpha)\vec b\text{ for some }\alpha\in [0,1]}.
+	\end{align*}
+	Draw $A$.
+
+	XXX Finish
+
+	XXX Figure
+\end{example}
+
+

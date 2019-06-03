@@ -1,0 +1,236 @@
+Lines or planes through the origin can be written as spans
+of their direction vectors. However, a line or plane that doesn't
+pass through the origin cannot be written as a span---it must
+be expressed as a \emph{translated} span.
+
+XXX Figure
+
+
+There's something special about sets that can be expressed as 
+(untranslated) spans. In particular, since a linear combination
+of linear combinations is still a linear combination, a span
+is \emph{closed} with respect to linear combinations. That is, 
+by taking linear combinations of vectors in a span, you cannot
+escape the span. In general, sets that have this property are called
+\emph{subspaces}\index{subspace}.
+
+\SavedDefinitionRender{Subspace}
+
+In the definition of subspace, property (i) is called
+	begin \emph{closed with respect to vector addition} and
+	property (ii) is called being \emph{closed with respect to
+	scalar multiplication}.
+
+Subspaces generalize the idea of \emph{flat spaces through the origin}. They encompass
+lines, planes, volumes and more.
+
+\begin{example}
+	Let $\mathcal V\subseteq \R^2$ be the complete solution to 
+	$x+2y=0$.  Show that $\mathcal V$ is a subspace.
+
+	XXX Finish
+\end{example}
+
+\begin{example}
+	Let $\mathcal W\subseteq \R^2$ be the line expressed in vector form
+	as 
+	\[
+		\vec x=t\mat{1\\2}+\mat{1\\1}.
+	\]
+	Determine whether $\mathcal W$ is a subspace.
+
+	XXX Finish
+\end{example}
+
+
+As mentioned earlier, subspaces and spans are deeply connected
+by the following theorem.
+
+\begin{theorem}
+	Every subspace is a span and every span is a subspace.  More precisely,
+	$\mathcal V\subseteq \R^n$ is a subspace if and only if $\mathcal V=
+	\Span\mathcal X$ for some set $\mathcal X$.
+\end{theorem}
+\begin{proof}
+	We will start by showing every span is a subspace.  Fix $\mathcal X\subseteq\R^2$
+	and let
+	$\mathcal V=\Span\mathcal X$. First note that if $\mathcal X\neq \Set{}$, then $\mathcal V$
+	is non-empty because $\mathcal X\subseteq\mathcal V$ and if $\mathcal X=\Set{}$, then $\mathcal V=\Set{\vec 0}$,
+	and so is still non-empty.
+	
+	Fix $\vec v,\vec u\in\mathcal V$. By definition there are $\vec x_1,\vec x_2,\ldots,\vec y_1,\vec y_2,\ldots\in\mathcal X$ 
+	and scalars $\alpha_1,\alpha_2,\ldots,\beta_1,\beta_2,\ldots$ so that
+	\[
+		\vec v=\sum \alpha_i\vec x_i\qquad \vec u=\sum\beta_i\vec y_i.
+	\]
+
+	To verify property (i), observe that
+	\[
+		\vec u+\vec v=\sum\alpha_i\vec x_i + \sum\beta_i\vec y_i
+	\]
+	is also a linear combination of vectors in $\mathcal X$ (because all $\vec x_i$ and $\vec y_i$
+	are in $\mathcal X$), and so $\vec u+\vec v\in	\Span\mathcal X=\mathcal V$.
+	
+	To verify property (ii), observe that for any scalar $\alpha$, 
+	\[
+		\alpha\vec v=\alpha\sum \alpha_i\vec x_i = \sum (\alpha\alpha_i)\vec x_i\in
+		\Span\mathcal X=\mathcal V.
+	\]
+	Since $\mathcal V$ is non-empty and satisfies both properties (i) and (ii), it is a subspace.
+
+	Now we will prove that every subspace is a span. Let $\mathcal V$ be a subspace
+	and consider $\mathcal V'=\Span\mathcal V$.  Since taking a span may only enlarge a set, we know
+	$\mathcal V\subseteq \mathcal V'$. If we establish that $\mathcal V'\subseteq\mathcal V$,
+	then $\mathcal V=\mathcal V'=\Span\mathcal V$, which would complete the proof.
+
+	Fix $\vec x\in\mathcal V'$. By definition, there are $\vec v_1,\vec v_2,\ldots,\vec v_n\in\mathcal V$ and scalars
+	$\alpha_1,\alpha_2,\ldots,\alpha_n$ so that
+	\[
+		\vec x=\sum \alpha_i\vec v_i.
+	\]
+	Observe that 
+	$\alpha_i\vec v_i\in\mathcal V$ for all $i$, since $\mathcal V$ is closed under scalar
+	multiplication. It follows that $\alpha_1\vec v_1+\alpha_2\vec v_2\in\mathcal V$
+	because $\mathcal V$ is closed under sums. Continuing, 
+	$(\alpha_1\vec v_1+\alpha_2\vec v_2)+\alpha_3\vec v_3\in\mathcal V$ because
+	$\mathcal V$ is closed under sums. By finite induction we see
+	\[
+		\vec x=\sum \alpha_i\vec v_i
+		=\Big(\big((\alpha_1\vec v_1+\alpha_2\vec v_2)
+		+\alpha_3\vec v_3\big)+\cdots+\alpha_{n-1}\vec v_{n-1} \Big)
+		+\alpha_n\vec v_n\in\mathcal V.
+	\]
+	Thus $\mathcal V'\subseteq\mathcal V$, which completes the proof.
+\end{proof}
+
+The previous theorem is saying that spans and subspaces are two ways of talking about the same
+thing. Spans provide a \emph{constructive} definition of lines/planes/volumes/etc. through the origin. That is,
+when you describe a line/plane/etc. through the origin as a span, you're saying ``this is a line/plane/etc. through the origin
+because every point in it is a linear combination of \emph{these specific vectors}''. In contrast, subspaces provide a \emph{categorical}
+definition of lines/planes/etc. through the origin. 
+When you describe a line/plane/etc. through the origin as a subspace, 
+you're saying ``this is a line/plane/etc. through the origin because these \emph{properties} are satisfied'' even though
+you might not be able to specify any of the vectors inside.
+
+
+\begin{emphbox}[Takeaway]
+	Spans and subspaces are two different ways of talking about the same objects: points/lines/planes/etc. through the origin.
+\end{emphbox}
+
+\Heading{Special Subspaces}
+When thinking about $\R^n$ there are two special subspaces that are always available. The first is $\R^n$ itself.
+$\R^n$ is obviously non-empty, and linear combinations of vectors in $\R^n$ remain in $\R^n$. The second is
+the \emph{trivial subspace}, $\Set{\vec 0}$.
+
+\SavedDefinitionRender{TrivialSubspace}
+
+\begin{theorem}
+	The trivial subspace is a subspace.
+\end{theorem}
+\begin{proof}
+	First note that $\Set{\vec 0}$ is non-empty since $\vec 0\in\Set{\vec 0}$. Now, since
+	$\vec 0$ is the only vector in $\Set{\vec 0}$, properties (i) and (ii) follow quickly:
+	\[
+		\vec 0+\vec 0=\vec 0\in \Set{\vec 0}
+	\]
+	and
+	\[
+		\alpha\vec 0=\vec 0\in\Set{\vec 0}.
+	\]
+\end{proof}
+
+\Heading{Bases}
+
+Let $\vec d=\mat{1\\2}$ and consider $\ell=\Span\Set{\vec d}$.
+
+XXX Figure
+
+We know that $\ell$ is a subspace and, for instance, $\ell=\Span\Set{\vec d,-2\vec d,\tfrac{1}{2}\vec d}$. However,
+the simplest descriptions of $\ell$ involve the span of only one vector.
+
+
+Analogously, let $\mathcal P=\Span\Set{\vec d_1,\vec d_2}$ be the plane
+through the origin with direction vectors $\vec d_1$ and $\vec d_2$. There
+are many ways to write $\mathcal P$ as a span, but the simplest ones
+involve exactly two vectors. The idea of a \emph{basis} comes
+from trying to find the simplest description of a subspace.
+
+\SavedDefinitionRender{Basis}
+
+In short, a basis for a subspace is a linearly independent set that spans that
+subspace.
+
+\begin{example}
+	\label{EXLINEBASIS}
+	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$. Find
+	two different bases for $\ell$.
+
+	XXX Finish
+\end{example}
+
+Unpacking the definition of basis a bit more, we can see that for a 
+subspace $\mathcal V$, a basis for $\mathcal V$ is a set of vectors
+that is \emph{just the right size} to describe everything in $\mathcal V$.
+It's not too big---because it is linearly independent, there are no
+redundancies. It's not too small---because we require it to span $\mathcal V$\footnote{ 
+If you're into British fairy tales, you might call a basis a \emph{Goldilocks set}.
+}.
+
+There are several facts everyone should know about bases:
+\begin{enumerate}
+	\item Bases are not unique. Every subspace (except the trivial subspace)
+		has multiple bases.
+	\item Given a basis for a subspace, every vector in the subspace can be written
+		as a \emph{unique} linear combination of vectors in that subspace.
+	\item Any two bases for the same subspace have the same number of elements.
+\end{enumerate}
+
+You can prove the first fact by observing that if $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots}$ is a basis
+with at least one element\footnote{ The empty set is a basis for the trivial subspace.}, then
+$\Set{2\vec b_1,2\vec b_2,\ldots}$ is a different basis. The second fact is a consequence of all bases 
+being linearly independent. The third fact is less obvious and takes some legwork to prove, so we will accept it
+as is.
+
+\Heading{Dimension}
+
+Let $\mathcal V$ be a subspace. Though there are many bases for $\mathcal V$, they all
+have the same number of vectors in them. And, this number says something fundamental about $\mathcal V$:
+it tells us the maximum number of linearly independent vectors that can simultaneously exist in $\mathcal V$.
+We call this number the \emph{dimension} of $\mathcal V$.
+
+\SavedDefinitionRender{Dimension}
+
+This definition agrees with our intuition about lines and planes: the dimension of a line through $\vec 0$ is $1$, and
+the dimension of a plane through $\vec 0$ is $2$. It even tells us the dimension of the single point $\Set{\vec 0}$
+is $0$\footnote{ The dimension of a line, plane, or point
+not through the origin is defined to be the dimension of the subspace obtained
+when translating it to the origin.}.
+
+\begin{example}
+	Find the dimension of $\R^2$.
+
+	Since $\Set{\xhat, \yhat}$ is a basis for $\R^2$, we know $\R^2$ is
+	two dimensional.
+\end{example}
+
+\begin{example}
+	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$.
+
+	XXX Finish
+\end{example}
+
+\begin{example}
+	Let $A=\Set{(x_1,x_2,x_3,x_4)\given x_1+2x_2-x_3=0\text{ and }x_1+6x_4=0}$. Find a basis for and the dimension
+	of $A$.
+
+	XXX Finish
+\end{example}
+
+Like $\R^2$ and $\R^3$, whenever we discuss $\R^n$, we always have a standard basis that comes
+along for the ride.
+
+\SavedDefinitionRender{StandardBasisforRn}
+
+The notation $\vec e_i$ is context specific. If we say $\vec e_i\in\R^2$,
+then $\vec e_i$ must have exactly two components. If we say $\vec e_i\in\R^{45}$,
+then $\vec e_i$ must have $45$ components. 

@@ -31,8 +31,10 @@ cache:
 script: # Change working directory each time so including files will work. Change back so the pdfs can be found for deployment. This way, building multiple files goes well.
  - cd ./problemsets-mat223/
  # Tectonic does not include makeindex, so that needs to be done manually.
- # linearalgebra-instructor.tex is the file where everything is complied
+ # linearalgebra-instructor.tex is the file where much is complied
+ # but the modules are not compiled unless linearalgebra-book.tex is compiled
  - tectonic ./linearalgebra-instructor.tex --print
+ - tectonic ./linearalgebra-book.tex --print
  - cd ../
    #deploy:
    #  provider: releases

@@ -1,0 +1,311 @@
+Let $\vec a$ and $\vec b$ be vectors rooted at the same point and let
+$\theta$ denote the \emph{smaller} of the
+two angles between them, so $0\leq \theta \leq \pi$.
+The \emph{dot product}\index{dot product} of $\vec a$ and $\vec b$ is defined to be
+\[
+	\vec a\cdot \vec b=\norm{\vec a}\norm{\vec b}\cos \theta.
+\]
+We will call this the \emph{geometric definition of the dot product}.
+The dot product is also sometimes called the \emph{scalar product} because
+the result is a scalar.
+Note that $\vec a\cdot\vec b = 0$ when either $\vec a$ or $\vec b$ is zero or,
+more interestingly, if their directions are perpendicular.
+
+\begin{center}
+	\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
+	  \def\tikz@AngleOfLine(#1)(#2)#3{%
+	  \pgfmathanglebetweenpoints{%
+	    \pgfpointanchor{#1}{center}}{%
+	    \pgfpointanchor{#2}{center}}
+	  \pgfmathsetmacro{#3}{\pgfmathresult}%
+	  }
+	\newcommand{\tikzMarkAngle}[3]{
+	\tikzAngleOfLine#1#2{\AngleStart}
+	\tikzAngleOfLine#1#3{\AngleEnd}
+	\draw #1+(\AngleStart:0.35cm) arc (\AngleStart:\AngleEnd:0.35cm);
+	}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}
+		\coordinate (A) at (2,1);
+		\coordinate (B) at (.5,2);
+		\coordinate (O) at (0,0);
+
+		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,below right] {$\vec a$};
+		\draw[->,thick,mypink] (0,0) -- +(B) node [midway,above left] {$\vec b$};
+		\tikzMarkAngle{(O)}{(A)}{(B)}
+		\node at ($(O)+(50:.65)$) {$\theta$};
+	\end{tikzpicture}
+	\hspace{1cm}
+	\begin{tikzpicture}
+		\coordinate (A) at (-2,-1);
+		\coordinate (B) at (.5,2);
+		\coordinate (O) at (0,0);
+
+		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,below right] {$\vec a$};
+		\draw[->,thick,mypink] (0,0) -- +(B) node [midway,above left] {$\vec b$};
+		\tikzMarkAngle{(O)}{(B)}{(A)}
+		\node at ($(O)+(140:.65)$) {$\theta$};
+	\end{tikzpicture}
+\end{center}
+
+Algebraically, we can define the dot product in terms of coordinates:
+\[
+	\matc{a_1\\a_2\\\vdots\\a_n}\cdot \matc{b_1\\b_2\\\vdots\\b_n}
+	=a_1b_1+a_2b_2+\cdots+a_nb_n.
+\]
+We will call this the \emph{algebraic definition of the dot product}.
+
+By switching between algebraic and geometric definitions, we can use the dot
+product to find quantities that are otherwise difficult to find.
+\begin{example}
+	Find the angle between the vectors $\vec v=(1,2,3)$ and $\vec w=(1,1,-2)$.
+
+	From the algebraic definition of the dot product, we know
+	\[
+		\vec v\cdot \vec w = 1(1)+2(1)+3(-2) = -3.
+	\]
+	From the geometric definition, we know
+	\[
+		\vec v\cdot \vec w=\norm{\vec v}\norm{\vec w}\cos\theta
+		=\sqrt{14}\sqrt{6}\cos\theta=2\sqrt{21}\cos\theta.
+	\]
+	Equating the two definitions of $\vec v\cdot \vec w$, we see
+	\[
+		\cos\theta = \frac{-3}{2\sqrt{21}}
+	\]
+	and so $\theta=\arccos\Big(\tfrac{-3}{2\sqrt{21}}\Big)$.
+\end{example}
+
+The dot product has several interesting properties. Since the angle between
+$\vec a$ and itself is $0$, the geometric definition of the dot product tells us
+\[
+	\vec a\cdot \vec a=\Norm{\vec a}\Norm{\vec a}\cos 0 = \Norm{\vec a}^2.
+\]
+In other words,
+\[
+	\Norm{\vec a}=\sqrt{\vec a\cdot \vec a},
+\]
+and so dot products can be used to compute the length of vectors\footnote{ Oftentimes in
+non-geometric settings, the dot product between two vectors is defined first and then
+the length of $\vec a$ is actually \emph{defined} to be $\sqrt{\vec a\cdot \vec a}$.}.
+
+From the algebraic definition of the dot product, we can deduce several distributive laws.
+Namely, for any vectors $\vec a$, $\vec b$, and $\vec c$ and any scalar $k$ we have
+\[
+	(\vec a+\vec b)\cdot\vec c = \vec a\cdot \vec c+\vec b\cdot \vec c\qquad
+	\vec a\cdot(\vec b+\vec c)=\vec a\cdot \vec b+\vec a\cdot \vec c
+\]
+\[
+	(k\vec a)\cdot \vec b = k(\vec a\cdot \vec b)=\vec a\cdot (k\vec b)
+\]
+and
+\[
+	\vec a\cdot \vec b=\vec b\cdot \vec a.
+\]
+
+\Heading{Orthogonality}
+Recall that for vectors $\vec a$ and $\vec b$, the relationship $\vec a\cdot \vec b=0$
+can hold for two reasons: (i) either $\vec a=\vec 0$, $\vec b=\vec 0$, or both
+or (ii) $\vec a$ and $\vec b$ meet at $90^{\circ}$.  Thus, the dot product
+can be used to tell if two vectors are perpendicular.  There is some strangeness
+with the zero vector here, but it turns out this strangeness simplifies our lives
+mathematically.
+
+\SavedDefinitionRender{Orthogonal}
+
+The definition of orthogonal encapsulates both the idea of two vectors forming
+a right angle and the idea of one of them being $\vec 0$.
+
+Before we continue, let's pin down the idea of one vector pointing
+in the \emph{direction}\index{direction}\index{positive direction} of another.  
+There are many ways we could define
+this idea, but we'll go with this one.
+
+\SavedDefinitionRender{Direction}
+
+The vector $2\xhat$ points in the direction of $\xhat$ since
+$\frac{1}{2}(2\xhat)=\xhat$.  Since $\frac{1}{2}>0$, $2\xhat$ also points
+in the positive direction of $\xhat$. In contrast, 
+$-\xhat$ points in the direction $\xhat$ but not the positive direction of $\xhat$.
+
+When it comes to the relationship between two vectors, there are two extremes: they
+point in the same direction, or they are orthogonal. The dot product can be used to
+tell you which of these cases you're in, and more than that, it can tell you to 
+what extent one vector points in the direction of another (even if they don't point in
+the same direction).
+
+\begin{example}
+	Let $\vec a=\mat{1\\2}$, $\vec b=\mat{3\\3}$, $\vec c=\mat{2\\1}$, and $\vec v=\mat{3\\4}$. Which vector out of
+	$\vec a$, $\vec b$, and $\vec c$ has a direction closest to the direction of $\vec v$?
+
+	XXX Finish
+\end{example}
+
+
+\Heading{Normal Form of Lines and Planes}
+
+Let $\vec n=\mat{1\\2}$. If a vector $\vec v=\mat{v_1\\v_2}$ is orthogonal to $\vec n$, then
+\[
+	\vec n\cdot\vec v=v_1+2v_2=0,
+\]
+and so $v_1=-2v_2$. In other words, $\vec v$ is orthogonal to $\vec n$ exactly when $\vec v\in\Span\Set*{\mat{-2\\1}}$.
+What have we learned? The set of all vectors orthogonal to $\vec n$ forms a line $\ell=\Span\Set*{\mat{-2\\1}}$. In
+this case, we call $\vec n$ a \emph{normal vector} for $\ell$.
+
+XXX Figure
+
+\SavedDefinitionRender{NormalVector}
+
+In $\R^2$, normal vectors provide yet another way to describe lines, including lines which don't pass
+through the origin.
+
+Let $n=\mat{1\\2}$ as before, and fix $\vec p=\mat{1\\1}$. If we draw the set of all vectors
+orthogonal to $\vec n$ but \emph{root all the vectors at $\vec p$}, again we get a line, but this
+time the line passes through $\vec p$.
+
+XXX Figure
+
+In fact, the line we get is $\ell_2=\Span\Set*{\mat{-2\\1}}+\Set*{\mat{1\\1}}=\ell+\Set{\vec p}$, which is just $\ell$ (the
+parallel line through the origin) translated by $\vec p$. 
+
+Let's relate this to dot products and normal vectors. By definition, for every $\vec v\in \ell$, we have $\vec n\cdot \vec v=0$.
+Since $\ell_2$ is a translate of $\ell$ by $\vec p$, we deduce the relationship that for every $\vec v\in \ell_2$,
+\[
+	\vec n\cdot(\vec v-\vec p) = 0,
+\]
+and this is the \emph{normal form} of a line in $\R^2$.
+
+\SavedDefinitionRender{NormalFormofaLine}
+
+
+\bigskip
+What about in $\R^3$? 
+Fix a non-zero vector $\vec n\in\R^3$ and let $\mathcal Q\subseteq\R^3$ be the set of vectors orthogonal to $\vec n$.
+$\mathcal Q$ is a plane through the origin, and again, we call $\vec n$ a \emph{normal vector}\index{normal vector} of the plane $\mathcal Q$.
+
+
+\begin{center}
+\begin{tikzpicture}
+	\newcommand{\RightAngle}[4][5pt]{%
+        \draw ($#3!#1!#2$)
+        --($ #3!2!($($#3!#1!#2$)!.5!($#3!#1!#4$)$) $)
+        --($#3!#1!#4$) ;
+        }
+    \begin{axis}[grid=major,view={20}{40},z buffer=sort,
+	    width=12cm,
+	    scale mode=scale uniformly,
+	    zmin=-5,zmax=5,xmin=-10,xmax=10,ymin=-10,ymax=10,
+	    xticklabels={,,}, yticklabels={,,}, zticklabels={,,},
+	    xtick={-10,-5,...,10}, ytick={-10,-5,...,10}
+	    ]
+		\addplot3 [data cs=cart,surf,domain=-10:10,samples=2, opacity=0.5]
+		{.25*x+.25*y};
+		\coordinate (A) at (axis cs:-4,-4,-2);
+		\coordinate (N) at (axis cs:-6,-6,6);
+		\coordinate (B) at (axis cs:4,4,2);
+		\coordinate (C) at (axis cs:-4,4,0);
+
+		\draw [mypink,fill] (A) circle (1.5pt) node [below right] {$\vec 0$};
+		\draw [->, thick] (A) -- (B) node [midway,below right] {$\vec d_1$};
+		\draw [->, thick] (A) -- (C) node [midway,above left] {$\vec d_2$};
+		\draw [->, thick] (A) -- (N) node [midway,left] {$\vec n$};
+		\RightAngle{(N)}{(A)}{(C)}
+		%\RightAngle{(N)}{(A)}{(B)}
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+In a similar way to the case of a line, $\mathcal Q$ is the set of solutions to $\vec n\cdot \vec x=0$.
+And, for any $\vec p\in\R^3$, the translated plane $\mathcal Q+\Set{\vec p}$ is the solution set to
+\[
+	\vec n\cdot (\vec x-\vec p)=0.
+\]
+Thus, we see planes in $\R^3$ have a normal form just like lines in $\R^2$ do. 
+
+\begin{example}
+	Find vector form and normal form of the plane $\mathcal P$ passing
+	through the point $A=(1,0,0)$, $B=(0,1,0)$ and $C=(0,0,1)$.
+
+	To find vector form of $\mathcal P$, we need a point on the plane and
+	two direction vectors.  We have three points on the plane, so we can
+	obtain two direction vectors by subtracting these points in different ways.
+	Let
+	\[
+		\vec d_1=\overrightarrow{AB} = \mat{-1\\1\\0}\qquad\vec d_2=\overrightarrow{AC}=
+		\mat{-1\\0\\1}.
+	\]
+	Using the point $A$, we may now write vector form of $\mathcal P$ as
+	\[
+		\mat{x\\y\\z} = t\mat{-1\\1\\0}+s\mat{-1\\0\\1}+\mat{1\\0\\0}.
+	\]
+
+	To write normal form we need to find a normal vector to $\mathcal P$.  By inspection,
+	we can see that $\vec n=(1,1,1)$ is a normal vector to $\mathcal P$.  If we weren't
+	so insightful, we could also solve the system $\vec n\cdot \vec d_1=0$ and $\vec n\cdot\vec d_2=0$ to find a
+	normal vector.  Now, we may express $\mathcal P$ in normal form as
+	\[
+		\mat{1\\1\\1}\cdot\left(\mat{x\\y\\z}-\mat{1\\0\\0}\right)=0.
+	\]
+\end{example}
+
+In $\R^2$, only lines have a normal form, and in $\R^3$ only planes have a normal form. In general,
+we call objects in $\R^n$ which have a normal form \emph{hyperplanes}.
+
+\SavedDefinitionRender{Hyperplane}
+
+Hyperplanes always have dimension one less than the space they're contained in. So, hyperplanes in
+$\R^2$ are (one-dimensional) lines, hyperplanes in $\R^3$ are regular (two-dimensional) planes, 
+and hyperplanes in $\R^4$ are (three-dimensional) volumes.
+
+\Heading{Hyperplanes and Linear Equations}
+
+Suppose $\vec n,\vec p\in \R^3$ and $\vec n\neq \vec 0$. Then, solutions to 
+\[
+		\vec n\cdot(\vec x-\vec p)=0
+\]
+define a plane $\mathcal P$. But, $\vec n\cdot (\vec x-\vec p)=0$
+if and only if
+\[
+		\vec n\cdot\vec x = \vec n\cdot \vec p = \alpha.
+\]
+Since $\vec n$ and $\vec p$ are fixed, $\alpha$ is a constant. Expanding using
+coordinates, we see
+\[
+		\vec n\cdot(\vec x-\vec p)=\vec n\cdot\vec x-\alpha=
+		n_xx+n_yy+n_zz-\alpha=0
+\]
+and so $\mathcal P$ is the set of solutions to
+\begin{equation}
+	\label{EQScalarForm}
+		n_xx+n_yy+n_zz=\alpha.
+\end{equation}
+Equation \eqref{EQScalarForm} is sometimes
+called \emph{scalar form}\index{scalar form of a plane}
+of a plane.  For us, it will not be important to distinguish between scalar and normal form, but
+what is important is that we can use the row reduction algorithm to write the complete solution
+to \eqref{EQScalarForm}, and this complete solution will necessarily be written in vector form.
+
+\begin{example}
+	Let $\mathcal Q\subseteq \R^3$ be the plane passing through $\vec p$ and with normal vector $\vec n$ where
+	\[
+		\vec p=\mat{1\\1\\0}\qquad\text{and}\qquad\vec n=\mat{1\\1\\1}.
+	\]
+	Write $\mathcal Q$ in vector form.
+
+	We know $\mathcal Q$ is the set of solutions to $\vec n\cdot (\vec x-\vec p)=0$. In scalar form, this equation
+	becomes
+	\[
+		\vec n\cdot (\vec x-\vec p)=\vec n\cdot \vec x-\vec n\cdot \vec p = x+y+z-2=0.
+	\]
+	Rearranging, we see $\mathcal Q$ is the set of all solutions to
+	\[
+		x+y+z=2.
+	\]
+	Using the row reduction algorithm to write the complete solution\footnote{ In some sense, this is overkill
+	because the equation corresponds to the augmented matrix $\mat{1&1&1&\!\!\!\!|\!\!\!\!&2}$, which is already row reduced.}, we get
+	\[
+		\mat{x\\y\\z}=t\mat{-1\\1\\0}+s\mat{-1\\0\\1}+\mat{2\\0\\0}.
+	\]
+\end{example}
+
+

@@ -1,0 +1,144 @@
+Matrix-vector multiplication gives a compact way to represent systems of linear equations.
+
+Consider the system
+\begin{equation}
+	\label{EQREGSYS}
+	\sysdelim\{.
+		\systeme{
+			x+2y-2z=-15,
+			2x+y-5z=-21,
+			x-4y+z=18
+		},
+\end{equation}
+which is equivalent to the vector equation
+\[
+	\mat{x+2y-2z\\
+           2x+y-5z\\
+	     x-4y+z}=\mat{-15\\-21\\18}.
+\]
+But, we can also rewrite \eqref{EQREGSYS} using matrix-vector multiplication:
+\[
+	\underbrace{\mat{1&2&-2\\2&1&-5\\1&-4&1}}_{A}\mat{x\\y\\z}=\mat{-15\\-21\\18}.
+\]
+The matrix $A$ on the left is called the \emph{coefficient matrix}\index{coefficient matrix} because it
+is made up of the coefficients from equation \eqref{EQREGSYS}.
+
+By using coefficient matrices, every system of linear equations can be rewritten as a single matrix equation
+of the form
+\[
+	A\vec x=\vec b
+\]
+where $A$ is a coefficient matrix, $\vec x$ is a column vector of variables, and $\vec b$ 
+is a column vector of constants.
+
+\begin{example}
+	Consider the one equation system
+	\begin{equation}
+		\label{EQSYS1}
+		\systeme{x-4y+z=5}
+	\end{equation}
+	and the two-equation system
+	\begin{equation}
+		\label{EQSYS2}
+		\systeme{x-4y+z=5, y-z=9}.
+	\end{equation}
+	Rewrite each system as a single matrix equation.
+
+	XXX Finish
+\end{example}
+
+\Heading{Interpretations of Matrix Equations}
+
+The solution set to a system of linear equations, like
+\begin{equation}
+	\label{EQREGSYSb}
+	\sysdelim\{.
+		\systeme{
+			x+2y-2z=-15,
+			2x+y-5z=-21,
+			x-4y+z=18
+		}
+\end{equation}
+can be interpreted as the intersection of three planes (or hyperplanes if there were more variables)---each individual equation
+specifies one plane and so solutions to the system are in the intersection of the planes specified by each equation.
+
+However, when this system is rewritten in matrix form, the two ways to interpret matrix-vector
+multiplication give rise to two additional ways to interpret the solution set.
+
+\Heading{The \emph{Column} Picture}
+
+Using the column interpretation of matrix-vector multiplication, we see that system \eqref{EQREGSYSb} is equivalent to
+\[
+	\mat{1&2&-2\\2&1&-5\\1&-4&1}\mat{x\\y\\z}=
+	     x\mat{1\\2\\1}+y\mat{2\\1\\-4}+z\mat{-2\\-5\\1}
+	     =\mat{-15\\-21\\18}.
+\]
+This means the question, ``What are the solutions to system \eqref{EQREGSYSb}?'' is equivalent to the question, ``What coefficients
+allow $\mat{1\\2\\1}$, $\mat{2\\1\\-4}$, and $\mat{-2\\-5\\1}$ to form $\mat{-15\\-21\\18}$ as a linear combination?'' Here,
+ $\mat{1\\2\\1}$, $\mat{2\\1\\-4}$, and $\mat{-2\\-5\\1}$ are the columns of the coefficient matrix.
+
+
+\Heading{The \emph{Row} Picture}
+The row interpretation gives us another perspective. Let $\vec r_1$, $\vec r_2$, and $\vec r_3$ be the rows of the coefficient matrix
+for system \eqref{EQREGSYSb}. Then the system is equivalent to
+\[
+	\mat{1&2&-2\\2&1&-5\\1&-4&1}\mat{x\\y\\z}=
+	\left[\begin{array}{c}\vec r_1\\\hline\vec r_2\\\hline\vec r_3\end{array}\right]\vec x=
+	\mat{\vec r_1\cdot \vec x\\\vec r_2\cdot\vec x\\\vec r_3\cdot \vec x}
+	     =\mat{-15\\-21\\18}.
+\]
+In other words, we can interpret solutions to system \eqref{EQREGSYSb} as vectors whose dot product
+with $\vec r_1$ is $-15$, whose dot product with $\vec r_2$ is $-12$, and whose dot product with
+$\vec r_3$ is $18$. Given that the dot product has a geometric interpretation, this perspective will
+sometimes be enlightening.
+
+\Heading{Interpreting Homogeneous Systems}
+Consider the homogeneous system/matrix equation
+\begin{equation}
+	\label{EQREGSYSc}
+	\sysdelim..
+		\systeme{
+			x+2y-2z=0,
+			2x+y-5z=0,
+			x-4y+z=0
+		}
+		\qquad\iff\qquad
+		\underbrace{\mat{1&2&-2\\2&1&-5\\1&-4&1}}_A\mat{x\\y\\z}=\mat{0\\0\\0}
+		.
+\end{equation}
+Now, the column interpretation of system \eqref{EQREGSYSc} is: what linear combinations of the columns vectors
+of $A$ give $\vec 0$? This directly relates to the question of whether the column vectors of $A$ are linearly independent.
+
+Let $\vec r_1$, $\vec r_2$, and $\vec r_3$ be the rows of $A$. The row interpretation of system \eqref{EQREGSYSc} asks
+what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec r_3$.
+
+\begin{emphbox}[Takeaway]
+	There are three ways to interpret solutions to a matrix equation $A\vec x=\vec b$: (i) the intersection of hyperplanes
+	specified by the rows; (ii) what linear combinations of the columns of $A$ give $\vec b$; (iii) what vectors yield
+	the entries of $\vec b$ when dot producted with the rows of $A$.
+\end{emphbox}
+
+\begin{example}
+	Find all vectors orthogonal to $\vec a=\mat{1\\1\\1}$ and $\vec b=\mat{1\\2\\1}$.
+
+	XXX Finish
+\end{example}
+
+The row picture is particularly applicable when trying to find normal vectors.
+
+\begin{example}
+	Let $\mathcal Q$ be the hyperplane specified in vector form by
+	\[
+		\vec x=t\mat{1\\1\\-1\\1}+s\mat{0\\1\\0\\1}+r\mat{2\\0\\0\\0}+\mat{1\\2\\3\\4}.
+	\]
+	Find a normal vector for $\mathcal Q$ and write $\mathcal Q$ in normal form.
+
+	XXX Finish
+\end{example}
+
+
+
+
+
+
+
