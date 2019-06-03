@@ -26,9 +26,11 @@
 	\RequirePackage[usenames,dvipsnames]{xcolor}
 	\RequirePackage{tcolorbox}
 		\tcbuselibrary{skins}
+		\tcbuselibrary{breakable}
 	\RequirePackage{ifthen}
 	\RequirePackage{titlesec}
 	\RequirePackage{changepage}
+	\RequirePackage{everyshi}
 
 
 
@@ -60,6 +62,19 @@
 		right=10pt,
 		includeall}
 
+	% command to set even and odd page margins
+	% for book printing.
+	\def\setbookgeometry{\geometry{top=.25in,
+		headsep=0in, 
+		headheight=0in, 
+		left=1.5in, 
+		bottom=.3in, 
+		footskip=0in,
+		marginparsep=5pt, 
+		marginparwidth=.8in,
+		right=10pt,
+		includeall,
+		twoside=true}}
 	% set all the latex values.  We need to addtolength
 	% because geometry magically adjusted them so we start
 	% out using all of the page's area; the actual values may
@@ -323,6 +338,152 @@
 	\DeclareDocumentEnvironment{displayonly}{o}{
 	}{%
 	}
+	% environment for describing book "modules"
+	\newcounter{modulecounter}
+	\def\probset@InModuleEnv{0}
+	\newcommand*\probset@cleartooddpage{
+		\clearpage
+		\ifodd\value{page}
+		\else
+			\hbox{}
+			\newpage
+		\fi
+	}
+	\newcommand\probset@drawModuleBanner[2]{
+		\def\bannerpathR{
+			([shift={(-0.55\pgflinewidth,-0.05\pgflinewidth)}]current page.north east) 
+			--
+			([shift={(-0.55\pgflinewidth,0.05\pgflinewidth)}]current page.south east)
+		}
+		\def\bannerpathL{
+			([shift={(0.55\pgflinewidth,-0.05\pgflinewidth)}]current page.north west) 
+			--
+			([shift={(0.55\pgflinewidth,0.05\pgflinewidth)}]current page.south west)
+		}
+		\ifstrequal{#2}{reverse}{
+			\ifodd\value{page}
+				\def\bannerpath{\bannerpathL}
+			\else
+				\def\bannerpath{\bannerpathR}
+			\fi
+		}{
+			\ifodd\value{page}
+				\def\bannerpath{\bannerpathR}
+			\else
+				\def\bannerpath{\bannerpathL}
+			\fi
+		}
+		\begin{tikzpicture}[remember picture,overlay]
+		    \draw[line width=25mm,Turquoise] 
+			\bannerpath     
+			node[anchor=east,pos=0.1,text=white,rotate=90] {\Huge\sffamily #1};
+		\end{tikzpicture}
+	}
+	\EveryShipout{%  
+		\ifdim\pagetotal>\pagegoal% There is content overflow on this page
+			\begingroup\let\protect\@typeset@protect
+				\IfStrEq{\probset@InModuleEnv}{1}{%
+				% put a banner on the page with no text
+					\probset@drawModuleBanner{}{reverse}
+				}{}
+    			\endgroup
+		\fi
+	}
+	\DeclareDocumentEnvironment{module}{o}{%
+		\addtocounter{modulecounter}{1}
+		\setlist{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
+		\probset@cleartooddpage
+		% increase the margin widths
+		\newgeometry{top=.5in,
+			headsep=0in, 
+			headheight=0in, 
+			right=1.2in, 
+			bottom=.3in, 
+			footskip=0in,
+			marginparsep=10pt, 
+			marginparwidth=1in,
+			left=10pt,
+			includeall,
+			reversemarginpar,
+			twoside=true}
+		
+		% put a banner on the left of the page
+		\probset@drawModuleBanner{Module \themodulecounter}{}
+
+		% renew some document commands to style them appropriately in
+		% the module environment
+		\RenewDocumentCommand{\Title}{m}{%
+			\begin{center}
+				\color{Cerulean}{\sffamily\Large  ##1}
+				\addcontentsline{toc}{section}{Lesson \thelessoncounter: ##1}
+			\end{center}\par
+		}
+		\RenewDocumentCommand{\Heading}{m}{%
+			{\color{Cerulean}{\hspace{-0.1in}\sffamily\large ##1}}
+			\par
+		}
+		\RenewDocumentEnvironment{definition}{o}{
+			\RenewDocumentCommand{\emph}{m}{{\itshape\bfseries\color{Cerulean} ####1}}
+			\begin{leftborderbox}[colframe=Cerulean, colback=Cerulean!10]
+			{\bfseries\sffamily\color{Cerulean} ##1.}
+		}{%
+			\end{leftborderbox}
+		}
+		\RenewDocumentEnvironment{theorem}{o}{
+			\RenewDocumentCommand{\emph}{m}{{\itshape\bfseries\color{myorange} ####1}}
+			\begin{leftborderbox}[colframe=myorange, colback=myorange!10]
+			{\bfseries\sffamily\color{myorange} Theorem.}
+		}{%
+			\end{leftborderbox}
+		}
+		\def\probset@InModuleEnv{1}
+		
+	}{%
+		\def\probset@InModuleEnv{0}
+		\probset@cleartooddpage
+	}
+	\DeclareDocumentEnvironment{emphbox}{o}{
+		\RenewDocumentCommand{\emph}{m}{{\itshape\bfseries\color{Green} #1}}
+		\begin{leftborderbox}[colframe=Green, colback=Green!10]
+		{\bfseries\sffamily\color{Green} #1.}
+	}{%
+		\end{leftborderbox}
+	}
+	% custom tcolorbox with colored bar on the left
+	\newtcolorbox{leftborderbox}[1][]{
+		blanker,
+		frame hidden,
+		enhanced,
+		breakable,
+		beforeafter skip=7pt,
+		%frame code={
+		%	\fill[fill=tcbcol@frame] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
+		%	},
+		sharp corners,
+		borderline west={4pt}{0pt}{tcbcol@frame},
+		boxsep=0pt,
+		left=8pt,
+		right=5pt,
+		top=5pt,
+		bottom=5pt,
+		%boxrule=0pt,
+		%leftrule=4pt,
+		colframe=myorange,
+		colback=myorange!20,
+		#1
+	}
+	\DeclareDocumentEnvironment{bookonly}{o}{
+	}{%
+	}
+	\DeclareDocumentEnvironment{example}{o}{
+		\par{\bfseries Example.}
+	}{%
+	}
+	\DeclareDocumentEnvironment{proof}{o}{
+		\par{\bfseries Proof.}
+	}{%
+		\hfill$\blacksquare$
+	}
 	\DeclareDocumentCommand{\Title}{m}{%
 		\begin{center}
 			\color{Plum}{\sffamily\Large  #1}
@@ -333,14 +494,92 @@
 		{\color{Plum}{\hspace{-0.1in}\sffamily\large #1}}
 		\par
 	}
+%%
+%% Commands to save definitions for reuse later
+%%
+% Usage:
+% 	\begin{SaveDefinition}[
+%  	   		key=unionintersection,          % this is the key used to render the definition later
+%			title={Unions \& Intersections}
+%		]
+%		The \emph{union} of two sets $X$ and $Y$ is $X\cup Y=\ldots$.
+% 	\end{SaveDefinition}
+\pgfkeys{
+	/definitions/all/.initial=
+}
+\NewEnviron{SaveDefinition}[1][]{%
+	% save the arguments in temporary keys for use later
+	\pgfkeys{
+		/definitions/working/.cd,
+		key/.initial,
+		title/.initial,
+		,#1,% there cannot be a space between the `,` and the `#1`.
+		title/.get=\deftitle, % the `.get` commands need to come after `#1`, otherwise the contents of `#1` won't get stored
+		key/.get=\defkey,
+	}%
+	% save the actual definition
+	\edef\deflist{\pgfkeysvalueof{/definitions/all}\pgfkeysvalueof{/definitions/working/key},}%
+	%
+	\edef\compareval{\pgfkeysnovalue}%
+	\def\wordtrue{true}
+	% we redefine with an \edef so that "title=" and "title={}" will both be recognized as an empty title
+	\edef\deftitle{\pgfkeysvalueof{/definitions/working/title}}% 
+	%
+	% from here on out, we want keys saved to be global
+	% we need to use the low-level command here to deal with expansion issues.
+	\globaldefs=1\relax%
+	\pgfkeyslet{/definitions/all}{\deflist}%
+	\pgfkeyslet{/definitions/stored/\defkey/body}{\BODY}%
+	\pgfkeyslet{/definitions/stored/\defkey/key}{\defkey}%
+	\ifdefequal{\deftitle}{\compareval}{
+		% the title is empty
+		% XXX This is an annoying hack...I don't know how to get it working another way
+		\pgfkeyslet{/definitions/stored/\defkey/title}{\compareval}%
+	}{%
+		% the title is non-empty
+		\pgfkeyslet{/definitions/stored/\defkey/title}{\deftitle}%
+	}%
+}
+\NewDocumentCommand{\SavedDefinitionBody}{m}{%
+	\pgfkeysvalueof{/definitions/stored/#1/body}%
+}
+\NewDocumentCommand{\SavedDefinitionTitle}{m}{%
+	\pgfkeysvalueof{/definitions/stored/#1/title}%
+}
+
+\NewDocumentCommand{\SavedDefinitionRender}{m}{%
+	%\edef\deftitle{\SavedDefinitionTitle{#1}}%
+	% XXX I don't know why "\edef\deftitle{\SavedDefinitionTitle{#1}}" doesn't work...
+	\edef\deftitle{\pgfkeysvalueof{/definitions/stored/#1/title}}%
+	\edef\defbody{\SavedDefinitionBody{#1}}%
+	\edef\compareval{\pgfkeysnovalue}%
+	\ifdefequal{\deftitle}{\compareval}{%
+		% the title is empty, do nothing
+		\begin{definition}
+			\defbody
+		\end{definition}
+	}{%
+		% the title is non-empty
+		\begin{definition}[\deftitle]
+			\defbody
+		\end{definition}
+	}%
+}
 
 
 
 %%
 %% SET UP PRESETS AND DEFAULT ENVIRONMENTS
 %%
+
+%\definecolor{myorange}{HTML}{F29B23}
+\definecolor{myred}{HTML}{D13409}
+\definecolor{mypink}{HTML}{B3094F}
+\definecolor{mydark}{HTML}{23112A}
+\definecolor{mygreen}{HTML}{34A320}
 	\definecolor{defcolor}{rgb}{.05,.4,.15}
 	\colorlet{defframecolor}{green!50!black}
+	\definecolor{myorange}{HTML}{F29B23}
 \declareoutlinedbox{definition}{DEFINITION}{DEF}{defframecolor}{defcolor}
 	\colorlet{thmcolor}{red!70!black}
 	\colorlet{thmframecolor}{red!90!black}
