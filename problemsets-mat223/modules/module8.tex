@@ -1,0 +1,91 @@
+
+Recall that when we write $\vec x=\mat{2\\3}$, what we actually mean is $\vec x=2\xhat+3\yhat$. The numbers $2$
+and $3$ are called the coordinates of the vector $\vec x$ with respect to the standard basis.  However, in general,
+subspaces have many bases, and so it is possible to represent a single vector in many ways as coordinates with
+respect to \emph{many} bases.
+
+Let $\vec x=\mat{2\\3}$; let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let
+$\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{1\\1}$ and $\vec b_2=\mat{1\\2}$ be another
+basis for $\R^2$. Now, the coordinates of $\vec x$ with respect to $\mathcal E$ are $(2,3)$, but
+the coordinates of $\vec x$ with respect to $\mathcal B$ are $(1,1)$.
+
+XXX Figure
+
+The coordinates $(2,3)$ and $(1,1)$ represent $\vec x$ equally well, and when solving problems, we should pick the
+coordinates that make our problem the easiest\footnote{ For example, maybe in one choice of coordinates, we can avoid all 
+fractions in our calculations---this could be good if you're programming a computer that rounds it.}. However, now that we
+are representing vectors in multiple bases, we need a way to keep track of what coordinates correspond to which basis.
+
+\SavedDefinitionRender{RepresentationinaBasis}
+
+\begin{example}
+	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let $\mathcal B=\Set{\vec b_1,\vec b_2}$
+	where $\vec b_1=\xhat+\yhat$, and $\vec b_2 =3\yhat$ be another basis for $\R^2$. Given that $\vec v=2\xhat-\yhat$, 
+	find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal B}$.
+
+	XXX Finish
+\end{example}
+
+\Heading{Notation Conventions}
+In light of this notation, we need to revisit some past notation. Again, we have been writing $\vec x=\mat{1\\3}$ to mean
+$\vec x=2\xhat+3\yhat$. However, given the representation-in-a-basis notation, we should be writing
+\[
+	\vec x=\mat{2\\3}_{\mathcal E},
+\]
+where $\mathcal E$ is the standard basis for $\R^2$. We should write $\mat{2\\3}_{\mathcal E}$ because the coordinates $(2,3)$
+refer to \emph{different} vectors for \emph{different} bases. However, most of the time we are only thinking about the standard
+basis. So, the convention we will follow is:
+\begin{itemize}
+	\item If a problem involves only one basis, we may write $\mat{x\\y}$ to mean $\mat{x\\y}_{\mathcal E}$ where
+	$\mathcal E$ is the standard basis.
+	\item If there are multiple bases in a problem, we will always write $\mat{x\\y}_{\mathcal X}$ to specify a vector in
+	coordinates relative to a particular basis $\mathcal X$.
+\end{itemize}
+
+\begin{emphbox}[Takeaway]
+	If a problem only involves the standard basis, we may use the notation we always have. If a problem involves
+	multiple bases, we must \emph{always} use representation-in-a-basis notation.
+\end{emphbox}
+
+
+\Heading{True Vectors vs\mbox{.} Representations}
+
+\begin{center}
+\includegraphics[width=3in]{images/MagrittePipe.jpg}\footnote{Image take from Wikipedia: \url{https://en.wikipedia.org/wiki/File:MagrittePipe.jpg}} 
+\end{center}
+The Belgian surrealist Ren\'e Magritte painted the work above, which is subtitled, ``This is not a pipe''. Why? Because, of course, it is not
+a pipe. It is a painting of a pipe! In this work, Magritte points out a distinction that will soon become very important to
+us---the distinction between an object and a representation of that object.
+
+
+
+Let $\vec x=2\xhat+3\yhat\in \R^2$. The vector $\vec x$ is a \emph{real-life geometrical thing}, and to
+emphasize this, we will call $\vec x$ a \emph{true} vector. In contrast, when we write
+the column matrix $[\vec x]_{\mathcal E}=\mat{2\\3}$, we are writing a \emph{list of numbers}. The list of
+numbers $\mat{2\\3}$ has no meaning until we give it a meaning by assigning it a basis. For example,
+by writing $\mat{2\\3}_{\mathcal E}$ we declare that the numbers $2$ and $3$ are coefficients of $\xhat$ and
+$\yhat$. By writing $\mat{2\\3}_{\mathcal B}$ where $\mathcal B=\Set{\vec b_1,\vec b_2}$,
+we declare that the numbers $2$ and $3$ are coefficients of $\vec b_1$ and $\vec b_2$. Since a list of numbers
+without a basis has no meaning, we must write
+\[
+	\vec x\,\,{\color{Red}\neq}\,\,\, [\vec x]_{\mathcal E}=\mat{2\\3},
+\]
+since the left side of the equation is a \emph{true vector} and the right side is a \emph{list of numbers}. Similarly,
+we must write
+\[
+	[\vec x]_{\mathcal E}\,\,{\color{Red}\neq}\,\,\, \mat{2\\3}_{\mathcal E}=\vec x,
+\]
+since the left side is a \emph{list of numbers} and the right side is a \emph{true vector}.
+
+To help keep the notation straight in your head, for a basis $\mathcal X$, remember the rule
+\[
+	[\text{true vector}]_{\mathcal X} = \text{list of numbers}\qquad\text{and}\qquad
+	[\text{list of numbers}]_{\mathcal X} =\text{true vector}.
+\]
+
+It's easy to get confused when answering questions that involve multiple bases; precision will
+make these problems much easier.
+
+\Heading{Orientation of a Basis}
+
+
