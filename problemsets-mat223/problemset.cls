@@ -415,7 +415,7 @@
 		\RenewDocumentCommand{\Title}{m}{%
 			\begin{center}
 				\color{Cerulean}{\sffamily\Large  ##1}
-				\addcontentsline{toc}{section}{Lesson \thelessoncounter: ##1}
+				\addcontentsline{toc}{section}{Module \themodulecounter: ##1}
 			\end{center}\par
 		}
 		\RenewDocumentCommand{\Heading}{m}{%

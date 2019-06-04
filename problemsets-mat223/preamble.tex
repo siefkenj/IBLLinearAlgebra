@@ -1,0 +1,103 @@
+%%
+%% All packages and macros needed for the problemsets
+%%
+
+\usepackage{amsmath}
+
+\usepackage{lipsum}
+%\usepackage{showframe}
+%\usepackage{layout}
+
+
+\usepackage[charter,cal=cmcal]{mathdesign} %different font
+%\usepackage{avant}
+
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{tikz}
+	\usetikzlibrary{fit}
+	\usetikzlibrary{fadings}
+	\usetikzlibrary{calc}
+	\tikzset{>=latex}
+\usepackage{fancyhdr}
+\usepackage{calc}
+\usepackage{wrapfig}
+\usepackage{marginnote}
+\usepackage{mparhack}
+\usepackage{marginfix}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fnpct} % fancy footnote spacing
+\usepackage{bm}
+\usepackage{systeme}
+
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+%%%
+% Useful Linear Algebra macros
+%%%
+\newcommand{\declarecommand}[1]{\providecommand{#1}{}\renewcommand{#1}}
+\declarecommand{\R}{\mathbb{R}}  % we don't care if it's already defined.  We really want *this* command!
+\declarecommand{\Z}{\mathbb{Z}}
+\declarecommand{\Q}{\mathbb{Q}}
+\declarecommand{\N}{\mathbb{N}}
+\declarecommand{\C}{\mathbb{C}}
+\declarecommand{\d}{\mathrm{d}}
+\declarecommand{\dd}{\mathbbm{d}} % exterior derivative
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Img}{img}
+\DeclareMathOperator{\Id}{id}
+\DeclareMathOperator{\Range}{range}
+\DeclareMathOperator{\Rref}{rref}
+\DeclareMathOperator{\Rank}{rank}
+\DeclareMathOperator{\Comp}{\Vcomp}
+\DeclareMathOperator{\Vcomp}{v\hspace{1pt}comp}
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\Nullity}{nullity}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Proj}{proj}
+\DeclareMathOperator{\Flux}{Flux}
+\DeclareMathOperator{\Circ}{Circ}
+\DeclareMathOperator{\chr}{char}
+\DeclareMathOperator{\Dim}{dim}
+\DeclareMathOperator{\Perp}{perp}
+\DeclareMathOperator{\Ker}{kernel}
+\DeclareMathOperator{\Row}{row}
+\DeclareMathOperator{\Col}{col}
+\newcommand{\proj}{\Proj}
+\newcommand{\rref}{\Rref}
+\newcommand{\xhat}{{\vec e_1}}
+\newcommand{\yhat}{{\vec e_2}}
+\newcommand{\zhat}{{\vec e_3}}
+\newcommand{\sbasis}[1]{\vec { e}_{#1}}
+\newcommand{\mat}[1]{\begin{bmatrix*}[r]#1\end{bmatrix*}}
+\newcommand{\matc}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\formarg}[2]{\big(#1;\, #2\big)}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\Abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\newcommand{\Norm}[1]{\norm{#1}}
+% just to make sure it exists
+\providecommand\given{}
+% can be useful to refer to this outside \Set
+\newcommand\SetSymbol[1][]{%
+	\nonscript\::%
+	\allowbreak
+	\nonscript\:
+	\mathopen{}}
+\DeclarePairedDelimiterX\Set[1]\{\}{%
+	\renewcommand\given{\SetSymbol[\delimsize]}
+	#1
+}
