@@ -87,5 +87,103 @@ It's easy to get confused when answering questions that involve multiple bases; 
 make these problems much easier.
 
 \Heading{Orientation of a Basis}
+How can you tell the difference between a hand and a foot? They're similar in structure\footnote{ We might
+say hands and feet are \emph{topologically} equivalent.}---a hand has five
+fingers and a foot has five toes---but they're different in shape---fingers are much longer than toes and the thumb sticks off
+the hand at a different angle than the big toe sticks off the foot.
+
+How about a harder question: how can you tell the difference between a left hand and a right hand? Any length
+or angle measurement you make on an (idealized) left hand or right hand will be identical. But, we know they're different
+because they differ in \emph{orientation}\footnote{ Other words for orientation include \emph{chirality} and \emph{handedness}.}.
+
+We'll build up to the definition of orientation in stages. Consider the ordered bases $\mathcal E$, $\mathcal A$, and
+$\mathcal B$ shown below.
+
+XXX Figure
+
+The $\mathcal A$ basis can be rotated to get the $\mathcal E$ basis, but it is impossible to rotate the $\mathcal B$ basis
+to get the $\mathcal E$ basis. In this case, we say that $\mathcal E$ and $\mathcal A$ have the same orientation and
+$\mathcal E$ and $\mathcal B$ have opposite orientations. In this way, even though the lengths and angles between all
+vectors in the $\mathcal A$ basis and the $\mathcal B$ basis are the same, we can distinguish the $\mathcal A$ and $\mathcal B$
+bases because they have different \emph{orientations}.
+
+Orientations of bases come in exactly two flavors: \emph{right-handed} (or \emph{positively oriented})
+and \emph{left-handed} (or \emph{negatively oriented}). By convention, the standard basis is called right-handed.
+
+Orthonormal bases---bases consisting of unit vectors that are orthogonal
+to each other---are called right-handed if they can be rotated to align with the standard basis, otherwise
+they are called left-handed. In this way, the right-hand--left-hand analogy should be clear: two right hands or
+two left hands can be rotated
+to align with each other, but a left hand and a right can never be rotated to alignment.
+
+
+However, not all bases are orthonormal! Consider the bases $\mathcal E$, $\mathcal A'$, $\mathcal B'$.
+
+XXX Figure where A' and B' differ only slightly from A and B
+
+The bases $\mathcal A'$ and $\mathcal B'$ differ only slightly from $\mathcal A$ and $\mathcal B$. Neither can
+be \emph{rotated} to obtain $\mathcal E$, however we'd still like to say $\mathcal A'$ is right-handed and
+$\mathcal B'$ is left-handed. The following, fully general definition, allows us to do so.
+
+\SavedDefinitionRender{OrientationofaBasis}
+
+The term \emph{continuously transformed} can be given a precise definition\footnote{ Because you crave precision, here it is:
+the basis $\vec a_1,\ldots, \vec a_n$ can be \emph{continuously transformed} to the basis $\vec b_1,\ldots,\vec b_n$ if there
+exists a continuous function $\Phi:[0,1]\to\Set{\text{$n$-tuples of vectors}}$ so that $\Phi(0)=(\vec a_1,\ldots,\vec a_n)$
+and $\Phi(1)=(\vec b_1,\ldots,\vec b_n)$. Here, continuity is defined in the multi-variable calculus sense.
+}, but it will be enough for us
+to imagine that there is a continuous transform of one basis to another if there is a ``movie'' where one
+basis smoothly and without jumps transforms into another basis.
+
+Let's consider some examples. Let $\mathcal X=\Set{\vec x_1,\vec x_2}$. We could imagine $\vec x_1,\vec x_2$ continuously 
+transforming to $\xhat, \yhat$ by $\vec x_1$ staying in place and $\vec x_2$ smoothly moving along the dotted
+line.
+
+XXX Figure
+
+Because at every step along this motion, the set of $\vec x_1$ and the transformed $\vec x_2$ stayed linearly independent, $\mathcal X$ is
+\emph{positively} oriented.
+
+Let $\mathcal Y=\Set{\vec y_1,\vec y_2}$. We are in a similar situation, except this time, somewhere along $\vec y_2$'s path,
+the set of $\vec y_1$ and the transformed $\vec y_2$ becomes linearly dependent.
+
+XXX Figure
+
+Maybe that was just bad luck and we might be able to transform along a different path and stay linearly independent?
+It turns out, we are doomed to fail, because $\mathcal Y$ is \emph{negatively} oriented.
+
+\bigskip
+
+Using the definition of the orientation of a basis to answer questions is difficult because to determine
+that a basis is negatively oriented, you need to make a determination about \emph{every possible} way 
+to continuously transform a basis to the standard basis. This is hard enough in $\R^2$ and gets much harder
+in $\R^3$. Fortunately, we will encounter computational tools that will allow us to numerically determine
+the orientation of a basis, but, for now, the idea is what's important.
+
+\Heading{Reversing Orientation}
+
+Reflections reverse orientation and can manifest in two ways\footnote{ Think back to hands. The left
+and right hands \emph{are} reflections of each other.}.
+Consider the reflection of $\mathcal E=\Set{\xhat, \yhat}$ across the line $y=x$.
+
+XXX Figure
+
+This reflection sends $\Set{\xhat,\yhat}\mapsto\Set{\yhat,\xhat}$. Alternatively, reflection across the line $x=0$ sends
+$\Set{\xhat,\yhat}\mapsto\Set{-\xhat,\yhat}$. 
+
+XXX Figure
+
+Both $\Set{\yhat,\xhat}$ and $\Set{-\xhat,\yhat}$, as ordered bases,
+are negatively oriented. This is indicative of a general theorem.
+
+\begin{theorem}
+	Let $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$ be an ordered basis.
+	The ordered basis obtained from $\mathcal B$ by replacing $\vec b_i$ with $-\vec b_i$
+	and the ordered basis obtained from $\mathcal B$ by swapping the order of $\vec b_i$ and
+	$\vec b_{i+1}$ have the opposite orientation as $\mathcal B$.
+\end{theorem}
+
+
+
 
 
