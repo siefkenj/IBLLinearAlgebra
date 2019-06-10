@@ -4655,6 +4655,7 @@ examples.
 	In this module you will learn
 	\begin{itemize}
 		\item The definition of a linear transformation.
+		\item The definition of the image of a set under a transformation.
 		\item How to prove whether a transformation is linear or not.
 		\item How to find a matrix for a linear transformation.
 		\item The difference between a matrix and a linear transformation.
@@ -5457,6 +5458,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	In this module you will learn
 	\begin{itemize}
 		\item The definition of the range and null space of a linear transformation.
+		\item How to precisely notate the matrix for a linear transformation.
 		\item The fundamental subspaces corresponding to a matrix (row space, column space,
 			null space) and how they relate to the range and null space of a linear transformation.
 		\item How to find a basis for the fundamental subspaces of a matrix.
@@ -5554,18 +5556,25 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{solution}
 		\item Show that the range of $T$ is a subspace.
 			\begin{solution}
+				Since $\Range(T)=T(\R^n)$ and $\R^n$ is non-empty, we know that $\Range(T)$ is non-empty.
+				Therefore, to show that $\Range(T)$ is a subspace, we need to show (i) that it's closed under vector addition,
+				and (ii) that it is closed under scalar multiplication.
 				\begin{enumerate}[label=(\roman*)]
-					\item Let $\vec y,\vec z\in\Range(T)$.
-						Then there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec y$
-						and $T(\vec v)=\vec z$. Then
-						$\vec y+\vec z=T(\vec u)+T(\vec v)=T(\vec u+\vec v)$,
-						since $T$ is linear, and so $\vec y+\vec z\in\Range(T)$.
-					\item Let $\vec y\in\Range(T)$ and let $\alpha$ be any scalar.
-						Then there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec y$,
-						and $\alpha\vec y=\alpha T(\vec u)=T(\alpha\vec u)$,
-						since $T$ is linear, and so $\alpha\vec y\in\Range(T)$.
+					\item Let $\vec x,\vec y\in\Range(T)$.
+						By definition, there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec x$
+						and $T(\vec v)=\vec y$. Since $T$ is linear,
+						$
+							\vec x+\vec y=T(\vec u)+T(\vec v)=T(\vec u+\vec v),
+						$
+						and so $\vec x+\vec y\in\Range(T)$.
+					\item Let $\vec x\in\Range(T)$ and let $\alpha$ be a scalar.
+						By definition, there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec x$,
+						and so by the linearity of $T$,
+						$
+						\alpha\vec x=\alpha T(\vec u)=T(\alpha\vec u).
+						$
+						Therefore $\alpha\vec x\in\Range(T)$.
 				\end{enumerate}
-
 			\end{solution}
 	\end{parts}
 

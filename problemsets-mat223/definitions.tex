@@ -403,13 +403,21 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=ImageofaSet, title={Image of a Set}]
-	Let $L:V\to W$ be a transformation and let $X\subseteq V$ be a set. The
+	Let $L:\R^n\to \R^m$ be a transformation and let $X\subseteq \R^n$ be a set. The
 	\emph{image of the set $X$ under $L$}, denoted $L(X)$, is the set
 	\[
 		L(X)=\Set{\vec x\in W \given \vec x=L(\vec y)\text{ for some }\vec
 		y\in X}.
 	\]
 
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[key=CompositionofFunctions, title={Composition of Functions}]
+	Let $f:A\to B$ and $g:B\to C$. The \emph{composition} of $g$ and $f$, notated $g\circ f$,
+	is the function $h:A\to C$ defined by
+	\[
+		h(x)=g\circ f(x) = g\Big(f(x)\Big).
+	\]
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Range, title={Range}]
@@ -440,20 +448,44 @@
 	title={Induced Transformation}]
 
 	Let $M$ be an $n\times m$ matrix. We say $M$
-	\emph{induces} a linear transformation $T_{M}:\R^{m}\to\R^{n}$ defined
+	\emph{induces} a linear transformation $\mathcal T_{M}:\R^{m}\to\R^{n}$ defined
 	by
 	\[
-		[T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E},
+		[\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E},
 	\]
 	 where $\mathcal E$ is the standard basis for $\R^{m}$ and $\mathcal E'$
 	is the standard basis for $\R^{n}$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
-	key=ElementaryMatrix,
-	title={ElementaryMatrix}]
+	key=Transpose,
+	title={Transpose}]
 
-	An \emph{elementary matrix} is the identity matrix with a single row operation applied.
+	Let $M$ be an $n\times m$ matrix defined by
+	\[
+		M=\matc{
+			a_{11}&a_{12}&a_{13}&\cdots & a_{1m}\\
+		a_{21}&a_{22}&a_{23}&\cdots&a_{2m}\\
+		\vdots &\vdots&\vdots &\ddots&\vdots\\
+		a_{n1}&a_{n2}&a_{3n}&\cdots&a_{nm}}
+	\]
+	The \emph{transpose} of $M$, notated $M^T$ is the $m\times n$ matrix $M$ with its rows and
+	columns swapped. That is
+	\[
+		M^T=\matc{
+		a_{11}&a_{21}&\cdots&a_{m1}\\
+		a_{12}&a_{22}&\cdots&a_{m2}\\
+		a_{13}&a_{23}&\cdots&a_{m3}\\
+		\vdots&\vdots&\ddots&\vdots\\
+		a_{1n}&a_{2n}&\cdots&a_{mn}}.
+	\]
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[
+	key=ElementaryMatrix,
+	title={Elementary Matrix}]
+
+	A matrix is called an \emph{elementary matrix} if it is an identity matrix with a single elementary row operation applied.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -463,6 +495,56 @@
 	The \emph{inverse} of a matrix $A$ is a
 		matrix $B$ such that $AB=I$ and $BA=I$.
 		In this case, $B$ is called the inverse of $A$ and is notated by $A^{-1}$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[
+	key=IdentityFunction,
+	title={Identity Function}]
+	
+	Let $X$ be a set. The \emph{identity function} with domain and codomain $X$,
+	notated $\Ident:X\to X$, is the function satisfying
+	\[
+		\Ident(x)=x
+	\]
+	for all $x\in X$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[
+	key=InverseFunction,
+	title={Inverse Function}]
+		
+	Let $f:X\to Y$ be a function. We say $f$ is \emph{invertible} if
+	there exists a function $g:Y\to X$ so that $f\circ g=\Ident$ and $g\circ f=\Ident$.
+	In this case, we call $g$ an \emph{inverse} of $f$ and write
+	\[
+		f^{-1}=g.
+	\]
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[
+	key=Onetoone,
+	title={One-to-one}]
+		
+	Let $f:X\to Y$ be a function. We say $f$ is \emph{one-to-one} (or \emph{surjective}) if
+	distinct inputs to $f$ produce distinct outputs. That is $f(x)=f(y)$ implies $x=y$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[
+	key=Onto,
+	title={Onto}]
+		
+	Let $f:X\to Y$ be a function.
+	We say $f$ is \emph{onto} (or \emph{injective}) if every point in the codomain of $f$ gets mapped to.
+	That is $\Range(f)=Y$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[
+	key=IdentityMatrix,
+	title={Identity Matrix}]
+	
+	An \emph{identity matrix} is a square matrix with ones on the diagonal
+	and zeros everywhere else. The $n\times n$ identity matrix is denoted $I_{n\times n}$,
+	or just $I$ when its size is implied.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=FundamentalSubspaces, title={Fundamental Subspaces}]
@@ -475,8 +557,26 @@
 	$M\vec x=\vec 0$.
 \end{SaveDefinition}
 
+\begin{SaveDefinition}[key=RankofaLinearTransformation, title={Rank of a Linear Transformation}]
+	For a linear transformation $T:\R^n\to \R^m$, the
+	\emph{rank} of $T$, denoted $\Rank(T)$, is the dimension of the range of
+	$T$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[key=RankofaMatrix, title={Rank of a Matrix}]
+	Let $M$ be a matrix.
+	The \emph{rank} of $M$, denoted $\Rank(M)$, is the rank of
+	the linear transformation induced by $M$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[key=NullityofaMatrix, title={Nullity of a Matrix}]
+	Let $M$ be a matrix.
+	The \emph{nullity} of $M$, denoted $\Rank(M)$, is the nullity of
+	the linear transformation induced by $M$.
+\end{SaveDefinition}
+
 \begin{SaveDefinition}[key=Rank, title={Rank}]
-	For a linear transformation $T:V\to W$, the
+	For a linear transformation $T:\R^n\to \R^m$, the
 	\emph{rank} of $T$, denoted $\Rank(T)$, is the dimension of the range of
 	$T$.
 
@@ -485,8 +585,37 @@
 	$\rref(M)$.
 \end{SaveDefinition}
 
+\begin{SaveDefinition}[key=Nullity, title={Nullity}]
+	For a linear transformation $T:\R^n\to \R^m$, the
+	\emph{nullity} of $T$, denoted $\Nullity(T)$, is the dimension of the null space of
+	$T$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[key=ChangeofBasisMatrix, title={Change of Basis Matrix}]
+	Let $\mathcal A$ and $\mathcal B$ be bases for $\R^n$. The matrix $M$ is called
+	a \emph{change of basis} matrix converting from $\mathcal A$ to $\mathcal B$ if
+	\[
+		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}
+	\]
+	for all $\vec x\in \R^n$. Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
+	stands for the change of basis matrix converting from $\mathcal A$ to $\mathcal B$,
+	and we may write $M=\BasisChange{\mathcal A}{\mathcal B}$.
+\end{SaveDefinition}
+
+\begin{SaveDefinition}[key=LinearTransformationinaBasis, title={Linear Transformation in a Basis}]
+	Let $\mathcal T:\R^n\to\R^n$ be a linear transformation and let $\mathcal B$ be a
+	basis for $\R^n$. The \emph{matrix for $\mathcal T$ with respect to $\mathcal B$}, notated
+	$[\mathcal T]_{\mathcal B}$,
+	is the $n\times n$ matrix satisfying
+	\[
+		[\mathcal T\vec x]_{\mathcal B} = [\mathcal T]_{\mathcal B}[\vec x]_{\mathcal B}.
+	\]
+	In this case, we say the matrix $[\mathcal T]_{\mathcal B}$ is the representation
+	of $\mathcal T$ in the $\mathcal B$ basis.
+\end{SaveDefinition}
+
 \begin{SaveDefinition}[key=SimilarMatrices, title={Similar Matrices}]
-	A matrices $A$ and $B$ are called
+	The matrices $A$ and $B$ are called
 	\emph{similar matrices}, denoted $A\sim B$, if $A$ and $B$ represent the
 	same linear transformation but in possibly different bases. Equivalently,
 	$A\sim B$ if there is an invertible matrix $X$ so that
@@ -510,13 +639,22 @@
 
 \begin{SaveDefinition}[key=Determinant, title={Determinant}]
 	The
-	\emph{determinant} of a linear transformation $X:\R^{n}\to \R^{n}$ is
+	\emph{determinant} of a linear transformation $X:\R^{n}\to \R^{n}$, denoted $\det(X)$ or $\Abs{X}$, is
 	the oriented volume of the image of the unit $n$-cube. The determinant of
 	a square matrix is the determinant of its induced transformation.
 \end{SaveDefinition}
 
+\begin{SaveDefinition}[key=OrientationPreservingLinearTransformation, title={Orientation Preserving Linear Transformation}]
+	Let $\mathcal T:\R^n\to\R^n$ be a linear transformation. We say $\mathcal T$
+	is \emph{orientation preserving} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
+	is a positively oriented  and we say $\mathcal T$
+	is \emph{orientation reversing} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
+	is a negatively. If $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
+	is not a basis for $\R^n$, then $\mathcal T$ is neither orientation preserving nor orientation reversing.
+\end{SaveDefinition}
+
 \begin{SaveDefinition}[key=Eigenvector, title={Eigenvector}]
-	Let $X$ be a linear transformation. An
+	Let $X$ be a linear transformation or a matrix. An
 	\emph{eigenvector} for $X$ is a non-zero vector that doesn't change
 	directions when $X$ is applied. That is, $\vec v\neq \vec 0$ is an
 	eigenvector for $X$ if

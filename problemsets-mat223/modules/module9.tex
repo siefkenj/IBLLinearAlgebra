@@ -1,0 +1,367 @@
+Now that we have a handle on he basics of vectors, we can start thinking about \emph{transformations}.
+A transformation or a map is another word for a function, and they show up any time you need to describe
+vectors changing. For example, the transformation
+\[
+	S:\R^2\to\R^2\qquad\text{defined by}\qquad \mat{x\\y}\mapsto\mat{2x\\y}
+\]
+stretches all vectors in the $\xhat$ direction by a factor of $2$.
+
+XXX Figure showing before and after
+
+The transformation
+\[
+	T:\R^2\to\R^2\qquad\text{defined by}\qquad \mat{x\\y}\mapsto\matc{x\\y+4}
+\]
+translates all vectors $4$ units in the $\yhat$ direction.
+
+XXX Figure
+
+\Heading{Images}
+
+Recall the transformation $S:\R^2\to\R^2$ defined by $\mat{x\\y}\mapsto\mat{2x\\y}$.
+If we had a bunch of vectors in the plane, applying $S$ would stretch those vectors in
+the $\xhat$ direction by a factor of $2$. For example, if we start with $\mathcal C$, the circle of radius $1$
+centered at $\vec 0$, then applying $S$ to all the vectors that make up $\mathcal C$ would produce an ellipse.
+
+XXX Figure
+
+This operation of applying a transformation to a specific set of vectors and seeing what results is
+called taking the \emph{image} of a set.
+
+\SavedDefinitionRender{ImageofaSet}
+
+In plain language, the image of a set $X$ under a transformation $L$ is the set of all outputs of
+$L$ when the inputs come from $X$.
+
+If you think of sets in $\R^n$ as black-and-white ``pictures'' (a point is black if it's in the set
+and white if it's not), then the image of a set under a transformation is the output after applying the
+transformation to the ``picture''.
+
+Images allow one to describe complicated geometric figures in terms of an original figure and a transformation.
+For example, let $\mathcal R:\R^2\to\R^2$ be rotation counter clockwise by $30^\circ$
+and let $X=\Set{x\xhat+y\yhat\given x,y\in[0,1]}$ be the filled-in unit square. Then, $\mathcal R(X)$ is the filled-in
+unit square that meets the $x$-axis at an angle of $30^\circ$. Try describing that using set builder notation!
+
+XXX Figure
+
+\Heading{Linear Transformations}
+
+Linear algebra's main focus is the study of a special category of transformations: the \emph{linear} transformations.
+Linear transformations include rotations, dilations (stretches), shears, and more.
+
+XXX Figure of a smiley face transformed in many ways
+
+They arise when taking derivatives in higher dimensions, and just like in one-variable calculus where if you zoom into
+a function at a point its graph looks like a line, if you zoom into a (non-linear) transformation at a point, it looks like a linear
+one\footnote{ If you're being picky, you might say that you see an \emph{affine} function, which is a linear function combined
+with a translation.}! All this is to say that linear transformations are worthy of our study.
+
+Without further ado, let's define what it means for a transformation to be linear.
+
+\SavedDefinitionRender{LinearTransformation}
+
+In plain language, the transformation $T$ is linear if it distributes over addition and scalar multiplication.
+In other words, $T$ \emph{distributes over linear combinations}.
+
+\begin{example}
+	Let $S:\R^2\to\R^2$ and $T:\R^2\to\R^2$ be defined by
+	\[
+		\mat{x\\y}\stackrel{S}{\mapsto}\mat{2x\\y}\qquad\text{and}\qquad
+		\mat{x\\y}\stackrel{T}{\mapsto}\matc{x\\y+4}.
+	\]
+	For each of $S$ and $T$, determine whether the transformation is linear.
+
+	XXX Finish
+\end{example}
+
+\Heading{Function Notation vs\mbox{.} Linear Transformation Notation}
+
+Linear transformations are just special types of functions. In calculus it is traditional to use lower case
+letters for a function and parenthesis ``('' and ``)'' around the input to the function.
+\[
+	\underbrace{f:\R\to\R}_{\text{a function}}\qquad \underbrace{f(x)}_{\text{$f$ evaluated at $x$}}
+\]
+For (linear) transformations, it is traditional to use capital letters to describe the function/transformation
+and parenthesis around the input are optional.
+\[
+	\underbrace{T:\R^n\to\R^m}_{\text{a transformation}}\qquad \underbrace{T(\vec x)}_{\text{$T$ evaluated at $\vec x$}}
+	\qquad
+	\underbrace{T\vec x}_{\text{also $T$ evaluated at $\vec x$}}
+\]
+Since sets are also traditionally written using capital letters, sometimes a font variant is used to when writing the transformation
+or the set. For example, we might use a regular $X$ to denote a set and a calligraphic $\mathcal T$ to describe a transformation.
+
+\bigskip
+
+Another difference you might not be used to is that, in linear algebra, we make a careful distinction between
+a function and its output. Let $f:\R\to\R$ be a function. In calculus, you might consider the phrases ``the function $f$''
+and ``the function $f(x)$''. In linear algebra, the first phrase is valid and the second is \emph{not}. By writing
+$f(x)$, we are indicating ``the output of the function $f$ when $x$ is input''. So, properly we should say ``the \emph{number} $f(x)$''.
+
+This distinction might seem pedantic now, but by keeping our functions as functions and our numbers/vectors as numbers/vectors,
+we can avoid some major confusion in the future.
+
+
+\Heading{The ``look'' of a Linear Transformation}
+
+Images under linear transformations have a certain look to them. Based just on the word
+\emph{linear} you can probably guess which figure below represents the image of a grid under
+a linear transformation.
+
+XXX Figure -- one linear, one wavey
+
+Let's prove some basic theorems about linear transformations.
+
+\begin{theorem}
+	If $T:\R^n\to\R^m$ is a linear transformation, then $T(\vec 0)=\vec 0$.
+\end{theorem}
+\begin{proof}
+	Suppose $T:\R^n\to\R^m$ is a linear transformation and $\vec v\in \R^n$. We know
+	that $0\vec v=\vec 0$, so by linearity we have
+	\[
+		T(\vec 0)=T(0\vec v)=0T(\vec v)=\vec 0.
+	\]
+\end{proof}
+
+\begin{theorem}
+	If $T:\R^n\to\R^m$ is a linear transformation, then $T$ takes lines to lines (or points).
+\end{theorem}
+\begin{proof}
+	Suppose $T:\R^n\to\R^m$ is a linear transformation and let $\ell\subseteq\R^n$ be the line
+	given in vector form by $\vec x=t\vec d+\vec p$. We want to prove that $T(\ell)$, the image of
+	$\ell$ under the transformation $T$, is a line or a point.
+
+	By definition, every point in $\ell$ takes the form $t\vec d+\vec p$ for some scalar $t$.
+	Therefore, every point in $T(\ell)$ take the form $T(t\vec d+\vec p)$ for some scalar $t$.
+	But, $T$ is a linear transformation, so
+	\[
+		T(t\vec d+\vec p) = tT(\vec d)+T(\vec p).
+	\]
+	If $T(\vec d)\neq \vec 0$, then $\vec x=tT(\vec d)+T(\vec p)$ describes a line in vector form
+	and so $T(\ell)$ is a line.
+	If $T(\vec d)=\vec 0$, then $T(\ell) = \Set{t\vec 0+T(\vec p)\given \text{$t$ is a scalar}}=\Set{T(\vec p)}$
+	is a point.
+\end{proof}
+
+\begin{theorem}
+	If $T:\R^n\to\R^m$ is a linear transformation, then $T$ takes parallel lines to parallel lines
+	(or points).
+\end{theorem}
+\begin{proof}
+	Suppose $T:\R^n\to\R^m$ is a linear transformation and 
+	let $\ell_1$ and $\ell_2$ be parallel lines. Then, we may describe $\ell_1$ in vector form
+	as $\vec x=t\vec d+\vec p_1$ and we may describe $\ell_2$ in vector form as $\vec x=t\vec d+\vec p_2$.
+	Note that since the lines are parallel, the direction vectors are the same.
+
+	Now, $T(\ell_1)$ can be described in vector form by
+	\[
+		\vec x=tT(\vec d)+T(\vec p_1)
+	\]
+	and $T(\ell_2)$ can be described in vector form by
+	\[
+		\vec x=tT(\vec d)+T(\vec p_2).
+	\]
+	Written this way and provided $T(\ell_1)$ and
+	$T(\ell_2)$ are actually lines, we immediately see that $T(\ell_1)$ and $T(\ell_2)$ have the same direction
+	vectors and so are parallel.
+
+	If $T(\ell_1)$ is instead a point, then we must have $T(\vec d)=\vec 0$, and so $T(\ell_2)$ must also be a point.
+\end{proof}
+
+\begin{theorem}
+	If $T:\R^n\to\R^m$ is a linear transformation, then $T$ takes subspaces to subspaces.
+\end{theorem}
+\begin{proof}
+	Let $T:\R^n\to\R^m$ be a linear transformation and let $V\subseteq \R^n$ be a subspace. We need to show
+	that $T(V)$ satisfies the properties of a subspace.
+
+	Since $V$ is non-empty, we know $T(V)$ is non-empty.
+
+	Let $\vec x,\vec y\in T(V)$. By definition, there are vectors $\vec u,\vec v\in V$ so that
+	\[
+		\vec x=T(\vec u)\qquad\text{and}\qquad \vec y=T(\vec v).
+	\]
+	Since $T$ is linear, we know
+	\[
+		\vec x+\vec y=T(\vec u)+T(\vec v)=T(\vec u+\vec v).
+	\]
+	Because $V$ is a subspace, we know $\vec u+\vec v\in V$ and so we conclude $\vec x+\vec y=T(\vec u+\vec v)\in T(V)$.
+
+	Similarly, for any scalar $\alpha$ we have
+	\[
+		\alpha\vec x=\alpha T(\vec u)=T(\alpha\vec u).
+	\]
+	Since $V$ is a subspace, $\alpha\vec u\in V$ and so $\alpha\vec x=T(\alpha\vec u)\in T(V)$.
+\end{proof}
+
+
+
+\Heading{Linear Transformations and Proofs}
+
+When proving things in math, you have all of logic at your disposal, and
+that freedom can be combined with creativity to show some truly amazing things.
+But, for better or for worse, proving whether or not a transformation is linear
+usually doesn't require substantial creativity.
+
+Let $T:\R^n\to\R^n$ defined by $T(\vec v)=2\vec v$. To show that $T$ is linear,
+we need to show that for \emph{all} inputs $\vec x$ and $\vec y$ and for \emph{all}
+scalars $\alpha$ we have
+\[
+	T(\vec x+\vec y)=T(\vec x)+T(\vec y)\qquad\text{and}\qquad T(\alpha\vec x)=\alpha T(\vec x).
+\]
+But, there are an infinite number of choices for $\vec x$, $\vec y$, and $\alpha$. How can we argue about all
+of them at once?
+
+Consider the following proof that $T$ is linear.
+\begin{proof}
+	Let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar. By applying the definition
+	of $T$, we see
+	\[
+		T(\vec x+\vec y)=2(\vec x+\vec y)=2\vec x+2\vec y = T(\vec x)+T(\vec y).
+	\]
+	Similarly,
+	\[
+		T(\alpha\vec x) = 2(\alpha\vec x)=\alpha(2\vec x)=\alpha T(\vec x).
+	\]
+	Since $T$ satisfies the two properties of a linear transformation, $T$ is a linear
+	transformation.
+\end{proof}
+
+This proof starts out with ``{\color{red}let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar}''.
+In what follows, the only properties of $\vec x$ and $\vec y$ we use come from the fact that they're
+in $\R^n$ (the domain of $T$) and the only fact about $\alpha$ we use is that it's a scalar. Because
+of this, $\vec x$, and $\vec y$ are considered \emph{arbitrary} vectors and $\alpha$ is an
+\emph{arbitrary} scalar. Put another way, the argument that follows will work for every single pair 
+of vectors $\vec x,\vec y\in \R^n$ and for every scalar $\alpha$.
+Thus, by fixing arbitrary vectors at the start of our proof, we are (i) able to argue about
+all vectors at once while (ii) having named vectors that we can actually use in equations.
+
+
+\begin{emphbox}[Takeaway]
+	Starting a linearity proof with ``\emph{let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar}''
+	allows you to argue about all vectors and scalars simultaneously.
+\end{emphbox}
+
+
+The proof give above is very typical, and almost every proof of the linearity of a function $T:\R^n\to\R^m$
+will look something like
+\begin{proof}
+	Let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar. By applying the definition
+	of $T$, we see
+	\[
+		T(\vec x+\vec y)=\text{\color{red}application(s) of the definition} = T(\vec x)+T(\vec y).
+	\]
+	Similarly,
+	\[
+		T(\alpha\vec x) = \text{\color{red}application(s) of the definition}=\alpha T(\vec x).
+	\]
+	Since $T$ satisfies the two properties of a linear transformation, $T$ is a linear
+	transformation.
+\end{proof}
+
+This isn't to say that proving whether or not a transformation is linear is \emph{easy},
+but all the cleverness and insight required appears in the ``{\color{red}application(s) of the definition}''
+parts.
+
+\bigskip
+What about showing a transformation is \emph{not} linear? Here we don't need to show something true for all vectors
+and all scalars. We only need to show something is false for \emph{one} pair of vectors or \emph{one} pair of a vector
+and a scalar.
+
+Because when we're proving something is not a linear transformation we only need to show
+that the definition of linearity breaks down in one place, we can pick and choose which property we
+want to show breaks down.
+
+\begin{example}
+	Let $T:\R^n\to\R^n$ be defined by $T(\vec x)=\vec x+\xhat$. Show that
+	$T$ is \emph{not} linear.
+
+	\begin{proof}
+		We will show that $T$ does not distribute with respect to scalar multiplication.
+
+		Observe that
+		\[
+			T(2\vec 0)=T(\vec 0) = \vec e_1\neq 2\vec e_1=2T(\vec 0).
+		\]
+		Therefore, $T$ cannot be a linear transformation.
+	\end{proof}
+\end{example}
+
+
+\Heading{Matrix Transformations}
+
+We already know two ways to interpret matrix multiplication---linear combinations of the columns
+and dot products with the rows---and we're about to have a third.
+
+Let $M=\mat{1&2\\-1&1}$. For a vector $\vec v\in \R^2$, $M\vec v$ is another vector in $\R^2$. In this way,
+we can think of multiplication by $M$ as a transformation on $\R^2$. Define
+\[
+	T:\R^2\to\R^2\qquad\text{by}\qquad T(\vec x)=M\vec x.
+\]
+Because $T$ is defined by a matrix, we call $T$ a \emph{matrix transformation}.
+It turns out all matrix transformations are linear transformations and most linear transformations
+are matrix transformations\footnote{ If you believe in the axiom of choice and you allow infinitely sized matrices,
+every linear transformation can be expressed as a matrix transformation.}. 
+
+Just as with writing systems
+of linear equations, matrices provide a compact way of specifying a linear transformation. For example, we could say,
+``The linear transformation $T:\R^2\to\R^2$ that doubles the $x$-coordinate and triples the $y$-coordinate'', or
+we could say, ``The matrix transformation given by $\mat{2&0\\0&3}$''.
+
+\bigskip
+
+When talking about matrices and linear transformations, we must keep in mind that they are not
+the same thing. A matrix is a box of numbers and has no meaning until we give it meaning. 
+A linear transformation is a function that inputs vectors and outputs vectors. We can \emph{specify} a linear transformation
+using a matrix, but a matrix by itself is \emph{not} a linear transformation\footnote{ Consider the function defined
+by $f(x)=2x$. You would never say that the function $f$ is $2$!}.
+
+So what are some correct ways to specify a linear transformation using a matrix? Let's list some.
+For a matrix $M$ the following are ways of specifying the same linear transformation.
+\begin{itemize}
+	\item The transformation $T$ defined by $T(\vec x)=M\vec x$.
+	\item The transformation given by multiplication by $M$.
+	\item The transformation induced by $M$.
+	\item The matrix transformation given by $M$.
+	\item The linear transformation whose matrix is $M$.
+\end{itemize}
+
+\Heading{Finding a Matrix for a Linear Transformation}
+
+Every linear transformation from $\R^n$ to $\R^m$ has a matrix, and we can use basic algebra to find
+an appropriate matrix.
+
+Let $T:\R^n\to\R^m$ be a linear transformation. Since $T$ inputs vectors with $n$ coordinates and outputs
+vectors with $m$ coordinates, we know any matrix for $T$ must be $m\times n$. The process of finding
+a matrix for $T$ can now be summarized as follows: (i) create an $m\times n$ matrix of variables, (ii) use
+known input-output pairs for $T$ to set up a system of equations involving the unknown variables, (iii) solve
+for the variables.
+
+\begin{example}
+	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\x}$. Find a matrix, $M$, for $\mathcal T$.
+
+	Because $\mathcal T$ is a transformation for $\R^2\to\R2$, $M$ will be a $2\times 2$ matrix. Let
+	\[
+		M=\mat{a&b\\c&d}.
+	\]
+	We now need to use input-output pairs to ``calibrate'' $M$. We know
+	\[
+		\mathcal T\mat{1\\1}=\mat{3\\1}\qquad\text{and}\mathcal T\mat{0\\1}=\mat{1\\0}.
+	\]
+	If $M$ is a matrix for $\mathcal T$, then we know $\mathcal T\vec x=M\vec x$ for all $\vec x$, and so
+	\[
+		M\mat{1\\1}=\mat{a&b\\c&d}\mat{1\\1}=\mat{a+b\\c+d}=\mat{3\\1}
+	\]
+	and
+	\[
+		M\mat{0\\1}=\mat{a&b\\c&d}\mat{0\\1}=\mat{b\\d}=\mat{1\\0}.
+	\]
+	This gives us the system of equations
+	\[
+		\systeme{a+b=3,\phantom{+}c+d=1,b=1,d=0},
+	\]
+	and so
+	\[
+		M=\mat{a&b\\c&d} = \mat{2&1\\1&0}.
+	\]
+\end{example}

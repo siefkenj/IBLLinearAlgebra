@@ -1,0 +1,515 @@
+
+Associated with every linear transformation
+are two specially named subspaces. 
+
+\Heading{Range}
+The first special subspace is called the \emph{range}.
+\SavedDefinitionRender{Range}
+
+The range of a linear transformation has the exact same definition as the range of a function---it's the set of all outputs.
+In other words, the range of a linear transformation is the \emph{image} of the entire domain with respect to that linear
+transformation\footnote{ Some people say ``the \emph{image} of $T$'' as a short way of saying ``the image
+of the entire domain of $T$ under $T$''. Used in this sense $\text{Image}(T)=\Range(T)$.}. However, unlike the range of an arbitrary function, the range of a linear transformation
+is always a subspace.
+
+\begin{theorem}
+	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Range(T)\subseteq \R^m$ is a 
+	subspace.
+\end{theorem}
+\begin{proof}
+	Since $\Range(T)=T(\R^n)$ and $\R^n$ is non-empty, we know that $\Range(T)$ is non-empty.
+	Therefore, to show that $\Range(T)$ is a subspace, we need to show (i) that it's closed under vector addition,
+	and (ii) that it is closed under scalar multiplication.
+	\begin{enumerate}[label=(\roman*)]
+		\item Let $\vec x,\vec y\in\Range(T)$.
+			By definition, there exist $\vec u,\vec v\in\R^n$ such that $T(\vec u)=\vec x$
+			and $T(\vec v)=\vec y$. Since $T$ is linear,
+			\[
+				\vec x+\vec y=T(\vec u)+T(\vec v)=T(\vec u+\vec v),
+			\]
+			and so $\vec x+\vec y\in\Range(T)$.
+		\item Let $\vec x\in\Range(T)$ and let $\alpha$ be a scalar.
+			By definition, there exists $\vec u\in\R^n$ such that $T(\vec u)=\vec x$,
+			and so by the linearity of $T$,
+			\[
+			\alpha\vec x=\alpha T(\vec u)=T(\alpha\vec u).
+			\]
+			Therefore $\alpha\vec x\in\Range(T)$.
+	\end{enumerate}
+\end{proof}
+
+When analyzing subspaces, we are often interested in how big they are. That information is captured by a numbers---the
+\emph{dimension} of the subspace. For transformations, we also have a notion of how ``big'' they are, which is captured
+in a number called the \emph{rank}.
+
+\SavedDefinitionRender{RankofaLinearTransformation}
+
+The rank of a linear transformation can be used as a measure of
+its complexity or compressibility. A rank $0$ transformation must send all vectors to $\vec 0$. A rank
+$1$ transformation must send all vectors to a line, etc.. So, by just knowing a single number---the rank---you
+can judge how complicated the set of outputs of a linear transformation will be.
+
+\begin{example}
+	Let $\mathcal P$ be the plane given by $x+y+z=0$, and let $T:\R^3\to\R^3$ be projection onto $\mathcal P$.
+	Find $\Range(T)$ and $\Rank(T)$.
+
+	First we will find $\Range(T)$. Since $T$ is a projection onto $\mathcal P$, we know $\Range(T)\subseteq \mathcal P$.
+	Because $T(\vec p)=\vec p$ for all $\vec p\in \mathcal P$, we know $\mathcal P\subseteq \Range(T)$, and so
+	\[
+		\Range(T)=\mathcal P.
+	\]
+
+	Since $\mathcal P$ is a plane, we know $\Dim(\mathcal P)=2=\Dim(\Range(T))=\Rank(T)$.
+\end{example}
+
+\Heading{Null Space}
+The second special subspace is called the \emph{null space}.
+
+\SavedDefinitionRender{NullSpace}
+
+We've seen null spaces before, but in the context of matrices when we asked questions like, ``Are these column vectors
+linearly independent?'' Now that we understand linear transformation and subspaces,
+we can consider this question anew.
+
+Just like the range of a linear transformation, the null space of a linear transformation is always a subspace.
+
+\begin{theorem}
+	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Null(T)\subseteq \R^n$ is a subspace.
+\end{theorem}
+\begin{proof}
+	Since $T$ is linear, $T(\vec 0)=\vec 0$ and so $\vec 0\in\Null(T)$ which shows that $\Null(T)$ is non-empty.
+	Therefore, to show that $\Null(T)$ is a subspace, we need to show (i) that it's closed under vector addition,
+	and (ii) that it is closed under scalar multiplication.
+	\begin{enumerate}[label=(\roman*)]
+		\item Let $\vec x,\vec y\in\Null(T)$.
+			By definition, $T(\vec x)=T(\vec y)=\vec 0$. By linearity we see
+			\[
+				T(\vec x+\vec y)=T(\vec x)+T(\vec y)=\vec 0+\vec 0=\vec 0,
+			\]
+			and so $\vec x+\vec y\in\Null(T)$.
+		\item Let $\vec x\in\Null(T)$ and let $\alpha$ be a scalar.
+			By definition, $T(\vec x)=\vec 0$,
+			and so by the linearity of $T$,
+			\[
+			T(\alpha\vec x)=\alpha T(\vec x)=\alpha\vec 0=\vec 0.
+			\]
+			Therefore $\alpha\vec x\in\Null(T)$.
+	\end{enumerate}
+\end{proof}
+
+Akin to the rank--range connection, there is a special number call the \emph{nullity} of a linear transformation
+that relates to the dimension of the null space.
+
+\SavedDefinitionRender{Nullity}
+
+\begin{example}
+	Let $\mathcal P$ be the plane given by $x+y+z=0$, and let $T:\R^3\to\R^3$ be projection onto $\mathcal P$.
+	Find $\Null(T)$ and $\Nullity(T)$.
+
+	First we will find $\Null(T)$. Since $T$ is a projection onto $\mathcal P$ (and because $\mathcal P$ passes
+	through $\vec 0$), we know every normal vector for $\mathcal P$ will get sent to $\vec 0$ when $T$ is applied.
+	And, besides $\vec 0$ itself, these are the only vectors that get sent to $\vec 0$. Therefore
+	\[
+		\Null(T)=\Set{\text{normal vectors}}\cup\Set{\vec 0}=\Span\Set*{\mat{1\\1\\1}}.
+	\]
+	Since $\Null(T)$ is a line, we know
+	$
+		\Nullity(T)=1.
+	$
+\end{example}
+
+\Heading{Fundamental Subspaces of a Matrix}
+Every linear transformation has a range and a null space. Analogously, every matrix is associated with
+three fundamental subspaces.
+
+\SavedDefinitionRender{FundamentalSubspaces}
+
+Computationally, it's much easier to find the row space/column space/null space of a matrix than it is
+to find the range/null space of a linear transformation. This is because everything we know about
+systems of equations and their relationship to matrix equations still holds.
+
+Take the null space of a matrix $M$, for example. By definition it is the set of solutions to
+$M\vec x=\vec 0$, which is the solution set to a homogeneous system of equations.
+
+\begin{example}
+	Find the null space of $M=\mat{1&2&5\\2&-2&-2}$.
+
+	To find the null space of $M$, we need to solve the homogeneous matrix equation $M\vec x=\vec 0$.
+	Row reducing, we see
+	\[
+		\Rref(M)=\mat{1&0&1\\0&1&2}
+	\]
+	and so the $z$ column is a free variable column. Therefore the complete solution can be expressed in
+	vector form as
+	\[
+		\mat{x\\y\\z}=t\mat{-1\\-2\\1},
+	\]
+	and so
+	\[
+		\Null(M)=\Span\Set*{\mat{-1\\-2\\1}}.
+	\]
+\end{example}
+
+The column space and row space are just as easy to compute, since it just involves picking
+a basis from the existing row or column vectors.
+
+\begin{example}
+	Let $M=\mat{1&2&5\\2&-2&-2}$. Find a basis for the row space and the column space of $M$.
+
+	First the column space. We need to pick a basis for $\Span\Set*{\mat{1\\2},\mat{2\\-1},\mat{5\\-2}}$
+	which is the same thing as picking a maximal linearly independent subset of $\Set*{\mat{1\\2},\mat{2\\-1},\mat{5\\-2}}$.
+
+	Putting these vectors as columns in a matrix and row reducing, we see
+	\[
+		\Rref\left(\mat{1&2&5\\2&-2&-2}\right) = \mat{1&0&1\\0&1&2}.
+	\]
+	The first and second columns are the only pivot columns and so the first and second \emph{original} vectors
+	form a maximal linearly independent subset. Thus,
+	\[
+		\Col(M) = \Span\Set*{\mat{1\\2},\mat{2\\-1}} = \R^2\qquad\text{and a basis is}\qquad \Set*{\mat{1\\2},\mat{2\\-1}}.
+	\]
+
+	To find the column space, we need to pick a basis for $\Span\Set*{\mat{1\\2\\5},\mat{2\\-2\\-2}}$. Repeating
+	a similar procedure, we see
+	\[
+		\Rref\left(\mat{1&2\\2&-2\\5&-2}\right) = \mat{1&0\\0&1\\0&0},
+	\]
+	and so $\Set*{\mat{1\\2\\5},\mat{2\\-2\\-2}}$ is linearly independent. Therefore
+	\[
+		\Row(M)=\Span\Set*{\mat{1\\2\\5},\mat{2\\-2\\-2}}\qquad\text{and a basis is}\qquad \Set*{\mat{1\\2\\5},\mat{2\\-2\\-2}}.
+	\]
+\end{example}
+
+When talking about fundamental subspaces, we often switch between talking about column vectors and
+row vectors belonging to a matrix. The operation of swapping rows for columns is
+called the \emph{transpose}.
+
+\SavedDefinitionRender{Transpose}
+
+Using the transpose, we can make statements like
+\[
+	\Col(M)=\Row(M^T)\qquad\text{and}\qquad \Row(M)=\Col(M^T).
+\]
+
+In addition it helps us state the following theorem.
+\begin{theorem}
+	For a matrix $A$, the dimension of the row space equals the dimension of the column space. That is,
+	$\Rank(A)=\Rank(A^T)$.
+\end{theorem}
+\begin{proof}
+	To prove $\Rank(A)=\Rank(A^T)$, we will rely on what we know about the row reduction algorithm and what
+	the reduced row echelon form of a matrix tells us. 
+
+	\emph{Claim 1}: $\Row(\Rref(A))\subseteq \Row(A)$. To see this, observe that to get $\Rref(A)$, we take
+	linear combinations of the rows of $A$. Therefore, it must be that the span of the rows of $\Rref(A)$
+	is contained in the span of the rows of $A$.
+
+	\emph{Claim 2}: $\Row(\Rref(A))=\Row(A)$. To see this, observe that every elementary row operation is
+	reversible. Therefore every row in $A$ can be obtained as a linear combination of rows in $\Rref(A)$
+	(by just reversing the steps). Thus the row vectors of $\Rref(A)$ and the row vectors of $A$ must
+	have the same span.
+
+	\emph{Claim 3}: The non-zero rows of $\Rref(A)$ form a basis for $\Row(A)$. We already know that
+	the non-zero rows of $\Rref(A)$ span $\Row(A)$, so we only need to argue that they are linearly
+	independent. However, this follows immediately from the fact that $\Rref(A)$ is in reduced row
+	echelon form. Above and below every pivot in $\Rref(A)$ are zeros. Therefore, a row in $\Rref(A)$
+	with a pivot cannot be written as a linear combination of any other row. Since every non-zero
+	row has a pivot, this shows the claim.
+	
+	Now, note the following two facts.
+	\begin{enumerate}
+		\item The columns of $A$ corresponding to pivot columns of $\Rref(A)$ form a basis for $\Col(A)$.
+		\item The non-zero rows of $\Rref(A)$ form a basis for $\Row(A)$.
+	\end{enumerate}
+
+	To complete the proof, note that every pivot of $\Rref(A)$ lies in exactly one row and one column. Therefore,
+	the number of basis vectors in $\Row(A)$ is the same as the number of basis vectors in $\Col(A)$. Thus
+	$\Rank(A)=\Rank(A^T)$.
+\end{proof}
+
+\Heading{Equations, Null Spaces, and Geometry}
+
+Let $M=\mat{1&2&5\\2&-2&-2}$. Using the typical row-reduction steps, we know that the complete solution to $M\vec x=\vec 0$
+(i.e., the null space of $M$) can be expressed in vector form as
+\[
+	\vec x=t\mat{-1\\-2\\1}.
+\]
+Similarly, the complete solution to $M\vec x=\vec b$ where $\vec b=\mat{1\\2}$ can be expressed in vector form as
+\[
+	\vec x=t\mat{-1\\-2\\1}+\mat{1\\0\\0}.
+\]
+
+The set of solutions to $M\vec x=\vec 0$ and $M\vec x=\vec b$ look very similar. In fact, 
+\[
+	\Set{\text{solutions to $M\vec x=\vec b$}} = \Set{\text{solutions to $M\vec x=\vec 0$}}+\Set{\vec p}\qquad\text{where}
+	\qquad \vec p=\mat{1\\0\\0}.
+\]
+Or, phrased another way, the solution set to $M\vec x=\vec b$ is
+\[
+	\Null(M)+\Set{\vec p}.
+\]
+
+In the context of what we already know about lines and translated subspaces, this makes perfect sense. We know
+that the solution set to $M\vec x=\vec b$ is a line (which doesn't pass through the origin) and may therefore
+be written as a translated span $\Span\Set{\vec d}+\Set{\vec p}$. Here $\vec d$ is a direction vector for the line
+and $\vec p$ is a point on the line.
+
+Because $\vec p\in\Span\Set{\vec d}+\Set{\vec p}$, we call $\vec p$ a \emph{particular solution} to $M\vec x=\vec b$.
+ Using a similar argument, we can show that for any matrix $A$, and any vector $\vec b$, the set of all solutions
+to $A\vec x=\vec b$ (provided there are any) can be expressed as
+\[
+	V+\Set{\vec p}
+\]
+where $V$ is a subspace and $\vec p$ is a particular solution. In fact, we can do better. We can say $V=\Null(A)$.
+
+\begin{theorem}
+	Let $A$ be a matrix and $\vec b$ be a vector and let $\vec p$ be a particular solution
+	to $A\vec x=\vec b$. Then, the set of all solutions to $A\vec x=\vec b$ is
+	\[
+		\Null(A)+\Set{\vec p}.
+	\]
+\end{theorem}
+\begin{proof}
+	Let $S=\Set{\text{all solutions to $A\vec x=\vec b$}}$ and assume $\vec p\in S$. We will show $S=\Null(A)+\Set{\vec p}$.
+
+	First we will show $\Null(A)+\Set{\vec p}\subseteq S$. Let $\vec v\in \Null(A)+\Set{\vec p}$. By definition,
+	$\vec v=\vec n+\vec p$ for some $\vec n\in \Null(A)$. Now, by linearity of matrix multiplication 
+	and the definition of the null space,
+	\[
+		A\vec v=A(\vec n+\vec p)=A\vec n+A\vec p=\vec 0+\vec b=\vec b,
+	\]
+	and so $\vec v\in S$.
+
+	Next we will show $S\subseteq \Null(A)+\Set{\vec p}$. First observe that for any
+	$\vec u,\vec v\in S$ we have
+	\[
+		A(\vec u-\vec v)=A\vec u-A\vec v=\vec b-\vec b=\vec 0,
+	\]
+	and so $\vec u-\vec v\in \Null(A)$. 
+	
+	Fix $\vec w\in S$. By our previous observation, $\vec w-\vec p\in \Null(A)$. Therefore 
+	\[
+		\vec w=(\vec w-\vec p)+\vec p\in \Null(A)+\Set{\vec p},
+	\]
+	which completes the proof.
+\end{proof}
+
+
+\begin{emphbox}[Takeaway]
+	To write the complete solution to $A\vec x=\vec b$, all you need is the
+	null space of $A$ and a particular solution to $A\vec x=\vec b$.
+\end{emphbox}
+
+
+\bigskip
+Null spaces are also closely connected with row spaces. Let $\mathcal P\subseteq \R^3$ be the plane
+with equation $x+2y+2z=0$. We can rewrite this equation as a matrix equation and as the equation
+of a plane in normal form.
+\[
+	\underbrace{\mat{1&2&2}\mat{x\\y\\z}=\vec 0}_{\text{a matrix equation}}\qquad\qquad
+	\underbrace{\mat{1\\2\\2}\cdot \mat{x\\y\\z}=0}_{\text{normal form}}
+\]
+Now we see that $\mathcal P=\Null\left(\mat{1&2&2}\right)$ and that every non-zero vector in $\Row\left(\mat{1&2&2}\right)$
+is a normal vector for $\mathcal P$. In other words, $\Null\left(\mat{1&2&2}\right)$ is orthogonal to $\Row\left(\mat{1&2&2}\right)$.
+
+This is no coincidence. Let $M$ be a matrix and let $\vec r_1,\ldots,\vec r_n$ be the rows of $M$. By definition,
+\[
+	M\vec x=\matc{\vec r_1\cdot \vec x\\\vdots\\\vec r_n\cdot \vec x},
+\]
+and so solutions to $M\vec x=\vec 0$ are precisely the vectors which are orthogonal to every row of $M$. In other words,
+$\Null(M)$ consists of all vectors orthogonal to the rows of $M$.
+Conversely, $\Row(M)$ consists of all vectors orthogonal to everything in $\Null(M)$. We can use this
+fact to approach questions in a new way.
+
+\begin{example}
+	Let $\vec a=\mat{1\\2\\5}$ and $\vec b=\mat{2\\-2\\-2}$. Find the set of all vectors orthogonal
+	to both $\vec a$ and $\vec b$.
+
+	Let $M=\mat{1&2&5\\2&-2&-2}$ be the matrix whose rows are $\vec a$ and $\vec b$. Since
+	$\Null(M)$ consists of all vectors orthogonal to $\Row(M)$, the set we are looking for is
+	$\Null(M)$. Computing via row reduction we find
+	\[
+		\Null(M)=\Span\Set*{\mat{-1&-2&1}}.
+	\]
+\end{example}
+
+
+
+\Heading{Transformations and Matrices}
+
+Matrices are connected to systems of linear equations via matrix equations (like $A\vec x=\vec b$)
+and to linear transformations through matrix transformations (like $\mathcal T(\vec x)=M\vec x$).
+This means that we can think about systems of equations in terms of linear transformations and
+we can gain insight about linear transformations by looking at systems of equations!
+
+In preparation for this, let's reconsider matrix transformations and be pedantic about our notation.
+
+Let $\mathcal T:\R^n\to\R^n$ be a linear transformation and let $M$ be its corresponding matrix.
+$\mathcal T$ is a function that inputs and outputs \emph{vectors}. $M$ is a box of numbers,
+which has no meaning by itself, but we know how to multiply $M$ by lists of numbers (or other boxes of numbers).
+Therefore, strictly speaking, the expression ``$M\vec x$'' doesn't make sense. The quantity ``$\vec x$'' is a
+vectors, but we only know how to multiply $M$ by lists of numbers.
+
+Ah! But we know how to turn $\vec x$ into a list of numbers. Just pick a basis! The expression
+\[
+	M[\vec x]_{\mathcal E}
+\]
+makes perfect sense since $[\vec x]_{\mathcal E}$ is a list of numbers. Continuing to be pedantic, we know
+$\mathcal T(\vec x)\neq M[\vec x]_{\mathcal E}$ since the left side is a vector and the right side is a list of numbers.
+We can fix this by either turning the right side into a vector or the left side into a list of numbers.
+Doing this, we see the precise relationship between a linear transformation $\mathcal T:\R^n\to\R^n$ and its matrix $M$ is
+\[
+	[\mathcal T(\vec x)]_{\mathcal E}=M[\vec x]_{\mathcal E}.
+\]
+
+If we have a matrix $M$, by picking a basis (usually the standard basis),
+we can define a linear transformation by first taking the input vector and rewriting it in the basis,
+next multiplying by the matrix, and finally taking the list of numbers and using them as coefficients
+for a linear combination involving the basis vectors. This is what we actually mean
+when we say that a matrix \emph{induces} a linear transformation.
+
+\SavedDefinitionRender{InducedTransformation}
+
+Before we would write ``$\mathcal T(\vec x)=M\vec x$'' which hides the fact that when we relate a matrix and a linear
+transformation, there is a basis hidden in the background. And, like before, when we're only considering a single basis,
+we can be sloppy with our notation and write things like ``$M\vec x$'', but when there are multiple bases or when we're
+trying to be extra precise, we must make sure our boxes/lists of numbers and our transformations/vectors stay separate.
+
+\begin{example}
+	Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{1&2&5\\2&-2&-2}$,
+	and let $\vec v=3\xhat-3\zhat$. Compute $\mathcal T(\vec v)$.
+
+	XXX Finish
+\end{example}
+
+Using induced transformations, we can extend linear-transformation definitions to matrix definitions.
+In particular, we can define the rank and nullity of a matrix.
+
+\SavedDefinitionRender{RankofaMatrix}
+\SavedDefinitionRender{NullityofaMatrix}
+
+\Heading{Range vs\mbox{.} Column Space, Null Space vs\mbox{.} Null Space}
+Let $M=\mat{C_1&C_2&\cdots &C_m}$ be an $m\times m$ matrix with columns $C_1$, \ldots, $C_n$, and let $\mathcal T$ be 
+the transformation induced by $M$. The column space of $M$ is the set of all linear combinations of the columns of
+$M$. But, let's be precise. The columns of $M$ are lists of numbers, so to talk about the column space of $M$,
+we need to turn them into vectors. Fortunately, we have a nice notation for that. Since $C_i$ is a list of numbers,
+$[C_i]_{\mathcal E}$ is a true vector, and
+\[
+	\Col(M)=\Span\Set*{\hspace{1pt}[C_1]_{\mathcal E},[C_2]_{\mathcal E},\ldots,[C_m]_{\mathcal E}}.
+\]
+
+Can we connect this to the range of $\mathcal T$? Well, by the definition of matrix multiplication, we know that
+\[
+	M\matc{1\\0\\\vdots\\0}=M[\vec e_1]_{\mathcal E} = C_1
+\]
+and in general $M[\vec e_i]_{\mathcal E}=C_i$. By the definition of induced transformation, we know
+\[
+	[\mathcal T(\vec e_i)]_{\mathcal E} = M[\vec e_i]_{\mathcal E} = C_i,
+\]
+and so
+\[
+	\mathcal T(\vec e_i)= [C_i]_{\mathcal E}.
+\]
+Every input to $\mathcal T$ can be written as a linear combination of $\vec e_i$'s (because $\mathcal E$ is a basis)
+and so, because $\mathcal T$ is linear, every output of $\mathcal T$ can be written as a linear combination of $[C_i]_{\mathcal E}$'s.
+In other words,
+\[
+	\Range(\mathcal T)=\Col(M).
+\]
+This means that when trying to answer a question about the range of a linear transformation, we could think about
+the column space of its matrix instead (or vice verse). 
+
+\begin{example}
+	Let $\mathcal T:\R^3\to\R^2$ be defined by
+	\[
+		\mathcal T\mat{x\\y\\z} = \mat{2x-z\\4x-2z}.
+	\]
+	Find $\Range(\mathcal T)$ and $\Rank(\mathcal T)$.
+
+	Let $M$ be a matrix for $\mathcal T$. We know $\Range(\mathcal T)=\Col(M)$ and $\Rank(\mathcal T)=\Dim(\Range(\mathcal T))
+	=\Dim(\Col(M))$. By inspection, we see that
+	\[
+		M=\mat{2&0&-1\\4&0&-2}.
+	\]
+	Again, by inspection, we see that $\Set*{\mat{2\\4}}$ is a basis for $\Col(M)$ which is one dimensional.
+	Therefore,
+	\[
+		\Range(\mathcal T) = \Span\left(\Set*{\mat{2\\4}}\right)\qquad \text{and}\qquad \Rank(\mathcal T)=1.
+	\]
+\end{example}
+
+There is an alternative definition of the rank of a matrix which commonly appears. This time,
+we'll state it as a theorem.
+
+\begin{theorem}
+	Let $M$ be a matrix. The rank of $M$ is equal to the number
+	of pivots in $\Rref(M)$.
+\end{theorem}
+\begin{proof}
+	We know that $\Rank(M)=\Dim(\Range(\mathcal T_M))=\Dim(\Col(M))$ where $\mathcal T_M$ is the transformation
+	induced by $M$. Further, a basis for $\Col(M)$ consists of a maximal linearly independent subset
+	of the columns of $M$. To find such a subset, we row reduce $M$ and look at the columns of $M$ that correspond
+	to pivot columns of $\Rref(M)$.
+
+	When all is said and done, the number of elements in a basis for $\Col(M)$ will be the number of pivots in $\Rref(M)$,
+	which is the same as $\Rank(M)$.
+\end{proof}
+
+\begin{emphbox}[Takeaway]
+	If $\mathcal T$ is a linear transformation and $M$ a corresponding
+	matrix, $\Range(\mathcal T)=\Col(M)$, and answering questions about $M$ answers
+	questions about $\mathcal T$.
+\end{emphbox}
+
+Just like the range--column-space relationship, we also have a null-space--null-space relationship.
+More specifically, if $\mathcal T$ is a linear transformation with matrix $M$, then
+$\Null(\mathcal T)=\Null(M)$. From this fact, we deduce the following theorem.
+
+\begin{theorem}
+	Let $\mathcal T$ be a linear transformation and let $M$ be a matrix for $\mathcal T$. Then
+	$\Nullity(\mathcal T)$ is equal to the number of free variable columns in $\Rref(M)$.
+\end{theorem}
+\begin{proof}
+	We know $\Nullity(\mathcal T)=\Dim(\Null(\mathcal T))=\Dim(\Null(M))$. Further, we know
+	that the complete solution to $M\vec x=\vec 0$ will take the form
+	\[
+		\vec x=t_1\vec d_1+\cdots +t_k\vec d_k
+	\]
+	where $k$ is the number of free variable columns in $\Rref(M)$. The algorithm for
+	writing the complete solution to $M\vec x=\vec 0$ ensures that $\Set{\vec d_1,\ldots,\vec d_k}$
+	is a basis for $\Null(M)$, and so $\Nullity(\mathcal T)=k$, which completes the proof.
+\end{proof}
+
+\Heading{The Rank-Nullity Theorem}
+
+The rank and the nullity of a linear transformation/matrix are connected by a powerful theorem.
+
+\begin{theorem}(Rank-nullity Theorem for Matrices) For a matrix $A$,
+\[
+	\Rank(A)+\Nullity(A)=\ \#\text{ of columns in $A$}.
+\]
+\end{theorem}
+
+The Rank-nullity Theorem's statement is simple, but it is surprisingly useful. Consider
+the matrix \[M=\mat{1&2&2}.\] We already know that $\Null(M)$ is the plane with equation
+$x+2y+2z=0$ and therefore is two dimensional. Since $M$ has three columns, $\Rank(M)=1$, and
+so $\Dim(\Col(M))=\Dim(\Row(M))=1$, which means that $M$ has a one-dimensional set of normal vectors.
+
+By contrast, let $\mathcal P\subseteq \R^4$ be the plane in $\R^4$ given in vector form by
+\[
+	\vec x=t\mat{1\\2\\2\\2}+s\mat{-1\\1\\-1\\1}.
+\]
+How many normal vectors does $\mathcal P$ have? Well, the matrix $A=\mat{1&2&2&2\\-1&1&-1&1}$ is rank $2$,
+and so has nullity $2$. Therefore, there exists two linearly independent normal directions for $\mathcal P$.
+
+There is an equivalent Rank-nullity Theorem for linear transformations.
+\begin{theorem}(Rank-nullity Theorem for Linear Transformations) Let $\mathcal T$ be a linear transformation.
+Then
+\[
+	\Rank(\mathcal T)+\Nullity(\mathcal T)=\Dim(\text{domain of $\mathcal T$}).
+\]
+\end{theorem}
+
+Just like the Rank-nullity Theorem for matrices, the Rank-nullity Theorem for linear transformations
+can give insights about linear transformations that would be otherwise hard to see.
+

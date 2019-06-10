@@ -1,0 +1,344 @@
+
+Linear transformations transform vectors, but the also change \emph{sets}.
+
+XXX Figure of a transformation changing a set
+
+It turns out to be particularly useful to track by how much a linear transformation
+changes area/volume. This number which is associated with a linear transformation with
+the same domain and codomain is called the \emph{determinant}\footnote{ This number is \emph{almost} the determinant.
+The only difference is that the determinant might have a $\pm$ in front.}.
+
+\Heading{Volumes}
+
+In this module, most examples will be in $\R^2$ because they're easier to draw.
+The definitions given will extend to $\R^n$ for any $n$, however the English language
+will sometimes get in the way. In English, we say that a two-dimensional figure has an
+\emph{area} and a three-and-up dimensional figure has a \emph{volume}. In this section, \emph{we
+will use the term volume to also mean area}.
+
+To measure how volume changes, we will need to compare input volumes and output volumes. 
+For this purpose, we will define notation for the \emph{unit $n$-cube}.
+
+\SavedDefinitionRender{Unitncube}
+
+$C_2$ should look familiar as the unit square in $\R^2$ with lower-left corner at the origin.
+
+XXX Figure
+
+$C_n$ always has volume $1$\footnote{ The fact that the volume of $C_n$ is $1$ is actually by definition.}, and by
+analyzing the image of $C_n$ under a linear transformation, we can see by
+how much a given transformation changes volume.
+
+\begin{example}
+	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
+	Find the volume of $\mathcal T(C_2)$.
+
+	XXX Finish
+	XXX Figure
+\end{example}
+
+Let $\Vol(X)$ stand for the volume of the set $X$.
+Given a linear transformation $\mathcal S:\R^n\to\R^n$, we can define a number
+\[
+	\VolChange(\mathcal S)=\frac{\Vol(\mathcal S(C_n))}{\Vol(C_n)}=\frac{\Vol(\mathcal S(C_n))}{1}=\Vol(\mathcal S(C_n)).
+\]
+
+A priori, $\VolChange(\mathcal S)$ only describes how $\mathcal S$ changes the volume of $C_n$. However, because $\mathcal S$
+is a linear transformation, $\VolChange(\mathcal S)$ actually describes how $\mathcal S$ changes the volume of any figure.
+
+\begin{theorem}
+	Let $\mathcal T:\R^n\to\R^n$ be a linear transformation and let $X\subseteq \R^n$ be a subset
+	with volume $\alpha$. Then the volume of $\mathcal T(X)$ is $\alpha\!\cdot\!\VolChange(\mathcal T)$.
+\end{theorem}
+
+A full proof of the above theorem requires calculus and limits, but the linear algebra ideas are based on the following
+theorems.
+
+\begin{theorem}
+	Suppose $\mathcal T:\R^n\to\R^n$ is a linear transformation and $X\subseteq \R^n$ is a subset and the
+	volume of $\mathcal T(X)$ is $\alpha$.
+	Then for any $\vec p\in \R^n$, the volume of $\mathcal T(X+\Set{\vec p})$ is $\alpha$.
+\end{theorem}
+\begin{proof}
+	Fix $\mathcal T:\R^n\to\R^n$, $X\subseteq \R^n$, and $\vec p\in \R^n$. Combining linearity with
+	the definition of set addition, we see
+	\[
+		\mathcal T(X+\Set{\vec p}) = \mathcal T(X)+\mathcal T(\Set{\vec p}) = \mathcal T(X)+\Set{\mathcal T(\vec p)}
+	\]
+	and so $\mathcal T(X+\Set{\vec p})$ is just a translation of $\mathcal T(X)$. Since translations don't change
+	volume, $\mathcal T(X+\Set{\vec p})$ and $\mathcal T(X)$ must have the same volume.
+\end{proof}
+
+\begin{theorem}
+	Fix $k$ and let $B_n$ be $C_n$ scaled to have side lengths $\frac{1}{k}$ and let $\mathcal T:\R^n\to\R^n$ be a linear
+	transformation. Then
+	\[
+		\VolChange(\mathcal T) = \frac{\Vol(\mathcal T(B_n))}{\Vol(\mathcal B_n)}.
+	\]
+\end{theorem}
+
+Rather than giving a formal proof of the above theorem, let's make a motivating picture.
+
+XXX Figure
+
+The argument now goes: there are $k^n$ copies of $B_n$ in $C_n$ and $k^n$ copies of $\mathcal T(B_n)$ in
+$T(C_n)$. Thus,
+\[
+	\VolChange(\mathcal T)
+	=\frac{\Vol(\mathcal T(C_n))}{\Vol(\mathcal C_n)}=\frac{k^n\Vol(\mathcal T(B_n))}{k^n\Vol(\mathcal B_n)}
+	=\frac{\Vol(\mathcal T(B_n))}{\Vol(\mathcal B_n)}.
+\]
+
+Now we can finally show that for a linear transformation $\mathcal T:\R^n\to\R^n$
+the number ``$\VolChange(\mathcal T)$'' actually corresponds to how much $\mathcal T$ changes the volume
+of any figure.
+
+The argument goes as follows: for a figure $X\subseteq \R^n$, we can fill it with shrunken and
+translated copies, $B_n$, of $C_n$. The same number of copies of $\mathcal T(B_n)$ fit inside $\mathcal T(X)$
+as do $B_n$'s fit inside $X$. Therefore, the change in volume between $\mathcal T(X)$ and $X$ must be the same
+as the change in volume between $\mathcal T(B_n)$ and $B_n$, which is $\VolChange(\mathcal T)$.
+
+XXX Figure
+
+\Heading{The Determinant}
+
+The determinant of a linear transformation $\mathcal T:\R^n\to\R^n$ is \emph{almost} the same
+as $\VolChange(\mathcal T)$, but with one twist: \emph{orientation}.
+
+\SavedDefinitionRender{Determinant}
+
+We've previously defined the orientation of a basis, and we can use the orientation
+of a basis to define whether a linear transformation is \emph{orientation preserving}
+or \emph{orientation reversing}.
+
+\SavedDefinitionRender{OrientationPreservingLinearTransformation}
+
+XXX Figure
+
+In the figure above, $\mathcal T$ is orientation preserving and $\mathcal S$ is orientation reversing.
+
+
+\begin{example}
+	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
+	Find $\det(\mathcal T)$.
+
+	XXX Finish (this is the example from earlier)
+\end{example}
+\begin{example}
+	Let $\mathcal S:\R^2\to\R^2$ be defined by $\mathcal S\mat{x\\y}=\mat{-x+y\\x+y}$.
+	Find $\det(\mathcal T)$.
+
+	XXX Finish (this reverses orientation)
+\end{example}
+\begin{example}
+	Let $\mathcal P:\R^2\to\R^2$ be projection onto the line with equation $x+2y=4$. Find $\det(\mathcal P)$.
+
+	Because $\mathcal P$ projects everything to a line, we know $\mathcal P(C_2)$ must be a line segment, and
+	therefore has no volume. Thus $\det(\mathcal P)=0$.
+\end{example}
+
+
+\Heading{Determinants of Composition}
+
+Volume changes are naturally multiplicative. If a linear transformation $\mathcal T$ changes volume by a factor
+of $\alpha$ and $\mathcal S$ changes volume by a factor of $\beta$, then $\mathcal S\circ \mathcal T$ changes
+volume by a factor of $\beta\alpha$. Thus, determinants are multiplicative.
+
+XXX Figure
+
+\begin{theorem}
+	Let $\mathcal T:\R^n\to\R^n$ and $\mathcal S:\R^n\to\R^n$ be linear transformations. Then
+	\[
+		\det(\mathcal S\circ \mathcal T)=\det(\mathcal S)\det(\mathcal T).
+	\]
+\end{theorem}
+
+This means that we can compute the determinant of a complicated transformation by breaking it up
+into simpler ones and computing the determinant of each piece. 
+
+\Heading{Determinants of Matrices}
+
+The determinant of a matrix is defined as the determinant of its induced transformation.
+That means, the determinant is multiplicative with respect to matrix multiplication (because
+it's multiplicative with respect to function composition).
+
+\begin{theorem}
+	Let $A$ and $B$ be $n\times n$ matrices. Then
+	\[
+		\det(AB)=\det(A)\det(B).
+	\]
+\end{theorem}
+
+We will derive an algorithm for finding the determinant of a matrix by considering the determinant of
+elementary matrices. But first, consider the following theorem.
+
+\begin{theorem}(Volume Theorem I)
+	For a square matrix $M$, $\det(M)$ is the oriented volume of the parallelepiped\footnote{ A parallelepiped is the
+	$n$-dimensional analog of a parallelogram.} given by the column
+	vectors.
+\end{theorem}
+\begin{proof}
+	Let $M$ be an $n\times n$ matrix and let $\mathcal T_M$ be its induced transformation. We know the sides of
+	$\mathcal T_{M}(C_n)$ are given by $\Set{\mathcal T_M(\vec e_1),\ldots,\mathcal T_M(\vec e_n)}$. And, by definition,
+	\[
+		[\mathcal T_M(\vec e_i)]_{\mathcal E} = M[\vec e_i]_{\mathcal E} = \text{ $i$th column of $M$.}
+	\]
+	Therefore $\mathcal T_{M}(C_n)$ is the parallelepiped whose sides are given by the columns of $M$.
+\end{proof}
+
+This means we can think about the determinant of a matrix by considering its columns, and now we are ready to consider
+the determinants of the elementary matrices.
+
+\bigskip
+There are three types of elementary matrices corresponding to the three elementary row operations. For each
+one, we need to understand how the induced transformation changes volume.
+
+{\bfseries Multiply a row by a non-zero constant $\alpha$.} Let $E_m$ be such an elementary matrix. 
+Scaling one row of $I$ is equivalent to scaling one column of $I$, and so the columns of $E_m$ specify a parallelepiped
+that is scaled by $\alpha$ in one direction.
+
+For example, if
+\[
+	E_m=\mat{1&0&0\\0&1&0\\0&0&\alpha}\qquad\text{then}\qquad \Set{\vec e_1,\vec e_2,\vec e_3}\mapsto\Set{\vec e_1,\vec e_2,\alpha\vec e_3}.
+\]
+
+Thus $\det(E_m)=\alpha$.
+
+{\bfseries Swap two rows.} Let $E_s$ be such an elementary matrix. Swapping two rows of $I$ is equivalent to swapping
+two columns of $I$, so $E_s$ is $I$ with two columns swapped. This reverses the orientation of the basis given by the columns.
+
+For example, if
+\[
+	E_s=\mat{0&1&0\\1&0&0\\0&0&1}\qquad\text{then}\qquad \Set{\vec e_1,\vec e_2,\vec e_3}\mapsto\Set{\vec e_2,\vec e_1,\vec e_3}.
+\]
+
+Thus $\det(E_s)=-1$.
+
+{\bfseries Add a multiple of one row to another.} Let $E_a$ be such an elementary matrix. The columns of $E_a$ are the same as the columns
+of $I$ except that one column where $\vec e_i$ is replaced with $\vec e_i+\alpha\vec e_j$. This has the effect of \emph{shearing} $C_n$ in
+the $\vec e_j$ direction.
+
+
+\begin{center}
+	\usetikzlibrary{patterns,decorations.pathreplacing}
+	\begin{tikzpicture}
+		\coordinate (A) at (2,0);
+		\coordinate (B) at (0,2);
+		\coordinate (O) at (0,0);
+
+		%\draw [mypink,fill] (A) circle (1.5pt) node [right] {initial point};
+		%\draw [mypink,fill] (B) circle (1.5pt) node [left] {terminal point};
+		\draw[fill,gray!30!white] (O) -- +(B) -- +($(A)+(B)$) -- +(A) -- (O);
+		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,below] {$\vec e_j$};
+		\draw[->,thick,mypink] (0,0) -- +(B) node [midway,above left] {$\vec e_i$};
+		\draw[black,dashed,<->] ($.1*(A)$) -- ($.1*(A)+(0,2)$) node [midway,right] {$\text{height}=1$};
+	\end{tikzpicture}
+	\hspace{1cm}
+	\begin{tikzpicture}
+		\coordinate (A) at (2,0);
+		\coordinate (B) at (0,2);
+		\coordinate (C) at ($(B)+2*(A)$);
+		\coordinate (O) at (0,0);
+
+		%\draw [mypink,fill] (A) circle (1.5pt) node [right] {initial point};
+		%\draw [mypink,fill] (B) circle (1.5pt) node [left] {terminal point};
+		\draw[fill,gray!30!white] (O) -- +(C) -- +($(A)+(C)$) -- +(A) -- (O);
+		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,below] {$\vec e_j$};
+		\draw[->,thick,gray,dashed] (0,0) -- +(B);% node [midway,above left] {$\vec b$};
+		\draw[->,thick,gray,dashed] (B) -- +($2*(A)$);% node [midway,above] {$2\vec a$};
+		\draw[->,thick,mypink] (0,0) -- +(C) node [midway,above left] {$\vec e_i+\alpha\vec e_j$};
+		\draw[black,dashed,<->] ($2.3*(A)$) -- ($2.3*(A)+(0,2)$) node [midway,right] {$\text{height}=1$};
+	\end{tikzpicture}
+\end{center}
+
+Since $C_n$ is sheared parallel to one of its other sides, its volume is not changed. Thus $\det(E_a)=1$.
+
+\begin{emphbox}[Takeaway]
+	The determinants of elementary matrices are all easy to compute and the determinant of the
+	most-used type of elementary matrix is $1$.
+\end{emphbox}
+
+Now, by decomposing a matrix into the product of elementary matrices, 
+we can use the multiplicative property of the determinant and the formulas for the determinants
+of the different types of elementary matrices to compute the determinant of an invertible
+matrix.
+
+\begin{example}
+	Use elementary matrices to find the determinant of $A=\mat{1&2\\3&4}$.
+
+	XXX Finish
+\end{example}
+
+\Heading{Determinants and Invertibility}
+
+We can use elementary matrices to compute the determinant of any invertible matrix by
+decomposing it into the product of elementary matrices. But, what about non-invertible matrices?
+
+Let $M$ be an $n\times n$ matrix that is \emph{not} invertible. Then, we must have $\Nullity(M)>0$
+and $\Col(M)<n$. Geometrically, this means there is at least one line of vectors, $\Null(M)$, that gets
+collapsed to $\vec 0$, and the column space of $M$ must be ``flattened'' (i.e., have lost a dimension). 
+Therefore, the volume of the parallelepiped given by the columns of $M$ must be zero, and so $\det(M)=0$.
+
+Based on this argument, we have the following theorem.
+\begin{theorem}
+	Let $A$ be an $n\times n$ matrix. $A$ is invertible if and only if $\det(A)\neq 0$.
+\end{theorem}
+\begin{proof}
+	If $A$ is invertible, $A=E_1\cdots E_k$, where $E_1,\ldots,E_k$ are elementary matrices,
+	and so
+	\[
+		\det(A)=\det(E_1\cdots E_k) = \det(E_1)\cdots \det(E_k).
+	\]
+	For every type of elementary matrix its determinant cannot be zero, and so $\det(A)\neq 0$.
+
+	Conversely, if $A$ is not invertible, $\Rank(A)<n$, which means the parallelepiped 
+	given by the columns of $A$ is ``flattened'' and has zero volume.
+\end{proof}
+
+We now have another way to tell if a matrix is invertible! But, for an invertible matrix $A$,
+how do $\det(A)$ and $\det(A^{-1})$ relate?  Well, by definition
+\[
+	AA^{-1}=I,
+\]
+and so
+\[
+	\det(AA^{-1})=\det(A)\det(A^{-1})=
+	\det(I)=1
+\]
+which gives
+\[
+	\det(A^{-1})=\frac{1}{\det(A)}.
+\]
+
+\Heading{Determinants and Transposes}
+
+Somewhat mysteriously, we have the following theorem.
+\begin{theorem}(Volume Theorem II)
+	The determinant of a square matrix $A$ is equal to the oriented volume of the parallelepiped
+	given by the rows of $A$.
+\end{theorem}
+
+Volume Theorem II can be concisely stated as $\det(A)=\det(A^T)$, and joins the ranks of other
+similarly strange properties of the transpose like $\Rank(A)=\Rank(A^T)$.
+
+We can actually prove Volume Theorem II using elementary matrices.
+\begin{proof}
+	Suppose $A$ is not invertible. Then, neither is $A^T$ and so $\det(A)=\det(A^T)=0$.
+
+	Suppose $A$ is invertible and $A=E_1\cdots E_k$ where $E_1,\ldots, E_k$ are elementary
+	matrices. We then have
+	\[
+		A^T = E_k^T\cdots E_1^T.
+	\]
+	However, for each $E_i$, we may observe that $E_i^T$ is another elementary matrix
+	of the same type and with the same determinant. Therefore,
+	\begin{align*}
+		\det(A^T) = \det(E_k^T\cdots E_1^T)&=\det(E_k^T)\cdots \det(E_i^T)\\ 
+		&=
+		\det(E_k)\cdots \det(E_1)\\ &= \det(E_1)\cdots \det(E_k) = \det(E_1\cdots E_k)=\det(A).
+	\end{align*}
+	The key observations for this proof are that (i) $\det(E_i^T)=\det(E_i)$ and (ii) since the 
+	$\det(E_i)$'s are just scalars, the order in which they are multiplied doesn't matter.
+\end{proof}
+
+

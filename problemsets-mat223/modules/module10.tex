@@ -1,0 +1,104 @@
+
+In life, we encounter situations where we do one thing after another. For example, you
+put on your socks and then your shoes. We might call this whole operation (of first putting on your socks
+and then your shoes) ``getting dressed'', and it is an example of \emph{function composition}. 
+
+\SavedDefinitionRender{CompositionofFunctions}
+
+We can formalize the shoes-socks example 
+with mathematical notation.
+\[
+	\text{getting dressed} = (\text{putting on shoes})\circ (\text{putting on socks})
+\]
+Or, if $X$ represented putting on socks, $S$ represented putting on shoes, and $D$ represented getting dressed,
+$D=S\circ X$.
+
+This real-life example has utility when talking to children. Getting dressed is a complicated operation, but by breaking
+it up into simpler operations, even a young child can understand the process of getting dressed. In this vein, we can understand
+complicated linear transformations by breaking them up into the composition of simpler ones.
+
+For example, define
+\[
+	\mathcal T:\R^2\to\R^2\qquad\text{by}\qquad \mathcal T(\vec x)=\matc{\sqrt{2}&-\sqrt{2}\\{\sqrt{2}}/{2} & {\sqrt{2}}/{2}}\vec x.
+\]
+It's hard to understand what $\mathcal T$ is doing just by looking at inputs and outputs. However, if we were keen enough to notice that
+\[
+	\mathcal T=\mathcal S\circ \mathcal R
+\]
+where $\mathcal R$ was rotation counter-clockwise by $45^\circ$ and $\mathcal S$ was a stretch in the $\xhat$ direction by a factor of $2$,
+suddenly $\mathcal T$ wouldn't be so much of a mystery.
+
+You might be wondering how does one figure out the ``simple transformations'' that when composed give the full transformation?
+In truth, there are many, many methods and there are whole books written about how to find these decompositions efficiently.
+We will encounter two algorithms for this\footnote{ Phrased in terms of matrices instead of linear transformations, the decompositions we
+will study are called: (i) decomposition into \emph{elementary} matrices, and (ii) \emph{diagonalization}.}, but for now
+our methods will be ad hoc.
+
+\begin{example}
+	Let $\mathcal U:\R^2\to\R^2$ be the transformation induced by $M=\matc{\sqrt{2}/2&-\sqrt{2}/2\\0&0}$,
+	let $\mathcal R:\R^2\to\R^2$ be rotation counter clockwise by $45^\circ$, and let $\mathcal P:\R^2\to\R^2$
+	be projection onto the $x$-axis.
+	Write $\mathcal U$ as the composition (in some order) of $\mathcal R$ and $\mathcal P$.
+
+	XXX Finish
+\end{example}
+
+\Heading{Compositions and Matrix Products}
+
+Let $\mathcal A:\R^2\to\R^2$ and $\mathcal B:\R^2\to\R^2$ be matrix transformations with matrices
+\[
+	A=\mat{1&2\\0&2}\qquad\text{and}\qquad B=\mat{-1&-1\\-2&0}.
+\]
+Here we are using italic $\mathcal A$ and $\mathcal B$ to represent linear transformations and regular $A$ and $B$ to represent
+matrices. Make sure you understand why $\mathcal A\neq A$ before continuing.
+
+
+Define $\mathcal T=\mathcal A\circ \mathcal B$. Since $\mathcal T:\R^2\to\R^2$, we know $\mathcal T$ has a matrix $T$. We can
+find $T$ by the usual methods. First, compute some input-output pairs for $\mathcal T$.
+\[
+	\mathcal T\mat{1\\0} = \mathcal A\left( \mathcal B\mat{1\\0}\right) = \mathcal A\mat{-1\\-2}=\mat{-5\\-4}
+	\qquad\text{and}\qquad
+	\mathcal T\mat{0\\1} = \mathcal A\left( \mathcal B\mat{0\\1}\right) = \mathcal A\mat{-1\\0}=\mat{-1\\0}
+\]
+Letting $T=\mat{a&b\\c&d}$, we use the input-output pairs to see
+\[
+	\mat{a\\c}=T\mat{1\\0}=\mat{-5\\-4}\qquad \text{and}\qquad \mat{b\\d}=T\mat{0\\1}=\mat{-1\\0},
+\]
+and so
+\[
+	T=\mat{-5&-1\\-4&0}.
+\]
+
+We found $T$, the matrix for $\mathcal T$, using traditional techniques, but could we have used $A$ and $B$ to somehow find $T$?
+As it turns out, yes, we could have!
+
+By definition,
+\[
+	\mathcal A\vec x=A\vec x\qquad\text{and}\qquad \mathcal B\vec x=B\vec x,
+\]
+since $\mathcal A$ and $\mathcal B$ are matrix transformations. Therefore,
+\[
+	\mathcal A(\mathcal B\vec x) = A(B\vec x).
+\]
+But, matrix multiplication is \emph{associative}\footnote{ If an operation is associative, it means
+that where you put the parenthesis doesn't matter.}, and so
+\[
+	A(B\vec x)=(AB)\vec x.
+\]
+Thus $AB$ must be a matrix for $\mathcal A\circ \mathcal B=\mathcal T$. Indeed, computing the matrix product, we see
+\[
+	AB=\mat{1&2\\0&2}\mat{-1&-1\\-2&0}=\mat{-5&-1\\-4&0}=T.
+\]
+The fact that matrix multiplication corresponds to function composition is no coincidence. In fact, 
+the reason matrix multiplication has the definition is does is so that function composition
+corresponds to matrix multiplication. This fact is reiterated in the following theorem.
+
+\begin{theorem}
+	If $\mathcal P:\R^a\to\R^b$ and $\mathcal Q:\R^c\to \R^a$ are matrix transformations with matrices 
+	$P$ and $Q$, then $\mathcal P\circ \mathcal Q$ is a matrix transformation whose matrix is given
+	by the matrix product $PQ$.
+\end{theorem}
+
+It should now be clear why the order of matrix multiplication matters. The order of function composition
+matters (you must put on your socks before your shoes!), and since matrix multiplication corresponds
+to function composition, the order of matrix multiplication must matter.
