@@ -1,4 +1,3 @@
-
 From here on out, we will only be considering linear transformations with the same domain
 and codomain (i.e., transformations $\mathcal T:\R^n\to\R^n$). Why? Because that will allow us
 to \emph{compare} input and output vectors. From this perspective, a linear transformation $\mathcal T:\R^n\to\R^n$
@@ -89,8 +88,16 @@ than being called the \emph{eigenpolynomial}.}.
 
 \begin{example}
 	Find the characteristic polynomial of $A=\mat{1&2\\3&4}$.
-
-	XXX Finish
+	
+	By the definition of Characteristic polynomial of A, we have: 
+	\begin{align*}
+	    \chr(A) &=\det(A-\lambda I)\\
+	            &=\det(\mat{1&2\\3&4}-\mat{\lambda&0\\0&\lambda})=\det(\mat{1-\lambda&2\\3&4-\lambda}\\
+	            &=(1-\lambda)(4-\lambda) - 6=\lambda^2 -5\lambda-2,
+	\end{align*}
+	Thus, we get the characteristic polynomial of A as $\Char(A)=\lambda^2 -5\lambda-2$.
+	
+	
 \end{example}
 
 For an $n\times n$ matrix $A$, $\Char(A)$ has some nice properties.
@@ -111,7 +118,23 @@ With the characteristic polynomial in hand, finding eigenvectors/values becomes 
 \begin{example}
 	Find the eigenvectors/values of $A=\mat{1&2\\3&2}$.
 
-	XXX Finish
+	Similarly to the above Example, we first determinate $\Char(A)$:
+	\begin{align*}
+	    \Char(A)&=\Char(\mat{1-\lambda&2\\3&2-\lambda})\\
+	            &=(1-\lambda)(2-\lambda)-6=\lambda^2-3\lambda-4=(\lambda-4)(\lambda+1)
+	\end{align*}
+	Second, we set the $\chr(A)=0$ and get two roots of $\Char(A)$ as $\lambda_1=-1$, $\lambda_2=4$. Now refer to the definition of eigenvector with $\lambda_1=-1$:
+	$$A\vec v=\lambda_1 \vec v$$
+	\begin{align*}
+	   &\xrightarrow{} \mat{1&2\\3&2}\mat{v_1\\v_2}=-1\mat{v_1\\v_2}\\
+	   &\xrightarrow{} \mat{v_1 +2v_2\\3v_1 +2v_2}=\mat{-v_1\\-v_2}\\
+	   &\xrightarrow{} \mat{2v_1 +2v_2\\3v_1 +3V_2}= \mat{o\\o}\\
+	   &\xrightarrow{} v_1=-v_2;
+	\end{align*}
+	Thus, one eigenvector of A with eigenvalue $\lambda_1=-1$ is $\mat{1\\-1}$. More general, vectors $\vec v = k \mat{1\\-1}$, $\forall k \in \R$, $k \neq 0$ are eigenvectors of A with eigenvalue $\lambda_1=-1$. 
+	
+	Similarly, the eigenvectors of $\lambda_2=4$ is $\vec v_2 = m\mat{2\\3}$, $\forall m \in \R$, $m \neq 0$.
+	
 \end{example}
 
 Using the characteristic polynomial, we can show that every eigenvalue
@@ -127,6 +150,23 @@ stubborn polynomials.
 \begin{example}
 	Find the eigenvectors/values of $A=\mat{1&2\\3&4}$.
 
-	XXX Finish
+	First, find the $\Char(A)$ and set it equal to 0:
+	\begin{align*}
+	    \Char(A)&=\Char(\mat{1-\lambda&2\\3&4-\lambda})\\
+	            &=(1-\lambda)(4-\lambda)-6=\lambda^2-5\lambda-2=0
+	\end{align*}
+	By the quadratic formula $r=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$, we have:
+	$$\lambda-1=\frac{5-\sqrt{17}}{2},\quad\lambda_2=\frac{5+\sqrt{17}}{2}$$
+	Thus for $\lambda_1=\frac{5-\sqrt{17}}{2}$,follow the definition of eigenvectors (but with a little difference):
+	$$A\vec v=\lambda\vec v \quad\xrightarrow{}\quad(A-\lambda I)\vec v=\vec 0$$
+	Focusing on $A - \lambda I$:
+	\begin{align*}
+	    \mat{1-\frac{5-\sqrt{17}}{2}&2\\3&4-\frac{5-\sqrt{17}}{2}} & \sim
+	    \mat{\frac{-3+\sqrt{17}}{2}&2\\3&\frac{3+\sqrt{17}}{2}}\\
+	    & \sim \mat{-3+\sqrt{17}&4\\6&3+\sqrt{17}}
+	\end{align*}
+	By inspection, we noticed that $\vec v_1 = \mat{4\\3-\sqrt{17}}$ will be mapped to $\vec 0$ by $(A-\lambda I)$\footnote{In practice, One trick in calculate a 2x2 matrix's eigenvector is determinate $(A-\lambda I)$, and then swap the row entry with one of them multiply by -1. Numerically: 
+	$$(A-\lambda I) = \mat{a&b\\k*a&k*b}\quad\xrightarrow{}\quad\vec v=\mat{b\\-a}$$
+	You may interrupt it as each row vector of $(A-\lambda I)$ dot product $\vec v$ needs to be 0 so that $(A-\lambda I) \vec v=\vec 0$. Thus you may try to inspect for nxn matrix.}. Similarly, we will claim that $\vec v_2=\mat{4\\3+\sqrt{17}}$ is one eigenvector with eigenvalue $\lambda_2 = \frac{5+\sqrt{17}}{2}$.
 \end{example}
 
