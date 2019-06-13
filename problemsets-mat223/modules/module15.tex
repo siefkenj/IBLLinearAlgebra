@@ -130,3 +130,29 @@ stubborn polynomials.
 	XXX Finish
 \end{example}
 
+\Heading{Transformations without Eigenvectors}
+
+Are there linear transformations without eigenvectors? Well, it
+depends on exactly what you mean. Let $\mathcal R:\R^2\to\R^2$
+be rotation counter-clockwise by $90^\circ$. Are there any non-zero
+vectors that don't change direction when $\mathcal R$ is applied?
+Certainly not.
+
+Let's examine further. We know $R=\mat{0&-1\\1&0}$ is a matrix for $\mathcal R$,
+and
+\[
+	\Char(R) = \lambda^2+1.
+\]
+The polynomial $\lambda^2+1$ has no real roots, which means that $R$ (and $\mathcal R$) have
+no real eigenvalues. However, $\lambda^2+1$ does have \emph{complex} roots of $\pm i$.
+So far, we've always though of scalars as real numbers, but if we allow complex numbers as
+scalars and view $\mathcal R$ as a transformation from $\C^2\to\C^2$, it would have eigenvalues
+and eigenvectors.
+
+Complex numbers play an envaluable role in advanced linear algebra and applications of linear
+algebra to physics. We will leave the following theorem as foot for thought\footnote{ The theorem
+is a direct corrolary of the fundamental theorem of algebra.}.
+
+\begin{theorem}
+	If $A$ is a square matrix, then $A$ always has an eigenvalue provided complex eigenvalues are permitted.
+\end{theorem}
