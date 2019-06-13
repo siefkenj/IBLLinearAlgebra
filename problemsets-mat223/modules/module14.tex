@@ -33,8 +33,15 @@ how much a given transformation changes volume.
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find the volume of $\mathcal T(C_2)$.
 
-	XXX Finish
+	As we discussed above, $C_2$ is the unit square in $\R^2$ with sides given by $\vec e_1 = \mat{1\\0}$ and $\vec e_2 = \mat{0\\1}$. Apply the linear transformation $\mathcal T$ to $\vec e_1$ and $\vec e_2$, we obtain
+	\[
+	    \mathcal T(\vec e_1)=\mat{2\\-1} \qquad \mathcal T(\vec e_2)=\mat{1\\\frac{1}{2}}.
+	\]
+	Plot $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$ as follows:
+	
 	XXX Figure
+	
+	We obtain that the volume of $\mathcal T(C_2)$ is 2.
 \end{example}
 
 Let $\Vol(X)$ stand for the volume of the set $X$.
@@ -122,13 +129,13 @@ In the figure above, $\mathcal T$ is orientation preserving and $\mathcal S$ is 
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find $\det(\mathcal T)$.
 
-	XXX Finish (this is the example from earlier)
+	Refer to the example from earlier, $\mathcal T$ is orientation preserving. Therefore, $\det(\mathcal T)=2$.
 \end{example}
 \begin{example}
 	Let $\mathcal S:\R^2\to\R^2$ be defined by $\mathcal S\mat{x\\y}=\mat{-x+y\\x+y}$.
 	Find $\det(\mathcal T)$.
 
-	XXX Finish (this reverses orientation)
+	Similarly to the earlier example, we compute $\mathcal S\mat{1\\0} = \mat{-1\\1}$ and $\mathcal S\mat{0\\1} = \mat{1\\1}$. Then, Plot them in the graph and we may notice that the orientation of $\mathcal S$ is reversing. Thus, $\det(\mathcal S) = - \Vol(\mathcal S(C_2)) = -2$.
 \end{example}
 \begin{example}
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto the line with equation $x+2y=4$. Find $\det(\mathcal P)$.
@@ -266,7 +273,15 @@ matrix.
 \begin{example}
 	Use elementary matrices to find the determinant of $A=\mat{1&2\\3&4}$.
 
-	XXX Finish
+	By applying row reduction to $A$, we could obtain
+	\[
+	    \mat{1&-2\\0&1}\mat{1&0\\0&-\frac{1}{2}}\mat{1&0\\-3&1}\mat{1&2\\3&4} = \mat{1&0\\0&1}.
+	\]
+	Therefore, by the theorem above, we would get
+	\[
+	    1\cdot(-\frac{1}{2})\cdot1\cdot\det(A) = 1,
+	\]
+	That is, $\det(A) = -2$.
 \end{example}
 
 \Heading{Determinants and Invertibility}
