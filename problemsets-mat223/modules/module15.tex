@@ -89,17 +89,13 @@ than being called the \emph{eigenpolynomial}.}.
 \begin{example}
 	Find the characteristic polynomial of $A=\mat{1&2\\3&4}$.
 	
-	By the definition of Characteristic polynomial of A, we have: 
+	By the definition of the characteristic polynomial of A, we have
 	\begin{align*}
-	    \chr(A) &=\det(A-\lambda I)\\
+	    \Char(A) &=\det(A-\lambda I)\\
 	            &=\det\left(\mat{1&2\\3&4}-\mat{\lambda&0\\0&\lambda}\right)=\det\left(\mat{1-\lambda&2\\3&4-\lambda}\right)\\
-	            &=(1-\lambda)(4-\lambda) - 6=\lambda^2 -5\lambda-2
+	            &=(1-\lambda)(4-\lambda) - 6=\lambda^2 -5\lambda-2.
 	\end{align*}
-	Thus, we get the characteristic polynomial of A as $\Char(A)=\lambda^2 -5\lambda-2$.
-	
-	
 \end{example}
-
 For an $n\times n$ matrix $A$, $\Char(A)$ has some nice properties.
 \begin{itemize}
 	\item $\Char(A)$ is a polynomial\footnote{ A priori, it's not obvious that $\det(A-\lambda I)$
@@ -121,23 +117,23 @@ With the characteristic polynomial in hand, finding eigenvectors/values becomes 
 	Similarly to the above example, we first determinate $\Char(A)$:
 	\begin{align*}
 	    \Char(A)&=\det\left(\mat{1-\lambda&2\\3&2-\lambda}\right)\\
-	            &=(1-\lambda)(2-\lambda)-6=\lambda^2-3\lambda-4=(\lambda-4)(\lambda+1)
+	            &=(1-\lambda)(2-\lambda)-6=\lambda^2-3\lambda-4=(4-\lambda)(-1-\lambda)
 	\end{align*}
-	Next, we set the $\chr(A)=0$ to find eigenvalues, which are $\lambda_1=-1$, $\lambda_2=4$. Based on the previous discussion, we know non-zero vectors in $\Null(A-\lambda_1I)$ are eigenvectors with eigenvalue $-1$. Computing, 
+	Next, we set the $\chr(A)=0$ to find eigenvalues, which are $\lambda_1=-1$ and $\lambda_2=4$. Based on the previous discussion, we know non-zero vectors in $\Null(A-\lambda_1I)$ are eigenvectors with eigenvalue $-1$. Computing, 
 	\[
 	\Null(A-\lambda_1I) = \Null\left(\mat{2&2\\3&3}\right)=
 	\Span\Set*{\mat{1\\-1}}.
 	\]
 	The vector $\mat{1\\-1}$ can be found by using row reduction to solve $\mat{2&2\\3&3}\vec x=\vec 0$.
 	
-	We conclude, one eigenvector of A with eigenvalue $\lambda_1=-1$ is $\mat{1\\-1}$. More generally, vectors $\vec v = k \mat{1\\-1}$ where $k \neq 0$ are eigenvectors of A with eigenvalue $-1$. 
+	We conclude, one eigenvector of $A$ with eigenvalue $\lambda_1=-1$ is $\mat{1\\-1}$. More generally, vectors $\vec v = k \mat{1\\-1}$ where $k \neq 0$ are eigenvectors of A with eigenvalue $-1$. 
 	
 	Similarly,
 	\[
 	\Null(A-\lambda_2I) = \Null\left(\mat{-3&2\\3&-2}\right)=
-	\Span\Set*{\mat{1\\-1}},
+	\Span\Set*{\mat{2\\3}},
 	\]
-	and so the eigenvectors corresponding to the eigenvalue $\lambda_2=4$ are $\vec v_2 = k\mat{2\\3}$ where $k \neq 0$.
+	and so the eigenvectors with the eigenvalue $4$ are $\vec v_2 = k\mat{2\\3}$ where $k \neq 0$.
 	
 \end{example}
 
@@ -175,6 +171,6 @@ stubborn polynomials.
 	    & \sim \matc{1&\frac{4(3+\sqrt{33})}{(-3+\sqrt{33})(3+\sqrt{33})}\\1&\frac{3+\sqrt{33}}{6}} \sim \mat{1&\frac{3+\sqrt{33}}{6}\\1&\frac{3+\sqrt{33}}{6}}\\
 	    & \sim \matc{1&\frac{3+\sqrt{33}}{6}\\0&0}
 	\end{align*}
-	Thus, we conclude that one eigenvector corresponding to eigenvalue $\frac{5-\sqrt{33}}{2}$ is $\vec v_1 = \matc{\frac{3+\sqrt{33}}{6}\\-1}$. Similarly, one eigenvector corresponding to eigenvalue $\frac{5+\sqrt{33}}{2}$ is $\vec v_2=\matc{\frac{3-\sqrt{33}}{6}\\-1}$ is one eigenvector with eigenvalue $\lambda_2 = \frac{5+\sqrt{33}}{2}$.
+	Thus, we conclude that one eigenvector with eigenvalue $\frac{5-\sqrt{33}}{2}$ is $\vec v_1 = \matc{\frac{3+\sqrt{33}}{6}\\-1}$. Similarly, one eigenvector corresponding to eigenvalue $\frac{5+\sqrt{33}}{2}$ is $\vec v_2=\matc{\frac{3-\sqrt{33}}{6}\\-1}$ is one eigenvector with eigenvalue $\lambda_2 = \frac{5+\sqrt{33}}{2}$.
 \end{example}
 
