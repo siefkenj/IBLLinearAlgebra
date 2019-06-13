@@ -133,7 +133,7 @@ With the characteristic polynomial in hand, finding eigenvectors/values becomes 
 	\Null(A-\lambda_2I) = \Null\left(\mat{-3&2\\3&-2}\right)=
 	\Span\Set*{\mat{2\\3}},
 	\]
-	and so the eigenvectors with the eigenvalue $4$ are $\vec v_2 = k\mat{2\\3}$ where $k \neq 0$.
+	and so the eigenvectors with eigenvalue $4$ are $\vec v_2 = k\mat{2\\3}$ where $k \neq 0$.
 	
 \end{example}
 
@@ -166,11 +166,11 @@ stubborn polynomials.
 	
 	We will start by applying row reduction to $A-\lambda_1I$.
 	\begin{align*}
-	    \mat{1-\frac{5-\sqrt{33}}{2}&2\\3&4-\frac{5-\sqrt{33}}{2}} & \sim
-	    \mat{\frac{-3+\sqrt{33}}{2}&2\\3&\frac{3+\sqrt{33}}{2}} \sim \mat{1&\frac{4}{-3+\sqrt{33}}\\1&\frac{3+\sqrt{33}}{6}}\\
+	    \matc{1-\frac{5-\sqrt{33}}{2}&2\\3&4-\frac{5-\sqrt{33}}{2}} & \sim
+	    \matc{\frac{-3+\sqrt{33}}{2}&2\\3&\frac{3+\sqrt{33}}{2}} \sim \mat{1&\frac{4}{-3+\sqrt{33}}\\1&\frac{3+\sqrt{33}}{6}}\\
 	    & \sim \matc{1&\frac{4(3+\sqrt{33})}{(-3+\sqrt{33})(3+\sqrt{33})}\\1&\frac{3+\sqrt{33}}{6}} \sim \mat{1&\frac{3+\sqrt{33}}{6}\\1&\frac{3+\sqrt{33}}{6}}\\
 	    & \sim \matc{1&\frac{3+\sqrt{33}}{6}\\0&0}
 	\end{align*}
-	Thus, we conclude that one eigenvector with eigenvalue $\frac{5-\sqrt{33}}{2}$ is $\vec v_1 = \matc{\frac{3+\sqrt{33}}{6}\\-1}$. Similarly, one eigenvector corresponding to eigenvalue $\frac{5+\sqrt{33}}{2}$ is $\vec v_2=\matc{\frac{3-\sqrt{33}}{6}\\-1}$ is one eigenvector with eigenvalue $\lambda_2 = \frac{5+\sqrt{33}}{2}$.
+	Thus, we conclude that $\vec v_1 = \matc{\frac{3+\sqrt{33}}{6}\\-1}$ is an eigenvector with eigenvalue $\frac{5-\sqrt{33}}{2}$. Similarly, $\vec v_2=\matc{\frac{3-\sqrt{33}}{6}\\-1}$ is an eigenvector with eigenvalue $\lambda_2 = \frac{5+\sqrt{33}}{2}$.
 \end{example}
 
