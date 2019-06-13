@@ -92,8 +92,8 @@ than being called the \emph{eigenpolynomial}.}.
 	By the definition of Characteristic polynomial of A, we have: 
 	\begin{align*}
 	    \chr(A) &=\det(A-\lambda I)\\
-	            &=\det(\left\mat{1&2\\3&4}-\mat{\lambda&0\\0&\lambda}\right)=\det\left(\mat{1-\lambda&2\\3&4-\lambda}\right)\\
-	            &=(1-\lambda)(4-\lambda) - 6=\lambda^2 -5\lambda-2,
+	            &=\det\left(\mat{1&2\\3&4}-\mat{\lambda&0\\0&\lambda}\right)=\det\left(\mat{1-\lambda&2\\3&4-\lambda}\right)\\
+	            &=(1-\lambda)(4-\lambda) - 6=\lambda^2 -5\lambda-2
 	\end{align*}
 	Thus, we get the characteristic polynomial of A as $\Char(A)=\lambda^2 -5\lambda-2$.
 	
@@ -120,12 +120,12 @@ With the characteristic polynomial in hand, finding eigenvectors/values becomes 
 
 	Similarly to the above example, we first determinate $\Char(A)$:
 	\begin{align*}
-	    \Char(A)&=\Char\left(\mat{1-\lambda&2\\3&2-\lambda}\right)\\
+	    \Char(A)&=\det\left(\mat{1-\lambda&2\\3&2-\lambda}\right)\\
 	            &=(1-\lambda)(2-\lambda)-6=\lambda^2-3\lambda-4=(\lambda-4)(\lambda+1)
 	\end{align*}
 	Next, we set the $\chr(A)=0$ to find eigenvalues, which are $\lambda_1=-1$, $\lambda_2=4$. Based on the previous discussion, we know non-zero vectors in $\Null(A-\lambda_1I)$ are eigenvectors with eigenvalue $-1$. Computing, 
 	\[
-	\Null(A-\lambda_1I) = \Null\left(\mat{-3&2\\3&-2}\right)=
+	\Null(A-\lambda_1I) = \Null\left(\mat{2&2\\3&3}\right)=
 	\Span\Set*{\mat{1\\-1}}.
 	\]
 	The vector $\mat{1\\-1}$ can be found by using row reduction to solve $\mat{2&2\\3&3}\vec x=\vec 0$.
@@ -134,7 +134,7 @@ With the characteristic polynomial in hand, finding eigenvectors/values becomes 
 	
 	Similarly,
 	\[
-	\Null(A-\lambda_2I) = \Null\left(\mat{2&2\\3&XXX}\right)=
+	\Null(A-\lambda_2I) = \Null\left(\mat{-3&2\\3&-2}\right)=
 	\Span\Set*{\mat{1\\-1}},
 	\]
 	and so the eigenvectors corresponding to the eigenvalue $\lambda_2=4$ are $\vec v_2 = k\mat{2\\3}$ where $k \neq 0$.
@@ -156,7 +156,7 @@ stubborn polynomials.
 
 	First, find the roots of $\Char(A)$ by setting it to $0$.
 	\begin{align*}
-	    \Char(A)&=\Char(\left\mat{1-\lambda&2\\3&4-\lambda}\right)\\
+	    \Char(A)&=\det\left(\mat{1-\lambda&2\\3&4-\lambda}\right)\\
 	            &=(1-\lambda)(4-\lambda)-6=\lambda^2-5\lambda-2=0
 	\end{align*}
 	By the quadratic formula\footnote{ Recall that the
