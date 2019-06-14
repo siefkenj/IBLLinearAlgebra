@@ -33,8 +33,15 @@ how much a given transformation changes volume.
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find the volume of $\mathcal T(C_2)$.
 
-	XXX Finish
+	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\xhat = \mat{1\\0}$ and $\yhat = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\xhat$ and $\yhat$, we obtain
+	\[
+	    \mathcal T(\xhat)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\yhat)=\mat{1\\\frac{1}{2}}.
+	\]
+	Plotting $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$, we see $\mathcal T(C_2)$ is a parallelogram with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$:
+	
 	XXX Figure
+	
+	Therefore, the volume of $\mathcal T(C_2)$ is 2.
 \end{example}
 
 Let $\Vol(X)$ stand for the volume of the set $X$.
@@ -122,13 +129,13 @@ In the figure above, $\mathcal T$ is orientation preserving and $\mathcal S$ is 
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find $\det(\mathcal T)$.
 
-	XXX Finish (this is the example from earlier)
+	Refer to the example from earlier, $\mathcal T$ is orientation preserving. Therefore, $\det(\mathcal T)=2$.
 \end{example}
 \begin{example}
 	Let $\mathcal S:\R^2\to\R^2$ be defined by $\mathcal S\mat{x\\y}=\mat{-x+y\\x+y}$.
 	Find $\det(\mathcal T)$.
 
-	XXX Finish (this reverses orientation)
+	Similarly to the earlier example, we compute $\mathcal S(\xhat) = \mat{-1\\1}$ and $\mathcal S(\yhat) = \mat{1\\1}$. Plotting $\mathcal S(\xhat)$ and $\mathcal S(\yhat)$, we see that $\mathcal S$ is orientation reversing. Thus, $\det(\mathcal S) = - \Vol(\mathcal S(C_2)) = -2$.
 \end{example}
 \begin{example}
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto the line with equation $x+2y=4$. Find $\det(\mathcal P)$.
@@ -266,7 +273,25 @@ matrix.
 \begin{example}
 	Use elementary matrices to find the determinant of $A=\mat{1&2\\3&4}$.
 
-	XXX Finish
+	We can row-reduce $A$ with the following steps:
+	\[
+	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1} 
+	\]
+	and get the elementary matrices corresponding to these steps
+	\[
+	    E_1=\mat{1&0\\-3&1} \qquad E_2=\mat{1&0\\0&-\frac{1}{2}}\qquad E_3=\mat{1&-2\\0&1}\qquad\text{and}\qquad E_3 E_2 E_1 A = I.
+	\]
+	Thus we obtain
+	\[
+	    A=E_1^{-1}E_2^{-2}E_3^{-1}I\implies
+	    A =\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}.
+	\]
+	Therefore,
+	\begin{align*}
+	    \det(A)&=\det\left(\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}\right)\\
+	           &=\det\left(\mat{1&0\\3&1}\right)\det\left(\mat{1&0\\0&-2}\right)\det\left(\mat{1&2\\0&1}\right)\det\left(\mat{1&0\\0&1}\right)\\
+	           &=1\cdot(-2)\cdot1\cdot1 = -2.
+	\end{align*}
 \end{example}
 
 \Heading{Determinants and Invertibility}
@@ -340,5 +365,3 @@ We can actually prove Volume Theorem II using elementary matrices.
 	The key observations for this proof are that (i) $\det(E_i^T)=\det(E_i)$ and (ii) since the 
 	$\det(E_i)$'s are just scalars, the order in which they are multiplied doesn't matter.
 \end{proof}
-
-
