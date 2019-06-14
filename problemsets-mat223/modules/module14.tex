@@ -33,9 +33,9 @@ how much a given transformation changes volume.
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find the volume of $\mathcal T(C_2)$.
 
-	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\vec e_1 = \mat{1\\0}$ and $\vec e_2 = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\vec e_1$ and $\vec e_2$, we obtain
+	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\vec \xhat = \mat{1\\0}$ and $\vec y_hat = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\vec xhat$ and $\vec yhat$, we obtain
 	\[
-	    \mathcal T(\vec e_1)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\vec e_2)=\mat{1\\\frac{1}{2}}.
+	    \mathcal T(\vec xhat)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\vec yhat)=\mat{1\\\frac{1}{2}}.
 	\]
 	Plotting $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$, we see $\mathcal T(C_2)$ is a parallelogram with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$:
 	
@@ -279,7 +279,7 @@ matrix.
 	                  &\sim \mat{1&2\\0&1}\\
 	                  &\sim \mat{1&0\\0&1} 
 	\end{align*}
-	Thus we could obtain
+	Thus we obtain
 	\[
 	    A =\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}.
 	\]
