@@ -275,22 +275,22 @@ matrix.
 
 	We can row-reduce $A$ with the following steps:
 	\[
-	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1} 
+	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1}.
 	\]
-	and get the elementary matrices corresponding to these steps
+	The elementary matrices corresponding to these steps are
 	\[
-	    E_1=\mat{1&0\\-3&1} \qquad E_2=\mat{1&0\\0&-\frac{1}{2}}\qquad E_3=\mat{1&-2\\0&1}\qquad\text{and}\qquad E_3 E_2 E_1 A = I.
+		E_1=\mat{1&0\\-3&1} \qquad E_2=\mat{1&0\\0&-\frac{1}{2}}\qquad\text{and}\qquad E_3=\mat{1&-2\\0&1}, 
 	\]
-	Thus we obtain
+	and so $E_3 E_2 E_1 A = I$. Therefore
 	\[
-	    A=E_1^{-1}E_2^{-2}E_3^{-1}I\implies
-	    A =\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}.
+	    A=E_1^{-1}E_2^{-1}E_3^{-1}I=E_1^{-1}E_2^{-1}E_3^{-1}=
+	    \mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}.
 	\]
-	Therefore,
+	Using the fact that the determinant is multiplicative, we get
 	\begin{align*}
-	    \det(A)&=\det\left(\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}\right)\\
-	           &=\det\left(\mat{1&0\\3&1}\right)\det\left(\mat{1&0\\0&-2}\right)\det\left(\mat{1&2\\0&1}\right)\det\left(\mat{1&0\\0&1}\right)\\
-	           &=1\cdot(-2)\cdot1\cdot1 = -2.
+	    \det(A)&=\det\left(\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\right)\\
+	           &=\det\left(\mat{1&0\\3&1}\right)\det\left(\mat{1&0\\0&-2}\right)\det\left(\mat{1&2\\0&1}\right)\\
+		   &=(1)(-2)(1) = -2.
 	\end{align*}
 \end{example}
 
