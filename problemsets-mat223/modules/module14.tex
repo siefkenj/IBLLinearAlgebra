@@ -33,9 +33,9 @@ how much a given transformation changes volume.
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find the volume of $\mathcal T(C_2)$.
 
-	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\vec \xhat = \mat{1\\0}$ and $\vec y_hat = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\vec xhat$ and $\vec yhat$, we obtain
+	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\xhat = \mat{1\\0}$ and $\yhat = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\xhat$ and $\yhat$, we obtain
 	\[
-	    \mathcal T(\vec xhat)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\vec yhat)=\mat{1\\\frac{1}{2}}.
+	    \mathcal T(\xhat)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\yhat)=\mat{1\\\frac{1}{2}}.
 	\]
 	Plotting $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$, we see $\mathcal T(C_2)$ is a parallelogram with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$:
 	
@@ -274,13 +274,16 @@ matrix.
 	Use elementary matrices to find the determinant of $A=\mat{1&2\\3&4}$.
 
 	We can row-reduce $A$ with the following steps:
-	\begin{align*}
-	    \mat{1&2\\3&4}&\sim \mat{1&2\\0&-2}\\
-	                  &\sim \mat{1&2\\0&1}\\
-	                  &\sim \mat{1&0\\0&1} 
-	\end{align*}
+	\[
+	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1} 
+	\]
+	and get the elementary matrices corresponding to these steps
+	\[
+	    E_1=\mat{1&0\\-3&1} \qquad E_2=\mat{1&0\\0&-\frac{1}{2}}\qquad E_3=\mat{1&-2\\0&1}\qquad\text{and}\qquad E_3 E_2 E_1 A = I.
+	\]
 	Thus we obtain
 	\[
+	    A=E_1^{-1}E_2^{-2}E_3^{-1}I\implies
 	    A =\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}.
 	\]
 	Therefore,
@@ -362,5 +365,3 @@ We can actually prove Volume Theorem II using elementary matrices.
 	The key observations for this proof are that (i) $\det(E_i^T)=\det(E_i)$ and (ii) since the 
 	$\det(E_i)$'s are just scalars, the order in which they are multiplied doesn't matter.
 \end{proof}
-
-
