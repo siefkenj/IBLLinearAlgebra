@@ -35,12 +35,22 @@ will study are called: (i) decomposition into \emph{elementary} matrices, and (i
 our methods will be ad hoc.
 
 \begin{example}
-	Let $\mathcal U:\R^2\to\R^2$ be the transformation induced by $M=\matc{\sqrt{2}/2&-\sqrt{2}/2\\0&0}$,
+	Let $\mathcal U:\R^2\to\R^2$ be the transformation given by $M=\matc{\sqrt{2}/2&-\sqrt{2}/2\\0&0}$,
 	let $\mathcal R:\R^2\to\R^2$ be rotation counter clockwise by $45^\circ$, and let $\mathcal P:\R^2\to\R^2$
 	be projection onto the $x$-axis.
 	Write $\mathcal U$ as the composition (in some order) of $\mathcal R$ and $\mathcal P$.
 
-	XXX Finish
+	For an arbitrary vector $\vec x=\mat{x\\y}=\mat{r\cos\theta\\r\sin\theta}$, where $r$ is the length of the vector. Notice that
+	\[
+	    \mathcal U(\vec x)=\mat{\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\0&0}\mat{x\\y}=\matc{\frac{\sqrt{2}}{2} x-\frac{\sqrt{2}}{2} y\\0}
+	\]
+	and
+	\begin{align*}
+	    \mathcal R\circ \mathcal P(\vec x)=\mathcal R(\mathcal P(\vec x))&=\mathcal R\left(\mat{x\\0}\right)=\mat{\frac{\sqrt{2}}{2} x\\\frac{\sqrt{2}}{2} x}\neq\mathcal U(\vec x);\\ 
+	    \mathcal P\circ \mathcal R(\vec x)=\mathcal P(\mathcal R(\vec x))&=\mathcal P\left(\mat{r\cos(\theta+\pi/4)\\r\sin(\theta+\pi/4)}\right)=\mathcal P\left(\matc{\frac{\sqrt{2}}{2}r\cos\theta - \frac{\sqrt{2}}{2}\sin \theta\\\frac{\sqrt{2}}{2}r\cos\theta + \frac{\sqrt{2}}{2}r\sin\theta}\right)\\
+	    &=\mathcal P\left(\mat{\frac{\sqrt{2}}{2}x-\frac{\sqrt{2}}{2}y\\\frac{\sqrt{2}}{2}x+\frac{\sqrt{2}}{2}y}\right)=\matc{\frac{\sqrt{2}}{2}x-\frac{\sqrt{2}}{2}y\\0}=\mathcal U(\vec x).
+	\end{align*}
+	Therefore, we decompose $\mathcal U$ as $\mathcal U=\mathcal P\circ \mathcal R$.
 \end{example}
 
 \Heading{Compositions and Matrix Products}
