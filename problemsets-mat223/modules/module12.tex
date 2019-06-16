@@ -85,8 +85,14 @@ being invertible.
 \begin{example}
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto the $x$-axis and let $\mathcal R:\R^2\to\R^2$ be rotation counter-clockwise
 	by $15^\circ$. Classify each of $\mathcal P$ and $\mathcal R$ as invertible or not.
-
-	XXX Finish
+	
+	Notice that $\mathcal P(\yhat)=\mathcal P(2\yhat)=\vec 0$, therefore $\mathcal P$ is not one-to-one.
+	
+	Let $\mathcal Q: R^2\to\R^2$ be rotation clockwise by $15^\circ$. Then $\mathcal R$ and $\mathcal Q$ will undo each other. In other words,
+	\[
+	    \mathcal R\circ \mathcal R^{-1}=\Ident\qquad\text{and}\qquad \mathcal R^{-1}\circ \mathcal R=\Ident.
+	\]
+	Therefore by definition, $\mathcal R$ is invertible. 
 \end{example}
 
 One important fact about linear transformations is that if a linear transformation is invertible,
@@ -132,14 +138,21 @@ Except, we replace function composition with matrix multiplication.
 
 \begin{example}
 	Determine whether the matrices $A=\mat{2&5\\-3&-7}$ and $B=\mat{-7&-5\\3&2}$ are inverses of each other.
+	\begin{align*}
+	    AB &=\mat{2&5\\-3&-7}\mat{-7&-5\\3&2} =\mat{1&0\\0&1} = I\\
+	    BA &=\mat{-7&-5\\3&2}\mat{2&5\\-3&-7} =\mat{1&0\\0&1} = I .
+	\end{align*}
 
-	XXX Finish
+	Therefore, matrices $A$ and $B$ are inverses of each other.
 \end{example}
 
 \begin{example}
 	Determine whether the matrices $A=\mat{2&5&0\\-3&-7&0}$ and $B=\mat{-7&-5\\3&2\\1&1}$ are inverses of each other.
-	
-	XXX Finish
+	\begin{align*}
+	    AB &=\mat{2&5&0\\-3&-7&0}\mat{-7&-5\\3&2\\1&1}=\mat{1&0\\0&1}=I \\
+	    BA &=\mat{-7&-5\\3&2\\1&1}\mat{2&5&0\\-3&-7&0}=\mat{1&0&0\\0&1&0\\-1&-2&0}\neq I.
+	\end{align*}
+	Therefore, matrices $A$ and $B$ are not inverses of each other.
 \end{example}
 
 Since every matrix induces a linear transformation, we can use the facts we know about invertible linear
@@ -168,7 +181,18 @@ Thus, if we have the inverse of a matrix handy, we can use it to solve a system 
 \begin{example}
 	Use the fact that $\mat{2&5\\-3&-7}^{-1}=\mat{-7&-5\\3&2}$ to solve the system $\systeme{2x+5y=2,-3x-7y=1}$.
 
-	XXX Finish
+	The system can be rewritten as
+	\[
+	    \mat{2&5\\-3&-7}\mat{x\\y}=\mat{2\\1}.
+	\]
+	Multiplying both sides by $\mat{2&5\\-3&-7}^{-1}$ gives 
+	\[
+	    \mat{2&5\\-3&-7}^{-1}\mat{2&5\\-3&-7}\mat{x\\y}=\mat{2&5\\-3&-7}^{-1}\mat{2\\1}.
+	\]
+	Therefore,
+	\[
+	    \mat{x\\y}=\mat{2&5\\-3&-7}^{-1}\mat{2\\1}=\mat{-7&-5\\3&2}\mat{2\\1}=\mat{-19\\8}.
+	\]
 \end{example}
 
 It's important to note that, unlike in the case with regular scalars, the order of matrix multiplication matters.
@@ -317,7 +341,22 @@ matrices together to find the inverse.
 \begin{example}
 	Let $A=\mat{1&2&0\\0&4&0\\0&-1&1}$. Find $A^{-1}$ using elementary matrices.
 
-	XXX Finish
+	We can row-reduce $A$ with the following steps:
+	\[
+	    \mat{1&2&0\\0&4&0\\0&-1&1}\sim \mat{1&2&0\\0&1&0\\0&-1&1}\sim \mat{1&0&0\\0&1&0\\0&-1&1}\sim \mat{1&0&0\\0&1&0\\0&0&1} 
+	\]
+	The elementary matrices corresponding to these steps are
+	\[
+	    E_1=\mat{1&0&0\\0&\frac{1}{4}&0\\0&0&1} \qquad E_2=\mat{1&-2&0\\0&1&0\\0&0&1}\qquad E_3=\mat{1&0&0\\0&1&0\\0&1&1}.
+	\]
+	And so we have 
+	\[
+	    E_3 E_2 E_1 A = I.
+	\]
+	Thus we obtain
+	\[
+	    A^{-1}=E_3 E_2 E_1 = \mat{1&0&0\\0&1&0\\0&1&1}\mat{1&-2&0\\0&1&0\\0&0&1}\mat{1&0&0\\0&\frac{1}{4}&0\\0&0&1} = \mat{1&-\frac{1}{2}&0\\ 0&\frac{1}{4}&0\\ 0&\frac{1}{4}&1}.
+	\]
 \end{example}
 
 \Heading{Decomposition into Elementary Matrices}

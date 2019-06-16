@@ -379,7 +379,15 @@ trying to be extra precise, we must make sure our boxes/lists of numbers and our
 	Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{1&2&5\\2&-2&-2}$,
 	and let $\vec v=3\xhat-3\zhat$. Compute $\mathcal T(\vec v)$.
 
-	XXX Finish
+	Since $\mathcal T$ is induced by $M=\mat{1&2&5\\2&-2&-2}$, by definition, 	
+	\[
+	    [\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E}=\mat{1&2&5\\2&-2&-2}[\vec v]_{\mathcal E}.
+	\]
+	Further, since $\vec v=3\xhat-3\zhat$, by definition we have $[\vec v]_{\mathcal E}=\mat{3\\0\\-3}$. Therefore,
+	\[
+	    [\mathcal T_{M}\vec v]_{\mathcal E'}=\mat{1&2&5\\2&-2&-2}\mat{3\\0\\-3}=\mat{-12\\12}.
+	\]
+	In other words, $\mathcal T(\vec v) = \mat{-12\\12}_{\mathcal E'}=-12\xhat+12\yhat$.
 \end{example}
 
 Using induced transformations, we can extend linear-transformation definitions to matrix definitions.

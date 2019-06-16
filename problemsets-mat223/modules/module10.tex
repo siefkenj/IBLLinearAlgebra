@@ -35,12 +35,28 @@ will study are called: (i) decomposition into \emph{elementary} matrices, and (i
 our methods will be ad hoc.
 
 \begin{example}
-	Let $\mathcal U:\R^2\to\R^2$ be the transformation induced by $M=\matc{\sqrt{2}/2&-\sqrt{2}/2\\0&0}$,
+	Let $\mathcal U:\R^2\to\R^2$ be the transformation given by $M=\matc{\sqrt{2}/2&-\sqrt{2}/2\\0&0}$,
 	let $\mathcal R:\R^2\to\R^2$ be rotation counter clockwise by $45^\circ$, and let $\mathcal P:\R^2\to\R^2$
 	be projection onto the $x$-axis.
 	Write $\mathcal U$ as the composition (in some order) of $\mathcal R$ and $\mathcal P$.
 
-	XXX Finish
+	For vectors $\xhat$ and $\yhat$, Notice that
+	\[
+	    \mathcal U(\xhat)=\matc{\frac{\sqrt{2}}{2}\\0}\\\qquad\text{and}\qquad \mathcal U(\yhat)=\mat{-\frac{\sqrt{2}}{2}\\0}.
+	\]
+	We will then compute $\mathcal R\circ \mathcal P$ and $\mathcal P\circ\mathcal R$ applied to $\xhat$ and $\yhat$ and see which ones match. 
+	
+	For $\mathcal R\circ \mathcal P$:
+	\begin{align*}
+	    \mathcal R\circ \mathcal P(\xhat)=\mathcal R(\mathcal P(\xhat))&=\mathcal R\mat{1\\0}=\mat{\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}}\\
+	    \mathcal R\circ \mathcal P(\yhat)=\mathcal R(\mathcal P(\yhat))&=\mathcal R\mat{0\\0}=\mat{0\\0}.
+	\end{align*}
+	For $\mathcal P\circ \mathcal R$:
+	\begin{align*}
+	    \mathcal P\circ \mathcal R(\xhat)=\mathcal P(\mathcal R(\xhat))&=\mathcal P\mat{\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}}=\matc{\frac{\sqrt{2}}{2}\\0}\\
+	    \mathcal P\circ \mathcal R(\yhat)=\mathcal P(\mathcal R(\yhat))&=\mathcal P\mat{-\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}}=\mat{-\frac{\sqrt{2}}{2}\\0}.
+	\end{align*}
+	Since $\mathcal P\circ \mathcal R$ agrees with $\mathcal U$ on the standard basis (i.e., they outputs the same vectors when $\xhat$ and $\yhat$ are input), they must agree for all vectors. Therefore $\mathcal P\circ \mathcal R=\mathcal U$.
 \end{example}
 
 \Heading{Compositions and Matrix Products}
