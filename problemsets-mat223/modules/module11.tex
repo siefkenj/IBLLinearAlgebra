@@ -376,14 +376,18 @@ we can be sloppy with our notation and write things like ``$M\vec x$'', but when
 trying to be extra precise, we must make sure our boxes/lists of numbers and our transformations/vectors stay separate.
 
 \begin{example}
-	Let $\mathcal T$ be the transformation induced by the matrix $M=[\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E}$,
+	Let $\mathcal T$ be the transformation induced by the matrix $M=M=\mat{1&2&5\\2&-2&-2}$,
 	and let $\vec v=3\xhat-3\zhat$. Compute $\mathcal T(\vec v)$.
 
 	Since $\mathcal T$ is induced by $M=\mat{1&2&5\\2&-2&-2}$, by definition, 	
 	\[
-	    [\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E}=\mat{1&2&5\\2&-2&-2}\mat{3\\0\\-3}=\matc{-12\\12}.
+	    [\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E}=\mat{1&2&5\\2&-2&-2}[\vec v]_{\mathcal E}.
 	\]
-	Therefore, $\mathcal T(\vec v) = \matc{-12\\12}_{\mathcal E'}=-12\xhat+12\yhat$.
+	Meanwhile, $\vec v=3\xhat-3\zhat$ implies that $[\vec v]_{\mathcal E}=\mat{3\\0\\-3}$. Therefore,
+	\[
+	    [\mathcal T_{M}\vec v]_{\mathcal E'}=\mat{1&2&5\\2&-2&-2}\mat{3\\0\\-3}=\matc{-12\\12}.
+	\]
+	In other words, $\mathcal T(\vec v) = \matc{-12\\12}_{\mathcal E'}=-12\xhat+12\yhat$.
 \end{example}
 
 Using induced transformations, we can extend linear-transformation definitions to matrix definitions.
