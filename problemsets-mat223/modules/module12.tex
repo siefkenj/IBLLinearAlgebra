@@ -87,7 +87,8 @@ being invertible.
 	by $15^\circ$. Classify each of $\mathcal P$ and $\mathcal R$ as invertible or not.
 	
 	Notice that $\mathcal P(\yhat)=\mathcal P(2\yhat)=\vec 0$, therefore $\mathcal P$ is not one-to-one.
-	Let $\mathcal Q: R^2\to\R^2$ be rotation clockwise by $15^\circ$. Therefore, $\mathcal R$ and $\mathcal Q$ will undo each other. In other words,
+	
+	Let $\mathcal Q: R^2\to\R^2$ be rotation clockwise by $15^\circ$. Then $\mathcal R$ and $\mathcal Q$ will undo each other. In other words,
 	\[
 	    \mathcal R\circ \mathcal R^{-1}=\Ident\qquad\text{and}\qquad \mathcal R^{-1}\circ \mathcal R=\Ident.
 	\]
@@ -138,8 +139,8 @@ Except, we replace function composition with matrix multiplication.
 \begin{example}
 	Determine whether the matrices $A=\mat{2&5\\-3&-7}$ and $B=\mat{-7&-5\\3&2}$ are inverses of each other.
 	\begin{align*}
-	    AB &=\mat{2&5\\-3&-7}\mat{-7&-5\\3&2} =\mat{1&0\\0&1} = \Ident \\
-	    BA &=\mat{-7&-5\\3&2}\mat{2&5\\-3&-7} =\mat{1&0\\0&1} = \Ident .
+	    AB &=\mat{2&5\\-3&-7}\mat{-7&-5\\3&2} =\mat{1&0\\0&1} = I\\
+	    BA &=\mat{-7&-5\\3&2}\mat{2&5\\-3&-7} =\mat{1&0\\0&1} = I .
 	\end{align*}
 
 	Therefore, matrices $A$ and $B$ are inverses of each other.
@@ -148,8 +149,8 @@ Except, we replace function composition with matrix multiplication.
 \begin{example}
 	Determine whether the matrices $A=\mat{2&5&0\\-3&-7&0}$ and $B=\mat{-7&-5\\3&2\\1&1}$ are inverses of each other.
 	\begin{align*}
-	    AB &=\mat{2&5&0\\-3&-7&0}\mat{-7&-5\\3&2\\1&1}=\mat{1&0\\0&1}=\Ident ;\\
-	    BA &=\mat{-7&-5\\3&2\\1&1}\mat{2&5&0\\-3&-7&0}=\mat{1&0&0\\0&1&0\\-1&-2&0}\neq\Ident .
+	    AB &=\mat{2&5&0\\-3&-7&0}\mat{-7&-5\\3&2\\1&1}=\mat{1&0\\0&1}=I \\
+	    BA &=\mat{-7&-5\\3&2\\1&1}\mat{2&5&0\\-3&-7&0}=\mat{1&0&0\\0&1&0\\-1&-2&0}\neq I.
 	\end{align*}
 	Therefore, matrices $A$ and $B$ are not inverses of each other.
 \end{example}
