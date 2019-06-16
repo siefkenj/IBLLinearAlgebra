@@ -86,12 +86,12 @@ being invertible.
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto the $x$-axis and let $\mathcal R:\R^2\to\R^2$ be rotation counter-clockwise
 	by $15^\circ$. Classify each of $\mathcal P$ and $\mathcal R$ as invertible or not.
 	
-	$i$) Notice that $\mathcal P(\yhat)=\mathcal P(2\yhat)=\vec 0$, it is convincing that 
+	Notice that $\mathcal P(\yhat)=\mathcal P(2\yhat)=\vec 0$, it is convincing that 
 	\[
 	    \Null(\mathcal P)=\Set*{\vec v\in\R \given \vec v=k\mat{0\\1}\text{for some} k \in\R^2}.
 	\]
-	Therefore, $\Nullity(\mathcal P) \neq 0$, which implies $\mathcal P$ is not invertible by the first property we developed above.\\
-	$ii$) Let $\mathcal R^{-1}: R^2\to\R^2$ be rotation clockwise by $15^\circ$. Therefore, $\mathcal R$ and $\mathcal R^{-1}$ will undo each other. In other words,
+	therefore $\mathcal P$ is not one-to-one。、、
+	Let $\mathcal R^{-1}: R^2\to\R^2$ be rotation clockwise by $15^\circ$. Therefore, $\mathcal R$ and $\mathcal R^{-1}$ will undo each other. In other words,
 	\[
 	    \mathcal R\circ \mathcal R^{-1}=\Ident\qquad\text{and}\qquad \mathcal R^{-1}\circ \mathcal R=\Ident.
 	\]
@@ -194,7 +194,7 @@ Thus, if we have the inverse of a matrix handy, we can use it to solve a system 
 	\]
 	Therefore,
 	\[
-	    \mat{x\\y}=\mat{-7&-5\\3&2}\mat{2\\1}=\mat{-19\\8}.
+	    \mat{x\\y}=\mat{2&5\\-3&-7}^{-1}\mat{2\\1}=\mat{-7&-5\\3&2}\mat{2\\1}=\mat{-19\\8}.
 	\]
 \end{example}
 
@@ -352,7 +352,7 @@ matrices together to find the inverse.
 	\[
 	    E_1=\mat{1&0&0\\0&\frac{1}{4}&0\\0&0&1} \qquad E_2=\mat{1&-2&0\\0&1&0\\0&0&1}\qquad E_3=\mat{1&0&0\\0&1&0\\0&1&1}.
 	\]
-	In other words, 
+	And so we have 
 	\[
 	    E_3 E_2 E_1 A = I.
 	\]
