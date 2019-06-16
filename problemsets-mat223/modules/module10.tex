@@ -42,15 +42,16 @@ our methods will be ad hoc.
 
 	For vectors $\xhat$ and $\yhat$, Notice that
 	\[
-	    \mathcal U(\xhat)=\matc{\frac{\sqrt{2}}{2}\\0}\\\qquad\text{and}\qquad \mathcal U(\yhat)=\mat{-\frac{\sqrt{2}}{2}\\0},
+	    \mathcal U(\xhat)=\matc{\frac{\sqrt{2}}{2}\\0}\\\qquad\text{and}\qquad \mathcal U(\yhat)=\mat{-\frac{\sqrt{2}}{2}\\0}.
 	\]
-	We will compute $\mathcal R\circ \mathcal P$ and $\mathcal P\circ\mathcal R$ applied to $\xhat$ and $\yhat$ and see which ones matches. \\
+	We will then compute $\mathcal R\circ \mathcal P$ and $\mathcal P\circ\mathcal R$ applied to $\xhat$ and $\yhat$ and see which ones match. 
+	
 	For $\mathcal R\circ \mathcal P$:
 	\begin{align*}
 	    \mathcal R\circ \mathcal P(\xhat)=\mathcal R(\mathcal P(\xhat))&=\mathcal R\mat{1\\0}=\mat{\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}}\\
-	    \mathcal R\circ \mathcal P(\yhat)=\mathcal R(\mathcal P(\yhat))&=\mathcal R\mat{0\\0}=\mat{0\\0}
+	    \mathcal R\circ \mathcal P(\yhat)=\mathcal R(\mathcal P(\yhat))&=\mathcal R\mat{0\\0}=\mat{0\\0}.
 	\end{align*}
-	For $\mathcal R\circ \mathcal P$:
+	For $\mathcal P\circ \mathcal R$:
 	\begin{align*}
 	    \mathcal P\circ \mathcal R(\xhat)=\mathcal P(\mathcal R(\xhat))&=\mathcal P\mat{\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}}=\matc{\frac{\sqrt{2}}{2}\\0}\\
 	    \mathcal P\circ \mathcal R(\yhat)=\mathcal P(\mathcal R(\yhat))&=\mathcal P\mat{-\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}}=\mat{-\frac{\sqrt{2}}{2}\\0}.
