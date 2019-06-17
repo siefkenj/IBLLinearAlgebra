@@ -165,6 +165,15 @@ subspace.
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$. Find
 	two different bases for $\ell$.
 
+    We can see that $\mat{1\\2}$ and $\mat{-2\\-4}$ are linearly {\it{dependent}} because $-2\mat{1\\2} = \mat{-2\\-4}$. However, $\mat{1/2\\1}$ is linearly dependent of $\mat{1\\2}$ and $\mat{-2\\-4}$ as well! And since a basis cannot be formed by a set of linearly dependent vectors, a basis for $\ell$ that contains one of these vectors certainly cannot contain any of the other two. We can use this information to form our two bases; let's call them $\mathcal B_1$ and $\mathcal B_2$.
+    \[
+		\mathcal B_1 = \Set*{\mat{1\\2}}\qquad
+		\mathcal B_2 = \Set*{\mat{1/2\\1}}\qquad
+	\]
+	
+    % Might need some more explanation on how the span of B1 is equal to \ell and the span of B2 is equal to \ell. Not sure what exactly to put though.
+    % I was considering writing down \Span\Set*{\mat{1\\2}} = \Span\Set*{\mat{-2\\-4}} = \Span\Set*{\mat{1/2\\1}} and making B_2 = \Set*{\mat{-6\\-12}} to show that a) the element(s) of a basis does not have to be the same vectors *explicitly* written down in the question, since the subspace we are finding a basis for, is formed by the span of those vectors anyways and b) once you find the "smallest" set of vectors which span the subspace, you've already done all the work to find a basis; there's hardly anything left after that. Not sure if including all that would overwhelm the student. Could it be too much information all at once?
+
 	XXX Finish
 \end{example}
 
@@ -214,9 +223,9 @@ when translating it to the origin.}.
 \end{example}
 
 \begin{example}
-	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$.
+	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$. Find the dimension of subspace $\ell$.
 
-	XXX Finish
+    Most of the work here comes from finding a basis for $\ell$, which we've already done earlier. After that, finding the dimension of $\ell$ is as easy as counting the number of elements in that basis. Since $\mathcal B_1 = \Set*{\mat{1\\2}}$ contains one element, $\ell$ is one dimensional\footnote{We could have looked at $\mathcal B_2$ or any of the other infinitely many possible bases for $\ell$ and the result would have been the same - since each of those bases contains only one element.}.
 \end{example}
 
 \begin{example}
