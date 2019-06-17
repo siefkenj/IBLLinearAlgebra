@@ -1,0 +1,169 @@
+Consider the following situation: you're designing a 3d video game, but your uses only have 2d screens.
+Or, you have a 900 dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
+Each of these is an example
+of finding the best approximation to a set of points given some restrictions. In general, this operation
+is called a \emph{projection} and in the world of linear algebra, it has a very particular meaning.
+
+\SavedDefinitionRender{Projection}
+
+Let $\mathcal P_{xy}\subseteq\R^3$ be the $xy$-plane in $\R^3$ and let $\vec v=\mat{1\\2\\3}$. Intuitively, 
+$\Proj_{\mathcal P_{xy}}\!\!\vec v$ is the ``shadow'' that  $\vec v$ would casts on ${\mathcal P_{xy}}$ if 
+the sun were directly overhead.
+In other words,
+\[
+	\Proj_{\mathcal P_{xy}}\vec v=\mat{1\\2\\0}.
+\]
+
+XXX Figure
+
+Let $\ell_y\subseteq \R^3$ be the $x$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
+is, so let's appeal to some definitions.
+
+By definition, every vector in $\ell_y$ takes the form $\vec u_t=\mat{0\\t\\0}$ for some $t\in \R$. The distance
+between $\vec u_t$ and $\vec v$ is
+\[
+	\Norm{\vec u_t-\vec v}=\norm*{\mat{0\\t\\0}-\mat{1\\2\\3}} = \sqrt{1^2+(t-2)^2+3^2}.
+\]
+Since $(t-2)^2$ is always positive, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$. That is,
+when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v$ and so,
+\[
+	\Proj_{\ell_y}\vec v=\vec u_2=\mat{0\\2\\0}.
+\]
+
+Here, we appealed directly to the definition of projection to find the answer.
+
+\begin{example}
+	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
+	and let $\vec v=\mat{-1\\-1}$. Use the definition of projection to find $\Proj_\ell \vec v$.
+
+	XXX Finish
+\end{example}
+
+Every example of a projection so far shares a geometric property. In the case of lines and planes,
+the vector from the projection	to the original point is a normal vector for the line or plane.
+
+XXX Figure
+
+Stated precisely, if $X$ is a line or plane and $\vec v\notin X$ is a vector, then $\vec v-\Proj_X\vec v$ is a
+normal vector for $X$. Using this fact, we can find projections onto lines and planes without solving
+non-linear equations.
+
+\begin{example}
+	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
+	and let $\vec v=\mat{-1\\-1}$. Use the fact that $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$
+	to find Find $\Proj_\ell \vec v$.
+
+	XXX Finish
+\end{example}
+
+\Heading{Projections Onto Other Sets}
+For projections onto lines and planes, we can use what we know about normal vectors to simplify our life.
+The same is true when projecting onto other sets, but we must always keep the definition in mind.
+
+\begin{example}
+	Let $\mathcal T\subseteq \R^2$ be the filled in triangle with vertices $\mat{0\\0}$, 
+	$\mat{1\\0}$, and $\mat{0\\2}$, and let
+	\[
+		\vec a=\mat{1/4\\1/4}\qquad \vec b=\mat{3\\1/2}\qquad \vec c=\mat{1\\1}.
+	\]
+	Find $\Proj_{\mathcal T}\vec a$, $\Proj_{\mathcal T}\vec b$, and  $\Proj_{\mathcal T}\vec c$.
+
+	XXX Finish
+	XXX Figure
+\end{example}
+
+\Heading{Subtleties of Projections}
+You might be wondering, what is $\Proj_X\vec v$ if $\vec v$ is equidistant from \emph{two}
+closest points in $X$. Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$).
+Then there might not be a closest point in $X$ to $\vec v$. In both these cases, we say $\Proj_X\vec v$
+is \emph{undefined}.
+
+Formally, for a fixed set $X$, we consider $P(\vec v)=\Proj_X\vec v$ as a function that inputs and outputs
+vectors. And, as a function, $P$ has a domain consisting of exactly the vectors $\vec v$ for which $P(\vec v)$
+is defined. As it happens, if $X$ is a line or a plane, the domain of $P$ is all of $\R^n$, and in this text,
+we will be sensible and only ask about projections restricted to an appropriate domain. 
+
+\Heading{Vector Components}
+
+We've seen before that dot products can be used to measure how much one
+vector points in the direction of another. But, we can go further. Suppose 
+$\vec v\neq \vec 0$ and $\vec u$ are vectors. We might want to \emph{decompose}
+$\vec u$ into the sum of two vectors, one which is in the direction of $\vec v$
+and the other which is orthogonal to $\vec v$. The tool to that does this is the vector component.
+
+\SavedDefinitionRender{Component}
+
+From the definition, it's obvious that
+\[
+	\vec u=\Vcomp_{\vec v}\vec u + (\vec u-\Vcomp_{\vec v}\vec u)
+\]
+is a decomposition of $\vec u$ into the sum of two vectors, one, $\Vcomp_{\vec v}\vec u$, is in the direction of $\vec v$,
+and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
+
+\begin{example}
+	Find the component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
+
+	XXX Finish
+\end{example}
+
+Since we'll be computing vector components often, let's try to find a formula for $\Vcomp_{\vec v}\vec u$.
+
+By definition $\Vcomp_{\vec v}\vec u$ is a vector in the direction of $\vec v$, so
+\[
+	\Vcomp_{\vec v}\vec u = k\vec v.
+\]
+Further, from the definition $\vec u-\Vcomp_{\vec v}\vec u$ is orthogonal to $\vec v$, and so
+\[
+	\vec v\cdot (\vec u-\Vcomp_{\vec v}\vec u) = \vec v\cdot (\vec u-k\vec v)=\vec v\cdot \vec u-k\vec v\cdot \vec v=0,
+\]
+Because $\vec v\neq \vec 0$, we know $\vec v\cdot \vec v\neq 0$. Therefore, we may rearrange and solve for $k$ to find
+\[
+	k=\frac{\vec v\cdot \vec u}{\vec v\cdot \vec v},
+\]
+which means
+\[
+	\Vcomp_{\vec v}\vec u = \left(\frac{\vec v\cdot \vec u}{\vec v\cdot \vec v}\right)\vec v.
+\]
+
+\Heading{The Relationship Between Vector Components and Projections}
+
+Vector components and projections onto lines are closely related. So closely related that many textbooks
+use the single word \emph{projection} to talk about both vector components and projections. Let's take a moment
+to explore this relationship.
+
+Let $\vec v=\mat{2\\4}$ and $\vec u=\mat{2\\-1}$ and let $\ell=\Span\Set{\vec v}$. Drawing a picture of
+$\ell$, $\vec u$, and $\Proj_\ell\vec u$, we see that $\Proj_\ell\vec u$ satisfies all the properties
+of $\Vcomp_{\vec v}\vec u$.
+
+XXX Figure
+
+Since $\ell=\Span\Set{\vec v}$ and $\Proj_\ell\vec u\in\ell$, we know that $\Proj_\ell\vec u$ is in the direction
+of $\vec v$. Further, from geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
+and is therefore orthogonal to its direction vector, $\vec v$! What's more, we didn't
+use anything in particular about $\vec u$ and $\vec v$ when making this argument (other than $\vec v\neq \vec 0$). This means,
+we may establish a general formula. 
+
+\begin{theorem}
+	For vectors $\vec u$ and $\vec v\neq 0$, we have
+	\[
+		\Proj_{\Span\Set{\vec v}}\vec u=\Vcomp_{\vec v}\vec u.
+	\]
+\end{theorem}
+
+This is great news because vector components are easy to compute using dot products while projections are usually hard to compute.
+
+\begin{example}
+	Compute the projection of $\vec a=\mat{3\\7}$ onto $\ell=\Span\Set*{\mat{1\\-4}}$.
+
+	XXX Finish
+\end{example}
+
+It's worth noting, however, that vector components are equal to projections \emph{only in the case when you're
+projecting onto a span}. In general, projections and vector components are unrelated. 
+
+\begin{example}
+	Let $\vec a=\mat{3\\7}$ , $\vec b=\mat{1\\-4}$, and let $\ell$ be the line given in vector form by
+	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec v}\vec a$.
+
+	XXX Finish
+\end{example}
