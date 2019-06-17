@@ -479,7 +479,20 @@ such question a second as you play your favorite video game!}.
 	Let $\vec x=\xhat-\yhat$, $\vec y=3\xhat-\yhat$, and $\vec r=2\xhat+2\yhat$. Is
 	$\vec r$ a linear combination of $\vec x$ and $\vec y$?
 
-	XXX Finish
+	Assume $\vec r$ is a linear combination of $\vec x$ and $\vec y$ for some unknown coefficients $\alpha_1$ and $\alpha_2$. Then
+	\begin{align*}
+	    \vec r&=\alpha_1\vec x+\alpha_2\vec y\\
+	   \implies 2\xhat+2\yhat&=\alpha_1(\xhat-\yhat)+\alpha_2(3\xhat-\yhat)\\
+	   \implies 2\xhat+2\yhat&=(\alpha_1+3\alpha_2)\xhat+(-\alpha_1-\alpha_2)\yhat.
+	\end{align*}
+	Thus, it is equivalent to solve the two-equations system
+	\begin{equation}
+	    \sysdelim\{.
+		\systeme{
+			\alpha_1+3\alpha_2=2,    % I have no idea why \alpha_1 would not compile out in my computer, I
+			\alpha_2+\alpha_2=-2     % tested \alpha_2 as well, it is still not able to compile. But I do want to be consistent with the definition. Is it a bug or just my computer? 
+		}
+	\end{equation}
 \end{example}
 
 \Heading{Higher Dimensions}
