@@ -165,29 +165,20 @@ subspace.
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$. Find
 	two different bases for $\ell$.
 	
-	We are looking for a set of linearly independent vectors which spans $\ell$.
-	Notice that $\mat{1\\2}$ is linearly dependent of $\mat{-2\\-4}$
-	and linearly dependent of $\mat{1/2\\1}$.
-	This tells us that if a basis for $\ell$ contains one of these three vectors,
-	it cannot contain any of the other two.
-    Furthermore, we can see that
+	We are looking for a set of linearly independent vectors which span $\ell$.
+	Notice, $\mat{1\\2} = -1/2\mat{-2\\-4} = 2\mat{1/2\\1}$;
+	they are linearly dependent. 
+	Therefore,
     \[
 		\Span\Set*{\mat{1\\2}} =
 		\Span\Set*{\mat{-2\\-4}} =
 		\Span\Set*{\mat{1/2\\1}} =
 		\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}} =
-		\ell
-    \]
-    due to the linear dependence among $\mat{1\\2}$, $\mat{-2\\-4}$, and $\mat{1/2\\1}$. 
-	And since $\Span\Set*{\mat{1\\2}} = \ell$,
-	we can confirm that $\Set*{\mat{1\\2}}$ is a suitable basis for $\ell$.
-	We can say the same for $\Set*{\mat{1/2\\1}}$,
-	since $\Span\Set*{\mat{1/2\\1}} = \ell$.
-    Let's call these bases $\mathcal B_1$ and $\mathcal B_2$, respectively.
-    \[
-		\mathcal B_1 = \Set*{\mat{1\\2}}\qquad
-		\mathcal B_2 = \Set*{\mat{1/2\\1}}\qquad
+		\ell.
 	\]
+	Because $\Set*{\mat{1\\2}}$ is linearly independent and spans $\ell$,
+	we have that $\Set*{\mat{1\\2}}$ is a basis for $\ell$.
+	Similarly, $\Set*{\mat{1/2\\1}}$ is another basis for $\ell$.
 \end{example}
 
 Unpacking the definition of basis a bit more, we can see that for a 
@@ -237,14 +228,14 @@ when translating it to the origin.}.
 
 \begin{example}
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$.
-	Find the dimension of subspace $\ell$.
+	Find the dimension of the subspace $\ell$.
 
 	This is the same subspace from the earlier example where we found
-	$\mathcal B_1 = \Set*{\mat{1\\2}}$ and $\mathcal B_2 = \Set*{\mat{1/2\\1}}$
-	were suitable bases for $\ell$.
-	$\mathcal B_1$ contains one element; therefore,
+	$\Set*{\mat{1\\2}}$ and $\Set*{\mat{1/2\\1}}$
+	were bases for $\ell$.
+	The basis $\Set*{\mat{1\\2}}$ contains one element, and so
 	$\ell$ is a one dimensional subspace\footnote{
-	We could have considered $\mathcal B_2$ or one of the many other bases for $\ell$
+	We could have considered $\Set*{\mat{1/2\\1}}$ or one of the many other bases for $\ell$
 	and still reach the same conclusion: $\ell$ is one dimensional.}.
 \end{example}
 
