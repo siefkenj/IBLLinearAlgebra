@@ -71,29 +71,25 @@ In other words, $T$ \emph{distributes over linear combinations}.
 	\]
 	For each of $S$ and $T$, determine whether the transformation is linear.
 
-	For $\mathcal T$:
+	For $\mathcal S$:
 	
-	Let vectors $\vec u=\mat{u_1\\u_2},\vec v=\mat{v_1\\v_2}$ and scalar $\alpha$ be given. So $\vec u +\vec v=\mat{u_1+v_1\\u_2+v_2}$ and $a\vec u = \mat{a u_1\\a u_2}$. We then have 
+	Let vectors $\vec u=\mat{u_1\\u_2}$, $\vec v=\mat{v_1\\v_2}$ and scalar $\alpha$ be given. Then we need to verify that $\mathcal S(\vec u+\vec v)=\mathcal S(\vec u)+\mathcal S(\vec v)$ and $\mathcal S(a\vec u)=a\mathcal S(\vec u)$. Computing, we see:
 	\[
-	    \mathcal T(\vec u +\vec v)=\mat{2u_1+2v_1\\u_2+v_2}=\mat{2u_1\\u_2}+\mat{2v_1\\v_2}=\mathcal T(\vec u) + \mathcal T(\vec v)
+	    \mathcal S(\vec u +\vec v)=\mathcal S\left(\mat{u_1+v_1\\u_2+v_2}\right)=\mat{2u_1+2v_1\\u_2+v_2}=\mat{2u_1\\u_2}+\mat{2v_1\\v_2}=\mathcal S(\vec u) + \mathcal S(\vec v)
 	\]
 	and
 	\[
-	    \mathcal T(a\vec u)=\mat{2a u_1\\a u_2}=a\mat{2 u_1\\ u_2}=a\mathcal T(\vec u).
+	    \mathcal S(a\vec u)=\mat{2a u_1\\a u_2}=\mathcal S\mat{a u_1\\a u_2}=a\mat{2 u_1\\ u_2}=a\mathcal S(\vec u).
 	\]
-	Therefore, $\mathcal T$ is linear.
+	Therefore, $\mathcal S$ is linear.
 	
-	For $\mathcal S$:
+	For $\mathcal T$:
 	
-	We could easily find two counter examples such as:
+	Notice that $\mathcal T(\vec u+\vec v)$ doesn't look like $\mathcal S(\vec u)+\mathcal T(\vec v)$. Therefore, we will guess that $S$ is not linear and look for a counter example. Using $\xhat=\mat{1\\0}$ and $\yhat=\mat{0\\1}$, we see:
 	\[
-	    \mathcal S(\xhat +\yhat)=\mat{1\\5} \neq \mat{1\\4}+\mat{0\\5}=\mathcal S(\xhat) + \mathcal S(\yhat)
+	    \mathcal T(\xhat +\yhat)==\mathcal T\left(\mat{1\\1}\right)=\mat{1\\5} \neq \mat{1\\4}+\mat{0\\5}=\mathcal T(\xhat) + \mathcal T(\yhat).
 	\]
-	or
-	\[
-	    \mathcal S(3\xhat)=\mat{3\\4} \neq 3\mat{1\\4}=a\mathcal S(\xhat).
-	\]
-	Either of them is enough to prove that $\mathcal S$ is not linear.
+	Therefore, $\mathcal T$ is not linear.
 \end{example}
 
 \Heading{Function Notation vs\mbox{.} Linear Transformation Notation}
@@ -387,3 +383,5 @@ for the variables.
 		M=\mat{a&b\\c&d} = \mat{2&1\\1&0}.
 	\]
 \end{example}
+
+	
