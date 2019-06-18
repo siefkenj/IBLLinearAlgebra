@@ -64,11 +64,11 @@
 
 	% command to set even and odd page margins
 	% for book printing.
-	\def\setbookgeometry{\geometry{top=.25in,
+	\def\setbookgeometry{\geometry{top=.4in,
 		headsep=0in, 
 		headheight=0in, 
 		left=1.5in, 
-		bottom=.3in, 
+		bottom=.5in, 
 		footskip=0in,
 		marginparsep=5pt, 
 		marginparwidth=.8in,
@@ -398,12 +398,12 @@
 			headsep=0in, 
 			headheight=0in, 
 			right=1.2in, 
-			bottom=.3in, 
-			footskip=0in,
+			bottom=.5in, 
+			footskip=.3in,
 			marginparsep=10pt, 
 			marginparwidth=1in,
-			left=10pt,
-			includeall,
+			left=1in,
+			%includeall,
 			reversemarginpar,
 			twoside=true}
 		
