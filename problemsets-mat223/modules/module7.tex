@@ -46,19 +46,19 @@ is a column vector of constants.
 
 	For the one equation system, it is equivalent to
 	\[
-	    \mat{x-4y+z\\0x+0y+0z\\0x+0y+0z}=\mat{5\\0\\0}.
+	    \mat{x-4y+z}=\mat{5}.
 	\]
 	Thus, we can rewrite \eqref{EQSYS1} as:
 	\[
-	    \mat{1&-4&1\\0&0&0\\0&0&0}\mat{x\\y\\z}=\mat{5\\0\\0}.
+	    \mat{1&-4&1}\mat{x\\y\\z}=\mat{5}.
 	\]
 	For the two-equation system, it is equivalent to
 	\[
-	     \mat{x-4y+z\\0x+y-z\\0x+0y+0z}=\mat{5\\9\\0}.
+	     \mat{x-4y+z\\0x+y-z}=\mat{5\\9}.
 	\]
 	Thus, we can rewrite \eqref{EQSYS2} as:
 	\[
-	    \mat{1&-4&1\\0&1&-1\\0&0&0}\mat{x\\y\\z}=\mat{5\\9\\0}.
+	    \mat{1&-4&1\\0&1&-1}\mat{x\\y\\z}=\mat{5\\9}.
 	\]
 \end{example}
 
@@ -138,14 +138,14 @@ what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec 
 
 	To find all vectors orthogonal to $\vec a$ and $\vec b$, it is equivalent to solve
 	\[
-	\underbrace{\mat{1&1&1\\1&2&1\\0&0&0}}_A\mat{x\\y\\z}=
-	\left[\begin{array}{c}\vec a\\\hline\vec b\\\hline\vec 0\end{array}\right]\vec x=
-	\mat{\vec a\cdot \vec x\\\vec b\cdot\vec x\\\vec o\cdot \vec x}
-	     =\mat{0\\0\\0}.
+	\underbrace{\mat{1&1&1\\1&2&1}}_A\mat{x\\y\\z}=
+	\left[\begin{array}{c}\vec a\\\hline\vec b\end{array}\right]\vec x=
+	\mat{\vec a\cdot \vec x\\\vec b\cdot\vec x}
+	     =\mat{0\\0}.
     \]
     By row reduction on matrix A as follows:
     \[
-        \mat{1&1&1\\1&2&1\\0&0&0} \sim \mat{1&1&1\\0&1&0\\0&0&0} \sim \mat{1&0&1\\0&1&0\\0&0&0},
+        \mat{1&1&1\\1&2&1} \sim \mat{1&1&1\\0&1&0} \sim \mat{1&0&1\\0&1&0},
     \]
     we obtain that the solution $\vec x$ need to satisfy:
     \begin{equation}
@@ -168,15 +168,15 @@ The row picture is particularly applicable when trying to find normal vectors.
 	\]
 	Find a normal vector for $\mathcal Q$ and write $\mathcal Q$ in normal form.
 
-	Similarly to the above example, since normal vectors $\vec n$ for $\mathcal Q$ need to be orthogonal to $\vec d_1=\mat{1\\1\\-1\\1}$, $\vec d_2=\mat{0\\1\\0\\1}$ and $\vec d_3=\mat{2\\0\\0\\0}$, we could find it by solving
+	Similarly to the above example, since normal vectors for $\mathcal Q$ need to be orthogonal to $\vec d_1=\mat{1\\1\\-1\\1}$, $\vec d_2=\mat{0\\1\\0\\1}$ and $\vec d_3=\mat{2\\0\\0\\0}$, we could find the normal vectors by solving
 	\[
-	\underbrace{\mat{1&1&-1&1\\0&1&0&1\\2&0&0&0\\0&0&0&0}}_A\mat{x\\y\\z\\w}=\mat{0\\0\\0\\0}.
+	\underbrace{\mat{1&1&-1&1\\0&1&0&1\\2&0&0&0}}_A\mat{x\\y\\z\\w}=\mat{0\\0\\0}.
     \]
     By row reduction on matrix A as follows:
     \begin{align*}
-        \mat{1&1&-1&1\\0&1&0&1\\2&0&0&0\\0&0&0&0} 
-        &\sim \mat{2&0&0&0\\0&1&0&1\\1&1&-1&1\\0&0&0&0}\sim \mat{1&0&0&0\\0&1&0&1\\0&1&-1&1\\0&0&0&0} \\
-        &\sim \mat{1&0&0&0\\0&1&0&1\\0&0&-1&0\\0&0&0&0}\sim \mat{1&0&0&0\\0&1&0&1\\0&0&1&0\\0&0&0&0},
+        \mat{1&1&-1&1\\0&1&0&1\\2&0&0&0} 
+        &\sim \mat{2&0&0&0\\0&1&0&1\\1&1&-1&1}\sim \mat{1&0&0&0\\0&1&0&1\\0&1&-1&1} \\
+        &\sim \mat{1&0&0&0\\0&1&0&1\\0&0&-1&0}\sim \mat{1&0&0&0\\0&1&0&1\\0&0&1&0},
     \end{align*}
     we obtain that the solution $\vec x$ need to satisfy:
     \begin{equation}
