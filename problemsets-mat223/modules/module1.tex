@@ -479,20 +479,24 @@ such question a second as you play your favorite video game!}.
 	Let $\vec x=\xhat-\yhat$, $\vec y=3\xhat-\yhat$, and $\vec r=2\xhat+2\yhat$. Is
 	$\vec r$ a linear combination of $\vec x$ and $\vec y$?
 
-	Assume $\vec r$ is a linear combination of $\vec x$ and $\vec y$ for some unknown coefficients $\alpha_1$ and $\alpha_2$. Then
+	By definition, $\vec r$ is a linear combination of $\vec x$ and $\vec y$ if there exist scalars $a,b\in\R$ such that
 	\begin{align*}
-	    \vec r&=\alpha_1\vec x+\alpha_2\vec y\\
-	   \implies 2\xhat+2\yhat&=\alpha_1(\xhat-\yhat)+\alpha_2(3\xhat-\yhat)\\
-	   \implies 2\xhat+2\yhat&=(\alpha_1+3\alpha_2)\xhat+(-\alpha_1-\alpha_2)\yhat.
+	    \vec r&=a\vec x+b\vec y\\
+	   \implies 2\xhat+2\yhat&=a(\xhat-\yhat)+b(3\xhat-\yhat)\\
+	   \implies 2\xhat+2\yhat&=(a+3b)\xhat+(-a-b)\yhat.
 	\end{align*}
 	Thus, it is equivalent to solve the two-equations system
-	\begin{equation}
+	\[
 	    \sysdelim\{.
 		\systeme{
-			\alpha_1+3\alpha_2=2,    % I have no idea why \alpha_1 would not compile out in my computer, I
-			\alpha_2+\alpha_2=-2     % tested \alpha_2 as well, it is still not able to compile. But I do want to be consistent with the definition. Is it a bug or just my computer? 
-		}
-	\end{equation}
+			a+3b=2,    
+			a+b=-2     
+		},
+	\]
+	which gives the solution as $a=-4$ and $b=2$. Therefore, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
+	\[
+	    \vec r = -4\vec x+2\vec y.
+	\]
 \end{example}
 
 \Heading{Higher Dimensions}
