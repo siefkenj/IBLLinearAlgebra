@@ -1,0 +1,30 @@
+% sorting code from
+% http://tex.stackexchange.com/questions/121489/alphabetically-display-the-items-in-itemize
+\newcommand{\sortitem}[2][\relax]{%
+  \DTLnewrow{list}% Create a new entry
+  \ifx#1\relax
+    \DTLnewdbentry{list}{sortlabel}{#2}% Add entry sortlabel (no optional argument)
+  \else
+    \DTLnewdbentry{list}{sortlabel}{#1}% Add entry sortlabel (optional argument)
+  \fi%
+  \DTLnewdbentry{list}{description}{#2}% Add entry description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{sortlabel}{list}% Sort list
+  \begin{itemize*}[label={\color{mypink}$\circ$}]%
+    \DTLforeach*{list}{\theDesc=description}{%
+      \item \theDesc}% Print each item
+  \end{itemize*}%
+}
+
+This book is a collaborative effort.  The following people have contributed
+to its creation:
+\begin{quote}
+\begin{sortedlist}
+	\sortitem[Wang]{Tianhao Wang}
+	\sortitem[Khan]{Samuel Khan}
+\end{sortedlist}
+{\color{mypink}$\circ$}
+\end{quote}
