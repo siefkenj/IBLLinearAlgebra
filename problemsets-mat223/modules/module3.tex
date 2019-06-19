@@ -3,7 +3,63 @@ as a linear combination of $\vec u$ and $\vec v$?
 
 By drawing a picture, the answer appears to be \emph{yes}.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-2,ymax=5,
+			xtick={-2,...,3},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw [myorange, thick, ->] (0,0) -- (1,1) node[midway, below] {$\vec u$};
+			\draw [mypink, thick, ->] (0,0) -- (1,-2) node[midway, below left] {$\vec v$};
+			\draw [mygreen, thick, ->] (0,0) -- (2,5) node[midway, above left] {$\vec w$};
+			%\draw [black!70!white, thick,dashed, ->, xshift=-.15cm] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{axis}
+	\end{tikzpicture}
+	~~~~
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-2,ymax=5,
+			xtick={-2,...,3},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw [black!70!white, thick, ->] (0,0) -- (1,1);
+			\draw [black!70!white, thick, ->] (1,1) -- (2,2) node[midway, below right] {$3\vec u$};
+			\draw [black!70!white, thick, ->] (2,2) -- (3,3);
+			\draw [black!70!white, thick, ->] (3,3) -- (2,5) node[midway, below left] {$-\vec v$};
+			\draw [mygreen, thick, ->] (0,0) -- (2,5) node[midway, above left] {$\vec w$};
+			%\draw [black!70!white, thick,dashed, ->, xshift=-.15cm] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 Algebraically, we can use the definition of a \emph{linear combination} to set up a system of equations.
 We know $\vec w$ can be expressed as a linear combination of $\vec u$ and $\vec v$ if and only if 
@@ -11,7 +67,7 @@ the vector equation
 \[
 	\vec w = \mat{2\\5}=\alpha\mat{1\\1}+\beta\mat{1\\-2}=\alpha \vec u+\beta \vec v
 \]
-has a solution. By inspection, we see $\alpha=3$ and $\beta=1$ solve this equation.
+has a solution. By inspection, we see $\alpha=3$ and $\beta=-1$ solve this equation.
 
 After initial success, we might ask the following:
 \emph{what are all the locations in $\R^2$ that can be obtained
@@ -135,19 +191,152 @@ by $\yhat$. Similarly, $Y=\Set{\vec x+\vec v\given \norm{\vec x}=1\text{ and }\v
 of two translated copies of $C$\footnote{ If you want to stretch your mind, consider what $C+C$
 is as a set.}.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=1,
+		    ymin=-1,ymax=2,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[myorange, thick] (0,1) circle (1cm) node[right] {$X$};
+		\end{axis}
+	\end{tikzpicture}
+	~~~~
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=2,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[mypink, thick] (0,1) circle (1cm) (3,0) circle (1cm) node[above right] {$Y$};
+		\end{axis}
+	\end{tikzpicture}
+	~~~~
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=-1,ymax=2,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[mygreen, thick] (0,0) circle (1cm) (0,1) circle (1cm) (1,0) circle (1cm) node[above right] {$Z$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 \Heading{Translated Spans}
 
 Set addition allows us to easily create parallel lines and planes by translation. For example,
 consider the lines $\ell_1$ and $\ell_2$ given in vector form as $\vec x=t\vec d$ and $\vec x=t\vec d+\vec p$,
 respectively, where  $\vec d=\mat{2\\1}$ and $\vec p=\mat{-1\\1}$.  These lines
-differ from each other by a translation, and using the idea of set addition we can write
+differ from each other by a translation. That is, every point in $\ell_2$ can be obtained by addint $\vec p$ to
+a corresponding point in $\ell_1$. Using the idea of set addition, we can express this mathematically with the equation
 \[
 	\ell_2 = \ell_1+\Set{\vec p}.
 \]
 
-XXX Figure (with lots of copies of $\vec p$ translating $\ell_1$).
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=3,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[myorange,very thick] (-2,-1) -- (6,3) node[midway, below right] {$\ell_1$};
+			\draw[mygreen, thick] (-3,0) -- (5,4) node[near end, above left] {$\ell_2=\ell_1+\Set{\vec p}$};
+			\draw[black!50!white, thick,dotted, ->] (0,0) -- +(-1,1) node[midway, below left, yshift=2pt] {$\vec p$};
+		\end{axis}
+	\end{tikzpicture}
+	~~~~
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=3,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[myorange, very thick] (-2,-1) -- (6,3) node[pos=.15, below right] {$\ell_1$};
+			\draw[black, thick, dashed, ->] (0,0) -- (3,1.5) node[midway, below right] {$\tfrac{3}{2}\vec d\in\ell_1$};
+			\draw[mygreen, thick] (-3,0) -- (5,4);% node[near end, above left] {$\ell_1+\Set{\vec p}$};
+			\draw[black!50!white, thick,dotted, ->] (0,0) -- +(-1,1);
+			\draw[black!50!white, thick,dotted, ->] (-1,-1/2) -- +(-1,1);
+			\draw[black!50!white, thick,dotted, ->] (1,1/2) -- +(-1,1);
+			\draw[black!50!white, thick,dotted, ->] (2,1) -- +(-1,1);
+			\fill[black!60!white] (2,2.5) circle (1.5pt);
+			\draw[black, thick,dashed, ->] (3,3/2) -- +(-1,1) node[midway, above right] {$\vec p$} 
+			node[above left]{$\tfrac{3}{2}\vec d+\vec p\in\ell_2$};
+			\draw[black!50!white, thick,dotted, ->] (4,2) -- +(-1,1);
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 Note that it would be incorrect to write ``$\ell_2=\ell_1+\vec p$''. Because $\ell_1$
 is a set and $\vec p$ is not a set, ``$\ell_1+\vec p$'' does not make mathematical sense.
