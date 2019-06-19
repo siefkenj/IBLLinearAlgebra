@@ -164,8 +164,20 @@ subspace.
 	\label{EXLINEBASIS}
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$. Find
 	two different bases for $\ell$.
-
-	XXX Finish
+	
+	We are looking for a set of linearly independent vectors that spans $\ell$.
+	Notice that $\mat{1\\2} = -1/2\mat{-2\\-4} = 2\mat{1/2\\1}$.
+	Therefore,
+    \[
+		\Span\Set*{\mat{1\\2}} =
+		\Span\Set*{\mat{-2\\-4}} =
+		\Span\Set*{\mat{1/2\\1}} =
+		\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}} =
+		\ell.
+	\]
+	Because $\Set*{\mat{1\\2}}$ is linearly independent and spans $\ell$,
+	we have that $\Set*{\mat{1\\2}}$ is a basis for $\ell$.
+	Similarly, $\Set*{\mat{1/2\\1}}$ is another basis for $\ell$.
 \end{example}
 
 Unpacking the definition of basis a bit more, we can see that for a 
@@ -215,8 +227,15 @@ when translating it to the origin.}.
 
 \begin{example}
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$.
+	Find the dimension of the subspace $\ell$.
 
-	XXX Finish
+	This is the same subspace from the earlier example where we found
+	$\Set*{\mat{1\\2}}$ and $\Set*{\mat{1/2\\1}}$
+	were bases for $\ell$.
+	The basis $\Set*{\mat{1\\2}}$ contains one element, and so
+	$\ell$ is a one dimensional subspace\footnote{
+	We could have considered $\Set*{\mat{1/2\\1}}$ or one of the many other bases for $\ell$
+	and still reach the same conclusion: $\ell$ is one dimensional.}.
 \end{example}
 
 \begin{example}
