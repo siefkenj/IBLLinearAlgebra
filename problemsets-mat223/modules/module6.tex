@@ -54,7 +54,49 @@ lines, planes, volumes and more.
 	Let $\mathcal V\subseteq \R^2$ be the complete solution to 
 	$x+2y=0$.  Show that $\mathcal V$ is a subspace.
 
-	XXX Finish
+	Let $\vec u = \mat{u_1\\u_2}$, $\vec v = \mat{v_1\\v_2} \in \mathcal V$.
+	This means that 
+	\begin{align*}
+		u_1+2u_2=0 \\
+		v_1+2v_2=0
+	\end{align*}
+	Let $k \in \R$.
+	
+	We will show that $\mathcal V$ is nonempty and that
+	\begin{itemize}
+		\item[(i)] $\vec u + \vec v \in \mathcal V$
+		\item[(ii)] $k\vec u \in \mathcal V$
+	\end{itemize}
+	which will show that $\mathcal V$ is a subspace.
+	
+	First we will show $(i)$.
+	\[
+	\vec u + \vec v \quad=\quad \mat{u_1+v_1\\u_2+v_2}
+	\]
+	\[
+	(u_1+v_1)+2(u_2+v_2)\quad=\quad
+	(u_1+2u_2)+(v_1+2v_2)\quad=\quad
+	0+0\quad=\quad0
+	\]
+	Since it satisfies the property that $x+2y=0$, we have shown that 
+	$\vec u + \vec v \in \mathcal V$.
+	
+	Next we will show $(ii)$.
+	\[
+	k\vec u \quad=\quad \mat{ku_1\\ku_2}
+	\]
+	\[
+	(ku_1)+2(ku_2) \quad=\quad 
+	k(u_1+2u_2)\quad=\quad
+	k0\quad=\quad0
+	\]
+	similarly, we have shown that $k\vec u \in \mathcal V$.
+	
+	We know that $\vec 0\in\mathcal V$ so we know that 
+	$\mathcal V$ is non-empty.
+	
+	Thus, by the definition, we have shown that $\mathcal V$ is a subspace.
+	
 \end{example}
 
 \begin{example}
