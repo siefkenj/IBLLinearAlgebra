@@ -479,15 +479,23 @@ such question a second as you play your favorite video game!}.
 	Let $\vec x=\xhat-\yhat$, $\vec y=3\xhat-\yhat$, and $\vec r=2\xhat+2\yhat$. Is
 	$\vec r$ a linear combination of $\vec x$ and $\vec y$?
 
-	By definition, $\vec r$ is a linear combination of $\vec x$ and $\vec y$ if there exist scalars $a,b$ such that
+	By definition, $\vec r$ is a linear combination of $\vec x$ and $\vec y$ if there exist scalars $a$ and $b$ such that
 	\[
 	    \vec r= a\vec x+b\vec y.
 	\]
-	Substituting $\vec r$, $\vec x$, and $\vec y$ , we see this is equivalent to finding scalars $a$ and $b$ so that 
-	\begin{align*}
-	    2\xhat+2\yhat =a(\xhat-\yhat)+b(3\xhat-\yhat)=(a+3b)\xhat + (a+b)\yhat.  
-	\end{align*}
-	Solving the system
+	We know that on the one hand,
+	\[
+	    \vec r = 2\xhat+2\yhat
+	\]
+	and on the other hand, 
+	\[
+	    \vec r = a\vec x+b\vec y = a(\xhat-\yhat)+b(3\xhat-\yhat)=(a+3b)\xhat + (a+b)\yhat.
+	\]
+	Equating the two equations above, we have
+	\[
+	    2\xhat+2\yhat = (a+3b)\xhat + (a+b)\yhat.  
+	\]
+	Therefore, solving the system
 	\[
 	    \sysdelim\{.
 		\systeme{
@@ -495,7 +503,7 @@ such question a second as you play your favorite video game!}.
 			a+b=-2     
 		},
 	\]
-	we have $a=-4$ and $b=2$ as the only solution. Therefore, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
+	we have $a=-4$ and $b=2$ as the only solution. Thus, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
 	\[
 	    \vec r = -4\vec x+2\vec y.
 	\]
