@@ -23,19 +23,19 @@ are representing vectors in multiple bases, we need a way to keep track of what 
 	where $\vec b_1=\xhat+\yhat$, and $\vec b_2 =3\yhat$ be another basis for $\R^2$. Given that $\vec v=2\xhat-\yhat$, 
 	find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal B}$.
 
-	Given that $\vec v=2\xhat-\yhat$, we could find 
+	Given that $\vec v=2\xhat-\yhat$, we see
 	\[
 	    [\vec v]_{\mathcal E}=\mat{2\\-1}.
 	\]
-	To find $[\vec v]_{\mathcal B}$, we could use a system of equations to find $\vec v$ as a linear combination of $\vec b_1$ and $\vec b_2$. That is, set 
+	To find $[\vec v]_{\mathcal B}$, we can use a system of equations to find $\vec v$ as a linear combination of $\vec b_1$ and $\vec b_2$. That is, set 
 	\[
 	    \vec v = x\vec b_1 + y\vec b_2
 	\]
-	and substitute for $\vec b_1$ and $\vec b_2$, we see this is equivalent to finding scalars $x,y$ so that
+	and substitute for $\vec v$, $\vec b_1$, and $\vec b_2$. This is equivalent to finding scalars $x$ and $y$ so that
 	\[
-	    2\xhat-\yhat=x\xhat+(x+3y)\yhat.
+	    \vec v = 2\xhat-\yhat=x(\xhat+\yhat)+3y\yhat=x\xhat+(x+3y)\yhat.
 	\]
-	Solve the system 
+	Solving the system 
 	\[
 	    \sysdelim\{.
 		\systeme{
@@ -43,7 +43,7 @@ are representing vectors in multiple bases, we need a way to keep track of what 
 			x+3y=-1
 		},
 	\]
-	We have $\vec v=2\vec b_1 - \vec b_2$. That is,
+	we have $\vec v=2\vec b_1 - \vec b_2$. That is,
 	\[
 	   [\vec v]_{\mathcal B}=\mat{2\\-1}. 
 	\]
