@@ -481,18 +481,21 @@ such question a second as you play your favorite video game!}.
 
 	By definition, $\vec r$ is a linear combination of $\vec x$ and $\vec y$ if there exist scalars $a,b$ such that
 	\[
-	    \vec r=2\xhat+2\yhat =a (\xhat-\yhat)+b(3\xhat-\yhat) = a\vec x+b\vec y.
+	    \vec r= a\vec x+b\vec y.
 	\]
-	Reranging the equation a little bit, we see this is equivalent to finding scalars $a$ and $b$ so that 
+	Substituting $\vec r$, $\vec x$, and $\vec y$ , we see this is equivalent to finding scalars $a$ and $b$ so that 
 	\begin{align*}
-	    2\xhat+2\yhat  = (a+3b)\xhat+(-a-b)\yhat \implies  
+	    2\xhat+2\yhat =a(\xhat-\yhat)+b(3\xhat-\yhat)=(a+3b)\xhat + (a+b)\yhat.  
+	\end{align*}
+	Solving the system
+	\[
 	    \sysdelim\{.
 		\systeme{
 			a+3b=2,    
 			a+b=-2     
-		}.
-	\end{align*}
-	Solving the system, we have $a=-4$ and $b=2$ as the only solution. Therefore, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
+		},
+	\]
+	we have $a=-4$ and $b=2$ as the only solution. Therefore, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
 	\[
 	    \vec r = -4\vec x+2\vec y.
 	\]
