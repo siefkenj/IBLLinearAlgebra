@@ -141,10 +141,10 @@ what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec 
 
 	To find all vectors orthogonal to $\vec a$ and $\vec b$, it is equivalent to solve
 	\[
-	\underbrace{\mat{1&1&1\\1&2&1}}_A\mat{x\\y\\z}=
-	\left[\begin{array}{c}\vec a\\\hline\vec b\end{array}\right]\vec x=
-	\mat{\vec a\cdot \vec x\\\vec b\cdot\vec x}
-	     =\mat{0\\0}.
+	\left[\begin{array}{c}\vec a\\\hline\vec b\end{array}\right]\vec x
+	=\mat{\vec a\cdot \vec x\\\vec b\cdot\vec x}
+	=\underbrace{\mat{1&1&1\\1&2&1}}_A\mat{x\\y\\z}
+	=\mat{0\\0}.
     \]
     By row reduction on matrix $A$, we get
     \[
@@ -177,7 +177,7 @@ The row picture is particularly applicable when trying to find normal vectors.
     \[
         \vec x = t\mat{0\\1\\0\\-1}.
 	\]
-    Therefore, one normal vector can be $\vec n =\mat{0\\1\\0\\-1}$, and the normal form of $\mathcal Q$ is 
+    Therefore, any non-zero multiple of $\mat{0\\1\\0\\-1}$ is a normal vector for $\mathcal Q$. For example, $\vec n =\mat{0\\1\\0\\-1}$ is a normal vector for $\mathcal Q$, and $\mathcal Q$ can be written in normal form as 
     \[
         \vec n\cdot(\vec x-\vec p)=\vec 0
     \]
