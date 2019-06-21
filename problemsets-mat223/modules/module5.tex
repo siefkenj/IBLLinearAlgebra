@@ -16,7 +16,7 @@ In other words,
 
 XXX Figure
 
-Let $\ell_y\subseteq \R^3$ be the $x$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
+Let $\ell_y\subseteq \R^3$ be the $y$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
 is, so let's appeal to some definitions.
 
 By definition, every vector in $\ell_y$ takes the form $\vec u_t=\mat{0\\t\\0}$ for some $t\in \R$. The distance
@@ -36,7 +36,14 @@ Here, we appealed directly to the definition of projection to find the answer.
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
 	and let $\vec v=\mat{-1\\-1}$. Use the definition of projection to find $\Proj_\ell \vec v$.
 
-	XXX Finish
+	By definition, the distance between $\vec v$ and vectors in $\ell$ is given by
+	\[
+	    \Norm{\vec u-\vec v}=\norm*{\mat{t+3\\t-2}-\mat{-1\\-1}} = \sqrt{(t+4)^2+(t-1)^2}=\sqrt{2t^2+6t+17}=\sqrt{2\left(t+\frac{3}{2}\right)^2+\frac{25}{2}},
+	\]
+	where $t=-\frac{3}{2}$ minimizes the value of the distance. Therefore, we find 
+	\[
+	    \Proj_\ell \vec v=-\frac{3}{2}\mat{1\\1}+\mat{3\\-2}=\frac{1}{2}\mat{3\\-7}.
+	\]
 \end{example}
 
 Every example of a projection so far shares a geometric property. In the case of lines and planes,
@@ -53,7 +60,22 @@ non-linear equations.
 	and let $\vec v=\mat{-1\\-1}$. Use the fact that $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$
 	to find Find $\Proj_\ell \vec v$.
 
-	XXX Finish
+	Since $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$, $\vec v-\Proj_\ell\vec v$ is orthogonal to $\vec d=\mat{1\\1}$. Thus, let $\Proj_\ell\vec v = \mat{x\\y}$ for some unknown $x,y\in\R$, we have
+	\begin{equation}
+	\label{EQREGSYS1}
+	    (\vec v-\Proj_\ell\vec v)\cdot\vec d=0 \implies \mat{-1-x\\-1-y}\cdot \mat{1\\1}=0\implies x+y=-2.
+	\end{equation}
+	Also, since $\Proj_\ell\vec v$ is a vector in $\ell$, $\Proj_\ell\vec v$ also satisfies
+	\begin{equation}
+	\label{EQREGSYS2}
+	    \mat{x\\y}=t\mat{1\\1}+\mat{3\\-2}\implies
+	    \sysdelim\{.
+		\systeme*{
+			x=t+3,
+			y=t-2
+		} \implies x-y=5
+	\end{equation}
+	Solve the two-equations system given by \eqref{EQREGSYS1} and \eqref{EQREGSYS2}, we find $\Proj_\ell\vec v = \frac{1}{2}\mat{3\\-7}$. 
 \end{example}
 
 \Heading{Projections Onto Other Sets}
@@ -103,7 +125,22 @@ and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
 \begin{example}
 	Find the component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
 
-	XXX Finish
+    Let $\Vcomp_{\vec b}\vec a=\mat{x\\y}$ for some unknown $x,y\in\R$. 
+    
+    By definition, $\vec a - \Vcomp_{\vec b}\vec a$ is orthogonal to $\vec b$. That is,
+    \begin{equation}
+    \label{e1}
+        (\vec a-\Vcomp_{\vec b}\vec a)\cdot\vec b=0. \implies \mat{1-x\\2-y}\cdot\mat{1\\1} = 0 \implies x+y=3.
+    \end{equation}
+    Also from the definition, $\Vcomp_{\vec b}\vec a$ is the vector in the direction of $\vec b$. Thus, for some $k\in\R$, we have
+    \begin{equation}
+    \label{e2}
+        \Vcomp_{\vec b}\vec a = k\vec b \implies\mat{x\\y}=\mat{k\\k}\implies x-y=0.
+    \end{equation}
+    Therefore, solving the two-equation system given by \eqref{e1} and \eqref{e2}, we have
+    \[
+        \vec a-\Vcomp_{\vec b}\vec a=\frac{3}{2}\mat{1\\1}.
+    \]
 \end{example}
 
 Since we'll be computing vector components often, let's try to find a formula for $\Vcomp_{\vec v}\vec u$.
@@ -155,7 +192,10 @@ This is great news because vector components are easy to compute using dot produ
 \begin{example}
 	Compute the projection of $\vec a=\mat{3\\7}$ onto $\ell=\Span\Set*{\mat{1\\-4}}$.
 
-	XXX Finish
+	By the theorem above, let $\vec b = \mat{1\\-4}$, we have
+	\[
+	    \Proj_\ell \vec a = \Vcomp_{\vec b} \vec a = \left(\frac{\vec d\cdot \vec a}{\vec b\cdot \vec b}\right)\vec b = -\frac{3-28}{1+16}\mat{1\\-4}=-\frac{25}{17}\mat{1\\-4}.
+	\]
 \end{example}
 
 It's worth noting, however, that vector components are equal to projections \emph{only in the case when you're
@@ -163,7 +203,20 @@ projecting onto a span}. In general, projections and vector components are unrel
 
 \begin{example}
 	Let $\vec a=\mat{3\\7}$ , $\vec b=\mat{1\\-4}$, and let $\ell$ be the line given in vector form by
-	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec v}\vec a$.
+	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec b}\vec a$.
 
-	XXX Finish
+	By definition, $\Proj_{\ell}\vec a$ is the closest point in $\ell$ to $\vec a$. Since the distance is given by
+	\[
+	    \norm*{(t\vec b+\vec a)-\vec a}=t\norm*{\vec b}=\sqrt{17}t,
+	\]
+	where $t=0$ minimizes the value of the distance. Therefore, we obtain
+	\[
+	    \Proj_{\ell}\vec b = \vec 0 + \vec a = \mat{3\\7}.
+	\]
+	But by definition, $\Vcomp_{\vec b}\vec a$ is the vector in the direction of $\vec b$ so that $\vec a - \Vcomp_{\vec b}\vec a$ is orthogonal to $\vec b$. Therefore, $\Vcomp_{\vec b}\vec a$ would be the same as the example above. Thus, we find 
+	\[
+	    \Proj_{\ell}\vec b=\mat{3\\7}\neq-\frac{25}{17}\mat{1\\-4}=\Vcomp_{\vec b}\vec a.
+	\]
+	
 \end{example}
+
