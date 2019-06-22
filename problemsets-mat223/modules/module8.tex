@@ -23,7 +23,40 @@ are representing vectors in multiple bases, we need a way to keep track of what 
 	where $\vec b_1=\xhat+\yhat$, and $\vec b_2 =3\yhat$ be another basis for $\R^2$. Given that $\vec v=2\xhat-\yhat$, 
 	find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal B}$.
 
-	XXX Finish
+	Given that $\vec v=2\xhat-\yhat$, we see
+	\[
+	    [\vec v]_{\mathcal E}=\mat{2\\-1}.
+	\]
+	To find $[\vec v]_{\mathcal B}$, we can use a system of equations to find $\vec v$ as a linear combination of $\vec b_1$ and $\vec b_2$. 
+	
+	First, set 
+	\[
+		\vec v = x\vec b_1 + y\vec b_2    
+	\]
+	for some unknown scalars $x$ and $y$. Then, since on the one hand,
+	\[
+	    \vec v = 2\xhat-\yhat
+	\]
+	and on the other hand, 
+	\[
+	    \vec v  = x\vec b_1 + y\vec b_2= x(\xhat+\yhat)+3y\yhat=x\xhat+(x+3y)\yhat,
+	\]
+	equating the two equations above, we have
+	\[
+	    2\xhat-\yhat = x\xhat+(x+3y)\yhat.
+	\]
+	Therefore, solving the system 
+	\[
+	    \sysdelim\{.
+		\systeme{
+			x=2,
+			x+3y=-1
+		},
+	\]
+	we have $\vec v=2\vec b_1 - \vec b_2$. That is,
+	\[
+	   [\vec v]_{\mathcal B}=\mat{2\\-1}. 
+	\]
 \end{example}
 
 \Heading{Notation Conventions}
@@ -99,11 +132,40 @@ because they differ in \emph{orientation}\footnote{ Other words for orientation 
 We'll build up to the definition of orientation in stages. Consider the ordered bases $\mathcal E$, $\mathcal A$, and
 $\mathcal B$ shown below.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink, thick]
+			\begin{scope}[black!30!white]
+				\draw[ ->] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, left] {$\yhat$};
+			\end{scope}
+			\begin{scope}[rotate=60]
+				\draw[ ->] (0,0) -- (1,0) node [above right] {$\vec a_1$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [above left] {$\vec a_2$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(3,0)}, myorange, thick]
+			\begin{scope}[black!30!white]
+				\draw[ ->] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, left] {$\yhat$};
+				%\draw[ ->] (0,0) -- (1,0);
+				%\draw[densely dotted, ->] (0,0) -- (0,1);
+			\end{scope}
+			\begin{scope}[rotate=-60,cm={-1,0,0,1,(0,0)}]
+				\draw[ ->] (0,0) -- (1,0) node [above left] {$\vec b_1$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [above right] {$\vec b_2$};
+			\end{scope}
+		\end{scope}
+		\node[above, mypink] at (0,1.2) {$\mathcal A=\Set{\vec a_1,\vec a_2}$};
+		\node[above, myorange] at (3,1.2) {$\mathcal B=\Set{\vec b_1,\vec b_2}$};
+	\end{tikzpicture}
+\end{center}
 
-The $\mathcal A$ basis can be rotated to get the $\mathcal E$ basis, but it is impossible to rotate the $\mathcal B$ basis
-to get the $\mathcal E$ basis. In this case, we say that $\mathcal E$ and $\mathcal A$ have the same orientation and
-$\mathcal E$ and $\mathcal B$ have opposite orientations. In this way, even though the lengths and angles between all
+The $\mathcal A$ basis can be rotated to get the $\mathcal E$ basis while maintaining the proper order of
+the basis vectors (i.e., $\vec a_1\mapsto\xhat$
+and $\vec a_2\mapsto\yhat$), but it is impossible to rotate the $\mathcal B$ basis
+to get the $\mathcal E$ basis while maintaining the proper order. In this case, we say that $\mathcal E$ and $\mathcal A$ have the same orientation and
+$\mathcal E$ and $\mathcal B$ have opposite orientations. Even though the lengths and angles between all
 vectors in the $\mathcal A$ basis and the $\mathcal B$ basis are the same, we can distinguish the $\mathcal A$ and $\mathcal B$
 bases because they have different \emph{orientations}.
 
@@ -119,7 +181,32 @@ to align with each other, but a left hand and a right can never be rotated to al
 
 However, not all bases are orthonormal! Consider the bases $\mathcal E$, $\mathcal A'$, $\mathcal B'$.
 
-XXX Figure where A' and B' differ only slightly from A and B
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink, thick]
+			\begin{scope}[black!30!white]
+				\draw[ ->] (0,0) -- (1,0);
+				\draw[densely dotted, ->] (0,0) -- (0,1);
+			\end{scope}
+			\begin{scope}[rotate=60]
+				\draw[ ->] (0,0) -- (1,0) node [above right] {$\vec a_1'$};
+				\draw[densely dotted, ->] (0,0) -- (.5,.7) node [above left] {$\vec a_2'$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(3,0)}, myorange, thick]
+			\begin{scope}[black!30!white]
+				\draw[ ->] (0,0) -- (1,0);
+				\draw[densely dotted, ->] (0,0) -- (0,1);
+			\end{scope}
+			\begin{scope}[rotate=-60,cm={-1,0,0,1,(0,0)}]
+				\draw[ ->] (0,0) -- (1,0) node [above left] {$\vec b_1'$};
+				\draw[densely dotted, ->] (0,0) -- (.5,.7) node [above right] {$\vec b_2'$};
+			\end{scope}
+		\end{scope}
+		\node[above, mypink] at (0,1.2) {$\mathcal A'=\Set{\vec a_1',\vec a_2'}$};
+		\node[above, myorange] at (3,1.2) {$\mathcal B'=\Set{\vec b_1',\vec b_2'}$};
+	\end{tikzpicture}
+\end{center}
 
 The bases $\mathcal A'$ and $\mathcal B'$ differ only slightly from $\mathcal A$ and $\mathcal B$. Neither can
 be \emph{rotated} to obtain $\mathcal E$, however we'd still like to say $\mathcal A'$ is right-handed and
@@ -139,7 +226,42 @@ Let's consider some examples. Let $\mathcal X=\Set{\vec x_1,\vec x_2}$. We could
 transforming to $\xhat, \yhat$ by $\vec x_1$ staying in place and $\vec x_2$ smoothly moving along the dotted
 line.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink, very thick]
+			\begin{scope}[mygreen]
+				\draw[ ->, yshift=-1pt] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, right] {$\yhat$};
+			\end{scope}
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (1,0) node [above right] {$\vec x_1$};
+				\draw[densely dotted, ->] (0,0) -- (-.9,.7) node [above left] {$\vec x_2$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(3,0)}, mypink, very thick]
+			\begin{scope}[thin, black!30!white, dashed]
+				\draw(-.9,.7) edge[bend left=20] 
+					coordinate[pos=.3] (I1) 
+					coordinate[pos=.6] (I2) 
+					coordinate[pos=.85] (I3) 
+					(0,1);
+				\draw[->, densely dotted] (0,0) -- (I1);
+				\draw[->, densely dotted] (0,0) -- (I2);
+				\draw[->, densely dotted] (0,0) -- (I3);
+			\end{scope}
+			\begin{scope}[mygreen]
+				\draw[ ->, yshift=-1pt] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, right] {$\yhat$};
+			\end{scope}
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (1,0) node [above right] {$\vec x_1$};
+				\draw[densely dotted, ->] (0,0) -- (-.9,.7) node [above left] {$\vec x_2$};
+			\end{scope}
+		\end{scope}
+		\node[above, mypink] at (0,1.2) {$\mathcal X=\Set{\vec x_1,\vec x_2}$};
+		\node[above] at (3,1.2) {Continuous transform of $\mathcal X$ to $\mathcal E$};
+	\end{tikzpicture}
+\end{center}
 
 Because at every step along this motion, the set of $\vec x_1$ and the transformed $\vec x_2$ stayed linearly independent, $\mathcal X$ is
 \emph{positively} oriented.
@@ -147,7 +269,98 @@ Because at every step along this motion, the set of $\vec x_1$ and the transform
 Let $\mathcal Y=\Set{\vec y_1,\vec y_2}$. We are in a similar situation, except this time, somewhere along $\vec y_2$'s path,
 the set of $\vec y_1$ and the transformed $\vec y_2$ becomes linearly dependent.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink, very thick]
+			\begin{scope}[mygreen]
+				\draw[ ->, yshift=-1pt] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, right] {$\yhat$};
+			\end{scope}
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (1,0) node [above right] {$\vec y_1$};
+				\draw[densely dotted, ->] (0,0) -- (.9,-.7) node [below right] {$\vec y_2$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(3,0)}, mypink, very thick]
+			\begin{scope}[thin, black!30!white, dashed]
+				\draw[->, bend left=50] (.9,-.7) %edge[bend left=90] 
+					to
+					coordinate[pos=.3] (I1) 
+					coordinate[pos=.6] (I2) 
+					coordinate[pos=.9] (I3) 
+					%[out=-140, in=-45] 
+					(-.7,-.3) to 
+					%[out=135,in=180]
+					coordinate[pos=.4] (I4) 
+					coordinate[pos=.7] (I5) 
+					coordinate[pos=.9] (I6) 
+					coordinate[pos=.18] (Ib) 
+					(0,1)
+					;
+				\draw[->, densely dotted] (0,0) -- (I1);
+				\draw[->, densely dotted] (0,0) -- (I2);
+				\draw[->, densely dotted] (0,0) -- (I3);
+				\draw[->, densely dotted] (0,0) -- (I4);
+				\draw[->, densely dotted] (0,0) -- (I5);
+				\draw[->, densely dotted] (0,0) -- (I6);
+				% we just want the line to be thick, not the arrowhead
+				\draw[densely dotted,very thick, black!50!white] (0,0) -- (Ib);
+				\draw[->, black!50!white] (-.7,0) -- (Ib);
+			\end{scope}
+			\begin{scope}[mygreen]
+				\draw[ ->, yshift=-1pt] (0,0) -- (1,0);
+				\draw[densely dotted, ->] (0,0) -- (0,1);
+			\end{scope}
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (1,0);
+				\draw[densely dotted, ->] (0,0) -- (.9,-.7) node [below right] {$\vec y_2$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(5,0)}, mypink, very thick]
+			\begin{scope}[thin, black!30!white, dashed]
+				\draw[->, bend right=45] (.9,-.7) %edge[bend left=90] 
+					to
+					coordinate[pos=.3] (I1) 
+					coordinate[pos=.6] (I2) 
+					coordinate[pos=.9] (I3) 
+					coordinate[pos=.78] (Ib2) 
+					%[out=-140, in=-45] 
+					(1.5,.3) to 
+					%[out=135,in=180]
+					coordinate[pos=.4] (I4) 
+					coordinate[pos=.7] (I5) 
+					coordinate[pos=.9] (I6) 
+					coordinate[pos=.15] (I7) 
+					(0,1)
+					;
+				\draw[->, densely dotted] (0,0) -- (I1);
+				\draw[->, densely dotted] (0,0) -- (I2);
+				\draw[->, densely dotted] (0,0) -- (I3);
+				\draw[->, densely dotted] (0,0) -- (I4);
+				\draw[->, densely dotted] (0,0) -- (I5);
+				\draw[->, densely dotted] (0,0) -- (I6);
+				\draw[->, densely dotted] (0,0) -- (I7);
+				% we just want the line to be thick, not the arrowhead
+				\draw[densely dotted,very thick, black!50!white] (0,0) -- (Ib2);
+				\draw[->, black!50!white] ($(Ib2) + (-.1,0)$) -- (Ib2);
+			\end{scope}
+			\begin{scope}[mygreen]
+				\draw[ ->, yshift=-1pt] (0,0) -- (1,0);
+				\draw[densely dotted, ->] (0,0) -- (0,1);
+			\end{scope}
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (1,0);
+				\draw[densely dotted, ->] (0,0) -- (.9,-.7) node [below right] {$\vec y_2$};
+			\end{scope}
+		\end{scope}
+		\node[above, mypink] at (0,1.2) {$\mathcal Y=\Set{\vec y_1,\vec y_2}$};
+		\node[above] at (3,1.2) {Continuous transform of $\mathcal Y$ to $\mathcal E$};
+		
+		\draw (3,-1.5) node[right] (COMMENT) {Linearly dependent here} (COMMENT.west) edge[bend left=40, ->, in=90, out=55] ($(Ib)+(-.1,-.05)$);
+		\draw (COMMENT.east) edge[bend right, ->, in=-90, out=-40] ($(Ib2)+(.1,-.05)$);
+
+	\end{tikzpicture}
+\end{center}
 
 Maybe that was just bad luck and we might be able to transform along a different path and stay linearly independent?
 It turns out, we are doomed to fail, because $\mathcal Y$ is \emph{negatively} oriented.
@@ -166,12 +379,50 @@ Reflections reverse orientation and can manifest in two ways\footnote{ Think bac
 and right hands \emph{are} reflections of each other.}.
 Consider the reflection of $\mathcal E=\Set{\xhat, \yhat}$ across the line $y=x$.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mygreen, very thick]
+			\draw[dashed, thin, black] (-.5,-.5) -- (1,1);
+			\begin{scope}
+				\draw[ ->] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, right] {$\yhat$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(3.5,0)}, mypink, very thick]
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (0,1) node [above] {Reflected $\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (1,0) node [right] {Reflected $\yhat$};
+			\end{scope}
+		\end{scope}
+		\draw[thick,] (1.5,.5) edge[bend left, ->] node[midway, above] {Reflection} (3,.5);
+		\node at (.5,1.5) {Positively Oriented};
+		\node at (4,1.5) {Negatively Oriented};
+	\end{tikzpicture}
+\end{center}
 
 This reflection sends $\Set{\xhat,\yhat}\mapsto\Set{\yhat,\xhat}$. Alternatively, reflection across the line $x=0$ sends
 $\Set{\xhat,\yhat}\mapsto\Set{-\xhat,\yhat}$. 
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mygreen, very thick]
+			\draw[dashed, thin, black, xshift=-1pt] (0,-.35) -- (0,1.25);
+			\begin{scope}
+				\draw[ ->] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [midway, right] {$\yhat$};
+			\end{scope}
+		\end{scope}
+		\begin{scope}[cm={1,0,0,1,(4.5,0)}, mypink, very thick]
+			\begin{scope}[]
+				\draw[ ->] (0,0) -- (-1,0) node [below] {Reflected $\xhat$};
+				\draw[densely dotted, ->] (0,0) -- (0,1) node [above] {Reflected $\yhat$};
+			\end{scope}
+		\end{scope}
+		\draw[thick,] (1.5,.5) edge[bend left, ->] node[midway, above] {Reflection} (3,.5);
+		\node at (.5,1.5) {Positively Oriented};
+		\node at (4,1.5) {Negatively Oriented};
+	\end{tikzpicture}
+\end{center}
 
 Both $\Set{\yhat,\xhat}$ and $\Set{-\xhat,\yhat}$, as ordered bases,
 are negatively oriented. This is indicative of a general theorem.

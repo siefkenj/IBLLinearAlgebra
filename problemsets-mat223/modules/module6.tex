@@ -3,7 +3,33 @@ of their direction vectors. However, a line or plane that doesn't
 pass through the origin cannot be written as a span---it must
 be expressed as a \emph{translated} span.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-2,xmax=4,
+		    ymin=-1,ymax=3,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[myorange, very thick] (-4,-2) -- (6,3) node[pos=.35, below right, xshift=-7pt] {The span of $\vec d$};
+			\draw[black, thick, dashed, ->] (0,0) -- (2,1) node[midway, below right] {$\vec d$};
+			\draw[mygreen, thick] (-3,0) -- (5,4) node[near end, above left, xshift=8pt, yshift=-2pt] {Not a span, but a translated span};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 
 There's something special about sets that can be expressed as 
@@ -27,8 +53,55 @@ lines, planes, volumes and more.
 \begin{example}
 	Let $\mathcal V\subseteq \R^2$ be the complete solution to 
 	$x+2y=0$.  Show that $\mathcal V$ is a subspace.
-
-	XXX Finish
+	
+	Let $\vec u = \mat{u_1\\u_2}$ and 
+	$\vec v = \mat{v_1\\v_2}$ be in $\mathcal V$, 
+	and let $k$ be a scalar.
+	
+	By definition, we have 
+	\begin{align*}
+		u_1+2u_2&=0 \\
+		v_1+2v_2&=0
+	\end{align*}
+	
+	We will show that $\mathcal V$ is nonempty and that
+	\begin{itemize}
+		\item[(i)] $\vec u + \vec v \in \mathcal V$; and
+		\item[(ii)] $k\vec u \in \mathcal V$.
+	\end{itemize}
+	
+	First we will show (i).
+	Observe that
+	\[
+		\vec u + \vec v = \mat{u_1+v_1\\u_2+v_2}
+	\]
+	and the coordinates of $\vec u+\vec v$ satisfy
+	\[
+		(u_1+v_1)+2(u_2+v_2)=
+		(u_1+2u_2)+(v_1+2v_2)=
+		0+0=0.
+	\]
+	Since the coordinates of $\vec u + \vec v$ satisfy the equation $x+2y=0$, 
+	we have shown that $\vec u + \vec v \in \mathcal V$.
+	
+	Next we will show (ii).
+	Observe that
+	\[
+		k\vec u = \mat{ku_1\\ku_2}
+	\]
+	and the coordinates of $k\vec u$ satisfy
+	\[
+		(ku_1)+2(ku_2) = 
+		k(u_1+2u_2)=
+		k0=0.
+	\]
+	And so, we have shown that $k\vec u \in \mathcal V$.
+	
+	Finally, since $\vec 0 = \mat{0\\0}$ satisfies $x+2y=0$, 
+	we conclude that $\vec 0\in\mathcal V$
+	and so $\mathcal V$ is non-empty.
+	
+	Thus, by the definition, we have shown that $\mathcal V$ is a subspace.	
 \end{example}
 
 \begin{example}
@@ -141,9 +214,34 @@ the \emph{trivial subspace}, $\Set{\vec 0}$.
 
 \Heading{Bases}
 
-Let $\vec d=\mat{1\\2}$ and consider $\ell=\Span\Set{\vec d}$.
+Let $\vec d=\mat{2\\1}$ and consider $\ell=\Span\Set{\vec d}$.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=2,
+			xtick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw[myorange, very thick] (-2,-1) -- (6,3) node[pos=.65, above left] {$\ell=\Span\Set{\vec d}$};
+			\draw[black, thick, dashed, ->] (0,0) -- (2,1) node[midway, below right, yshift=2pt] {$\vec d$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 We know that $\ell$ is a subspace and, for instance, $\ell=\Span\Set{\vec d,-2\vec d,\tfrac{1}{2}\vec d}$. However,
 the simplest descriptions of $\ell$ involve the span of only one vector.
@@ -164,8 +262,20 @@ subspace.
 	\label{EXLINEBASIS}
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$. Find
 	two different bases for $\ell$.
-
-	XXX Finish
+	
+	We are looking for a set of linearly independent vectors that spans $\ell$.
+	Notice that $\mat{1\\2} = -1/2\mat{-2\\-4} = 2\mat{1/2\\1}$.
+	Therefore,
+    \[
+		\Span\Set*{\mat{1\\2}} =
+		\Span\Set*{\mat{-2\\-4}} =
+		\Span\Set*{\mat{1/2\\1}} =
+		\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}} =
+		\ell.
+	\]
+	Because $\Set*{\mat{1\\2}}$ is linearly independent and spans $\ell$,
+	we have that $\Set*{\mat{1\\2}}$ is a basis for $\ell$.
+	Similarly, $\Set*{\mat{1/2\\1}}$ is another basis for $\ell$.
 \end{example}
 
 Unpacking the definition of basis a bit more, we can see that for a 
@@ -215,8 +325,15 @@ when translating it to the origin.}.
 
 \begin{example}
 	Let $\ell=\Span\Set*{\mat{1\\2},\mat{-2\\-4}, \mat{1/2\\1}}$.
+	Find the dimension of the subspace $\ell$.
 
-	XXX Finish
+	This is the same subspace from the earlier example where we found
+	$\Set*{\mat{1\\2}}$ and $\Set*{\mat{1/2\\1}}$
+	were bases for $\ell$.
+	The basis $\Set*{\mat{1\\2}}$ contains one element, and so
+	$\ell$ is a one dimensional subspace\footnote{
+	We could have considered $\Set*{\mat{1/2\\1}}$ or one of the many other bases for $\ell$
+	and still reach the same conclusion: $\ell$ is one dimensional.}.
 \end{example}
 
 \begin{example}
