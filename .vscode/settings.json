@@ -1,3 +1,9 @@
 {
-  "cSpell.ignoreWords": ["pagebreaks", "superset"]
+  "cSpell.ignoreWords": [
+    "pagebreaks",
+    "superset"
+  ],
+  "cSpell.words": [
+    "linearalgebra"
+  ]
 }
