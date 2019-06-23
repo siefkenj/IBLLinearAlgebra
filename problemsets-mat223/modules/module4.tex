@@ -152,7 +152,44 @@ and so $v_1=-2v_2$. In other words, $\vec v$ is orthogonal to $\vec n$ exactly w
 What have we learned? The set of all vectors orthogonal to $\vec n$ forms a line $\ell=\Span\Set*{\mat{-2\\1}}$. In
 this case, we call $\vec n$ a \emph{normal vector} for $\ell$.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
+		 \draw ($(#3)!#1!(#2)$) -- 
+		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
+		       ($(#3)!#1!(#4)$);
+		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
+		}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-3,xmax=3,
+		    ymin=-2,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (A) at (1,2);
+			\coordinate (O) at (0,0);
+			\coordinate (B) at (2,-1);
+			\dotMarkRightAngle[size=6pt](B,O,A);
+			\draw[mypink, thick] ($-2*(-2,1)$) -- ($2*(-2,1)$);
+			\draw[mygreen, thick, ->] (0,0) -- (1,2) node[midway, below right] {$\vec n$};
+		\end{axis}
+		\node[mypink, above right] at (2,-1.2) {$\ell=\Span\Set*{\mat{-2\\1}}$};
+	\end{tikzpicture}
+\end{center}
 
 \SavedDefinitionRender{NormalVector}
 
@@ -163,7 +200,47 @@ Let $n=\mat{1\\2}$ as before, and fix $\vec p=\mat{1\\1}$. If we draw the set of
 orthogonal to $\vec n$ but \emph{root all the vectors at $\vec p$}, again we get a line, but this
 time the line passes through $\vec p$.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
+		 \draw ($(#3)!#1!(#2)$) -- 
+		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
+		       ($(#3)!#1!(#4)$);
+		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
+		}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-2,xmax=4,
+		    ymin=-1,ymax=3,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\begin{scope}[cm={1,0,0,1,(1,1)}]
+				\coordinate (A) at (1,2);
+				\coordinate (O) at (0,0);
+				\coordinate (B) at (2,-1);
+				\dotMarkRightAngle[size=6pt](B,O,A);
+				\draw[mypink, thick] ($-2*(-2,1)$) -- ($2*(-2,1)$);
+				\draw[mygreen, thick, ->] (0,0) -- (1,2) node[midway, below right] {$\vec n$};
+				\fill[myorange] (0,0) node[below left] {$\vec p$} circle (2pt);
+			\end{scope}
+		\end{axis}
+		\node[mypink, above right] at (3,0) {$\ell_2=\Span\Set*{\mat{-2\\1}}+\Set*{\mat{1\\1}}$};
+	\end{tikzpicture}
+\end{center}
 
 In fact, the line we get is $\ell_2=\Span\Set*{\mat{-2\\1}}+\Set*{\mat{1\\1}}=\ell+\Set{\vec p}$, which is just $\ell$ (the
 parallel line through the origin) translated by $\vec p$. 
