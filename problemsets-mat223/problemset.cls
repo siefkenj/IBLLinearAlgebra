@@ -31,6 +31,7 @@
 	\RequirePackage{titlesec}
 	\RequirePackage{changepage}
 	\RequirePackage{everyshi}
+	\RequirePackage{multicol}
 
 
 
@@ -391,7 +392,7 @@
 	}
 	\DeclareDocumentEnvironment{module}{o}{%
 		\addtocounter{modulecounter}{1}
-		\setlist{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
+		\setlist[itemize]{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
 		\probset@cleartooddpage
 		% increase the margin widths
 		\newgeometry{top=.5in,
@@ -494,6 +495,47 @@
 		{\color{Plum}{\hspace{-0.1in}\sffamily\large #1}}
 		\par
 	}
+
+% other enumerate environments
+\NewDocumentCommand{\prob}{o}{%
+	\IfNoValueTF{#1}{%
+		\refstepcounter{enumi}%
+		\item[\theenumi]%
+	}{%
+		\refstepcounter{enumi}%
+		\item[\theenumi \textsuperscript{#1}]%
+	}%
+}
+\newenvironment{problist}{%
+	\begin{enumerate}
+	}{%
+	\end{enumerate}
+}
+
+\newenvironment{exercises}{%
+	\DeclareDocumentEnvironment{solution}{o}{
+		\nopagebreak
+		%\par
+			\begin{adjustwidth}{1cm}{}
+			\color{cyan}
+	}{%
+			\end{adjustwidth}
+	}
+	% tcolorbox doesn't work with tikz externalize,
+	% so we need to disable it around a tcolorbox.
+	% since \tikzexternaldisable is locally scoped,
+	% create a global version of the command
+	\global\let\extdisable\tikzexternaldisable
+	\global\let\extenable\tikzexternalenable
+
+	\begin{multicols*}{2}[{%
+			\subsection*{Practice Problems}}]\small %
+	}{%
+	\end{multicols*}%
+	\clearpage
+}
+
+
 %%
 %% Commands to save definitions for reuse later
 %%
