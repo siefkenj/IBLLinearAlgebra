@@ -8,7 +8,16 @@ In other words, the operation of writing a vector in a basis is \emph{invertible
 If we have two bases, $\mathcal A$ and $\mathcal B$, for $\R^n$, we have two equally valid
 ways of representing a vector in coordinates.
 
-XXX Figure (commutative diagram)
+\[
+	\begin{tikzcd}[row sep=huge]
+		&\vec x\in \R^n 
+			\arrow[rd, to-to, "\text{Represent in $\mathcal{B}$ basis}"] 
+			\arrow[ld, to-to, "\text{Represent in $\mathcal{A}$ basis}" above left]&\\
+		{[\vec x]_{\mathcal A}} 
+			%\arrow[rr, to-to, dashed, "\text{Switch representations}" below]
+		&&{[\vec x]_{\mathcal B}}
+	\end{tikzcd}
+\]
 
 Not only that, but there must be a function that converts between $[\vec x]_{\mathcal A}$ and $[\vec x]_{\mathcal B}$.
 The function works as follows: input the list of numbers $[\vec x]_{\mathcal A}$, use
@@ -39,8 +48,17 @@ must have a matrix. This matrix is called the \emph{change of basis} matrix.
 
 We can now enhance our diagram from earlier.
 
-XXX Figure (commutative diagram with change of basis).
-
+\[
+	\begin{tikzcd}[row sep=huge]
+		&\vec x\in \R^n 
+			\arrow[rd, to-to, "\text{Represent in $\mathcal{B}$ basis}"] 
+			\arrow[ld, to-to, "\text{Represent in $\mathcal{A}$ basis}" above left]&\\
+		{[\vec x]_{\mathcal A}} 
+			\arrow[rr, -to, dashed, "\BasisChange{\mathcal A}{\mathcal B}" below, yshift=-.25em, mygreen]
+			\arrow[rr, to-, dashed, "\BasisChange{\mathcal B}{\mathcal A}" above, yshift=.25em, mypink]
+		&&{[\vec x]_{\mathcal B}}
+	\end{tikzcd}
+\]
 
 The notation $\BasisChange{\mathcal A}{\mathcal B}$ for the matrix that changes from the $\mathcal A$ basis to
 the $\mathcal B$ basis is suggestive. Suppose we have another basis $\mathcal C$. We can obtain
