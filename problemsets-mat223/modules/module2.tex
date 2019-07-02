@@ -248,7 +248,7 @@ But, why is vector form useful? For starters, every line can be expressed in vec
 to represent a line). But, the most useful thing about expressing a line in vector form is that
 you can easily generate points on that line.
 
-Suppose $\ell$ can be reprsented in vector form as $\vec x=t\vec d+\vec p$.
+Suppose $\ell$ can be represented in vector form as $\vec x=t\vec d+\vec p$.
 Then, for every $t\in \R$, the vector $t\vec d +\vec p\in\ell$. Not only that, but as $t$ ranges over
 $\R$, all points on $\ell$ are ``traced out''. Thus, we can find points on $\ell$ without having to ``solve''
 any equations.
@@ -485,7 +485,58 @@ and the line segment $S$:
 	S&=\Set{\vec x\given \vec x=t\vec d+\vec p\text{ for some }t\in [0,2]}
 \end{align*}
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=3,
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+			xtick={0,1,2,3,4},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\draw [mypink, very thick] (0,0) -- (5,3) node[midway, below right] {$R$};
+			\draw [black!70!white, thick,dashed, ->, yshift=.15cm] (0,0) -- (5/5,3/5) node[midway, above] {$\vec d$};
+		\end{axis}
+			\node[above right] at (0,3) {~The ray $R$};
+	\end{tikzpicture}
+	~~~~
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=3,
+			xtick={0,1,2,3,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\draw [mygreen, very thick] (0,0) -- (10/5,6/5) node[midway, below right] {$S$};
+			\draw [black!70!white, thick,dashed, ->, yshift=.15cm] (0,0) -- (5/5,3/5) node[midway, above] {$\vec d$};
+		\end{axis}
+			\node[above right] at (0,3) {~The line segment $S$};
+	\end{tikzpicture}
+\end{center}
 
 We can also make polygons by adding restrictions to the vector form of a plane. Let
 $\vec a=\mat{2\\1}$ and $\vec b=\mat{-1\\1}$ and consider the unit square $U$ and
@@ -495,7 +546,62 @@ the parallelogram $P$ defined by
 	P&=\Set{\vec x\given \vec x=t\vec a+s\vec b\text{ for some }t\in [0,1]\text{ and }s\in[-1,1]}
 \end{align*}
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-2,xmax=3,
+		    ymin=-1,ymax=2,
+			xtick={-2,...,3},
+			ytick={-2,...,3},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\fill [mypink, opacity=.3] (0,0) -- (1,0) -- (1,1) node[midway, right, opacity=1] {$U$} -- (0,1) -- cycle;
+			\draw [black!70!white, thick,dashed, ->, yshift=-.15cm] (0,0) -- (1,0) node[midway, below] {$\xhat$};
+			\draw [black!70!white, thick,dashed, ->, xshift=-.15cm] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{axis}
+			\node[above right] at (0,2) {~The unit square $U$};
+	\end{tikzpicture}
+	~~~~
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-2,xmax=3,
+		    ymin=-1,ymax=2,
+			xtick={-2,...,3},
+			ytick={-2,...,3},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\fill [mygreen, opacity=.3] (1,2) -- (3,0) -- (1,-1) node[midway, below right, opacity=1] {$P$} -- (-1,1) -- cycle;
+			\draw [black!70!white, thick,dashed, ->] (0,0) -- (2,1) node[midway, below right] {$\vec a$};
+			\draw [black!70!white, thick,dashed, ->] (0,0) -- (-1,1) node[midway, left, yshift=-3pt] {$\vec b$};
+		\end{axis}
+			\node[above right] at (0,2) {~The parallelogram $P$};
+	\end{tikzpicture}
+\end{center}
 
 Each set so far is a set of linear combinations, and we 
 have made different shapes by restricting the coefficients of those linear
@@ -523,5 +629,4 @@ of two vectors gives a point on the line segment connecting them.
 
 	XXX Figure
 \end{example}
-
 

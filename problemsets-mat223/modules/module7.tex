@@ -44,7 +44,25 @@ is a column vector of constants.
 	\end{equation}
 	Rewrite each system as a single matrix equation.
 
-	XXX Finish
+	We can rewrite \eqref{EQSYS1} as 
+	\[
+        \mat{1&-4&1}\mat{x\\y\\z}=\mat{5}.
+    \]
+    Multiplying out to verify, we see,
+    \[
+        \mat{1&-4&1}\mat{x\\y\\z}=\mat{x-4y+z}=\mat{5},
+    \]
+    which is indeed equivalent to \eqref{EQSYS1}.
+    
+	Similarly, we can rewrite \eqref{EQSYS2} as 
+	\[
+       \mat{1&-4&1\\0&1&-1}\mat{x\\y\\z}=\mat{5\\9}.
+    \]
+    Multiplying out to verify, we see,
+    \[
+       \mat{1&-4&1\\0&1&-1}\mat{x\\y\\z}=\mat{x-4y+z\\0x+y-z}=\mat{5\\9},
+    \]
+    which is indeed equivalent to \eqref{EQSYS2}.
 \end{example}
 
 \Heading{Interpretations of Matrix Equations}
@@ -121,7 +139,21 @@ what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec 
 \begin{example}
 	Find all vectors orthogonal to $\vec a=\mat{1\\1\\1}$ and $\vec b=\mat{1\\2\\1}$.
 
-	XXX Finish
+	To find all vectors orthogonal to $\vec a$ and $\vec b$, it is equivalent to solve
+	\[
+	\left[\begin{array}{c}\vec a\\\hline\vec b\end{array}\right]\vec x
+	=\mat{\vec a\cdot \vec x\\\vec b\cdot\vec x}
+	=\underbrace{\mat{1&1&1\\1&2&1}}_A\mat{x\\y\\z}
+	=\mat{0\\0}.
+    \]
+    By row reduction on matrix $A$, we get
+    \[
+        \Rref(A) = \mat{1&0&1\\0&1&0},
+    \]
+    and so we get that the complete solution expressed in vector form is
+    \[
+        \vec x = t\mat{1\\0\\-1}.
+	\]
 \end{example}
 
 The row picture is particularly applicable when trying to find normal vectors.
@@ -133,7 +165,23 @@ The row picture is particularly applicable when trying to find normal vectors.
 	\]
 	Find a normal vector for $\mathcal Q$ and write $\mathcal Q$ in normal form.
 
-	XXX Finish
+	Similarly to the above example, since normal vectors for $\mathcal Q$ need to be orthogonal to $\vec d_1=\mat{1\\1\\-1\\1}$, $\vec d_2=\mat{0\\1\\0\\1}$, and $\vec d_3=\mat{2\\0\\0\\0}$, we can find the normal vectors by solving
+	\[
+	\underbrace{\mat{1&1&-1&1\\0&1&0&1\\2&0&0&0}}_A\mat{x\\y\\z\\w}=\mat{0\\0\\0}.
+    \]
+    By row reduction on matrix $A$, we get
+    \[
+        \Rref(A) = \mat{1&0&0&0\\0&1&0&1\\0&0&1&0},
+    \]
+    and so we get that the complete solution expressed in vector form is
+    \[
+        \vec x = t\mat{0\\1\\0\\-1}.
+	\]
+    Therefore, any non-zero multiple of $\mat{0\\1\\0\\-1}$ is a normal vector for $\mathcal Q$. For example, $\vec n =\mat{0\\1\\0\\-1}$ is a normal vector for $\mathcal Q$, and $\mathcal Q$ can be written in normal form as 
+    \[
+        \vec n\cdot(\vec x-\vec p)=\vec 0
+    \]
+    where $\vec p=\mat{1\\2\\3\\4}$.
 \end{example}
 
 

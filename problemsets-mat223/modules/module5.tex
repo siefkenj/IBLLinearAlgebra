@@ -1,8 +1,10 @@
 Consider the following situation: you're designing a 3d video game, but your uses only have 2d screens.
-Or, you have a 900 dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
+Or, you have a 900-dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
 Each of these is an example
-of finding the best approximation to a set of points given some restrictions. In general, this operation
-is called a \emph{projection} and in the world of linear algebra, it has a very particular meaning.
+of finding the best approximation to particular points given some restrictions. In general, this operation
+is called a \emph{projection}\footnote{ What we define as a \emph{projection} is sometimes
+called an \emph{orthogonal projection} to distinguish it from other types of projections.}, 
+and in the world of linear algebra, it has a very particular meaning.
 
 \SavedDefinitionRender{Projection}
 
@@ -30,7 +32,6 @@ when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v
 	\Proj_{\ell_y}\vec v=\vec u_2=\mat{0\\2\\0}.
 \]
 
-Here, we appealed directly to the definition of projection to find the answer.
 
 \begin{example}
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
@@ -47,13 +48,13 @@ Here, we appealed directly to the definition of projection to find the answer.
 \end{example}
 
 Every example of a projection so far shares a geometric property. In the case of lines and planes,
-the vector from the projection	to the original point is a normal vector for the line or plane.
+the vector from the tip of the projection to the original point is a normal vector for the line or plane (provided it's non-zero).
 
 XXX Figure
 
 Stated precisely, if $X$ is a line or plane and $\vec v\notin X$ is a vector, then $\vec v-\Proj_X\vec v$ is a
-normal vector for $X$. Using this fact, we can find projections onto lines and planes without solving
-non-linear equations.
+normal vector for $X$. Using this fact, we can find projections onto lines and planes without needing to compute
+any distances!
 
 \begin{example}
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
@@ -96,14 +97,14 @@ The same is true when projecting onto other sets, but we must always keep the de
 
 \Heading{Subtleties of Projections}
 You might be wondering, what is $\Proj_X\vec v$ if $\vec v$ is equidistant from \emph{two}
-closest points in $X$. Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$).
+closest points in $X$? Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$)?
 Then there might not be a closest point in $X$ to $\vec v$. In both these cases, we say $\Proj_X\vec v$
 is \emph{undefined}.
 
 Formally, for a fixed set $X$, we consider $P(\vec v)=\Proj_X\vec v$ as a function that inputs and outputs
 vectors. And, as a function, $P$ has a domain consisting of exactly the vectors $\vec v$ for which $P(\vec v)$
 is defined. As it happens, if $X$ is a line or a plane, the domain of $P$ is all of $\R^n$, and in this text,
-we will be sensible and only ask about projections restricted to an appropriate domain. 
+we will be sensible and only ask about projections that exist. 
 
 \Heading{Vector Components}
 
@@ -111,7 +112,7 @@ We've seen before that dot products can be used to measure how much one
 vector points in the direction of another. But, we can go further. Suppose 
 $\vec v\neq \vec 0$ and $\vec u$ are vectors. We might want to \emph{decompose}
 $\vec u$ into the sum of two vectors, one which is in the direction of $\vec v$
-and the other which is orthogonal to $\vec v$. The tool to that does this is the vector component.
+and the other which is orthogonal to $\vec v$. The tool to that does this is the \emph{vector component}.
 
 \SavedDefinitionRender{Component}
 
@@ -123,7 +124,7 @@ is a decomposition of $\vec u$ into the sum of two vectors, one, $\Vcomp_{\vec v
 and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
 
 \begin{example}
-	Find the component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
+	Find the vector component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
 
     Let $\Vcomp_{\vec b}\vec a=\mat{x\\y}$ for some unknown $x,y\in\R$. 
     
@@ -165,7 +166,7 @@ which means
 \Heading{The Relationship Between Vector Components and Projections}
 
 Vector components and projections onto lines are closely related. So closely related that many textbooks
-use the single word \emph{projection} to talk about both vector components and projections. Let's take a moment
+use the single word \emph{projection} to talk about both vector components and projections\footnote{ We will not.}. Let's take a moment
 to explore this relationship.
 
 Let $\vec v=\mat{2\\4}$ and $\vec u=\mat{2\\-1}$ and let $\ell=\Span\Set{\vec v}$. Drawing a picture of
@@ -175,10 +176,10 @@ of $\Vcomp_{\vec v}\vec u$.
 XXX Figure
 
 Since $\ell=\Span\Set{\vec v}$ and $\Proj_\ell\vec u\in\ell$, we know that $\Proj_\ell\vec u$ is in the direction
-of $\vec v$. Further, from geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
-and is therefore orthogonal to its direction vector, $\vec v$! What's more, we didn't
+of $\vec v$. Further, using geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
+and is therefore orthogonal to its direction vector $\vec v$! What's more, we didn't
 use anything in particular about $\vec u$ and $\vec v$ when making this argument (other than $\vec v\neq \vec 0$). This means,
-we may establish a general formula. 
+we have established a general fact. 
 
 \begin{theorem}
 	For vectors $\vec u$ and $\vec v\neq 0$, we have

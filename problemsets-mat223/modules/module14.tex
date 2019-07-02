@@ -1,7 +1,79 @@
 
-Linear transformations transform vectors, but the also change \emph{sets}.
+Linear transformations transform vectors, but they also change \emph{sets}.
 
-XXX Figure of a transformation changing a set
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=3,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, myorange]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[fill, opacity=.3] plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw[black!70, very thick, ->] (0,0) -- (1,0);
+			\draw[black!70, very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (A) at (1.25,3.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=0,ymax=3,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={2,1,-1,.5,(0,0)}, BlueGreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\draw[fill, opacity=.3] plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw[black!70, very thick, ->] (0,0) -- (1,0);
+			\draw[black!70, very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (B) at (-.25,3.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {Linear Transformation} (B) ;
+	\end{tikzpicture}
+\end{center}
 
 It turns out to be particularly useful to track by how much a linear transformation
 changes area/volume. This number which is associated with a linear transformation with
@@ -23,7 +95,37 @@ For this purpose, we will define notation for the \emph{unit $n$-cube}.
 
 $C_2$ should look familiar as the unit square in $\R^2$ with lower-left corner at the origin.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0);
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 $C_n$ always has volume $1$\footnote{ The fact that the volume of $C_n$ is $1$ is actually by definition.}, and by
 analyzing the image of $C_n$ under a linear transformation, we can see by
@@ -33,13 +135,80 @@ how much a given transformation changes volume.
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find the volume of $\mathcal T(C_2)$.
 
-	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\xhat = \mat{1\\0}$ and $\yhat = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\xhat$ and $\yhat$, we obtain
+	Recall that $C_2$ is the unit square in $\R^2$ with sides given by $\xhat = \mat{1\\0}$ 
+	and $\yhat = \mat{0\\1}$. Applying the linear transformation $\mathcal T$ to $\xhat$ and $\yhat$, we obtain
 	\[
 	    \mathcal T(\xhat)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\yhat)=\mat{1\\\frac{1}{2}}.
 	\]
-	Plotting $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$, we see $\mathcal T(C_2)$ is a parallelogram with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$:
+	Plotting $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$, we see $\mathcal T(C_2)$ is a parallelogram 
+	with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$:
 	
-	XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0);
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (A) at (1.25,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={2,1,-1,.5,(0,0)}, mygreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0);
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal T$} (B) ;
+	\end{tikzpicture}
+\end{center}
 	
 	Therefore, the volume of $\mathcal T(C_2)$ is 2.
 \end{example}
@@ -120,7 +289,147 @@ or \emph{orientation reversing}.
 
 \SavedDefinitionRender{OrientationPreservingLinearTransformation}
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below] {$\xhat$};
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{scope}
+			\coordinate (A) at (1.25,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={2,1,-1,.5,(0,0)}, mygreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below right] {$\mathcal T(\xhat)$};;
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, below left, yshift=4pt] {$\mathcal T(\yhat)$};
+		\end{scope}
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal T$} (B) ;
+		\node at ($(plot2.north)+(0,.5cm)$) {Orientation Preserving};
+	\end{tikzpicture}
+
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below] {$\xhat$};
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{scope}
+			\coordinate (A) at (1.25,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={-1,.5,2,1,(0,0)}, Blue]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal S(C_2)$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below left, yshift=4pt] {$\mathcal S(\xhat)$};;
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, below right] {$\mathcal S(\yhat)$};
+		\end{scope}
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal S$} (B) ;
+		\node at ($(plot2.north)+(0,.5cm)$) {Orientation Reversing};
+	\end{tikzpicture}
+\end{center}
 
 In the figure above, $\mathcal T$ is orientation preserving and $\mathcal S$ is orientation reversing.
 
@@ -151,7 +460,119 @@ Volume changes are naturally multiplicative. If a linear transformation $\mathca
 of $\alpha$ and $\mathcal S$ changes volume by a factor of $\beta$, then $\mathcal S\circ \mathcal T$ changes
 volume by a factor of $\beta\alpha$. Thus, determinants are multiplicative.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=3,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, myorange]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[fill, opacity=.3] plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw[black!70, very thick, ->] (0,0) -- (1,0);
+			\draw[black!70, very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (A) at (1.25,3.25);
+			\coordinate (X) at (1.25,-.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=0,ymax=3,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={2,1,-1,.5,(0,0)}, BlueGreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\draw[fill, opacity=.3] plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw[black!70, very thick, ->] (0,0) -- (1,0);
+			\draw[black!70, very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (B) at (-.25,3.25);
+			\coordinate (C) at (1.5,3.25);
+		\end{axis}
+		
+		\begin{axis}[
+			name=plot3,
+			at={($(plot2.south east) + (1cm, 0)$)},
+			anchor=south west,
+		    disabledatascaling,
+		    xmin=-1,xmax=6,
+		    ymin=0,ymax=5,
+			xtick={-2,...,6},
+			ytick={-2,...,6},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={3, 0, -1, 2,(0,0)}, mypink]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\draw[fill, opacity=.3] plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\draw[black!70, very thick, ->] (0,0) -- (1,0);
+			\draw[black!70, very thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+			\coordinate (D) at (-.75,3.25);
+			\coordinate (Y) at (1.25,-.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$2\times\text{Volume}$} node[midway,below] {$\mathcal T$} (B) ;
+		\draw[thick] (C) edge[bend left, ->] node[midway,above] {$3\times\text{Volume}$} node[midway,below] {$\mathcal S$}  (D) ;
+		\draw[thick] (X) edge[bend right=20, ->] node[midway,above] {$6\times\text{Volume}$} node[midway,below] {$\mathcal S\circ \mathcal T$}  (Y) ;
+	\end{tikzpicture}
+\end{center}
 
 \begin{theorem}
 	Let $\mathcal T:\R^n\to\R^n$ and $\mathcal S:\R^n\to\R^n$ be linear transformations. Then
@@ -275,22 +696,22 @@ matrix.
 
 	We can row-reduce $A$ with the following steps:
 	\[
-	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1} 
+	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1}.
 	\]
-	and get the elementary matrices corresponding to these steps
+	The elementary matrices corresponding to these steps are
 	\[
-	    E_1=\mat{1&0\\-3&1} \qquad E_2=\mat{1&0\\0&-\frac{1}{2}}\qquad E_3=\mat{1&-2\\0&1}\qquad\text{and}\qquad E_3 E_2 E_1 A = I.
+		E_1=\mat{1&0\\-3&1} \qquad E_2=\mat{1&0\\0&-\frac{1}{2}}\qquad\text{and}\qquad E_3=\mat{1&-2\\0&1}, 
 	\]
-	Thus we obtain
+	and so $E_3 E_2 E_1 A = I$. Therefore
 	\[
-	    A=E_1^{-1}E_2^{-2}E_3^{-1}I\implies
-	    A =\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}.
+	    A=E_1^{-1}E_2^{-1}E_3^{-1}I=E_1^{-1}E_2^{-1}E_3^{-1}=
+	    \mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}.
 	\]
-	Therefore,
+	Using the fact that the determinant is multiplicative, we get
 	\begin{align*}
-	    \det(A)&=\det\left(\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\mat{1&0\\0&1}\right)\\
-	           &=\det\left(\mat{1&0\\3&1}\right)\det\left(\mat{1&0\\0&-2}\right)\det\left(\mat{1&2\\0&1}\right)\det\left(\mat{1&0\\0&1}\right)\\
-	           &=1\cdot(-2)\cdot1\cdot1 = -2.
+	    \det(A)&=\det\left(\mat{1&0\\3&1}\mat{1&0\\0&-2}\mat{1&2\\0&1}\right)\\
+	           &=\det\left(\mat{1&0\\3&1}\right)\det\left(\mat{1&0\\0&-2}\right)\det\left(\mat{1&2\\0&1}\right)\\
+		   &=(1)(-2)(1) = -2.
 	\end{align*}
 \end{example}
 
