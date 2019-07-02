@@ -1,10 +1,8 @@
 Consider the following situation: you're designing a 3d video game, but your uses only have 2d screens.
-Or, you have a 900-dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
+Or, you have a 900 dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
 Each of these is an example
-of finding the best approximation to particular points given some restrictions. In general, this operation
-is called a \emph{projection}\footnote{ What we define as a \emph{projection} is sometimes
-called an \emph{orthogonal projection} to distinguish it from other types of projections.}, 
-and in the world of linear algebra, it has a very particular meaning.
+of finding the best approximation to a set of points given some restrictions. In general, this operation
+is called a \emph{projection} and in the world of linear algebra, it has a very particular meaning.
 
 \SavedDefinitionRender{Projection}
 
@@ -26,12 +24,13 @@ between $\vec u_t$ and $\vec v$ is
 \[
 	\Norm{\vec u_t-\vec v}=\norm*{\mat{0\\t\\0}-\mat{1\\2\\3}} = \sqrt{1^2+(t-2)^2+3^2}.
 \]
-Since $(t-2)^2$ is always positive, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$. That is,
+Since $(t-2)^2$ is always non-negative, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$. That is,
 when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v$ and so,
 \[
 	\Proj_{\ell_y}\vec v=\vec u_2=\mat{0\\2\\0}.
 \]
 
+Here, we appealed directly to the definition of projection to find the answer.
 
 \begin{example}
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
@@ -39,44 +38,49 @@ when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v
 
 	By definition, the distance between $\vec v$ and vectors in $\ell$ is given by
 	\[
-	    \Norm{\vec u-\vec v}=\norm*{\mat{t+3\\t-2}-\mat{-1\\-1}} = \sqrt{(t+4)^2+(t-1)^2}=\sqrt{2t^2+6t+17}=\sqrt{2\left(t+\frac{3}{2}\right)^2+\frac{25}{2}},
+	    \Norm{\vec u-\vec v}=\norm*{\mat{t+3\\t-2}-\mat{-1\\-1}} = \sqrt{(t+4)^2+(t-1)^2}=\sqrt{2t^2+6t+17}=\sqrt{2\left(t+\frac{3}{2}\right)^2+\frac{25}{2}}.
 	\]
-	where $t=-\frac{3}{2}$ minimizes the value of the distance. Therefore, we find 
+	Since $(t+\frac{3}{2})^2$ is always non-negative, the value $t=-\frac{3}{2}$ minimizes the distance between $\ell$ and $\vec v$
 	\[
-	    \Proj_\ell \vec v=-\frac{3}{2}\mat{1\\1}+\mat{3\\-2}=\frac{1}{2}\mat{3\\-7}.
+	    \Proj_\ell \vec v=-\tfrac{3}{2}\mat{1\\1}+\mat{3\\-2}=\mat{3/2\\-7/2}.
 	\]
 \end{example}
 
 Every example of a projection so far shares a geometric property. In the case of lines and planes,
-the vector from the tip of the projection to the original point is a normal vector for the line or plane (provided it's non-zero).
+the vector from the projection	to the original point is a normal vector for the line or plane.
 
 XXX Figure
 
 Stated precisely, if $X$ is a line or plane and $\vec v\notin X$ is a vector, then $\vec v-\Proj_X\vec v$ is a
-normal vector for $X$. Using this fact, we can find projections onto lines and planes without needing to compute
-any distances!
+normal vector for $X$. Using this fact, we can find projections onto lines and planes without solving
+non-linear equations.
 
 \begin{example}
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
 	and let $\vec v=\mat{-1\\-1}$. Use the fact that $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$
 	to find Find $\Proj_\ell \vec v$.
 
-	Since $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$, $\vec v-\Proj_\ell\vec v$ is orthogonal to $\vec d=\mat{1\\1}$. Thus, let $\Proj_\ell\vec v = \mat{x\\y}$ for some unknown $x,y\in\R$, we have
+	Since $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$, we know $\vec v-\Proj_\ell\vec v$ is orthogonal to $\vec d=\mat{1\\1}$. 
+	
+	Thus, let $\Proj_\ell\vec v = \mat{x\\y}$ for some unknown $x,y\in\R$, we have
+	\[
+	    (\vec v-\Proj_\ell\vec v)\cdot\vec d=\mat{-1-x\\-1-y}\cdot \mat{1\\1}=-2-x-y=0,
+	\]
+	that is, 
 	\begin{equation}
-	\label{EQREGSYS1}
-	    (\vec v-\Proj_\ell\vec v)\cdot\vec d=0 \implies \mat{-1-x\\-1-y}\cdot \mat{1\\1}=0\implies x+y=-2.
+	\label{EQ1}
+	    x+y=-2.
 	\end{equation}
-	Also, since $\Proj_\ell\vec v$ is a vector in $\ell$, $\Proj_\ell\vec v$ also satisfies
+	Also, since $\Proj_\ell\vec v$ is a vector in $\ell$, we know $\Proj_\ell\vec v$ also satisfies
+	\[
+    	\mat{x\\y}=t\mat{1\\1}+\mat{3\\-2}=\mat{t+3\\t-2}.
+	\]
+	By substituting $t=x-3$ into $y=t-2$, we get
 	\begin{equation}
-	\label{EQREGSYS2}
-	    \mat{x\\y}=t\mat{1\\1}+\mat{3\\-2}\implies
-	    \sysdelim\{.
-		\systeme*{
-			x=t+3,
-			y=t-2
-		} \implies x-y=5
+	\label{EQ2}
+	    x-y=5.
 	\end{equation}
-	Solve the two-equations system given by \eqref{EQREGSYS1} and \eqref{EQREGSYS2}, we find $\Proj_\ell\vec v = \frac{1}{2}\mat{3\\-7}$. 
+	Solving the two-equations system given by \eqref{EQ1} and \eqref{EQ2}, we find $\Proj_\ell\vec v = \mat{3/2\\-7/2}$. 
 \end{example}
 
 \Heading{Projections Onto Other Sets}
@@ -97,14 +101,14 @@ The same is true when projecting onto other sets, but we must always keep the de
 
 \Heading{Subtleties of Projections}
 You might be wondering, what is $\Proj_X\vec v$ if $\vec v$ is equidistant from \emph{two}
-closest points in $X$? Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$)?
+closest points in $X$. Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$).
 Then there might not be a closest point in $X$ to $\vec v$. In both these cases, we say $\Proj_X\vec v$
 is \emph{undefined}.
 
 Formally, for a fixed set $X$, we consider $P(\vec v)=\Proj_X\vec v$ as a function that inputs and outputs
 vectors. And, as a function, $P$ has a domain consisting of exactly the vectors $\vec v$ for which $P(\vec v)$
 is defined. As it happens, if $X$ is a line or a plane, the domain of $P$ is all of $\R^n$, and in this text,
-we will be sensible and only ask about projections that exist. 
+we will be sensible and only ask about projections restricted to an appropriate domain. 
 
 \Heading{Vector Components}
 
@@ -112,7 +116,7 @@ We've seen before that dot products can be used to measure how much one
 vector points in the direction of another. But, we can go further. Suppose 
 $\vec v\neq \vec 0$ and $\vec u$ are vectors. We might want to \emph{decompose}
 $\vec u$ into the sum of two vectors, one which is in the direction of $\vec v$
-and the other which is orthogonal to $\vec v$. The tool to that does this is the \emph{vector component}.
+and the other which is orthogonal to $\vec v$. The tool to that does this is the vector component.
 
 \SavedDefinitionRender{Component}
 
@@ -124,23 +128,31 @@ is a decomposition of $\vec u$ into the sum of two vectors, one, $\Vcomp_{\vec v
 and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
 
 \begin{example}
-	Find the vector component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
+	Find the component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
 
     Let $\Vcomp_{\vec b}\vec a=\mat{x\\y}$ for some unknown $x,y\in\R$. 
     
-    By definition, $\vec a - \Vcomp_{\vec b}\vec a$ is orthogonal to $\vec b$. That is,
-    \begin{equation}
-    \label{e1}
-        (\vec a-\Vcomp_{\vec b}\vec a)\cdot\vec b=0. \implies \mat{1-x\\2-y}\cdot\mat{1\\1} = 0 \implies x+y=3.
-    \end{equation}
-    Also from the definition, $\Vcomp_{\vec b}\vec a$ is the vector in the direction of $\vec b$. Thus, for some $k\in\R$, we have
-    \begin{equation}
-    \label{e2}
-        \Vcomp_{\vec b}\vec a = k\vec b \implies\mat{x\\y}=\mat{k\\k}\implies x-y=0.
-    \end{equation}
-    Therefore, solving the two-equation system given by \eqref{e1} and \eqref{e2}, we have
+    By definition, $\vec a - \Vcomp_{\vec b}\vec a$ is orthogonal to $\vec b$. Thus we have
     \[
-        \vec a-\Vcomp_{\vec b}\vec a=\frac{3}{2}\mat{1\\1}.
+        (\vec a-\Vcomp_{\vec b}\vec a)\cdot\vec b=\mat{1-x\\2-y}\cdot\mat{1\\1}=3-x-y=0,
+    \]
+    that is,
+    \begin{equation}
+    \label{EQ3}
+        x+y=3.
+    \end{equation}
+    Also from the definition, $\Vcomp_{\vec b}\vec a$ is a vector in the direction of $\vec b$. Thus, for some $k\in\R$,
+    \[
+         mat{x\\y}=\Vcomp_{\vec b}\vec a = k\vec b=\mat{k\\k}.
+    \]
+    Since $x=y=k$, we get
+    \begin{equation}
+    \label{EQ4}
+        x-y=0.
+    \end{equation}
+    Solving the two-equation system given by \eqref{EQ3} and \eqref{EQ4}, we obtain
+    \[
+        \vec a-\Vcomp_{\vec b}\vec a=\mat{3/2\\3/2}.
     \]
 \end{example}
 
@@ -166,7 +178,7 @@ which means
 \Heading{The Relationship Between Vector Components and Projections}
 
 Vector components and projections onto lines are closely related. So closely related that many textbooks
-use the single word \emph{projection} to talk about both vector components and projections\footnote{ We will not.}. Let's take a moment
+use the single word \emph{projection} to talk about both vector components and projections. Let's take a moment
 to explore this relationship.
 
 Let $\vec v=\mat{2\\4}$ and $\vec u=\mat{2\\-1}$ and let $\ell=\Span\Set{\vec v}$. Drawing a picture of
@@ -176,10 +188,10 @@ of $\Vcomp_{\vec v}\vec u$.
 XXX Figure
 
 Since $\ell=\Span\Set{\vec v}$ and $\Proj_\ell\vec u\in\ell$, we know that $\Proj_\ell\vec u$ is in the direction
-of $\vec v$. Further, using geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
-and is therefore orthogonal to its direction vector $\vec v$! What's more, we didn't
+of $\vec v$. Further, from geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
+and is therefore orthogonal to its direction vector, $\vec v$! What's more, we didn't
 use anything in particular about $\vec u$ and $\vec v$ when making this argument (other than $\vec v\neq \vec 0$). This means,
-we have established a general fact. 
+we may establish a general formula. 
 
 \begin{theorem}
 	For vectors $\vec u$ and $\vec v\neq 0$, we have
@@ -193,9 +205,11 @@ This is great news because vector components are easy to compute using dot produ
 \begin{example}
 	Compute the projection of $\vec a=\mat{3\\7}$ onto $\ell=\Span\Set*{\mat{1\\-4}}$.
 
-	By the theorem above, let $\vec b = \mat{1\\-4}$, we have
+	Let $\vec b = \mat{1\\-4}$. 
+	
+	By the theorem above, for $\vec a$ and $\vec b\neq 0$, we have
 	\[
-	    \Proj_\ell \vec a = \Vcomp_{\vec b} \vec a = \left(\frac{\vec d\cdot \vec a}{\vec b\cdot \vec b}\right)\vec b = -\frac{3-28}{1+16}\mat{1\\-4}=-\frac{25}{17}\mat{1\\-4}.
+	    \Proj_\ell \vec a = \Vcomp_{\vec b} \vec a = \left(\frac{\vec d\cdot \vec a}{\vec b\cdot \vec b}\right)\vec b = -\tfrac{3-28}{1+16}\mat{1\\-4}=-\tfrac{25}{17}\mat{1\\-4}.
 	\]
 \end{example}
 
@@ -206,18 +220,19 @@ projecting onto a span}. In general, projections and vector components are unrel
 	Let $\vec a=\mat{3\\7}$ , $\vec b=\mat{1\\-4}$, and let $\ell$ be the line given in vector form by
 	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec b}\vec a$.
 
-	By definition, $\Proj_{\ell}\vec a$ is the closest point in $\ell$ to $\vec a$. Since the distance is given by
+	By definition, $\Proj_{\ell}\vec a$ is the closest point in $\ell$ to $\vec a$. Computing the distance between $\ell$ and $\vec a$, we have
 	\[
-	    \norm*{(t\vec b+\vec a)-\vec a}=t\norm*{\vec b}=\sqrt{17}t,
+	    \norm*{(t\vec b+\vec a)-\vec a}=\Abs{t}\norm*{\vec b}=\sqrt{17}\Abs{t}.
 	\]
-	where $t=0$ minimizes the value of the distance. Therefore, we obtain
+	Since $\Abs{t}$ is always non-negative, the value $t=0$ minimizes the value of the distance. 
+	
+	Thus we obtain
 	\[
 	    \Proj_{\ell}\vec b = \vec 0 + \vec a = \mat{3\\7}.
 	\]
 	But by definition, $\Vcomp_{\vec b}\vec a$ is the vector in the direction of $\vec b$ so that $\vec a - \Vcomp_{\vec b}\vec a$ is orthogonal to $\vec b$. Therefore, $\Vcomp_{\vec b}\vec a$ would be the same as the example above. Thus, we find 
 	\[
-	    \Proj_{\ell}\vec b=\mat{3\\7}\neq-\frac{25}{17}\mat{1\\-4}=\Vcomp_{\vec b}\vec a.
+	    \Proj_{\ell}\vec b=\mat{3\\7}\neq-\tfrac{25}{17}\mat{1\\-4}=\Vcomp_{\vec b}\vec a.
 	\]
 	
 \end{example}
-
