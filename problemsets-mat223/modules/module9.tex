@@ -6,15 +6,243 @@ vectors changing. For example, the transformation
 \]
 stretches all vectors in the $\xhat$ direction by a factor of $2$.
 
-XXX Figure showing before and after
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-2,xmax=2,
+		    ymin=-2,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\fill[black!50!white, opacity=.1] (-2,-2) rectangle (2,2);
+			\begin{scope}[cm={1,0,0,1,(0,0)}, myorange, thick, ->]
+				\draw (0,0) -- (1,2);
+				\draw (0,0) -- (1,1);
+				\draw (0,0) -- (1,0);
+				\draw (0,0) -- (1,-1);
+				\draw (0,0) -- (1,-2);
+				\draw (0,0) -- (2,2);
+				\draw (0,0) -- (2,1);
+				\draw (0,0) -- (2,0);
+				\draw (0,0) -- (2,-1);
+				\draw (0,0) -- (2,-2);
+				\draw (0,0) -- (0,2);
+				\draw (0,0) -- (0,1);
+				\draw (0,0) -- (0,-1);
+				\draw (0,0) -- (0,-2);
+				\begin{scope}[densely dotted, BlueGreen]
+					\draw (0,0) -- (-1,2);
+					\draw (0,0) -- (-1,1);
+					\draw (0,0) -- (-1,0);
+					\draw (0,0) -- (-1,-1);
+					\draw (0,0) -- (-1,-2);
+					\draw (0,0) -- (-2,2);
+					\draw (0,0) -- (-2,1);
+					\draw (0,0) -- (-2,0);
+					\draw (0,0) -- (-2,-1);
+					\draw (0,0) -- (-2,-2);
+				\end{scope}
+			\end{scope}
+			\coordinate (A) at (1.25,2.5);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-4,xmax=4,
+		    ymin=-2,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\fill[black!50!white, opacity=.1] (-2,-2) rectangle (2,2);
+			\begin{scope}[cm={2,0,0,1,(0,0)}, myorange, thick, ->]
+				\draw (0,0) -- (1,2);
+				\draw (0,0) -- (1,1);
+				\draw (0,0) -- (1,0);
+				\draw (0,0) -- (1,-1);
+				\draw (0,0) -- (1,-2);
+				\draw (0,0) -- (2,2);
+				\draw (0,0) -- (2,1);
+				\draw (0,0) -- (2,0);
+				\draw (0,0) -- (2,-1);
+				\draw (0,0) -- (2,-2);
+				\draw (0,0) -- (0,2);
+				\draw (0,0) -- (0,1);
+				\draw (0,0) -- (0,-1);
+				\draw (0,0) -- (0,-2);
+				\begin{scope}[densely dotted, BlueGreen]
+					\draw (0,0) -- (-1,2);
+					\draw (0,0) -- (-1,1);
+					\draw (0,0) -- (-1,0);
+					\draw (0,0) -- (-1,-1);
+					\draw (0,0) -- (-1,-2);
+					\draw (0,0) -- (-2,2);
+					\draw (0,0) -- (-2,1);
+					\draw (0,0) -- (-2,0);
+					\draw (0,0) -- (-2,-1);
+					\draw (0,0) -- (-2,-2);
+				\end{scope}
+			\end{scope}
+			\coordinate (B) at (-1.25,2.5);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$S$} (B) ;
+	\end{tikzpicture}
+\end{center}
 
 The transformation
 \[
-	T:\R^2\to\R^2\qquad\text{defined by}\qquad \mat{x\\y}\mapsto\matc{x\\y+4}
+	T:\R^2\to\R^2\qquad\text{defined by}\qquad \mat{x\\y}\mapsto\matc{x+3\\y}
 \]
-translates all vectors $4$ units in the $\yhat$ direction.
+translates all vectors $3$ units in the $\xhat$ direction.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-2,xmax=2,
+		    ymin=-2,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\fill[black!50!white, opacity=.1] (-2,-2) rectangle (2,2);
+			\begin{scope}[cm={1,0,0,1,(0,0)}, myorange, thick, ->]
+				\draw (0,0) -- (1,2);
+				\draw (0,0) -- (1,1);
+				\draw (0,0) -- (1,0);
+				\draw (0,0) -- (1,-1);
+				\draw (0,0) -- (1,-2);
+				\draw (0,0) -- (2,2);
+				\draw (0,0) -- (2,1);
+				\draw (0,0) -- (2,0);
+				\draw (0,0) -- (2,-1);
+				\draw (0,0) -- (2,-2);
+				\draw (0,0) -- (0,2);
+				\draw (0,0) -- (0,1);
+				\draw (0,0) -- (0,-1);
+				\draw (0,0) -- (0,-2);
+				\begin{scope}[densely dotted, BlueGreen]
+					\draw (0,0) -- (-1,2);
+					\draw (0,0) -- (-1,1);
+					\draw (0,0) -- (-1,0);
+					\draw (0,0) -- (-1,-1);
+					\draw (0,0) -- (-1,-2);
+					\draw (0,0) -- (-2,2);
+					\draw (0,0) -- (-2,1);
+					\draw (0,0) -- (-2,0);
+					\draw (0,0) -- (-2,-1);
+					\draw (0,0) -- (-2,-2);
+				\end{scope}
+			\end{scope}
+			\coordinate (A) at (1.25,2.5);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-2,xmax=5,
+		    ymin=-2,ymax=2,
+			xtick={-4,...,5},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=.7cm,y=.7cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\fill[black!50!white, opacity=.1] (-2,-2) rectangle (2,2);
+			\begin{scope}[cm={1,0,0,1,(3,0)}, myorange, thick, ->]
+				\draw (-3,0) -- (1,2);
+				\draw (-3,0) -- (1,1);
+				\draw (-3,0) -- (1,0);
+				\draw (-3,0) -- (1,-1);
+				\draw (-3,0) -- (1,-2);
+				\draw (-3,0) -- (2,2);
+				\draw (-3,0) -- (2,1);
+				\draw (-3,0) -- (2,0);
+				\draw (-3,0) -- (2,-1);
+				\draw (-3,0) -- (2,-2);
+				\draw (-3,0) -- (0,2);
+				\draw (-3,0) -- (0,1);
+				\draw (-3,0) -- (0,-1);
+				\draw (-3,0) -- (0,-2);
+				\begin{scope}[densely dotted, BlueGreen]
+					\draw (-3,0) -- (-1,2);
+					\draw (-3,0) -- (-1,1);
+					\draw (-3,0) -- (-1,0);
+					\draw (-3,0) -- (-1,-1);
+					\draw (-3,0) -- (-1,-2);
+					\draw (-3,0) -- (-2,2);
+					\draw (-3,0) -- (-2,1);
+					\draw (-3,0) -- (-2,0);
+					\draw (-3,0) -- (-2,-1);
+					\draw (-3,0) -- (-2,-2);
+				\end{scope}
+			\end{scope}
+			\coordinate (B) at (-1.25,2.5);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$T$} (B) ;
+	\end{tikzpicture}
+\end{center}
 
 \Heading{Images}
 
@@ -23,7 +251,67 @@ If we had a bunch of vectors in the plane, applying $S$ would stretch those vect
 the $\xhat$ direction by a factor of $2$. For example, if we start with $\mathcal C$, the circle of radius $1$
 centered at $\vec 0$, then applying $S$ to all the vectors that make up $\mathcal C$ would produce an ellipse.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-2,xmax=2,
+		    ymin=-1,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\begin{scope}[cm={1,0,0,1,(0,0)}, myorange, very thick, ->]
+				\draw (0,0) circle (1);
+			\end{scope}
+			\node at (.45,.35) {$\mathcal C$};
+			\coordinate (A) at (1.25,1.5);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-2,xmax=2,
+		    ymin=-1,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\begin{scope}[cm={2,0,0,1,(0,0)}, mypink, very thick, ->]
+				\draw (0,0) circle (1);
+			\end{scope}
+			\node at (.5,.35) {$S(\mathcal C)$};
+			\coordinate (B) at (-1.25,1.5);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$S$} (B) ;
+	\end{tikzpicture}
+\end{center}
 
 This operation of applying a transformation to a specific set of vectors and seeing what results is
 called taking the \emph{image} of a set.
@@ -42,14 +330,108 @@ For example, let $\mathcal R:\R^2\to\R^2$ be rotation counter clockwise by $30^\
 and let $X=\Set{x\xhat+y\yhat\given x,y\in[0,1]}$ be the filled-in unit square. Then, $\mathcal R(X)$ is the filled-in
 unit square that meets the $x$-axis at an angle of $30^\circ$. Try describing that using set builder notation!
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-0,xmax=1,
+		    ymin=-0,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\begin{scope}[cm={1,0,0,1,(0,0)}, mypink, ->]
+				\fill[opacity=.3] (0,0) rectangle (1,1);
+				\draw (0,0) rectangle (1,1);
+			\end{scope}
+			\node at (.5,.5) {$X$};
+			\coordinate (A) at (.75,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-0,xmax=1,
+		    ymin=-0,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\begin{scope}[rotate=30, BlueGreen,  ->]
+				\fill[opacity=.3] (0,0) rectangle (1,1);
+				\draw (0,0) rectangle (1,1);
+			\end{scope}
+			\node[right] at (0,.6) {$\mathcal R(X)$};
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal R$} (B) ;
+	\end{tikzpicture}
+\end{center}
 
 \Heading{Linear Transformations}
 
 Linear algebra's main focus is the study of a special category of transformations: the \emph{linear} transformations.
 Linear transformations include rotations, dilations (stretches), shears, and more.
 
-XXX Figure of a smiley face transformed in many ways
+\begin{center}
+	\begin{tikzpicture}
+		\begin{scope}[cm={1,0,0,1,(0,0)}, black]
+			\node[transform shape, black] at (.5,.5) {Box};
+			\fill[opacity=.3] (0,0) rectangle (1,1) +(-.5,0)node[opacity=1, above] {Untransformed};
+			\draw[thick, ->] (0,0) -- (1,0);
+			\draw[thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+		\begin{scope}[cm={1,0,-1,1,(3,0)}, mygreen]
+			\node[transform shape, black] at (.5,.5) {Box};
+			\fill[mygreen, opacity=.3] (0,0) rectangle (1,1)  +(-.5,0) node[opacity=1, above] {Shear};
+			\draw[thick, ->] (0,0) -- (1,0);
+			\draw[thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+		\begin{scope}[cm={1, 0, 0, 1,(5,.13)}, Blue]
+			\draw[very thick, opacity=.5] (0,0) -- (1.15,.77) +(-.5,0)node[opacity=1, above] {Project};
+			\draw[thick, ->] (0,0) -- (.69,.46);
+			\draw[thick, densely dotted, ->] (0,0) -- (.46, .31);
+		\end{scope}
+		\begin{scope}[cm={.936, .352, -.352, .936,(7.5,-.1)}, myorange]
+			\node[transform shape, black] at (.5,.5) {Box};
+			\fill[opacity=.3] (0,0) rectangle (1,1)  +(-.5,0) node[opacity=1, above] {Rotate};
+			\draw[thick, ->] (0,0) -- (1,0);
+			\draw[thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+		\begin{scope}[cm={3,0,0,1,(9.4,0)}, mypink]
+			\node[transform shape, black] at (.5,.5) {Box};
+			\fill[opacity=.3] (0,0) rectangle (1,1)  +(-.5,0) node[opacity=1, above] {Stretch};
+			\draw[thick, ->] (0,0) -- (1,0);
+			\draw[thick, densely dotted, ->] (0,0) -- (0,1);
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
 
 They arise when taking derivatives in higher dimensions, and just like in one-variable calculus where if you zoom into
 a function at a point its graph looks like a line, if you zoom into a (non-linear) transformation at a point, it looks like a linear
@@ -70,8 +452,30 @@ In other words, $T$ \emph{distributes over linear combinations}.
 		\mat{x\\y}\stackrel{T}{\mapsto}\matc{x\\y+4}.
 	\]
 	For each of $S$ and $T$, determine whether the transformation is linear.
+	
+	Let vectors $\vec u=\mat{u_1\\u_2}$, $\vec v=\mat{v_1\\v_2}$ and the scalar $\alpha$ be given.
 
-	XXX Finish
+	For $\mathcal S$:
+	
+	We need to verify that $\mathcal S(\vec u+\vec v)=\mathcal S(\vec u)+\mathcal S(\vec v)$ and $\mathcal S(\alpha\vec u)=\alpha\mathcal S(\vec u)$. Computing, we see
+	\[
+	    \mathcal S(\vec u +\vec v)=\mathcal S\left(\mat{u_1+v_1\\u_2+v_2}\right)=\mat{2u_1+2v_1\\u_2+v_2}=\mat{2u_1\\u_2}+\mat{2v_1\\v_2}=\mathcal S(\vec u) + \mathcal S(\vec v)
+	\]
+	and
+	\[
+	    \mathcal S(a\vec u)=\mat{2a u_1\\a u_2}=\mathcal S\mat{a u_1\\a u_2}=a\mat{2 u_1\\ u_2}=a\mathcal S(\vec u).
+	\]
+	Therefore, $\mathcal S$ is linear.
+	
+	For $\mathcal T$:
+	
+	Notice that $\mathcal T(\vec u+\vec v)=\matc{u_1+v_1\\u_2+v_2+4}$ doesn't look like $\mathcal T(\vec u)+\mathcal T(\vec v)=\matc{u_1+v_1\\u_2+v_2+8}$. Therefore, we will guess that $T$ is not linear and look for a counter example. 
+	
+	Using $\xhat=\mat{1\\0}$ and $\yhat=\mat{0\\1}$, we see
+	\[
+	    \mathcal T(\xhat +\yhat)==\mathcal T\left(\mat{1\\1}\right)=\mat{1\\5} \neq \mat{1\\4}+\mat{0\\5}=\mathcal T(\xhat) + \mathcal T(\yhat).
+	\]
+	Therefore, $\mathcal T$ is not linear.
 \end{example}
 
 \Heading{Function Notation vs\mbox{.} Linear Transformation Notation}
@@ -108,7 +512,83 @@ Images under linear transformations have a certain look to them. Based just on t
 \emph{linear} you can probably guess which figure below represents the image of a grid under
 a linear transformation.
 
-XXX Figure -- one linear, one wavey
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-2,xmax=2,
+		    ymin=-2.1,ymax=2.1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\begin{scope}[cm={2,.5,-.5,1,(0,0)}, mypink, thick]
+				\addplot[mark=none]{0};
+				\addplot[mark=none]{-1};
+				\addplot[mark=none]{-2};
+				\addplot[mark=none]{1};
+				\addplot[mark=none]{2};
+				\addplot[mark=none]({1},{x});
+				\addplot[mark=none]({0},{x});
+				\addplot[mark=none]({-1},{x});
+				\addplot[mark=none]({-.5},{x});
+				\addplot[mark=none]({.5},{x});
+			\end{scope}
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-2,xmax=2,
+		    ymin=-2.1,ymax=2.1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+			\begin{scope}[BlueGreen, thick]
+				\addplot[mark=none, smooth, samples=50]({x},{.5*sin(deg(2*x))});
+				\addplot[mark=none, smooth, samples=50]({x},{.5*sin(deg(2*x))+1});
+				\addplot[mark=none, smooth, samples=50]({x},{.5*sin(deg(2*x))+2});
+				\addplot[mark=none, smooth, samples=50]({x},{.5*sin(deg(2*x))-1});
+				\addplot[mark=none, smooth, samples=50]({x},{.5*sin(deg(2*x))-2});
+				\addplot[mark=none, smooth, samples=50]({.5*cos(deg(2*x))+0},{x});
+				\addplot[mark=none, smooth, samples=50]({.5*cos(deg(2*x))+1},{x});
+				\addplot[mark=none, smooth, samples=50]({.5*cos(deg(2*x))+2},{x});
+				\addplot[mark=none, smooth, samples=50]({.5*cos(deg(2*x))-1},{x});
+				\addplot[mark=none, smooth, samples=50]({.5*cos(deg(2*x))-2},{x});
+			\end{scope}
+		\end{axis}
+
+		\node[yshift=-.5cm] at (plot1.south) {Linear};
+		\node[yshift=-.5cm] at (plot2.south) {Non-linear};
+
+	\end{tikzpicture}
+\end{center}
 
 Let's prove some basic theorems about linear transformations.
 
@@ -365,3 +845,5 @@ for the variables.
 		M=\mat{a&b\\c&d} = \mat{2&1\\1&0}.
 	\]
 \end{example}
+
+	

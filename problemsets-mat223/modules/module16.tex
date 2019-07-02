@@ -1,0 +1,226 @@
+
+Suppose $\mathcal T$ is a linear transformation and $\vec v_1$ and $\vec v_2$ are eigenvectors
+with eigenvalues $\lambda_1$ and $\lambda_2$. With this setup, for any $\vec a\in\Span\Set{\vec v_1,\vec v_2}$,
+we can compute $\mathcal T(\vec a)$ with minimal effort.
+
+Let's get specific. Define $\mathcal T:\R^2\to\R^2$
+to be the linear transformation with matrix $M=\mat{1&2\\3&2}$. Let $\vec v_1=\mat{-1\\1}$ and $\vec v_2=\mat{2\\3}$,
+and notice that $\vec v_1$ is an eigenvector for $\mathcal T$ with eigenvalue $-1$ and that $\vec v_2$ is an
+eigenvector for $\mathcal T$ with eigenvalue $4$. Let $\vec a=\vec v_1+\vec v_2$.
+
+Now,
+\[
+	\mathcal T(\vec a)=\mathcal T(\vec v_1+\vec v_2)=\mathcal T(\vec v_1)+\mathcal T(\vec v_2)=-\vec v_1+4\vec v_2.
+\]
+
+We didn't need to refer to the entries of $M$ to compute $\mathcal T(\vec a)$.
+
+Let's explore further. Let $\mathcal V=\Set{\vec v_1,\vec v_2}$ and notice that $\mathcal V$ is a basis
+for $\R^2$. By definition $[\vec a]_{\mathcal V}=\mat{1\\1}$, and so we just computed
+\[
+	\mathcal T\mat{1\\1}_{\mathcal V} = \mat{-1\\4}_{\mathcal V}.
+\]
+When represented in the $\mathcal V$ basis, computing $\mathcal T$ is easy. In general,
+\[
+	\mathcal T(\alpha\vec v_1+\beta\vec v_2)=\alpha\mathcal T(\vec v_1)+\beta\mathcal T(\vec v_2)=-\alpha\vec v_1+4\beta\vec v_2,
+\]
+and so
+\[
+	\mathcal T\mat{\alpha\\\beta}_{\mathcal V} = \mat{-\alpha\\4\beta}_{\mathcal V}.
+\]
+In other words, $\mathcal T$, when acting on vectors written in the $\mathcal V$ basis, just multiplies each coordinate
+by an eigenvalue. This is enough information to determine the matrix for $\mathcal T$ in the $\mathcal V$ basis:
+\[
+	[\mathcal T]_{\mathcal V}=\mat{-1&0\\0&4}.
+\]
+
+The matrix representations $[\mathcal T]_{\mathcal E}=\mat{1&2\\3&2}$ and $[\mathcal T]_{\mathcal V}=\mat{-1&0\\0&4}$
+are equally valid, but writing $\mathcal T$ in the $\mathcal V$ basis gives a very simple matrix!
+
+\Heading{Diagonalization}
+
+Recall that two matrices are similar if they represent the same transformation but in possibly different bases.
+The process of \emph{diagonalizing} a matrix $A$ is that of finding a diagonal matrix that is similar to $A$,
+and you can bet that this processes is closely related to eigenvectors/values.
+
+Let $\mathcal T:\R^n\to\R^n$ be a linear transformation and suppose that $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$
+is a basis so that
+\[
+	[\mathcal T]_{\mathcal B} = \matc{\alpha_1&0&\cdots &0\\0&\alpha_2&\cdots &0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\alpha_n}
+\]
+is a diagonal matrix. This means that $\vec b_1,\ldots,\vec b_n$ are eigenvectors for $\mathcal T$! The proof goes as follows:
+\[
+	[\mathcal T]_{\mathcal B}[\vec b_1]_{\mathcal B} = 
+	\matc{\alpha_1&0&\cdots &0\\0&\alpha_2&\cdots &0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\alpha_n}
+	\matc{1\\0\\\vdots\\0} = \matc{\alpha_1\\0\\\vdots\\0}=\alpha_1[\vec b_1]_{\mathcal B}=[\alpha_1\vec b_1]_{\mathcal B},
+\]
+and in general
+\[
+	[\mathcal T]_{\mathcal B}[\vec b_i]_{\mathcal B} = \alpha_i[\vec b_i]_{\mathcal B}=[\alpha_i\vec b_i]_{\mathcal B}.
+\]
+Therefore, for $i=1,\ldots,n$, we have
+\[
+	\mathcal T\vec b_i=\alpha_i\vec b_i.
+\]
+Since $\mathcal B$ is a basis, $\vec b_i\neq \vec 0$ for any $i$, and so each $\vec b_i$ is an eigenvector for $\mathcal T$ with
+corresponding eigenvalue $\alpha_i$.
+
+We've just shown that if a linear transformation $\mathcal T:\R^n\to\R^n$ can be represented by a diagonal matrix,
+then there must be a basis for $\R^n$ consisting of eigenvectors for $\mathcal T$. The converse is also true.
+
+Suppose again that $\mathcal T:\R^n\to\R^n$ is a linear transformation and that $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$
+is a basis of eigenvectors for $\mathcal T$ with corresponding eigenvalues $\alpha_1,\ldots,\alpha_n$. By definition,
+\[
+	\mathcal T(k\vec b_i)=k\mathcal T(\vec b_i)=\alpha_ik\vec b_i,
+\]
+and so
+\[
+	\mathcal T\matc{k_1\\k_2\\\vdots\\k_n}_{\mathcal B} = \matc{\alpha_1k_1\\\alpha_2k_2\\\vdots\\\alpha_nk_n}_{\mathcal B}
+	\qquad\text{which is equivalent to}\qquad
+	[\mathcal T]_{\mathcal B}\matc{k_1\\k_2\\\vdots\\k_n} = \matc{\alpha_1k_1\\\alpha_2k_2\\\vdots\\\alpha_nk_n}.
+\]
+The only matrix that does this is
+\[
+	[\mathcal T]_{\mathcal B} = \matc{\alpha_1&0&\cdots &0\\0&\alpha_2&\cdots &0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\alpha_n},
+\]
+which is a diagonal matrix.
+
+What we've shown is summarized by the following theorem.
+\begin{theorem}
+	A linear transformation $\mathcal T:\R^n\to\R^n$ can be represented by a diagonal matrix if and
+	only if there exists a basis for $\R^n$ consisting of eigenvectors for $\mathcal T$. If
+	$\mathcal B$ is such a basis, then $[\mathcal T]_{\mathcal B}$ is a diagonal matrix.
+\end{theorem}
+
+Now that we have a handle on representing a linear transformation by a diagonal matrix, let's tackle
+the problem of diagonalizing a matrix itself.
+
+\SavedDefinitionRender{Diagonalizable}
+
+Suppose $A$ is an $n\times n$ matrix. $A$ induces some transformation $\mathcal T_A:\R^n\to\R^n$. By definition,
+this means $A=[\mathcal T_A]_{\mathcal E}$. The matrix $B$ is similar to $A$ if there is some basis $\mathcal V$ so that
+$B=[\mathcal T_A]_{\mathcal V}$. Using change-of-basis matrices, we see
+\[
+	A=\BasisChange{\mathcal V}{\mathcal E}[\mathcal T_A]_{\mathcal V}\BasisChange{\mathcal E}{\mathcal V}
+	=\BasisChange{\mathcal V}{\mathcal E}B\BasisChange{\mathcal E}{\mathcal V}.
+\]
+In other words, $A$ and $B$ are similar if there is some invertible change-of-basis matrix $P$ so
+\[
+	A=PBP^{-1}.
+\]
+Based on our earlier discussion, $B$ will be a diagonal matrix if and only if $P$ is the change-of-basis matrix for a
+basis of eigenvectors. In this case, we know $B$ will be the diagonal matrix with eigenvalues along the diagonal (in the proper order).
+
+\begin{example}
+	Let $A=\mat{1&2&5\\-11&14&5\\-3&2&9}$ be a matrix and notice that $\vec v_1=\mat{5\\5\\1}$, $\vec v_2=\mat{1\\1\\1}$,
+	and $\vec v_3=\mat{1\\3\\1}$ are eigenvectors for $A$. Diagonalize $A$.
+
+	XXX Finish (eigenvalues are 4,8,12)
+\end{example}
+
+\Heading{Non-diagonalizable Matrices}
+
+Is every matrix diagonalizable? Unfortunately the world is not that sweet. But, we have a tool to tell if a matrix is
+diagonalizable---checking to see if there is a basis of eigenvectors.
+
+\begin{example}
+	Is the matrix $R=\mat{0&-1\\1&0}$ diagonalizable?
+
+	Computing, $\Char(R)=\lambda^2+1$ which has no real roots. Therefore,
+	$R$ has no real eigenvalues. Consequently, $R$ has no real eigenvectors,
+	and so $R$ is not diagonalizable\footnote{ If we allow complex eigenvalues, then $R$ \emph{is}
+	diagonalizable and is similar to the matrix $\mat{i&0\\0&-i}$. So, to be more precise, we
+	might say $R$ is not \emph{real} diagonalizable.}.
+\end{example}
+
+\begin{example}
+	Is the matrix $D=\mat{5&0\\0&5}$ diagonalizable?
+
+	For every vector $\vec v\in \R^2$, we have $D\vec v=5\vec v$, and so every
+	non-zero vector in $\R^2$ is an eigenvector for $D$. Thus, $\mathcal E=\Set{\xhat, \yhat}$
+	is a basis of eigenvectors for $\R^2$, and so $D$ is diagonalizable\footnote{ Of course, every
+	square matrix is similar to itself and $D$ is already diagonal, so of course it's diagonalizable.}.
+\end{example}
+
+\begin{example}
+	Is the matrix $J=\mat{5&1\\0&5}$ diagonalizable?
+
+	XXX Finish
+\end{example}
+
+\begin{example}
+	Is the matrix $K=\mat{5&1\\0&2}$ diagonalizable?
+
+	XXX Finish
+\end{example}
+
+\begin{emphbox}[Takeaway]
+	Not all matrices are diagonalizable, but you can check if an $n\times n$
+	matrix is diagonalizable by determining whether there is a basis of eigenvectors for $\R^n$.
+\end{emphbox}
+
+\Heading{Geometric and Algebraic Multiplicities}
+
+When analyzing linear transformations or matrices, we're often interested in
+studying the subspaces where vectors are stretched by only one eigenvalue. These 
+are called the \emph{eigenspaces}.
+
+\SavedDefinitionRender{Eigenspace}
+
+Now is the time when linear algebra and regular algebra (the solving of non-linear equations)
+combine. We know, every root of the characteristic polynomial of a matrix gives an eigenvalue
+for that matrix. Since the degree of the characteristic polynomial of an $n\times n$ matrix
+is always $n$, the fundamental theorem of algebra tells us exactly how many roots to expect.
+
+Recall that the \emph{multiplicity} of a root of a polynomial is the power of that root
+in the factored polynomial. So, for example $p(x)=(4-x)^3(5-x)$ has a root of $4$ with multiplicity
+$3$ and a root of $5$ with multiplicity $1$.
+
+\begin{example}
+	Let $R=\mat{0&-1\\1&0}$ and find the geometric and algebraic multiplicity of each eigenvalue of $R$.
+	
+	XXX Finish
+\end{example}
+
+\begin{example}
+	Let $D=\mat{5&0\\0&5}$ and find the geometric and algebraic multiplicity of each eigenvalue of $D$.
+	
+	XXX Finish
+\end{example}
+
+\begin{example}
+	Let $J=\mat{5&1\\0&5}$ and find the geometric and algebraic multiplicity of each eigenvalue of $J$.
+	
+	XXX Finish
+\end{example}
+
+\begin{example}
+	Let $K=\mat{5&1\\0&2}$ and find the geometric and algebraic multiplicity of each eigenvalue of $K$.
+	
+	XXX Finish
+\end{example}
+
+
+Consider the following two theorems.
+
+\begin{theorem}(Fundamental Theorem of Algebra)
+	Let $p$ be a polynomial of degree $n$. Then, if complex roots are allowed,
+	the sum of the multiplicities of the roots of $p$ is $n$.
+\end{theorem}
+
+\begin{theorem}
+	Let $\lambda$ be an eigenvalue of the matrix $A$. Then
+	\[
+		\text{geometric mult}(\lambda)\leq \text{algebraic mult}(\lambda).
+	\]
+\end{theorem}
+
+We can now deduce the following.
+\begin{theorem}
+	An $n\times n$ matrix $A$ is diagonalizable if and only if the sum of its geometric multiplicities
+	is equal to $n$. Further, provided complex eigenvalues are permitted, $A$ is diagonalizable if and
+	only if all its geometric multiplicities equal its algebraic multiplicities.
+\end{theorem}
+\begin{proof}
+	XXX Finish
+\end{proof}

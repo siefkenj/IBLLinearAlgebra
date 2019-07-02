@@ -30,6 +30,7 @@
 	\usetikzlibrary{fadings}
 	\usetikzlibrary{calc}
 	\tikzset{>=latex}
+	\usetikzlibrary{cd}
 \usepackage{fancyhdr}
 \usepackage{calc}
 \usepackage{wrapfig}
@@ -40,6 +41,8 @@
 \usepackage{fnpct} % fancy footnote spacing
 \usepackage{bm}
 \usepackage{systeme}
+\usepackage{datatool}% http://ctan.org/pkg/datatool for sorted lists
+\usepackage{xspace}
 
 
 
@@ -105,4 +108,22 @@
 \DeclarePairedDelimiterX\Set[1]\{\}{%
 	\renewcommand\given{\SetSymbol[\delimsize]}
 	#1
+}
+
+
+
+% labels for source attributions
+\NewDocumentCommand{\beezer}{o}{%
+	\IfNoValueTF{#1}{%
+		{\color{blue}\sffamily{B}}%
+	}{%
+		{\color{blue}\sffamily{B}}%  XXX Todo, make this href to the appropriate problem number
+	}\xspace%
+}
+\NewDocumentCommand{\hefferon}{o}{%
+	\IfNoValueTF{#1}{%
+		{\color{blue}\sffamily{H}}%
+	}{%
+		{\color{blue}\sffamily{H}}%  XXX Todo, make this href to the appropriate problem number
+	}\xspace%
 }
