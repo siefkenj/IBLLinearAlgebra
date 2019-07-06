@@ -105,7 +105,28 @@ We just showed above that $\Span\Set*{\mat{1\\1},\mat{-1\\2}}=\R^2$.
 \begin{example}
 	Let $\vec u=\mat{-1\\2}$ and $\vec v=\mat{1\\-2}$. Find $\Span\Set{\vec u,\vec v}$.
 
-	XXX Finish
+	By the definition of span,
+	\[
+	\Span\Set{\vec u,\vec v}=
+	\Set{\vec x\given \vec x=\alpha\vec u+\beta\vec v\text{ for some scalars }\alpha,\beta}.
+	\]
+	Solving for when $\mat{x\\y} = \alpha\mat{-1\\2}+\beta\mat{1\\-2}$ is consistent will
+	let us find the vectors that can be expressed as a linear combination of 
+	$\vec u$ and $\vec v$.
+	
+	We can solve the equation by considering the equations arising from the first and second coordinates.
+	\begin{alignat*}{3}
+	x &{}={}& -\alpha &{}+{}& \beta\\
+	y &{}={}& 2\alpha &{}-{}& 2\beta.
+	\end{alignat*}
+	Adding 2 times the first equation to the second, we get $2x+y=0$ and so $y=-2x$.
+	
+	This means that any vector whose y coordinate is -2 times the x coordinate
+	can be represented as a linear combination of $\vec u$ and $\vec v$. That is
+	\[
+	\Span\Set{\vec u,\vec v}=
+	\Set{\vec x\given \vec x=t\mat{1\\-2}\text{ for some scalar }t}.
+	\]
 \end{example}
 
 \begin{example}
