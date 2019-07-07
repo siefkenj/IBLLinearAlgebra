@@ -1,66 +1,116 @@
 
 Recall that when we write $\vec x=\mat{2\\3}$, what we actually mean is $\vec x=2\xhat+3\yhat$. The numbers $2$
 and $3$ are called the coordinates of the vector $\vec x$ with respect to the standard basis.  However, in general,
-subspaces have many bases, and so it is possible to represent a single vector in many ways as coordinates with
-respect to \emph{many} bases.
+subspaces have many bases, and so it is possible to represent a single vector in \emph{many different ways}
+as coordinates with respect to different bases.
 
-Let $\vec x=\mat{2\\3}$; let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let
-$\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{1\\1}$ and $\vec b_2=\mat{1\\2}$ be another
-basis for $\R^2$. Now, the coordinates of $\vec x$ with respect to $\mathcal E$ are $(2,3)$, but
-the coordinates of $\vec x$ with respect to $\mathcal B$ are $(1,1)$.
+\medskip
+Let $\vec x=\mat{2\\3}$, let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$, and let
+$\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{2\\1}$ and $\vec b_2=\mat{0\\1}$ be another
+basis for $\R^2$. The coordinates of $\vec x$ with respect to $\mathcal E$ are $(2,3)$, but
+the coordinates of $\vec x$ with respect to $\mathcal B$ are $(1,2)$.
 
-XXX Figure
+\begin{center}
+	\usetikzlibrary{decorations}
+	\pgfdeclaredecoration{arrows}{draw}{
+	\state{draw}[width=\pgfdecoratedinputsegmentlength]{%
+	  \path [every arrow subpath/.try] \pgfextra{%
+	    \pgfpathmoveto{\pgfpointdecoratedinputsegmentfirst}%
+	    \pgfpathlineto{\pgfpointdecoratedinputsegmentlast}%
+	   };
+	}}
+	\tikzset{every arrow subpath/.style={->, draw, thick, mygreen}}
+	\begin{tikzpicture}[scale=.75]
+		\begin{scope}[cm={1,0,0,1,(-7,0)}, local bounding box=scope1]
+			\draw[very thin,color=gray, dashed] (-1.3,-1.3) grid (4.3,4.3);
+			
+			\coordinate (X) at (2,3);
+			\coordinate (E1) at (1,0);
+			\coordinate (E2) at (0,1);
+			%\fill[mypink] (A) circle (2pt) node[above right] {$\vec a$};
+			%\fill[mygreen] (B) circle (2pt) node[above right] {$\vec b$};
+			\draw[thick, mypink, ->] (0,0) -- (X) node[midway, above left] {$\vec x$};
+
+			\path[decoration=arrows, decorate, mygreen] (0,0) -- ++(E1) -- ++(E1)  node[midway, below] {$2\xhat$}
+				-- ++(E2) -- ++(E2) -- ++(E2)  node[midway, right] {$3\yhat$};
+			\fill[black] (0,0) circle (2pt) node[below left] {$\vec 0$} ;
+		\end{scope}
+		\begin{scope}[local bounding box=scope2]
+			\clip (-1.3,-1.3) rectangle (4.3,4.3);
+			\begin{scope}[cm={2,1,0,1,(0,0)}]
+				\draw[very thin,color=gray, dashed] (-3.3,-3.3) grid (4.3,4.3);
+			\end{scope}
+			\coordinate (X) at (2,3);
+			\coordinate (B1) at (2,1);
+			\coordinate (B2) at (0,1);
+			%\fill[mypink] (A) circle (2pt) node[above right] {$\vec a$};
+			%\fill[mygreen] (B) circle (2pt) node[above right] {$\vec b$};
+			\draw[thick, mypink, ->] (0,0) -- (X) node[midway, above left] {$\vec x$};
+
+			\path[decoration=arrows, decorate, mygreen] (0,0) -- ++(B1)  node[midway, below right, yshift=3pt] {$1\vec b_1$}
+				-- ++(B2) -- ++(B2) node[midway, right, yshift=5pt] {$2\vec b_2$};
+			\fill[black] (0,0) circle (2pt) node[below left] {$\vec 0$} ;
+		\end{scope}
+		\node[above] at (scope1.north) {$\mathcal E$-grid};
+		\node[above] at (scope2.north) {$\mathcal B$-grid};
+	\end{tikzpicture}
+\end{center}
 
 The coordinates $(2,3)$ and $(1,1)$ represent $\vec x$ equally well, and when solving problems, we should pick the
 coordinates that make our problem the easiest\footnote{ For example, maybe in one choice of coordinates, we can avoid all 
-fractions in our calculations---this could be good if you're programming a computer that rounds it.}. However, now that we
+fractions in our calculations---this could be good if you're programming a computer that rounds decimals.}. However, now that we
 are representing vectors in multiple bases, we need a way to keep track of what coordinates correspond to which basis.
 
 \SavedDefinitionRender{RepresentationinaBasis}
 
 \begin{example}
-	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let $\mathcal B=\Set{\vec b_1,\vec b_2}$
-	where $\vec b_1=\xhat+\yhat$, and $\vec b_2 =3\yhat$ be another basis for $\R^2$. Given that $\vec v=2\xhat-\yhat$, 
-	find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal B}$.
+	Let $\mathcal E=\Set{\xhat,\yhat}$ be the standard basis for $\R^2$ and let $\mathcal C=\Set{\vec c_1,\vec c_2}$
+	where $\vec c_1=\xhat+\yhat$, and $\vec c_2 =3\yhat$ be another basis for $\R^2$. Given that $\vec v=2\xhat-\yhat$, 
+	find $[\vec v]_{\mathcal E}$ and $[\vec v]_{\mathcal C}$.
 
-	Given that $\vec v=2\xhat-\yhat$, we see
+	Since $\vec v=2\xhat-\yhat$, we know
 	\[
 	    [\vec v]_{\mathcal E}=\mat{2\\-1}.
 	\]
-	To find $[\vec v]_{\mathcal B}$, we can use a system of equations to find $\vec v$ as a linear combination of $\vec b_1$ and $\vec b_2$. 
+	To find $[\vec v]_{\mathcal C}$, we need to write $\vec v$ as a linear combination of $\vec c_1$ and $\vec c_2$. 
 	
-	First, set 
+	Suppose
 	\[
-		\vec v = x\vec b_1 + y\vec b_2    
+		\vec v = x\vec c_1 + y\vec c_2    
 	\]
-	for some unknown scalars $x$ and $y$. Then, since on the one hand,
+	for some unknown scalars $x$ and $y$. On the one hand,
 	\[
-	    \vec v = 2\xhat-\yhat
+	    \vec v = 2\xhat-\yhat,
 	\]
 	and on the other hand, 
 	\[
-	    \vec v  = x\vec b_1 + y\vec b_2= x(\xhat+\yhat)+3y\yhat=x\xhat+(x+3y)\yhat,
+	    \vec v  = x\vec c_1 + y\vec c_2= x(\xhat+\yhat)+3y\yhat=x\xhat+(x+3y)\yhat.
 	\]
-	equating the two equations above, we have
+	Combining these two equations, we have
 	\[
-	    2\xhat-\yhat = x\xhat+(x+3y)\yhat.
+	    2\xhat-\yhat = x\xhat+(x+3y)\yhat,
 	\]
-	Therefore, solving the system 
+	and so
+	\[
+		(x-2)\xhat+(x+3y+1)\yhat = \vec 0. 
+	\]
+	Since $\xhat$ and $\yhat$ are linearly independent, the only way for the above equation to be satisfied is if
+	$x-2=0$ \emph{and} $x+3y+1=0$. Thus, we need to solve the system
 	\[
 	    \sysdelim\{.
 		\systeme{
 			x=2,
 			x+3y=-1
-		},
+		}.
 	\]
-	we have $\vec v=2\vec b_1 - \vec b_2$. That is,
+	After solving, we see $\vec v=2\vec c_1 - \vec c_2$, and so
 	\[
-	   [\vec v]_{\mathcal B}=\mat{2\\-1}. 
+	   [\vec v]_{\mathcal C}=\mat{2\\-1}. 
 	\]
 \end{example}
 
 \Heading{Notation Conventions}
-In light of this notation, we need to revisit some past notation. Again, we have been writing $\vec x=\mat{1\\3}$ to mean
+We need to revisit some past notation. Up to this point, we have been writing $\vec x=\mat{1\\3}$ to mean
 $\vec x=2\xhat+3\yhat$. However, given the representation-in-a-basis notation, we should be writing
 \[
 	\vec x=\mat{2\\3}_{\mathcal E},
@@ -90,21 +140,21 @@ The Belgian surrealist Ren\'e Magritte painted the work above, which is subtitle
 a pipe. It is a painting of a pipe! In this work, Magritte points out a distinction that will soon become very important to
 us---the distinction between an object and a representation of that object.
 
-
+\bigskip
 
 Let $\vec x=2\xhat+3\yhat\in \R^2$. The vector $\vec x$ is a \emph{real-life geometrical thing}, and to
 emphasize this, we will call $\vec x$ a \emph{true} vector. In contrast, when we write
 the column matrix $[\vec x]_{\mathcal E}=\mat{2\\3}$, we are writing a \emph{list of numbers}. The list of
 numbers $\mat{2\\3}$ has no meaning until we give it a meaning by assigning it a basis. For example,
-by writing $\mat{2\\3}_{\mathcal E}$ we declare that the numbers $2$ and $3$ are coefficients of $\xhat$ and
+by writing $\mat{2\\3}_{\mathcal E}$, we declare that the numbers $2$ and $3$ are the coefficients of $\xhat$ and
 $\yhat$. By writing $\mat{2\\3}_{\mathcal B}$ where $\mathcal B=\Set{\vec b_1,\vec b_2}$,
-we declare that the numbers $2$ and $3$ are coefficients of $\vec b_1$ and $\vec b_2$. Since a list of numbers
-without a basis has no meaning, we must write
+we declare that the numbers $2$ and $3$ are the coefficients of $\vec b_1$ and $\vec b_2$. Since a list of numbers
+without a basis has no meaning, we must acknowledge
 \[
 	\vec x\,\,{\color{Red}\neq}\,\,\, [\vec x]_{\mathcal E}=\mat{2\\3},
 \]
 since the left side of the equation is a \emph{true vector} and the right side is a \emph{list of numbers}. Similarly,
-we must write
+we must acknowledge
 \[
 	[\vec x]_{\mathcal E}\,\,{\color{Red}\neq}\,\,\, \mat{2\\3}_{\mathcal E}=\vec x,
 \]
@@ -219,10 +269,10 @@ the basis $\vec a_1,\ldots, \vec a_n$ can be \emph{continuously transformed} to 
 exists a continuous function $\Phi:[0,1]\to\Set{\text{$n$-tuples of vectors}}$ so that $\Phi(0)=(\vec a_1,\ldots,\vec a_n)$
 and $\Phi(1)=(\vec b_1,\ldots,\vec b_n)$. Here, continuity is defined in the multi-variable calculus sense.
 }, but it will be enough for us
-to imagine that there is a continuous transform of one basis to another if there is a ``movie'' where one
-basis smoothly and without jumps transforms into another basis.
+to imagine that  a continuous transform between two bases is equivalent to a ``movie'' where one
+basis smoothly and without jumps transforms into the other.
 
-Let's consider some examples. Let $\mathcal X=\Set{\vec x_1,\vec x_2}$. We could imagine $\vec x_1,\vec x_2$ continuously 
+Let's consider some examples. Let $\mathcal X=\Set{\vec x_1,\vec x_2}$ as depicted below. We could imagine $\vec x_1,\vec x_2$ continuously 
 transforming to $\xhat, \yhat$ by $\vec x_1$ staying in place and $\vec x_2$ smoothly moving along the dotted
 line.
 
@@ -263,10 +313,10 @@ line.
 	\end{tikzpicture}
 \end{center}
 
-Because at every step along this motion, the set of $\vec x_1$ and the transformed $\vec x_2$ stayed linearly independent, $\mathcal X$ is
+Because at every step along this motion, the set of $\vec x_1$ and the transformed $\vec x_2$ is linearly independent, $\mathcal X$ is
 \emph{positively} oriented.
 
-Let $\mathcal Y=\Set{\vec y_1,\vec y_2}$. We are in a similar situation, except this time, somewhere along $\vec y_2$'s path,
+Let $\mathcal Y=\Set{\vec y_1,\vec y_2}$ as depicted below. We are in a similar situation, except this time, somewhere along $\vec y_2$'s path,
 the set of $\vec y_1$ and the transformed $\vec y_2$ becomes linearly dependent.
 
 \begin{center}
@@ -362,7 +412,7 @@ the set of $\vec y_1$ and the transformed $\vec y_2$ becomes linearly dependent.
 	\end{tikzpicture}
 \end{center}
 
-Maybe that was just bad luck and we might be able to transform along a different path and stay linearly independent?
+Maybe that was just bad luck and we might be able to transform along a different path and stay linearly independent.
 It turns out, we are doomed to fail, because $\mathcal Y$ is \emph{negatively} oriented.
 
 \bigskip
@@ -431,7 +481,7 @@ are negatively oriented. This is indicative of a general theorem.
 	Let $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$ be an ordered basis.
 	The ordered basis obtained from $\mathcal B$ by replacing $\vec b_i$ with $-\vec b_i$
 	and the ordered basis obtained from $\mathcal B$ by swapping the order of $\vec b_i$ and
-	$\vec b_{i+1}$ have the opposite orientation as $\mathcal B$.
+	$\vec b_{j}$ (with $i\neq j$) have the opposite orientation as $\mathcal B$.
 \end{theorem}
 
 
