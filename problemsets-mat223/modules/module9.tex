@@ -1,5 +1,5 @@
-Now that we have a handle on he basics of vectors, we can start thinking about \emph{transformations}.
-A transformation or a map is another word for a function, and they show up any time you need to describe
+Now that we have a handle on the basics of vectors, we can start thinking about \emph{transformations}.
+Transformation (or map) is another word for a function, and transformations show up any time you need to describe
 vectors changing. For example, the transformation
 \[
 	S:\R^2\to\R^2\qquad\text{defined by}\qquad \mat{x\\y}\mapsto\mat{2x\\y}
@@ -244,12 +244,12 @@ translates all vectors $3$ units in the $\xhat$ direction.
 	\end{tikzpicture}
 \end{center}
 
-\Heading{Images}
+\Heading{Images of Sets}
 
 Recall the transformation $S:\R^2\to\R^2$ defined by $\mat{x\\y}\mapsto\mat{2x\\y}$.
 If we had a bunch of vectors in the plane, applying $S$ would stretch those vectors in
-the $\xhat$ direction by a factor of $2$. For example, if we start with $\mathcal C$, the circle of radius $1$
-centered at $\vec 0$, then applying $S$ to all the vectors that make up $\mathcal C$ would produce an ellipse.
+the $\xhat$ direction by a factor of $2$. For example, let $\mathcal C$ be the circle of radius $1$
+centered at $\vec 0$. Applying $S$ to all the vectors that make up $\mathcal C$ produces an ellipse.
 
 \begin{center}
 	\begin{tikzpicture}
@@ -313,7 +313,7 @@ centered at $\vec 0$, then applying $S$ to all the vectors that make up $\mathca
 	\end{tikzpicture}
 \end{center}
 
-This operation of applying a transformation to a specific set of vectors and seeing what results is
+The operation of applying a transformation to a specific set of vectors and seeing what results is
 called taking the \emph{image} of a set.
 
 \SavedDefinitionRender{ImageofaSet}
@@ -433,10 +433,11 @@ Linear transformations include rotations, dilations (stretches), shears, and mor
 	\end{tikzpicture}
 \end{center}
 
-They arise when taking derivatives in higher dimensions, and just like in one-variable calculus where if you zoom into
+Linear transformations are an important type of transformation because (i) we have a complete theory of linear transformations
+(non-linear transformations are notoriously difficult to understand), and (ii) many non-linear transformations can be approximated
+by linear ones\footnote{Just like in one-variable calculus where if you zoom into
 a function at a point its graph looks like a line, if you zoom into a (non-linear) transformation at a point, it looks like a linear
-one\footnote{ If you're being picky, you might say that you see an \emph{affine} function, which is a linear function combined
-with a translation.}! All this is to say that linear transformations are worthy of our study.
+one.}. All this is to say that linear transformations are worthy of our study.
 
 Without further ado, let's define what it means for a transformation to be linear.
 
@@ -453,34 +454,38 @@ In other words, $T$ \emph{distributes over linear combinations}.
 	\]
 	For each of $S$ and $T$, determine whether the transformation is linear.
 	
-	Let vectors $\vec u=\mat{u_1\\u_2}$, $\vec v=\mat{v_1\\v_2}$ and the scalar $\alpha$ be given.
+	Let $\vec u=\mat{u_1\\u_2}$, $\vec v=\mat{v_1\\v_2}$ be vectors, and let $\alpha$ be a scalar.
 
-	For $\mathcal S$:
+	We first consider $\mathcal S$.
+	We need to verify that $\mathcal S(\vec u+\vec v)=\mathcal S(\vec u)+\mathcal S(\vec v)$ 
+	and $\mathcal S(\alpha\vec u)=\alpha\mathcal S(\vec u)$. 
 	
-	We need to verify that $\mathcal S(\vec u+\vec v)=\mathcal S(\vec u)+\mathcal S(\vec v)$ and $\mathcal S(\alpha\vec u)=\alpha\mathcal S(\vec u)$. Computing, we see
+	Computing, we see
 	\[
-	    \mathcal S(\vec u +\vec v)=\mathcal S\left(\mat{u_1+v_1\\u_2+v_2}\right)=\mat{2u_1+2v_1\\u_2+v_2}=\mat{2u_1\\u_2}+\mat{2v_1\\v_2}=\mathcal S(\vec u) + \mathcal S(\vec v)
+	    \mathcal S(\vec u +\vec v)=\mathcal S\left(\mat{u_1+v_1\\u_2+v_2}\right)=\matc{2u_1+2v_1\\u_2+v_2}=\mat{2u_1\\u_2}+\mat{2v_1\\v_2}=\mathcal S(\vec u) + \mathcal S(\vec v)
 	\]
 	and
 	\[
-	    \mathcal S(a\vec u)=\mat{2a u_1\\a u_2}=\mathcal S\mat{a u_1\\a u_2}=a\mat{2 u_1\\ u_2}=a\mathcal S(\vec u).
+		\mathcal S(\alpha\vec u)=\mat{2\alpha u_1\\a u_2}=\mathcal S\mat{\alpha u_1\\a u_2}=\alpha\mat{2 u_1\\ u_2}=\alpha\mathcal S(\vec u),
 	\]
-	Therefore, $\mathcal S$ is linear.
+	and so $\mathcal S$ satisfies all the properties of a linear transformation.
 	
-	For $\mathcal T$:
-	
-	Notice that $\mathcal T(\vec u+\vec v)=\matc{u_1+v_1\\u_2+v_2+4}$ doesn't look like $\mathcal T(\vec u)+\mathcal T(\vec v)=\matc{u_1+v_1\\u_2+v_2+8}$. Therefore, we will guess that $T$ is not linear and look for a counter example. 
+	\medskip
+	Next we consider $\mathcal T$.
+	Notice that $\mathcal T(\vec u+\vec v)=\matc{u_1+v_1\\u_2+v_2+4}$ doesn't 
+	look like $\mathcal T(\vec u)+\mathcal T(\vec v)=\matc{u_1+v_1\\u_2+v_2+8}$. 
+	Therefore, we will guess that $\mathcal T$ is not linear and look for a counter example. 
 	
 	Using $\xhat=\mat{1\\0}$ and $\yhat=\mat{0\\1}$, we see
 	\[
-	    \mathcal T(\xhat +\yhat)==\mathcal T\left(\mat{1\\1}\right)=\mat{1\\5} \neq \mat{1\\4}+\mat{0\\5}=\mathcal T(\xhat) + \mathcal T(\yhat).
+	    \mathcal T(\xhat +\yhat)=\mathcal T\left(\mat{1\\1}\right)=\mat{1\\5} \neq \mat{1\\4}+\mat{0\\5}=\mathcal T(\xhat) + \mathcal T(\yhat).
 	\]
-	Therefore, $\mathcal T$ is not linear.
+	Since at least one required property of a linear transformation is violated, $\mathcal T$ cannot be a linear transformation.
 \end{example}
 
 \Heading{Function Notation vs\mbox{.} Linear Transformation Notation}
 
-Linear transformations are just special types of functions. In calculus it is traditional to use lower case
+Linear transformations are just special types of functions. In calculus, it is traditional to use lower case
 letters for a function and parenthesis ``('' and ``)'' around the input to the function.
 \[
 	\underbrace{f:\R\to\R}_{\text{a function}}\qquad \underbrace{f(x)}_{\text{$f$ evaluated at $x$}}
@@ -499,7 +504,7 @@ or the set. For example, we might use a regular $X$ to denote a set and a callig
 
 Another difference you might not be used to is that, in linear algebra, we make a careful distinction between
 a function and its output. Let $f:\R\to\R$ be a function. In calculus, you might consider the phrases ``the function $f$''
-and ``the function $f(x)$''. In linear algebra, the first phrase is valid and the second is \emph{not}. By writing
+and ``the function $f(x)$'' to both make sense. In linear algebra, the first phrase is valid and the second is \emph{not}. By writing
 $f(x)$, we are indicating ``the output of the function $f$ when $x$ is input''. So, properly we should say ``the \emph{number} $f(x)$''.
 
 This distinction might seem pedantic now, but by keeping our functions as functions and our numbers/vectors as numbers/vectors,
@@ -590,7 +595,7 @@ a linear transformation.
 	\end{tikzpicture}
 \end{center}
 
-Let's prove some basic theorems about linear transformations.
+Let's prove some basic facts about linear transformations.
 
 \begin{theorem}
 	If $T:\R^n\to\R^m$ is a linear transformation, then $T(\vec 0)=\vec 0$.
@@ -711,7 +716,7 @@ This proof starts out with ``{\color{red}let $\vec x,\vec y\in \R^n$ and let $\a
 In what follows, the only properties of $\vec x$ and $\vec y$ we use come from the fact that they're
 in $\R^n$ (the domain of $T$) and the only fact about $\alpha$ we use is that it's a scalar. Because
 of this, $\vec x$, and $\vec y$ are considered \emph{arbitrary} vectors and $\alpha$ is an
-\emph{arbitrary} scalar. Put another way, the argument that follows will work for every single pair 
+\emph{arbitrary} scalar. Put another way, the argument that followed would work for every single pair 
 of vectors $\vec x,\vec y\in \R^n$ and for every scalar $\alpha$.
 Thus, by fixing arbitrary vectors at the start of our proof, we are (i) able to argue about
 all vectors at once while (ii) having named vectors that we can actually use in equations.
@@ -723,7 +728,7 @@ all vectors at once while (ii) having named vectors that we can actually use in 
 \end{emphbox}
 
 
-The proof give above is very typical, and almost every proof of the linearity of a function $T:\R^n\to\R^m$
+The proof given above is very typical, and almost every proof of the linearity of a function $T:\R^n\to\R^m$
 will look something like
 \begin{proof}
 	Let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar. By applying the definition
@@ -748,9 +753,11 @@ What about showing a transformation is \emph{not} linear? Here we don't need to 
 and all scalars. We only need to show something is false for \emph{one} pair of vectors or \emph{one} pair of a vector
 and a scalar.
 
-Because when we're proving something is not a linear transformation we only need to show
-that the definition of linearity breaks down in one place, we can pick and choose which property we
-want to show breaks down.
+When proving a transformation is not linear, we can pick one of the properties of linearity (distribution over
+vector addition or distribution over scalar multiplication) and a \emph{single example} where that property fails\footnote{
+It's often tempting to argue that the properties of linearity fail for all inputs, but this is a dangerous path! For instance,
+if $T(\vec 0)=\vec 0$, then $T(\vec a)=T(\vec a+\vec 0)=T(\vec a)+T(\vec 0)=T(\vec a)$ \emph{regardless} of whether
+$T$ is linear or not.}.
 
 \begin{example}
 	Let $T:\R^n\to\R^n$ be defined by $T(\vec x)=\vec x+\xhat$. Show that
@@ -783,8 +790,8 @@ It turns out all matrix transformations are linear transformations and most line
 are matrix transformations\footnote{ If you believe in the axiom of choice and you allow infinitely sized matrices,
 every linear transformation can be expressed as a matrix transformation.}. 
 
-Just as with writing systems
-of linear equations, matrices provide a compact way of specifying a linear transformation. For example, we could say,
+When it comes to specifying linear transformations, matrices are heroes, providing a compact notation (just like
+they did for systems of linear equations). For example, we could say,
 ``The linear transformation $T:\R^2\to\R^2$ that doubles the $x$-coordinate and triples the $y$-coordinate'', or
 we could say, ``The matrix transformation given by $\mat{2&0\\0&3}$''.
 
@@ -796,8 +803,12 @@ A linear transformation is a function that inputs vectors and outputs vectors. W
 using a matrix, but a matrix by itself is \emph{not} a linear transformation\footnote{ Consider the function defined
 by $f(x)=2x$. You would never say that the function $f$ is $2$!}.
 
-So what are some correct ways to specify a linear transformation using a matrix? Let's list some.
-For a matrix $M$ the following are ways of specifying the same linear transformation.
+\begin{emphbox}[Takeaway]
+	Matrices and linear transformations are closely related, but they aren't the same thing.
+\end{emphbox}
+
+So what are some correct ways to specify a linear transformation using a matrix? 
+For a matrix $M$, the following are correct.
 \begin{itemize}
 	\item The transformation $T$ defined by $T(\vec x)=M\vec x$.
 	\item The transformation given by multiplication by $M$.
@@ -820,15 +831,15 @@ for the variables.
 \begin{example}
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\x}$. Find a matrix, $M$, for $\mathcal T$.
 
-	Because $\mathcal T$ is a transformation for $\R^2\to\R2$, $M$ will be a $2\times 2$ matrix. Let
+	Because $\mathcal T$ is a transformation for $\R^2\to\R^2$, $M$ will be a $2\times 2$ matrix. Let
 	\[
 		M=\mat{a&b\\c&d}.
 	\]
 	We now need to use input-output pairs to ``calibrate'' $M$. We know
 	\[
-		\mathcal T\mat{1\\1}=\mat{3\\1}\qquad\text{and}\mathcal T\mat{0\\1}=\mat{1\\0}.
+		\mathcal T\mat{1\\1}=\mat{3\\1}\qquad\text{and}\qquad\mathcal T\mat{0\\1}=\mat{1\\0}.
 	\]
-	If $M$ is a matrix for $\mathcal T$, then we know $\mathcal T\vec x=M\vec x$ for all $\vec x$, and so
+	Since $M$ is a matrix for $\mathcal T$, we know $\mathcal T\vec x=M\vec x$ for all $\vec x$, and so
 	\[
 		M\mat{1\\1}=\mat{a&b\\c&d}\mat{1\\1}=\mat{a+b\\c+d}=\mat{3\\1}
 	\]
@@ -840,7 +851,7 @@ for the variables.
 	\[
 		\systeme{a+b=3,\phantom{+}c+d=1,b=1,d=0},
 	\]
-	and so
+	and solving this system tells us
 	\[
 		M=\mat{a&b\\c&d} = \mat{2&1\\1&0}.
 	\]
