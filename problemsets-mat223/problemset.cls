@@ -473,12 +473,37 @@
 		colback=myorange!20,
 		#1
 	}
+	\newtcolorbox{thinleftborderbox}[1][]{
+		blanker,
+		frame hidden,
+		enhanced,
+		breakable,
+		beforeafter skip=7pt,
+		%frame code={
+		%	\fill[fill=tcbcol@frame] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
+		%	},
+		sharp corners,
+		borderline west={2pt}{0pt}{tcbcol@frame},
+		boxsep=0pt,
+		left=8pt,
+		right=5pt,
+		top=5pt,
+		bottom=5pt,
+		%boxrule=0pt,
+		%leftrule=4pt,
+		colframe=myorange,
+		colback=myorange!20,
+		#1
+	}
 	\DeclareDocumentEnvironment{bookonly}{o}{
 	}{%
 	}
 	\DeclareDocumentEnvironment{example}{o}{
-		\par{\bfseries Example.}
+		\renewcommand{\currentbackgroundcolor}{black!4}
+		\begin{thinleftborderbox}[colframe=black!50, colback=\currentbackgroundcolor]
+		{\bfseries\sffamily Example.}
 	}{%
+		\end{thinleftborderbox}
 	}
 	\DeclareDocumentEnvironment{proof}{o}{
 		\par{\bfseries Proof.}
@@ -636,6 +661,8 @@
 \titleformat{\subsection}
   {\normalfont\sffamily\large\color{cyan}}
   {\thesection}{1em}{}
+
+\newcommand{\currentbackgroundcolor}{white}
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{.17cm}
