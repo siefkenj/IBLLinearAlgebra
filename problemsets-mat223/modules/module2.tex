@@ -94,9 +94,10 @@ We simultaneously interpret this line as a set of points (the points that make u
 the line) and as a set of vectors 
 rooted at the origin (the vectors pointing from the origin to the line).
 Note that sometimes we draw vectors as directed line segments.
-Other times, drawing drawing vectors as line segments makes
-it hard to see what is going on, and so it is better to draw
-each vector by marking only its ending point.
+Other times, we draw
+each vector by marking only its ending point because drawing each vector as line segment
+would make
+it hard to see what is going on.
 
 Which picture below do you think best represents $\ell$?
 \begin{center}
@@ -171,6 +172,7 @@ Notice that in set-builder notation, we write ``for some $t\in \R$.'' Make sure 
 understand why replacing ``for some $t\in\R$'' with ``for
 all $t\in \R$'' would be incorrect.
 
+\medskip
 Writing lines with set-builder notation all the time can be overkill,
 so we will allow ourselves to describe lines in a shorthand called \emph{vector form}\footnote{
 	$y=mx+b$ form of a line is also shorthand.  The line $\ell$ described by the equation
@@ -188,22 +190,24 @@ corresponds to the line passing through $\mat{p_1\\p_2}$ with $\mat{d_1\\d_2}$ a
 The ``$t$'' that appears in a vector form is called the \emph{parameter variable}, and for this
 reason, some textbooks use the term \emph{parametric form} in place of ``vector form''. 
 
-Writing a line in vector form only requires a point on the line and a direction for the line.
-Thus, converting to vector form from another form is straightforward.
+\medskip
+Writing a line in vector form requires only a point on the line and a direction for the line\footnote{ Notice that
+a direction vector \emph{for} a line $\ell$ is different than a vector \emph{in} a line $\ell$.},
+which makes converting from another form into vector form straightforward.
 \begin{example}
 	Find vector form of the line $\ell\subseteq\R^2$ with equation $y=2x+3$.
 
 	First, we find two
-	points on the line.  By guess-and-check we see $P=(0,3)$ and $Q=(1,5)$ are on $\ell$.
+	points on $\ell$.  By guess-and-check, we see $P=(0,3)$ and $Q=(1,5)$ are on $\ell$.
 	Thus, a direction vector for $\ell$ is given by
 	\[
-		\vec d = (1,5)-(0,3)=(1,2).
+		\vec d = \mat{1\\5}-\mat{0\\3}=\mat{1\\2}.
 	\]
 	We may now express $\ell$ in vector form as
 	\[
 		\vec x=t\vec d+P
 	\]
-	or, in components,
+	or, using coordinates,
 	\[
 		\mat{x\\y} = t\mat{1\\2}+\mat{0\\3}.
 	\]
@@ -212,7 +216,7 @@ Thus, converting to vector form from another form is straightforward.
 It's important to note that when we write a line in vector form, it is a \emph{specific shorthand} notation.
 If we augment the notation, we no longer have written a line in ``vector form''.
 
-\begin{example} Let $\ell$ and let $\vec d$ be a direction vector for $\ell$ and let $\vec p\in \ell$
+\begin{example} Let $\ell$ be a line, let $\vec d$ be a direction vector for $\ell$, and let $\vec p\in \ell$
 	be a point on $\ell$. Writing
 	\[
 		\vec x=t\vec d+\vec p
@@ -221,7 +225,7 @@ If we augment the notation, we no longer have written a line in ``vector form''.
 	\[
 		\vec x=t\vec d+\vec p\quad\text{ where }\quad t\in \R
 	\]
-	specifies $\ell$ in vector form and are both shorthands for $\Set{\vec x\given
+	specifies $\ell$ in vector form; both are shorthands for $\Set{\vec x\given
 	\vec x=t\vec d+\vec p\text{ for some }t\in \R}$. But,
 	\[
 		\vec x=t\vec d+\vec p\quad\text{ for some }\quad t\in \R
@@ -242,6 +246,11 @@ If we augment the notation, we no longer have written a line in ``vector form''.
 	left is a \emph{set} and on the right is a \emph{vector}!)
 
 \end{example}
+
+\begin{emphbox}[Takeaway]
+	Vector form is a specific shorthand for a set. If ``extra'' words or symbols are added
+	to the vector form, it stops being a shorthand.
+\end{emphbox}
 
 But, why is vector form useful? For starters, every line can be expressed in vector form 
 (you cannot write a vertical line in $y=mx+b$ form, and in $\R^3$, you would need two linear equations
@@ -270,11 +279,8 @@ Recall that in vector form, the variable $t$ is called the \emph{parameter varia
 a \emph{dummy variable}. In other words, $t$ is a placeholder---just because ``$t$'' appears in two different vector
 forms, doesn't mean it's the same quantity.
 
-To drive this point home, we need to remember that vector
-form is shorthand for a set described in set-builder notation.
-
-\bigskip
-Let $\vec d_1,\vec d_2\neq\vec 0$ and $\vec p_1,\vec p_2$ be vectors and define the lines
+To drive this point home, let's think about vector form in terms
+of the sets it specifies. Let $\vec d_1,\vec d_2\neq\vec 0$ and $\vec p_1,\vec p_2$ be vectors and define the lines
 \[
 	\ell_1=\Set{\vec x\given \vec x=t\vec d_1+\vec p_1\text{ for some }t\in\R}
 \]
@@ -305,14 +311,14 @@ when comparing different vector forms.
 	\[
 		t\mat{1\\1}+\mat{2\\1} = \vec x = s\mat{2\\2}+\mat{4\\3}
 	\]
-	always has a solution, $\ell_1=\ell_2$.  Moving everything to one side we see
+	always has a solution, $\ell_1=\ell_2$.  Moving everything to one side, we see
 	\begin{align*}
 		\vec 0 = \mat{4\\3}-\mat{2\\1} + s\mat{2\\2}-t\mat{1\\1}
 		&=\mat{2\\2}+s\mat{2\\2}-t\mat{1\\1}\\
 		&=(s+1)\mat{2\\2}-\tfrac{t}{2}\mat{2\\2}\\
 		&= (s+1-\tfrac{t}{2})\mat{2\\2}.
 	\end{align*}
-	This has a solution whenever $0=s+1-t/2$.  Since for every $t\in\R$ we can find an $s\in\R$ satisfying
+	This has a solution whenever $s+1-t/2=0$.  Since for every $t\in\R$ we can find an $s\in\R$ satisfying
 	this equation
 	and for every $s\in \R$ we can find a $t\in \R$ satisfying this equation, we know $\ell_1=\ell_2$.
 \end{example}
@@ -364,7 +370,7 @@ vectors is a multiple
 of the other.  They may or may not intersect.  (If they don't,
 	we say the lines are \emph{skew}\index{skew lines}.)  How can we find out?
 	Mirroring our earlier approach,
-	we can set their equations equal and see if we can solve for the point
+	we can set their equations equal and see if we can solve for a point
 	of intersection \emph{after ensuring we give their parametric variables
 	different names}.   We'll keep one parametric variable named $t$ and name the
 	other one $s$.  Thus, we want
@@ -376,20 +382,20 @@ which after collecting terms yields
 \[
     ( t + 1, 3t + 2, -2t + 1 ) = ( 0, 2s + 3, 3s + 9).
 \]
-Picking out the components yields three equations
+Reading coordinate by coordinate, we get three equations
 \begin{align*}
     t + 1 &= 0 \\
     3t +2 &= 2s + 3 \\
     -2t + 1 &=  3s + 9
 \end{align*}
-in 2 unknowns  $s$ and $t$.  This is an {\it overdetermined\/}
-system, and it may or may not have a consistent solution.
+in two unknowns  $s$ and $t$.  This is an {\it overdetermined\/}
+system, and it may or may not have a solution.
 The first two equations yield $t = -1$  and $s = -2$.  Putting
 these values in the last equation yields $(-2)(-1) + 1 = 3(-2) + 9$,
 which is indeed true.
 Hence, the equations are consistent, and the lines
 intersect.   To find the point of intersection, put $t = -1$
-in the equation for the first line (or
+in the equation for the vector equation of the first line (or
 $s = -2$ in that for the second) to obtain  $( 0, -1, 3 )$.
 \end{example}
 
@@ -404,7 +410,7 @@ $B$, and $C$.
 
 Just like lines, planes have direction vectors.  For $\mathcal P$, both
 $\vec d_1=\overrightarrow{AB}$ and $\vec d_2=\overrightarrow{AC}$ are direction
-vectors for $\mathcal P$.  Of course, $\vec d_1$, $\vec d_2$ and their multiples
+vectors.  Of course, $\vec d_1$, $\vec d_2$ and their multiples
 are not the only direction vectors for $\mathcal P$. There are infinitely many more, including
 $\vec d_1+\vec d_2$, and $\vec d_1-7\vec d_2$, and so on.  However, since a plane
 is a \emph{two}-dimensional object, we only need two different direction vectors to describe it.
@@ -444,12 +450,13 @@ the plane $\mathcal P$ can be written in vector form as
 	\[
 		A=\mat{0\\0\\3}\qquad B=\mat{1\\0\\5}\qquad C=\mat{0\\1\\4}
 	\]
-	are all on $\mathcal P$. Thus
+	are all in $\mathcal P$. Thus
 	\[
 		\vec d_1=B-A=\mat{1\\0\\2}\qquad \text{and}\qquad
 		\vec d_2=C-A=\mat{0\\1\\1}
 	\]
-	are both direction vectors for $\mathcal P$.  Therefore, we can express $\mathcal P$ in vector
+	are both direction vectors for $\mathcal P$.  Since these vectors are not parallel, 
+	we can express $\mathcal P$ in vector
 	form as
 	\[
 		\vec x=t\vec d_1+s\vec d_2+A=t\mat{1\\0\\2}+s\mat{0\\1\\1}+\mat{0\\0\\3}.
@@ -458,10 +465,40 @@ the plane $\mathcal P$ can be written in vector form as
 
 
 \begin{example}
-	Find the line of intersection between $\mathcal P_1$ and $\mathcal P_2$ where 
-	$\mathcal P_1$ and $\mathcal P_2$ are expressed in vector form as ...
+	Find the line of intersection between $\mathcal P_1$ and $\mathcal P_2$ where the planes
+	are given in vector form by
+	\[
+		\overbrace{\vec x=t\mat{1\\1\\0}+s\mat{-1\\0\\1}+\mat{1\\2\\3}}^{\displaystyle\mathcal P_1}
+		\qquad\text{and}\qquad
+		\overbrace{\vec x=t\mat{-1\\0\\2}+s\mat{1\\2\\1}+\mat{0\\0\\3}}^{\displaystyle\mathcal P_2}.
+	\]
 
-	XXX Finish
+	Just like in the example for lines, we are looking for points $\vec x$ that are in both planes. To
+	keep from getting mixed, we'll use $a$, $b$, $c$, and $d$ as parameter variables. Therefore, we are looking
+	for solutions to
+	\[
+		a\mat{1\\1\\0}+b\mat{-1\\0\\1}+\mat{1\\2\\3}=\vec x=c\mat{-1\\0\\2}+d\mat{1\\2\\1}+\mat{0\\0\\3}.
+	\]
+	Collecting terms, this is equivalent to the system of equations
+	\[
+		\systeme{a-b+c-d=-1,a-2d=-2,b-2c-d=0}.
+	\]
+	This system is underdetermined (there are four variables and three equations). If $\mathcal P_1$ 
+	and $\mathcal P_2$ indeed intersect in a line, we know there must an infinite number
+	of solutions to this system. After row reducing, we see
+	\[
+		\mat{a\\b\\c\\d} = \matc{r\\r/2-1\\-1\\r/2+1}
+	\]
+	is a solution for every $r\in\R$. We can substitute these parameters into either of the original equations
+	to get an equation for the line of intersection. Picking the second one, we see
+	\[
+		\vec x=c\mat{-1\\0\\2}+d\mat{1\\2\\1}+\mat{0\\0\\3}=-\mat{-1\\0\\2}+(\tfrac{r}{2}+1)\mat{1\\2\\1}+\mat{0\\0\\3}
+		=\tfrac{r}{2}\mat{1\\2\\1}+\mat{2\\2\\2}
+	\]
+	is in both planes for every $r\in \R$. Therefore, we may express $\mathcal P_1\cap \mathcal P_2$ in vector form as
+	\[
+		\vec x=r\matc{1/2\\1\\1/2}+\mat{2\\2\\2}.
+	\]
 \end{example}
 
 \Heading{Restricted Linear Combinations}
@@ -606,12 +643,12 @@ the parallelogram $P$ defined by
 Each set so far is a set of linear combinations, and we 
 have made different shapes by restricting the coefficients of those linear
 combinations. There are two ways of restricting linear combinations that arise
-up often enough to get their own names.
+often enough to get their own names.
 
 \SavedDefinitionRender{NonnegativeConvexLinearCombinations}
 
 You can think of a non-negative linear combinations as vector you can arrive at by
-only displacing ``forward'' along your vectors.
+only displacing ``forward''.
 Convex linear combinations can be thought of as weighted averages of vectors (the average of $\vec v_1,\ldots,
 \vec v_n$ would be the convex linear combination with coefficients $\alpha_i=\frac{1}{n}$). 
 A convex linear combination
@@ -625,8 +662,107 @@ of two vectors gives a point on the line segment connecting them.
 	\end{align*}
 	Draw $A$.
 
-	XXX Finish
+	We know $\vec x=\alpha\vec a+(1-\alpha)\vec b\in A$ whenever $\alpha\in[0,1]$. If we rearrange the
+	equation $\vec x=\alpha\vec a+(1-\alpha)\vec b$, we see
+	\[
+		\vec x=\alpha\vec a-\alpha\vec b+\vec b = \alpha(\vec a-\vec b)+\vec b,
+	\]
+	which looks like the vector form of a line which passes through $\vec b$ with direction $\vec a-\vec b$.
+	However, we have the additional restriction $\alpha\in[0,1]$, so $A$ is only the part of that line which connects $\vec a$
+	and $\vec b$.
 
-	XXX Figure
+\begin{center}
+	\usetikzlibrary{decorations.markings}
+	\tikzset{test/.style n args={3}{
+	    postaction={
+	    decorate,
+	    decoration={
+	    markings,
+	    mark=between positions 0 and \pgfdecoratedpathlength step 0.5pt with {
+	    \pgfmathsetmacro\myval{multiply(
+		divide(
+		\pgfkeysvalueof{/pgf/decoration/mark info/distance from start}, \pgfdecoratedpathlength
+		),
+		100
+	    )};
+	    \pgfsetfillcolor{#3!\myval!#2};
+	    \pgfpathcircle{\pgfpointorigin}{#1};
+	    \pgfusepath{fill};}
+	}}}}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-1,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=black!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (A) at (2,1);
+			\coordinate (B) at (1,-1);
+			\coordinate (C) at ($.3*(A)+.7*(B)$);
+			\coordinate (D) at ($.7*(A)+.3*(B)$);
+			%\fill[mypink] (A) circle (2pt) node[above right] {$\vec a$};
+			%\fill[mygreen] (B) circle (2pt) node[above right] {$\vec b$};
+			\draw[thick, mypink, ->] (0,0) -- (A) ;
+			\draw[thick, mypink!30!mygreen, ->] (0,0) -- (C) ;
+			\draw[thick, mypink!70!mygreen, ->] (0,0) -- (D) ;
+			\draw[thick, mygreen, ->] (0,0) -- (B);
+		\end{axis}
+		\node[right, mypink] at (A) {\small$\vec a=1\vec a+(1-1)\vec b$};
+		\node[right, mypink!30!mygreen] at (C) {\small$\tfrac{1}{3}\vec a+(1-\tfrac{1}{3})\vec b$};
+		\node[right, mypink!70!mygreen] at (D) {\small$\tfrac{2}{3}\vec a+(1-\tfrac{2}{3})\vec b$};
+		\node[right, mygreen] at (B) {\small$\vec b=0\vec a+(1-0)\vec b$};
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-1,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=black!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (A) at (2,1);
+			\coordinate (B) at (1,-1);
+			\coordinate (C) at ($.3*(A)+.7*(B)$);
+			\coordinate (D) at ($.7*(A)+.3*(B)$);
+			\fill[mypink] (A) circle (2pt);
+			\fill[mygreen] (B) circle (2pt);
+			%\draw[thick, mypink, ->] (0,0) -- (A) ;
+			%\draw[thick, mypink!30!mygreen, ->] (0,0) -- (C) ;
+			%\draw[thick, mypink!70!mygreen, ->] (0,0) -- (D) ;
+			%\draw[thick, mygreen, ->] (0,0) -- (B) node[below right] {$\vec b=0\vec a+(1-0)\vec b$};
+		\end{axis}
+		\draw [test={0.8pt}{mypink}{mygreen}, thick] (A) to node[midway, above left, mygreen!40!mypink] {$A$}(B) ;
+		\node[above right, mypink] at (A) {$\vec a$};
+		\node[below right, mygreen] at (B) {$\vec b$};
+	\end{tikzpicture}
+\end{center}
+Since $A$ is an infinite collection of vectors, it's better to draw vectors in $A$ as dots rather than lines from the origin.
 \end{example}
 

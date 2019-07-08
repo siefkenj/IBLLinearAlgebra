@@ -255,7 +255,115 @@ theorems.
 
 Rather than giving a formal proof of the above theorem, let's make a motivating picture.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[
+			%x=2cm,y=2cm,
+		    x=1.5cm,y=1.5cm,
+			]
+
+	\begin{scope}[	spy using outlines={circle, lens={scale=5}, size=3.25cm, connect spies}]
+			\coordinate (A) at (.3,.15*4);
+			\coordinate (B) at (.4,.1*5);
+			\fill[myorange,opacity=.5] (A) rectangle (B);
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=0,xmax=1,
+		    ymin=0,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    %x=2cm,y=2cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+		\end{axis}
+
+
+			\begin{scope}[mypink, very thin]
+				\foreach \x in {0,.1,...,1.05} {
+					\draw ($(\x,0)$) -- ($(\x,1)$);
+				}
+				\foreach \y in {0,.1,...,1.05} {
+					\draw ({0,\y}) -- ({1,\y});
+				}
+			\end{scope}
+
+
+			\spy [black!80, dashed] on ($.5*(A)+.5*(B)$)
+		     in node (a) at (2.3,1);
+
+
+	\end{scope}
+	\coordinate (L) at ($(a.center) - (.25,.25)$);
+	\coordinate (R) at ($(a.center) - (-.25,.25)$);
+	\coordinate (T) at ($(a.center) + (.25,.25)$);
+	\node[right, mypink] at ($.5*(R)+.5*(T)$) {$1/k$};
+	\node[below, mypink] at ($.5*(R)+.5*(L)$) {$1/k$};
+	\node[black] at (a.center) {$B_2$};
+
+	\begin{scope}[	spy using outlines={circle, lens={scale=5}, size=3.25cm, connect spies}, cm={1,0,0,1,(4.5,0)}]
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot2,
+		    disabledatascaling,
+		    xmin=0,xmax=1,
+		    ymin=0,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+		\end{axis}
+
+
+
+			\begin{scope}[mygreen, very thin,cm={1.5,.2,.5,1,(0,0)}]
+				\coordinate (A) at (.3,.15*4);
+				\coordinate (B) at (.4,.1*5);
+				\fill[myorange,opacity=.5] (A) rectangle (B);
+				\foreach \x in {0,.1,...,1.05} {
+					\draw ($(\x,0)$) -- ($(\x,1)$);
+				}
+				\foreach \y in {0,.1,...,1.05} {
+					\draw ({0,\y}) -- ({1,\y});
+				}
+			\end{scope}
+
+
+			\spy [black!80, dashed] on ($.5*(A)+.5*(B)$)
+		     in node (a) at (3.3,1);
+
+
+	\end{scope}
+	\coordinate (L) at ($(a.center) - (.25,.25)$);
+	\coordinate (R) at ($(a.center) - (-.25,.25)$);
+	\coordinate (T) at ($(a.center) + (.25,.25)$);
+	\node[black] at (a.center) {$\mathcal T(B_2)$};
+
+	\draw[thick] (plot1.south) edge[bend right, ->] node[midway, above] {$\mathcal T$} (plot2.south);
+	\node[yshift=.5cm] (bn) at (plot1.north) {$k^2$ copies of $B_2$} node[above, yshift=-5pt] at (bn.north) {$C_2$ contains};
+	\node[yshift=.5cm] (tbn) at (plot2.north) {$k^2$ copies of $\mathcal T(B_2)$} node[above, yshift=-5pt] at (tbn.north) {$\mathcal T(C_2)$ contains};
+	\end{tikzpicture}
+\end{center}
 
 The argument now goes: there are $k^n$ copies of $B_n$ in $C_n$ and $k^n$ copies of $\mathcal T(B_n)$ in
 $T(C_n)$. Thus,
@@ -274,7 +382,127 @@ translated copies, $B_n$, of $C_n$. The same number of copies of $\mathcal T(B_n
 as do $B_n$'s fit inside $X$. Therefore, the change in volume between $\mathcal T(X)$ and $X$ must be the same
 as the change in volume between $\mathcal T(B_n)$ and $B_n$, which is $\VolChange(\mathcal T)$.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}[
+			%x=2cm,y=2cm,
+		    x=1cm,y=1cm,
+			]
+
+	\begin{scope}[	spy using outlines={circle, lens={scale=5}, size=3.25cm, connect spies}]
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=0,xmax=1,
+		    ymin=0,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    %x=2cm,y=2cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+		\end{axis}
+
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, myorange]
+			\clip plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+			\coordinate (A) at (.35,.15*4);
+			\coordinate (B) at (.5,.15*5);
+			\fill[myorange,opacity=.5] (A) rectangle (B);
+			\begin{scope}[mypink, very thin]
+				\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+				\foreach \x in {-1,-.85,...,2.05} {
+					\draw ($(\x,0)$) -- ($(\x,3)$);
+				}
+				\foreach \y in {0,.15,...,3.05} {
+					\draw ({-1,\y}) -- ({3,\y});
+				}
+			\end{scope}
+		\end{scope}
+
+
+
+			\spy [black!80, dashed] on ($.5*(A)+.5*(B)$)
+		     in node (a) at (-2.5,1.5);
+
+
+	\end{scope}
+	\coordinate (L) at ($(a.center) - (.25,.25)$);
+	\coordinate (R) at ($(a.center) - (-.25,.25)$);
+	\coordinate (T) at ($(a.center) + (.25,.25)$);
+	\node[black] at (a.center) {$B_2$};
+
+	\begin{scope}[	spy using outlines={circle, lens={scale=8}, size=3.25cm, connect spies}, cm={1,0,0,1,(3.5,0)}]
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot2,
+		    disabledatascaling,
+		    xmin=0,xmax=1,
+		    ymin=0,ymax=1,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+		\end{axis}
+
+
+
+			\begin{scope}[mygreen, very thin,cm={1.5,.2,.5,1,(0,0)}]
+				\coordinate (A) at (.3,.15*4);
+				\coordinate (B) at (.4,.1*5);
+				\fill[myorange,opacity=.5] (A) rectangle (B);
+				\clip plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+				\begin{scope}[mygreen, very thin]
+					\draw plot [smooth cycle] coordinates {(0,0) (1,0.1) (2,0.3) (2,1.4) (1.5,2.5) (0.8,2.5) (0.3,1.2) (-0.2,0.6)};
+					\foreach \x in {-1,-.9,...,2.05} {
+						\draw ($(\x,0)$) -- ($(\x,3)$);
+					}
+					\foreach \y in {0,.1,...,3.05} {
+						\draw ({-1,\y}) -- ({3,\y});
+					}
+				\end{scope}
+			\end{scope}
+		
+
+			\spy [black!80, dashed] on ($.5*(A)+.5*(B)$)
+		     in node (a) at (5.7,1.5);
+
+
+	\end{scope}
+	\coordinate (L) at ($(a.center) - (.25,.25)$);
+	\coordinate (R) at ($(a.center) - (-.25,.25)$);
+	\coordinate (T) at ($(a.center) + (.25,.25)$);
+	\node[black] at (a.center) {$\mathcal T(B_2)$};
+
+	\draw[thick] ($(plot1.north)+(0,.75cm)$) edge[bend left, ->] 
+		node[midway, below] {$\mathcal T$}
+		node[midway, above] {Number of pieces doesn't change}
+	($(plot2.north)+(0,.75cm)$);
+	\node[mypink] at (plot1.south) {$X$};
+	\node[mygreen] at (plot2.south) {$\mathcal T(X)$};
+	%\node[yshift=.5cm] (bn) at (plot1.north) {$k^2$ copies of $B_2$} node[above, yshift=-5pt] at (bn.north) {$C_2$ contains};
+	%\node[yshift=.5cm] (tbn) at (plot2.north) {$k^2$ copies of $\mathcal T(B_2)$} node[above, yshift=-5pt] at (tbn.north) {$\mathcal T(C_2)$ contains};
+	\end{tikzpicture}
+\end{center}
 
 \Heading{The Determinant}
 
