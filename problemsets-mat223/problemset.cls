@@ -499,7 +499,7 @@
 	}{%
 	}
 	\DeclareDocumentEnvironment{example}{o}{
-		\renewcommand{\currentbackgroundcolor}{black!4}
+		\renewcommand{\currentbackgroundcolor}{black!2}
 		\begin{thinleftborderbox}[colframe=black!50, colback=\currentbackgroundcolor]
 		{\bfseries\sffamily Example.}
 	}{%
