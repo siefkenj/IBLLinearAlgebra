@@ -1,15 +1,11 @@
 Let $\vec a$ and $\vec b$ be vectors rooted at the same point and let
 $\theta$ denote the \emph{smaller} of the
-two angles between them, so $0\leq \theta \leq \pi$.
+two angles between them (so $0\leq \theta \leq \pi$).
 The \emph{dot product}\index{dot product} of $\vec a$ and $\vec b$ is defined to be
 \[
 	\vec a\cdot \vec b=\norm{\vec a}\norm{\vec b}\cos \theta.
 \]
 We will call this the \emph{geometric definition of the dot product}.
-The dot product is also sometimes called the \emph{scalar product} because
-the result is a scalar.
-Note that $\vec a\cdot\vec b = 0$ when either $\vec a$ or $\vec b$ is zero or,
-more interestingly, if their directions are perpendicular.
 
 \begin{center}
 	\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
@@ -47,6 +43,9 @@ more interestingly, if their directions are perpendicular.
 		\node at ($(O)+(140:.65)$) {$\theta$};
 	\end{tikzpicture}
 \end{center}
+
+The dot product is also sometimes called the \emph{scalar product} because
+the result is a scalar.
 
 Algebraically, we can define the dot product in terms of coordinates:
 \[
@@ -116,10 +115,11 @@ mathematically.
 The definition of orthogonal encapsulates both the idea of two vectors forming
 a right angle and the idea of one of them being $\vec 0$.
 
-Before we continue, let's pin down the idea of one vector pointing
-in the \emph{direction}\index{direction}\index{positive direction} of another.  
+\medskip
+Before we continue, let's pin down exactly what we mean by
+the \emph{direction}\index{direction}\index{positive direction} of a vector.  
 There are many ways we could define
-this idea, but we'll go with this one.
+this term, but we'll go with the following.
 
 \SavedDefinitionRender{Direction}
 
@@ -138,21 +138,21 @@ the same direction).
 	Let $\vec a=\mat{1\\2}$, $\vec b=\mat{3\\3}$, $\vec c=\mat{2\\1}$, and $\vec v=\mat{3\\4}$. Which vector out of
 	$\vec a$, $\vec b$, and $\vec c$ has a direction closest to the direction of $\vec v$?
     
-    Since $\cos \theta$ is a decreasing function for $\theta\in[0,\pi]$, $\theta$ is smallest when $\cos \theta$ closest to one.
+	We would like to know when $\theta$, the angle between a pair of the given vectors, is smallest.
+	This is equivalent to finding when $\cos\theta$ is closest to 1 (since $\cos0=1$).
+    	By equating the geometric and algebraic definitions of the dot product, we know
+	    \[
+        	\cos\theta = \frac{\vec p\cdot\vec q}{\norm{\vec p}\norm{\vec q}}.
+	    \]
     
-    Therefore, instead of computing the angles $\alpha$, $\beta$ and $\gamma$ between $\vec a$, $\vec b$, $\vec c$ and $\vec v$ respectively, we are going to compute the value of cosines of them.
-    
-    First, by equating the geometric and algebraic definitions of the dot product, we get 
-    \[
-        \cos\theta = \frac{\vec p\cdot\vec q}{\norm{\vec p}\norm{\vec q}}.
-    \]
-    where $\theta$ is the angle between vectors $\vec p$ and $\vec q$. Therefore,
+    Let $\alpha$, $\beta$ and $\gamma$ between the vector $\vec v$ and
+	the vectors $\vec a$, $\vec b$, $\vec c$, respectively. Computing, we find
 	\begin{align*}
 	    \cos \alpha &= \frac{3+8}{5\sqrt{5}}=\frac{11\sqrt{5}}{25} \approx 0.9838699101 \\
 	    \cos \beta &= \frac{9+12}{5\cdot 3\sqrt{2}} =\frac{7\sqrt{2}}{10} \approx 0.989949437\\
 	    \cos \gamma &= \frac{6+4}{5\sqrt{5}}=\frac{2\sqrt{5}}{5} \approx 0.894427191. 
 	\end{align*}
-	Since $\cos \beta$ gives the largest value, $\vec b$ has a direction closest to the direction of $\vec v$.
+	Since $\cos \beta$ is the closest to $1$, we know $\vec b$ has a direction closest to that of $\vec v$.
 \end{example}
 
 
@@ -262,9 +262,9 @@ parallel line through the origin) translated by $\vec p$.
 Let's relate this to dot products and normal vectors. By definition, for every $\vec v\in \ell$, we have $\vec n\cdot \vec v=0$.
 Since $\ell_2$ is a translate of $\ell$ by $\vec p$, we deduce the relationship that for every $\vec v\in \ell_2$,
 \[
-	\vec n\cdot(\vec v-\vec p) = 0,
+	\vec n\cdot(\vec v-\vec p) = 0.
 \]
-and this is the \emph{normal form} of a line in $\R^2$.
+When a line is expressed as above, we say it is expressed in \emph{normal form}.
 
 \SavedDefinitionRender{NormalFormofaLine}
 
@@ -306,7 +306,7 @@ $\mathcal Q$ is a plane through the origin, and again, we call $\vec n$ a \emph{
   \end{tikzpicture}
 \end{center}
 
-In a similar way to the case of a line, $\mathcal Q$ is the set of solutions to $\vec n\cdot \vec x=0$.
+In a similar way to the line, $\mathcal Q$ is the set of solutions to $\vec n\cdot \vec x=0$.
 And, for any $\vec p\in\R^3$, the translated plane $\mathcal Q+\Set{\vec p}$ is the solution set to
 \[
 	\vec n\cdot (\vec x-\vec p)=0.
@@ -315,7 +315,7 @@ Thus, we see planes in $\R^3$ have a normal form just like lines in $\R^2$ do.
 
 \begin{example}
 	Find vector form and normal form of the plane $\mathcal P$ passing
-	through the point $A=(1,0,0)$, $B=(0,1,0)$ and $C=(0,0,1)$.
+	through the points $A=(1,0,0)$, $B=(0,1,0)$ and $C=(0,0,1)$.
 
 	To find vector form of $\mathcal P$, we need a point on the plane and
 	two direction vectors.  We have three points on the plane, so we can
@@ -325,15 +325,15 @@ Thus, we see planes in $\R^3$ have a normal form just like lines in $\R^2$ do.
 		\vec d_1=\overrightarrow{AB} = \mat{-1\\1\\0}\qquad\vec d_2=\overrightarrow{AC}=
 		\mat{-1\\0\\1}.
 	\]
-	Using the point $A$, we may now write vector form of $\mathcal P$ as
+	Using the point $A$, we may now express $\mathcal P$ in vector form by
 	\[
 		\mat{x\\y\\z} = t\mat{-1\\1\\0}+s\mat{-1\\0\\1}+\mat{1\\0\\0}.
 	\]
 
-	To write normal form we need to find a normal vector to $\mathcal P$.  By inspection,
-	we can see that $\vec n=(1,1,1)$ is a normal vector to $\mathcal P$.  If we weren't
+	To write $\mathcal P$ in normal, form we need to find a normal vector for $\mathcal P$.  By inspection,
+	we see that $\vec n=(1,1,1)$ is a normal vector to $\mathcal P$.  (If we weren't
 	so insightful, we could also solve the system $\vec n\cdot \vec d_1=0$ and $\vec n\cdot\vec d_2=0$ to find a
-	normal vector.  Now, we may express $\mathcal P$ in normal form as
+	normal vector.)  Now, we may express $\mathcal P$ in normal form as
 	\[
 		\mat{1\\1\\1}\cdot\left(\mat{x\\y\\z}-\mat{1\\0\\0}\right)=0.
 	\]
