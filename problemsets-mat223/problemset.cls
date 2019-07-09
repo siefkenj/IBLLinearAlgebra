@@ -506,6 +506,14 @@
 	\DeclareDocumentEnvironment{example}{o}{
 		\renewcommand{\currentbackgroundcolor}{black!2}
 		\begin{thinleftborderbox}[colframe=black!50, colback=\currentbackgroundcolor]
+		% if we didn't pass in an argument, make the first
+		% paragraph have a `\medskip` after it.
+		\IfValueTF{#1}{}{
+			% redefine \par to be a `\par` followed by a `\medskip`
+			% followed by a redefinition of `\par` to what it used to be.
+			\let\oldpar\par
+			\par\def\par{\oldpar\medskip\let\par\oldpar}
+		}{}
 		{\bfseries\sffamily Example.}
 	}{%
 		\end{thinleftborderbox}
