@@ -30,7 +30,7 @@
 	\RequirePackage{ifthen}
 	\RequirePackage{titlesec}
 	\RequirePackage{changepage}
-	\RequirePackage{everyshi}
+	\RequirePackage{eso-pic} % replaces `everyshi` to draw borders on the modules
 	\RequirePackage{multicol}
 
 
@@ -363,15 +363,15 @@
 		}
 		\ifstrequal{#2}{reverse}{
 			\ifodd\value{page}
-				\def\bannerpath{\bannerpathL}
-			\else
 				\def\bannerpath{\bannerpathR}
+			\else
+				\def\bannerpath{\bannerpathL}
 			\fi
 		}{
 			\ifodd\value{page}
-				\def\bannerpath{\bannerpathR}
-			\else
 				\def\bannerpath{\bannerpathL}
+			\else
+				\def\bannerpath{\bannerpathR}
 			\fi
 		}
 		\begin{tikzpicture}[remember picture,overlay]
@@ -380,16 +380,18 @@
 			node[anchor=east,pos=0.1,text=white,rotate=90] {\Huge\sffamily #1};
 		\end{tikzpicture}
 	}
-	\EveryShipout{%  
-		\ifdim\pagetotal>\pagegoal% There is content overflow on this page
-			\begingroup\let\protect\@typeset@protect
-				\IfStrEq{\probset@InModuleEnv}{1}{%
-				% put a banner on the page with no text
-					\probset@drawModuleBanner{}{reverse}
-				}{}
-    			\endgroup
-		\fi
+	\AddToShipoutPictureBG{%
+		% if we are in a module page, draw a border
+		\IfStrEq{\probset@InModuleEnv}{1}{%
+			\ifnum\value{page}=\value{probset@currentModuleStart}
+			\else
+				% put a banner on the page with no text if we are not the first
+				% page in a module
+				\probset@drawModuleBanner{}{reverse}
+			\fi
+		}{}
 	}
+	\newcounter{probset@currentModuleStart}
 	\DeclareDocumentEnvironment{module}{o}{%
 		\addtocounter{modulecounter}{1}
 		\setlist[itemize]{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
@@ -408,8 +410,11 @@
 			reversemarginpar,
 			twoside=true}
 		
+		% make sure we know what page this module starts on so
+		% we can do something special on the first page
+		\setcounter{probset@currentModuleStart}{\value{page}}
 		% put a banner on the left of the page
-		\probset@drawModuleBanner{Module \themodulecounter}{}
+		\probset@drawModuleBanner{Module \themodulecounter}{reverse}
 
 		% renew some document commands to style them appropriately in
 		% the module environment
