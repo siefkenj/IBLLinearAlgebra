@@ -79,14 +79,13 @@ any location can be reached. To verify this algebraically, consider the vector e
 \end{equation}
 Here $\vec x$ represents an arbitrary point in $\R^2$. Thus, if equation \eqref{EQSPAN1} always
 has a solution\footnote{ The official terminology would be to say that
-the equations is always \emph{consistent}.}, any vector in $\R^2$ can be obtained as a linear combination of $\alpha$ and $\beta$.
+the equations is always \emph{consistent}.}, any vector in $\R^2$ can be obtained as a linear combination of $\vec u$ and $\vec v$.
 
 We can solve this equation for $\alpha$ and $\beta$ by considering the equations arising from the
 first and second coordinates. Namely,
-\begin{alignat*}{3}
-	x &{}={}& \alpha &{}+{}& \beta\\
-	y &{}={}& \alpha &{}-{}& 2\beta.
-\end{alignat*}
+	\[
+		\sysdelim..\systeme*{x=\alpha+\beta, y=\alpha-2\beta}
+	\]
 Subtracting the second equation from the first, we get $x-y=3\beta$ and so $\beta=(x-y)/3$. Plugging 
 $\beta$ into the first equation and solving, we get $\alpha=(2x+y)/3$. Thus, equation \eqref{EQSPAN1}
 \emph{always} has a solution. Namely,
@@ -105,14 +104,48 @@ We just showed above that $\Span\Set*{\mat{1\\1},\mat{-1\\2}}=\R^2$.
 \begin{example}
 	Let $\vec u=\mat{-1\\2}$ and $\vec v=\mat{1\\-2}$. Find $\Span\Set{\vec u,\vec v}$.
 
-	XXX Finish
+	By the definition of span,
+	\[
+		\Span\Set{\vec u,\vec v}=
+		\Set{\vec x\given \vec x=\alpha\vec u+\beta\vec v\text{ for some }\alpha,\beta\in\R}.
+	\]
+	We need to determine for which $x$ and $y$ the vector equation $\mat{x\\y} = \alpha\mat{-1\\2}+\beta\mat{1\\-2}$ is consistent.
+	
+	From the first and second coordinates we get the system
+	\[
+		\sysdelim..\systeme*{x=-\alpha+\beta, y=2\alpha-2\beta}
+	\]
+	Adding 2 times the first equation to the second, we get $2x+y=0$ and so $y=-2x$.
+	
+	If y=-2x, then the vector is of the form $\mat{1\\-2}$ for some t, which is just a multiple of $\vec v$. Thus
+	\[
+		\Span\Set{\vec u,\vec v}=
+		\Set{\vec x\given \vec x=t\vec v\text{ for some scalar }t}.
+	\]
 \end{example}
 
 \begin{example}
-	Let $\vec a=\mat{1\\2\\1}$, $\vec b=\mat{0\\1\\0}$, and $\vec c=\mat{1\\1\\1}$. Show that
+	Let $\vec a=\mat{1\\2\\1}$, $\vec b=\mat{0\\1\\0}$, and $\vec c=\mat{1\\1\\2}$. Show that
 	$\R^3=\Span\Set{\vec a,\vec b,\vec c}$.
 
-	XXX Finish
+	If the equation 
+	\[
+		\vec x=\mat{x\\y\\z} = \alpha_1\mat{1\\2\\1}+\alpha_2\mat{0\\1\\0}+\alpha_3\mat{1\\1\\2}
+		 = \alpha_1\vec a+\alpha_2\vec b+\alpha_3\vec c
+	\]
+	is always consistent, then any vector in $\R^3$ can be obtained as a linear combination of
+	$\vec a, \vec b$, and $\vec c$.
+	
+	from the coordinates we get the system
+	\[
+		\sysdelim..\systeme*{x=\alpha_1+\alpha_3, y=2\alpha_1+\alpha_2+\alpha_3, z=\alpha_1+2\alpha_3}
+	\]
+	solving for $\alpha_1, \alpha_2$, and $\alpha_3$, we find that the original equation is
+	always consistent. Namely,
+	\[
+		\sysdelim..\systeme*{\alpha_1=2x-z, \alpha_2=-3x+y+z, \alpha_3=-x+z}
+	\]
+	Thus, $\R^3=\Span\Set{\vec a,\vec b,\vec c}$.
 \end{example}
 
 \Heading{Representing Lines \& Planes as Spans}
