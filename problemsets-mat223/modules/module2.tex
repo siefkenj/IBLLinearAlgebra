@@ -4,8 +4,7 @@ objects: lines and planes.
 \Heading{Lines}
 Consider for a moment the line $\ell$ through the points $P$ and $Q$.  When $P,Q\in\R^2$, we
 can describe $\ell$ with an equation of the form $y=mx+b$ (provided it isn't a vertical line), but if
-$P,Q\in\R^3$, it's much harder to describe $\ell$ with an equation.  Using vectors
-provides an easier way.
+$P,Q\in\R^3$, it's much harder to describe $\ell$ with an equation. We can solve this problem by using vectors. 
 
 Let $\vec d=\overrightarrow{PQ}$ and consider the set of points (or vectors) $\vec x$ that can be expressed as
 \[
@@ -207,7 +206,7 @@ which makes converting from another form into vector form straightforward.
 	\[
 		\vec x=t\vec d+P
 	\]
-	or, using coordinates,
+	or, using coordinates, as
 	\[
 		\mat{x\\y} = t\mat{1\\2}+\mat{0\\3}.
 	\]
@@ -318,9 +317,9 @@ when comparing different vector forms.
 		&=(s+1)\mat{2\\2}-\tfrac{t}{2}\mat{2\\2}\\
 		&= (s+1-\tfrac{t}{2})\mat{2\\2}.
 	\end{align*}
-	This has a solution whenever $s+1-t/2=0$.  Since for every $t\in\R$ we can find an $s\in\R$ satisfying
-	this equation
-	and for every $s\in \R$ we can find a $t\in \R$ satisfying this equation, we know $\ell_1=\ell_2$.
+	This equation has a solution whenever $s+1-t/2=0$ has a solution.  Since for every $s$, the
+	equation $s+1-t/2=0$ has a solution, and for every $t$, the equation $s+1-t/2=0$ has a solution,
+	we know $\ell_1=\ell_2$.
 \end{example}
 
 
