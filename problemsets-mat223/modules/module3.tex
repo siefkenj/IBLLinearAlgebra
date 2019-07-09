@@ -79,7 +79,7 @@ any location can be reached. To verify this algebraically, consider the vector e
 \end{equation}
 Here $\vec x$ represents an arbitrary point in $\R^2$. Thus, if equation \eqref{EQSPAN1} always
 has a solution\footnote{ The official terminology would be to say that
-the equations is always \emph{consistent}.}, any vector in $\R^2$ can be obtained as a linear combination of $\alpha$ and $\beta$.
+the equations is always \emph{consistent}.}, any vector in $\R^2$ can be obtained as a linear combination of $\vec u$ and $\vec v$.
 
 We can solve this equation for $\alpha$ and $\beta$ by considering the equations arising from the
 first and second coordinates. Namely,
@@ -128,7 +128,24 @@ We just showed above that $\Span\Set*{\mat{1\\1},\mat{-1\\2}}=\R^2$.
 	Let $\vec a=\mat{1\\2\\1}$, $\vec b=\mat{0\\1\\0}$, and $\vec c=\mat{1\\1\\2}$. Show that
 	$\R^3=\Span\Set{\vec a,\vec b,\vec c}$.
 
-	XXX Finish
+	If the equation 
+	\[
+		\vec x=\mat{x\\y\\z} = \alpha_1\mat{1\\2\\1}+\alpha_2\mat{0\\1\\0}+\alpha_3\mat{1\\1\\2}
+		 = \alpha_1\vec a+\alpha_2\vec b+\alpha_3\vec c
+	\]
+	is always consistent, then any vector in $\R^3$ can be obtained as a linear combination of
+	$\vec a, \vec b$, and $\vec c$.
+	
+	from the coordinates we get the system
+	\[
+		\sysdelim..\systeme*{x=\alpha_1+\alpha_3, y=2\alpha_1+\alpha_2+\alpha_3, z=\alpha_1+2\alpha_3}
+	\]
+	solving for $\alpha_1, \alpha_2$, and $\alpha_3$, we find that the original equation is
+	always consistent. Namely,
+	\[
+		\sysdelim..\systeme*{\alpha_1=2x-z, \alpha_2=-3x+y+z, \alpha_3=-x+z}
+	\]
+	Thus, $\R^3=\Span\Set{\vec a,\vec b,\vec c}$.
 \end{example}
 
 \Heading{Representing Lines \& Planes as Spans}
