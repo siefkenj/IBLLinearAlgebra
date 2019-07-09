@@ -1,9 +1,7 @@
 
-Any basis for $\R^n$ gives us a way to analyze vectors in $\R^n$
-by turning them in to lists of numbers (i.e., coordinates).  Given a
-basis $\mathcal A$ for $\R^n$, every  vector $\vec x\in\R^n$ uniquely
-corresponds to the list of numbers $[\vec x]_{\mathcal A}$.
-In other words, the operation of writing a vector in a basis is \emph{invertible}.
+Given a basis $\mathcal A$ for $\R^n$, every  vector $\vec x\in\R^n$ uniquely
+corresponds to the list of numbers $[\vec x]_{\mathcal A}$ (its coordinates with respect
+to $\mathcal A$), and  the operation of writing a vector in a basis is \emph{invertible}.
 
 If we have two bases, $\mathcal A$ and $\mathcal B$, for $\R^n$, we have two equally valid
 ways of representing a vector in coordinates.
@@ -29,7 +27,23 @@ the coordinates of that vector with respect to the $\mathcal B$ basis.
 	$\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{2\\1}_{\mathcal E}$ and $\vec b_2=\mat{5\\3}_{\mathcal E}$ be bases for $\R^2$.
 	Given that $[\vec x]_{\mathcal A}=\mat{2\\-3}$, find $[\vec x]_{\mathcal B}$.
 
-	XXX Finish
+	By definition,
+	\[
+		\vec x=2\vec a_1-3\vec a_2=2(\xhat+\yhat)-3(\xhat-\yhat)=-\xhat+5\yhat.
+	\]
+	We need to rewrite $\vec x$ as a linear combination of $\vec b_1=2\xhat+\yhat$ and $\vec b_2=5\xhat+3\yhat$. That is,
+	we need to solve the equation
+	\[
+		\vec x=-\xhat+5\yhat = \alpha(2\xhat+\yhat)+\beta(5\xhat+3\yhat)=(2\alpha+5\beta)\xhat+(\alpha+3\beta)\yhat.
+	\]
+	Equating the coefficients of $\xhat$ and $\yhat$, we get
+	\[
+		\systeme[\alpha\beta]{2\alpha+5\beta=-1,\alpha+3\beta=5},
+	\]
+	which has a unique solution $(\alpha,\beta)=(-28,11)$. We conclude
+	\[
+		[\vec x]_{\mathcal B} =\mat{-28\\11}.
+	\]
 \end{example}
 
 For a basis $\mathcal A$, the invertible function that takes a vector $\vec x$ and generates the coordinates $[\vec x]_{\mathcal A}$
@@ -43,7 +57,21 @@ must have a matrix. This matrix is called the \emph{change of basis} matrix.
 	$\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{2\\1}_{\mathcal E}$ and $\vec b_2=\mat{5\\3}_{\mathcal E}$ be bases for $\R^2$.
 	Find the change of basis matrix $\BasisChange{\mathcal A}{\mathcal B}$.
 
-	XXX Finish
+	We know $\BasisChange{\mathcal A}{\mathcal B}$ will be a $2\times 2$ matrix and that
+	\[
+		\BasisChange{\mathcal A}{\mathcal B}[\vec a_1]_{\mathcal A}=[\vec a_1]_{\mathcal B}\qquad
+		\text{and}\qquad
+		\BasisChange{\mathcal A}{\mathcal B}[\vec a_2]_{\mathcal A}=[\vec a_2]_{\mathcal B}.
+	\]
+	Therefore, we need to compute $[\vec a_1]_{\mathcal B}$ and $[\vec a_2]_{\mathcal B}$. Repeating the procedure from the previous example,
+	we find
+	\[
+		[\vec a_1]_{\mathcal B}=\mat{-2\\1}\qquad \text{and}\qquad [\vec a_2]_{\mathcal B}=\mat{8\\-3},
+	\]
+	and so
+	\[
+		\BasisChange{\mathcal A}{\mathcal B}=\mat{-2&8\\1&-3}.
+	\]
 \end{example}
 
 We can now enhance our diagram from earlier.
@@ -62,7 +90,7 @@ We can now enhance our diagram from earlier.
 
 The notation $\BasisChange{\mathcal A}{\mathcal B}$ for the matrix that changes from the $\mathcal A$ basis to
 the $\mathcal B$ basis is suggestive. Suppose we have another basis $\mathcal C$. We can obtain
-$\BasisChange{\mathcal A}{\mathcal C}$ by multiplying $\BasisChange{\mathcal A}{\mathcal B}$ and $\BasisChange{\mathcal B}{\mathcal C}$.
+$\BasisChange{\mathcal A}{\mathcal C}$ by multiplying $\BasisChange{\mathcal A}{\mathcal B}$ on the left by $\BasisChange{\mathcal B}{\mathcal C}$.
 That is,
 \[
 	\BasisChange{\mathcal A}{\mathcal C}=\BasisChange{\mathcal B}{\mathcal C}\BasisChange{\mathcal A}{\mathcal B}.
@@ -70,8 +98,8 @@ That is,
 The backwards arrow ``$\leftarrow$'' in the change-of-basis matrix notation comes because we multiply vectors on the
 \emph{left} by matrices. So, \[
 	[\vec x]_{\mathcal C}=
-	\BasisChange{\mathcal A}{\mathcal C}[\vec x]_{\mathcal C}
-	=\BasisChange{\mathcal B}{\mathcal C}\BasisChange{\mathcal A}{\mathcal B}[\vec x]_{\mathcal C}.
+	\BasisChange{\mathcal A}{\mathcal C}[\vec x]_{\mathcal A}
+	=\BasisChange{\mathcal B}{\mathcal C}\BasisChange{\mathcal A}{\mathcal B}[\vec x]_{\mathcal A}.
 \]
 As such, the notation for the change of basis matrix chains, allowing you to figure out what's going on without too much trouble.
 
@@ -81,7 +109,7 @@ Let $\mathcal A$ and $\mathcal B$ be bases for $\R^n$ and $M=\BasisChange{\mathc
 that changes from the $\mathcal A$ to the $\mathcal B$ basis. Since we can change vectors back from $\mathcal B$ to
 $\mathcal A$, we know $M$ is invertible and
 \[
-	M^{-1}=\BasisChange{\mathcal B}{\mathcal A}
+	M^{-1}=\BasisChange{\mathcal B}{\mathcal A}.
 \]
 Just playing with notation, we see
 \[
@@ -154,7 +182,56 @@ we mean the matrix for the transformation with respect to the standard basis.
 	be a basis for $\R^2$ and let $\mathcal T:\R^2\to\R^2$ be the transformation that stretches in the $\vec e_1$ direction 
 	by a factor of $2$. Find $[\mathcal T]_{\mathcal E}$ and $[\mathcal T]_{\mathcal B}$.
 
-	XXX Finish
+	Since $\mathcal T\xhat=2\xhat$ and $\mathcal T\yhat=\yhat$, We know
+	\[
+		[\mathcal T]_{\mathcal E}\mat{1\\0}=\mat{2\\0}\qquad\text{and}\qquad
+		[\mathcal T]_{\mathcal E}\mat{0\\1}=\mat{0\\1}
+	\]
+	and so
+	\[
+		[\mathcal T]_{\mathcal E}=\mat{2&0\\0&1}.
+	\]
+
+	We can find $[\mathcal T]_{\mathcal B}$ in two ways: directly from the definition, or by using change of basis matrices.
+	First, we will work directly from the definition.
+
+	To find $[\mathcal T]_{\mathcal B}$, we need to figure out what $\mathcal T$ does to $\vec b_1$ and $\vec b_2$.
+	However, since $\mathcal T$ is described in term of $\xhat$ and $\yhat$, it might be easier to express $\xhat$ and
+	$\yhat$ in the $\mathcal B$ basis, and then analyze $\mathcal T$.
+
+	Computing,
+	\[
+		\begin{aligned}
+			[\xhat]_{\mathcal B} &= \BasisChange{\mathcal E}{\mathcal B}\mat{1\\0} = \mat{2&5\\-3&-7}^{-1}\mat{1\\0}=\mat{-7\\3}\\
+			[\yhat]_{\mathcal B} &= \BasisChange{\mathcal E}{\mathcal B}\mat{0\\1} = \mat{2&5\\-3&-7}^{-1}\mat{0\\1}=\mat{-5\\2}
+		\end{aligned}.
+	\]
+	Now we know
+	\[
+		\begin{aligned}
+			[\mathcal T]_{\mathcal B}[\xhat]_{\mathcal B}&=[\mathcal T\xhat]_{\mathcal B}=[2\xhat]_{\mathcal B}=\mat{-14\\6}\\
+			[\mathcal T]_{\mathcal B}[\yhat]_{\mathcal B}&=[\mathcal T\yhat]_{\mathcal B}=[\yhat]_{\mathcal B}=\mat{-5\\2}
+		\end{aligned}.
+	\]
+	Since $[\mathcal T]_{\mathcal B}$ is a $2\times 2$ matrix, we can use what we know to solve for its entries, finding
+	\[
+		[\mathcal T]_{\mathcal B}=\mat{-13&-35\\6&16}.
+	\]
+
+	Let's try finding $[\mathcal T]_{\mathcal B}$ using change of basis matrices. We already know $[\mathcal T]_{\mathcal E}$, and so
+	\[
+		[\mathcal T]_{\mathcal B} = \BasisChange{\mathcal E}{\mathcal B}[\mathcal T]_{\mathcal E}\BasisChange{\mathcal B}{\mathcal E}.
+	\]
+	Further, we know
+	\[
+		\BasisChange{\mathcal B}{\mathcal E}=\mat{2&5\\-3&-7}\qquad \text{and}\qquad
+		\BasisChange{\mathcal E}{\mathcal B}=\mat{2&5\\-3&-7}^{-1}=\mat{-7&-5\\3&2}.
+	\]
+	Putting it all together,
+	\[
+		[\mathcal T]_{\mathcal E}=\mat{-7&-5\\3&2}\mat{2&0\\0&1}\mat{2&5\\-3&-7} = \mat{-13&-35\\6&16}.
+	\]
+
 \end{example}
 
 \Heading{Similar Matrices}
@@ -164,10 +241,32 @@ to represent a particular linear transformation.
 
 \begin{example}
 	Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{2\\-3}_{\mathcal E}$ and $\vec b_2=\mat{5\\-7}_{\mathcal E}$
-	be a basis for $\R^2$ and let $\mathcal S:\R^2\to\R^2$ be the transformation that stretches in the $2\vec e_1-3\vec e_3$ direction 
-	by a factor of $2$. Find $[\mathcal S]_{\mathcal E}$ and $[\mathcal S]_{\mathcal B}$.
+	be a basis for $\R^2$ and let $\mathcal S:\R^2\to\R^2$ be the transformation that stretches in the $\vec b_1=2\vec e_1-3\vec e_3$ direction 
+	by a factor of $3$ and reflects vectors in the $\vec b_2=5\xhat-7\yhat$ direction. 
+	Find $[\mathcal S]_{\mathcal E}$ and $[\mathcal S]_{\mathcal B}$.
 
-	XXX Finish
+	In this example, $\mathcal S$ is described in terms of the $\mathcal B$ basis. That is, we know
+	\[
+		\mathcal S\vec b_1=2\vec b_1\qquad\text{and}\qquad\mathcal S\vec b_2=-\vec b_2.
+	\]
+	Therefore,
+	\[
+		[\mathcal S]_{\mathcal B}=\mat{2&0\\0&-1}.
+	\]
+
+	To find $[\mathcal S]_{\mathcal E}$, we will use change of basis matrices. Notice that
+	\[
+		[\mathcal S]_{\mathcal B} = \BasisChange{\mathcal B}{\mathcal E}[\mathcal S]_{\mathcal B}\BasisChange{\mathcal E}{\mathcal B},
+	\]
+	and that
+	\[
+		\BasisChange{\mathcal B}{\mathcal E}=\mat{2&5\\-3&-7}\qquad \text{and}\qquad
+		\BasisChange{\mathcal E}{\mathcal B}=\mat{2&5\\-3&-7}^{-1}=\mat{-7&-5\\3&2}.
+	\]
+	Therefore
+	\[
+		[\mathcal S]_{\mathcal B} = \mat{2&5\\-3&-7}\mat{2&0\\0&-1}\mat{-7&-5\\3&2}=\mat{-34&-30\\63&44}.
+	\]
 \end{example}
 
 In the example above, $[\mathcal S]_{\mathcal B}$ is a much nicer matrix than $[\mathcal S]_{\mathcal E}$. However, the
@@ -183,5 +282,5 @@ The $X$ in the definition of similar matrices is always a change-of-basis matrix
 
 When studying a linear transformation, you can pick any basis to represent it in and study the resulting
 matrix. Different choices of basis will give you different perspectives on the linear transformation.
-It what's to follow, we will work to find the ``best'' basis in which to study a given linear transformation\footnote{ If you
+In what's to follow, we will work to find the ``best'' basis in which to study a given linear transformation\footnote{ If you
 cannot wait, the ``best'' basis will turn out to be the \emph{eigen basis} (provided it exists).}.

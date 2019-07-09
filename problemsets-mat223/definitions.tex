@@ -593,11 +593,12 @@
 
 \begin{SaveDefinition}[key=ChangeofBasisMatrix, title={Change of Basis Matrix}]
 	Let $\mathcal A$ and $\mathcal B$ be bases for $\R^n$. The matrix $M$ is called
-	a \emph{change of basis} matrix converting from $\mathcal A$ to $\mathcal B$ if
+	a \emph{change of basis} matrix (which converts from $\mathcal A$ to $\mathcal B$) if
+	for all $\vec x\in \R^n$
 	\[
-		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}
+		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}.
 	\]
-	for all $\vec x\in \R^n$. Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
+	 Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
 	stands for the change of basis matrix converting from $\mathcal A$ to $\mathcal B$,
 	and we may write $M=\BasisChange{\mathcal A}{\mathcal B}$.
 \end{SaveDefinition}
