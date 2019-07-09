@@ -137,8 +137,22 @@ the same direction).
 \begin{example}
 	Let $\vec a=\mat{1\\2}$, $\vec b=\mat{3\\3}$, $\vec c=\mat{2\\1}$, and $\vec v=\mat{3\\4}$. Which vector out of
 	$\vec a$, $\vec b$, and $\vec c$ has a direction closest to the direction of $\vec v$?
-
-	XXX Finish
+    
+    Since $\cos \theta$ is a decreasing function for $\theta\in[0,\pi]$, $\theta$ is smallest when $\cos \theta$ closest to one.
+    
+    Therefore, instead of computing the angles $\alpha$, $\beta$ and $\gamma$ between $\vec a$, $\vec b$, $\vec c$ and $\vec v$ respectively, we are going to compute the value of cosines of them.
+    
+    First, by equating the geometric and algebraic definitions of the dot product, we get 
+    \[
+        \cos\theta = \frac{\vec p\cdot\vec q}{\norm{\vec p}\norm{\vec q}}.
+    \]
+    where $\theta$ is the angle between vectors $\vec p$ and $\vec q$. Therefore,
+	\begin{align*}
+	    \cos \alpha &= \frac{3+8}{5\sqrt{5}}=\frac{11\sqrt{5}}{25} \approx 0.9838699101 \\
+	    \cos \beta &= \frac{9+12}{5\cdot 3\sqrt{2}} =\frac{7\sqrt{2}}{10} \approx 0.989949437\\
+	    \cos \gamma &= \frac{6+4}{5\sqrt{5}}=\frac{2\sqrt{5}}{5} \approx 0.894427191. 
+	\end{align*}
+	Since $\cos \beta$ gives the largest value, $\vec b$ has a direction closest to the direction of $\vec v$.
 \end{example}
 
 
@@ -384,5 +398,3 @@ to \eqref{EQScalarForm}, and this complete solution will necessarily be written 
 		\mat{x\\y\\z}=t\mat{-1\\1\\0}+s\mat{-1\\0\\1}+\mat{2\\0\\0}.
 	\]
 \end{example}
-
-
