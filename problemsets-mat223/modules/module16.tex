@@ -171,16 +171,20 @@ diagonalizable---checking to see if there is a basis of eigenvectors.
 
 \begin{example}
 	Is the matrix $J=\mat{5&1\\0&5}$ diagonalizable?
-
-	The eigenvectors of $J$ all lie on $\Span\Set*{\mat{1\\0}}$. Therefore it does not admit a basis of
-	eigenvectors and thus, is not diagonalizable.
+	
+	Computing, $\Char(J)=(5-\lambda)^2$ which has a double root at 5. Therefore, 5 is the
+	only eigenvalue of $J$. The eigenvectors of $J$ all lie in the nullspace of $J-5I$ which 
+	is $\Span\Set*{\mat{1\\0}}$. $J$ does not admit a basis of eigenvectors as that would require
+	2 linearly independent eigenvectors. Thus, $J$ is not diagonalizable.
 \end{example}
 
 \begin{example}
 	Is the matrix $K=\mat{5&1\\0&2}$ diagonalizable?
 	
-	$K$ admits a basis of eigenvectors. for example $\Set*{\mat{1\\0},\mat{-1\\3}}$. Thus, $K$ is
-	diagonalizable.
+	Computing, $\Char(K)=(5-\lambda)(2-\lambda)$ which has roots at 5 and 2. Therefore, 5 and 2 are
+	the eigenvalues of $K$. The eigenvectors of $K$ all lie in the nullspace of $K-5I$ or $K-2I$ which are 
+	$\Span\Set*{\mat{1\\0}}$ and $\Span\Set*{\mat{-1\\3}}$ respectively.
+	$\Set*{\mat{1\\0},\mat{-1\\3}}$ is a basis of eigenvectors of $K$. Thus, $K$ is diagonalizable.
 \end{example}
 
 \begin{emphbox}[Takeaway]
@@ -216,14 +220,14 @@ $3$ and a root of $5$ with multiplicity $1$.
 \begin{example}
 	Let $D=\mat{5&0\\0&5}$ and find the geometric and algebraic multiplicity of each eigenvalue of $D$.
 	
-	$\Char(D)=(5-\lambda)^2$, so 5 is an eigenvalue of $D$ with algebraic multiplicity 2.
+	Computing, $\Char(D)=(5-\lambda)^2$, so 5 is an eigenvalue of $D$ with algebraic multiplicity 2.
 	The eigenspace of $D$ corresponding to 5 is $\R^2$. Thus, the geometric multiplicity of 5 is 2.
 \end{example}
 
 \begin{example}
 	Let $J=\mat{5&1\\0&5}$ and find the geometric and algebraic multiplicity of each eigenvalue of $J$.
 	
-	$\Char(J)=(5-\lambda)^2$, so 5 is an eigenvalue of $J$ with algebraic multiplicity 2.
+	Computing, $\Char(J)=(5-\lambda)^2$, so 5 is an eigenvalue of $J$ with algebraic multiplicity 2.
 	The eigenspace of $J$ corresponding to 5 is $\Span\Set*{\mat{1\\0}}$. Thus, the geometric 
 	multiplicity of 5 is 1.
 \end{example}
@@ -231,7 +235,7 @@ $3$ and a root of $5$ with multiplicity $1$.
 \begin{example}
 	Let $K=\mat{5&1\\0&2}$ and find the geometric and algebraic multiplicity of each eigenvalue of $K$.
 	
-	$\Char(K)=(5-\lambda)(2-\lambda)$, so 5 and 2 are eigenvalues of $K$, both with algebraic multiplicity 1.
+	Computing, $\Char(K)=(5-\lambda)(2-\lambda)$, so 5 and 2 are eigenvalues of $K$, both with algebraic multiplicity 1.
 	The eigenspace of $K$ corresponding to 5 is $\Span\Set*{\mat{1\\0}}$ and the eigenspace
 	corresponding to 2 is $\Span\Set*{\mat{-1\\3}}$. Thus, both 5 and 2 have a geometri 
 	multiplicity of 1.
