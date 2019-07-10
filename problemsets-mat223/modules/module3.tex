@@ -117,10 +117,10 @@ We just showed above that $\Span\Set*{\mat{1\\1},\mat{-1\\2}}=\R^2$.
 	\]
 	Adding 2 times the first equation to the second, we get $2x+y=0$ and so $y=-2x$.
 	
-	If y=-2x, then the vector is of the form $\mat{1\\-2}$ for some t, which is just a multiple of $\vec v$. Thus
+	If $y=-2x$, then the vector is of the form $t\mat{1\\-2}$ for some $t$, which is just a multiple of $\vec v$. Thus
 	\[
 		\Span\Set{\vec u,\vec v}=
-		\Set{\vec x\given \vec x=t\vec v\text{ for some scalar }t}.
+		\Set{\vec x\given \vec x=t\vec v\text{ for some }t\in\R}.
 	\]
 \end{example}
 
@@ -186,7 +186,11 @@ As it turns out, spans exactly describe points, lines, planes, and volumes\footn
 	$\ell_2\subseteq \R^2$ is described by the equation $4x-2y=6$.
 	If possible, describe $\ell_1$ and $\ell_2$ using spans.
 
-	XXX Finish
+	The equation $x+2y=0$ can be written as $y=-\frac{1}{2}x$. Therefore
+	\[
+		\ell_1=\Set*{\vec x\given \vec x={t\mat{2\\-1}\text{ for some }t\in \R}}
+		= \Span\Set*{\mat{2\\-1}}
+	\]
 \end{example}
 
 However, not all points, lines, planes, and volumes pass through the origin
@@ -196,7 +200,8 @@ and so we can't describe every such object directly as a span.
 	Show the line $\ell_2\subseteq\R^2$ described by the equation $4x-2y=6$
 	cannot be written as a span.
 
-	XXX Finish
+	$4(0)-2(0) = 0 \neq 6$, therefore $\ell_2$ does not pass through the origin.
+	Every span contains the origin, thus $\ell_2$ cannot be written as a span.
 \end{example}
 
 \begin{emphbox}[Takeaway]
