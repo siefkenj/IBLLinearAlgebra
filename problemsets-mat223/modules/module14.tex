@@ -76,20 +76,20 @@ Linear transformations transform vectors, but they also change \emph{sets}.
 \end{center}
 
 It turns out to be particularly useful to track by how much a linear transformation
-changes area/volume. This number which is associated with a linear transformation with
-the same domain and codomain is called the \emph{determinant}\footnote{ This number is \emph{almost} the determinant.
+changes area/volume. This number (which is associated with a linear transformation with
+the same domain and codomain) is called the \emph{determinant}\footnote{ This number is \emph{almost} the determinant.
 The only difference is that the determinant might have a $\pm$ in front.}.
 
 \Heading{Volumes}
 
 In this module, most examples will be in $\R^2$ because they're easier to draw.
-The definitions given will extend to $\R^n$ for any $n$, however the English language
-will sometimes get in the way. In English, we say that a two-dimensional figure has an
+The definitions given will extend to $\R^n$ for any $n$, however we need to establish some conventions
+to properly express these ideas in English. In English, we say that a two-dimensional figure has an
 \emph{area} and a three-and-up dimensional figure has a \emph{volume}. In this section, \emph{we
-will use the term volume to also mean area}.
+will use the term volume to also mean area} where appropriate.
 
-To measure how volume changes, we will need to compare input volumes and output volumes. 
-For this purpose, we will define notation for the \emph{unit $n$-cube}.
+To measure how volume changes, we need to compare input volumes and output volumes. 
+The easiest volume to compute is that of the \emph{unit $n$-cube}, which has a special notation.
 
 \SavedDefinitionRender{Unitncube}
 
@@ -141,7 +141,7 @@ how much a given transformation changes volume.
 	    \mathcal T(\xhat)=\mat{2\\-1} \qquad\text{and}\qquad \mathcal T(\yhat)=\mat{1\\\frac{1}{2}}.
 	\]
 	Plotting $\mat{2\\-1}$ and $\mat{1\\\frac{1}{2}}$, we see $\mathcal T(C_2)$ is a parallelogram 
-	with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$:
+	with base $\sqrt{5}$ and height $\frac{2\sqrt{5}}{5}$.
 	
 \begin{center}
 	\begin{tikzpicture}
@@ -161,7 +161,7 @@ how much a given transformation changes volume.
 		    minor tick num=0,
 		    enlargelimits={abs=0.5},
 		    axis line style={latex-latex},
-		    ticklabel style={font=\tiny,fill=white},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
 		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
@@ -191,7 +191,7 @@ how much a given transformation changes volume.
 		    minor tick num=0,
 		    enlargelimits={abs=0.5},
 		    axis line style={latex-latex},
-		    ticklabel style={font=\tiny,fill=white},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
 		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
@@ -231,7 +231,7 @@ A full proof of the above theorem requires calculus and limits, but the linear a
 theorems.
 
 \begin{theorem}
-	Suppose $\mathcal T:\R^n\to\R^n$ is a linear transformation and $X\subseteq \R^n$ is a subset and the
+	Suppose $\mathcal T:\R^n\to\R^n$ is a linear transformation, $X\subseteq \R^n$ is a subset, and the
 	volume of $\mathcal T(X)$ is $\alpha$.
 	Then for any $\vec p\in \R^n$, the volume of $\mathcal T(X+\Set{\vec p})$ is $\alpha$.
 \end{theorem}
@@ -373,9 +373,9 @@ $T(C_n)$. Thus,
 	=\frac{\Vol(\mathcal T(B_n))}{\Vol(\mathcal B_n)}.
 \]
 
-Now we can finally show that for a linear transformation $\mathcal T:\R^n\to\R^n$
+Now we can finally show that for a linear transformation $\mathcal T:\R^n\to\R^n$,
 the number ``$\VolChange(\mathcal T)$'' actually corresponds to how much $\mathcal T$ changes the volume
-of any figure.
+of any figure by.
 
 The argument goes as follows: for a figure $X\subseteq \R^n$, we can fill it with shrunken and
 translated copies, $B_n$, of $C_n$. The same number of copies of $\mathcal T(B_n)$ fit inside $\mathcal T(X)$
@@ -511,6 +511,7 @@ as $\VolChange(\mathcal T)$, but with one twist: \emph{orientation}.
 
 \SavedDefinitionRender{Determinant}
 
+We need to understand what the term \emph{oriented volume} means.
 We've previously defined the orientation of a basis, and we can use the orientation
 of a basis to define whether a linear transformation is \emph{orientation preserving}
 or \emph{orientation reversing}.
@@ -661,24 +662,32 @@ or \emph{orientation reversing}.
 
 In the figure above, $\mathcal T$ is orientation preserving and $\mathcal S$ is orientation reversing.
 
+For an arbitrary linear transformation $\mathcal Q:\R^n\to\R^n$ and a set $X\subseteq\R^n$, we
+define the \emph{oriented volume} of $\mathcal Q(X)$ to be $+\Vol\mathcal Q(X)$ if $\mathcal Q$ is
+orientation preserving and $-\Vol\mathcal Q(X)$ if $\mathcal Q$ is orientation reversing.
+
 
 \begin{example}
 	Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{2x+y\\-x+\tfrac{1}{2}y}$.
 	Find $\det(\mathcal T)$.
 
-	Refer to the example from earlier, $\mathcal T$ is orientation preserving. Therefore, $\det(\mathcal T)=2$.
+	This is the same $\mathcal T$ as from the previous example where we computed
+	$\Vol\mathcal T(C_2)=2$. Since $\mathcal T$ is orientation preserving, therefore know $\det(\mathcal T)=2$.
 \end{example}
 \begin{example}
 	Let $\mathcal S:\R^2\to\R^2$ be defined by $\mathcal S\mat{x\\y}=\mat{-x+y\\x+y}$.
 	Find $\det(\mathcal T)$.
 
-	Similarly to the earlier example, we compute $\mathcal S(\xhat) = \mat{-1\\1}$ and $\mathcal S(\yhat) = \mat{1\\1}$. Plotting $\mathcal S(\xhat)$ and $\mathcal S(\yhat)$, we see that $\mathcal S$ is orientation reversing. Thus, $\det(\mathcal S) = - \Vol(\mathcal S(C_2)) = -2$.
+	By drawing a picture, we see that $\mathcal S(C_2)$ is a square and $\Vol\mathcal S(C_2)=2$.
+	However, $\mathcal S(\xhat) = \mat{-1\\1}$ and $\mathcal S(\yhat) = \mat{1\\1}$
+	form a negatively oriented basis, and so $\mathcal S$ is orientation reversing. Therefore,
+	$\det(\mathcal S) = - \Vol\mathcal S(C_2) = -2$.
 \end{example}
 \begin{example}
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto the line with equation $x+2y=4$. Find $\det(\mathcal P)$.
 
-	Because $\mathcal P$ projects everything to a line, we know $\mathcal P(C_2)$ must be a line segment, and
-	therefore has no volume. Thus $\det(\mathcal P)=0$.
+	Because $\mathcal P$ projects everything to a line, we know $\mathcal P(C_2)$ must be a line segment and
+	therefore has volume zero. Thus $\det(\mathcal P)=0$.
 \end{example}
 
 
@@ -686,7 +695,8 @@ In the figure above, $\mathcal T$ is orientation preserving and $\mathcal S$ is 
 
 Volume changes are naturally multiplicative. If a linear transformation $\mathcal T$ changes volume by a factor
 of $\alpha$ and $\mathcal S$ changes volume by a factor of $\beta$, then $\mathcal S\circ \mathcal T$ changes
-volume by a factor of $\beta\alpha$. Thus, determinants are multiplicative.
+volume by a factor of $\beta\alpha$. Thus, determinants must also be multiplicative\footnote{ To fully argue this, we need
+to show that the composition of two orientation-reversing transformations is orientation preserving.}.
 
 \begin{center}
 	\begin{tikzpicture}
@@ -842,8 +852,8 @@ elementary matrices. But first, consider the following theorem.
 	Therefore $\mathcal T_{M}(C_n)$ is the parallelepiped whose sides are given by the columns of $M$.
 \end{proof}
 
-This means we can think about the determinant of a matrix by considering its columns, and now we are ready to consider
-the determinants of the elementary matrices.
+This means we can think about the determinant of a matrix by considering its columns. Now we are ready to consider
+the determinants of the elementary matrices!
 
 \bigskip
 There are three types of elementary matrices corresponding to the three elementary row operations. For each
@@ -907,7 +917,7 @@ the $\vec e_j$ direction.
 	\end{tikzpicture}
 \end{center}
 
-Since $C_n$ is sheared parallel to one of its other sides, its volume is not changed. Thus $\det(E_a)=1$.
+Since $C_n$ is sheared in a direction parallel to one of its other sides, its volume is not changed. Thus $\det(E_a)=1$.
 
 \begin{emphbox}[Takeaway]
 	The determinants of elementary matrices are all easy to compute and the determinant of the
@@ -915,16 +925,16 @@ Since $C_n$ is sheared parallel to one of its other sides, its volume is not cha
 \end{emphbox}
 
 Now, by decomposing a matrix into the product of elementary matrices, 
-we can use the multiplicative property of the determinant and the formulas for the determinants
-of the different types of elementary matrices to compute the determinant of an invertible
+we can use the multiplicative property of the determinant (and the formulas for the determinants
+of the different types of elementary matrices) to compute the determinant of an invertible
 matrix.
 
 \begin{example}
 	Use elementary matrices to find the determinant of $A=\mat{1&2\\3&4}$.
 
-	We can row-reduce $A$ with the following steps:
+	We can row-reduce $A$ with the following steps.
 	\[
-	    \mat{1&2\\3&4}\sim \mat{1&2\\0&-2}\sim \mat{1&2\\0&1}\sim \mat{1&0\\0&1}.
+	    \mat{1&2\\3&4}\to \mat{1&2\\0&-2}\to \mat{1&2\\0&1}\to \mat{1&0\\0&1}.
 	\]
 	The elementary matrices corresponding to these steps are
 	\[
@@ -950,7 +960,7 @@ decomposing it into the product of elementary matrices. But, what about non-inve
 
 Let $M$ be an $n\times n$ matrix that is \emph{not} invertible. Then, we must have $\Nullity(M)>0$
 and $\Col(M)<n$. Geometrically, this means there is at least one line of vectors, $\Null(M)$, that gets
-collapsed to $\vec 0$, and the column space of $M$ must be ``flattened'' (i.e., have lost a dimension). 
+collapsed to $\vec 0$, and the column space of $M$ must be ``flattened'' (i.e., it has lost a dimension). 
 Therefore, the volume of the parallelepiped given by the columns of $M$ must be zero, and so $\det(M)=0$.
 
 Based on this argument, we have the following theorem.
@@ -963,7 +973,8 @@ Based on this argument, we have the following theorem.
 	\[
 		\det(A)=\det(E_1\cdots E_k) = \det(E_1)\cdots \det(E_k).
 	\]
-	For every type of elementary matrix its determinant cannot be zero, and so $\det(A)\neq 0$.
+	All elementary matrices have non-zero determinants,
+	and so $\det(A)\neq 0$.
 
 	Conversely, if $A$ is not invertible, $\Rank(A)<n$, which means the parallelepiped 
 	given by the columns of $A$ is ``flattened'' and has zero volume.
@@ -977,7 +988,7 @@ how do $\det(A)$ and $\det(A^{-1})$ relate?  Well, by definition
 and so
 \[
 	\det(AA^{-1})=\det(A)\det(A^{-1})=
-	\det(I)=1
+	\det(I)=1,
 \]
 which gives
 \[
@@ -992,10 +1003,10 @@ Somewhat mysteriously, we have the following theorem.
 	given by the rows of $A$.
 \end{theorem}
 
-Volume Theorem II can be concisely stated as $\det(A)=\det(A^T)$, and joins the ranks of other
-similarly strange properties of the transpose like $\Rank(A)=\Rank(A^T)$.
+Volume Theorem II can be concisely stated as $\det(A)=\det(A^T)$, and joins other
+strange transpose-related facts (like $\Rank(A)=\Rank(A^T)$).
 
-We can actually prove Volume Theorem II using elementary matrices.
+We can prove Volume Theorem II using elementary matrices.
 \begin{proof}
 	Suppose $A$ is not invertible. Then, neither is $A^T$ and so $\det(A)=\det(A^T)=0$.
 
