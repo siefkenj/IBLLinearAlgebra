@@ -115,7 +115,34 @@ basis of eigenvectors. In this case, we know $B$ will be the diagonal matrix wit
 	Let $A=\mat{1&2&5\\-11&14&5\\-3&2&9}$ be a matrix and notice that $\vec v_1=\mat{5\\5\\1}$, $\vec v_2=\mat{1\\1\\1}$,
 	and $\vec v_3=\mat{1\\3\\1}$ are eigenvectors for $A$. Diagonalize $A$.
 
-	XXX Finish (eigenvalues are 4,8,12)
+	First, we find the eigenvalues that correspond to the eigenvectors $\vec v_1, \vec v_2$, 
+	and $\vec v_3$. 
+	
+	$A\vec v_1=\mat{5\\5\\1}=4\vec v_1$, $A\vec v_2=\mat{8\\8\\8}=8\vec v_2$, and
+	$A\vec v_3=\mat{12\\36\\12}=12\vec v_3$. 
+	
+	The eigenvalue of $\vec v_1$ is 4, the eigenvalue of $\vec v_2$ is 8, 
+	and the eigenvalue of $\vec v_3$ is 12.
+	
+	The change-of-basis matrix which converts from the basis of eigenvalues to the standard basis is
+	\[
+		P = \mat{5&1&1\\5&1&3\\1&1&1}.
+	\]
+	
+	The change-of-basis matrix which converts from the standard basis to the basis
+	of eigenvalues is
+	\[
+		P^{-1} = \mat{\frac{1}{4}&0&-\frac{1}{4}\\\frac{1}{4}&-\frac{1}{2}&\frac{5}{4}\\-\frac{1}{2}&\frac{1}{2}&0}.
+	\]
+	The matrix $A$ written in the basis of eigenvectors is
+	\[
+		B = \mat{4&0&0\\0&8&0\\0&0&12}.
+	\]
+	Thus
+	\[
+		A = PBP^{-1}= \mat{5&1&1\\5&1&3\\1&1&1}\mat{4&0&0\\0&8&0\\0&0&12}
+		\mat{\frac{1}{4}&0&-\frac{1}{4}\\\frac{1}{4}&-\frac{1}{2}&\frac{5}{4}\\-\frac{1}{2}&\frac{1}{2}&0}.
+	\]
 \end{example}
 
 \Heading{Non-diagonalizable Matrices}
@@ -145,13 +172,15 @@ diagonalizable---checking to see if there is a basis of eigenvectors.
 \begin{example}
 	Is the matrix $J=\mat{5&1\\0&5}$ diagonalizable?
 
-	XXX Finish
+	The eigenvectors of $J$ all lie on $\Span\Set*{\mat{1\\0}}$. Therefore it does not admit a basis of
+	eigenvectors and thus, is not diagonalizable.
 \end{example}
 
 \begin{example}
 	Is the matrix $K=\mat{5&1\\0&2}$ diagonalizable?
-
-	XXX Finish
+	
+	$K$ admits a basis of eigenvectors. for example $\Set*{\mat{1\\0},\mat{-1\\3}}$. Thus, $K$ is
+	diagonalizable.
 \end{example}
 
 \begin{emphbox}[Takeaway]
@@ -179,13 +208,16 @@ $3$ and a root of $5$ with multiplicity $1$.
 \begin{example}
 	Let $R=\mat{0&-1\\1&0}$ and find the geometric and algebraic multiplicity of each eigenvalue of $R$.
 	
-	XXX Finish
+	Computing, $\Char(R)=\lambda^2+1$ which has no real roots. Therefore,
+	$R$ has no real eigenvalues.\footnote{ If we allow complex eigenvalues, then the eigenvalues
+	$i$ and $-i$ both have geometric and algebraic multiplicity of 1.}
 \end{example}
 
 \begin{example}
 	Let $D=\mat{5&0\\0&5}$ and find the geometric and algebraic multiplicity of each eigenvalue of $D$.
 	
-	XXX Finish
+	$\Char(D)=(5-\lambda)^2$, so 5 is an eigenvalue of $D$ with algebraic multiplicity 2.
+	The eigenspace of $D$ corresponding to 5 is $\R^2$. Thus, the geometric multiplicity of 5 is 2.
 \end{example}
 
 \begin{example}
