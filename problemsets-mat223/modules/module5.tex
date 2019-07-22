@@ -1,9 +1,9 @@
 Consider the following situation: you're designing a 3d video game, but your users only have 2d screens.
 Or, you have a 900-dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
 Each of these is an example
-of finding the best approximation to particular points given some restrictions. In general, this operation
+of finding the best approximation to particular points given restrictions. In general, this operation
 is called a \emph{projection}\footnote{ What we define as a \emph{projection} is sometimes
-called an \emph{orthogonal projection} to distinguish it from other types of projections.}, 
+called the \emph{orthogonal projection} to distinguish it from other types of projections.}, 
 and in the world of linear algebra, it has a very particular meaning.
 
 \SavedDefinitionRender{Projection}
@@ -11,10 +11,9 @@ and in the world of linear algebra, it has a very particular meaning.
 Let $\mathcal P_{xy}\subseteq\R^3$ be the $xy$-plane in $\R^3$ and let $\vec v=\mat{1\\2\\3}$. Intuitively, 
 $\Proj_{\mathcal P_{xy}}\!\!\vec v$ is the ``shadow'' that  $\vec v$ would casts on ${\mathcal P_{xy}}$ if 
 the sun were directly overhead.
-In other words,
-\[
+Upon drawing a picture, we conclude $
 	\Proj_{\mathcal P_{xy}}\vec v=\mat{1\\2\\0}.
-\]
+$
 
 \begin{center}
   \begin{tikzpicture}
@@ -44,7 +43,7 @@ In other words,
   \end{tikzpicture}
 \end{center}
 
-Let $\ell_y\subseteq \R^3$ be the $y$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
+Continuing, let $\ell_y\subseteq \R^3$ be the $y$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
 is, so let's appeal to some definitions.
 
 By definition, every vector in $\ell_y$ takes the form $\vec u_t=\mat{0\\t\\0}$ for some $t\in \R$. The distance
@@ -52,7 +51,7 @@ between $\vec u_t$ and $\vec v$ is
 \[
 	\Norm{\vec u_t-\vec v}=\norm*{\mat{0\\t\\0}-\mat{1\\2\\3}} = \sqrt{1^2+(t-2)^2+3^2}.
 \]
-Since $(t-2)^2$ is always positive, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$. That is,
+Since $(t-2)^2$ is always positive, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$; that is,
 when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v$ and so,
 \[
 	\Proj_{\ell_y}\vec v=\vec u_2=\mat{0\\2\\0}.
@@ -77,7 +76,7 @@ when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v
 \end{example}
 
 Every example of a projection so far shares a geometric property. In the case of lines and planes,
-the vector from the tip of the projection to the original point is a normal vector for the line or plane (provided it's non-zero).
+the vector from the  projection to the original point is a normal vector for the line or plane (provided it's non-zero).
 
 \begin{center}
 	\begin{tikzpicture}
@@ -147,13 +146,17 @@ any distances!
     		\mat{x\\y}=t\mat{1\\1}+\mat{3\\-2}=\mat{t+3\\t-2}.
 	\]
 	From this, we have that $x-t=3$ and $y-t=-3$. Combined with Equation \eqref{EQDOTZERO}, we have
-	three equations and three unknowns. Solving the system
+	three equations and three unknowns which produce the following system of linear equations.
 	\[
-		\systeme{x+y=-2,x-t=3,y-t=-2}.
+		\systeme{x+y=-2,x-t=3,y-t=-2}
 	\]
-	We conclude that $x=3/2$ and $y=-7/2$. Therefore
+	Solving this system, we conclude that $x=3/2$ and $y=-7/2$ (we don't care about the value of $t$). Therefore
 	 $\Proj_\ell\vec v = \mat{3/2\\-7/2}$. 
 \end{example}
+
+\begin{emphbox}[Takeaway]
+	When projecting onto lines an planes, right angles appear in key places.
+\end{emphbox}
 
 \Heading{Projections Onto Other Sets}
 For projections onto lines and planes, we can use what we know about normal vectors to simplify our life.
@@ -163,7 +166,7 @@ The same is true when projecting onto other sets, but we must always keep the de
 	Let $\mathcal T\subseteq \R^2$ be the filled in triangle with vertices $\mat{0\\0}$, 
 	$\mat{1\\0}$, and $\mat{0\\2}$, and let
 	\[
-		\vec a=\mat{1/4\\1/4}\qquad \vec b=\mat{1\\1}\qquad \vec c=\mat{3\\1/2}.
+		\vec a=\mat{1/4\\1/4}\qquad \vec b=\mat{1\\1}\qquad \vec c=\matc{3\\1/2}.
 	\]
 	Find $\Proj_{\mathcal T}\vec a$, $\Proj_{\mathcal T}\vec b$, and  $\Proj_{\mathcal T}\vec c$.
 
@@ -181,13 +184,13 @@ The same is true when projecting onto other sets, but we must always keep the de
 			ytick={-2,...,4},
 		    x=1cm,y=1cm,
 		    grid=both,
-		    grid style={line width=.1pt, draw=gray!10},
+		    grid style={line width=.1pt, draw=black!10},
 		    %major grid style={line width=.2pt,draw=gray!50},
 		    axis lines=middle,
 		    minor tick num=0,
 		    enlargelimits={abs=0.5},
 		    axis line style={latex-latex},
-		    ticklabel style={font=\tiny,fill=white},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
 		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
@@ -226,13 +229,13 @@ The same is true when projecting onto other sets, but we must always keep the de
 			ytick={-2,...,4},
 		    x=1cm,y=1cm,
 		    grid=both,
-		    grid style={line width=.1pt, draw=gray!10},
+		    grid style={line width=.1pt, draw=black!10},
 		    %major grid style={line width=.2pt,draw=gray!50},
 		    axis lines=middle,
 		    minor tick num=0,
 		    enlargelimits={abs=0.5},
 		    axis line style={latex-latex},
-		    ticklabel style={font=\tiny,fill=white},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
 		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
@@ -260,7 +263,7 @@ is \emph{undefined}.
 
 Formally, for a fixed set $X$, we consider $P(\vec v)=\Proj_X\vec v$ as a function that inputs and outputs
 vectors. And, as a function, $P$ has a domain consisting of exactly the vectors $\vec v$ for which $P(\vec v)$
-is defined. As it happens, if $X$ is a line or a plane, the domain of $P$ is all of $\R^n$, and in this text,
+is defined. As it happens, if $X$ is a line or a plane in $\R^n$, the domain of $P$ is all of $\R^n$, and in this text,
 we will be sensible and only ask about projections that exist. 
 
 \Heading{Vector Components}
@@ -277,8 +280,8 @@ From the definition, it's obvious that
 \[
 	\vec u=\Vcomp_{\vec v}\vec u + (\vec u-\Vcomp_{\vec v}\vec u)
 \]
-is a decomposition of $\vec u$ into the sum of two vectors, one, $\Vcomp_{\vec v}\vec u$, is in the direction of $\vec v$,
-and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
+is a decomposition of $\vec u$ into the sum of two vectors, one ($\Vcomp_{\vec v}\vec u$) is in the direction of $\vec v$,
+and the other ($\vec u-\Vcomp_{\vec v}\vec u$) is orthogonal to $\vec v$.
 
 \begin{example}
 	Find the vector component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
@@ -298,13 +301,13 @@ and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
 	\]
 	and so $k=3/2$. Therefore
 	\[
-		\Vcomp_{\vec b}\vec a=\mat{3/2\\3/2}.
+		\Vcomp_{\vec b}\vec a=k\vec b=\mat{3/2\\3/2}.
 	\]
 \end{example}
 
 Since we'll be computing vector components often, let's try to find a formula for $\Vcomp_{\vec v}\vec u$.
 
-By definition $\Vcomp_{\vec v}\vec u$ is a vector in the direction of $\vec v$, so
+By definition, $\Vcomp_{\vec v}\vec u$ is a vector in the direction of $\vec v$, so
 \[
 	\Vcomp_{\vec v}\vec u = k\vec v.
 \]
@@ -454,10 +457,16 @@ projecting onto a span}. In general, projections and vector components are unrel
 	By definition, $\Proj_{\ell}\vec a$ is the closest point in $\ell$ to $\vec a$. Since $\vec a\in\ell$, we must
 	have 	
 	\[
-	    \Proj_{\ell}\vec b = \vec a = \mat{3\\7}.
+	    \Proj_{\ell}\vec a = \vec a = \mat{3\\7}.
 	\]
 	We already computed $\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}$ in the previous example, and so we see
 	\[
 		\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}\neq \mat{3\\7}=\Proj_{\ell}\vec b.
 	\]
 \end{example}
+
+\begin{emphbox}[Takeaway]
+	When projecting onto the span of a single vector, you can use vector components as a computational shortcut, 
+	but if the set isn't a span, you cannot.
+\end{emphbox}
+

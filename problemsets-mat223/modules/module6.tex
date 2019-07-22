@@ -42,12 +42,12 @@ escape the span. In general, sets that have this property are called
 
 \SavedDefinitionRender{Subspace}
 
-In the definition of subspace, property (i) is called
+In the definition of a subspace, property (i) is called
 	begin \emph{closed with respect to vector addition} and
 	property (ii) is called being \emph{closed with respect to
 	scalar multiplication}.
 
-Subspaces generalize the idea of \emph{flat spaces through the origin}. They encompass
+Subspaces generalize the idea of \emph{flat spaces through the origin}. They include 
 lines, planes, volumes and more.
 
 \begin{example}
@@ -59,16 +59,16 @@ lines, planes, volumes and more.
 	and let $k$ be a scalar.
 	
 	By definition, we have 
-	\begin{align*}
+	\[
+	\begin{aligned}
 		u_1+2u_2&=0 \\
 		v_1+2v_2&=0
-	\end{align*}
+	\end{aligned}.
+	\]
 	
 	We will show that $\mathcal V$ is nonempty and that
-	\begin{itemize}
-		\item[(i)] $\vec u + \vec v \in \mathcal V$; and
-		\item[(ii)] $k\vec u \in \mathcal V$.
-	\end{itemize}
+		(i) $\vec u + \vec v \in \mathcal V$; and
+		(ii) $k\vec u \in \mathcal V$.
 	
 	First we will show (i).
 	Observe that
@@ -112,12 +112,14 @@ lines, planes, volumes and more.
 	\]
 	Determine whether $\mathcal W$ is a subspace.
 
-	XXX Finish
+	$\mathcal W$ is \emph{not} a subspace. To see this, notice that $\vec v=\mat{1\\1}\in \mathcal W$,
+	but $0\vec v=\vec 0\notin\mathcal W$. Therefore, $\mathcal W$ is not closed under scalar multiplication
+	and so cannot be a subspace.
 \end{example}
 
 
-As mentioned earlier, subspaces and spans are deeply connected
-by the following theorem.
+As mentioned earlier, subspaces and spans are deeply connected.
+This connection is given by the following theorem.
 
 \begin{theorem}
 	Every subspace is a span and every span is a subspace.  More precisely,
@@ -163,10 +165,10 @@ by the following theorem.
 	\]
 	Observe that 
 	$\alpha_i\vec v_i\in\mathcal V$ for all $i$, since $\mathcal V$ is closed under scalar
-	multiplication. It follows that $\alpha_1\vec v_1+\alpha_2\vec v_2\in\mathcal V$
+	multiplication. It follows that $\alpha_1\vec v_1+\alpha_2\vec v_2\in\mathcal V$,
 	because $\mathcal V$ is closed under sums. Continuing, 
 	$(\alpha_1\vec v_1+\alpha_2\vec v_2)+\alpha_3\vec v_3\in\mathcal V$ because
-	$\mathcal V$ is closed under sums. By finite induction we see
+	$\mathcal V$ is closed under sums. Applying the principle finite induction, we see
 	\[
 		\vec x=\sum \alpha_i\vec v_i
 		=\Big(\big((\alpha_1\vec v_1+\alpha_2\vec v_2)
@@ -182,8 +184,9 @@ when you describe a line/plane/etc. through the origin as a span, you're saying 
 because every point in it is a linear combination of \emph{these specific vectors}''. In contrast, subspaces provide a \emph{categorical}
 definition of lines/planes/etc. through the origin. 
 When you describe a line/plane/etc. through the origin as a subspace, 
-you're saying ``this is a line/plane/etc. through the origin because these \emph{properties} are satisfied'' even though
-you might not be able to specify any of the vectors inside.
+you're saying ``this is a line/plane/etc. through the origin because these \emph{properties} are satisfied''\footnote{
+Categorical definitions are useful when working with objects where it's hard to pin down exactly what the elements
+inside are.}.
 
 
 \begin{emphbox}[Takeaway]
@@ -191,7 +194,7 @@ you might not be able to specify any of the vectors inside.
 \end{emphbox}
 
 \Heading{Special Subspaces}
-When thinking about $\R^n$ there are two special subspaces that are always available. The first is $\R^n$ itself.
+When thinking about $\R^n$, there are two special subspaces that are always available. The first is $\R^n$ itself.
 $\R^n$ is obviously non-empty, and linear combinations of vectors in $\R^n$ remain in $\R^n$. The second is
 the \emph{trivial subspace}, $\Set{\vec 0}$.
 
@@ -243,8 +246,10 @@ Let $\vec d=\mat{2\\1}$ and consider $\ell=\Span\Set{\vec d}$.
 	\end{tikzpicture}
 \end{center}
 
-We know that $\ell$ is a subspace and, for instance, $\ell=\Span\Set{\vec d,-2\vec d,\tfrac{1}{2}\vec d}$. However,
-the simplest descriptions of $\ell$ involve the span of only one vector.
+We know that $\ell$ is a subspace, and we defined $\ell$ as the span of $\Set{\vec d}$,
+but we didn't have to define $\ell$ that way. We could have, for instance, defined $\ell=\Span\Set{\vec d,-2\vec d,\tfrac{1}{2}\vec d}$. However,
+$\Span\Set{\vec d}$ is a simpler way to describe $\ell$ than $\Span\Set{\vec d,-2\vec d,\tfrac{1}{2}\vec d}$.
+This property is general: the simplest description of a line involve the span of only one vector.
 
 
 Analogously, let $\mathcal P=\Span\Set{\vec d_1,\vec d_2}$ be the plane
@@ -264,7 +269,7 @@ subspace.
 	two different bases for $\ell$.
 	
 	We are looking for a set of linearly independent vectors that spans $\ell$.
-	Notice that $\mat{1\\2} = -1/2\mat{-2\\-4} = 2\mat{1/2\\1}$.
+	Notice that $\mat{1\\2} = -\tfrac{1}{2}\mat{-2\\-4} = 2\matc{1/2\\1}$.
 	Therefore,
     \[
 		\Span\Set*{\mat{1\\2}} =
@@ -275,14 +280,15 @@ subspace.
 	\]
 	Because $\Set*{\mat{1\\2}}$ is linearly independent and spans $\ell$,
 	we have that $\Set*{\mat{1\\2}}$ is a basis for $\ell$.
-	Similarly, $\Set*{\mat{1/2\\1}}$ is another basis for $\ell$.
+	Similarly, $\Set*{\matc{1/2\\1}}$ is another basis for $\ell$.
 \end{example}
 
-Unpacking the definition of basis a bit more, we can see that for a 
-subspace $\mathcal V$, a basis for $\mathcal V$ is a set of vectors
-that is \emph{just the right size} to describe everything in $\mathcal V$.
+Unpacking the definition of basis a bit more, we can see that 
+a basis for a subspace
+ is a set of vectors
+that is \emph{just the right size} to describe everything in the subspace.
 It's not too big---because it is linearly independent, there are no
-redundancies. It's not too small---because we require it to span $\mathcal V$\footnote{ 
+redundancies. It's not too small---because we require it to span the subspace\footnote{ 
 If you're into British fairy tales, you might call a basis a \emph{Goldilocks set}.
 }.
 
@@ -314,7 +320,7 @@ This definition agrees with our intuition about lines and planes: the dimension 
 the dimension of a plane through $\vec 0$ is $2$. It even tells us the dimension of the single point $\Set{\vec 0}$
 is $0$\footnote{ The dimension of a line, plane, or point
 not through the origin is defined to be the dimension of the subspace obtained
-when translating it to the origin.}.
+when it is translated to the origin.}.
 
 \begin{example}
 	Find the dimension of $\R^2$.
@@ -328,19 +334,25 @@ when translating it to the origin.}.
 	Find the dimension of the subspace $\ell$.
 
 	This is the same subspace from the earlier example where we found
-	$\Set*{\mat{1\\2}}$ and $\Set*{\mat{1/2\\1}}$
-	were bases for $\ell$.
-	The basis $\Set*{\mat{1\\2}}$ contains one element, and so
-	$\ell$ is a one dimensional subspace\footnote{
-	We could have considered $\Set*{\mat{1/2\\1}}$ or one of the many other bases for $\ell$
-	and still reach the same conclusion: $\ell$ is one dimensional.}.
+	$\Set*{\mat{1\\2}}$ and $\Set*{\matc{1/2\\1}}$
+	were bases for $\ell$. Both these bases contain one element, and so
+	$\ell$ is a one dimensional subspace.
 \end{example}
 
 \begin{example}
 	Let $A=\Set{(x_1,x_2,x_3,x_4)\given x_1+2x_2-x_3=0\text{ and }x_1+6x_4=0}$. Find a basis for and the dimension
 	of $A$.
 
-	XXX Finish
+	$A$ is the complete solution to the system
+	\[
+		\systeme{x_1+2x_2-x_3=0,x_1+6x_4=0},
+	\]
+	which can be expressed in vector form as
+	\[
+		\mat{x_1\\x_2\\x_3\\x_4} = t\matc{0\\1/2\\1\\0}+s\mat{-6\\3\\0\\1}.
+	\]
+	Therefore $A=\Span\Set*{\matc{0\\1/2\\1\\0}, \mat{-6\\3\\0\\1}}$. Since $\Set*{\matc{0\\1/2\\1\\0}, \mat{-6\\3\\0\\1}}$
+	is a linearly independent spanning set with two elements, $A$ is two dimensional.
 \end{example}
 
 Like $\R^2$ and $\R^3$, whenever we discuss $\R^n$, we always have a standard basis that comes
@@ -348,6 +360,6 @@ along for the ride.
 
 \SavedDefinitionRender{StandardBasisforRn}
 
-The notation $\vec e_i$ is context specific. If we say $\vec e_i\in\R^2$,
+Note: the notation $\vec e_i$ is context specific. If we say $\vec e_i\in\R^2$,
 then $\vec e_i$ must have exactly two components. If we say $\vec e_i\in\R^{45}$,
 then $\vec e_i$ must have $45$ components. 

@@ -30,7 +30,7 @@
 	\RequirePackage{ifthen}
 	\RequirePackage{titlesec}
 	\RequirePackage{changepage}
-	\RequirePackage{everyshi}
+	\RequirePackage{eso-pic} % replaces `everyshi` to draw borders on the modules
 	\RequirePackage{multicol}
 
 
@@ -363,15 +363,15 @@
 		}
 		\ifstrequal{#2}{reverse}{
 			\ifodd\value{page}
-				\def\bannerpath{\bannerpathL}
-			\else
 				\def\bannerpath{\bannerpathR}
+			\else
+				\def\bannerpath{\bannerpathL}
 			\fi
 		}{
 			\ifodd\value{page}
-				\def\bannerpath{\bannerpathR}
-			\else
 				\def\bannerpath{\bannerpathL}
+			\else
+				\def\bannerpath{\bannerpathR}
 			\fi
 		}
 		\begin{tikzpicture}[remember picture,overlay]
@@ -380,16 +380,18 @@
 			node[anchor=east,pos=0.1,text=white,rotate=90] {\Huge\sffamily #1};
 		\end{tikzpicture}
 	}
-	\EveryShipout{%  
-		\ifdim\pagetotal>\pagegoal% There is content overflow on this page
-			\begingroup\let\protect\@typeset@protect
-				\IfStrEq{\probset@InModuleEnv}{1}{%
-				% put a banner on the page with no text
-					\probset@drawModuleBanner{}{reverse}
-				}{}
-    			\endgroup
-		\fi
+	\AddToShipoutPictureBG{%
+		% if we are in a module page, draw a border
+		\IfStrEq{\probset@InModuleEnv}{1}{%
+			\ifnum\value{page}=\value{probset@currentModuleStart}
+			\else
+				% put a banner on the page with no text if we are not the first
+				% page in a module
+				\probset@drawModuleBanner{}{reverse}
+			\fi
+		}{}
 	}
+	\newcounter{probset@currentModuleStart}
 	\DeclareDocumentEnvironment{module}{o}{%
 		\addtocounter{modulecounter}{1}
 		\setlist[itemize]{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
@@ -408,8 +410,11 @@
 			reversemarginpar,
 			twoside=true}
 		
+		% make sure we know what page this module starts on so
+		% we can do something special on the first page
+		\setcounter{probset@currentModuleStart}{\value{page}}
 		% put a banner on the left of the page
-		\probset@drawModuleBanner{Module \themodulecounter}{}
+		\probset@drawModuleBanner{Module \themodulecounter}{reverse}
 
 		% renew some document commands to style them appropriately in
 		% the module environment
@@ -473,12 +478,45 @@
 		colback=myorange!20,
 		#1
 	}
+	\newtcolorbox{thinleftborderbox}[1][]{
+		blanker,
+		frame hidden,
+		enhanced,
+		breakable,
+		beforeafter skip=7pt,
+		%frame code={
+		%	\fill[fill=tcbcol@frame] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
+		%	},
+		sharp corners,
+		borderline west={2pt}{0pt}{tcbcol@frame},
+		boxsep=0pt,
+		left=8pt,
+		right=5pt,
+		top=5pt,
+		bottom=5pt,
+		%boxrule=0pt,
+		%leftrule=4pt,
+		colframe=myorange,
+		colback=myorange!20,
+		#1
+	}
 	\DeclareDocumentEnvironment{bookonly}{o}{
 	}{%
 	}
 	\DeclareDocumentEnvironment{example}{o}{
-		\par{\bfseries Example.}
+		\renewcommand{\currentbackgroundcolor}{black!2}
+		\begin{thinleftborderbox}[colframe=black!50, colback=\currentbackgroundcolor]
+		% if we didn't pass in an argument, make the first
+		% paragraph have a `\medskip` after it.
+		\IfValueTF{#1}{}{
+			% redefine \par to be a `\par` followed by a `\medskip`
+			% followed by a redefinition of `\par` to what it used to be.
+			\let\oldpar\par
+			\par\def\par{\oldpar\medskip\let\par\oldpar}
+		}{}
+		{\bfseries\sffamily Example.}
 	}{%
+		\end{thinleftborderbox}
 	}
 	\DeclareDocumentEnvironment{proof}{o}{
 		\par{\bfseries Proof.}
@@ -636,6 +674,8 @@
 \titleformat{\subsection}
   {\normalfont\sffamily\large\color{cyan}}
   {\thesection}{1em}{}
+
+\newcommand{\currentbackgroundcolor}{white}
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{.17cm}

@@ -30,8 +30,10 @@
 		key=UnionsIntersections,
 		title={Unions \& Intersections}
 	]
-	Two common set operations are \emph{unions} and \emph{intersections}.
-	Let $X$ and $Y$ be sets.
+	Let $X$ and $Y$ be sets. The \emph{union} of $X$ and $Y$ and the \emph{intersection} of $X$
+	and $Y$ are defined as follows.
+
+	\smallskip
 
 	\hfill\begin{minipage}{\dimexpr\textwidth-3cm}
 	\begin{itemize}
@@ -105,7 +107,7 @@
 
 \begin{SaveDefinition}[key=VectorFormofaLine, title={Vector Form of a Line}]
 	Let $\ell$ be a line and let $\vec d$ and $\vec p$ be vectors. If $\ell=\Set{\vec
-	x\given \vec x= t\vec d+\vec p\text{ for some } t\in\R }$ we say the vector equation
+	x\given \vec x= t\vec d+\vec p\text{ for some } t\in\R }$, we say the vector equation
 
 	\[
 		\vec x=t\vec d+\vec p
@@ -181,7 +183,8 @@
 
 	The vectors $\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$ are
 	\emph{linearly dependent} if there is a non-trivial linear combination
-	of $\vec v_{1},\ldots,\vec v_{n}$ that equals the zero vector.
+	of $\vec v_{1},\ldots,\vec v_{n}$ that equals the zero vector. Otherwise they
+	are linearly independent.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -355,7 +358,7 @@
 	\emph{representation of $\vec v$ in the $\mathcal B$ basis}, notated $[\vec
 	v]_{\mathcal B}$, is the column matrix
 	\[
-		[\vec v]_{\mathcal B}= \matc{\alpha_1\\\vdots\\\alpha_n}.
+		[\vec v]_{\mathcal B}= \matc{\alpha_1\\\vdots\\\alpha_n}
 	\]
 	 where $\alpha_{1},\ldots,\alpha_{n}$ uniquely satisfy
 	$\vec v=\alpha_{1}\vec b_{1}+\cdots+\alpha_{n}\vec b_{n}.$
@@ -396,8 +399,8 @@
 	Let $V$ and $W$ be subspaces. A function $T:V\to W$ is called a
 	\emph{linear transformation} if
 	\[
-		T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad T(\alpha
-		\vec v)=\alpha T\vec v
+		T(\vec u+\vec v)=T(\vec u)+T(\vec v) \qquad\text{and}\qquad T(\alpha
+		\vec v)=\alpha T(\vec v)
 	\]
 	 for all vectors $\vec u,\vec v\in V$ and all scalars $\alpha$.
 \end{SaveDefinition}
@@ -469,8 +472,8 @@
 		\vdots &\vdots&\vdots &\ddots&\vdots\\
 		a_{n1}&a_{n2}&a_{3n}&\cdots&a_{nm}}.
 	\]
-	The \emph{transpose} of $M$, notated $M^T$ is the $m\times n$ matrix $M$ with its rows and
-	columns swapped. That is
+	The \emph{transpose} of $M$, notated $M^T$, is the $m\times n$ matrix produced by swapping the rows
+	and columns of $M$. That is
 	\[
 		M^T=\matc{
 		a_{11}&a_{21}&\cdots&a_{m1}\\
@@ -494,7 +497,7 @@
 		
 	The \emph{inverse} of a matrix $A$ is a
 		matrix $B$ such that $AB=I$ and $BA=I$.
-		In this case, $B$ is called the inverse of $A$ and is notated by $A^{-1}$.
+		In this case, $B$ is called the inverse of $A$ and is notated $A^{-1}$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -571,7 +574,7 @@
 
 \begin{SaveDefinition}[key=NullityofaMatrix, title={Nullity of a Matrix}]
 	Let $M$ be a matrix.
-	The \emph{nullity} of $M$, denoted $\Rank(M)$, is the nullity of
+	The \emph{nullity} of $M$, denoted $\Null(M)$, is the nullity of
 	the linear transformation induced by $M$.
 \end{SaveDefinition}
 
@@ -593,11 +596,12 @@
 
 \begin{SaveDefinition}[key=ChangeofBasisMatrix, title={Change of Basis Matrix}]
 	Let $\mathcal A$ and $\mathcal B$ be bases for $\R^n$. The matrix $M$ is called
-	a \emph{change of basis} matrix converting from $\mathcal A$ to $\mathcal B$ if
+	a \emph{change of basis} matrix (which converts from $\mathcal A$ to $\mathcal B$) if
+	for all $\vec x\in \R^n$
 	\[
-		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}
+		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}.
 	\]
-	for all $\vec x\in \R^n$. Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
+	 Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
 	stands for the change of basis matrix converting from $\mathcal A$ to $\mathcal B$,
 	and we may write $M=\BasisChange{\mathcal A}{\mathcal B}$.
 \end{SaveDefinition}
