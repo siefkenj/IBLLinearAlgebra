@@ -1,4 +1,9 @@
 \begin{exercises}
+	% Topics:
+	% dot products, orthogonality
+	% unit vectors, vector length,
+	% angle between vectors, distance between vectors
+	% lines, planes, hyperplanes in normal form
 	\begin{problist}
 		\prob  Compute the following dot products.
 		\begin{enumerate}
@@ -16,7 +21,7 @@
 			\item $\mat{-\frac{\sqrt{10}}{10}\\-\frac{9\sqrt{10}}{50}\\\frac{12\sqrt{10}}{50}}$
 			\item $\mat{\frac{1}{3}\\\frac{\sqrt{3}}{3}\\0\\-\frac{1}{3}\\\frac{2}{3}}$
 		\end{enumerate}
-		\prob Find the angle between the following vectors.
+		\prob Find the cosine of the angle between the following vectors.
 		\begin{enumerate}
 			\item $\mat{1\\0}$ and $\mat{-3\\4}$
 			\item $\mat{1\\0\\1}$ and $\mat{-5\\4\\-3}$
@@ -24,13 +29,13 @@
 			\item $\mat{2\\4\\6}$ and $\mat{\frac{3}{2}\\3\\\frac{9}{2}}$
 			\item $\mat{0\\1\\0\\1}$ and $\mat{-1\\1\\3\\0}$
 		\end{enumerate}
-		\prob Determine which of the following vectors are orthogonal to eachother.
+		\prob For each vector, find two \emph{unit} vectors orthogonal to it
 		\begin{enumerate}
-			\item $\mat{0\\1}$ and $\mat{1\\0}$
-			\item $\mat{1\\2}$ and $\mat{1\\-2}$
-			\item $\mat{1\\3\\5}$ and $\mat{-3\\6\\-4}$
-			\item $\mat{1\\3\\5}$, $\mat{-3\\6\\-3}$, and $\mat{-13\\-4\\5}$
-			\item $\mat{1\\0\\0\\1}$ and $\mat{0\\1\\1\\\frac{1}{2}}$
+			\item $\mat{0\\1}$
+			\item $\mat{1\\2}$
+			\item $\mat{1\\3\\5}$
+			\item $\mat{-13\\-4\\5}$
+			\item $\mat{0\\1\\1\\\frac{1}{2}}$
 		\end{enumerate}
 
 		\prob Compute the distance between the following vectors
@@ -76,13 +81,34 @@
 			\item $\mat{434\\1337\\1999\\4568}$
 		\end{enumerate}
 
-		\begin{solution}
-		Solutions to the parts
+		\prob
+		\begin{enumerate}
+			\item
+			\label{under-add}
 			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
+				\item Compute $\left(\mat{1\\2} + \mat{3\\4}\right) \cdot \mat{5\\6}$
+				\item Compute $\mat{1\\2} \cdot \mat{5\\6} + \mat{3\\4} \cdot \mat{5\\6}$
+				\item Compare the 2 previous parts of this question. Are they similar?
 			\end{enumerate}
-		\end{solution}
+			\item
+			Do our findings from question \ref{under-add} apply to $(\vec x + \vec y) \cdot \vec u$
+			for arbitrary vectors $\vec x$, $\vec y$, and $\vec u$?
+			\item
+			\label{under-mult}
+			\begin{enumerate}
+				\item Compute $\left(6\mat{2\\3}\right) \cdot \mat{4\\5}$
+				\item Compute $6\left(\mat{2\\3} \cdot \mat{4\\5}\right)$
+				\item Compare the 2 previous parts of this question. Are they similar?
+				 Are they similar?
+			\end{enumerate}
+			\item
+			Do our findings from question \ref{under-mult} apply to $(k\vec x) \cdot \vec y$
+			for arbitrary vectors $\vec x$, $\vec y$, and scalar $k$?
+			\item
+			Can we show anything about $(k\vec x + \vec y) \cdot \vec u$?
+			Does this also apply to $\vec u \cdot (k\vec x + \vec y)$?
+		\end{enumerate}
+
 
 	\end{problist}
 \end{exercises}
