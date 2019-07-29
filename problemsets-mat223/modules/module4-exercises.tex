@@ -21,7 +21,7 @@
 			\item $\mat{-\frac{\sqrt{10}}{10}\\-\frac{9\sqrt{10}}{50}\\\frac{12\sqrt{10}}{50}}$
 			\item $\mat{\frac{1}{3}\\\frac{\sqrt{3}}{3}\\0\\-\frac{1}{3}\\\frac{2}{3}}$
 		\end{enumerate}
-		\prob Find the cosine of the angle between the following vectors.
+		\prob For each question, find the cosine of the angle between the pair of vectors.
 		\begin{enumerate}
 			\item $\mat{1\\0}$ and $\mat{-3\\4}$
 			\item $\mat{1\\0\\1}$ and $\mat{-5\\4\\-3}$
@@ -38,7 +38,7 @@
 			\item $\mat{0\\1\\1\\\frac{1}{2}}$
 		\end{enumerate}
 
-		\prob Compute the distance between the following vectors
+		\prob Compute the distance between the following pairs of vectors.
 		\begin{enumerate}
 			\item $\mat{-1\\1}$ and $\mat{-1\\-4}$
 			\item $\mat{2\\-6\\5}$ and $\mat{-4\\7\\-3}$
@@ -55,12 +55,12 @@
 			has a direction closest to $\mat{1\\0\\1}$?
 		\end{enumerate}
 
-		\prob
+		\prob For each plane specified, express the plane in both vector form and normal form.
 		\begin{enumerate}
-			\item Find vector form and normal form of the plane $\mathcal P$ passing
-			through the points $A=(2,0,0)$, $B=(0,3,0)$ and $C=(0,0,-1)$.
-			\item Find vector form and normal form of the plane $\mathcal Q$ passing
-			through the points $D=(1,1,1)$, $E=(1,-2,1)$ and $F=(0,12,0)$.
+			\item The plane $\mathcal P$ passing through the points
+			$A=(2,0,0)$, $B=(0,3,0)$ and $C=(0,0,-1)$.
+			\item The plane $\mathcal Q$ passing through the points
+			$D=(1,1,1)$, $E=(1,-2,1)$ and $F=(0,12,0)$.
 		\end{enumerate}
 
 		\prob
@@ -71,44 +71,54 @@
 			and with normal vector $\mat{1\\-1\\0}$. Write $\mathcal B$ in vector form.
 		\end{enumerate}
 
-		\prob Find unit vectors in the same direction as the following vectors.
-		\begin{enumerate}
-			\item $\mat{90\\0}$
-			\item $\mat{16\\4}$
-			\item $\mat{11\\0\\13}$
-			\item $\mat{3\\5\\9}$
-			\item $\mat{0\\1\\0\\-1}$
-			\item $\mat{434\\1337\\1999\\4568}$
-		\end{enumerate}
+		% Removed Question
+
+		% \prob Find unit vectors in the same direction as the following vectors.
+		% \begin{enumerate}
+		% 	\item $\mat{90\\0}$
+		% 	\item $\mat{16\\4}$
+		% 	\item $\mat{11\\0\\13}$
+		% 	\item $\mat{3\\5\\9}$
+		% 	\item $\mat{0\\1\\0\\-1}$
+		% 	\item $\mat{434\\1337\\1999\\4568}$
+		% \end{enumerate}
 
 		\prob
 		\begin{enumerate}
+
+			\item Show by direct computation
+
+			$\left(\mat{1\\2} + \mat{3\\4}\right) \cdot \mat{5\\6} =
+			\mat{1\\2} \cdot \mat{5\\6} + \mat{3\\4} \cdot \mat{5\\6}$
+
 			\item
-			\label{under-add}
-			\begin{enumerate}
-				\item Compute $\left(\mat{1\\2} + \mat{3\\4}\right) \cdot \mat{5\\6}$
-				\item Compute $\mat{1\\2} \cdot \mat{5\\6} + \mat{3\\4} \cdot \mat{5\\6}$
-				\item Compare the 2 previous parts of this question. Are they similar?
-			\end{enumerate}
+			For $x,y,z\in R^2$, is it always true that
+
+			$(\vec x + \vec y) \cdot \vec z = \vec x \cdot \vec z + \vec y \cdot \vec z$?
+
+			Justify your answer.
+
 			\item
-			Do our findings from question \ref{under-add} apply to $(\vec x + \vec y) \cdot \vec u$
-			for arbitrary vectors $\vec x$, $\vec y$, and $\vec u$?
+			For $x,y,z\in R^n$, is it always true that
+
+			$(\vec x + \vec y) \cdot \vec z = \vec x \cdot \vec z + \vec y \cdot \vec z$?
+
+			Justify your answer.
+
+			\item Show by direct computation
+
+			$\left(6\mat{2\\3}\right) \cdot \mat{4\\5} =
+			6\left(\mat{2\\3} \cdot \mat{4\\5}\right)$
+
 			\item
-			\label{under-mult}
-			\begin{enumerate}
-				\item Compute $\left(6\mat{2\\3}\right) \cdot \mat{4\\5}$
-				\item Compute $6\left(\mat{2\\3} \cdot \mat{4\\5}\right)$
-				\item Compare the 2 previous parts of this question. Are they similar?
-				 Are they similar?
-			\end{enumerate}
+			For $x,y\in R^2$ and $k \in \R$ is it always true that
+			$(k\vec x) \cdot \vec y = k(\vec x \cdot \vec y)$?
+			Justify your answer.
+
 			\item
-			Do our findings from question \ref{under-mult} apply to $(k\vec x) \cdot \vec y$
-			for arbitrary vectors $\vec x$, $\vec y$, and scalar $k$?
-			\item
-			Can we show anything about $(k\vec x + \vec y) \cdot \vec u$?
-			Does this also apply to $\vec u \cdot (k\vec x + \vec y)$?
+			For $x,y\in R^n$ and $k \in \R$ is it always true that
+			$(k\vec x) \cdot \vec y = k(\vec x \cdot \vec y)$?
+			Justify your answer.
 		\end{enumerate}
-
-
 	\end{problist}
 \end{exercises}
