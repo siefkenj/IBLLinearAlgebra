@@ -1,17 +1,110 @@
 \begin{exercises}
+		% Topics:
+		% Spans
+		% Representing lines/planes/volumes as spans
+		% translated spans
+		% linear independence
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
+		\item Is the set $\Set*{\mat{1\\0\\0},\mat{0\\1\\0},\mat{0\\0\\1}}$ linearly
+		independent?
+		\label{standard-basis}
+		\item Find the span of the set in \ref{standard-basis}.
+		\item Find a set that spans $\R^5$.
+	\end{enumerate}
+		\prob
+		For each set below, determine whether its span is a point, line, plane, volume, or other.
+		\label{span of set}
+		\begin{enumerate}
+				\item   $\Set*{\mat{1\\1}}$
+				\item   $\Set*{\mat{1\\3},\mat{2\\6}}$
+				\item   $\Set*{\mat{2\\4},\mat{4\\2}}$
+				\item   $\Set*{\mat{1\\2},\mat{-1\\-2}}$
+				\item   $\Set*{\mat{1\\2},\mat{-1\\2}}$
+				\item   $\Set*{}$
+				\item		$\Set*{\mat{1\\2},\mat{2\\3},\mat{3\\4}}$
+				\item   $\Set*{\mat{5\\4\\-3},\mat{1\\1\\0},\mat{2\\2\\2}}$
+				\item   $\Set*{\mat{1\\-2\\0},\mat{4\\-5\\1}}$
+				\item   $\Set*{\mat{1\\-2\\0},\mat{4\\-5\\1},\mat{5\\-7\\1}}$
 		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+		\prob
+		\begin{enumerate}
+			\item Determine whether the sets of vectors in question \ref{span of set} are linearly
+			independent or dependent.
 
+			\item Is the set $\Set*{\mat{1\\2\\3\\4},\mat{5\\6\\7\\8},
+			\mat{9\\10\\11\\12}, \mat{13\\14\\15\\16}}$ linearly independent or dependent?
+
+			\item Are $n+1$ vectors in $\R^n$ linearly independent or dependent?
+		\end{enumerate}
+		\prob
+		\begin{enumerate}
+			\item
+			Express the following points and lines in $\R^2$ as a span if possible, otherwise
+			justify why it cannot be expressed as a span.
+			\label{R2-spans}
+			\begin{enumerate}
+				\item $x=0$
+				\item $2x+3y=0$
+				\item $5x-4y=0$
+				\item $-x-y=-1$
+				\item $9x-15y=8$
+			\end{enumerate}
+			\item
+			For questions in part \ref{R2-spans} that cannot be expressed as spans, express
+			as a translated span.
+			\item
+			Express the following points, lines, and planes in $\R^3$ as a span if possible,
+			otherwise justify why it cannot be expressed as a span.
+			\label{R3-spans}
+			\begin{enumerate}
+				\item $2x-y+z=4$
+				\item	$x+6y-z=0$
+				\item $x+3z=0$
+				\item $y=1$
+				\item $x=0, z=0$
+				\item $2x-y=2,z=-1$
+			\end{enumerate}
+			\item
+			For questions in part \ref{R3-spans} that cannot be expressed as spans, express
+			as a translated span.
+		\end{enumerate}
+		\prob
+		Determine if the following planes are the same plane.
+		\begin{enumerate}
+			\item $\vec x = t\mat{1\\2} + s\mat{2\\7}$ and
+						$\vec x = t\mat{3\\5} + s\mat{8\\4}$.
+			\item $\vec x = t\mat{2\\2\\3} + s\mat{1\\0\\5}$ and
+						$\vec x = t\mat{1\\0\\5} + s\mat{4\\2\\13}$.
+			\item $\vec x = t\mat{1\\2\\1} + s\mat{2\\2\\1}$ and
+						$\vec x = t\mat{0\\1\\0} + s\mat{1\\2\\1}$.
+		\end{enumerate}
+		\prob
+		Using the algebraic definition of linear independence, show that the set
+		$\Set*{\mat{2\\0\\7},\mat{1\\1\\1},\mat{6\\4\\11}}$ is linearly dependent.
+		\prob
+		choose vectors $\vec p$, $\vec d_1$, $\vec d_2$, $\vec d_3$ in $\R^4$ such that
+		the vector equation $\vec x = t_1\vec d_1 + t_2\vec d_2 + t_3\vec d_3$
+		\begin{enumerate}
+			\item Is a hyperplane passing through the origin.
+			\item Is a plane not passing through the origin
+			\item Is a line passing through the origin
+			\item Is the point $(2,2,2,3)$
+		\end{enumerate}
+		\prob
+		Let $\vec v_1, \vec v_2, \vec v_3$ be vectors. For each of the following
+		if true briefly explain, if false give a counter example.
+		\begin{enumerate}
+			\item If $\vec v_1$ can be written as a linear combination of $\vec v_2$ and
+			$\vec v_3$ then $\Set{\vec v_1,\vec v_2,\vec v_3}$ is linearly dependant.
+			\item If $\Set{\vec v_1,\vec v_2,\vec v_3}$ is linearly dependant then
+			$\vec v_1$ can be written as a linear combination of $\vec v_2$ and $\vec v_3$.
+			\item If $\vec v_1=k\vec v_2$ for some real number k, then $\Set{\vec v_1,\vec v_2}$
+			is linearly dependant.
+			\item If $\vec v_1$ is not a scalar multiple of $\vec v_2$ then
+			$\Set{\vec v_1,\vec v_2,\vec v_3}$ is linearly independent.
+			\item All spans contain $\vec 0$.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}
