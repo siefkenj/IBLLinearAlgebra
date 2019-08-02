@@ -1,17 +1,46 @@
 \begin{exercises}
+    %Patrick:
+        %30min
+        %60min
+        %30min
 	\begin{problist}
-		\prob  Example problem with parts
+	    \prob Give the following concepts a definition with the book closed.
+	    \begin{enumerate}
+	        \item The range (or image) of a linear transformation $T: V \to W$.
+	        \item The rank of of a linear transformation $T: V \to W$.
+	        \item The null space( or kernel) of a linear transformation $T: V \to W$.
+	        \item The nullity of  of a linear transformation $T: V \to W$.
+	        \item The row space, the column space and the null space of a matrix $M$.
+	        
+	    \end{enumerate}
+		\prob  From the definitions, find the range and null space of the following linear transformations.
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
+		    \item   $\mathcal P:\R^2\to\R^2$, a linear transformation projecting onto the line $y=ax+b$, for some $a,b \in R$.
+			\item   $\mathcal R:\R^2\to\R^2$, a linear transformation rotating clockwise by some degree $\theta\in\R$.
+			\item   $\mathcal F:\R^2\to\R^2$, a linear transformation flipping over the line $y=ax+b$, for some $a,b \in R$.
+			\item   $\mathcal S:\R^2\to\R^2$, a linear transformation stretching by $k$, for some non-zero real number $k$.
 		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+		
+		\prob Find the null space of $M=\mat{1&2&1\\3&1&-2\\8&6&-2}$.
+		
+		\prob Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{7&5\\-2&-2}$,
+	    and let $\vec v=3\xhat-3\yhat$. Compute $\mathcal T_{M}\vec v]_{\mathcal E'}$ and $\mathcal T(\vec v)$.
+	    
+	    \prob Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{3&7&5\\1&-2&-2}$,
+	    and let $\vec v=2\xhat+0\yhat+4\zhat$. Compute $\mathcal T_{M}\vec v]_{\mathcal E'}$ and $\mathcal T(\vec v)$.
+		
+		\prob Let $\mathcal P$ be the plane given by $3x+4y+5z=0$, and let $T:\R^3\to\R^3$ be projection onto $\mathcal P$. 
+		\begin{enumerate}
+		    \item Find $\Range(T)$ and $\Rank(T)$.
+		    \item Find $\Null(T)$ and $\Nullity(T)$.
+		\end{enumerate}
+		\prob For each argument listed below, indicate whether it is correct or incorrect statement. Justify you answer.
+		\begin{enumerate}
+		    \item For an arbitrage matrix $A$, $\Range(A)=\Range(A^T)$.
+		    \item Let $T:\R^m\to\R^n$ be a certain transformation. If $\Null(T)\subseteq \R^n$ is a subspace, then $T$ is linear.
+		    \item Let $T:\R^m\to\R^n$ be a certain linear transformation, then $\Nullity(T) \geq n$.
+		    \item Let $T:\R^m\to\R^n$ be a linear transformation induced by matrix $M$ with $\dim(T) = n$, then $\Nullity(M) = 0$.
+		\end{enumerate}
 
 	\end{problist}
 \end{exercises}
