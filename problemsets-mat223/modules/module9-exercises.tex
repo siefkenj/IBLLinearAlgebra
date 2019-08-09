@@ -1,17 +1,62 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob For each transformation
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
-		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
+			\item if it is linear then prove it, otherwise
+			show why it is not.
+			\item find the corresponding matrix.
 			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
+				\item Let $\mathcal S:\R^2\to\R^2$ be defined by
+				$\mathcal S(\vec x) = \mat{3x\\-2y}$
+				\item Let $\mathcal T:\R^2\to\R^2$ be defined by
+				$\mathcal T(\vec x) = \mat{2x\\y+1}$
+				\item Let $\mathcal U:\R^2\to\R^2$ be defined by
+				$\mathcal U(\vec x) = \mat{0\\0}$
+				\item Let $\mathcal V:\R^3\to\R^3$ be defined by
+				$\mathcal V(\vec x) = \mat{x^2\\y^2\\z^2}$
+				\item Let $\mathcal W:\R^3\to\R^3$ be defined by
+				$\mathcal W(\vec x) = \mat{\frac{1}{2}x\\y\\z-2y}$
+				\item Let $\mathcal X:\R^3\to\R^3$ be defined by
+				$\mathcal X(\vec x) = \mat{z\\0\\z}$
+				\item Let $\mathcal Y:\R^3\to\R^2$ be defined by
+				$\mathcal Y(\vec x) = \mat{x\\2x}$
+				\item Let $\mathcal Z:\R^2\to\R^4$ be defined by
+				$\mathcal Z(\vec x) = \mat{2y\\0\\0\\-x+y}$
 			\end{enumerate}
-		\end{solution}
+		\end{enumerate}
 
+		\prob Let $M=\mat{1&-2&3\\-4&5&-6}$ and let $f_M$ be the transformation
+		induced by $M$.
+		\begin{enumerate}
+			\item Determine the domain and codomain of $f_M$.
+			\item Calculate $f_M(2,-1,3)$.
+			\item Find the image of the standard basis vectors of the domain under $f_M$.
+			\item Determine $f_M(\vec x)$.
+		\end{enumerate}
+
+		\prob Let $S:\R^n\to\R^m$ and $T:\R^n\to\R^m$ be linear mappings.
+		Show that $(S+T)$ is also linear.
+
+		\prob Determine whether each of the following statements are true or false.
+		\begin{enumerate}
+			\item Every transformation from $\R^n$ to $\R^m$ can be represented by a matrix.
+			\item The image of a subspace under a linear transformation is not a subspace.
+			\item A transformation that takes every vector in the domain to $\vec 0$ is not linear.
+			\item Every matrix is a linear transformation.
+			\item Parallel lines stay parallel under a linear transformation.
+		\end{enumerate}
+
+		\prob Let $V$ and $W$ be subspaces. Let $\vec u,\vec v \in V$ and $k$ be a scalar.
+		\begin{enumerate}
+			\item
+			Let $L:V\to W$ be a mapping such that $L(k\vec u+\vec v)=kL(\vec u)+L(\vec v)$.
+			Show that $L(\vec u+\vec v)=L(\vec u)+L(\vec v)$ and $L(k\vec u)=kL(\vec u)$,
+			in other words, show that $L$ is linear.
+			\item Let $Q:V\to W$ be a linear mapping, that is
+			$Q(\vec u+\vec v)=Q(\vec u)+Q(\vec v)$ and $Q(k\vec u)=kQ(\vec u)$.
+			Show that $Q(k\vec u+\vec v)=kQ(\vec u)+Q(\vec v)$.
+			\item Is the the statement true that a mapping $A$ is linear if and only if
+			$A(k\vec u+\vec v)=kA(\vec u)+A(\vec v)$?
+		\end{enumerate}
 	\end{problist}
 \end{exercises}
