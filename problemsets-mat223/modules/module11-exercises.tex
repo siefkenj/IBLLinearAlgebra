@@ -1,26 +1,28 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  From the definition, find the range and null space of the following linear transformations.
+		\prob  Find the range and null space of the following linear transformations.
 		\begin{enumerate}
-		    \item   Define $\mathcal P:\R^2\to\R^2$, where $\mathcal P$ is projection on to the line $y=ax+b$, for some $a,b \in R$.
-			\item   Let $\theta\in \R$ and define $\mathcal R:\R^2\to\R^2$ to be the transformation which rotates all vectors by $\theta$.
-			\item   Define $\mathcal F:\R^2\to\R^2$, where $\mathcal F$ reflects over the line $y=ax+b$, for some $a,b \in R$.
-			\item   Let $k\in R$ be non-zero and define $\mathcal S:\R^2\to\R^2$ which stretches all vectors by a factor of $k$.
+		    \item   Let $\mathcal P:\R^2\to\R^2$, where $\mathcal P$ is projection on to the line $y=ax+b$, for some $a,b \in R$.
+			\item   Let $\theta\in \R$ and let $\mathcal R:\R^2\to\R^2$ to be the transformation which rotates all vectors by $\theta$.
+			\item   Let $\mathcal F:\R^2\to\R^2$, where $\mathcal F$ reflects over the line $y=ax+b$, for some $a,b \in R$.
+			\item   Let $k\in R$ be non-zero and let $\mathcal S:\R^2\to\R^2$ which stretches all vectors by a factor of $k$.
 		\end{enumerate}
 		
-		\prob For the follow matrices, find their null space, column space, and row space.
+		\prob For the following matrices, find their null space, column space, and row space.
 		    \begin{enumerate}
 		        \item $M_1=\mat{1&2&1\\3&1&-2\\8&6&-2}$.
 		        \item $M_2=\mat{0&2&1\\3&2&5}$.
 		        \item $M_3=\mat{1&2\\3&1\\4&0}$.
 		        \item $M_4=\mat{1&-2&0&-1\\3&5&-1&0\\2&3&-2&0\\0&0&0&1}$.
 		    \end{enumerate}
-		    
-		\prob Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{7&5\\-2&-2}$,
-	    and let $\vec v=3\xhat-3\yhat$. Compute $[\mathcal T_{M}\vec v]_{\mathcal E}$ and $\mathcal T(\vec v)$.
-	    
-	    \prob Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{3&7&5\\1&-2&-2}$,
-	    and let $\vec v=2\xhat+0\yhat+4\zhat$. Compute $[\mathcal T_{M}\vec v]_{\mathcal E}$ and $\mathcal T(\vec v)$.
+		
+		\prob Given the transformation $\mathcal T$ and the vector $\vec V$ as follows, compute the $[\mathcal T_{M}\vec v]_{\mathcal E}$ and $\mathcal T(\vec v)$ for each question.
+		\begin{enumerate}
+		    \item Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{7&5\\-2&-2}$,
+	    and $\vec v=3\xhat-3\yhat$.
+	        \item Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{3&7&5\\1&-2&-2}$,
+	    and $\vec v=2\xhat+0\yhat+4\zhat$.
+		\end{enumerate}
 		
 		\prob Let $\mathcal P$ be the plane given by $3x+4y+5z=0$, and let $T:\R^3\to\R^3$ be projection onto $\mathcal P$. 
 		\begin{enumerate}
@@ -30,9 +32,9 @@
 		\prob For each statement listed below, indicate whether it is correct or incorrect. Justify you answer.
 		\begin{enumerate}
 		    \item Let $A$ be an arbitrary matrix. Then $\Range(A)=\Range(A^T)$.
-		    \item Let $T:\R^m\to\R^n$ be a transformation (not necessarily linear). If $\Set{x:T(x)=0} \subseteq \R^m$ is a subspace, then $T$ is linear.
+		    \item Let $T:\R^m\to\R^n$ be a transformation (not necessarily linear). If $\Set{x \given T(x)=0} \subseteq \R^m$ is a subspace, then $T$ is linear.
 		    \item Let $T:\R^m\to\R^n$ be a linear transformation. Then $\Nullity(T) \geq n$.
-		    \item Let $T:\R^m\to\R^n$ be a linear transformation induced by matrix $M$ with $\Rank(T) = n$, then $\Nullity(M) = 0$.
+		    \item Let $T:\R^m\to\R^n$ be a linear transformation induced by matrix $M$. Further, assume $\Rank(T) = n$, then $\Nullity(M) = 0$.
 		\end{enumerate}
 
 	\end{problist}
