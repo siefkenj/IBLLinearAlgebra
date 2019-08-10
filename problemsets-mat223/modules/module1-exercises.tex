@@ -4,30 +4,29 @@
 		% vectors \& scalars, vector notation, vectors \& points, vector arithmetic,
 		% coordinates \& the standard basis, higher dimensions,
 	\begin{problist}
-		\ProvideDocumentCommand{\vv}{}{\vec{v}}
 		% Computation (4 questions)
 		\prob
 		\begin{enumerate}
 			\item
-				Write the following as a column matrix:
+				Write the following vectors as column vectors.
 				\begin{enumerate}
 					\item $4\xhat -3\zhat +2\yhat -2\xhat\in\R^3$.
 					\item $\yhat +\xhat -5\yhat \in\R^2$.
 				\end{enumerate}
 			\item
-				Write the following as a linear combination of $\xhat$, $\yhat$, and
-				$\zhat$:
+				Write the following vectors as linear combinations of $\xhat$, $\yhat$, and
+				$\zhat$.
 				\begin{enumerate}
 					\item $\mat{1\\-2\\3}$.
 					\item $\mat{-2\\5\\4} + \mat{1\\-2\\ -5} + \mat{1\\0\\1}$.
 				\end{enumerate}
 		\end{enumerate}
-		\prob[\beezer[VO.C10]]
+		\prob
 		Compute
 		\[
-			4\mat{2\\-3\\4\\1\\0}+
-			(-2)\mat{1\\2\\-5\\2\\4}+
-			\mat{-1\\3\\0\\1\\2}
+			3\mat{2\\-1\\1\\1\\0}+
+			(-2)\mat{1\\2\\-7\\3\\0}+
+			\mat{-3\\3\\9\\2\\2}
 		\]
 		\prob[\hefferon[2.21,2.22]]
 			Decide if the vector is in the set. If it is, what value of the
@@ -35,30 +34,30 @@
 			\begin{enumerate}
 				\item
 					$\mat{5\\-5}$ and
-					$\Set*{\vv\in\R^2 \given
-					\vv=k\mat{1\\-1}\text{ for some }k\in\R}$
+					$\Set*{\vec v\in\R^2 \given
+					\vec v=k\mat{1\\-1}\text{ for some }k\in\R}$
 				\item $\mat{-1 \\ 2 \\ 1}$ and
-					$\Set*{\vv\in\R^3\given
-						\vv=i\mat{-2 \\ 1 \\ 0} +j\mat{3 \\ 0 \\ 1}
+					$\Set*{\vec v\in\R^3\given
+						\vec v=i\mat{-2 \\ 1 \\ 0} +j\mat{3 \\ 0 \\ 1}
 						\text{ for some }i,j\in\R
 					}$
 					\item
-						$\mat{3 \\ -1}$ and $\Set*{ \vv\in\R^2\given
-							\vv=k\mat{-6 \\ 2}\text{ for some } k\in\R
+						$\mat{3 \\ -1}$ and $\Set*{ \vec v\in\R^2\given
+							\vec v=k\mat{-6 \\ 2}\text{ for some } k\in\R
 						}$
 					\item
 						$\mat{5 \\ 4}$ and
-						$\Set*{\vv\in\R^2\given
-							\vv=j\mat{5 \\ -4}\text{ for some }j\in\R
+						$\Set*{\vec v\in\R^2\given
+							\vec v=j\mat{5 \\ -4}\text{ for some }j\in\R
 						}$
 					\item $\mat{2 \\ 1 \\ -1}$ and
-						$\Set*{\vv\in\R^3
-							\given \vv= \mat{0 \\ 3 \\ -7} +r\mat{1 \\ -1 \\ 3}
+						$\Set*{\vec v\in\R^3
+							\given \vec v= \mat{0 \\ 3 \\ -7} +r\mat{1 \\ -1 \\ 3}
 							\text{ for some }r\in\R
 						}$
 					\item $\mat{1 \\ 0 \\ 1}$ and
-						$\Set*{\vv\in\R^3\given
-							\vv= j\mat{2 \\ 0 \\ 1} +k\mat{-3 \\ -1 \\ 1}
+						$\Set*{\vec v\in\R^3\given
+							\vec v= j\mat{2 \\ 0 \\ 1} +k\mat{-3 \\ -1 \\ 1}
 							\text{ for some }j,k\in\R
 						}$
 			\end{enumerate}
@@ -66,18 +65,23 @@
 		\prob
 			% Purpose: get students to understand (the beginnings of) scale-invariance
 			% of bases, as well as carefully reading mathematical expressions.
-			Draw the following subsets of $\R^2$:
+			Draw the following sets of $\R^2$ and then determine which are equal or subsets of each other.
 			\begin{enumerate}
-				\item $A=\Set*{\vv\in\R^2\given \vv=n\mat{2\\1}\text{ for some integer }n\in\Z}$
-				\item $B=\Set*{\vv\in\R^2\given \vv=t\mat{4\\2}\text{ for some }t\in\R}$
-				\item $C=\Set*{\vv\in\R^2\given \vv=n\mat{4\\2}\text{ for some integer }n\in\Z}$
-				\item $D=\Set*{\vv\in\R^2\given \vv=t\mat{2\\1}\text{ for some }t\in\R}$
+				\item $A=\Set*{\vec v\in\R^2\given \vec v=n\mat{2\\1}\text{ for some integer }n\in\Z}$
+				\item $B=\Set*{\vec v\in\R^2\given \vec v=t\mat{4\\2}\text{ for some }t\in\R}$
+				\item $C=\Set*{\vec v\in\R^2\given \vec v=n\mat{4\\2}\text{ for some integer }n\in\Z}$
+				\item $D=\Set*{\vec v\in\R^2\given \vec v=t\mat{2\\1}\text{ for some }t\in\R}$
 			\end{enumerate}
-			For each pair of sets from $A$, $B$, $C$, and $D$, determine whether one
-			is a subset of the other, if they are equal, or neither.
 			\begin{solution}
 				We have $C\subseteq A$, $A\subseteq B$, and $B=D$.
 			\end{solution}
+		\prob Let $\vec a=\mat{1\\2}$, $\vec b=\mat{2\\4}$, $\vec c=\xhat+3\yhat$, and $\vec d=\vec a+\vec c$.
+		\begin{enumerate}
+			\item Is $\xhat$ a linear combination of $\vec a$ and $\vec b$?
+			\item Is $\vec d$ a linear combination of $\vec a$ and $\vec b$?
+			\item Is $\vec p=\mat{1\\1}$ a linear combination of $\vec a$ and $\vec c$?
+			\item Is $\vec q=\mat{-3\\3}$ a linear combination of $\vec a$, $\vec b$, $\vec c$, and $\vec d$?
+		\end{enumerate}
 		% Challenge (3 questions)
 	\end{problist}
 \end{exercises}

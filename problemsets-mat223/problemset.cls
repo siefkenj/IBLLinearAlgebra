@@ -549,6 +549,11 @@
 	}{%
 	\end{enumerate}
 }
+\newcommand{\Probset@VoidEnvironment}[1]{%
+  \expandafter\providecommand\csname env@#1@save@env\endcsname{}%
+  \expandafter\providecommand\csname env@#1@process\endcsname{}%
+  \@ifundefined{#1}{}{\RenewEnviron{#1}{}}%
+}
 
 \newenvironment{exercises}{%
 	\DeclareDocumentEnvironment{solution}{o}{
@@ -559,6 +564,9 @@
 	}{%
 			\end{adjustwidth}
 	}
+	% XXX hide the solutions for now...
+	\Probset@VoidEnvironment{solution}
+
 	% tcolorbox doesn't work with tikz externalize,
 	% so we need to disable it around a tcolorbox.
 	% since \tikzexternaldisable is locally scoped,
