@@ -1,17 +1,52 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  Example problem with parts
+	    \prob Find the corresponding matrices of the following transformations.
+    	    \begin{enumerate}
+    	        \item $\mathcal S:\R^2\to\R^2$, where $\mathcal S$ a transformation that doubles every vector.
+    	        \item $\mathcal R:\R^2\to\R^2$, where $\mathcal R$ is rotation clockwise by $135^\circ$.
+    	        \item $\mathcal P:\R^2\to\R^2$, where $\mathcal P$ is projection onto the $y$-axis.
+    	        \item $\mathcal F:\R^2\to\R^2$, where $\mathcal F$ is a transformation reflecting over the line $y=x$.
+    	    \end{enumerate}
+	    \prob Decompose $\mathcal U$ into some order of $\mathcal P$ and $\mathcal R$, and $\mathcal V$ into some order of $\mathcal S$ and $\mathcal F$.  
+	    \begin{enumerate}
+	        \item Let $\mathcal U:\R^2\to\R^2$ be the matrix transformation given by $M=\mat{0&0\\-\sqrt{2}/2 & -\sqrt{2}/2}$. 
+	        
+	        Further, let $\mathcal P:\R^2\to\R^2$ be the projection onto the $y$-axis
+	        and $\mathcal R:\R^2\to\R^2$ be the rotation clockwise by $135^\circ$.
+        	    \begin{enumerate}
+        			\item   Compute the matrix $M_1$ which corresponds to $\mathcal R \circ \mathcal P$.
+        			\item   Compute the matrix $M_2$ which corresponds to $\mathcal P \circ \mathcal R$.
+        			\item   Write $\mathcal U$ as the composition (in some order) of $\mathcal R$ and $\mathcal P$.
+        		\end{enumerate}
+        		
+        	\item Let $\mathcal V:\R^2\to\R^2$ be the matrix transformation given by $M=\mat{0&2\\2&0}$.
+		
+		    Further, let $\mathcal S:\R^2\to\R^2$ be the transformation that doubles every vector
+		    and $\mathcal F:\R^2\to\R^2$ be the transformation reflecting over the line $y=x$.
+                		\begin{enumerate}
+                			\item   Compute the matrix $M_1$ which corresponds to $\mathcal F \circ \mathcal S$.
+                			\item   Compute the matrix $M_2$ which corresponds to $\mathcal S \circ \mathcal F$.
+                			\item   Write $\mathcal U$ as the composition (in some order) of $\mathcal F$ and $\mathcal S$.
+                		\end{enumerate}
+	    \end{enumerate}
+	
+		\prob Let $\mathcal A: \R^2 \to \R^2$ and $\mathcal B: \R^2 \to \R^2$ be matrix transformations with matrices
+		\[
+		    M_{\mathcal A} = \mat{2&2\\1&3} \quad and \quad M_{\mathcal B} = \mat{3&2\\0&4}
+		\]
+		and let $M_{\mathcal T}$ be the matrix for $\mathcal T$.
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
+		    \item Find $M_T$ by computing input-output pairs for $\mathcal T$.
+		    \item Find $M_T$ by using matrix multiplication applied to $M_{\mathcal A}$ and $M_{\mathcal B}$. 
 		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
-
-	\end{problist}
+		
+		\prob Let $\mathcal A: \R^3 \to \R^2$ and $\mathcal B: \R^2 \to \R^1$ be matrix transformations with matrices
+		\[
+		    M_{\mathcal A} = \mat{2&2\\1&3\\0&0} \quad and \quad M_{\mathcal B} = \mat{3&2}
+		\]
+	    and let $M_{\mathcal T}$ be the matrix for $\mathcal T$.		\begin{enumerate}
+		    \item Find $M_T$ by computing input-output pairs for $\mathcal T$.
+		    \item Find $M_T$ by using matrix multiplication applied to $M_{\mathcal A}$ and $M_{\mathcal B}$. 
+		\end{enumerate}
+		\end{problist}
 \end{exercises}
