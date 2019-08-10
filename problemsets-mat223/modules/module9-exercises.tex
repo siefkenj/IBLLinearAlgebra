@@ -1,12 +1,33 @@
 \begin{exercises}
 	\begin{problist}
-		\prob Find a matrix for each linear transformation below.
+		\prob For each transformation listed below, prove whether or not it is a linear transformation.
+		\label{PROBSETMOD9-linnonlin}
+		\begin{enumerate}
+			\item $\mathcal A:\R^2\to\R^2$ defined by $\mathcal A\mat{x\\y}=\mat{-x\\y}$.
+			\item $\mathcal B:\R^2\to\R^2$ defined by $\mathcal A\mat{x\\y}=\mat{-x-1\\y}$.
+			\item $\Ident:\R^2\to\R^2$, the function that does nothing to its input.
+			\item $\mathcal C:\R^2\to\R^2$, where $\mathcal C$ sends all vectors above the $x$-axis to $\vec 0$
+				and all vectors on or below the $x$-axis to $-\yhat$.
+		\end{enumerate}
+
+		\prob Draw the image of the unit circle under each transformation listed in \ref{PROBSETMOD9-linnonlin}.
+
+		\prob Let $M=\mat{1&-2&3\\-4&5&-6}$ and let $T_M$ be the corresponding matrix transformation.
+		\begin{enumerate}
+			\item Determine the domain and codomain of $T_M$.
+			\item Calculate $T_M\left(\mat{2\\-1\\1}\right)$.
+			\item Find the image of the standard basis vectors of the domain under $T_M$.
+		\end{enumerate}
+
+		\prob Find a matrix for each transformation below, or explain why no such matrix exists.
 		\begin{enumerate}
 			\item $\mathcal S:\R^{2}\to\R^{2}$, where $\mathcal S$ is the
 				transformation that doubles every vector.
 
 			\item $\mathcal R:\R^{2}\to\R^{2}$, where $\mathcal R$
 				is rotation clockwise by $135^{\circ}$.
+
+			\item $\mathcal T:\R^2\to\R^2$, where $\mathcal T$ translates every vector by $3\xhat$.
 
 			\item $\mathcal P:\R^{2}\to\R^{2}$, where $\mathcal P$
 				is projection onto the $y$-axis.
@@ -15,5 +36,32 @@
 				is reflection over the line
 				$y=x$.
 		\end{enumerate}
+
+		\prob Let $S:\R^n\to\R^m$ and $T:\R^n\to\R^m$ be linear transformations,
+		and define the transformation $R:\R^n\to\R^m$ by $R(\vec x)=S(\vec x)+T(\vec x)$.
+		Show that $R$ is also linear.
+
+		\prob For a fixed vector $\vec a\in\R^3$, define the function $D_{\vec a}$ by
+		$D_{\vec a}(\vec x) = \vec a\cdot\vec x$.
+		\begin{enumerate}
+			\item Identify the domain and codomain of $D_{\vec a}$.
+			\item Show that when $\vec a=\xhat$, then $D_{\vec a}$ is a linear transformation.
+			\item Is $D_{\vec a}$ a linear transformation for all $\vec a$? Prove your claim.
+			\item Find a matrix for $D_{\vec a}$ or explain why no such matrix exists.
+		\end{enumerate}
+
+		\prob Let $T:\R^2\to\R^2$ be a transformation with the property that $T(V)$ is a subspace
+		whenever $V$ is a subspace. Is this enough information to conclude that $T$ is a linear
+		transformation? Justify your answer.
+
+		\prob For each statement below, determine whether it is true or false. Justify you answer.
+		\begin{enumerate}
+			\item Every transformation from $\R^n$ to $\R^m$ can be represented by a matrix.
+			\item The image of a subspace under a linear transformation is not a subspace.
+			\item A transformation that takes every vector in the domain to $\vec 0$ is not linear.
+			\item Every matrix is a linear transformation.
+			\item Parallel lines stay parallel under a linear transformation.
+		\end{enumerate}
+
 	\end{problist}
 \end{exercises}
