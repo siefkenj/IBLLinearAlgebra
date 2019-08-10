@@ -1,17 +1,50 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  Example problem with parts
-		\begin{enumerate}
-			\item   The first part
-			\item   The second part
+		\prob Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{3x-y\\x-\tfrac{1}{4}y}$.
+	Find the volume of $\mathcal T(C_2)$.
+	
+	    \prob Let $\mathcal S:\R^3\to\R^3$ be defined by $\mathcal S\mat{x\\y\\z}=\matc{2x+y+z\\x-\tfrac{1}{2}y\\z}$.
+	Find the volume of $\mathcal S(C_3)$.
+	   
+	    \prob Let $\mathcal T:\R^2\to\R^2$ be defined by $\mathcal T\mat{x\\y}=\matc{x+2y\\-x-y}$.
+	    \begin{enumerate}
+			\item   draw $\mathcal{E}$ and $\mathcal{T}(\mathcal{E})$ and then determine whether $\mathcal{T}$ is orientation preserving or orientation reversing.
+			\item  	Find $\det(\mathcal T)$.
+        \end{enumerate}
+        
+        \prob For each linear transformation defined below, find its determinant.
+        \begin{enumerate}
+			\item   $\mathcal S:\R^2\to\R^2$, where $\mathcal S$ is the linear transformation that stretches every vector by a factor of $\tfrac{2}{3}$.
+			\item   $\mathcal R:\R^2\to\R^2$, where $\mathcal R$ is rotation counter-clockwise by $90^{\circ}$.
+			\item   $\mathcal F:\R^2\to\R^2$, where $\mathcal F$ is reflection across the line $y=-x$.
+			\item   $\mathcal G:\R^2\to\R^2$, where $\mathcal G\mat{x\\y}=\mathcal{P}\mat{x\\y} + \mathcal{Q}\mat{x\\y}$ such that $\mathcal{P}$ is projection onto the line $y=x$, and $\mathcal{Q}$ is projection onto the line $y=-\tfrac{1}{2}
+			x$.
+			\item   $\mathcal T:\R^3\to\R^3$, where $\mathcal T\mat{x\\y\\z}=\matc{x-y+z\\z+x-\tfrac{1}{3}y\\z}$.
+			\item   $\mathcal J:\R^3\to\R^3$, where $\mathcal J\mat{x\\y\\z}=\matc{0\\0\\x+y+z}$.
+			\item   $\mathcal K\circ \mathcal H:R^2\to\R^2$, where $\mathcal H\mat{x\\y}=\matc{x+2y\\-x-y}$, 
+			
+			and $\mathcal K\mat{x\\y}=\matc{-x-2y\\x+y}$.
+        \end{enumerate}
+        
+        \prob Let $A=\mat{2&3\\1&5}$.
+        \begin{enumerate}
+            \item   Use elementary matrices to find $\det(A)$.
+            \item   Draw a picture of the parallelogram given by the rows of $A$.
+			\item  	Draw a picture of the parallelogram given by the columns of $A$.
 		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
-
+        
+        \prob Let $A=\mat{1&2&0\\0&2&1\\1&2&3}$.
+        \begin{enumerate}
+			\item \label{Module14-q8}   Use elementary matrices to find $\det(A)$.
+			\item  	Find $\det(A^{-1})$.
+			\item   Find $\det(A^{T})$, and compare your answer with \ref{Module14-q8}. Are they the same? Justify your answer.
+        \end{enumerate}
+        
+        \prob Let $A$ be an $n \times n$ matrix that can be decomposed into the product of elementary matrices. 
+        \begin{enumerate}
+			\item   What is $\Rank(A)$?         Justify your answer.
+			\item  	What is $\Null(A^{-1})$?         Justify your answer.
+        \end{enumerate}
+		
 	\end{problist}
 \end{exercises}

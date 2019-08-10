@@ -1,17 +1,106 @@
 \begin{exercises}
+	% Topics
+	% formal + intuitive definition of subspace
+	% relationship between subspace and spans
+	% prove a set is a subspace
+	% basis + dimension of a subspace
 	\begin{problist}
-		\prob  Example problem with parts
-		\begin{enumerate}
-			\item   The first part
-			\item   The second part
-		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
 
+		\prob For each of the following sets, prove whether or not it is a subpace.
+		\begin{enumerate}
+			\item Let $\mathcal T \subseteq \R^2$ be the complete solution to $3x-y=0$.
+			\item Let $\mathcal U \subseteq \R^2$ be the complete solution to $\frac{1}{2}x-6y=0$.
+			\item Let $\mathcal V \subseteq \R^2$ be the complete solution to $x-5y-1=0$.
+			\item Let $\mathcal W \subseteq \R^3$ be the complete solution to $x+2y-3z=0$.
+			\item Let $\mathcal X \subseteq \R^3$ be the complete solution to
+			$5x-\pi y + (\ln 2)z=0$.
+			\item Let $\mathcal Q \subseteq \R^n$ be the complete solution to
+			$a_1x_1+a_2x_2+...+a_{n-1}x_{n-1}+a_nx_n=0$ where $a_1,...,a_n \in \R$.
+		\end{enumerate}
+
+		\prob For each of the following sets, prove whether or not it is a subpace.
+		\begin{enumerate}
+			\item Let $\mathcal B \subseteq \R^2$ be the the line in vector form
+			$\vec x = t\mat{5\\-7}+\mat{1\\2}$
+			\item Let $\mathcal A \subseteq \R^2$ be the the line in vector form
+			$\vec x = t\mat{-3\\4}$
+			\item Let $\mathcal C \subseteq \R^3$ be the the line in vector form
+			$\vec x = t\mat{1\\0\\5}$
+			\item Let $\mathcal D \subseteq \R^3$ be the the line in vector form
+			$\vec x = t\mat{2\\3\\4}+s\mat{10\\20\\131}+\mat{0\\0\\6}$
+			\item Let $\mathcal E \subseteq \R^3$ be the the line in vector form
+			$\vec x = t\mat{5\\7\\1}+s\mat{2\\-2\\1}$
+		\end{enumerate}
+
+		\prob Use the definition of subspace to show each span below is a subspace.
+		\begin{enumerate}
+			\item $\Span\Set*{\mat{0\\1}, \mat{1\\2}}$
+			\item $\Span\Set*{\mat{1\\1\\1}, \mat{1\\0\\0}, \mat{2\\0\\0}}$
+		\end{enumerate}
+
+		\prob For each subspace (i) find its dimension and (ii) find two bases.
+		\begin{enumerate}
+			\item $\Span\Set*{\mat{2\\3}, \mat{-4\\-6}, \mat{1\\\frac{3}{2}}}$
+			\item $\Span\Set*{\mat{1\\0\\-2}, \mat{0\\2\\5}, \mat{1\\2\\3}}$
+			\item The plane given in vector form by
+			\[
+				\vec x = t\mat{6\\1\\1}+s\mat{6\\0\\6}
+			\]
+			\item The line given in vector form by
+			\[
+				\vec x = t\mat{2\\2\\3}
+			\]
+			\item The complete solution to
+			\[
+				\mat{1\\-2\\3} \cdot \left(\mat{x\\y\\z}-\mat{2\\2\\\frac{2}{3}}\right)=0
+			\]
+			\item The complete solution to
+			\[
+				\mat{1\\3\\3\\7} \cdot \left(\mat{x\\y\\z\\w}-\mat{-7\\0\\0\\1}\right)=0
+			\]
+		\end{enumerate}
+
+		\prob Which of the following are bases for $\R^3$?
+		\begin{enumerate}
+			\item $\Set*{\mat{2\\6\\1}, \mat{4\\2\\1}, \mat{6\\8\\2}}$
+			\item $\Set*{\mat{1\\0\\1}, \mat{1\\0\\0}, \mat{0\\-1\\0}, \mat{-2\\1\\1}}$
+			\item $\Set*{\mat{2\\3\\5}, \mat{5\\-4\\2}}$
+			\item $\Set*{\mat{2\\5\\-6}, \mat{4\\11\\-12}, \mat{0\\0\\-3}}$
+		\end{enumerate}
+
+		\prob
+		A non-empty subset $\mathcal V \subseteq \R^n$ is called a subspace if
+		and for all $\vec u, \vec v \in \mathcal V$ and all sclaras $k$ we have
+			(i) $\vec u + \vec v \in \mathcal V$; and
+			(ii) $k\vec u \in \mathcal V$.
+			For each set below, list which property/properties of a subspace do not hold.
+		\begin{enumerate}
+			\item $\Set*{(x,y,z)\given x+y+z=4}$
+			\item $\Set*{}$
+			\item $\Set*{(x_1,x_2)\given x_1=x_2^2}$
+			\item $\Set*{(x_1,x_2)\given x_1 \geq 0}$
+			\item $\Set*{(x,y)\given x^2+y^2=0}$
+		\end{enumerate}
+
+		\prob  For each statement, determine if it is true or false.
+		Justify your answer by referring to a definition or a theorem.
+		\begin{enumerate}
+			\item All spans are subspaces.
+			\item All subspaces can be expressed as spans.
+			\item All translated spans are subspaces.
+			\item The empty set is a subspace.
+			\item The set $\Set*{\mat{1\\2}, \mat{2\\3}}$ is a subspace.
+		\end{enumerate}
+
+		\prob Give 2 examples of subspaces of $\R^4$ that are
+		\begin{enumerate}
+			\item 1 dimensional
+			\item 4 dimensional
+			\item Can you give an example of a subspace that is 0 dimensional?
+			Can you give two such examples?
+		\end{enumerate}
+
+		\prob Let $\mathcal G\subseteq \R^n$ be a subspace.
+		Give upper and lower bounds on the dimension of $\mathcal G$.
 	\end{problist}
 \end{exercises}

@@ -1,17 +1,103 @@
 \begin{exercises}
+	% Topics:
+	% dot products, orthogonality
+	% unit vectors, vector length,
+	% angle between vectors, distance between vectors
+	% lines, planes, hyperplanes in normal form
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob  Compute the following dot products.
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
+			\item   $\mat{9\\4} \cdot \mat{10\\-3}$
+			\item   $\mat{1\\36\\2} \cdot \mat{0\\0\\1}$
+			\item   $\mat{7\\6\\-3} \cdot \left(\mat{5\\11\\-1} + \mat{-2\\-6\\-1}\right)$
+			\item   $\mat{1\\3\\0\\-5\\5} \cdot \mat{1\\2\\2\\1\\2}$
+			\item   $\frac{1}{2}\mat{2\\5\\4} \cdot \mat{1\\0\\-1}$
 		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+		\prob Compute the length of the following vectors.
+		\begin{enumerate}
+			\item $\mat{2\\0}$
+			\item $\mat{1\\2\\3}$
+			\item $4\mat{5\\-6\\15\\2}$
+			\item $\mat{-\frac{\sqrt{10}}{10}\\-\frac{9\sqrt{10}}{50}\\\frac{12\sqrt{10}}{50}}$
+			\item $\mat{\frac{1}{3}\\\frac{\sqrt{3}}{3}\\0\\-\frac{1}{3}\\\frac{2}{3}}$
+		\end{enumerate}
+		\prob For each pair of vectors listed below, find the cosine of the angle between the pair of vectors.
+		\begin{enumerate}
+			\item $\mat{1\\0}$ and $\mat{-3\\4}$
+			\item $\mat{1\\0\\1}$ and $\mat{-5\\4\\-3}$
+			\item $\mat{1\\2\\3}$ and $\mat{-1\\-1\\2}$
+			\item $\mat{2\\4\\6}$ and $\mat{\frac{3}{2}\\3\\\frac{9}{2}}$
+			\item $\mat{0\\1\\0\\1}$ and $\mat{-1\\1\\3\\0}$
+		\end{enumerate}
+		\prob For each vector, find two \emph{unit} vectors orthogonal to it.
+		\begin{enumerate}
+			\item $\mat{0\\1}$
+			\item $\mat{1\\2}$
+			\item $\mat{1\\3\\5}$
+			\item $\mat{-13\\-4\\5}$
+			\item $\mat{0\\1\\1\\\frac{1}{2}}$
+		\end{enumerate}
 
+		\prob Compute the distance between the following pairs of vectors.
+		\begin{enumerate}
+			\item $\mat{-1\\1}$ and $\mat{-1\\-4}$
+			\item $\mat{2\\-6\\5}$ and $\mat{-4\\7\\-3}$
+			\item $\mat{1\\1\\1}$ and $\mat{-1\\-1\\-1}$
+			\item $\mat{6\\0\\2\\1}$ and $\mat{0\\1\\3\\-1}$
+			\item $\mat{0\\0\\0\\0\\0}$ and $\mat{1\\1\\1\\1\\1}$
+		\end{enumerate}
+
+		\prob
+		\begin{enumerate}
+			\item Which vector out of $\mat{1\\0}$, $\mat{0\\1}$, and $\mat{4\\1}$
+			has a direction closest to $\mat{3\\5}$?
+			\item Which vector out of $\mat{2\\3\\4}$, $\mat{1\\-1\\-1}$, and $\mat{-3\\0\\1}$
+			has a direction closest to $\mat{1\\0\\1}$?
+		\end{enumerate}
+
+		\prob For each plane specified, express the plane in both vector form and normal form.
+		\begin{enumerate}
+			\item The plane $\mathcal P$ passing through the points
+			$A=(2,0,0)$, $B=(0,3,0)$ and $C=(0,0,-1)$.
+			\item The plane $\mathcal Q$ passing through the points
+			$D=(1,1,1)$, $E=(1,-2,1)$ and $F=(0,12,0)$.
+		\end{enumerate}
+
+		\prob
+		\begin{enumerate}
+			\item Let $\mathcal A\subseteq \R^3$ be the plane passing through $\mat{0\\1\\1}$
+			and with normal vector $\mat{-1\\-1\\-1}$. Write $\mathcal A$ in vector form.
+			\item Let $\mathcal B\subseteq \R^3$ be the plane passing through $\mat{1\\2\\3}$
+			and with normal vector $\mat{1\\-1\\0}$. Write $\mathcal B$ in vector form.
+		\end{enumerate}
+
+		\prob In this problem we will prove some algebraic properties of the dot product.
+		\begin{enumerate}
+
+			\item Show by direct computation
+			\[
+				\left(\mat{1\\2} + \mat{3\\4}\right) \cdot \mat{5\\6} =
+				\mat{1\\2} \cdot \mat{5\\6} + \mat{3\\4} \cdot \mat{5\\6}
+			\]
+			\item
+			For $x,y,z\in R^2$, Justify whether or not it always holds that
+			\[
+				(\vec x + \vec y) \cdot \vec z = \vec x \cdot \vec z + \vec y \cdot \vec z.
+			\]
+			Does the same conclusion hold true when $x,y,z\in \R^n$?
+			\item Show by direct computation
+			\[
+				\left(6\mat{2\\3}\right) \cdot \mat{4\\5} =
+				6\left(\mat{2\\3} \cdot \mat{4\\5}\right)
+			\]
+			\item
+			For $x,y\in R^2$ and $k \in \R$, Justify whether or not it always holds that
+			\[
+				(k\vec x) \cdot \vec y = k(\vec x \cdot \vec y).
+			\]
+			Does the same conclusion hold true when $x,y,z\in \R^n$?
+			\item The dot product is called \emph{distributive}.
+			Is this a good word to describe the dot product? Why?
+		\end{enumerate}
 	\end{problist}
 \end{exercises}
