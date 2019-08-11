@@ -112,7 +112,23 @@
 	#1
 }
 
-
+\newcommand{\scaledgrid}[1]{%
+	\begin{tikzpicture}[scale=#1]
+		\draw[thin, white!20!black, dotted] (-4.1,-4.1) grid (4.1,4.1);
+		\draw[ <->] (-4.3,0) -- (4.3,0);
+		\draw[ <->] (0,-4.3) -- (0,4.3);
+	\end{tikzpicture}
+}
+\newcommand{\scaledshortgrid}[1]{%
+	\begin{tikzpicture}[scale=#1]
+		\draw[thin, white!20!black, dotted] (-4.1,-2.1) grid (4.1,2.1);
+		\draw[ <->] (-4.3,0) -- (4.3,0);
+		\draw[ <->] (0,-2.3) -- (0,2.3);
+	\end{tikzpicture}
+}
+\newcommand{\singlegrid}{\scaledgrid{1}}
+\newcommand{\doublegrid}{\mbox{\scaledgrid{.9}\scaledgrid{.9}}\par}
+\newcommand{\triplegrid}{\mbox{\scaledgrid{.6}\scaledgrid{.6}\scaledgrid{.6}}\par}
 
 % labels for source attributions
 \NewDocumentCommand{\beezer}{o}{%
