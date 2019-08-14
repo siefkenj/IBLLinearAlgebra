@@ -1,9 +1,65 @@
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \   
+%
+%%
+%%  default option for pdfx.sty  if not specified on the command-line.
+\providecommand{\pdfxopt}{a-1b}
+%% 
+%%  Use  {filecontents}  for the  .xmpdata file before input encoding is specified.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{filecontents*}{\jobname.xmpdata}
+	% a macro definition, used below
+	\pdfxEnableCommands{% simple macro definitions can be provided everything expands to characters
+	 \def\RossPete{Ross \& Pete}
+	 }
+	\Title{Linear Algebra (\jobname)}%  *not* set by LaTeX's  \title
+	\Author{Jason Siefken\sep et al.}% *not* set by LaTeX's \author
+	\Subject{Linear Algebra textbook/workbook}
+	\Keywords{linear algebra\sep vectors\sep mathematics\sep textbook} 
+	\Org{University of Toronto}
+	\CreatorTool{LaTeX + pdfx.sty with options \pdfxopt}
+	\Copyright{Jason Siefken}
+	\WebStatement{https://github.com/siefkenj/IBLLinearAlgebra/}% should be URL to copyright statement on the web
+	\CoverDisplayDate{2019}
+	\CoverDate{2019-08-014}%  must be in format  YYYY-MM-DD  or  YYYY-MM
+	\Doi{0.0.0.0}%
+	%
+	% setting the color profile, these reproduce the defaults; use your own, if required 
+	%
+	% RGB is used with PDF/A (4 parameters):
+	\setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
+	%
+	%  For Adobe Color Profiles, set the directory for your system
+	%
+	%  e.g.  on Mac OS X
+	%  What is it under Windows ?
+	%
+	\gdef\ColorProfileDir{/Library/Application Support/Adobe/Color/Profiles/Recommended/}
+	% 
+	%  For available profiles, see file  AdobeColorProfiles.tex
+	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex  
+	%
+	%  Now you can use the macros defined in those files:
+	 \FOGRAXXXIX 
+	%
+	% or CMYK is used with  PDF/X (4 parameters)
+	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
+\end{filecontents*}
+
+
 \documentclass{problemset}
+% pdfx will set color profile etc. information appropriately, so the pdf renders
+% consistently across devices.
+\usepackage[a-3u]{pdfx}
+\hypersetup{hidelinks=true, linkcolor = {0 0 1} }
 
 %%%
 % import all needed packages and macros
 %%%
 \input{preamble.tex}
+
 
 %%%
 % Set up the footers to have the correct copyright notices
