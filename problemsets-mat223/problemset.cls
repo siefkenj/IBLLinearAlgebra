@@ -407,7 +407,7 @@
 			marginparwidth=1in,
 			left=1in,
 			%includeall,
-			reversemarginpar,
+			%reversemarginpar,
 			twoside=true}
 		
 		% make sure we know what page this module starts on so

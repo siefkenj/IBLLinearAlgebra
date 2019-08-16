@@ -58,6 +58,7 @@
 %%%
 % import all needed packages and macros
 %%%
+\usepackage[yyyymmdd]{datetime}
 \input{preamble.tex}
 
 
@@ -177,7 +178,7 @@
 	\voidenvironment{solution}
 	\voidenvironment{annotation}
 	\voidenvironment{lesson}
-	\renewcommand{\coversubtitle}{MAT223 Workbook}
+	\renewcommand{\coversubtitle}{{\hspace{-5pt}\begin{tabular}{l}MAT223 Workbook\\\small\today{} Edition\end{tabular}}}
 }{}
 %\voidenvironment{solution}
 %\voidenvironment{annotation}
@@ -286,6 +287,8 @@ copyright.
 	\input{modules/preface.tex}
 	\section*{Contributors}
 	\input{contributors.tex}
+	\newpage
+	\mbox{}
 	\newpage
 \end{bookonly}
 
@@ -6271,6 +6274,7 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 
 
 Recall the original Italicising N task.
+
 \begin{minipage}{.5\textwidth}
 \begin{tikzpicture}[scale=.8]
     \begin{axis}[
