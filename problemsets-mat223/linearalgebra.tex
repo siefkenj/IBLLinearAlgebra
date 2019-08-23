@@ -48,8 +48,101 @@
 	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
 \end{filecontents*}
 
-
 \documentclass{problemset}
+% needed so that \pdfcreationdate exists for the `tectonics` engine.
+% \pdfcreationdate is used by the pdfx package
+\usepackage{xparse}
+\ExplSyntaxOn
+\prop_new:N \g_getdate_data_prop
+\str_new:N \g_getdate_pdfdate_str
+\cs_if_exist:NTF \pdfcreationdate
+ {
+  \str_gset:Nx \g_getdate_pdfdate_str { \pdfcreationdate }
+ }
+ {
+  \cs_if_exist:NTF \pdffeedback
+   {
+    \str_gset:Nx \g_getdate_pdfdate_str { \pdffeedback creationdate }
+   }
+   {
+    \str_gset:Nx \g_getdate_pdfdate_str
+     {
+      D:
+      \int_eval:n { \c_sys_year_int }
+      \int_compare:nT { \c_sys_month_int < 10 } { 0 }
+      \int_eval:n { \c_sys_month_int }
+      \int_compare:nT { \c_sys_day_int < 10 } { 0 }
+      \int_eval:n { \c_sys_day_int }
+      \int_compare:nT { \c_sys_hour_int < 10 } { 0 }
+      \int_eval:n { \c_sys_hour_int }
+      \int_compare:nT { \c_sys_minute_int < 10 } { 0 }
+      \int_eval:n { \c_sys_minute_int }
+     }
+   }
+ }
+
+\prop_gput:Nnx \g_getdate_data_prop { year }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 3 } { 6 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { month }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 7 } { 8 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { day }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 9 } { 10 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { hour }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 11 } { 12 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { minute }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 13 } { 14 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { second }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 15 } { 16 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { diff }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 17 } { 17 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { hourdiff }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 18 } { 19 }
+ }
+\prop_gput:Nnx \g_getdate_data_prop { minutediff }
+ {
+  \str_range:Nnn \g_getdate_pdfdate_str { 21 } { 22 }
+ }
+
+\NewExpandableDocumentCommand{\getdatestring}{}
+ {
+  \str_use:N \g_getdate_pdfdate_str
+ }
+\NewExpandableDocumentCommand{\getdate}{m}
+ {
+  \prop_item:Nn \g_getdate_data_prop { #1 }
+ }
+\NewExpandableDocumentCommand{\gettimedifference}{}
+ {
+  \str_if_eq_x:nnTF { \prop_item:Nn \g_getdate_data_prop {diff} } { Z }
+   {
+    0
+   }
+   {
+    $\prop_item:Nn \g_getdate_data_prop {diff}$
+    \prop_item:Nn \g_getdate_data_prop {hourdiff}
+    :
+    \prop_item:Nn \g_getdate_data_prop {minutediff}
+   }
+ }
+
+\ExplSyntaxOff
+
+
 % pdfx will set color profile etc. information appropriately, so the pdf renders
 % consistently across devices.
 \usepackage[a-3u]{pdfx}
