@@ -66,6 +66,12 @@
 \usepackage[yyyymmdd]{datetime}
 \input{preamble.tex}
 
+% in non-xelatex engines, hyperref is loaded by `pdfx`. If `pdfx` is not loaded, load it here.
+\ifxetex
+	\usepackage{hyperref}
+	\hypersetup{hidelinks=true, linkcolor = {0 0 1} }
+\else
+\fi
 
 %%%
 % Set up the footers to have the correct copyright notices
