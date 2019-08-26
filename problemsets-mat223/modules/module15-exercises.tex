@@ -1,26 +1,62 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  	For each linear transformation defined below, find the eigenvectors and eigenvalues of it.
-    		\begin{enumerate}
-    			\item   $\mathcal S:\R^2\to\R^2$, where $\mathcal S$ is a linear transformation that stretch every vector by the factor of $3$.
-    			\item   $\mathcal R:\R^2\to\R^2$, where $\mathcal R$ a linear transformation that rotates every vector clockwise by $\frac{\pi}{4}$.
-    			\item   $\mathcal P:\R^2\to\R^2$, where $\mathcal P$ a linear transformation that projects every vector onto the line $\ell$ given by $y=-x$.
-    			\item   $\mathcal F:\R^2\to\R^2$, where $\mathcal F$ is a linear transformation that reflects every vector over the line $ell$ given by $y=-x$.
-    			\item   $T:\R^3\to\R^3$, where $T$ is a linear transformation induced by the matrix $M_T = \mat{1&2&3\\3&4&5\\5&6&7}$.
-    			\item   $U:\R^3\to\R^2$, where $U$ is a linear transformation induced by the matrix $M_U = \mat{1&2&3\\3&4&5}$.
-    		\end{enumerate}
-    		
-		\prob Let $A = \mat{a&b\\c&d}$, where $a,b,c,d \in R$.
-		    \begin{enumerate}
-		        \item   If $ad > bc$, then find the characteristic polynomial of $A$.
-		        \item   If $ad = bc$, then find the eigenvalue(s) of $A$.
-		        \item   If $ad < bc$, then find the eigenvectors of $A$.
-		    \end{enumerate}
-        
-        \prob For each statement listed below, indicate whether it is correct or incorrect. Justify you answer.
-            \begin{enumerate}
-                \item   Let $M = \mat{3&3&3&3\\3&3&3&3\\3&3&3&3\\3&3&3&3}$. Then the eigenvalues of $M$ are 0 and 12.
-                \item   Let $A$ be a $n \times n$ matrix. If complex numbers are allowed as scalars and view the transformation induced by $A$ from $\C^2\to\C^2$, then $A$ always have eigenvalues and eigenvectors.
-            \end{enumerate}
+		\prob For each linear transformation defined below, find its
+		eigenvectors and eigenvalues. If it has no eigenvectors/values,
+		explain why not.
+		\begin{enumerate}
+			\item $\mathcal S:\R^{2}\to\R^{2}$, where $\mathcal S$
+				stretches every
+				vector by the factor of $3$.
+
+			\item $\mathcal R:\R^{2}\to\R^{2}$, where $\mathcal R$  
+				rotates every vector
+				clockwise by $\frac{\pi}{4}$.
+
+			\item $\mathcal P:\R^{2}\to\R^{2}$, where $\mathcal P$
+				projects every vector
+				onto the line $\ell$ given by $y=-x$.
+
+			\item $\mathcal F:\R^{2}\to\R^{2}$, where $\mathcal F$
+				reflects every
+				vector over the line $\ell$ given by $y=-x$.
+
+			\item $T:\R^{3}\to\R^{3}$, where $T$ is a linear
+				transformation induced by the matrix
+				$\mat{1&2&3\\3&4&5\\5&6&7}$.
+
+			\item $U:\R^{3}\to\R^{2}$, where $U$ is a linear
+				transformation induced by the matrix
+				$\mat{1&2&3\\3&4&5}$.
+		\end{enumerate}
+
+		\prob Let $A = \mat{a&b\\c&d}$, where $a,b,c,d \in \R$.
+		\begin{enumerate}
+			\item Find the characteristic polynomial of $A$.
+		
+			\item Find conditions on $a,b,c,d$ so that $A$ has (i) two distinct
+				real eigenvalues, (ii) exactly one real eigenvalue, (iii) no
+				real eigenvalues.
+		\end{enumerate}
+
+		\prob Let $B=\mat{1&2\\0&4}$.
+		\begin{enumerate}
+			\item Find the eigenvalues of $B$.
+			\item Find the eigenvalues of $B^T$.
+			\item A vector $\vec v\neq\vec 0$ is called a \emph{left-eigenvector} for $B$ if
+				$\vec vB=\lambda \vec v$ for some scalar $\lambda$ (Here we consider $\vec v$ a \emph{row} vector). Find all
+				left eigenvectors for $B$.
+		\end{enumerate}
+
+		\prob For each statement below, determine whether it is true or false. Justify you answer.
+		\begin{enumerate}
+			\item Zero cannot be an eigenvalue of any matrix.
+			\item $\vec 0$ cannot be an eigenvector of any matrix.
+			\item A $2\times 2$ matrix always has a real eigenvalue.
+			\item A $3\times 3$ matrix always has a real eigenvalue.
+			\item A $3\times 2$ matrix always has a real eigenvalue.
+			\item The matrix $M = \mat{3&3&3&3\\3&3&3&3\\3&3&3&3\\3&3&3&3}$
+				has exactly one eigenvalue.
+			\item An invertible matrix can never have zero as an eigenvalue.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}

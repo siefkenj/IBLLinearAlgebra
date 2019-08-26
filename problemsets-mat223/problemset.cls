@@ -23,7 +23,7 @@
 	\RequirePackage{everypage}
 	\RequirePackage{xparse}
 	\RequirePackage{environ}
-	\RequirePackage[usenames,dvipsnames]{xcolor}
+	\RequirePackage[usenames, dvipsnames, cmyk, hyperref]{xcolor}
 	\RequirePackage{tcolorbox}
 		\tcbuselibrary{skins}
 		\tcbuselibrary{breakable}
@@ -407,7 +407,7 @@
 			marginparwidth=1in,
 			left=1in,
 			%includeall,
-			reversemarginpar,
+			%reversemarginpar,
 			twoside=true}
 		
 		% make sure we know what page this module starts on so
@@ -661,6 +661,17 @@
 %%
 
 %\definecolor{myorange}{HTML}{F29B23}
+\definecolor{PineGreen}{HTML}{008B72}
+\definecolor{LimeGreen}{HTML}{8DC73E}
+\definecolor{NavyBlue}{HTML}{006EB8}
+\definecolor{BlueGreen}{HTML}{00B3B8}
+\definecolor{WildStrawberry}{HTML}{EE2967}
+\definecolor{Cerulean}{HTML}{00A2E3}
+\definecolor{Green}{HTML}{00A64F}
+\definecolor{Blue}{HTML}{2D2F92}
+\definecolor{cyan}{HTML}{00AEEF}
+\definecolor{Plum}{HTML}{92268F}
+\definecolor{Turquoise}{HTML}{00B4CE}
 \definecolor{myred}{HTML}{D13409}
 \definecolor{mypink}{HTML}{B3094F}
 \definecolor{mydark}{HTML}{23112A}
