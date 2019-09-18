@@ -1,0 +1,309 @@
+%%%
+% This document is based off the design of Daniel Reinholz's
+% Peer-Assisted Reflection worksheet.
+%%%
+\documentclass[letter]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{tikz}
+
+%%%
+% Set up the margins to use a fairly large area of the page
+%%%
+\parskip=.07in
+\parindent=0in
+
+
+\usepackage[letterpaper, total={6.5in, 10in}, top=2cm]{geometry}
+
+\fancypagestyle{nofooter}{\fancyfoot{}}
+\pagestyle{fancy}
+
+%%%
+% Set up the header
+%%%
+\newcommand{\setheader}[6]{
+	\lhead{{\sc #1}\\{\sc #2} }
+	\rhead{
+		{\bf #3} 
+		\ifthenelse{\equal{#4}{}}{}{(#4)}\\
+		{\bf #5} 
+		\ifthenelse{\equal{#6}{}}{}{(#6)}%
+	}
+}
+
+%%%
+% Define all the tikz macros for drawing the icons
+%%%
+\newcommand{\PARPROCESSNODE}[5]{
+		\node [rectangle, draw=black, 
+			minimum width=1.5cm, minimum height=1.5cm, thick] (#1) at #5 {
+			#2};
+		\node[anchor=north] at (#1.south) {#3};
+		\node[anchor=south] at (#1.north) {#4};
+	}
+\newcommand{\PARCHECKLISTNODE}[4]{
+	\node [rectangle, draw=black, 
+	minimum width=1.5cm, minimum height=1cm, thick, inner sep=0] (#1) at #2 {
+	#3};
+	\node[anchor=north] at (#1.south) {\begin{tabular}{c}#4\end{tabular}};
+}
+
+\newcommand{\PARDRAFT}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[shift={(0,999.21265)},color=black,fill=black,line join=round,line cap=butt,miter limit=4.00,nonzero rule,line width=2.400pt] (7.5508,6.9805) .. controls (5.0037,6.9805) and (2.9062,9.0779) .. (2.9062,11.6250) -- (2.9062,46.1855) .. controls (2.9062,48.7326) and (5.0037,50.8301) .. (7.5508,50.8301) -- (42.1113,50.8301) .. controls (44.6584,50.8301) and (46.7559,48.7326) .. (46.7559,46.1855) -- (46.7559,18.0312) -- (43.7559,21.0312) -- (43.7559,46.1855) .. controls (43.7559,47.1225) and (43.0483,47.8301) .. (42.1113,47.8301) -- (7.5508,47.8301) .. controls (6.6138,47.8301) and (5.9062,47.1225) .. (5.9062,46.1855) -- (5.9062,11.6250)  .. controls (5.9062,10.6880) and (6.6138,9.9805) .. (7.5508,9.9805) -- (32.9551,9.9805) -- (35.9551,6.9805) -- (7.5508,6.9805) -- cycle;
+  \path[draw=black,line join=round,miter limit=4.00,line width=2.400pt] (18.1313,1030.2802) -- (45.3473,1003.0643) .. controls (45.8339,1002.5777) and (46.5386,1002.4988) .. (46.9273,1002.8875) -- (50.2675,1006.2277) .. controls (50.6562,1006.6164) and (50.5773,1007.3211) .. (50.0907,1007.8077) -- (22.8748,1035.0237) .. controls (20.0386,1035.5761) and (17.3820,1037.2567) .. (14.5004,1038.7710) .. controls (15.7412,1036.1390) and (18.0221,1032.6086) .. (18.1313,1030.2802) -- cycle;
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARREFLECT}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \begin{scope}[cm={{0.95152,0.0,0.0,0.95152,(2.28926,54.11979)}}]
+    \path[shift={(0,999.21265)},draw=black,line join=miter,line cap=butt,miter limit=4.00,even odd rule,line width=2.400pt] (15.1133,11.6094) .. controls (13.0714,13.8563) and (11.5279,17.8475) .. (12.0566,22.7754) .. controls (12.8469,30.1402) and (20.2159,30.8797) .. (20.4160,38.7910) -- (20.3926,42.8926) .. controls (20.3849,44.3652) and (20.2954,45.5931) .. (20.7266,46.2793) .. controls (21.1578,46.9650) and (22.2353,47.0022) .. (22.9512,46.9922) -- (28.4434,46.9922) .. controls (31.2150,46.9595) and (31.0160,44.9454) .. (31.0020,42.8926) -- (30.9785,38.7910) .. controls (31.1786,30.8797) and (38.5457,30.1402) .. (39.3359,22.7754) .. controls (39.8647,17.8475) and (38.3232,13.8563) .. (36.2812,11.6094) .. controls (33.7988,8.8778) and (29.9846,6.4054) .. (25.4355,6.4226) .. controls (20.8864,6.4398) and (17.5956,8.8779) .. (15.1133,11.6094) -- cycle;
+    \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,even odd rule,line width=1.600pt] (20.7391,1036.9432) -- (30.8478,1036.8258);
+    \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,even odd rule,line width=1.600pt] (20.8478,1040.7487) -- (30.4783,1040.6707);
+  \end{scope}
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=2.400pt] (27.0853,1002.4563) -- (27.0853,1006.8757);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=2.400pt] (45.6627,1013.1472) -- (41.8354,1015.3570);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=2.400pt] (38.3451,1005.5153) -- (35.8397,1009.1559);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=2.400pt] (7.9065,1012.7888) -- (11.7339,1014.9986);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=2.400pt] (15.2242,1005.1569) -- (17.7295,1008.7975);
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PAREXCHANGE}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,line
+    width=2.400pt] (26.4500,1007.5841) -- (36.5537,1007.5841) .. controls (40.9608,1007.5841) and (44.5087,1011.1320) .. (44.5087,1015.5391) -- (44.5087,1035.7465) .. controls (44.5087,1040.1536) and (40.9608,1043.7015) .. (36.5537,1043.7015)(26.4500,1043.7015) -- (16.3463,1043.7015) .. controls (11.9392,1043.7015) and (8.3913,1040.1536) .. (8.3913,1035.7465) -- (8.3913,1015.5391) .. controls (8.3913,1011.1320) and (11.9392,1007.5841) .. (16.3463,1007.5841);
+  \path[fill=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (29.4616,1002.3621) -- (29.4616,1007.5763) --
+    (29.4616,1012.7905) -- (24.9460,1010.1834) -- (20.4304,1007.5763) -- (24.9460,1004.9692) -- cycle;
+  \path[scale=-1.000,fill=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (-23.8200,-1049.1165) -- (-23.8200,-1043.9023) -- (-23.8200,-1038.6882) -- (-28.3356,-1041.2953) -- (-32.8512,-1043.9023) -- (-28.3356,-1046.5094) -- cycle;
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARREVISE}{\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[draw=black,line join=round,miter limit=4.00,line width=2.400pt] (18.1313,1030.2802) -- (45.3473,1003.0643) .. controls (45.8339,1002.5777) and (46.5386,1002.4988) .. (46.9273,1002.8875) -- (50.2675,1006.2277) .. controls (50.6562,1006.6164) and (50.5773,1007.3211) .. (50.0907,1007.8077) -- (22.8748,1035.0237) .. controls (20.0386,1035.5761) and (17.3820,1037.2567) .. (14.5004,1038.7710) .. controls (15.7412,1036.1390) and (18.0221,1032.6086) .. (18.1313,1030.2802) -- cycle;
+  \path[cm={{0.96593,-0.25882,0.25882,0.96593,(0.0,0.0)}},draw=black,line join=round,line cap=round,miter limit=4.00,line width=2.162pt]
+    (-221.2877,1004.7738) .. controls (-223.6324,1013.9810) and (-231.7674,1020.5396) .. (-241.2625,1020.8779) .. controls (-250.7575,1021.2161) and (-259.3386,1015.2530) .. (-262.3325,1006.2360) .. controls (-265.3264,997.2190) and (-262.0162,987.3076) .. (-254.2045,981.8995) .. controls (-246.3927,976.4913) and (-235.9505,976.8817) .. (-228.5644,982.8580);
+  \path[cm={{0.8632,0.23129,-0.23129,0.8632,(244.59274,130.99637)}},fill=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (51.9389,1027.9955) -- (45.8523,1029.6264) -- (39.7657,1031.2573) -- (41.3966,1025.1707) -- (43.0275,1019.0841) -- (47.4832,1023.5398) -- cycle;
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARSUBMIT}{\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[shift={(0,999.21265)},color=black,fill=black,line join=round,line cap=butt,miter limit=4.00,nonzero rule,line width=2.400pt] (7.5508,6.9805) .. controls (5.0037,6.9805) and (2.9062,9.0779) .. (2.9062,11.6250) -- (2.9062,46.1855) .. controls (2.9062,48.7326) and (5.0037,50.8301) .. (7.5508,50.8301) -- (42.1113,50.8301) .. controls (44.6584,50.8301) and (46.7559,48.7326) .. (46.7559,46.1855) -- (46.7559,18.0312) -- (43.7559,21.0312) -- (43.7559,46.1855) .. controls (43.7559,47.1225) and (43.0483,47.8301) .. (42.1113,47.8301) -- (7.5508,47.8301) .. controls (6.6138,47.8301) and (5.9062,47.1225) .. (5.9062,46.1855) -- (5.9062,11.6250) .. controls (5.9062,10.6880) and (6.6138,9.9805) .. (7.5508,9.9805) -- (32.9551,9.9805) -- (35.9551,6.9805) -- (7.5508,6.9805) -- cycle;
+  \path[cm={{0.23129,0.8632,-0.8632,0.23129,(921.86536,730.0256)}},fill=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (51.9389,1027.9955) -- (45.8523,1029.6264) -- (39.7657,1031.2573) -- (41.3966,1025.1707) -- (43.0275,1019.0841) -- (47.4832,1023.5398) -- cycle;
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=2.400pt] (45.6988,1006.4896) .. controls (39.7981,1009.2567) and (34.0839,1015.4756) .. (33.7112,1024.1821);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=1.600pt] (11.0093,1016.2023) -- (28.3385,1016.1463);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=1.600pt] (10.9821,1026.1527) -- (28.0939,1026.2606);
+  \path[draw=black,line join=miter,line cap=round,miter limit=4.00,even odd rule,line width=1.600pt] (10.9821,1035.8793) -- (37.4107,1035.8443);
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARSTEPS}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(8,8)}]
+	\node[rectangle, draw=black, line width=2.4, minimum width=5, minimum height=5] (X) at (0cm,0cm) {};
+	\node[rectangle, draw=black, line width=2.4, minimum width=5, minimum height=5] (Y) at (1cm,.4cm) {};
+	\node[rectangle, draw=black, line width=2.4, minimum width=5, minimum height=5] (Z) at (0cm,.8cm) {};
+	\draw[->, line width=2.4] (X) -| (Y);
+	\draw[->, line width=2.4] (Y) -| (Z);
+	\draw[->, line width=2.4] (Z) -- (1cm,.8cm);
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARDIAGRAMS}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(8,8)}]
+	\node[rectangle, draw=black, line width=2.4, minimum width=15, minimum height=5] (X) at (.5cm,.3cm) {};
+	\node[rectangle, draw=black, line width=2.4, minimum width=10, minimum height=10] (Y) at (.2cm,.8cm) {};
+	\node[rectangle, draw=black, line width=2.4, minimum width=10, minimum height=10] (Z) at (.8cm,.8cm) {};
+	\draw[line width=2.4] (X) -- (Y);
+	\draw[line width=2.4] (X) -- (Z);
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARVARIABLES}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(8,8)}]
+	\node[rectangle, draw=black, line width=2, minimum width=15, minimum height=5, inner sep=5, rounded corners=3] (X) at (.5cm,.5cm) {$(x,y)$};
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARPRONOUNS}{
+	\raisebox{-.9cm}[0cm][0cm]{
+		\makebox[1cm]{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(8,8)}]
+	\node[rotate=30, anchor=west] (X) at (.5cm,.5cm) {\begin{tabular}{c}{\sf That} \\ {\sf It}\end{tabular}};
+\end{scope}
+\end{tikzpicture}
+}}}
+\newcommand{\PARCALCULATIONS}{
+	\raisebox{-.74cm}[0cm][0cm]{
+		\makebox[1cm]{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt,rounded corners=2]
+\begin{scope}[shift={(8,8)}]
+	\node[] at (.25cm, .25cm) {$-$};
+	\node[] at (.75cm, .25cm) {$\times$};
+	\node[] at (.25cm, .75cm) {$+$};
+	\node[] at (.75cm, .75cm) {$\div$};
+\end{scope}
+\end{tikzpicture}
+}}
+}
+\newcommand{\PAREXPLAIN}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,line    width=2.000pt] (25.5530,1037.8286)arc(94.842:180.403:19.695244 and    15.909)arc(180.403:265.964:19.695244 and 15.909)arc(265.964:351.525:19.695244    and 15.909)arc(-8.475:77.086:19.695244 and 15.909);
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,even odd    rule,line width=2.000pt] (31.2763,1037.8962) .. controls (27.8741,1042.0646)    and (25.9284,1043.3789) .. (21.3505,1044.5764) .. controls (25.0988,1041.3274)    and (25.5667,1037.9753) .. (25.5667,1037.9753);
+  \end{scope}
+    \node[text=black] at (28,23) {\sf Why?};
+\end{tikzpicture}
+}
+\newcommand{\PARDEFINITIONS}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-1010)}]
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,even odd    rule,line width=2.400pt] (48.3171,1013.5274) -- (48.3171,1047.0864) --    (9.4043,1047.0864) .. controls (7.7605,1046.5517) and (6.3568,1045.7401) ..    (6.0181,1043.7002) -- (6.0181,1007.0251) .. controls (6.3521,1005.1524) and    (7.4252,1004.1176) .. (9.1836,1003.8596) -- (43.0907,1003.8596) --    (43.0907,1038.7065) -- (9.6678,1038.7065) .. controls (7.1278,1039.1549) and    (6.1084,1040.4467) .. (6.0840,1042.2904);
+  \path[fill=black,line join=round,line cap=round,miter limit=4.00,line    width=2.400pt,rounded corners=0.0000cm] (7.1918,1004.5908) rectangle    (42.9425,1038.5253);
+\end{scope}
+    \node[text=white] at (25,15) {\Large \bf Aa};
+\end{tikzpicture}
+}
+\newcommand{\PARSETUP}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[draw=white,fill=black,line join=miter,line cap=butt,miter
+    limit=4.00,even odd rule,line width=0.250pt] (14.4931,1004.7869) .. controls    (14.4931,1004.7869) and (14.1167,1004.2210) .. (14.0821,1002.8922) .. controls    (14.5853,1002.5912) and (15.1067,1002.3217) .. (15.6434,1002.0854) .. controls    (16.7072,1002.8824) and (16.9511,1003.5168) .. (16.9511,1003.5168) --    (17.5626,1005.1197) .. controls (18.3032,1004.8372) and (19.0731,1004.6385) ..    (19.8579,1004.5274) -- (19.6175,1002.8288) .. controls (19.6175,1002.8288) and    (19.5239,1002.1556) .. (20.0693,1000.9433) .. controls (20.6533,1000.8903) and    (21.2400,1000.8743) .. (21.8261,1000.8943) .. controls (22.4387,1002.0740) and    (22.3832,1002.7514) .. (22.3832,1002.7514) -- (22.2387,1004.4608) .. controls    (23.0285,1004.5278) and (23.8084,1004.6827) .. (24.5637,1004.9231) --    (25.0841,1003.2884) .. controls (25.0841,1003.2884) and (25.2919,1002.6413) ..    (26.3092,1001.7857) .. controls (26.8583,1001.9914) and (27.3941,1002.2311) ..    (27.9134,1002.5034) .. controls (27.9536,1003.8321) and (27.6096,1004.4182) ..    (27.6096,1004.4182) -- (26.7377,1005.8957) .. controls (27.4204,1006.2986) and    (28.0557,1006.7766) .. (28.6319,1007.3210) -- (29.8101,1006.0740) .. controls    (29.8101,1006.0740) and (30.2780,1005.5811) .. (31.5659,1005.2516) .. controls    (31.9713,1005.6753) and (32.3500,1006.1237) .. (32.6998,1006.5943) .. controls    (32.1595,1007.8088) and (31.5953,1008.1877) .. (31.5953,1008.1877) --    (30.1687,1009.1406) .. controls (30.6089,1009.7997) and (30.9739,1010.5061) ..    (31.2569,1011.2466) -- (32.8594,1010.6342) .. controls (32.8594,1010.6342) and    (33.4949,1010.3932) .. (34.7981,1010.6552) .. controls (34.9796,1011.2128) and    (35.1263,1011.7811) .. (35.2372,1012.3569) .. controls (34.2234,1013.2168) and    (33.5507,1013.3133) .. (33.5507,1013.3133) -- (31.8519,1013.5528) .. controls    (31.9626,1014.3377) and (31.9850,1015.1325) .. (31.9186,1015.9224) --    (33.6282,1016.0660) .. controls (33.6282,1016.0660) and (34.3053,1016.1250) ..    (35.3658,1016.9260) .. controls (35.2874,1017.5071) and (35.1729,1018.0828) ..    (35.0231,1018.6497) .. controls (33.7366,1018.9845) and (33.0886,1018.7796) ..    (33.0886,1018.7796) -- (31.4542,1018.2584) .. controls (31.2133,1019.0135) and    (30.8886,1019.7393) .. (30.4861,1020.4222) -- (31.9641,1021.2933) .. controls    (31.9641,1021.2933) and (32.5487,1021.6399) .. (33.1565,1022.8221) .. controls    (32.8337,1023.3117) and (32.4808,1023.7807) .. (32.0998,1024.2264) .. controls    (30.7955,1023.9699) and (30.3005,1023.5041) .. (30.3005,1023.5041) --    (29.0541,1022.3253) .. controls (28.5095,1022.9012) and (27.9020,1023.4143) ..    (27.2431,1023.8549) -- (28.1967,1025.2810) .. controls (28.1967,1025.2810) and    (28.5731,1025.8469) .. (28.6077,1027.1757) .. controls (28.1045,1027.4767) and    (27.5830,1027.7462) .. (27.0464,1027.9825) .. controls (25.9825,1027.1855) and    (25.7387,1026.5511) .. (25.7387,1026.5511) -- (25.1272,1024.9482) .. controls    (24.3866,1025.2307) and (23.6167,1025.4294) .. (22.8318,1025.5405) --    (23.0722,1027.2391) .. controls (23.0722,1027.2391) and (23.1658,1027.9123) ..    (22.6204,1029.1246) .. controls (22.0364,1029.1776) and (21.4497,1029.1936) ..    (20.8637,1029.1736) .. controls (20.2510,1027.9939) and (20.3066,1027.3165) ..    (20.3066,1027.3165) -- (20.4511,1025.6071) .. controls (19.6612,1025.5401) and    (18.8814,1025.3852) .. (18.1261,1025.1448) -- (17.6057,1026.7795) .. controls    (17.6057,1026.7795) and (17.3979,1027.4266) .. (16.3805,1028.2822) .. controls    (15.8314,1028.0765) and (15.2957,1027.8368) .. (14.7763,1027.5645) .. controls    (14.7362,1026.2358) and (15.0801,1025.6497) .. (15.0801,1025.6497) --    (15.9520,1024.1722) .. controls (15.2694,1023.7693) and (14.6340,1023.2913) ..    (14.0578,1022.7469) -- (12.8797,1023.9939) .. controls (12.8797,1023.9939) and    (12.4117,1024.4868) .. (11.1239,1024.8163) .. controls (10.7184,1024.3926) and    (10.3397,1023.9442) .. (9.9899,1023.4736) .. controls (10.5302,1022.2591) and    (11.0945,1021.8802) .. (11.0945,1021.8802) -- (12.5211,1020.9273) .. controls    (12.0808,1020.2682) and (11.7158,1019.5618) .. (11.4329,1018.8213) --    (9.8303,1019.4337) .. controls (9.8303,1019.4337) and (9.1949,1019.6747) ..    (7.8916,1019.4127) .. controls (7.7101,1018.8551) and (7.5635,1018.2868) ..    (7.4525,1017.7110) .. controls (8.4663,1016.8511) and (9.1390,1016.7546) ..    (9.1390,1016.7546) -- (10.8378,1016.5151) .. controls (10.7272,1015.7302) and    (10.7048,1014.9354) .. (10.7711,1014.1455) -- (9.0616,1014.0019) .. controls    (9.0616,1014.0019) and (8.3845,1013.9429) .. (7.3240,1013.1419) .. controls    (7.4024,1012.5608) and (7.5168,1011.9851) .. (7.6667,1011.4182) .. controls    (8.9531,1011.0834) and (9.6011,1011.2883) .. (9.6011,1011.2883) --    (11.2356,1011.8095) .. controls (11.4764,1011.0544) and (11.8011,1010.3286) ..    (12.2036,1009.6457) -- (10.7257,1008.7746) .. controls (10.7257,1008.7746) and    (10.1410,1008.4280) .. (9.5333,1007.2458) .. controls (9.8561,1006.7562) and    (10.2090,1006.2872) .. (10.5900,1005.8415) .. controls (11.8943,1006.0980) and    (12.3892,1006.5638) .. (12.3892,1006.5638) -- (13.6356,1007.7426) .. controls    (14.1803,1007.1667) and (14.7878,1006.6536) .. (15.4467,1006.2130) --    (14.4931,1004.7869)(32.4345,1021.7376) .. controls (32.4345,1021.7376) and    (32.0553,1021.1433) .. (32.1914,1019.7860) .. controls (32.6707,1019.5290) and    (33.1690,1019.3092) .. (33.6820,1019.1286) .. controls (34.7760,1019.9434) and    (34.9592,1020.6241) .. (34.9592,1020.6241) -- (35.4008,1022.2975) .. controls    (36.1173,1022.1084) and (36.8591,1022.0331) .. (37.5990,1022.0742) --    (37.6952,1020.3462) .. controls (37.6952,1020.3462) and (37.7378,1019.6426) ..    (38.6456,1018.6244) .. controls (39.1844,1018.6984) and (39.7168,1018.8133) ..    (40.2380,1018.9687) .. controls (40.6441,1020.2710) and (40.3922,1020.9294) ..    (40.3922,1020.9294) -- (39.7659,1022.5428) .. controls (40.4567,1022.8109) and    (41.1011,1023.1860) .. (41.6755,1023.6542) -- (42.7690,1022.3127) .. controls    (42.7690,1022.3127) and (43.2171,1021.7685) .. (44.5500,1021.4784) .. controls    (44.9425,1021.8548) and (45.3055,1022.2609) .. (45.6358,1022.6929) .. controls    (45.1990,1023.9852) and (44.6082,1024.3698) .. (44.6082,1024.3698) --    (43.1532,1025.3069) .. controls (43.5544,1025.9299) and (43.8553,1026.6121) ..    (44.0448,1027.3285) -- (45.7179,1026.8860) .. controls (45.7179,1026.8860) and    (46.4003,1026.7091) .. (47.6492,1027.2579) .. controls (47.7455,1027.7931) and    (47.8005,1028.3350) .. (47.8138,1028.8787) .. controls (46.7008,1029.6673) and    (45.9968,1029.6312) .. (45.9968,1029.6312) -- (44.2688,1029.5342) .. controls    (44.2272,1030.2741) and (44.0696,1031.0029) .. (43.8018,1031.6939) --    (45.4156,1032.3193) .. controls (45.4156,1032.3193) and (46.0716,1032.5772) ..    (46.7594,1033.7553) .. controls (46.5227,1034.2449) and (46.2487,1034.7156) ..    (45.9399,1035.1633) .. controls (44.5759,1035.1473) and (44.0276,1034.7041) ..    (44.0276,1034.7041) -- (42.6867,1033.6099) .. controls (42.2181,1034.1840) and    (41.6623,1034.6810) .. (41.0395,1035.0826) -- (41.9774,1036.5371) .. controls    (41.9774,1036.5371) and (42.3565,1037.1314) .. (42.2205,1038.4887) .. controls    (41.7412,1038.7457) and (41.2429,1038.9655) .. (40.7299,1039.1461) .. controls    (39.6359,1038.3313) and (39.4527,1037.6506) .. (39.4527,1037.6506) --    (39.0111,1035.9772) .. controls (38.2946,1036.1663) and (37.5528,1036.2416) ..    (36.8129,1036.2005) -- (36.7167,1037.9285) .. controls (36.7167,1037.9285) and    (36.6741,1038.6321) .. (35.7663,1039.6503) .. controls (35.2274,1039.5763) and    (34.6951,1039.4614) .. (34.1739,1039.3060) .. controls (33.7678,1038.0037) and    (34.0197,1037.3453) .. (34.0197,1037.3453) -- (34.6460,1035.7319) .. controls    (33.9552,1035.4638) and (33.3108,1035.0887) .. (32.7364,1034.6205) --    (31.6429,1035.9620) .. controls (31.6429,1035.9620) and (31.1948,1036.5062) ..    (29.8619,1036.7963) .. controls (29.4694,1036.4199) and (29.1063,1036.0138) ..    (28.7761,1035.5818) .. controls (29.2129,1034.2895) and (29.8037,1033.9049) ..    (29.8037,1033.9049) -- (31.2587,1032.9678) .. controls (30.8575,1032.3448) and    (30.5566,1031.6626) .. (30.3671,1030.9462) -- (28.6940,1031.3887) .. controls    (28.6940,1031.3887) and (28.0116,1031.5656) .. (26.7627,1031.0168) .. controls    (26.6664,1030.4816) and (26.6114,1029.9397) .. (26.5981,1029.3960) .. controls    (27.7111,1028.6074) and (28.4151,1028.6435) .. (28.4151,1028.6435) --    (30.1431,1028.7405) .. controls (30.1847,1028.0006) and (30.3422,1027.2718) ..    (30.6101,1026.5808) -- (28.9963,1025.9554) .. controls (28.9963,1025.9554) and    (28.3403,1025.6975) .. (27.6525,1024.5194) .. controls (27.8892,1024.0298) and    (28.1632,1023.5591) .. (28.4720,1023.1114) .. controls (29.8360,1023.1274) and    (30.3843,1023.5706) .. (30.3843,1023.5706) -- (31.7252,1024.6648) .. controls    (32.1938,1024.0907) and (32.7496,1023.5937) .. (33.3724,1023.1921) --    (32.4345,1021.7376)(31.3692,1036.2205) .. controls (31.3692,1036.2205) and    (31.9636,1035.7958) .. (33.3506,1035.9783) .. controls (33.6046,1036.4235) and    (33.8193,1036.8899) .. (33.9924,1037.3723) .. controls (33.2292,1038.5448) and    (32.5201,1038.7203) .. (32.5201,1038.7203) -- (30.8296,1039.1248) .. controls    (30.9915,1039.8014) and (31.0188,1040.5034) .. (30.9098,1041.1906) --    (32.6266,1041.4629) .. controls (32.6266,1041.4629) and (33.3471,1041.5829) ..    (34.1989,1042.6927) .. controls (34.0636,1043.1871) and (33.8857,1043.6687) ..    (33.6670,1044.1322) .. controls (32.2982,1044.4216) and (31.6728,1044.0442) ..    (31.6728,1044.0442) -- (30.1914,1043.1348) .. controls (29.8274,1043.7278) and    (29.3503,1044.2434) .. (28.7873,1044.6522) -- (29.8087,1046.0587) .. controls    (29.8087,1046.0587) and (30.2333,1046.6531) .. (30.0508,1048.0402) .. controls    (29.6057,1048.2941) and (29.1393,1048.5088) .. (28.6569,1048.6820) .. controls    (27.4844,1047.9187) and (27.3089,1047.2097) .. (27.3089,1047.2097) --    (26.9044,1045.5191) .. controls (26.2277,1045.6810) and (25.5258,1045.7083) ..    (24.8386,1045.5991) -- (24.5663,1047.3159) .. controls (24.5663,1047.3159) and    (24.4463,1048.0364) .. (23.3365,1048.8882) .. controls (22.8421,1048.7529) and    (22.3605,1048.5750) .. (21.8970,1048.3563) .. controls (21.6076,1046.9876) and    (21.9849,1046.3621) .. (21.9849,1046.3621) -- (22.8942,1044.8807) .. controls    (22.3013,1044.5167) and (21.7857,1044.0396) .. (21.3768,1043.4766) --    (19.9703,1044.4980) .. controls (19.9703,1044.4980) and (19.3760,1044.9227) ..    (17.9889,1044.7402) .. controls (17.7350,1044.2950) and (17.5202,1043.8286) ..    (17.3471,1043.3462) .. controls (18.1103,1042.1737) and (18.8194,1041.9982) ..    (18.8194,1041.9982) -- (20.5099,1041.5937) .. controls (20.3480,1040.9171) and    (20.3208,1040.2151) .. (20.4298,1039.5279) -- (18.7130,1039.2556) .. controls    (18.7130,1039.2556) and (17.9925,1039.1356) .. (17.1407,1038.0258) .. controls    (17.2759,1037.5314) and (17.4539,1037.0498) .. (17.6726,1036.5863) .. controls    (19.0413,1036.2969) and (19.6668,1036.6743) .. (19.6668,1036.6743) --    (21.1482,1037.5837) .. controls (21.5122,1036.9907) and (21.9893,1036.4751) ..    (22.5523,1036.0663) -- (21.5309,1034.6598) .. controls (21.5309,1034.6598) and    (21.1062,1034.0654) .. (21.2887,1032.6783) .. controls (21.7339,1032.4244) and    (22.2003,1032.2097) .. (22.6827,1032.0365) .. controls (23.8552,1032.7998) and    (24.0306,1033.5088) .. (24.0306,1033.5088) -- (24.4351,1035.1994) .. controls    (25.1118,1035.0375) and (25.8137,1035.0102) .. (26.5009,1035.1194) --    (26.7732,1033.4026) .. controls (26.7732,1033.4026) and (26.8932,1032.6821) ..    (28.0031,1031.8303) .. controls (28.4974,1031.9656) and (28.9791,1032.1435) ..    (29.4426,1032.3622) .. controls (29.7320,1033.7309) and (29.3547,1034.3564) ..    (29.3547,1034.3564) -- (28.4453,1035.8378) .. controls (29.0383,1036.2018) and    (29.5539,1036.6789) .. (29.9627,1037.2419) -- (31.3692,1036.2205);  
+  \path[fill=white,line join=round,line cap=round,miter limit=4.00,line width=0.240pt] (21.3511,1014.9621) circle (0.2027cm);
+  \path[fill=white,line join=round,line cap=round,miter limit=4.00,line width=0.240pt] (37.2980,1029.0370) circle (0.1288cm);
+  \path[fill=white,line join=round,line cap=round,miter limit=4.00,line width=0.240pt] (25.6774,1040.4004) circle (0.0841cm);
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARCHECK}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \path[shift={(0,999.21265)},color=black,fill=black,line join=round,line    cap=butt,miter limit=4.00,nonzero rule,line width=2.400pt] (7.5508,6.9805) ..    controls (5.0037,6.9805) and (2.9062,9.0779) .. (2.9062,11.6250) --    (2.9062,46.1855) .. controls (2.9062,48.7326) and (5.0037,50.8301) ..    (7.5508,50.8301) -- (42.1113,50.8301) .. controls (44.6584,50.8301) and    (46.7559,48.7326) .. (46.7559,46.1855) -- (46.7559,18.0312) --    (43.7559,21.0312) -- (43.7559,46.1855) .. controls (43.7559,47.1225) and    (43.0483,47.8301) .. (42.1113,47.8301) -- (7.5508,47.8301) .. controls    (6.6138,47.8301) and (5.9062,47.1225) .. (5.9062,46.1855) -- (5.9062,11.6250)    .. controls (5.9062,10.6880) and (6.6138,9.9805) .. (7.5508,9.9805) --    (32.9551,9.9805) -- (35.9551,6.9805) -- (7.5508,6.9805) -- cycle;
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,even odd rule,line width=6.400pt] (46.8750,1006.3801) -- (24.2411,1028.4783) -- (13.9286,1018.1658);
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PARMULTIPLE}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-999.21265)}]
+  \begin{scope}[cm={{1.06005,0.0,0.0,1.06005,(-0.43529,-63.0815)}},fill=black]
+    \path[fill=black,miter limit=4.00,line width=2.400pt,rounded corners=0.0000cm]      (21.7857,1016.0230) rectangle (29.2857,1050.4873);
+    \path[cm={{1.31936,0.0,0.0,1.0,(-7.52516,0.0)}},fill=black,miter limit=4.00,line      width=2.400pt] (32.7892,1018.0207) -- (17.1329,1017.8859) --      (25.0778,1004.3946) -- cycle;
+  \end{scope}
+  \begin{scope}[cm={{0.38993,-0.38993,0.38993,0.38993,(-394.3635,647.0653)}}]
+    \path[fill=black,miter limit=4.00,line width=2.400pt,rounded corners=0.0000cm]      (21.7857,1016.0230) rectangle (29.2857,1050.4873);
+    \path[cm={{1.31936,0.0,0.0,1.0,(-7.52516,0.0)}},fill=black,miter limit=4.00,line      width=2.400pt] (32.7892,1018.0207) -- (17.1329,1017.8859) --      (25.0778,1004.3946) -- cycle;
+  \end{scope}
+  \begin{scope}[cm={{0.38993,0.38993,-0.38993,0.38993,(427.78629,627.0836)}}]
+    \path[fill=black,miter limit=4.00,line width=2.400pt,rounded corners=0.0000cm]      (21.7857,1016.0230) rectangle (29.2857,1050.4873);
+    \path[cm={{1.31936,0.0,0.0,1.0,(-7.52516,0.0)}},fill=black,miter limit=4.00,line      width=2.400pt] (32.7892,1018.0207) -- (17.1329,1017.8859) --      (25.0778,1004.3946) -- cycle;
+  \end{scope}
+\end{scope}
+\end{tikzpicture}
+}
+\newcommand{\PAROTHER}{
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+\begin{scope}[shift={(0,-1016.9292)}]
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (26.6071,1035.0406) circle (0.1768cm);
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (9.0714,1035.0229) circle (0.1768cm);
+  \path[draw=black,line join=round,line cap=round,miter limit=4.00,line width=2.400pt] (43.9643,1035.1301) circle (0.1768cm);
+\end{scope}
+\end{tikzpicture}
+}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Proj}{\mathrm{proj}}
+\newcommand{\Perp}{\mathrm{perp}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\Null}{\mathrm{null}}
+\newcommand{\Rank}{\mathrm{rank}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+
+%%%
+% This is where the body of the document goes
+%%%
+\begin{document}
+	\thispagestyle{nofooter}
+	\setheader{MAT223}{Writing Assignment 2}{Due: Wed.~October 23\textsuperscript{rd}, 2019}{}{Name:\underline{\hspace{2in}}}{}
+
+
+	\begin{enumerate}
+		\item[\bf Part 1] \emph{\color{blue}Your answer to this part should be entered/uploaded directly to Crowdmark.}
+			
+			% ``speak math''
+
+	Rewrite the following informal statements precisely, using linear algebra vocabulary.
+
+	\begin{enumerate}[label=\alph*.]
+	\item $\vec{v}$ points vertically.
+	\item A plane has two directions.
+	\item $\vec{x} + \mat{5 \\ 0}$ is a translation.
+	\end{enumerate}
+
+		
+		
+\item[\bf (PAR) Part 2] \emph{\color{blue} Prepare your response to this part on the PAR Worksheet. You will bring your writeup of this
+	problem to class and will upload \emph{both} your draft and a final version to Crowdmark after completing the PAR process.}
+
+	
+	Jordan, Max, and Lily are having a conversation at the breakfast table while admiring a new tablecloth. 
+
+	\begin{center}
+    \begin{tikzpicture}[xscale=1.5,yscale=.75]
+    	\draw[step=1cm,gray,very thin] (-3,-3) grid (3,3);
+	    \node at (2,-1) {\includegraphics[width=1cm]{mug.png}};
+	    \node at (1,2) {\includegraphics[width=1cm]{plate.png}};
+		\node at (0,0)[circle,fill,minimum size=6pt, inner sep=0pt, outer sep=0pt]{};
+		\draw[very thick] (-3,0) -- (3,0) (0,3) -- (0,-3);
+		\node at (0,-3.5) {Lily};
+		\node[rotate=-90] at (-3.25,0) {Max};
+		\node[rotate=180] at (0,3.5) {Jordan};
+    \end{tikzpicture}
+	\end{center}  
+
+	\textsc{max:} ``Pass me the mug at $(1, 2)$, please.''
+
+	\textsc{lily:} ``That's a plate.''
+
+	\textsc{max:} ``No, the plate's at $(-2, 1)$.  The mug's right next to you.''
+
+	\textsc{lily:} ``Then why'd you say $(1, 2)$ when it's clearly at $(2, -1)$?''
+
+	Jordan, who's been studying linear algebra, pipes up.
+
+	\textsc{jordan:} ``Cut it out, you two! You're both right.''
+
+	\bigskip
+			Explain to Max and Lily (i) what is going on, (ii) why is there confusion, and (iii) is one more right
+			than the other (or are they both wrong).
+	Your explanation must include linear algebra terminology, and
+		should be aimed at the level of a MAT223 who has missed the last two weeks of class. 
+		That means, you should explain any newer linear algebra concepts/terminology you use.
+
+	
+	\item[\bf Part 3] \emph{\color{blue}Your answer to this part should be entered/uploaded directly to Crowdmark.}
+
+	Toronto's streets are not aligned with longitude and latitude.  Instead, ``north--south'' streets (like University or Spadina) are approximately 17 degrees off from true north.  Give two situations where ``street coordinates'' would be better than longitude and latitude, or vice versa.
+
+	\end{enumerate}
+
+\end{document}
