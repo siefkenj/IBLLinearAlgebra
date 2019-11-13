@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Module 3 Solutions}
+%\author{cameron.stockton}
+%\date{November 2019}
+
+\begin{document}
+%\maketitle
+\section*{Module 3 Solutions}
+\begin{solution}
+    \begin{enumerate}
+        \item 
+            \begin{enumerate}
+                \item Linearly dependent
+                \item Span(A) is the plane \{$\begin{bmatrix}x \\y \\0 \end{bmatrix}\in\mathbb{R}^{3}: x,y\in\mathbb{R}$\}
+                \item Yes. If B = A\cup\{$\begin{bmatrix}0\\0\\1\end{bmatrix}$\}, then span(B)=$\mathbb{R}^{3}$
+            \end{enumerate}
+        \item 
+            \begin{enumerate}
+                \item line
+                \item line
+                \item plane
+                \item line
+                \item plane
+                \item point
+                \item plane
+                \item volume
+                \item plane
+                \item plane
+            \end{enumerate}
+        \item Key: LI=Linearly independent, LD=Linearly dependent
+            \begin{enumerate}
+                \item LI, LD, LI, LD, LI, (Point), LD, LI, LI, LD
+                \item LD
+                \item No. The solutions to the vector equation $\alpha_{1}\Vec{x}_{1}+\alpha_{2}\Vec{x}_{2}+...+\alpha_{n+1}\Vec{x}_{n+1}=0$ for $\alpha_{1},\alpha_{2},...,\alpha_{n+1}$ are the solutions to a system of n equations in n+1 variables if $\Vec{x}_{1},\Vec{x}_{2},...,\Vec{x}_{n+1}\in \mathbb{R}^{n}$. This system is consistent since $\alpha_{1}=\alpha_{2}=...=\alpha_{n+1}=0$ is a solution. The row reduced echelon form of the corresponding augmented matrix has at least one free variable since there are more columns than rows. Hence there are infinitely many solutions, and in particular there exists a non-trivial solution to the above vector equation.
+            \end{enumerate}
+        \item 
+            \begin{enumerate}
+                \item
+                \begin{enumerate}
+                    \item span\{$\begin{bmatrix}0\\-1\end{bmatrix}$\}
+                    \item span\{$\begin{bmatrix}3\\-2\end{bmatrix}$\}
+                    \item span\{$\begin{bmatrix}4\\5\end{bmatrix}$\}
+                    \item Not possible since $\begin{bmatrix}0\\0\end{bmatrix}$\notin \{$\begin{bmatrix}x\\y\end{bmatrix}$\in $\mathbb{R}^{2}$: -x-y=-1\}
+                    \item Not possible since $\begin{bmatrix}0\\0\end{bmatrix}$ is not on the line
+                \end{enumerate}
+                \item
+                    iv. span\{$\begin{bmatrix}1\\-1\end{bmatrix}$\} + \{$\begin{bmatrix}1\\0\end{bmatrix}$\}\\
+                    v. span\{$\begin{bmatrix}5\\3\end{bmatrix}$\} + \{$\begin{bmatrix}-4\\-3\end{bmatrix}$\}
+                \item 
+                    \begin{enumerate}
+                        \item Impossible since $\Vec{0}$ is not in the plane
+                        \item span\{$\begin{bmatrix}6\\-1\\0\end{bmatrix}$, $\begin{bmatrix}1\\0\\1\end{bmatrix}$\}
+                        \item span\{$\begin{bmatrix}3\\0\\-1\end{bmatrix}$, $\begin{bmatrix}0\\1\\0\end{bmatrix}$\}
+                        \item Impossible since $\Vec{0}$ is not in the plane
+                        \item span\{$\begin{bmatrix}0\\1\\0\end{bmatrix}$\}
+                        \item Impossible since $\Vec{0}$ is not in the plane
+                    \end{enumerate}
+                \item 
+                    \begin{enumerate}
+                        \item span\{$\begin{bmatrix}1\\2\\0\end{bmatrix}$, $\begin{bmatrix}0\\1\\1\end{bmatrix}$\} + \{$\begin{bmatrix}2\\0\\0\end{bmatrix}$\}
+                        \item N/A
+                        \item N/A
+                        \item span\{$\begin{bmatrix}1\\0\\0\end{bmatrix}$, $\begin{bmatrix}0\\0\\1\end{bmatrix}$\} + \{$\begin{bmatrix}0\\1\\0\end{bmatrix}$\}
+                        \item N/A
+                        \item item span\{$\begin{bmatrix}1\\2\\0\end{bmatrix}$\} + \{$\begin{bmatrix}1\\0\\-1\end{bmatrix}$\}
+                    \end{enumerate}
+            \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item Same plane ($\mathbb{R}^{2}$)
+                \item Same plane (2$\begin{bmatrix}1\\0\\5\end{bmatrix}$ + $\begin{bmatrix}2\\2\\3\end{bmatrix}$ = $\begin{bmatrix}4\\2\\13\end{bmatrix}$)
+                \item Different plane ($\begin{bmatrix}2\\2\\1\end{bmatrix}$ is not in the second plane)
+            \end{enumerate}
+        \item The set is linearly dependent since: $\begin{bmatrix}6\\4\\11\end{bmatrix}$ = $\begin{bmatrix}2\\0\\7\end{bmatrix}$\} + 4$\begin{bmatrix}1\\1\\1\end{bmatrix}$ (geometric) OR  $\begin{bmatrix}2\\0\\7\end{bmatrix}$ + 4$\begin{bmatrix}1\\1\\1\end{bmatrix}$ + (-1)$\begin{bmatrix}6\\4\\11\end{bmatrix}$ = $\Vec{0}$
+        \item $\Vec{x} = t_{1}\Vec{d}_{1}+t_{2}\Vec{d}_{2}+t_{3}\Vec{d}_{3}+t_{4}\Vec{d}_{4}+\Vec{p}$
+            \begin{enumerate}
+                \item $\Vec{d}_{1} = \begin{bmatrix}1\\0\\0\\0\end{bmatrix}, \Vec{d}_{2} = \begin{bmatrix}0\\1\\0\\0\end{bmatrix}, \Vec{d}_{3} = \begin{bmatrix}0\\0\\1\\0\end{bmatrix}, \Vec{p} = \begin{bmatrix}0\\0\\0\\0\end{bmatrix}$
+                \item $\Vec{d}_{1} = \begin{bmatrix}1\\0\\0\\0\end{bmatrix}, \Vec{d}_{2} = \begin{bmatrix}0\\1\\0\\0\end{bmatrix}, \Vec{d}_{3} = \begin{bmatrix}1\\1\\0\\0\end{bmatrix}, \Vec{p} = \begin{bmatrix}0\\0\\1\\0\end{bmatrix}$
+                \item $\Vec{d}_{1} = \begin{bmatrix}1\\0\\0\\0\end{bmatrix}, \Vec{d}_{2} = \begin{bmatrix}2\\0\\0\\0\end{bmatrix}, \Vec{d}_{3} = \begin{bmatrix}-1\\0\\0\\0\end{bmatrix}, \Vec{p} = \begin{bmatrix}0\\0\\0\\0\end{bmatrix}$
+                \item $\Vec{d}_{1} = \Vec{d}_{2} = \Vec{d}_{3} = \Vec{0}, \Vec{p} = \begin{bmatrix}2\\2\\2\\3\end{bmatrix}$
+            \end{enumerate}
+        \item 
+        \item 
+        \item
+            \begin{enumerate}
+                \item There are infinitely many points in each of D, L, and D+L
+                \item 
+                \item D+L can be decomposed into 2 unit radius half-circles and a square with side length 2. The area of D+L is then $\pi$+4
+                \item We can take A to be a circle of radius 0.02 units
+            \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item True by the geometric definition of linear dependence
+                \item False. \{$\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}$\} is linearly dependent, but $\begin{bmatrix}1\\0\end{bmatrix}$ is not a linear combination of $\begin{bmatrix}0\\0\end{bmatrix}$ and $\begin{bmatrix}0\\1\end{bmatrix}$
+                \item True. $\Vec{v}_{1}$ is a linear combination of $\Vec{v}_{2}$ and so \{$\Vec{v}_{1},\Vec{v}_{2}$\} is linearly dependent by the definition of linear dependence
+                \item False. \{$\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}$\} is linearly dependent, but $\begin{bmatrix}1\\0\end{bmatrix}$ is not a scalar multiple of $\begin{bmatrix}0\\1\end{bmatrix}$
+                \item True. The linear combination of any finite set with all coefficients zero is $\Vec{0}$
+            \end{enumerate}
+    \end{enumerate}
+\end{solution}
+\end{document}
