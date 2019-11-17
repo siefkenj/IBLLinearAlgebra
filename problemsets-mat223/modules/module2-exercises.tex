@@ -2,7 +2,7 @@
 	\begin{problist}
 		\prob  Express the following lines in vector form.
 		\begin{enumerate}
-			\item   $\ell_1\subseteq\R^2$ with equation $4x-3y=-10$.
+			\item   $\ell_1\subseteq\R^2$ with equation $4x-3y=-10$. 
 			\item   $\ell_2\subseteq\R^2$ which passes through the points $A=(1,1)$ and $B=(2,7)$.
 			\item   $\ell_3\subseteq\R^2$ which passes through $\vec 0$ and is parallel to the line
 				with equation $4x-3y=-10$.
@@ -10,6 +10,16 @@
 			\item   $\ell_5\subseteq\R^3$ which is contained in the $yz$-plane and where the coordinates
 				of every point in $\ell_5$ satisfy $x+2y-3z=5$.
 		\end{enumerate}
+		% Q1 Solutions
+		\begin{solution}
+    		\begin{enumerate}
+    		    \item $\vec v = s\mat{3\\4} + \mat{-4\\-2} $
+    		    \item $\vec v = s\mat{1\\6} + \mat{1\\1} $
+    		    \item $\vec v = s\mat{3\\4}$
+    		    \item $\vec v = s\mat{3\\4\\5} + \mat{-1\\-1 \\0}$
+    		    \item $\vec v = s\mat{0\\3\\2} + \mat{0\\1\\-1}$
+    		\end{enumerate}
+		\end{solution}
 		\prob Express the following planes in vector form
 		\begin{enumerate}
 			\item   $\mathcal P_1\subseteq\R^3$ with equation $4x-z=0$.
@@ -21,6 +31,17 @@
 				and where the coordinates of every point in $\mathcal P_5$ satisfy the equations $x+y+2z-w=3$
 				and $x+y+z+w=0$.
 		\end{enumerate}
+		% Q2 Solutions
+		\begin{solution}
+    		\begin{enumerate}
+    		    \item $\vec v = s\mat{0\\1\\0} + t\mat{1\\0\\4}$
+    		    \item $\vec v = s\mat{3\\4\\5} + t\mat{4\\4\\3} + \mat{-1\\-1\\0}$
+    		    \item $\vec v = s\mat{3\\4\\0} + t\mat{0\\1\\3} + \mat{0\\0\\-10}$
+    		    \item $\vec v = s\mat{0\\1\\0} + t\mat{0\\0\\1} + \mat{1\\-1\\1}$
+    		    \item $\vec v = s\mat{1\\0} + t\mat{0\\1}$
+    		    \item $\vec v = s\mat{-3\\0\\2\\1} + t\mat{-1\\1\\0\\0} + \mat{-3\\0\\3\\0}$
+    		\end{enumerate}
+		\end{solution}
 		\prob Let $\ell_1$, $\ell_2$, and $\ell_3$ be described in vector form by
 		\[
 			\overbrace{\vec x=t\mat{1\\1}+\mat{1\\3}}^{\displaystyle \ell_1}
@@ -35,7 +56,13 @@
 				coincide, or are parallel.
 			\item What is $\ell_1\cap\ell_2\cap\ell_3$?
 		\end{enumerate}
-
+		% Q3 Solutions
+		\begin{solution} 
+		    \begin{enumerate}
+		        \item $\ell_1 = \ell_3$, $\ \ell_1 \& \ell_2$ intersect, \ $\ell_3 \& \ell_2$ intersect.
+		        \item $\ell_1\cap\ell_2\cap\ell_3 = \Set*{\mat{2\\4}}$
+		    \end{enumerate}
+		\end{solution}
 		\prob Let $\mathcal P_1\subseteq\R^3$ be the plane with equation $x+2y-z=3$. Let
 		$\mathcal P_2$ and $\ell$ be described in vector form by
 		\[
@@ -53,7 +80,26 @@
 				parallel to $\mathcal P_2$, but which does not
 				intersect $\ell$? Why or why not?
 		\end{enumerate}
-
+        % Q4 Solutions
+        \begin{solution}
+            \begin{enumerate}
+                \item $\mathcal P_1\cap \ell = \Set*{\mat{1\\1\\0}}$
+                \item $\mathcal P_1\cap \mathcal P_2 = \Set*{s\mat{1\\1\\3} + \mat{\frac{-1}{2}\\ \frac{3}{2}\\ \frac{-1}{2}} : s \in \R}$
+                \item $\mathcal P_2\cap \ell = \Set*{\mat{2\\4\\1}}$
+                \item $\vec v = s\mat{0\\0\\1} + t\mat{1\\3\\1}$ (Answers may vary)
+                \item No. Since $P_2\cap \ell$ has one vector, the row reduction of $\mat{1 & 0 & 1 \\ 3 & 0 & 1 \\ 1 & 2 & 1 }$ has three pivots. If $P_2'$ is parallel to $P_2$, then $P_2'\cap \ell$ consists of vectors whose coordinates satisfy a system of linear equations corresponding to an augmented matrix of the form 
+                \[
+                \left[
+                    \begin{array}{ccc|c}
+                    1 & 0 & 1  & ? \\
+                    3 & 0 & 1  & ? \\
+                    1 & 2 & 1  & ? \\
+                    \end{array}
+                \right]
+                \]
+                , which is consistent since the now reduced form has three pivots.
+            \end{enumerate}
+        \end{solution}
 	\prob
 		Let $\vec a=\mat{1 \\1}$ and $\vec b=\mat{1 \\ -1}$. 
 		The goal of this question is to produce a drawing of the set of convex linear combinations of $\vec a$ and $\vec b$.
