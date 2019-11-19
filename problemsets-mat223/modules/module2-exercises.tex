@@ -13,11 +13,11 @@
 		% Q1 Solutions
 		\begin{solution}
     		\begin{enumerate}
-    		    \item $\vec v = s\mat{3\\4} + \mat{-4\\-2} $
-    		    \item $\vec v = s\mat{1\\6} + \mat{1\\1} $
-    		    \item $\vec v = s\mat{3\\4}$
-    		    \item $\vec v = s\mat{3\\4\\5} + \mat{-1\\-1 \\0}$
-    		    \item $\vec v = s\mat{0\\3\\2} + \mat{0\\1\\-1}$
+    		    \item $\vec v = t\mat{3\\4} + \mat{-4\\-2} $
+    		    \item $\vec v = t\mat{1\\6} + \mat{1\\1} $
+    		    \item $\vec v = t\mat{3\\4}$
+    		    \item $\vec v = t\mat{3\\4\\5} + \mat{-1\\-1 \\0}$
+    		    \item $\vec v = t\mat{0\\3\\2} + \mat{0\\1\\-1}$
     		\end{enumerate}
 		\end{solution}
 		\prob Express the following planes in vector form
@@ -34,12 +34,12 @@
 		% Q2 Solutions
 		\begin{solution}
     		\begin{enumerate}
-    		    \item $\vec v = s\mat{0\\1\\0} + t\mat{1\\0\\4}$
-    		    \item $\vec v = s\mat{3\\4\\5} + t\mat{4\\4\\3} + \mat{-1\\-1\\0}$
-    		    \item $\vec v = s\mat{3\\4\\0} + t\mat{0\\1\\3} + \mat{0\\0\\-10}$
-    		    \item $\vec v = s\mat{0\\1\\0} + t\mat{0\\0\\1} + \mat{1\\-1\\1}$
-    		    \item $\vec v = s\mat{1\\0} + t\mat{0\\1}$
-    		    \item $\vec v = s\mat{-3\\0\\2\\1} + t\mat{-1\\1\\0\\0} + \mat{-3\\0\\3\\0}$
+    		    \item $\vec v = t\mat{0\\1\\0} + s\mat{1\\0\\4}$
+    		    \item $\vec v = t\mat{3\\4\\5} + s\mat{4\\4\\3} + \mat{-1\\-1\\0}$
+    		    \item $\vec v = t\mat{3\\4\\0} + s\mat{0\\1\\3} + \mat{0\\0\\-10}$
+    		    \item $\vec v = t\mat{0\\1\\0} + s\mat{0\\0\\1} + \mat{1\\-1\\1}$
+    		    \item $\vec v = t\mat{1\\0} + s\mat{0\\1}$
+    		    \item $\vec v = t\mat{-3\\0\\2\\1} + s\mat{-1\\1\\0\\0} + \mat{-3\\0\\3\\0}$
     		\end{enumerate}
 		\end{solution}
 		\prob Let $\ell_1$, $\ell_2$, and $\ell_3$ be described in vector form by
@@ -59,7 +59,7 @@
 		% Q3 Solutions
 		\begin{solution} 
 		    \begin{enumerate}
-		        \item $\ell_1 = \ell_3$, $\ \ell_1 \& \ell_2$ intersect, \ $\ell_3 \& \ell_2$ intersect.
+		        \item $\ell_1 = \ell_3$; $\ell_1$ and $\ell_2$ intersect; $\ell_3$ and $\ell_2$ intersect.
 		        \item $\ell_1\cap\ell_2\cap\ell_3 = \Set*{\mat{2\\4}}$
 		    \end{enumerate}
 		\end{solution}
@@ -84,10 +84,11 @@
         \begin{solution}
             \begin{enumerate}
                 \item $\mathcal P_1\cap \ell = \Set*{\mat{1\\1\\0}}$
-                \item $\mathcal P_1\cap \mathcal P_2 = \Set*{s\mat{1\\1\\3} + \mat{\frac{-1}{2}\\ \frac{3}{2}\\ \frac{-1}{2}} : s \in \R}$
+                \item $\mathcal P_1\cap \mathcal P_2 = \Set*{x \in \R^3 : x=t\mat{1\\1\\3} + \mat{-1/2\\ 3/2\\ -1/2}, t \in \R}$
                 \item $\mathcal P_2\cap \ell = \Set*{\mat{2\\4\\1}}$
-                \item $\vec v = s\mat{0\\0\\1} + t\mat{1\\3\\1}$ (Answers may vary)
-                \item No. Since $P_2\cap \ell$ has one vector, the row reduction of $\mat{1 & 0 & 1 \\ 3 & 0 & 1 \\ 1 & 2 & 1 }$ has three pivots. If $P_2'$ is parallel to $P_2$, then $P_2'\cap \ell$ consists of vectors whose coordinates satisfy a system of linear equations corresponding to an augmented matrix of the form 
+                \item $\vec v = t\mat{0\\0\\1} + s\mat{1\\3\\1}, t,s \in \R$ \\ (There are many correct answers)
+                \item No. Since $P_2\cap \ell$ has one vector, the reduced row echelon form of $\mat{1 & 0 & 1 \\ 3 & 0 & 1 \\ 1 & 2 & 1 }$ has three pivot columns. \\ 
+                If $P_2'$ is parallel to $P_2$, then all the vectors in $P_2'\cap \ell$ satisfy a system of linear equations corresponding to the augmented matrix of form:
                 \[
                 \left[
                     \begin{array}{ccc|c}
@@ -97,7 +98,7 @@
                     \end{array}
                 \right]
                 \]
-                , which is consistent since the now reduced form has three pivots.
+                This matrix is consistent because we already know that the reduced row echelon form has 3 pivot columns.
             \end{enumerate}
         \end{solution}
 	\prob
