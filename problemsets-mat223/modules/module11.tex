@@ -155,8 +155,8 @@ a basis from the existing row or column vectors.
 	Let $M=\mat{1&2&5\\2&-2&-2}$. Find a basis for the row space and the column space of $M$.
 
 	\medskip
-	First the column space. We need to pick a basis for $\Span\Set*{\mat{1\\2},\mat{2\\-1},\mat{5\\-2}}$,
-	which is the same thing as picking a maximal linearly independent subset of $\Set*{\mat{1\\2},\mat{2\\-1},\mat{5\\-2}}$.
+	First the column space. We need to pick a basis for $\Span\Set*{\mat{1\\2},\mat{2\\-2},\mat{5\\-2}}$,
+	which is the same thing as picking a maximal linearly independent subset of $\Set*{\mat{1\\2},\mat{2\\-2},\mat{5\\-2}}$.
 
 	Putting these vectors as columns in a matrix and row reducing, we see
 	\[
@@ -165,7 +165,7 @@ a basis from the existing row or column vectors.
 	The first and second columns are the only pivot columns and so the first and second \emph{original} vectors
 	form a maximal linearly independent subset. Thus,
 	\[
-		\Col(M) = \Span\Set*{\mat{1\\2},\mat{2\\-1}} = \R^2\qquad\text{and a basis is}\qquad \Set*{\mat{1\\2},\mat{2\\-1}}.
+		\Col(M) = \Span\Set*{\mat{1\\2},\mat{2\\-2}} = \R^2\qquad\text{and a basis is}\qquad \Set*{\mat{1\\2},\mat{2\\-2}}.
 	\]
 
 	To find the row space, we need to pick a basis for $\Span\Set*{\mat{1\\2\\5},\mat{2\\-2\\-2}}$. Repeating
