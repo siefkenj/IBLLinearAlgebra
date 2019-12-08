@@ -387,11 +387,12 @@
 			\else
 				% put a banner on the page with no text if we are not the first
 				% page in a module
-				\probset@drawModuleBanner{}{reverse}
+				\probset@drawModuleBanner{\large Module \themodulecounter\, ---\, \themoduletitle}{reverse}
 			\fi
 		}{}
 	}
 	\newcounter{probset@currentModuleStart}
+	\newcommand{\themoduletitle}{}
 	\DeclareDocumentEnvironment{module}{o}{%
 		\addtocounter{modulecounter}{1}
 		\setlist[itemize]{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
@@ -419,6 +420,7 @@
 		% renew some document commands to style them appropriately in
 		% the module environment
 		\RenewDocumentCommand{\Title}{m}{%
+			\renewcommand{\themoduletitle}{##1}%
 			\begin{center}
 				\color{Cerulean}{\sffamily\Large  ##1}
 				\addcontentsline{toc}{section}{Module \themodulecounter: ##1}
