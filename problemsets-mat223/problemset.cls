@@ -57,11 +57,11 @@
 		headheight=0in, 
 		left=.9in, 
 		bottom=.3in, 
-		footskip=0in,
+		footskip=.2in,
 		marginparsep=5pt, 
 		marginparwidth=2in,
 		right=10pt,
-		includeall}
+		includeall=true}
 
 	% command to set even and odd page margins
 	% for book printing.
