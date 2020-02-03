@@ -43,7 +43,11 @@
 			\item $\mat{1\\2\\3}$ and $\mat{-1\\-1\\2}$
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate*}
+				\item greater than 90\degree 
+				\item greater than 90\degree 
+				\item less than 90\degree 
+			\end{enumerate*}
 		\end{solution}
 		\prob For each vector, find two \emph{unit} vectors orthogonal to it.
 		\begin{enumerate}
@@ -54,7 +58,13 @@
 			\item $\mat{0\\1\\1\\\frac{1}{2}}$
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate*}
+				\item $\mat{1\\0}$ and $\mat{-1\\0}$
+				\item $\dfrac{1}{\sqrt{5}}\mat{2\\-1}$ and $\dfrac{1}{\sqrt{5}}\mat{-2\\1}$
+				\item $\dfrac{1}{\sqrt{10}}\mat{3\\-1\\0}$ and $\dfrac{1}{\sqrt{26}}\mat{5\\0\\-1}$
+				\item $\dfrac{1}{\sqrt{6}}\mat{1\\-2\\1}$ and $\dfrac{1}{\sqrt{41}}\mat{0\\5\\4}$
+				\item $\mat{1\\0\\0\\0}$ and $\dfrac{1}{\sqrt{2}}\mat{0\\1\\-1\\0}$
+			\end{enumerate*}
 		\end{solution}
 		
 		\prob Compute the distance between the following pairs of vectors.
@@ -65,7 +75,12 @@
 			\item $\mat{0\\0\\0\\0\\0}$ and $\mat{1\\1\\1\\1\\1}$
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate*}
+				\item $5$ 
+				\item $\sqrt{269}$ 
+				\item $2\sqrt{3}$ 
+				\item $\sqrt{5}$ 
+			\end{enumerate*}
 		\end{solution}
 		
 		\prob
@@ -76,7 +91,10 @@
 			has a direction closest to that of $\mat{1\\0\\1}$?
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate*}
+				\item $\mat{0\\1}$ 
+				\item $\mat{2\\3\\4}$
+			\end{enumerate*}
 		\end{solution}
 		
 		\prob For each plane specified, express the plane in both vector form and normal form.
@@ -87,7 +105,14 @@
 			$D=(1,1,1)$, $E=(1,-2,1)$ and $F=(0,12,0)$.
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate}
+				\item $\vec x=t\mat{2\\0\\1}+s\mat{0\\3\\1}+\mat{2\\0\\0}$ \qquad\qquad\qquad
+				$\mat{3\\2\\-6}\cdot\left(\vec x-\mat{2\\0\\0}\right)=0$
+				\medskip
+
+				\item $\vec x=t\mat{1\\1\\1}+s\mat{0\\1\\0}$ \qquad\qquad\qquad\qquad\quad 
+				$\mat{1\\0\\-1}\cdot\vec x=0$
+			\end{enumerate}
 		\end{solution}
 		
 		\prob
@@ -98,7 +123,10 @@
 			and with normal vector $\mat{1\\-1\\0}$. Write $\mathcal B$ in vector form.
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate*} 
+				\item $\vec x = t\mat{1\\1\\0}+s\mat{0\\1\\1}$ \qquad\qquad\qquad\qquad~ 
+				\item $\vec x = t\mat{1\\1\\0}+s\mat{0\\0\\1}+\mat{1\\2\\3}$ 
+			\end{enumerate*}
 		\end{solution}
 		
 		\prob In this problem we will prove some algebraic properties of the dot product.
@@ -131,7 +159,31 @@
 			Is this a good word to describe the dot product? Why?
 		\end{enumerate}
 		\begin{solution}
-		
+			\begin{enumerate}
+				\item We get the value $56$ on both sides.
+
+				\item Writing it in terms of the coefficients, we get
+				\[(x_1+y_1)z_1+(x_2+y_2)z_2=x_1z_1+y_1z_1+x_2z_2+y_2z_2\]
+				which is always true.
+
+				In the general case, the left side will be the sum of $(x_i+y_i)z_i$ and the right side 
+				will be the sum of $x_iz_i+y_iz_i$. Since these two terms are always equal, the two sums 
+				are equal. So yes, the same conclusion hold true in all dimensions.
+
+				\item We get the value $138$ on both sides.
+
+				\item Writing it in terms of the coefficients, we get
+				\[(kx_1)y_1+(kx_2)y_2=k(x_1y_1+x_2y_2)\]
+				which is always true.
+
+				In the general case, the left side will be the sum of $kx_iy_i$ and the right side will 
+				be the product of $k$ and the sum of $x_iy_i$. Distributing the product of $k$ onto the 
+				sum, we get that these two results are equal. So yes, the same conclusion hold true in 
+				all dimensions.
+
+				\item The dot product distributes onto sums, just like the typical multiplication of 
+				real numbers.
+			\end{enumerate}
 		\end{solution}
 	\end{problist}
 \end{exercises}
