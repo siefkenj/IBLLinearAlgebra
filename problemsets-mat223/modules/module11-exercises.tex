@@ -12,24 +12,24 @@
 			\item $M_{4}=\mat{1&-2&0&-1\\3&5&-1&0\\2&3&-2&0\\0&0&0&1}$.
 		\end{enumerate}
 
-		% Q1 Solutions
+			% Q1 Solutions
 		\begin{solution}
 		    \begin{enumerate}
-    		    \item $M_1 = \mat{1&2&1\\3&1&-2\\8&6&-2}$\\
-    		    $\Null(M_{1})=\Set*{\vec{x} \in \R^3: M_1 \vec{x}=\vec 0}$ \\
-    		    So, we need to solve $\mat{M_1|\vec0}$. And $\rref(M_1)=\mat{1&0&-1\\0&1&1\\0&0&0}$\\
-    		    So, $\Null(M_1)=\Set*{\vec x \in \R^3:\vec x = s\mat{1\\-1\\1} \; \text{for some } s\in\R}= \Span \Set*{\mat{1\\-1\\1}}$\\
-    		    $\Col(A) = \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6},\mat{1\\-2\\-2}}= \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6}}$\\
+    		    \item $M_1 = \mat{1&2&1\\3&1&-2\\8&6&-2}$ \newline
+    		    $\Null(M_{1})=\Set*{\vec{x} \in \R^3: M_1 \vec{x}=\vec 0}$ \newline
+    		    Therefore we need to solve $\mat{M_1|\vec0}$. And $\rref(M_1)=\mat{1&0&-1\\0&1&1\\0&0&0}$.\newline
+    		    $\Null(M_1)=\Set*{\vec x \in \R^3:\vec x = s\mat{1\\-1\\1} \; \text{for some } s\in\R}= \Span \Set*{\mat{1\\-1\\1}}$\newline
+    		    $\Col(A) = \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6},\mat{1\\-2\\-2}}= \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6}}$\newline
     		    $\Row(A)=\Span\Set*{\mat{1\\2\\1},\mat{3\\1\\-2},\mat{8\\6\\-2}} =\Span\Set*{\mat{1\\2\\1},\mat{3\\1\\-2}}  =\Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\1}}$
     		    
-    		    \item $\rref(M_2)=\mat{1&0&4/3\\0&1&1/2}$\\
-    		    $\Null(M_2)=\Span\Set*{\mat{4/3\\1/2\\-1}};\;\Col(M_2)=\Span\Set*{\mat{0\\3},\mat{2\\2}}=\R^2$\\
+    		    \item $\rref(M_2)=\mat{1&0&4/3\\0&1&1/2}$\newline
+    		    $\Null(M_2)=\Span\Set*{\mat{4/3\\1/2\\-1}};\;\Col(M_2)=\Span\Set*{\mat{0\\3},\mat{2\\2}}=\R^2$\newline
     		    $\Row(M_2)=\Span\Set*{\mat{0\\2\\1},\mat{3\\2\\5}}$
     		    
-    		    \item $\rref(M_3)=\mat{1&0\\0&1\\0&0};\; \Null(M_3)=\Set*{\mat{0\\0}}$\\
+    		    \item $\rref(M_3)=\mat{1&0\\0&1\\0&0};\; \Null(M_3)=\Set*{\mat{0\\0}}$\newline
     		    $\Col(M_3)=\Span\Set*{\mat{1\\3\\4},\mat{2\\1\\0}};\; \Row(M_3)=\Span\Set*{\mat{1\\2},\mat{3\\1}}=\R^2$
     		    
-    		    \item $\rref(M_4)=I_{4\times4}$ (identity matrix); Thus, $\Null(M_4)=\Set*{\mat{0\\0\\0\\0}}$\\
+    		    \item $\rref(M_4)=I_{4\times4}$ (identity matrix); Thus, $\Null(M_4)=\Set*{\mat{0\\0\\0\\0}}$\newline
     		    $\Col(M_4)=\R^4; \; \Row(M_4)=\R^4$
 		    \end{enumerate}
 		\end{solution}
@@ -45,18 +45,18 @@
 		% Q2 Solutions
         \begin{solution}
             \begin{enumerate}
-                 \item $\Range(T)=P$\\
-    		    For any vector $\vec x \in P; \; T(\vec x) = \vec x$\\
-    		    So, $\vec x\in \text{Image}(T) \implies P \subseteq \Range(T)$\\
+                 \item $\Range(T)=\mathcal{P}$\\
+    		    For any vector $\vec x \in \mathcal{P}$; $T(\vec x) = \vec x$ 
+    		    So, $\vec x\in \text{Image}(T) \implies \mathcal{P} \subseteq \Range(T)$\\
     		    
     		    Let \(\vec{y} \in\) Range \((T) \Rightarrow\) There is an input \(\vec{a} \in \mathbb{R}^{3}\) such that \(T(\vec{a})=\vec{y}\).
-                By definition of projection, the closest point to \(\vec{a}\) in \(P\) is \(\vec{y}\).
-                In particular, \(\vec{y}\) is a point in \(P\). \(\Rightarrow \vec{y} \in P\)\\
+                By definition of projection, the closest point to \(\vec{a}\) in \(\mathcal{P}\) is \(\vec{y}\).
+                In particular, \(\vec{y}\) is a point in \(\mathcal{P}\). \(\Rightarrow \vec{y} \in P\)\\
                 
-                Thus Range \((T) \subseteq P,\) and hence \(P=\) Range \((T)\)\\
+                Thus Range \((T) \subseteq \mathcal{P},\) and hence \(\mathcal{P}=\) Range \((T)\)\\
                 
-                P is a plane through origin in \(\mathbb{R}^{3}\); So it is a 2 dimensional
-                subspace of \(\mathbb{R}^{3}\). dim \(P=2\)\\
+                $\mathcal{P}$ is a plane through origin in \(\mathbb{R}^{3}\); So it is a 2 dimensional
+                subspace of \(\mathbb{R}^{3}\). dim \(\mathcal{P}=2\)\\
                 
                 $\implies \Dim \Range(T) = \Rank(T)=2$
                 
@@ -164,7 +164,6 @@
 				$\Rank(T) = n$, then $\Nullity(M) = 0$.
 		\end{enumerate}
 
-		% Q5 Solutions
 		\begin{solution}
 		    \begin{enumerate}
     		    \item False. $\Range(A)$ and $\Range(A^T)$ need not even be in the same space.\\
