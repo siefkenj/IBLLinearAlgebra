@@ -1,137 +1,292 @@
+
 \begin{exercises}
+
 	\begin{problist}
-		\prob 
+		\prob
 		\begin{enumerate}
-			\item Let $\mathcal U:\R^{2}\to\R^{2}$ be the matrix transformation
-				given by $\mat{0&0\\-\sqrt{2}/2 & -\sqrt{2}/2}$.
-				Further, let $\mathcal P:\R^{2}\to\R^{2}$ be the
-				projection onto the $y$-axis, and let $\mathcal R:\R^{2}\to\R^{2}$
-				be the rotation clockwise by $135^{\circ}$.
+			\item Let $\mathcal U:\R^{2}\to\R^{2}$
+				be the matrix transformation
+				given by $\mat{0&0\\-\sqrt{2}/2
+				& -\sqrt{2}/2}$. Further,
+				let
+				$\mathcal P:\R^{2}\to\R^{2}$
+				be the projection onto the
+				$y$-axis, and let $\mathcal
+				R:\R^{2}\to\R^{2}$ be the rotation
+				clockwise by $135^{\circ}$.
 				\begin{enumerate}
-					\item Find a matrix for $\mathcal R \circ \mathcal P$.
+					\item Find a matrix for
+						$\mathcal R
+						\circ
+						\mathcal P$.
 
-					\item Find a matrix for $\mathcal P \circ \mathcal R$.
+					\item Find a matrix for
+						$\mathcal P
+						\circ
+						\mathcal R$.
 
-					\item Write $\mathcal U$ as the composition
-						(in some order) of $\mathcal R$ and
-						$\mathcal P$.
+					\item Write $\mathcal
+						U$ as the composition
+						(in some order)
+						of $\mathcal
+						R$ and $\mathcal
+						P$.
 				\end{enumerate}
 
-			\item Let $\mathcal V:\R^{2}\to\R^{2}$ be the matrix transformation
+			\item Let $\mathcal V:\R^{2}\to\R^{2}$
+				be the matrix transformation
 				given by $\mat{0&2\\2&0}$.
-				Further, let $\mathcal S:\R^{2}\to\R^{2}$ be the
-				transformation that doubles every vector, and let
-				$\mathcal F:\R^{2}\to\R^{2}$ be the
-				transformation reflecting over the line $y=x$.
+				Further, let
+				$\mathcal S:\R^{2}\to\R^{2}$
+				be the transformation that
+				doubles every vector, and
+				let
+				$\mathcal F:\R^{2}\to\R^{2}$
+				be the transformation
+				reflecting over the line
+				$y=x$.
 				\begin{enumerate}
-					\item Find a matrix for $\mathcal F \circ \mathcal S$.
+					\item Find a matrix for
+						$\mathcal F
+						\circ
+						\mathcal S$.
 
-					\item Find a matrix for $\mathcal S \circ \mathcal F$.
+					\item Find a matrix for
+						$\mathcal S
+						\circ
+						\mathcal F$.
 
-					\item Write $\mathcal U$ as the composition
-						(in some order) of $\mathcal F$ and
-						$\mathcal S$.
+					\item Write $\mathcal
+						V$ as the composition
+						(in some order)
+						of $\mathcal
+						F$ and $\mathcal
+						S$.
 				\end{enumerate}
 		\end{enumerate}
-		
+
 		% Q1 Solutions
+
 		\begin{solution}
-		    \begin{enumerate}
-			\item 
-				Note that $P$ and $R$ are both linear transformations. So we can find their corresponding matrices, $M_{\mathcal P}$ and $M_{\mathcal R}$. 
-				$M_{\mathcal P}=\mat{0&0\\0&1}$ since $\mathcal P\mat{1\\0}=\mat{0\\0}$ and $\mathcal P\mat{0\\1}=\mat{0\\1}$.
-				For the first column of $M_{\mathcal R}$ we calculate $\mathcal R\mat{1\\0}=\mat{-\cos{45^{\circ}}\\-\sin{45^{\circ}}}=\mat{-\tfrac{1}{\sqrt{2}}\\-\tfrac{1}{\sqrt{2}}}$
-				and for the second we compute $\mathcal R\mat{0\\1}=\mat{\cos{45^{\circ}}\\-\sin{45^{\circ}}}=\mat{\tfrac{1}{\sqrt{2}}\\-\tfrac{1}{\sqrt{2}}}$.
-				Thus we get $M_{\mathcal R}=\mat{-\tfrac{1}{\sqrt{2}}&\tfrac{1}{\sqrt{2}}\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}$
 
-				\begin{enumerate}
-					\item We want to compute $M_{R\circ P}$ and we get that $M_{R\circ P}= M_\mathcal R M_{\mathcal P}=\mat{-\tfrac{1}{\sqrt{2}}&\tfrac{1}{\sqrt{2}}\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}\mat{0&0\\0&1}=\mat{0&\tfrac{1}{\sqrt{2}}\\0&-\tfrac{1}{\sqrt{2}}}$
+			\begin{enumerate}
+				\item $(\mathcal R \circ \mathcal
+					P)(\mat{1\\0}) =
+					\mat{0\\0}$,
+					$(\mathcal R \circ \mathcal
+					P)(\mat{0\\1}) =
+					\mat{\tfrac{1}{\sqrt{2}}\\
+					-\tfrac{1}{\sqrt{2}}}$,
+					$(\mathcal P \circ \mathcal
+					R)(\mat{1\\0}) =
+					\mat{0\\ -\tfrac{1}{\sqrt{2}}}$,
+					$(\mathcal P \circ \mathcal
+					R)(\mat{0\\1}) =
+					\mat{0\\ - \tfrac{1}{\sqrt{2}}}$.
+					We can use the effect
+					of the transformation
+					on the standard basis
+					to compute the matrix.
 
-					\item We want to compute $M_{P\circ R}$ and we get that $M_{P\circ R}= M_\mathcal P M_{\mathcal R}=\mat{0&0\\0&1}\mat{-\tfrac{1}{\sqrt{2}}&\tfrac{1}{\sqrt{2}}\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}=\mat{0&0\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}$
 
-					\item Since $M_\mathcal U=M_{\mathcal P \circ \mathcal R}$ and $\tfrac{1}{\sqrt{2}}=\tfrac{\sqrt{2}}{2}$, we can assert that $\mathcal U=\mathcal P \circ \mathcal R$.
-				\end{enumerate}
-				\item Note $M_\mathcal V=\mat{0&2\\2&0}$. Notice that $\mathcal S$ is a linear transformation. (On a test you might need to prove this before writing a matrix.) We observe what $\mathcal S$ does to the standard basis vectors: $\mathcal S\mat{1\\0}=\mat{2\\0}$ and $\mathcal S\mat{0\\1}=\mat{0\\2}$. Hence, $M_\mathcal S=\mat{2&0\\0&2}$. Note that $\mathcal F$ is given by $\mathcal F\mat{x\\y}=\mat{y\\x}$ which is also a linear transformation and so we can find its matrix: $M_\mathcal F=\mat{0&1\\1&0}$.
-				\begin{enumerate}
-				    \item $M_{\mathcal F \circ \mathcal S}=M_\mathcal F M_\mathcal S=\mat{0&1\\1&0}\mat{2&0\\0&2}=\mat{0&2\\2&0}$
-				    \item $M_{\mathcal S \circ \mathcal F}=M_\mathcal S M_\mathcal F=\mat{2&0\\0&2}\mat{0&1\\1&0}=\mat{0&2\\2&0}$
-				    \item $\mathcal S\circ \mathcal F= \mathcal V = \mathcal F \circ \mathcal S$.
-				\end{enumerate}
-			\end{enumerate}	
+					\begin{enumerate}
+						\item $M_{R\circ
+							P}=
+							\mat{\mathcal
+							R(\mathcal
+							P(\xhat))&
+							\mathcal
+							R(
+							\mathcal
+							P(\yhat))}=
+							\mat{0&\tfrac{1}{\sqrt{2}}\\0&-\tfrac{1}{\sqrt{2}}}$
+
+						\item $M_{P\circ
+							R}=
+							\mat{\mathcal
+							P(
+							\mathcal
+							R(\xhat))&
+							\mathcal
+							P(\mathcal
+							R(\yhat))}=
+							\mat{0&0\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}$
+
+						\item Since $M_{\mathcal}
+							U=M_{\mathcal
+							P
+							\circ
+							\mathcal
+							R}$ and
+							$\tfrac{1}{\sqrt{2}}=\tfrac{\sqrt{2}}{2}$,
+							we
+							can
+							assert
+							that
+							$\mathcal
+							U=\mathcal
+							P
+							\circ
+							\mathcal
+							R$.
+					\end{enumerate}
+
+				\item $(\mathcal F \circ \mathcal
+					S)(\mat{1\\0}) =
+					\mat{0\\2}$,
+					$(\mathcal F \circ \mathcal
+					S)(\mat{0\\1}) =
+					\mat{2\\0}$, $(\mathcal
+					S \circ \mathcal F)(\mat{1\\0})
+					= \mat{0\\2}$,
+					$(\mathcal S \circ \mathcal
+					F)(\mat{0\\1}) =
+					\mat{2\\0}$. We can use
+					the effect of the transformation
+					on the standard basis
+					to compute the matrix.
+					\begin{enumerate}
+						\item $M_{\mathcal
+							F
+							\circ
+							\mathcal
+							S}=\mat{\mathcal
+							F(
+							\mathcal
+							S(\xhat))&
+							\mathcal
+							F(\mathcal
+							S(\yhat))}=\mat{0&2\\2&0}$
+
+						\item $M_{\mathcal
+							S
+							\circ
+							\mathcal
+							F}=\mat{\mathcal
+							S(
+							\mathcal
+							F(\xhat))&
+							\mathcal
+							S(\mathcal
+							F(\yhat))}=\mat{0&2\\2&0}$
+
+						\item $\mathcal
+							S\circ
+							\mathcal
+							F=
+							\mathcal
+							V =
+							\mathcal
+							F
+							\circ
+							\mathcal
+							S$.
+					\end{enumerate}
+			\end{enumerate}
 		\end{solution}
 
-		\prob Let $\mathcal A: \R^{2} \to \R^{2}$ and
-		$\mathcal B: \R^{2} \to \R^{2}$ be matrix transformations with
-		matrices
+		\prob Let $\mathcal A: \R^{2}\to \R^{2}$ and
+		$\mathcal B: \R^{2}\to \R^{2}$ be matrix
+		transformations with matrices
 		\[
-			M_{\mathcal A}= \mat{2&2\\1&3}\quad \text{and} \quad M_{\mathcal
-			B}= \mat{3&2\\0&4}
+			M_{\mathcal A}= \mat{2&2\\1&3}\quad
+			\text{and}\quad M_{\mathcal B}= \mat{3&2\\0&4}
 		\]
-		 and let $M_{\mathcal T}$ be the matrix for $\mathcal T=\mathcal A\circ\mathcal B$.
+		 and let $M_{\mathcal T}$ be the matrix for
+		$\mathcal T=\mathcal A\circ\mathcal B$.
 		\begin{enumerate}
-			\item Find $M_{\mathcal T}$ by computing input-output pairs for $\mathcal
+			\item Find $M_{\mathcal T}$ by computing
+				input-output pairs for $\mathcal
 				T$.
 
-			\item Find $M_{\mathcal T}$ by using matrix multiplication applied
-				to $M_{\mathcal A}$ and $M_{\mathcal B}$.
+			\item Find $M_{\mathcal T}$ by using
+				matrix multiplication applied
+				to $M_{\mathcal A}$ and $M_{\mathcal
+				B}$.
 		\end{enumerate}
-		
+
 		% Q2 Solutions
-	    \begin{solution}
-	        \begin{enumerate}
-	            \item $M_{\mathcal T} \mat{1\\0} 
-	            = M_{\mathcal A} M_{\mathcal B} \mat{1\\0}
-	            = M_{\mathcal A} \mat{3&2\\0&4} \mat{1\\0}
-	            = \mat{2&2\\1&3} \mat{3\\0} = \mat{6\\3}$
-	            \\
-	            $M_{\mathcal T} \mat{0\\1} 
-	            = M_{\mathcal A} M_{\mathcal B} \mat{0\\1}
-	            = M_{\mathcal A} \mat{3&2\\0&4} \mat{0\\1}
-	            = \mat{2&2\\1&3} \mat{2\\4} = \mat{12\\14}$.
-	            Therefore $M_{\mathcal T} = \mat{6&12\\3&14}$
-	            
-	            \item $M_{\mathcal T}
-	            = M_{\mathcal A} M_{\mathcal B}
-	            =  \mat{2&2\\1&3} \mat{3&2\\0&4}
-	            = \mat{6&12\\3&14}$
-	        \end{enumerate}
-	    \end{solution}
 
-		\prob Let $\mathcal A: \R^{3} \to \R^{2}$ and
-		$\mathcal B: \R^{2} \to \R^{1}$ be matrix transformations with
-		matrices
+		\begin{solution}
+
+			\begin{enumerate}
+				\item $M_{\mathcal T}\mat{1\\0}=
+					M_{\mathcal A}M_{\mathcal
+					B}\mat{1\\0}= M_{\mathcal
+					A}\mat{3&2\\0&4}\mat{1\\0}=
+					\mat{2&2\\1&3}\mat{3\\0}=
+					\mat{6\\3}$ \\ $M_{\mathcal
+					T}\mat{0\\1}= M_{\mathcal
+					A}M_{\mathcal B}\mat{0\\1}=
+					M_{\mathcal A}\mat{3&2\\0&4}\mat{0\\1}=
+					\mat{2&2\\1&3}\mat{2\\4}=
+					\mat{12\\14}$.
+					Therefore
+					$M_{\mathcal T}=
+					\mat{6&12\\3&14}$
+
+				\item $M_{\mathcal T}= M_{\mathcal
+					A}M_{\mathcal B}=
+					\mat{2&2\\1&3}\mat{3&2\\0&4}=
+					\mat{6&12\\3&14}$
+			\end{enumerate}
+		\end{solution}
+
+		\prob Let $\mathcal A: \R^{3}\to \R^{2}$ and
+		$\mathcal B: \R^{2}\to \R^{1}$ be matrix transformations
+		with matrices
 		\[
-			M_{\mathcal A}= \mat{2&1&0\\2&3&0}\quad and \quad M_{\mathcal
-			B}= \mat{3&2}
+			M_{\mathcal A}= \mat{2&1&0\\2&3&0}\quad
+			and \quad M_{\mathcal B}= \mat{3&2}
 		\]
-		 and let $M_{\mathcal T}$ be the matrix for $\mathcal T=\mathcal B\circ \mathcal A$.
+		 and let $M_{\mathcal T}$ be the matrix for $\mathcal
+		T=\mathcal B\circ \mathcal A$.
 		\begin{enumerate}
-			\item Find $M_{\mathcal T}$ by computing input-output pairs for $\mathcal
+			\item Find $M_{\mathcal T}$ by computing
+				input-output pairs for $\mathcal
 				T$.
 
-			\item Find $M_{\mathcal T}$ by using matrix multiplication applied
-				to $M_{\mathcal A}$ and $M_{\mathcal B}$.
+			\item Find $M_{\mathcal T}$ by using
+				matrix multiplication applied
+				to $M_{\mathcal A}$ and $M_{\mathcal
+				B}$.
 		\end{enumerate}
-		
+
 		% Q3 Solutions
-% 		\begin{solution}
-            \begin{enumerate}
-                \item $\mathcal T = \mathcal B \circ \mathcal A$, thus $\mathcal T : \R^3 \to \R$. \\
-                $\mathcal T \mat{1\\0\\0} 
-                = (\mathcal B \circ \mathcal A) \mat{1\\0\\0}
-                = \mathcal B \mat{2\\2} = 10$
-                
-                $\mathcal T \mat{0\\1\\0} 
-                = (\mathcal B \circ \mathcal A) \mat{0\\1\\0}
-                = \mathcal B \mat{1\\3} = 9$
-                
-                $\mathcal T \mat{0\\0\\1} 
-                = (\mathcal B \circ \mathcal A) \mat{0\\0\\1}
-                = \mathcal B \mat{0\\0} = 0$. Therefore $M_{\mathcal T} = \mat{10&9&0}$
-                
-                \item $M_{\mathcal T} = M_{\mathcal B} M_{\mathcal A}
-                = \mat{3&2} \mat{2&1&0\\2&3&0} = \mat{10&9&0}$
-            \end{enumerate}
-% 		\end{solution}
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item $\mathcal T = \mathcal
+					B \circ \mathcal A$,
+					thus
+					$\mathcal T : \R^{3}
+					\to \R$. \\ $\mathcal
+					T \mat{1\\0\\0}= (\mathcal
+					B \circ \mathcal A)
+					\mat{1\\0\\0}=
+					\mathcal B \mat{2\\2}=
+					10$
+
+					$\mathcal T \mat{0\\1\\0}=
+					(\mathcal B \circ \mathcal
+					A) \mat{0\\1\\0}=
+					\mathcal B \mat{1\\3}=
+					9$
+
+					$\mathcal T \mat{0\\0\\1}=
+					(\mathcal B \circ \mathcal
+					A) \mat{0\\0\\1}=
+					\mathcal B \mat{0\\0}=
+					0$. Therefore
+					$M_{\mathcal T}=
+					\mat{10&9&0}$
+
+				\item $M_{\mathcal T}= M_{\mathcal
+					B}M_{\mathcal A}=
+					\mat{3&2}\mat{2&1&0\\2&3&0}=
+					\mat{10&9&0}$
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
