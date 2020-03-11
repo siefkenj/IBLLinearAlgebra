@@ -1,17 +1,62 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob For each linear transformation defined below, find its
+		eigenvectors and eigenvalues. If it has no eigenvectors/values,
+		explain why not.
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
-		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+			\item $\mathcal S:\R^{2}\to\R^{2}$, where $\mathcal S$
+				stretches every
+				vector by the factor of $3$.
 
+			\item $\mathcal R:\R^{2}\to\R^{2}$, where $\mathcal R$  
+				rotates every vector
+				clockwise by $\frac{\pi}{4}$.
+
+			\item $\mathcal P:\R^{2}\to\R^{2}$, where $\mathcal P$
+				projects every vector
+				onto the line $\ell$ given by $y=-x$.
+
+			\item $\mathcal F:\R^{2}\to\R^{2}$, where $\mathcal F$
+				reflects every
+				vector over the line $\ell$ given by $y=-x$.
+
+			\item $T:\R^{3}\to\R^{3}$, where $T$ is a linear
+				transformation induced by the matrix
+				$\mat{1&2&3\\3&4&5\\5&6&7}$.
+
+			\item $U:\R^{3}\to\R^{2}$, where $U$ is a linear
+				transformation induced by the matrix
+				$\mat{1&2&3\\3&4&5}$.
+		\end{enumerate}
+
+		\prob Let $A = \mat{a&b\\c&d}$, where $a,b,c,d \in \R$.
+		\begin{enumerate}
+			\item Find the characteristic polynomial of $A$.
+		
+			\item Find conditions on $a,b,c,d$ so that $A$ has (i) two distinct
+				real eigenvalues, (ii) exactly one real eigenvalue, (iii) no
+				real eigenvalues.
+		\end{enumerate}
+
+		\prob Let $B=\mat{1&2\\0&4}$.
+		\begin{enumerate}
+			\item Find the eigenvalues of $B$.
+			\item Find the eigenvalues of $B^T$.
+			\item A vector $\vec v\neq\vec 0$ is called a \emph{left-eigenvector} for $B$ if
+				$\vec vB=\lambda \vec v$ for some scalar $\lambda$ (Here we consider $\vec v$ a \emph{row} vector). Find all
+				left eigenvectors for $B$.
+		\end{enumerate}
+
+		\prob For each statement below, determine whether it is true or false. Justify your answer.
+		\begin{enumerate}
+			\item Zero cannot be an eigenvalue of any matrix.
+			\item $\vec 0$ cannot be an eigenvector of any matrix.
+			\item A $2\times 2$ matrix always has a real eigenvalue.
+			\item A $3\times 3$ matrix always has a real eigenvalue.
+			\item A $3\times 2$ matrix always has a real eigenvalue.
+			\item The matrix $M = \mat{3&3&3&3\\3&3&3&3\\3&3&3&3\\3&3&3&3}$
+				has exactly one eigenvalue.
+			\item An invertible matrix can never have zero as an eigenvalue.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}

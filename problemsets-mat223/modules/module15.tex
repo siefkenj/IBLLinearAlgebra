@@ -1,7 +1,8 @@
 From here on out, we will only be considering linear transformations with the same domain
 and codomain (i.e., transformations $\mathcal T:\R^n\to\R^n$). Why? Because that will allow us
-to \emph{compare} input and output vectors. From this perspective, a linear transformation $\mathcal T:\R^n\to\R^n$
-may stretch, twist, shear, rotate, and project vectors. 
+to \emph{compare} input and output vectors. By comparing inputs and outputs, we
+may describe a linear transformation as a stretch, twist, shear, rotation, projection, or some combination
+of all of these operations. 
 
 \begin{center}
 	\begin{tikzpicture}
@@ -70,12 +71,12 @@ we will see that eigenvectors provide one of the best contexts in which to under
 \Heading{Finding Eigenvectors}
 
 Sometimes you can find the eigenvectors/values of a linear transformation just by thinking about it.
-For example, for reflections, projections, and dilations eigenvectors, the eigen directions
+For example, for reflections, projections, and dilations, the eigen directions
 are geometrically clear. However, for an arbitrary matrix transformation, it may not be obvious.
 
-Our goal now will be to see if we can leverage our other linear algebra knowledge to find eigenvectors/values,
-particularly for matrix transformations. So that we don't have to switch back and forth
-between thinking about linear transformations and thinking about matrices, let just think about matrices for now.
+Our goal now will be to see if we can leverage linear algebra knowledge to find eigenvectors/values.
+So that we don't have to switch back and forth
+between thinking about linear transformations and thinking about matrices, let's just think about matrices for now.
 
 Let $M$ be a square matrix. The vector $\vec v\neq \vec 0$
 is an eigenvector for $M$ if and only if there exists a scalar $\lambda$ so that
@@ -112,7 +113,7 @@ Every $\lambda$ defines a different $E_\lambda$ where eigenvectors could be hidi
 \emph{as a function of $\lambda$}, we can use our mathematical knowledge of single-variable functions to 
 figure out when $\det(E_\lambda)=0$.
 
-The quantity $\det(E_\lambda)$, view as a function of $\lambda$, has a special name---it's
+The quantity $\det(E_\lambda)$, viewed as a function of $\lambda$, has a special name---it's
 called the \emph{characteristic polynomial}\footnote{ This time the term is traditionally given the English name, rather
 than being called the \emph{eigenpolynomial}.}.
 
@@ -146,26 +147,29 @@ With the characteristic polynomial in hand, finding eigenvectors/values becomes 
 \begin{example}
 	Find the eigenvectors/values of $A=\mat{1&2\\3&2}$.
 
-	Similarly to the above example, we first determinate $\Char(A)$:
+	Like the previous example, we first compute $\Char(A)$.
 	\begin{align*}
 	    \Char(A)&=\det\left(\mat{1-\lambda&2\\3&2-\lambda}\right)\\
 	            &=(1-\lambda)(2-\lambda)-6=\lambda^2-3\lambda-4=(4-\lambda)(-1-\lambda)
 	\end{align*}
-	Next, we set the $\chr(A)=0$ to find eigenvalues, which are $\lambda_1=-1$ and $\lambda_2=4$. Based on the previous discussion, we know non-zero vectors in $\Null(A-\lambda_1I)$ are eigenvectors with eigenvalue $-1$. Computing, 
+	Next, we solve for when
+	$\chr(A)=0$ to find eigenvalues, 
+	which are $\lambda_1=-1$ and $\lambda_2=4$. 
+	
+	We know non-zero vectors in $\Null(A-\lambda_1I)$ are eigenvectors with eigenvalue $-1$. Computing, 
 	\[
 	\Null(A-\lambda_1I) = \Null\left(\mat{2&2\\3&3}\right)=
-	\Span\Set*{\mat{1\\-1}}.
+	\Span\Set*{\mat{1\\-1}},
 	\]
-	The vector $\mat{1\\-1}$ can be found by using row reduction to solve $\mat{2&2\\3&3}\vec x=\vec 0$.
+	And so the eigenvectors of $A$ corresponding to eigenvalue $\lambda_1=-1$
+	are the non-zero multiples of $\mat{1\\-1}$.
 	
-	We conclude, one eigenvector of $A$ with eigenvalue $\lambda_1=-1$ is $\mat{1\\-1}$. More generally, vectors $\vec v = k \mat{1\\-1}$ where $k \neq 0$ are eigenvectors of A with eigenvalue $-1$. 
-	
-	Similarly,
+	Similarly, for $\lambda_2=4$, we compute
 	\[
 	\Null(A-\lambda_2I) = \Null\left(\mat{-3&2\\3&-2}\right)=
 	\Span\Set*{\mat{2\\3}},
 	\]
-	and so the eigenvectors with eigenvalue $4$ are $\vec v_2 = k\mat{2\\3}$ where $k \neq 0$.
+	and so the eigenvectors for $A$ with eigenvalue $4$ are the non-zero multiples of $\mat{2\\3}$.
 	
 \end{example}
 
@@ -176,13 +180,13 @@ numerically approximating eigenvalues turns out to be easier than finding roots
 of a polynomial, so many numerical root finding algorithms actually create a matrix
 with an appropriate characteristic polynomial and use numerical linear
 algebra to approximate its roots.}, and it's not one we will focus on. However, it's
-handy to have the quadratic formula in you're back pocket for factoring particularly
+handy to have the quadratic formula in your back pocket for factoring particularly
 stubborn polynomials.
 
 \begin{example}
 	Find the eigenvectors/values of $A=\mat{1&2\\3&4}$.
 
-	First, find the roots of $\Char(A)$ by setting it to $0$.
+	First, we find the roots of $\Char(A)$ by setting it to $0$.
 	\begin{align*}
 	    \Char(A)&=\det\left(\mat{1-\lambda&2\\3&4-\lambda}\right)\\
 	            &=(1-\lambda)(4-\lambda)-6=\lambda^2-5\lambda-2=0
@@ -198,12 +202,15 @@ stubborn polynomials.
 	
 	We will start by applying row reduction to $A-\lambda_1I$.
 	\begin{align*}
-	    \matc{1-\frac{5-\sqrt{33}}{2}&2\\3&4-\frac{5-\sqrt{33}}{2}} & \sim
-	    \matc{\frac{-3+\sqrt{33}}{2}&2\\3&\frac{3+\sqrt{33}}{2}} \sim \mat{1&\frac{4}{-3+\sqrt{33}}\\1&\frac{3+\sqrt{33}}{6}}\\
-	    & \sim \matc{1&\frac{4(3+\sqrt{33})}{(-3+\sqrt{33})(3+\sqrt{33})}\\1&\frac{3+\sqrt{33}}{6}} \sim \mat{1&\frac{3+\sqrt{33}}{6}\\1&\frac{3+\sqrt{33}}{6}}\\
-	    & \sim \matc{1&\frac{3+\sqrt{33}}{6}\\0&0}
+	    \matc{1-\frac{5-\sqrt{33}}{2}&2\\3&4-\frac{5-\sqrt{33}}{2}} & \to
+	    \matc{\frac{-3+\sqrt{33}}{2}&2\\3&\frac{3+\sqrt{33}}{2}} \to \mat{1&\frac{4}{-3+\sqrt{33}}\\1&\frac{3+\sqrt{33}}{6}}\\
+	    & \to \matc{1&\frac{4(3+\sqrt{33})}{(-3+\sqrt{33})(3+\sqrt{33})}\\1&\frac{3+\sqrt{33}}{6}} \to \mat{1&\frac{3+\sqrt{33}}{6}\\1&\frac{3+\sqrt{33}}{6}}\\
+	    & \to \matc{1&\frac{3+\sqrt{33}}{6}\\0&0}
 	\end{align*}
-	Thus, we conclude that $\vec v_1 = \matc{\frac{3+\sqrt{33}}{6}\\-1}$ is an eigenvector with eigenvalue $\frac{5-\sqrt{33}}{2}$. Similarly, $\vec v_2=\matc{\frac{3-\sqrt{33}}{6}\\-1}$ is an eigenvector with eigenvalue $\lambda_2 = \frac{5+\sqrt{33}}{2}$.
+	Thus, we conclude that the eigenvectors with eigenvalue $\frac{5-\sqrt{33}}{2}$ are the non-zero multiples of 
+	$\matc{\frac{3+\sqrt{33}}{6}\\-1}$. 
+	Similarly, the eigenvectors with eigenvalue $\frac{5\sqrt{33}}{2}$ 
+	are the non-zero multiples of $\matc{\frac{3-\sqrt{33}}{6}\\-1}$.
 \end{example}
 
 \Heading{Transformations without Eigenvectors}
@@ -214,19 +221,19 @@ be rotation counter-clockwise by $90^\circ$. Are there any non-zero
 vectors that don't change direction when $\mathcal R$ is applied?
 Certainly not.
 
-Let's examine further. We know $R=\mat{0&-1\\1&0}$ is a matrix for $\mathcal R$,
+Let's examine further. We know $M_R=\mat{0&-1\\1&0}$ is a matrix for $\mathcal R$,
 and
 \[
-	\Char(R) = \lambda^2+1.
+	\Char(M_R) = \lambda^2+1.
 \]
-The polynomial $\lambda^2+1$ has no real roots, which means that $R$ (and $\mathcal R$) have
+The polynomial $\lambda^2+1$ has no real roots, which means that $M_R$ (and $\mathcal R$) have
 no real eigenvalues. However, $\lambda^2+1$ does have \emph{complex} roots of $\pm i$.
-So far, we've always though of scalars as real numbers, but if we allow complex numbers as
-scalars and view $\mathcal R$ as a transformation from $\C^2\to\C^2$, it would have eigenvalues
+So far, we've always thought of scalars as real numbers, but if we allow complex numbers as
+scalars and view $\mathcal R$ as a transformation from $\mathbb C^2\to\mathbb C^2$, it would have eigenvalues
 and eigenvectors.
 
 Complex numbers play an invaluable role in advanced linear algebra and applications of linear
-algebra to physics. We will leave the following theorem as foot for thought\footnote{ The theorem
+algebra to physics. We will leave the following theorem as food for thought\footnote{ The theorem
 is a direct corollary of the fundamental theorem of algebra.}.
 
 \begin{theorem}

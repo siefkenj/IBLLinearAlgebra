@@ -1,4 +1,4 @@
-\documentclass{problemset}
+\documentclass{article}
 \usepackage{amsmath}
 
 \usepackage{lipsum}
@@ -18,7 +18,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{fancyhdr}
 \usepackage{calc}
@@ -27,6 +27,10 @@
 \usepackage{mparhack}
 \usepackage{marginfix}
 \usepackage[hidelinks]{hyperref}
+
+
+
+\usepackage[total={7in, 9in}]{geometry}
 
 
 \usepackage{pgfplots}
@@ -144,6 +148,7 @@ have restrictions in how they operate:
 	1 mile North of its starting location.
 \end{minipage}
 
+	\vspace{2em}
 \begin{minipage}{\textwidth}
 	\vspace{.5cm}
 	\begin{wrapfigure}{l}{1in}
@@ -211,6 +216,7 @@ hover board and the magic carpet have restrictions in how they operate:
 	1 mile North of its starting location.
 \end{minipage}
 
+	\vspace{2em}
 \begin{minipage}{\textwidth}
 	\vspace{.5cm}
 	\begin{wrapfigure}{l}{1in}
@@ -378,9 +384,9 @@ notice your group making or any questions for further pursuit.
 
 	A few students were wondering how letters placed in other
 locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}$. 
-	If an ``E'' is placed around the
+	If other letters are placed around the
 	``N,'' the students argued over four different possible results for the
-	transformed E's. Which choice below, if any, is correct, and why? If none of
+	transformed letters. Which choice below, if any, is correct, and why? If none of
 	the four options are correct, what would the correct option be, and why?
 
 
@@ -399,16 +405,16 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
 		 ymax=11.5,
 		 major grid style={dotted, blue!50!white},
                  xtick={-10,-9,...,10},
-                 ytick={-10,-9,...,10},
+                 ytick={-10,-9,...,11},
                  grid=both]
 	 \draw[black, thick] (0,0) -- (0,3) -- (2,0) -- (2,3);
 
-	 \draw[black, thick] (0,0) -- (-2,0) -- (-2,-3) -- (0,-3)(-2,-1.5) -- (0,-1.5);
-
+	\draw[black, thick] (-2,0) -- (0,0) -- (0,-1.5) -- (-2,-1.5) -- (-2,-3) -- (0,-3);
+	
 	\draw[black, thick] (5, 3) -- (3, 3) -- (3, 0) -- (5, 0)  (3, 1.5) -- (5, 1.5);
-	    \draw[black, thick] (2, 8) -- (0, 8) -- (0, 5) -- (2, 5)  (0, 6.5) -- (2, 6.5);
+	\draw[black, thick] (2, 8) -- (0, 8) -- (0, 5) -- (2, 5) -- (2,8);
 
-	    \node[blue] at (1,10) {Original};
+	    \node[blue, right] at (-4,10.5) {Original};
 	    \fill[red] (0,0) circle[radius=1pt] node[below right, black] {$(0,0)$};
 
     \end{axis}
@@ -431,9 +437,10 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
                  grid=both]
 	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
 
-	\draw[black, thick] (-1, -4) -- (-3, -4) -- (-2, 0) -- (0, 0)  (-2.5, -2) -- (-0.5, -2);
+	
+	\draw[black, thick] (-2,0)--(0,0)--(-0.5,-2)--(-2.5,-2)--(-3,-4)--(-1,-4);
 	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
-	\draw[black, thick](2, 6) -- (0, 6) -- (1, 10) -- (3, 10) (0.5, 8) -- (2.5, 8) ;
+	\draw[black, thick](2, 6) -- (0, 6) -- (1, 10) -- (3, 10) -- (2,6) ;
 	    \node[red] at (-3.5,10.5) {\bfseries (A)};
 	    \fill[red] (0,0) circle[radius=1pt] node[below right, black] {$(0,0)$};
     \end{axis}
@@ -456,9 +463,9 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
                  grid=both]
 	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
 
-	\draw[black, thick] (-1, -4) -- (-3, -4) -- (-2, 0) -- (0, 0)  (-2.5, -2) -- (-0.5, -2);
+	\draw[black, thick] (-2,0)--(0,0)--(-0.5,-2)--(-2.5,-2)--(-3,-4)--(-1,-4);
 	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
-	\draw[black, thick] (3.5, 6) -- (1.5, 6) -- (2.5, 10) -- (4.5, 10) (2.0, 8) -- (4.0, 8);
+	\draw[black, thick] (3.5, 6) -- (1.5, 6) -- (2.5, 10) -- (4.5, 10) -- (3.5,6);
 	    \node[red] at (-3.5,10.5) {\bfseries (B)};
 	    \fill[red] (0,0) circle[radius=1pt] node[below right, black] {$(0,0)$};
     \end{axis}
@@ -487,9 +494,9 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
                  grid=both]
 	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
 
-	\draw[black, thick] (-1, -4) -- (-3, -4) -- (-2, 0) -- (0, 0)  (-2.5, -2) -- (-0.5, -2);
+	\draw[black, thick] (-2,0)--(0,0)--(-0.5,-2)--(-2.5,-2)--(-3,-4)--(-1,-4);
 	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
-	\draw[black, thick] (3.666666666666667, 6.666666666666667) -- (1.6666666666666667, 6.666666666666667) -- (2.666666666666667, 10.666666666666668) -- (4.666666666666667, 10.666666666666668)  (2.166666666666667, 8.666666666666668) -- (4.166666666666667, 8.666666666666668);
+	\draw[black, thick] (3.666666666666667, 6.666666666666667) -- (1.6666666666666667, 6.666666666666667) -- (2.666666666666667, 10.666666666666668) -- (4.666666666666667, 10.666666666666668) -- (3.666666666666667, 6.666666666666667);
 	    \node[red] at (-3.5,10.5) {\bfseries (C)};
 	    \fill[red] (0,0) circle[radius=1pt,fill=blue] node[below right, black] {$(0,0)$};
     \end{axis}
@@ -512,16 +519,22 @@ locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}
                  grid=both]
 	\draw[black, thick] (0, 0) -- (1, 4) -- (2, 0) -- (3, 4);
 
-	\draw[black, thick] (0, -4) -- (-2, -4) -- (-1, 0) -- (1, 0)  (-1.5, -2) -- (0.5, -2);
+	\draw[black, thick] (-1,0)--(1,0)--(0.5,-2)--(-1.5,-2)--(-2,-4)--(0,-4);
 	\draw[black, thick] (5, 0) -- (3, 0) -- (4, 4) -- (6, 4) (3.5, 2) -- (5.5, 2);
-	\draw[black, thick] (3.666666666666667, 6.666666666666667) -- (1.6666666666666667, 6.666666666666667) -- (2.666666666666667, 10.666666666666668) -- (4.666666666666667, 10.666666666666668)  (2.166666666666667, 8.666666666666668) -- (4.166666666666667, 8.666666666666668);
+	\draw[black, thick] (3.666666666666667, 6.666666666666667) -- (1.6666666666666667, 6.666666666666667) -- (2.666666666666667, 10.666666666666668) -- (4.666666666666667, 10.666666666666668) -- (3.666666666666667, 6.666666666666667);
 	    \node[red] at (-3.5,10.5) {\bfseries (D)};
-	    \fill[red] (0,0) circle[radius=1pt,fill=blue] node[below right, black] {$(0,0)$};
+	    \fill[red] (0,0) circle[radius=1pt,fill=blue] node[below left, black] {$(0,0)$};
     \end{axis}
 \end{tikzpicture}
 \end{minipage}
 \hfill
+
 \vfill
+
+
+
+
+
 \end{iola}
 \begin{iola}
 \section*{Task 2.3: Pat and Jamie}

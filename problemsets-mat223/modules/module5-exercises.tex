@@ -1,17 +1,243 @@
 \begin{exercises}
+
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob Let $T=\Set*{\mat{0\\0}, \mat{-1\\2}, \mat{1\\-2}}$. Find $\Proj_{T}
+		\mat{3 \\ 1}$.
+		\begin{solution}
+			The distances from $\mat{ 3 \\ 1 }$ to $\mat{0\\0}$, $\mat{-1\\2}$,
+			and $\mat{1\\-2}$ are $\sqrt{10}$, $\sqrt{17}$, and
+			$\sqrt{13}$, respectively. So $\Proj_{T} \mat{3 \\ 1}= \mat{
+			0 \\ 0}$.
+		\end{solution}
+
+		\prob Let $C=\Set*{ \vec v \in \R^2\given \norm{ \vec v} = 1}$ be
+		the unit circle in $\R^{2}$. Find $\Proj_{C} \mat{2 \\ 0}$. Justify
+		your answer.
+		\begin{solution}
+			Suppose $\vec v=\mat{x\\y}\in C$. We would like to minimize
+			$\left \Vert \mat{ x \\ y }- \mat{ 2 \\ 0 }\right \Vert$,
+			or equivalently
+			$\left \Vert \mat{ x \\ y }- \mat{ 2 \\ 0 }\right \Vert^{2}$.
+			This expression can be rewritten as
+			\[
+				\left \Vert \mat{ x \\ y }- \mat{ 2 \\ 0 }\right
+				\Vert^{2} = (x-2)^{2}+y^{2} = (x^{2}+y^{2})-4x+4
+			\]
+
+			\[
+				= \left\Vert \vec v \right \Vert^{2}-4x+4 = 5 - 4x.
+			\]
+			 Since $x \leq 1$, the above expression is minimized when
+			$x = 1$ (and thus $y = 0$). That is,
+			\[
+				\Proj_{C} \mat{2 \\ 0}= \mat{ 1 \\ 0 }.
+			\]
+
+		\end{solution}
+
+		\prob Let $\ell=\Span \Set*{ \mat{2 \\ 1}}$, $L=\Span \Set*{ \mat{2
+		\\ 1}}+\Set*{\mat{4\\0}}$, and let $S$ be the set of convex
+		linear combinations of $\mat{2 \\ 1}$ and $\mat{4 \\ 2}$. For $\vec
+		v = \mat{ 1 \\ 0}$, find
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
+			\item $\Proj_{\ell} \vec v$.
+
+			\item $\Proj_{L} \vec v$.
+
+			\item $\Proj_{S} \vec v$.
 		\end{enumerate}
 		\begin{solution}
-		Solutions to the parts
+
 			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
+				\item Let $\vec u=\mat{ 2 \\ 1 }$. Then
+					$\Proj_{\ell} \vec v=t\vec u$ for some
+					$t\in \R$ which minimizes
+
+
+					\[
+						\left \Vert \vec v - t \vec u
+						\right \Vert^{2} = \left \Vert \vec
+						u \right \Vert^{2} t^{2} - (2
+						\vec u \cdot \vec v) t + \left \Vert
+						\vec v \right \Vert^{2}.
+					\]
+
+
+					This quantity is minimized when
+					$t = \frac{\vec u \cdot \vec v}{\left
+					\Vert \vec u \right \Vert^2}= \frac{2}{5}$,
+					so
+					\[
+						\Proj_{\ell} \vec v = \tfrac{2}{5}\vec
+						u=\tfrac 15 \mat{4\\2}.
+					\]
+
+
+				\item Let $\vec u=\mat{ 2 \\ 1 }$. Then
+					$\Proj_{L} \mat{ 1 \\ 0}=\mat{4\\0}+t\vec
+					u$
+					for some $t\in \R$ which minimizes
+					\[
+						\left \Vert \mat{ 1 \\ 0}- \mat{4\\0}-t
+						\vec u \right \Vert^{2} = (-3-2t)^{2}+(0-t)^{2}
+					\]
+
+					\[
+						= 9+12t+5t^{2}.
+					\]
+					 The quantity $9+12t+5t^{2}=5(t+\frac 65
+					)^{2}+\frac 95$ is minimized when $t = -\frac
+					65$, so
+					\[
+						\Proj_{L} \vec v = \mat{4\\0}-\tfrac
+						65\vec u=\tfrac 15 \mat{8\\-6}
+					\]
+
+
+				\item The set $S$ is equal to $\Set{t \vec u: 1
+					\leq t \leq 2}$ (check this), and so $S\subseteq
+					\ell$. We found
+					$\Proj_{\ell}\vec v=\mat{4/5\\2/5}$
+					which is not in $S$. Therefore, $\Proj_{S}\vec
+					v$ must be one of the endpoints of $S$.
+					Checking both endpoints, we conclude
+					$\Proj_{S} \vec v = \mat{2 \\ 1}$.
 			\end{enumerate}
 		\end{solution}
 
+		\prob Let $T$ be the set of convex linear combinations of
+		$\Set*{\mat{1\\1}, \mat{-1\\1},\mat{-1\\-2}}$. Find $\Proj_{T}(\vec
+		v)$, for
+		\begin{enumerate}
+			\item $\vec v = \mat{3\\3}$
+
+			\item $\vec v = \mat{0\\0}$
+
+			\item $\vec v = \mat{1\\-2}$
+
+			\item $\vec v = \mat{0\\-4}$
+		\end{enumerate}
+		\begin{solution}
+			Geometrically, $T$ is a filled in triangle with vectices
+			$\mat{1\\1}, \mat{-1\\1}$ and $\mat{-1\\-2}$. So for points
+			outside the triangle, the closest point in $T$ will be on
+			the nearest side of $T$, and so we can project onto $T$
+			by projecting onto line segments.
+
+
+			\begin{enumerate}
+				\item $\Proj_{T} \mat{3\\3}= \mat{1\\1}$; since
+					$\mat{3\\3}$ is above $T$, the closest point
+					will be on the line segment $y=1$,
+					$-1\leq x \leq 1$.
+
+				\item $\Proj_{T} \mat{0\\0}= \mat{0\\0}$, since
+					$\vec 0\in T$.
+
+				\item $\Proj_{T} \mat{1\\-2}= \frac{1}{13}\mat{-5\\-14}$;
+					let $\ell$ be the line segment
+					$\vec x= \mat{1\\1}+t\mat{-2\\-3}, 0\leq
+					t \leq 1$. Then $\Proj_{T} \mat{1\\-2}= \Proj_{\ell}
+					\mat{1\\-2}$, and then either by
+					minimizing the length function, or
+					drawing a perpendicular line to $\ell$, we
+					find the closest point is when $t=\frac{9}{13}$.
+
+				\item $\Proj_{T} \mat{0\\-4}= \mat{-1\\-2}$, as
+					in $(c)$, but now the minimizer is at $t>1$,
+					so the constraints $0\leq t \leq 1$
+					force us to take the closest point on
+					the line segment.
+			\end{enumerate}
+		\end{solution}
+
+		\prob Explain in your own words how to find
+		$\Proj_{\ell}(\vec v)$ when $\ell=\Span\Set{\vec d}$ for some
+		$\vec d \neq \vec 0$.
+
+		\prob Let $\vec e_{1}=\mat{1 \\ 0}$, $\vec e_{2} =\mat{0 \\ 1}$,
+		and $\vec u = \mat{2 \\ 3}$.
+		\begin{enumerate}
+			\item Draw $\vec e_{1}$, $\vec e_{2}$, $\vec u$,
+				$\Comp_{\vec e_1}\vec u$, and $\Comp_{\vec e_2}\vec
+				u$ on the same grid.
+
+			\item Write down two characterizing properties for $\Comp_{\vec
+				e_2}\vec u$.
+
+			\item Check that $\vec u - \Comp_{\vec e_1}\vec u$ satisfies
+				the above properties.
+
+			\item $\Comp_{\xhat}\vec u+\Comp_{\yhat}\vec u=\vec u$.
+				Does this always happen? Explain.
+		\end{enumerate}
+
+		\prob In this problem, we will find the projection of a vector onto
+		a plane in $\R^{3}$. Let $\vec u=\mat{1\\2\\-2}$, $\vec v = \mat{0\\1\\1}$,
+		$\vec a = \mat{6\\4\\-2}$, and let $\mathcal P=\Span\Set{\vec u,\vec v}$.
+
+
+		\begin{enumerate}
+			\item Find $\Comp_{\vec u}(\vec a)$ and $\Comp_{\vec v}(\vec
+				a)$.
+
+			\item \label{PROBplaneproj} Show that
+				$\vec a-\Comp_{\vec u}(\vec a)-\Comp_{\vec v}(\vec
+				a)$
+				is a normal vector for $\mathcal P$.
+
+			\item Use \ref{PROBplaneproj} to find
+				$\Proj_{\mathcal P} (\vec a)$.
+		\end{enumerate}
+
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item Using the formula for vector components, we
+					have
+					\[
+						\Comp_{\vec u}(\vec a) = \frac{\vec
+						a \cdot \vec u}{\vec u \cdot
+						\vec u}\vec u = \frac{18}{9}\vec
+						u = \mat{2\\4\\-4}
+					\]
+
+
+
+					\[
+						\Comp_{\vec v}(\vec a) = \frac{\vec
+						a \cdot \vec v}{\vec v \cdot
+						\vec v}\vec u = \frac{2}{2}\vec
+						v = \mat{0\\1\\1}.
+					\]
+
+
+				\item Let $\vec b = \vec a-\Comp_{\vec u}(\vec a)-\Comp_{\vec
+					v}(\vec a)$. Directly computing, we have
+					$\vec b = \mat{ 4 \\-1 \\1 }$.
+
+					To show $\vec b$ is orthogonal to $P$,
+					we need to check that
+					\[
+						\vec b \cdot \vec u = 4-2-2 = 0
+					\]
+					 and
+					\[
+						\vec b \cdot \vec v = 0-1+1 = 0.
+					\]
+					 Hence $\vec b$ is a normal vector to
+					$P$. (Note that this only worked because
+					$\vec u\cdot \vec v = 0$. Subtracting
+					each vector component from $\vec a$ will
+					not produce a normal vector in general.)
+
+				\item Since $\vec b$ is orthogonal to $P$ and $\vec
+					a - \vec b$ is a linear combination of $\vec
+					u$ and $\vec v$, the vector
+					$\vec a - \vec b=\mat{2\\5\\-3}$ is the
+					closest point to $\vec a$ on $P$.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}

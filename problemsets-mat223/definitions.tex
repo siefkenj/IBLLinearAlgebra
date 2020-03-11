@@ -30,8 +30,10 @@
 		key=UnionsIntersections,
 		title={Unions \& Intersections}
 	]
-	Two common set operations are \emph{unions} and \emph{intersections}.
-	Let $X$ and $Y$ be sets.
+	Let $X$ and $Y$ be sets. The \emph{union} of $X$ and $Y$ and the \emph{intersection} of $X$
+	and $Y$ are defined as follows.
+
+	\smallskip
 
 	\hfill\begin{minipage}{\dimexpr\textwidth-3cm}
 	\begin{itemize}
@@ -105,7 +107,7 @@
 
 \begin{SaveDefinition}[key=VectorFormofaLine, title={Vector Form of a Line}]
 	Let $\ell$ be a line and let $\vec d$ and $\vec p$ be vectors. If $\ell=\Set{\vec
-	x\given \vec x= t\vec d+\vec p\text{ for some } t\in\R }$ we say the vector equation
+	x\given \vec x= t\vec d+\vec p\text{ for some } t\in\R }$, we say the vector equation
 
 	\[
 		\vec x=t\vec d+\vec p
@@ -181,7 +183,8 @@
 
 	The vectors $\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$ are
 	\emph{linearly dependent} if there is a non-trivial linear combination
-	of $\vec v_{1},\ldots,\vec v_{n}$ that equals the zero vector.
+	of $\vec v_{1},\ldots,\vec v_{n}$ that equals the zero vector. Otherwise they
+	are linearly independent.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -355,7 +358,7 @@
 	\emph{representation of $\vec v$ in the $\mathcal B$ basis}, notated $[\vec
 	v]_{\mathcal B}$, is the column matrix
 	\[
-		[\vec v]_{\mathcal B}= \matc{\alpha_1\\\vdots\\\alpha_n}.
+		[\vec v]_{\mathcal B}= \matc{\alpha_1\\\vdots\\\alpha_n}
 	\]
 	 where $\alpha_{1},\ldots,\alpha_{n}$ uniquely satisfy
 	$\vec v=\alpha_{1}\vec b_{1}+\cdots+\alpha_{n}\vec b_{n}.$
@@ -396,8 +399,8 @@
 	Let $V$ and $W$ be subspaces. A function $T:V\to W$ is called a
 	\emph{linear transformation} if
 	\[
-		T(\vec u+\vec v)=T\vec u+T\vec v \qquad\text{and}\qquad T(\alpha
-		\vec v)=\alpha T\vec v
+		T(\vec u+\vec v)=T(\vec u)+T(\vec v) \qquad\text{and}\qquad T(\alpha
+		\vec v)=\alpha T(\vec v)
 	\]
 	 for all vectors $\vec u,\vec v\in V$ and all scalars $\alpha$.
 \end{SaveDefinition}
@@ -406,10 +409,9 @@
 	Let $L:\R^n\to \R^m$ be a transformation and let $X\subseteq \R^n$ be a set. The
 	\emph{image of the set $X$ under $L$}, denoted $L(X)$, is the set
 	\[
-		L(X)=\Set{\vec x\in W \given \vec x=L(\vec y)\text{ for some }\vec
-		y\in X}.
+		L(X)=\Set{\vec y\in \R^m \given \vec y=L(\vec x)\text{ for some }\vec
+		x\in X}.
 	\]
-
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=CompositionofFunctions, title={Composition of Functions}]
@@ -436,7 +438,7 @@
 	The
 	\emph{null space} (or
 	\emph{kernel}) of a linear transformation $T:V\to W$ is the set of vectors
-	that get mapped to zero under $T$. That is,
+	that get mapped to the zero vector under $T$. That is,
 	\[
 		\Null(T)=\Set{\vec x\in V \given T\vec x=\vec 0}.
 	\]
@@ -467,17 +469,17 @@
 			a_{11}&a_{12}&a_{13}&\cdots & a_{1m}\\
 		a_{21}&a_{22}&a_{23}&\cdots&a_{2m}\\
 		\vdots &\vdots&\vdots &\ddots&\vdots\\
-		a_{n1}&a_{n2}&a_{3n}&\cdots&a_{nm}}.
+		a_{n1}&a_{n2}&a_{n3}&\cdots&a_{nm}}.
 	\]
-	The \emph{transpose} of $M$, notated $M^T$ is the $m\times n$ matrix $M$ with its rows and
-	columns swapped. That is
+	The \emph{transpose} of $M$, notated $M^T$, is the $m\times n$ matrix produced by swapping the rows
+	and columns of $M$. That is
 	\[
 		M^T=\matc{
-		a_{11}&a_{21}&\cdots&a_{m1}\\
-		a_{12}&a_{22}&\cdots&a_{m2}\\
-		a_{13}&a_{23}&\cdots&a_{m3}\\
+		a_{11}&a_{21}&\cdots&a_{n1}\\
+		a_{12}&a_{22}&\cdots&a_{n2}\\
+		a_{13}&a_{23}&\cdots&a_{n3}\\
 		\vdots&\vdots&\ddots&\vdots\\
-		a_{1n}&a_{2n}&\cdots&a_{mn}}.
+		a_{1m}&a_{2m}&\cdots&a_{nm}}.
 	\]
 \end{SaveDefinition}
 
@@ -494,7 +496,7 @@
 		
 	The \emph{inverse} of a matrix $A$ is a
 		matrix $B$ such that $AB=I$ and $BA=I$.
-		In this case, $B$ is called the inverse of $A$ and is notated by $A^{-1}$.
+		In this case, $B$ is called the inverse of $A$ and is notated $A^{-1}$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -525,7 +527,7 @@
 	key=Onetoone,
 	title={One-to-one}]
 		
-	Let $f:X\to Y$ be a function. We say $f$ is \emph{one-to-one} (or \emph{surjective}) if
+	Let $f:X\to Y$ be a function. We say $f$ is \emph{one-to-one} (or \emph{injective}) if
 	distinct inputs to $f$ produce distinct outputs. That is $f(x)=f(y)$ implies $x=y$.
 \end{SaveDefinition}
 
@@ -534,7 +536,7 @@
 	title={Onto}]
 		
 	Let $f:X\to Y$ be a function.
-	We say $f$ is \emph{onto} (or \emph{injective}) if every point in the codomain of $f$ gets mapped to.
+	We say $f$ is \emph{onto} (or \emph{surjective}) if every point in the codomain of $f$ gets mapped to.
 	That is $\Range(f)=Y$.
 \end{SaveDefinition}
 
@@ -571,7 +573,7 @@
 
 \begin{SaveDefinition}[key=NullityofaMatrix, title={Nullity of a Matrix}]
 	Let $M$ be a matrix.
-	The \emph{nullity} of $M$, denoted $\Rank(M)$, is the nullity of
+	The \emph{nullity} of $M$, denoted $\Nullity(M)$, is the nullity of
 	the linear transformation induced by $M$.
 \end{SaveDefinition}
 
@@ -580,7 +582,7 @@
 	\emph{rank} of $T$, denoted $\Rank(T)$, is the dimension of the range of
 	$T$.
 
-	For an $n\times m$ matrix $M$, the
+	For an $m\times n$ matrix $M$, the
 	\emph{rank} of $M$, denoted $\Rank(M)$, is the number of pivots in
 	$\rref(M)$.
 \end{SaveDefinition}
@@ -593,11 +595,12 @@
 
 \begin{SaveDefinition}[key=ChangeofBasisMatrix, title={Change of Basis Matrix}]
 	Let $\mathcal A$ and $\mathcal B$ be bases for $\R^n$. The matrix $M$ is called
-	a \emph{change of basis} matrix converting from $\mathcal A$ to $\mathcal B$ if
+	a \emph{change of basis} matrix (which converts from $\mathcal A$ to $\mathcal B$) if
+	for all $\vec x\in \R^n$
 	\[
-		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}
+		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}.
 	\]
-	for all $\vec x\in \R^n$. Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
+	 Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
 	stands for the change of basis matrix converting from $\mathcal A$ to $\mathcal B$,
 	and we may write $M=\BasisChange{\mathcal A}{\mathcal B}$.
 \end{SaveDefinition}
@@ -647,9 +650,9 @@
 \begin{SaveDefinition}[key=OrientationPreservingLinearTransformation, title={Orientation Preserving Linear Transformation}]
 	Let $\mathcal T:\R^n\to\R^n$ be a linear transformation. We say $\mathcal T$
 	is \emph{orientation preserving} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
-	is a positively oriented  and we say $\mathcal T$
+	is positively oriented  and we say $\mathcal T$
 	is \emph{orientation reversing} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
-	is a negatively. If $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
+	is negatively oriented. If $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
 	is not a basis for $\R^n$, then $\mathcal T$ is neither orientation preserving nor orientation reversing.
 \end{SaveDefinition}
 

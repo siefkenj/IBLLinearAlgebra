@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\pagenumbering{gobble}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\usepackage[paperheight=6in, paperwidth=8in, margin=.5in]{geometry}
+
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\begin{document}
+	\Large\bf
+
+	\medskip
+
+
+	\begin{enumerate}
+		\color{Violet} \vspace{.2cm} \hrule
+
+		\item Bryan: row reduction changes the eigenvalues. You should use the characteristic polynomial like Rachel.
+
+			Rachel: you're good!
+
+			\vspace{.2cm} \hrule
+
+		\item $\mat{2&1&2\\0&2&-1\\0&1&0}\mat{-3\\1\\1}=\mat{-3\\1\\1}$, and so $\mat{-3\\1\\1}$ is an eigenvector with eigenvalue
+			$1$, but using the row reduced form $\mat{2&1&2\\0&1&0\\0&0&-1}\mat{-3\\1\\1}=\mat{-3\\1\\-1}$, so $\mat{-3\\1\\1}$
+			is not an eigenvector with eigenvalue $1$ for the row reduced matrix. $\therefore$ using the row reduced form doesn't work.
+
+			\vspace{.2cm} \hrule
+
+		\item Row reduction changes the column space of a matrix. Since an eigenvector needs to satisfy $A\vec x=\lambda \vec x$,
+			changing the column space will change $A\vec x$.
+			 \vspace{.2cm} \hrule
+	\end{enumerate}
+\end{document}

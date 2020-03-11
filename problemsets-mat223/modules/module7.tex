@@ -16,13 +16,14 @@ which is equivalent to the vector equation
            2x+y-5z\\
 	     x-4y+z}=\mat{-15\\-21\\18}.
 \]
-But, we can also rewrite \eqref{EQREGSYS} using matrix-vector multiplication:
+We can rewrite \eqref{EQREGSYS} using matrix-vector multiplication:
 \[
 	\underbrace{\mat{1&2&-2\\2&1&-5\\1&-4&1}}_{A}\mat{x\\y\\z}=\mat{-15\\-21\\18}.
 \]
 The matrix $A$ on the left is called the \emph{coefficient matrix}\index{coefficient matrix} because it
 is made up of the coefficients from equation \eqref{EQREGSYS}.
 
+\medskip
 By using coefficient matrices, every system of linear equations can be rewritten as a single matrix equation
 of the form
 \[
@@ -62,7 +63,7 @@ is a column vector of constants.
     \[
        \mat{1&-4&1\\0&1&-1}\mat{x\\y\\z}=\mat{x-4y+z\\0x+y-z}=\mat{5\\9},
     \]
-    which is indeed equivalent to \eqref{EQSYS2}.
+    which is equivalent to \eqref{EQSYS2}.
 \end{example}
 
 \Heading{Interpretations of Matrix Equations}
@@ -75,13 +76,11 @@ The solution set to a system of linear equations, like
 			x+2y-2z=-15,
 			2x+y-5z=-21,
 			x-4y+z=18
-		}
+		},
 \end{equation}
-can be interpreted as the intersection of three planes (or hyperplanes if there were more variables)---each individual equation
-specifies one plane and so solutions to the system are in the intersection of the planes specified by each equation.
-
-However, when this system is rewritten in matrix form, the two ways to interpret matrix-vector
-multiplication give rise to two additional ways to interpret the solution set.
+can be interpreted as the intersection of three planes (or hyperplanes if there were more variables).
+Each equation (each row) specifies a plane, and the solution set is the intersection of all of these planes.
+Rewriting a system of equations in matrix form gives two additional ways to interpret  the solution set.
 
 \Heading{The \emph{Column} Picture}
 
@@ -91,14 +90,16 @@ Using the column interpretation of matrix-vector multiplication, we see that sys
 	     x\mat{1\\2\\1}+y\mat{2\\1\\-4}+z\mat{-2\\-5\\1}
 	     =\mat{-15\\-21\\18}.
 \]
-This means the question, ``What are the solutions to system \eqref{EQREGSYSb}?'' is equivalent to the question, ``What coefficients
-allow $\mat{1\\2\\1}$, $\mat{2\\1\\-4}$, and $\mat{-2\\-5\\1}$ to form $\mat{-15\\-21\\18}$ as a linear combination?'' Here,
+We now see that asking, ``\emph{What coefficients
+allow $\mat{1\\2\\1}$, $\mat{2\\1\\-4}$, and $\mat{-2\\-5\\1}$ to form $\mat{-15\\-21\\18}$ as a linear combination?}'' is
+equivalent to asking, ``\emph{What are the solutions to system \eqref{EQREGSYSb}?}''
+Here,
  $\mat{1\\2\\1}$, $\mat{2\\1\\-4}$, and $\mat{-2\\-5\\1}$ are the columns of the coefficient matrix.
 
 
 \Heading{The \emph{Row} Picture}
-The row interpretation gives us another perspective. Let $\vec r_1$, $\vec r_2$, and $\vec r_3$ be the rows of the coefficient matrix
-for system \eqref{EQREGSYSb}. Then the system is equivalent to
+The row interpretation gives another perspective. Let $\vec r_1$, $\vec r_2$, and $\vec r_3$ be the rows of the coefficient matrix
+for system \eqref{EQREGSYSb}. Then, system \eqref{EQREGSYSb} is equivalent to
 \[
 	\mat{1&2&-2\\2&1&-5\\1&-4&1}\mat{x\\y\\z}=
 	\left[\begin{array}{c}\vec r_1\\\hline\vec r_2\\\hline\vec r_3\end{array}\right]\vec x=
@@ -107,8 +108,8 @@ for system \eqref{EQREGSYSb}. Then the system is equivalent to
 \]
 In other words, we can interpret solutions to system \eqref{EQREGSYSb} as vectors whose dot product
 with $\vec r_1$ is $-15$, whose dot product with $\vec r_2$ is $-12$, and whose dot product with
-$\vec r_3$ is $18$. Given that the dot product has a geometric interpretation, this perspective will
-sometimes be enlightening.
+$\vec r_3$ is $18$. Given that the dot product has a geometric interpretation, this perspective is powerful
+(especially when the right side of the equation is all zeros!).
 
 \Heading{Interpreting Homogeneous Systems}
 Consider the homogeneous system/matrix equation
@@ -124,11 +125,11 @@ Consider the homogeneous system/matrix equation
 		\underbrace{\mat{1&2&-2\\2&1&-5\\1&-4&1}}_A\mat{x\\y\\z}=\mat{0\\0\\0}
 		.
 \end{equation}
-Now, the column interpretation of system \eqref{EQREGSYSc} is: what linear combinations of the columns vectors
-of $A$ give $\vec 0$? This directly relates to the question of whether the column vectors of $A$ are linearly independent.
+Now, the column interpretation of system \eqref{EQREGSYSc} is: \emph{what linear combinations of the column vectors
+of $A$ give $\vec 0$?} This directly relates to the question of whether the column vectors of $A$ are linearly independent.
 
-Let $\vec r_1$, $\vec r_2$, and $\vec r_3$ be the rows of $A$. The row interpretation of system \eqref{EQREGSYSc} asks
-what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec r_3$.
+Let $\vec r_1$, $\vec r_2$, and $\vec r_3$ be the rows of $A$. The row interpretation of system \eqref{EQREGSYSc} asks:
+\emph{what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec r_3$?}
 
 \begin{emphbox}[Takeaway]
 	There are three ways to interpret solutions to a matrix equation $A\vec x=\vec b$: (i) the intersection of hyperplanes
@@ -139,21 +140,22 @@ what vectors are simultaneously orthogonal to $\vec r_1$, $\vec r_2$, and $\vec 
 \begin{example}
 	Find all vectors orthogonal to $\vec a=\mat{1\\1\\1}$ and $\vec b=\mat{1\\2\\1}$.
 
-	To find all vectors orthogonal to $\vec a$ and $\vec b$, it is equivalent to solve
+	To find all vectors orthogonal to $\vec a$ and $\vec b$ we need to find vectors $\vec x$
+	satisfying $\vec a\cdot \vec x=0$ and $\vec b\cdot \vec x=0$. This is equivalent to solving the matrix equation
 	\[
-	\left[\begin{array}{c}\vec a\\\hline\vec b\end{array}\right]\vec x
+		\left[\begin{array}{c}\vec a\\\hline\\[-1.5\medskipamount]\vec b\end{array}\right]\vec x
 	=\mat{\vec a\cdot \vec x\\\vec b\cdot\vec x}
 	=\underbrace{\mat{1&1&1\\1&2&1}}_A\mat{x\\y\\z}
 	=\mat{0\\0}.
     \]
-    By row reduction on matrix $A$, we get
+    By row reducing $A$, we get
     \[
         \Rref(A) = \mat{1&0&1\\0&1&0},
     \]
-    and so we get that the complete solution expressed in vector form is
+    and so the complete solution expressed in vector form is
     \[
-        \vec x = t\mat{1\\0\\-1}.
-	\]
+        \vec x = t\mat{-1\\0\\1}.
+    \]
 \end{example}
 
 The row picture is particularly applicable when trying to find normal vectors.
@@ -165,23 +167,22 @@ The row picture is particularly applicable when trying to find normal vectors.
 	\]
 	Find a normal vector for $\mathcal Q$ and write $\mathcal Q$ in normal form.
 
-	Similarly to the above example, since normal vectors for $\mathcal Q$ need to be orthogonal to $\vec d_1=\mat{1\\1\\-1\\1}$, $\vec d_2=\mat{0\\1\\0\\1}$, and $\vec d_3=\mat{2\\0\\0\\0}$, we can find the normal vectors by solving
+	Like the above example, since normal vectors for $\mathcal Q$ need to be orthogonal to $\vec d_1=\mat{1\\1\\-1\\1}$, $\vec d_2=\mat{0\\1\\0\\1}$, and $\vec d_3=\mat{2\\0\\0\\0}$, we can find the normal vectors by solving
 	\[
 	\underbrace{\mat{1&1&-1&1\\0&1&0&1\\2&0&0&0}}_A\mat{x\\y\\z\\w}=\mat{0\\0\\0}.
     \]
-    By row reduction on matrix $A$, we get
+    By row reducing $A$, we get
     \[
         \Rref(A) = \mat{1&0&0&0\\0&1&0&1\\0&0&1&0},
     \]
     and so we get that the complete solution expressed in vector form is
     \[
-        \vec x = t\mat{0\\1\\0\\-1}.
+        \vec x = t\mat{0\\-1\\0\\1}.
 	\]
-    Therefore, any non-zero multiple of $\mat{0\\1\\0\\-1}$ is a normal vector for $\mathcal Q$. For example, $\vec n =\mat{0\\1\\0\\-1}$ is a normal vector for $\mathcal Q$, and $\mathcal Q$ can be written in normal form as 
+    Therefore, any non-zero multiple of $\mat{0\\-1\\0\\1}$ is a normal vector for $\mathcal Q$. For example, $\vec n =\mat{0\\-1\\0\\1}$ is a normal vector for $\mathcal Q$, and $\mathcal Q$ can be written in normal form as 
     \[
-        \vec n\cdot(\vec x-\vec p)=\vec 0
+	    \mat{0\\-1\\0\\1}\cdot\left(\mat{x\\y\\z\\w}-\mat{1\\2\\3\\4}\right)=0.
     \]
-    where $\vec p=\mat{1\\2\\3\\4}$.
 \end{example}
 
 

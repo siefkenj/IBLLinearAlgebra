@@ -1,0 +1,180 @@
+\begin{center}
+	{\color{myorange}\huge\bfseries\sffamily Linear Algebra}\\
+
+\vspace{.2in}
+{
+\it \copyright\,Jason Siefken, 2016--2019 \\
+Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}
+}
+\end{center}
+
+\section*{About this Book}
+
+\subsection*{For the student}
+
+This book is your introductory guide to linear algebra. It is divided into
+\emph{modules}, and each module is further divided into \emph{exposition},
+\emph{practice problems}, and \emph{core exercises}.
+
+The \emph{exposition} is easy to find---it's the text that starts each
+module and explains the big ideas of linear algebra.  The \emph{practice
+problems} immediately follow the exposition and are there so you can
+practice with concepts you've learned.  Following the practice problems
+are the \emph{core exercises}. The core exercises build up, through
+examples, the concepts discussed in the exposition.
+
+To optimally learn from this text, you should:
+\begin{itemize}
+	\item Start each module by reading through the \emph{exposition} to get familiar with the main ideas and 
+		linear algebra terminology.
+
+	\item Work through the \emph{core exercises} to develop an understanding and intuition behind the main ideas
+		and their subtleties.
+
+	\item Re-read the \emph{exposition} and identify which concepts each core exercise connects with.
+
+	\item Work through the \emph{practice problems}. These will serve as a check on whether you've understood
+		the main ideas well enough to apply them.
+\end{itemize}
+
+{\bf The core exercises.} Most (but not all) core exercises will be
+worked through during lecture time, and there is space for you to work
+provided after each
+of the core exercises. The point of the core exercises is to develop the main ideas of
+linear algebra by exploring examples. When working on core exercises, think
+``it's the journey that matters not the destination''. The
+answers are not the point! If you're struggling, keep with it. The
+concepts you struggle though you remember well, and if you look up the
+answer, you're likely to forget just a few minutes later. 
+
+{\bf So many definitions.} A big part of linear algebra is learning precise and
+technical language\footnote{ Beyond three dimensions, things get very confusing
+very quickly.  Having precise definitions allows us to make arguments that
+rely on logic instead of intuition; and logic works in all dimensions.}.
+There are many terms and definitions you need to learn, and by far the
+best way to successfully learn these terms is to understand where they
+come from, why they're needed, and practice using them. That is, don't
+try to memorize definitions word for word. Instead memorize the idea
+and \emph{reconstruct} the definition; go through the core exercises and
+identify which definitions appear where; and explain linear algebra to
+others using these technical terms.
+
+{\bf Contributing to the book.} Did you find an error? Do you
+have a better way to explain a linear algebra concept? Please,
+contribute to this book!  This book is open-source, and we welcome
+contributions and improvements. To contribute to/fix part of
+this book, make a \emph{Pull Request} or open an \emph{Issue} at
+\url{https://github.com/siefkenj/IBLLinearAlgebra}. If you contribute,
+you'll get your name added to the contributor list.
+
+
+\subsection*{For the instructor}
+
+This book is designed for a one-semester introductory linear algebra course
+course with a focus on geometry (MAT223 at the University of Toronto). 
+It has not been designed for an ``intro to proofs''-style course, but could be adapted for one.
+
+Unlike a traditional textbook that is grouped into chapters and sections
+by subject, this book is grouped into modules. Each module contains exposition
+about a subject, practice problems (for students to work on by themselves), and core exercises
+(for students to work on with your guidance). Modules group related concepts, but the 
+modules have been designed to facilitate learning linear algebra rather than to serve
+as a reference. For example, information about change-of-basis is spread across several non-consecutive
+modules; each time change-of-basis is readdressed, more detail is added.
+
+{\bf Using the book.} This book has been designed for use in large 
+active-learning classrooms driven by a \emph{think, pair-share}/small-group-discussion format.
+Specifically, the \emph{core exercises} (these are the problems which aren't labeled ``Practice Problems''
+and for which space is provided to write answers) are designed for use during class time.
+
+A typical class day looks like:
+\begin{enumerate}
+	\item {\bf Student pre-reading.} Before class, students will read through the relevant module.
+
+	\item {\bf Introduction by instructor.} This may involve giving a definition,
+		a broader context for the day's topics, or answering questions.
+
+	\item {\bf Students work on problems.} Students work individually or in pairs/small groups
+		on the prescribed core exercise. During this time the instructor moves
+		around the room addressing questions that students may have and giving
+		one-on-one coaching.
+
+	\item {\bf Instructor intervention.} When most students have successfully solved
+		the problem, the instructor refocuses the class by providing an
+		explanation or soliciting explanations from students.
+		This is also time for the instructor to ensure that everyone has
+		understood the main point of the exercise (since it is sometimes
+		easy to miss the point!).
+
+		If students are having trouble, the instructor can give hints
+		and additional guidance to ensure students' struggle is productive.
+
+	\item {\bf Repeat step 3.}
+\end{enumerate}
+
+Using this format, students are thinking (and happily so) most of the class. Further,
+after struggling with a question, students are especially primed to hear the insights of the instructor.
+
+{\bf Conceptual lean.}
+The \emph{core exercises} are geared towards concepts instead of computation, though some core exercises
+focus on simple computation. They also have a geometric lean. Vectors are initially
+introduced with familiar coordinate notation, but eventually, coordinates are understood to be
+\emph{representations} of vectors rather than ``true'' geometric vectors, and objects like the
+determinant are defined via oriented volumes rather than formulas involving matrix entries.
+
+Specifically lacking are exercises focusing on the mechanical skills of row reduction and
+computing matrix inverses. Students must practice these skills, but they require little instructor
+intervention and so can be learned outside of lecture (which is why core exercises don't focus on
+these skills).
+
+{\bf How to prepare.}
+Running an active-learning classroom is less scripted than lecturing.
+The largest
+challenges are: (i) understanding where students are at, (ii) figuring out what to do given the current
+understanding of the students, and (iii) timing.
+
+To prepare for a class day, you should:
+\begin{enumerate}
+	\item {\bf Strategize about learning objectives.} Figure out what the point of the day's lesson is
+		and brain storm some examples that would illustrate that point.
+	\item {\bf Work through the core exercises.} 
+	%	By working through the exercises yourself, you
+	%	will be ready to build off student reasoning, and better able to direct a class towards
+	%	the important ideas\footnote{ The content of linear algebra is fairly non-linear. One of the hardest parts
+	%	of teaching linear algebra is coming up with an explanation that only depends on ideas that have already been taught.}.
+	\item {\bf Reflect.} Reflect on how each core exercise addresses the day's goals. Compare with the examples you
+		brainstormed and prepare follow-up questions that you can use in class to test for understanding.
+	\item {\bf Schedule.} Write timestamps next to each core exercise indicating at what minute you hope
+		to start each exercise. Give more time for the exercises that you judge as foundational, and be prepared
+		to triage. It's appropriate to leave exercises or parts of exercises for homework, but change the order
+		of exercises at your peril---they really do build on each other.
+\end{enumerate}
+
+A typical
+50 minute class is enough to get through 2--3 core exercises (depending on the difficulty), and class observations
+show that class time is split 50/50 between students working and instructor explanations.
+
+\subsection*{License}
+ Unless otherwise mentioned, pages of this document are licensed under
+the Creative Commons By-Attribution Share-Alike License. That means, you are free
+to use, copy, and modify this document provided that you provide attribution to the
+previous copyright holders and you release your derivative work under the same license.
+Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
+
+If you modify this document, you may add your name to the copyright list. Also,
+if you think your contributions would be helpful to others, consider making a
+pull request, or opening an \emph{issue} at \url{https://github.com/siefkenj/IBLLinearAlgebra}
+
+{\bf Incorporated content.}
+Content from other sources is reproduced here with permission and retains the
+Author's copyright. Please see the footnote of each page to verify the
+copyright.
+
+Included in this text are tasks created by the Inquiry-Oriented Linear Algebra (IOLA) project. Details
+about these tasks can be found on their website \url{http://iola.math.vt.edu/}. Also included are some
+practice problems from Beezer's \emph{A First Course in Linear Algebra} (marked with the symbol \beezer next to the
+problem), and from Hefferon's \emph{Linear Algebra} (marked with the symbol \hefferon next to the problem).
+
+{\bf Contributing.} You can report errors in the book or contribute to the book by filing an \emph{Issue} or
+a \emph{Pull Request} on the book's GitHub page: \url{https://github.com/siefkenj/IBLLinearAlgebra/}
+

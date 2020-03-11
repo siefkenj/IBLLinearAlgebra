@@ -23,14 +23,14 @@
 	\RequirePackage{everypage}
 	\RequirePackage{xparse}
 	\RequirePackage{environ}
-	\RequirePackage[usenames,dvipsnames]{xcolor}
+	\RequirePackage[usenames, dvipsnames, cmyk, hyperref]{xcolor}
 	\RequirePackage{tcolorbox}
 		\tcbuselibrary{skins}
 		\tcbuselibrary{breakable}
 	\RequirePackage{ifthen}
 	\RequirePackage{titlesec}
 	\RequirePackage{changepage}
-	\RequirePackage{everyshi}
+	\RequirePackage{eso-pic} % replaces `everyshi` to draw borders on the modules
 	\RequirePackage{multicol}
 
 
@@ -57,11 +57,11 @@
 		headheight=0in, 
 		left=.9in, 
 		bottom=.3in, 
-		footskip=0in,
+		footskip=.2in,
 		marginparsep=5pt, 
 		marginparwidth=2in,
 		right=10pt,
-		includeall}
+		includeall=true}
 
 	% command to set even and odd page margins
 	% for book printing.
@@ -363,15 +363,15 @@
 		}
 		\ifstrequal{#2}{reverse}{
 			\ifodd\value{page}
-				\def\bannerpath{\bannerpathL}
-			\else
 				\def\bannerpath{\bannerpathR}
+			\else
+				\def\bannerpath{\bannerpathL}
 			\fi
 		}{
 			\ifodd\value{page}
-				\def\bannerpath{\bannerpathR}
-			\else
 				\def\bannerpath{\bannerpathL}
+			\else
+				\def\bannerpath{\bannerpathR}
 			\fi
 		}
 		\begin{tikzpicture}[remember picture,overlay]
@@ -380,16 +380,19 @@
 			node[anchor=east,pos=0.1,text=white,rotate=90] {\Huge\sffamily #1};
 		\end{tikzpicture}
 	}
-	\EveryShipout{%  
-		\ifdim\pagetotal>\pagegoal% There is content overflow on this page
-			\begingroup\let\protect\@typeset@protect
-				\IfStrEq{\probset@InModuleEnv}{1}{%
-				% put a banner on the page with no text
-					\probset@drawModuleBanner{}{reverse}
-				}{}
-    			\endgroup
-		\fi
+	\AddToShipoutPictureBG{%
+		% if we are in a module page, draw a border
+		\IfStrEq{\probset@InModuleEnv}{1}{%
+			\ifnum\value{page}=\value{probset@currentModuleStart}
+			\else
+				% put a banner on the page with no text if we are not the first
+				% page in a module
+				\probset@drawModuleBanner{\large Module \themodulecounter\, ---\, \themoduletitle}{reverse}
+			\fi
+		}{}
 	}
+	\newcounter{probset@currentModuleStart}
+	\newcommand{\themoduletitle}{}
 	\DeclareDocumentEnvironment{module}{o}{%
 		\addtocounter{modulecounter}{1}
 		\setlist[itemize]{ label={\color{Turquoise!70!black}$\blacksquare$}, topsep=0pt}
@@ -405,15 +408,19 @@
 			marginparwidth=1in,
 			left=1in,
 			%includeall,
-			reversemarginpar,
+			%reversemarginpar,
 			twoside=true}
 		
+		% make sure we know what page this module starts on so
+		% we can do something special on the first page
+		\setcounter{probset@currentModuleStart}{\value{page}}
 		% put a banner on the left of the page
-		\probset@drawModuleBanner{Module \themodulecounter}{}
+		\probset@drawModuleBanner{Module \themodulecounter}{reverse}
 
 		% renew some document commands to style them appropriately in
 		% the module environment
 		\RenewDocumentCommand{\Title}{m}{%
+			\renewcommand{\themoduletitle}{##1}%
 			\begin{center}
 				\color{Cerulean}{\sffamily\Large  ##1}
 				\addcontentsline{toc}{section}{Module \themodulecounter: ##1}
@@ -473,12 +480,45 @@
 		colback=myorange!20,
 		#1
 	}
+	\newtcolorbox{thinleftborderbox}[1][]{
+		blanker,
+		frame hidden,
+		enhanced,
+		breakable,
+		beforeafter skip=7pt,
+		%frame code={
+		%	\fill[fill=tcbcol@frame] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
+		%	},
+		sharp corners,
+		borderline west={2pt}{0pt}{tcbcol@frame},
+		boxsep=0pt,
+		left=8pt,
+		right=5pt,
+		top=5pt,
+		bottom=5pt,
+		%boxrule=0pt,
+		%leftrule=4pt,
+		colframe=myorange,
+		colback=myorange!20,
+		#1
+	}
 	\DeclareDocumentEnvironment{bookonly}{o}{
 	}{%
 	}
 	\DeclareDocumentEnvironment{example}{o}{
-		\par{\bfseries Example.}
+		\renewcommand{\currentbackgroundcolor}{black!2}
+		\begin{thinleftborderbox}[colframe=black!50, colback=\currentbackgroundcolor]
+		% if we didn't pass in an argument, make the first
+		% paragraph have a `\medskip` after it.
+		\IfValueTF{#1}{}{
+			% redefine \par to be a `\par` followed by a `\medskip`
+			% followed by a redefinition of `\par` to what it used to be.
+			\let\oldpar\par
+			\par\def\par{\oldpar\medskip\let\par\oldpar}
+		}{}
+		{\bfseries\sffamily Example.}
 	}{%
+		\end{thinleftborderbox}
 	}
 	\DeclareDocumentEnvironment{proof}{o}{
 		\par{\bfseries Proof.}
@@ -511,6 +551,11 @@
 	}{%
 	\end{enumerate}
 }
+\newcommand{\Probset@VoidEnvironment}[1]{%
+  \expandafter\providecommand\csname env@#1@save@env\endcsname{}%
+  \expandafter\providecommand\csname env@#1@process\endcsname{}%
+  \@ifundefined{#1}{}{\RenewEnviron{#1}{}}%
+}
 
 \newenvironment{exercises}{%
 	\DeclareDocumentEnvironment{solution}{o}{
@@ -521,6 +566,9 @@
 	}{%
 			\end{adjustwidth}
 	}
+	% XXX hide the solutions for now...
+	\Probset@VoidEnvironment{solution}
+
 	% tcolorbox doesn't work with tikz externalize,
 	% so we need to disable it around a tcolorbox.
 	% since \tikzexternaldisable is locally scoped,
@@ -615,6 +663,17 @@
 %%
 
 %\definecolor{myorange}{HTML}{F29B23}
+\definecolor{PineGreen}{HTML}{008B72}
+\definecolor{LimeGreen}{HTML}{8DC73E}
+\definecolor{NavyBlue}{HTML}{006EB8}
+\definecolor{BlueGreen}{HTML}{00B3B8}
+\definecolor{WildStrawberry}{HTML}{EE2967}
+\definecolor{Cerulean}{HTML}{00A2E3}
+\definecolor{Green}{HTML}{00A64F}
+\definecolor{Blue}{HTML}{2D2F92}
+\definecolor{cyan}{HTML}{00AEEF}
+\definecolor{Plum}{HTML}{92268F}
+\definecolor{Turquoise}{HTML}{00B4CE}
 \definecolor{myred}{HTML}{D13409}
 \definecolor{mypink}{HTML}{B3094F}
 \definecolor{mydark}{HTML}{23112A}
@@ -636,6 +695,8 @@
 \titleformat{\subsection}
   {\normalfont\sffamily\large\color{cyan}}
   {\thesection}{1em}{}
+
+\newcommand{\currentbackgroundcolor}{white}
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{.17cm}

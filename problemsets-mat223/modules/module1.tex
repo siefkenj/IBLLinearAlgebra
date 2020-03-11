@@ -5,7 +5,7 @@ it down more than this---our intuition about collections
 of objects will suffice\footnote{ When you pursue more rigorous math,
 you rely on definitions to get yourself out of philosophical jams.  For instance,
 with our definition of set, consider ``the set of all sets that don't
-contain themselves.''  Such a set cannot exist!
+contain themselves''.  Such a set cannot exist!
 This is called \emph{Russel's Paradox}, and shows
 that if we start talking about sets of sets, we may need more than
 intuition.}. We write a set with curly-braces $\{$ and $\}$ and
@@ -13,7 +13,7 @@ list the objects inside.  For instance
 \[
 	\Set{1,2,3}.
 \]
-This would be read aloud as ``the set containing the elements $1$, $2$, and $3$.''
+This would be read aloud as ``the set containing the elements $1$, $2$, and $3$''.
 Things in a set are called \emph{elements}\index{element of a set},
 and the symbol $\in$\index{$\in$} is used to specify that something is an element of a set.
 In contrast, $\notin$ is used to specify something is not an element of a set.  For example,
@@ -33,7 +33,7 @@ The \emph{empty set} is the set containing no elements
 and is written $\emptyset$ or $\Set{}$.  Note that $\Set{\emptyset}$ is \emph{not}
 the empty set---it is the set containing the empty set!  It is also traditional
 to call elements of a set \emph{points}\index{point} regardless of whether you
-consider them ``point-like'' objects.
+consider them ``point-like''.
 
 \Heading{Operations on Sets}
 If the set $A$ contains all the elements that the set $B$ does, we call $B$ a \emph{subset}\index{subset}
@@ -53,14 +53,14 @@ Having a definition of equality to lean on will help us when we need to prove th
 	set of numbers that can be expressed as $m+1$ where $m$ is
 	an odd whole number.  We will show $A=B$.
 
-	First, let us show $A\subseteq B$.  If $x\in A$ then $x=2n$
+	First, let us show $A\subseteq B$.  If $x\in A$, then $x=2n$
 	for some whole number $n$.  Therefore 
 	\[x=2n=2(n-1)+1+1=m+1\] where
 	$m=2(n-1)+1$ is, by definition, an odd number.  Thus $x\in B$,
 	which proves $A\subseteq B$.
 
 	Now we will show $B\subseteq A$.  Let $x\in B$.  By definition,
-	$x=m+1$ for some odd $m$ and so by the definition of oddness, $m=2k+1$
+	$x=m+1$ for some odd $m$. By the definition of oddness, $m=2k+1$
 	for some whole number $k$.  Thus 
 	\begin{align*}
 		x=m+1&=(2k+1)+1=2k+2\\
@@ -117,7 +117,7 @@ A \emph{scalar} number (also referred to as a \emph{scalar} or just an ordinary
 \emph{number}) models a relationship between quantities. For example,
 a recipe might call for \emph{six} times as much flour as sugar. In 
 contrast, a \emph{vector} models a relationship between points. For example,
-the store might be \emph{2km East and 4km North} from my house.
+the store might be \emph{2km East and 4km North} from your house.
 In this way, a vector may be thought of as a \emph{displacement} with a \emph{direction}
 and a \emph{magnitude}\footnote{
 	Though in this book we will treat vectors as geometric objects 
@@ -263,7 +263,7 @@ as
 \[
 	3\xhat+2\yhat.
 \]
-Of course, we've incidentally described a new vector.  Namely, let $P$
+Of course, we've incidentally described a new vector.  Let $P$
 be the point at 3-east and 2-north.  Then
 \[
 	\overrightarrow{OP}=3\xhat+2\yhat.
@@ -283,7 +283,7 @@ do algebra with vectors.
 We will define scalar multiplication and vector addition intuitively:
 For a vector $\vec v$ and a scalar $\alpha>0$, the
 vector $\vec w=\alpha\vec v$ is the vector pointing in the same direction as
-$\vec v$ but with length scaled up by $\alpha$.  That is, $\norm{\vec w}=\alpha\norm{\vec v}$.
+$\vec v$ but with length scaled by $\alpha$.  That is, $\norm{\vec w}=\alpha\norm{\vec v}$.
 Similarly, $-\vec v$ is the vector of the same length as $\vec v$ but
 pointing in the exact opposite direction.
 
@@ -311,7 +311,7 @@ and then displacing along $\vec v$.
 
 		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,below left] {$\vec u$};
 		\draw[->,thick,mypink] (B) -- (C) node [midway,above left] {$\vec v$};
-		\draw[->,thick,green!50!black] (A) -- (C) node [midway,below right] {$\vec w=\vec u+\vec v$};
+		\draw[->,thick,green!50!black, dashed, xshift=2pt, yshift=-1pt] (1,1) -- (3,3) node [midway,below right] {$\vec w=\vec u+\vec v$};
 	\end{tikzpicture}
 \end{center}
 
@@ -337,9 +337,8 @@ sometimes we consider the zero vector to point in every direction and sometimes
 we consider it to point in no directions.  It depends on our mood---but we must
 never talk about \emph{the} direction of the zero vector, since it's not defined.
 
-Formalizing, for vectors $\vec u$, $\vec v$, $\vec w$ and scalars $\alpha$ and $\beta$
-are scalars, the
-following are laws are always satisfied:
+Formalizing, for vectors $\vec u$, $\vec v$, $\vec w$, and scalars $\alpha$ and $\beta$, the
+following laws are always satisfied:
 \begin{align*}
 	(\vec u+\vec v)+\vec w&=\vec u+(\vec v+\vec w)\tag{Associativity}\\
 	\vec u+\vec v&=\vec v+\vec u\tag{Commutativity}\\
@@ -369,10 +368,10 @@ and vector addition under one name: \emph{linear combinations}.
 \Heading{Coordinates and the Standard Basis}
 
 Consider the standard, flat, Euclidean plane (which is notated by $\R^2$).
-A coordinate system for $\R$ is a way to assign a unique pair of numbers to every point
+A coordinate system for $\R^2$ is a way to assign a unique pair of numbers to every point
 in $\R^2$.
 Though there are infinitely many coordinate systems we could choose for the plane,
-there is one standard one: the $xy$ coordinate system depicted below, which you're already familiar with. 
+there is one standard one: the $xy$-coordinate system depicted below (which you're already familiar with). 
 \begin{center}
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -446,8 +445,8 @@ are many equivalent notations used to represent a vector in coordinates.
 	\begin{tabular}{c p{7cm}}
 		$(\alpha,\beta)$ & parentheses\\
 		$\langle \alpha,\beta\rangle$ & angle brackets\\
-		$\mat{\alpha&\beta}$ & square brackets in a row (a row matrix)\\
-		$\mat{\alpha\\\beta}$ & square brackets in a column (a column matrix)\\
+		$\mat{\alpha&\beta}$ & square brackets in a row (a row matrix/row vector)\\
+		$\mat{\alpha\\\beta}$ & square brackets in a column (a column matrix/column vector)\\
 	\end{tabular}
 \end{center}
 
@@ -483,27 +482,21 @@ such questions a second as you play your favorite video game!}.
 	\[
 	    \vec r= a\vec x+b\vec y.
 	\]
-	We know that on the one hand,
+	Rewriting everything in coordinates, we see this is equivalent to the equation
 	\[
-	    \vec r = 2\xhat+2\yhat
+		\mat{2\\2}=a\mat{1\\-1}+b\mat{3\\-1} = \mat{a+3b\\-a-b}.
 	\]
-	and on the other hand, 
-	\[
-	    \vec r = a\vec x+b\vec y = a(\xhat-\yhat)+b(3\xhat-\yhat)=(a+3b)\xhat + (a+b)\yhat.
-	\]
-	Equating the two equations above, we have
-	\[
-	    2\xhat+2\yhat = (a+3b)\xhat + (a+b)\yhat.  
-	\]
-	Therefore, solving the system
+	Therefore, we need to determine if the system of equations
 	\[
 	    \sysdelim\{.
 		\systeme{
 			a+3b=2,    
-			a+b=-2     
-		},
+			-a-b=2     
+		}
 	\]
-	we have $a=-4$ and $b=2$ as the only solution. Thus, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
+	has a solution.
+	After solving, we find
+	$a=-4$ and $b=2$ is the only solution. Thus, $\vec r$ is a linear combination of $\vec x$ and $\vec y$. More specifically, 
 	\[
 	    \vec r = -4\vec x+2\vec y.
 	\]
@@ -514,8 +507,8 @@ We coordinatize three dimensional space (notated by $\R^3$) by constructing $x$,
 Again, $\R^3$ has standard basis vectors $\xhat$, $\yhat$, and $\zhat$ which each
 point one unit along the $x$, $y$, and $z$ axes, respectively.
 
-Since we live in three dimensional space, its study has a long history and many notations
-for the standard basis are in use. This text will use $\xhat$, $\yhat$, $\zhat$, but other common
+Since we live in three dimensional space, its study has a long history, and many notations
+for the standard basis of three dimensional space are in use. This text will use $\xhat$, $\yhat$, $\zhat$, but other common
 notations include:
 \begin{center}
 	\begin{tabular}{c  c  c}
@@ -530,7 +523,7 @@ Beyond three dimensions, drawing pictures becomes hard, but we can still use vec
 We use $\R^n$ to notate $n$-dimensional Euclidean space. The standard basis for $\R^n$ is
 $\sbasis{1}$, $\sbasis{2}$, \ldots, $\sbasis{n}$. Again, every vector in $\R^n$ can be written
 uniquely as a linear combination of the standard basis, and a coordinate representation
-of a vector in $\R^n$ is the list of $n$ scalars.
+of a vector in $\R^n$ is a list of $n$ scalars.
 
 \begin{example}
 	Let $\vec x,\vec y\in\R^3$ be given by $\vec x=2\xhat-\zhat$ and $\vec y=6\yhat+3\zhat$.
@@ -538,6 +531,6 @@ of a vector in $\R^n$ is the list of $n$ scalars.
 
 	\[
 		\vec z=\vec x+2\vec y=\quad\mat{2\\0\\-1}+2\mat{0\\6\\3}\quad
-		=\quad\mat{2\\0\\-1}+\mat{0\\12\\6}\quad=\quad\mat{2\\12\\5}\quad=2\xhat+12\yhat+6\zhat
+		=\quad\mat{2\\0\\-1}+\mat{0\\12\\6}\quad=\quad\mat{2\\12\\5}\quad=2\xhat+12\yhat+5\zhat
 	\]
 \end{example}

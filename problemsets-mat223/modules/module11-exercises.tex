@@ -1,17 +1,71 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob For the following matrices, find their null space, column space,
+		and row space.
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
-		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+			\item $M_{1}=\mat{1&2&1\\3&1&-2\\8&6&-2}$.
 
+			\item $M_{2}=\mat{0&2&1\\3&2&5}$.
+
+			\item $M_{3}=\mat{1&2\\3&1\\4&0}$.
+
+			\item $M_{4}=\mat{1&-2&0&-1\\3&5&-1&0\\2&3&-2&0\\0&0&0&1}$.
+		\end{enumerate}
+
+		\prob Let $\mathcal P$ be the plane given by $3x+4y+5z=0$, and
+		let $T:\R^{3}\to\R^{3}$ be projection onto $\mathcal P$.
+		\begin{enumerate}
+			\item Find $\Range(T)$ and $\Rank(T)$.
+
+			\item Find $\Null(T)$ and $\Nullity(T)$.
+		\end{enumerate}
+
+		\prob Find the range and null space of the following linear
+		transformations.
+		\begin{enumerate}
+			\item $\mathcal P:\R^{2}\to\R^{2}$, where
+				$\mathcal P$ is projection on to the line
+				$y=x$.
+
+			\item Let $\theta\in \R$ and let $\mathcal R:\R^{2}\to\R^{2}$
+				to be the transformation which rotates all vectors
+				by counter-clockwise by $\theta$ radians.
+
+			\item $\mathcal F:\R^{2}\to\R^{2}$, where
+				$\mathcal F$ reflects over the $x$-axis.
+
+			\item $\mathcal M:\R^3\to\R^3$ where $\mathcal M$ is the matrix
+				transformation given by $\mat{1&2&3\\4&5&6\\7&8&9}$.
+			\item $\mathcal Q:\R^3\to\R^1$ defined by $\mathcal Q\mat{x\\y\\z}=x+z$.
+		\end{enumerate}
+
+		\prob 
+		\begin{enumerate}
+			\item Let $\mathcal T$ be the transformation induced by the
+				matrix $\mat{7&5\\-2&-2}$, and
+				$\vec v=3\xhat-3\yhat$.
+				Compute $\mathcal T\vec v$ and $[\mathcal T\vec v]_{\mathcal E}$.
+
+			\item Let $\mathcal T$ be the transformation induced by the
+				matrix $\mat{3&7&5\\1&-2&-2}$, and
+				$\vec v=2\xhat+0\yhat+4\zhat$.
+				Compute $\mathcal T\vec v$ and $[\mathcal T\vec v]_{\mathcal E}$.
+		\end{enumerate}
+
+		\prob For each statement below, determine whether it is true or false. Justify your answer.
+		\begin{enumerate}
+			\item Let $A$ be an arbitrary matrix. Then $\Range(A)=\Range(A^{T})$.
+
+			\item Let $T:\R^{m}\to\R^{n}$ be a transformation (not necessarily
+				linear). If $\Null(T)=\Set{\vec x\in\R^m \given T(\vec x)=\vec 0}$
+				is a subspace, then $T$ is linear.
+
+			\item Let $T:\R^{m}\to\R^{n}$ be a linear transformation.
+				Then $\Nullity(T) \geq n$.
+
+			\item Let $T:\R^{m}\to\R^{n}$ be a linear transformation
+				induced by a matrix $M$. If
+				$\Rank(T) = n$, then $\Nullity(M) = 0$.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}

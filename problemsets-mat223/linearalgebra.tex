@@ -1,9 +1,78 @@
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \   
+%
+%%
+%%  default option for pdfx.sty  if not specified on the command-line.
+\providecommand{\pdfxopt}{a-1b}
+%% 
+%%  Use  {filecontents}  for the  .xmpdata file before input encoding is specified.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{filecontents*}{\jobname.xmpdata}
+	% a macro definition, used below
+	\pdfxEnableCommands{% simple macro definitions can be provided everything expands to characters
+	 \def\RossPete{Ross \& Pete}
+	 }
+	\Title{Linear Algebra (\jobname)}%  *not* set by LaTeX's  \title
+	\Author{Jason Siefken\sep et al.}% *not* set by LaTeX's \author
+	\Subject{Linear Algebra textbook/workbook}
+	\Keywords{linear algebra\sep vectors\sep mathematics\sep textbook} 
+	\Org{University of Toronto}
+	\CreatorTool{LaTeX + pdfx.sty with options \pdfxopt}
+	\Copyright{Jason Siefken}
+	\WebStatement{https://github.com/siefkenj/IBLLinearAlgebra/}% should be URL to copyright statement on the web
+	\CoverDisplayDate{2019}
+	\CoverDate{2019-08-014}%  must be in format  YYYY-MM-DD  or  YYYY-MM
+	\Doi{0.0.0.0}%
+	%
+	% setting the color profile, these reproduce the defaults; use your own, if required 
+	%
+	% RGB is used with PDF/A (4 parameters):
+	\setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
+	%
+	%  For Adobe Color Profiles, set the directory for your system
+	%
+	%  e.g.  on Mac OS X
+	%  What is it under Windows ?
+	%
+	\gdef\ColorProfileDir{/Library/Application Support/Adobe/Color/Profiles/Recommended/}
+	% 
+	%  For available profiles, see file  AdobeColorProfiles.tex
+	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex  
+	%
+	%  Now you can use the macros defined in those files:
+	 \FOGRAXXXIX 
+	%
+	% or CMYK is used with  PDF/X (4 parameters)
+	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
+\end{filecontents*}
+
 \documentclass{problemset}
+
+
+% pdfx will set color profile etc. information appropriately, so the pdf renders
+% consistently across devices. But, it doesn't work with the xelatex-based tectonics
+\usepackage{ifxetex}
+	\usepackage[utf8]{inputenc}
+\ifxetex
+\else
+	\usepackage[a-3u]{pdfx}
+	\hypersetup{hidelinks=true, linkcolor = {0 0 1} }
+\fi
 
 %%%
 % import all needed packages and macros
 %%%
+\usepackage[yyyymmdd]{datetime}
 \input{preamble.tex}
+
+% in non-xelatex engines, hyperref is loaded by `pdfx`. If `pdfx` is not loaded, load it here.
+\ifxetex
+	\usepackage{hyperref}
+	\hypersetup{hidelinks=true, linkcolor = {0 0 1} }
+\else
+\fi
 
 %%%
 % Set up the footers to have the correct copyright notices
@@ -121,7 +190,7 @@
 	\voidenvironment{solution}
 	\voidenvironment{annotation}
 	\voidenvironment{lesson}
-	\renewcommand{\coversubtitle}{MAT223 Workbook}
+	\renewcommand{\coversubtitle}{{\hspace{-5pt}\begin{tabular}{l}MAT223 Workbook\\\small\today{} Edition\end{tabular}}}
 }{}
 %\voidenvironment{solution}
 %\voidenvironment{annotation}
@@ -155,7 +224,7 @@
 \newpage
 
 
-
+\newcommand{\standardintro}{
 \begin{center}
 {\huge\bf Inquiry Based Linear Algebra}\\
 
@@ -197,7 +266,7 @@ class day looks like:
 \end{enumerate}
 
 Using this format, students are thinking (and happily so) most of the class. Further,
-after struggling with a question especially primed to hear the insights of the instructor.
+after struggling with a question, students are especially primed to hear the insights of the instructor.
 
 These problems are geared towards concepts instead of computation, though some problems
 focus on simple computation. The questions also have a geometric lean. Vectors are initially
@@ -221,12 +290,24 @@ Author's copyright. Please see the footnote of each page to verify the
 copyright.
 
 \newpage
+}
 
 \begin{bookonly}
-\section*{Contributors}
-\input{contributors.tex}
-\newpage
-	$\phantom{x}$
+	\clearpage
+	\hbox{}
+	\newpage
+	\input{modules/preface.tex}
+	\section*{Contributors}
+	\input{contributors.tex}
+	\section*{Dedication}
+	\begin{center}
+		This book is dedicated to 
+		\href{https://www.gazettetimes.com/news/local/obituaries/dr-robert-main-burton/article_9c087f07-c005-515a-bb3f-2c9c6a6b7332.html}{\color{blue}Dr.~Bob Burton}---friend and mentor.
+
+		\emph{\large ``Sometimes you have to walk the mystical path with practical feet.''}
+	\end{center}
+	\newpage
+	\mbox{}
 	\newpage
 \end{bookonly}
 
@@ -255,7 +336,8 @@ copyright.
 \begin{lesson}
 	\Title{Linear Combinations}
 
-	\Heading{Textbook} Section 1.1
+	\Heading{Textbook}
+	Module 1
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -263,7 +345,7 @@ copyright.
 
 		\item Use column vector notation to write vectors.
 
-		\item Relate points an vectors and be able to interpret a point as
+		\item Relate points and vectors and be able to interpret a point as
 			a vector and a vector as a point.
 
 		\item Solve simple equations involving vectors.
@@ -296,10 +378,10 @@ copyright.
 \end{lesson}
 
 \begin{iola}
-\section*{Task 1.1: The Magic Carpet Ride}
-\addcontentsline{toc}{subsection}{Task 1.1: The Magic Carpet Ride}
+\section*{The Magic Carpet Ride}
+\addcontentsline{toc}{subsection}{The Magic Carpet Ride}
 
-
+\question
 \begin{annotation}
 	\begin{goals}
 		\Goal{Hands-on experience with vectors as displacements.}
@@ -329,7 +411,8 @@ copyright.
 		\end{itemize}
 	\end{notes}
 \end{annotation}
-You are a young traveler, leaving home for the first time. Your parents
+You are a young adventurer. Having spent most of your time in the mythical city of Oronto,
+	you decide to leave home for the first time. Your parents
 want to help you on your journey, so just before your departure, they give you two
 gifts. Specifically, they give you two forms of transportation: a hover board and
 a magic carpet. Your parents inform you that both the hover board and the magic carpet
@@ -345,8 +428,8 @@ have restrictions in how they operate:
 	We denote the restriction on the hover board's movement by the vector
 	$\mat{3 \\1}$. By this we mean that if
 	the hover board traveled ``forward'' for one hour, it would move along a
-	``diagonal'' path that would result in a displacement of 3 miles East and
-	1 mile North of its starting location.
+	``diagonal'' path that would result in a displacement of 3 km East and
+	1 km North of its starting location.
 \end{minipage}
 
 \begin{minipage}{\textwidth}
@@ -359,8 +442,8 @@ have restrictions in how they operate:
 	We denote the restriction on the magic carpet's movement by the vector
 	$\mat{1 \\2 }$. By this we mean that if the
 	magic carpet traveled ``forward'' for one hour, it would move along a
-	``diagonal'' path that would result in a displacement of 1 mile East and
-	2 miles North of its starting location.
+	``diagonal'' path that would result in a displacement of 1 km East and
+	2 km North of its starting location.
 \end{minipage}
 
 \lfoot{\footnotesize Drawings by \url{@DavidsonJohnR} (twitter)}
@@ -372,7 +455,7 @@ have restrictions in how they operate:
 
 Your Uncle Cramer suggests that your first adventure should be to go visit
 the wise man, Old Man Gauss. Uncle Cramer tells you that Old Man Gauss
-lives in a cabin that is 107 miles East and 64 miles North of your home.
+lives in a cabin that is 107 km East and 64 km North of your home.
 
 \vspace{5mm}
 
@@ -393,7 +476,7 @@ get to the cabin with these modes of transportation, why is that the case?
 	\Title{Linear Combinations}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 1
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -418,7 +501,7 @@ get to the cabin with these modes of transportation, why is that the case?
 	\end{annotation}
 	As we talk about more complex objects, we need precise ways to talk about
 	groups of vectors. I.e., we need sets and set-builder notation. This preview of set-builder
-	notation will take some of difficulty away when we define span as a set of vectors.
+	notation will take some of the difficulty away when we define span as a set of vectors.
 
 	In this course we will be using formal and precise language. Part of this lesson
 	is that there are multiple correct ways (and multiple incorrect ways) to use formal
@@ -427,9 +510,9 @@ get to the cabin with these modes of transportation, why is that the case?
 \end{lesson}
 
 \begin{iola}
-\section*{Task 1.2: The Magic Carpet Ride, Hide and Seek}
-\addcontentsline{toc}{subsection}{Task 1.2: The Magic Carpet Ride, Hide and Seek}
-
+\section*{The Magic Carpet Ride, Hide and Seek}
+\addcontentsline{toc}{subsection}{The Magic Carpet Ride, Hide and Seek}
+\question
 
 \begin{annotation}
 	\begin{goals}
@@ -457,7 +540,8 @@ get to the cabin with these modes of transportation, why is that the case?
 		\end{itemize}
 	\end{notes}
 \end{annotation}
-You are a young traveler, leaving home for the first time. Your parents
+You are a young adventurer. Having spent most of your time in the mythical city of Oronto,
+	you decide to leave home for the first time. Your parents
 want to help you on your journey, so just before your departure, they give
 you two gifts. Specifically, they give you two forms of transportation:
 a hover board and a magic carpet. Your parents inform you that both the
@@ -475,8 +559,8 @@ hover board and the magic carpet have restrictions in how they operate:
 	We denote the restriction on the hover board's movement by the vector
 	$\mat{3 \\1}$. By this we mean that if
 	the hover board traveled ``forward'' for one hour, it would move along a
-	``diagonal'' path that would result in a displacement of 3 miles East and
-	1 mile North of its starting location.
+	``diagonal'' path that would result in a displacement of 3 km East and
+	1 km North of its starting location.
 \end{minipage}
 
 \begin{minipage}{\textwidth}
@@ -489,8 +573,8 @@ hover board and the magic carpet have restrictions in how they operate:
 	We denote the restriction on the magic carpet's movement by the vector
 	$\mat{1 \\2 }$. By this we mean that if the
 	magic carpet traveled ``forward'' for one hour, it would move along a
-	``diagonal'' path that would result in a displacement of 1 mile East and
-	2 miles North of its starting location.
+	``diagonal'' path that would result in a displacement of 1 km East and
+	2 km North of its starting location.
 	\vspace{1cm}
 \end{minipage}
 
@@ -593,6 +677,7 @@ argument supporting your answer.
 		\end{enumerate}
 	\end{parts}
 
+	\bookonlynewpage
 	\question
 	\begin{annotation}
 		\begin{goals}
@@ -611,7 +696,7 @@ argument supporting your answer.
 			\begin{itemize}
 				\item There are multiple correct ways to write
 					each of these sets. It's a good opportunity
-					to get man correct and incorrect sets up on the
+					to get many correct and incorrect sets up on the
 					board for discussing.
 				\item Don't worry about the geometry of $B$. That's coming
 					in a later problem.
@@ -635,8 +720,8 @@ argument supporting your answer.
 				\end{solution}
 	\end{parts}
 
-
-	\bookonlynewpage
+	\displayonlynewpage
+	\begin{bookonly}\vspace{\stretch{1}}\end{bookonly}
 	\SavedDefinitionRender{UnionsIntersections}
 
 	\question
@@ -662,6 +747,7 @@ argument supporting your answer.
 		\item $X\cup Y\cup Z$ \begin{solution}[inline]$\Set{1,2,3,4,5,6}$\end{solution}
 		\item $X\cap Y\cap Z$ \begin{solution}[inline]$\emptyset=\Set{}$\end{solution}
 	\end{parts}
+	\begin{bookonly}\vspace{\stretch{1}}\end{bookonly}
 
 %\begin{module}
 %All Defs:
@@ -684,7 +770,7 @@ argument supporting your answer.
 	\Title{Visualizing Sets, Formal Language of Linear Combinations}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 1
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -784,7 +870,9 @@ argument supporting your answer.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\begin{center}\hspace{-2cm}\triplegrid\hspace{-2cm}\triplegrid\end{center}\end{bookonly}
 	\bookonlynewpage
+	\displayonlynewpage
 \section*{Vector Combinations}
 	\vspace{-1em}
 
@@ -921,7 +1009,8 @@ argument supporting your answer.
 \begin{lesson}
 	\Title{Restricted Linear Combinations, Lines}
 
-	\Heading{Textbook} Section 1.2
+	\Heading{Textbook}
+	Module 2
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -936,7 +1025,7 @@ argument supporting your answer.
 	other people's definitions. Most students will not have heard of non-negative
 	linear combinations or convex linear combinations. This is a chance for them
 	to read and try to understand these formal definitions. They will need to
-	draw pictures to get an intuition about what these concepts mean.
+	draw pictures to gain intuition about what these concepts mean.
 
 	These concepts are useful in their own right, and in particular, convex linear
 	combinations can be used to describe line segments. Adding these definitions
@@ -1122,12 +1211,13 @@ argument supporting your answer.
 				vector $\vec a$ and the displace by $t\vec d$, we will always be on the line $L$.
 			\end{solution}
 	\end{parts}
+	\begin{bookonly}\singlegrid\end{bookonly}
 
 \begin{lesson}
 	\Title{Vector Form of Lines, Intersecting Lines}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 2
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -1319,7 +1409,7 @@ argument supporting your answer.
 	\Title{Planes, Span}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 2
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -1332,7 +1422,7 @@ argument supporting your answer.
 
 	\Heading{Motivation}
 	Planes are just like lines but one dimension higher. Vector form of a plane is just like
-	vector form of a plane with all the advantages and disadvantages. But, we now have
+	vector form of a line with all the advantages and disadvantages. But, we now have
 	\emph{two} direction vectors.
 
 	Spans are similar to lines and planes; $\Span\{\vec a,\vec b\}$ looks a lot like
@@ -1348,6 +1438,7 @@ argument supporting your answer.
 
 \end{lesson}
 
+	\displayonlynewpage
 	\bookonlynewpage
 	\SavedDefinitionRender{VectorFormofaPlane}
 
@@ -1597,12 +1688,14 @@ argument supporting your answer.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\begin{center}\doublegrid\end{center}\end{bookonly}
+
 
 \begin{lesson}
 	\Title{Span, Translated Span}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 3
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -1804,13 +1897,14 @@ argument supporting your answer.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\begin{center}\doublegrid\end{center}\end{bookonly}
 
 
 \begin{lesson}
 	\Title{Linear Independence \& Dependence}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 3
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -1850,9 +1944,9 @@ argument supporting your answer.
 \end{lesson}
 
 \begin{iola}
-\section*{Task 1.3: The Magic Carpet, Getting Back Home}
-\addcontentsline{toc}{subsection}{Task 1.3: The Magic Carpet Ride, Getting Back Home}
-
+\section*{The Magic Carpet, Getting Back Home}
+\addcontentsline{toc}{subsection}{The Magic Carpet Ride, Getting Back Home}
+\question
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Span in higher dimensions.}
@@ -2045,7 +2139,7 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	\Title{Linear Independence \& Dependence---Equivalent Definitions}
 
 	\Heading{Textbook}
-	Section 1.2
+	Module 3
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -2099,24 +2193,7 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 		\end{notes}
 	\end{annotation}
 	\begin{parts}
-		\item Explain how this algebraic definition (new) implies the geometric one (original).
-			\begin{solution}
-				Suppose the vectors $\vec v_1, \vec v_2, \dots, \vec v_n$ is
-				linearly dependent in this new sense. That means there are
-				scalars	$a_1, a_2, \dots, a_n$, at least one of which is non-zero,
-				such that
-				\[
-					a_1 \vec v_1 + \cdots + a_n \vec v_n = 0.
-				\]
-				Suppose $a_i\neq 0$. Then
-				\[
-					\vec v_i = \tfrac{-a_1}{a_i}\vec v_1+\cdots +\tfrac{-a_{i-1}}{a_i}\vec v_{i-1}
-					+\tfrac{-a_{i+1}}{a_i}\vec v_{i+1}+\cdots+\tfrac{-a_n}{a_i}\vec v_n.
-				\]
-				This means $\vec v_i\in \Span\Set{\vec v_1,\ldots,\vec v_{i-1},\vec v_{i+1},\ldots,\vec v_n}$,
-				which is precisely the geometric definition of linear dependence.
-			\end{solution}
-		\item Explain how the geometric definition (original) implies this algebraic one (new).
+		\item Explain how the geometric definition of linear dependence (original) implies this algebraic one (new).
 			\begin{solution}
 				Suppose that $\vec v_1, \vec v_2, \dots, \vec v_n$ are linearly
 				dependent according to the geometric definition. Fix $i$ so that
@@ -2134,6 +2211,23 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 				\]
 				and this is a non-trivial linear combination since the coefficient of $\vec v_i$ is $-1\neq 0$.
 			\end{solution}
+		\item Explain how this algebraic definition of linear dependence (new) implies the geometric one (original).
+			\begin{solution}
+				Suppose the vectors $\vec v_1, \vec v_2, \dots, \vec v_n$ is
+				linearly dependent in this new sense. That means there are
+				scalars	$a_1, a_2, \dots, a_n$, at least one of which is non-zero,
+				such that
+				\[
+					a_1 \vec v_1 + \cdots + a_n \vec v_n = 0.
+				\]
+				Suppose $a_i\neq 0$. Then
+				\[
+					\vec v_i = \tfrac{-a_1}{a_i}\vec v_1+\cdots +\tfrac{-a_{i-1}}{a_i}\vec v_{i-1}
+					+\tfrac{-a_{i+1}}{a_i}\vec v_{i+1}+\cdots+\tfrac{-a_n}{a_i}\vec v_n.
+				\]
+				This means $\vec v_i\in \Span\Set{\vec v_1,\ldots,\vec v_{i-1},\vec v_{i+1},\ldots,\vec v_n}$,
+				which is precisely the geometric definition of linear dependence.
+			\end{solution}
 	\end{parts}
 
 	Since we have geometric def $\implies$ algebraic def, and algebraic def $\implies$ geometric def
@@ -2141,6 +2235,7 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 	are \emph{equivalent} (which we write as algebraic def $\iff$ geometric def).
 
 
+	\displayonlynewpage
 	\bookonlynewpage
 	\question
 	\begin{annotation}
@@ -2159,7 +2254,7 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 				\item Part 1 won't give the students much trouble.
 				\item Part 2 will be hard. The idea that you could add $\vec 0$
 					but change the coefficients of a linear combination
-					is hard to thin of and even harder to write correctly.
+					is hard to think of and even harder to write correctly.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
@@ -2224,9 +2319,9 @@ on $\vec v_1$, $c_2$ on $\vec v_2$, $c_3$ on $\vec v_3$).
 
 
 \begin{iola}
-\section*{Task 1.4: Linear Independence and Dependence, Creating Examples}
-\addcontentsline{toc}{subsection}{Task 1.4: Linear Independence and Dependence, Creating Examples}
-
+\section*{Linear Independence and Dependence, Creating Examples}
+\addcontentsline{toc}{subsection}{Linear Independence and Dependence, Creating Examples}
+\question
 
 
 \begin{enumerate}
@@ -2236,19 +2331,20 @@ examples.
 \vspace{2mm}
 
 \begin{center}
+	\newcommand\emptybox{\begin{bookonly}\makebox(150,80){}\end{bookonly}}
 \begin{tabular}{|c|c|c|}
 	\hline
 	&Linearly independent & Linearly dependent \\
 	\hline
-	A set of 2 vectors in $\R^2$ &&\\
+	A set of 2 vectors in $\R^2$ &\emptybox&\emptybox\\
 	\hline
-	A set of 3 vectors in $\R^2$ &&\\
+	A set of 3 vectors in $\R^2$ &\emptybox&\\
 	\hline
-	A set of 2 vectors in $\R^3$ &&\\
+	A set of 2 vectors in $\R^3$ &\emptybox&\\
 	\hline
-	A set of 3 vectors in $\R^3$ &&\\
+	A set of 3 vectors in $\R^3$ &\emptybox&\\
 	\hline
-	A set of 4 vectors in $\R^3$ &&\\
+	A set of 4 vectors in $\R^3$ &\emptybox&\\
 	\hline
 \end{tabular}
 \end{center}
@@ -2275,7 +2371,7 @@ examples.
 
 	In this module you will learn
 	\begin{itemize}
-		\item Geometric an algebraic definitions of the dot product.
+		\item Geometric and algebraic definitions of the dot product.
 		\item How dot products relate to the length of a vector and the angle
 			between two vectors.
 		\item The \emph{normal form} of lines, planes, and hyperplanes.
@@ -2289,7 +2385,7 @@ examples.
 	\Title{Dot Product, Orthogonality}
 
 	\Heading{Textbook}
-	Section 1.3
+	Module 4
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -2415,6 +2511,10 @@ examples.
 					\end{align*}
 				\end{solution}
 		\end{enumerate}
+
+
+		\begin{bookonly}\scaledgrid{.6}\end{bookonly}
+		\begin{bookonly}\vspace{\stretch{1}}\end{bookonly}
 		\item Draw the graph of $\cos$ and identify which angles make $\cos$
 			negative, zero,	or positive.
 			\begin{solution}
@@ -2449,6 +2549,9 @@ examples.
 				either direction.
 			\end{solution}
 
+
+		\begin{bookonly}\scaledshortgrid{.7}\end{bookonly}
+		\bookonlynewpage
 		\item Draw a new picture of $\vec a$ and $\vec b$ and on that picture draw
 		\begin{enumerate}
 			\item a vector $\vec c$ where $\vec c\cdot \vec a$ is negative.
@@ -2540,6 +2643,9 @@ examples.
 				\end{solution}
 		\end{enumerate}
 	\end{parts}
+
+
+	\begin{bookonly}\singlegrid\end{bookonly}
 
 	\bookonlynewpage
 	\displayonlynewpage
@@ -2645,8 +2751,8 @@ examples.
 		\begin{notes}
 			\begin{itemize}
 				\item It won't occur to most students that $\vec 0$ is orthogonal to everything. Make sure
-					this come up.
-				\item Guessing-and-checking is a valid and useful mathematical technique. Student aren't
+					this comes up.
+				\item Guessing-and-checking is a valid and useful mathematical technique. Students aren't
 					comfortable with this method because there's no algorithm for it (and so it
 					doesn't seem reliable and repeatable). We should change their attitude. Most problems
 					in their lives won't be solved with repeatable algorithms (unless they work on
@@ -2700,7 +2806,7 @@ examples.
 	\Title{Normal Form of Lines and Planes}
 
 	\Heading{Textbook}
-	Section 1.3
+	Module 4
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -2783,6 +2889,7 @@ examples.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\singlegrid\end{bookonly}
 	\bookonlynewpage
 	\displayonlynewpage
 	\SavedDefinitionRender{NormalVector}
@@ -2910,7 +3017,7 @@ examples.
 				$X = \Set*{\vec x\in \R^3 \given \vec x\cdot \vec n = 0}$.
 
 				Geometrically, this is a plane through the origin and
-				perpendicular to $\vec n$.
+				orthogonal to $\vec n$.
 			\end{solution}
 		\item Describe $X$ using an equation.
 			\begin{solution}[inline]
@@ -2928,7 +3035,7 @@ examples.
 
 	In this module you will learn
 	\begin{itemize}
-		\item The definition of the projection of a vector and the vector component of one vector
+		\item The definition of the projection of a vector onto a set and the definition of the vector component of one vector
 			in the direction of another.
 		\item The relationship between projection, orthogonality, and vector components.
 		\item How to project a vector onto a line.
@@ -2942,7 +3049,7 @@ examples.
 	\Title{Projections}
 
 	\Heading{Textbook}
-	Section 1.4
+	Module 5
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -3002,7 +3109,7 @@ examples.
 					draw vectors with ``tails''.
 				\item General projections have no formula. This might make students unhappy, but it's an
 					important point to emphasize.
-				\item The goal of part 3 is to have students pick a from the many representations of $\ell$
+				\item The goal of part 3 is to have students pick a form the many representations of $\ell$
 					a suitable one. Vector avoids multivariable calculus.
 
 				\item Some students might already know about a relationship between orthogonality and
@@ -3075,6 +3182,7 @@ examples.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\singlegrid\end{bookonly}
 	\bookonlynewpage
 	\question
 	\begin{annotation}
@@ -3160,6 +3268,7 @@ examples.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\singlegrid\end{bookonly}
 	\bookonlynewpage
 	\SavedDefinitionRender{Component}
 
@@ -3227,7 +3336,7 @@ examples.
 	\Title{Projections, Subspaces}
 
 	\Heading{Textbook}
-	Sections 1.2, 1.4
+	Module 5
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -3358,6 +3467,7 @@ examples.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\singlegrid\end{bookonly}
 
 \begin{module}
 	\Title{Subspaces \& Bases}
@@ -3397,7 +3507,7 @@ examples.
 			Every part of this problem highlights a misconception or builds an abstraction.
 			\begin{enumerate}
 				\item[1.] Satisfies (i) but not (ii).
-				\item[2.] Looks fairly flat, but violates (i) and (ii) in a specify way.
+				\item[2.] Looks fairly flat, but violates (i) and (ii) in a specific way.
 				\item[3.] First subspace.
 				\item[4.] Looks flat, but violates (i) and (ii).
 				\item[5.] Satisfies (ii) but not (i).
@@ -3672,11 +3782,14 @@ examples.
 			\end{solution}
 	\end{parts}
 
+
+	\begin{bookonly}\begin{center}\hspace{-2cm}\triplegrid\hspace{-2cm}\triplegrid\end{center}\end{bookonly}
+
 \begin{lesson}
 	\Title{Basis, Dimension}
 
 	\Heading{Textbook}
-	Sections 1.2, 4.3
+	Module 6
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -3844,7 +3957,7 @@ examples.
 	\Title{Matrices}
 
 	\Heading{Textbook}
-	Section 3.1
+	Module 7
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -3902,6 +4015,13 @@ examples.
 				\end{align*}
 			\end{solution}
 		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
+			$x_0$ and $y_0$ mean in terms of \emph{intersecting lines} (hint: think
+			about systems of equations).
+			\begin{solution}
+				The lines represented by the equations $x+2y=-2$ and $3x+3y=-1$
+				from the system of equations above intersect at the point $\mat{x_0\\y_0}$.
+			\end{solution}
+		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
 			$x_0$ and $y_0$ mean in terms of \emph{linear combinations} (hint: think
 			about the columns of $A$).
 			\begin{solution}
@@ -3910,13 +4030,6 @@ examples.
 				\[
 					x_0 \mat{1\\3} + y_0 \mat{2\\3} = \mat{-2\\-1}.
 				\]
-			\end{solution}
-		\item Let $\mat{x_0\\y_0}$ be a solution to $A\vec x=\vec b$. Explain what
-			$x_0$ and $y_0$ mean in terms of \emph{intersecting lines} (hint: think
-			about systems of equations).
-			\begin{solution}
-				The lines represented by the equations $x+2y=-2$ and $3x+3y=-1$
-				from the system of equations above intersect at the point $\mat{x_0\\y_0}$.
 			\end{solution}
 	\end{parts}
 
@@ -4094,7 +4207,7 @@ examples.
 	\begin{itemize}
 		\item Notation for representing a vector in multiple bases.
 		\item The distinction between a vector and its representation.
-		\item How to compute multiple representation of a vector.
+		\item How to compute multiple representations of a vector.
 		\item The definition of an \emph{oriented} basis.
 	\end{itemize}
 
@@ -4105,7 +4218,7 @@ examples.
 	\Title{Change of Basis I}
 
 	\Heading{Textbook}
-	Section 4.4
+	Module 8
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -4154,7 +4267,7 @@ examples.
 
 		\begin{notes}
 			\begin{itemize}
-				\item The Oronto streets are set up like 3,4,5 right triangle and all the numbers are easy.
+				\item The Oronto streets are set up like 3,4,5 right triangles and all the numbers are easy.
 					This question can be answered from the picture or algebraically.
 				\item Part 4 is important. A convincing argument is that one basis is not intrinsically
 					``better'' than the other is that if the compass rose were
@@ -4166,7 +4279,7 @@ examples.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	The fictional town of Oronto is not aligned with the usual
+	The mythical town of Oronto is not aligned with the usual
 	compass directions. The streets are laid out as follows:
 
 \begin{center}
@@ -4364,7 +4477,7 @@ examples.
 	\Title{Orientation, Matrix Transformations}
 
 	\Heading{Textbook}
-	Section 3.2, 3.3
+	Module 8, 9
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -4491,8 +4604,12 @@ examples.
 	\input{modules/module9-exercises.tex}
 \end{module}
 \begin{iola}
-\section*{Task 2.1: Italicizing N}
-\addcontentsline{toc}{subsection}{Task 2.1: Italicizing N}
+\section*{Italicizing N}
+\addcontentsline{toc}{subsection}{Italicizing N}
+\question
+
+The citizens of Oronto want to erect a sign welcoming visitors to the city. They've commissioned letters to be built, but
+at the last council meeting, they decided they wanted italicised letters instead of regular ones. Can you help them?
 
 \hfill\begin{tikzpicture}[scale=1.5]
     \begin{axis}[
@@ -4549,7 +4666,7 @@ examples.
 					these relate via linear combinations and why you get the
 					same matrix either way.
 				\item Most groups will only deal with the ``corners'' of the $N$ and ignore
-					the fact that the $N$ is made of up line segments. Using the language
+					the fact that the $N$ is made up of line segments. Using the language
 					of convex linear combinations and linearity of matrix multiplication,
 					we can come up with a proof that generalizes the corners to the whole $N$.
 			\end{itemize}
@@ -4568,7 +4685,7 @@ notice your group making or any questions for further pursuit.
 	\Title{Linear Transformations I}
 
 	\Heading{Textbook}
-	Section 3.2
+	Module 9
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -4593,10 +4710,11 @@ notice your group making or any questions for further pursuit.
 \end{lesson}
 
 \begin{iola}
-\section*{Task 2.2: Beyond the N}
-\addcontentsline{toc}{subsection}{Task 2.2: Beyond the N}
+\section*{Beyond the N}
+\addcontentsline{toc}{subsection}{Beyond the N}
 
-	A few students were wondering how letters placed in other
+\question
+	Some council members were wondering how letters placed in other
 	locations in the plane would be transformed under $A= \mat{ 1&  1/3  \\ 0 & 4/3}$.
 	If other letters are placed around the
 	``N,'' the students argued over four different possible results for the
@@ -4783,7 +4901,7 @@ notice your group making or any questions for further pursuit.
 				\item Expect at least one student to say $\mathcal R\mat{1\\0}=\mat{1&0}$.
 				\item In part 2, emphasize the relationship between linear combinations
 					in the input and linear combinations in the output.
-				\item I part 4, emphasize that $\mathcal R$ is \emph{not} the matrix $R$.
+				\item In part 4, emphasize that $\mathcal R$ is \emph{not} the matrix $R$.
 					That multiplication by $R$ is just one way to write $\mathcal R$.
 					(For analogy, the squaring function is \emph{not} ``$x^2$'', nor is it ``$x\cdot x$''.
 					Those are both sequences of symbols that describe how to square a number $x$, but
@@ -4856,12 +4974,12 @@ notice your group making or any questions for further pursuit.
 					\begin{solution}
 						A linear transformation. We proved this in the previous problem.
 					\end{solution}
-				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\mat{x^2\\y}$.
+				\item $W:\R^2\to\R^2$ where $W\mat{x\\y}=\matc{x^2\\y}$.
 					\begin{solution}
 						Not a linear transformation, since for example
 						$W\left(2\mat{1\\0}\right)=\mat{4\\0}\neq\mat{2\\0}=2W\mat{1\\0}$.
 					\end{solution}
-				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\mat{x+2\\y}$.
+				\item $T:\R^2\to\R^2$ where $T\mat{x\\y}=\matc{x+2\\y}$.
 					\begin{solution}
 						Not a linear transformation, since for example
 						$T\left(2\mat{1\\0}\right) = \mat{4\\0} \neq 2T\mat{1\\0}$.
@@ -4901,7 +5019,7 @@ notice your group making or any questions for further pursuit.
 	\Title{Linear Transformations II, Composition of Linear Transformations}
 
 	\Heading{Textbook}
-	Section 3.2, 3.3
+	Module 10
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -5026,6 +5144,7 @@ notice your group making or any questions for further pursuit.
 			\end{solution}
 	\end{parts}
 
+	\begin{bookonly}\begin{center}\hspace{-2cm}\triplegrid\end{center}\end{bookonly}
 \begin{module}
 	\Title{The Composition of Linear Transformations}
 
@@ -5040,8 +5159,9 @@ notice your group making or any questions for further pursuit.
 	\input{modules/module10-exercises.tex}
 \end{module}
 \begin{iola}
-\section*{Task 2.3: Pat and Jamie}
-\addcontentsline{toc}{subsection}{Task 2.3: Pat and Jamie}
+\section*{Pat and Jamie}
+\addcontentsline{toc}{subsection}{Pat and Jamie}
+\question
 
 \begin{minipage}{.5\textwidth}
 \begin{tikzpicture}[scale=.8]
@@ -5111,7 +5231,7 @@ Suppose that the ``N'' on the left is written in regular 12-point font.  Find a 
 		\end{notes}
 	\end{annotation}
 
-Two students---Pat and Jamie---explained their approach to the Italicizing N task as follows:
+Two students---Pat and Jamie---explained their approach to italicizing the N as follows:
 \begin{quote}\itshape
 	In order to find the matrix $A$, we are going to find a matrix that makes the ``N'' taller,
 	find a matrix that italicizes the taller ``N,'' and a combination of those two matrices
@@ -5131,7 +5251,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\Title{Composition \& Matrix Transformations, Range, Nullspace}
 
 	\Heading{Textbook}
-	Section 3.4
+	Module 11
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -5172,7 +5292,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 		\begin{notes}
 			\begin{itemize}
 				\item Many students won't distinguish between $\mathcal P$ and $P$. Nor
-					will the understand that the fact that $PR$ is the matrix for $P\circ R$
+					will they understand that the fact that $PR$ is the matrix for $P\circ R$
 					is a theorem---they will think it's obvious.
 				\item For part 3, many students will multiply matrices (based on intuition),
 					but couldn't answer the question without matrix multiplication. Encourage
@@ -5346,7 +5466,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 					$\Null(\mathcal P)=\Span\Set*{\mat{3\\-2}}$.
 
 					A vector $\vec x$ projects to $\vec 0$ if and only if $\vec x$
-					is on the line perpendicular to $\Span\Set{\vec u}$ passing
+					is on the line orthogonal to $\Span\Set{\vec u}$ passing
 					through the origin.
 				\end{solution}
 			\end{solution}
@@ -5416,7 +5536,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\Title{Fundamental Subspaces}
 
 	\Heading{Textbook}
-	Section 3.4
+	Module 11
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -5598,11 +5718,11 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 				subspace of $\R^2$ and all vectors in it have two coordinates.
 				Therefore, these two spaces are different.
 			\end{solution}
-		\item Describe the set of all vectors perpendicular to the rows of $A$.
+		\item Describe the set of all vectors orthogonal to the rows of $A$.
 			\begin{solution}
 				The $z$-axis in $\R^3$.
 
-				A vector $\vec x=\mat{x\\y\\z}$ is perpendicular to the rows of $A$
+				A vector $\vec x=\mat{x\\y\\z}$ is orthogonal to the rows of $A$
 				if and only if its dot product with both rows is zero. That is
 				\[
 					\vec x\cdot\mat{1\\0\\0} = x = 0
@@ -5749,7 +5869,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\Title{Rank}
 
 	\Heading{Textbook}
-	Section 2.2, 3.4
+	Module 11
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -6022,7 +6142,7 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 	\Title{Rank-nullity Theorem, Inverses I}
 
 	\Heading{Textbook}
-	Section 3.4, 3.5
+	Module 11
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -6171,8 +6291,14 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 \end{module}
 
 \begin{iola}
-\section*{Task 2.4: Getting back N}
-\addcontentsline{toc}{subsection}{Task 2.4: Getting back N}
+\section*{Getting back N}
+\addcontentsline{toc}{subsection}{Getting back N}
+\question
+
+``We've made a terrible mistake,'' a council member says. ``Can we go back to the regular N?''
+
+
+Recall the original Italicising N task.
 
 \begin{minipage}{.5\textwidth}
 \begin{tikzpicture}[scale=.8]
@@ -6220,7 +6346,7 @@ Suppose that the ``N'' on the left is written in regular 12-point font.  Find a 
 	the ``N'' into the letter on the right which is written in an \emph{italic} 16-point font.
 \end{minipage}
 
-Two students---Pat and Jamie---explained their approach to the Italicizing N task as follows:
+Pat and Jamie explained their approach to the Italicizing N task as follows:
 \begin{quote}\itshape
 	In order to find the matrix $A$, we are going to find a matrix that makes the ``N'' taller,
 	find a matrix that italicizes the taller ``N,'' and a combination of those two matrices
@@ -6240,8 +6366,9 @@ Two students---Pat and Jamie---explained their approach to the Italicizing N tas
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-Consider the new task: find a matrix $C$ that transforms the ``N'' on the right to
-the ``N'' on the left.
+
+	The Oronto city council has asked you to \emph{unitalicise} the N.
+	Your new task is to find a matrix $C$ that transforms the ``N'' on the right to the ``N'' on the left.
 \begin{enumerate}
 	\item Use any method you like to find $C$.
 	\item Use a method similar to Pat and Jamie's method, only use it to find $C$ instead
@@ -6254,7 +6381,7 @@ the ``N'' on the left.
 	\Title{Inverses II, Elementary Matrices}
 
 	\Heading{Textbook}
-	Section 3.5, 3.6
+	Module 12
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -6312,7 +6439,7 @@ the ``N'' on the left.
 		\begin{notes}
 			\begin{itemize}
 				\item One punchline is that elementary matrices
-					allow do the same thing as elementary row
+					allow you to do the same thing as elementary row
 					operations. This means we can understand row
 					reduction in terms of matrix multiplication instead
 					of as an algorithm that operates on matrix entries.
@@ -6410,7 +6537,7 @@ the ``N'' on the left.
 				\item In a large class, students will find all pairs, but many will miss
 					$F,F$ as a pair.
 				\item Make sure to have a discussion of $B,C$, since $BC=I$ but $CB\neq I$.
-					The fact you can multiply both ways and get $I$ is a really important
+					The fact that you can multiply both ways and get $I$ is a really important
 					part of the definition!
 			\end{itemize}
 		\end{notes}
@@ -6502,7 +6629,7 @@ the ``N'' on the left.
 	\Title{Applications of Inverses I}
 
 	\Heading{Textbook}
-	Section 3.5
+	Module 12
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -6725,7 +6852,7 @@ the ``N'' on the left.
 	\Title{Applications of Inverses II, Change of Basis}
 
 	\Heading{Textbook}
-	Section 4.4
+	Module 13
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -6971,7 +7098,7 @@ the ``N'' on the left.
 	\Title{Determinants}
 
 	\Heading{Textbook}
-	Section 5.4
+	Module 14
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -7059,9 +7186,9 @@ the ``N'' on the left.
 
 
 		\fill[blue!50!white, opacity=0.3] (0,0) -- (0,1) -- (1,1) -- (1,0) -- (0,0);
-		\draw[thick,blue] (0,0) -- (0,1) -- (1,1) -- (1,0) -- (0,0);
+		\draw[thick,blue] (0,1) -- (1,1) -- (1,0);
 		\draw[->,very thick,violet] (0,0) -- (1,0);
-		\draw[->,very thick,blue] (0,0) -- (0,1);
+		\draw[->,very thick,blue,densely dotted] (0,0) -- (0,1);
 	    \fill[fill=violet] (0,0) circle[radius=2pt];
     \end{axis}
 \end{tikzpicture}\hspace{.5cm}
@@ -7087,9 +7214,9 @@ the ``N'' on the left.
 
 
 		\fill[blue!50!white, opacity=0.3] (0,0) -- (0.5,1) -- (1.5,1.5) -- (1,0.5) -- (0,0);
-		\draw[thick,blue] (0,0) -- (0.5,1) -- (1.5,1.5) -- (1,0.5) -- (0,0);
+		\draw[thick,blue] (0.5,1) -- (1.5,1.5) -- (1,0.5);
 		\draw[->,very thick,violet] (0,0) -- (1,0.5);
-		\draw[->,very thick,blue] (0,0) -- (0.5,1);
+		\draw[->,very thick,blue,densely dotted] (0,0) -- (0.5,1);
 	    \fill[fill=violet] (0,0) circle[radius=2pt];
     \end{axis}
 \end{tikzpicture}
@@ -7204,7 +7331,9 @@ the ``N'' on the left.
 			\end{solution}
 	\end{parts}
 
-	\bookonlynewpage
+	%\begin{bookonly}\begin{center}\doublegrid\end{center}\end{bookonly}
+	\vspace{\stretch{1}}
+
 	\question
 	\begin{annotation}
 		\begin{goals}
@@ -7261,6 +7390,9 @@ the ``N'' on the left.
 			\end{solution}
 	\end{parts}
 
+	%\begin{bookonly}\begin{center}\doublegrid\end{center}\end{bookonly}
+	\vspace{\stretch{1}}
+
 	\displayonlynewpage
 	\bookonlynewpage
 	\question
@@ -7288,7 +7420,8 @@ the ``N'' on the left.
 			\end{solution}
 	\end{parts}
 
-	\bookonlynewpage
+	\vspace{\stretch{1}}
+
 	\begin{theorem}[Volume Theorem I]
 		For a square matrix $M$, $\det(M)$ is the oriented volume of the parallelepiped
 		($n$-dimensional parallelogram) given by the column vectors of $M$.
@@ -7334,12 +7467,13 @@ the ``N'' on the left.
 				this is an immediate consequence of Volume Theorems I and II.
 			\end{solution}
 	\end{parts}
+	\vspace{\stretch{1}}
 
 \begin{lesson}
 	\Title{Determinants and Compositions}
 
 	\Heading{Textbook}
-	Section 5.4, 5.2
+	Module 14
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -7717,7 +7851,7 @@ the ``N'' on the left.
 	\Title{Eigenstuff I}
 
 	\Heading{Textbook}
-	Section 6.1
+	Module 15
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -7738,10 +7872,16 @@ the ``N'' on the left.
 
 \end{lesson}
 \begin{iola}
-\section*{Task 3.1: The Green and the Black}
-\addcontentsline{toc}{subsection}{Task 3.1: The Green and the Black}
-Consider the following two bases for $\R^2$: the green basis $\mathcal G=\{\vec g_1,\vec g_2\}$
-and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
+\section*{The Green and the Black}
+\addcontentsline{toc}{subsection}{The Green and the Black}
+
+\question
+The subway system of Oronto is laid out in a skewed grid. All tracks run parallel to one of the 
+green lines shown. Compass directions are given by the black lines.
+
+While studying the subway map, you decide to pick two bases to help:
+	the green basis $\mathcal G=\{\vec g_1,\vec g_2\}$,
+	and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 \begin{center}
 \begin{tikzpicture}[>=latex]
     \begin{axis}[scale=2,
@@ -7821,7 +7961,10 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 		a green basis representation to a black basis representation. Find
 		another matrix $Y$ that converts vectors from a black basis representation
 		to a green basis representation.
-	\item Let $T:\R^2\to\R^2$ be the linear transformation that stretches in the $y=-3x$ direction
+	\item The city commission is considering renumbering all the stops along the $y=-3x$ direction.
+		You deduce that the commission's proposal can be modeled by a linear transformation.
+
+		Let $T:\R^2\to\R^2$ be the linear transformation that stretches in the $y=-3x$ direction
 		by a factor of $2$ and leaves vectors in the $y=x$ direction fixed.
 
 		Describe what happens to the vectors $\vec u$, $\vec v$, and $\vec w$ when
@@ -7832,7 +7975,8 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 			[\vec w]_{\mathcal B} = \mat{-8\\-7}.
 		\]
 	\item When working with the transformation $T$, which basis do you prefer vectors be
-		represented in?
+		represented in? What coordinate system would you propose the city commission
+		use to describe their plans?
 \end{enumerate}
 \end{iola}
 
@@ -7842,7 +7986,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\Title{Eigenstuff II}
 
 	\Heading{Textbook}
-	Section 6.1
+	Module 15
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -7917,9 +8061,9 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 
 		\fill[blue!50!white, opacity=0.3] (0,0) -- (0,1) -- (1,1) -- (1,0) -- (0,0);
-		\draw[thick,blue] (0,0) -- (0,1) -- (1,1) -- (1,0) -- (0,0);
+		\draw[thick,blue] (0,1) -- (1,1) -- (1,0);
 		\draw[->,very thick,violet] (0,0) -- (1,0);
-		\draw[->,very thick,blue] (0,0) -- (0,1);
+		\draw[->,very thick,blue,densely dotted] (0,0) -- (0,1);
 	    \fill[fill=violet] (0,0) circle[radius=2pt];
     \end{axis}
 \end{tikzpicture}\hspace{.5cm}
@@ -7945,9 +8089,9 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 
 
 		\fill[blue!50!white, opacity=0.3] (0,0) -- (0.5,1) -- (1.5,1.5) -- (1,0.5) -- (0,0);
-		\draw[thick,blue] (0,0) -- (0.5,1) -- (1.5,1.5) -- (1,0.5) -- (0,0);
+		\draw[thick,blue] (0.5,1) -- (1.5,1.5) -- (1,0.5);
 		\draw[->,very thick,violet] (0,0) -- (1,0.5);
-		\draw[->,very thick,blue] (0,0) -- (0.5,1);
+		\draw[->,very thick,blue,densely dotted] (0,0) -- (0.5,1);
 	    \fill[fill=violet] (0,0) circle[radius=2pt];
     \end{axis}
 \end{tikzpicture}
@@ -8124,7 +8268,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\Title{Characteristic Polynomial, Diagonalization I}
 
 	\Heading{Textbook}
-	Section 6.2
+	Module 15
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -8412,7 +8556,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\Title{Diagonalization II}
 
 	\Heading{Textbook}
-	Section 6.2
+	Module 16
 
 	\Heading{Objectives}
 	\begin{itemize}
@@ -8623,7 +8767,7 @@ and the black basis $\mathcal B=\{\vec e_1,\vec e_2\}$.
 	\Title{Diagonalization III}
 
 	\Heading{Textbook}
-	Section 6.2
+	Module 16
 
 	\Heading{Objectives}
 	\begin{itemize}

@@ -1,17 +1,173 @@
 \begin{exercises}
-	\begin{problist}
-		\prob  Example problem with parts
-		\begin{enumerate}
-			\item   The first part
-			\item   The second part
-		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+	% Topics:
+	 % Spans
+	 % Representing lines/planes/volumes as spans
+	 % translated spans
+	 % linear independence
 
+	\begin{problist}
+		\prob Let $A=\Set*{\mat{1\\2\\0},\mat{0\\1\\0},\mat{1\\1\\0}}$.
+		\begin{enumerate}
+			\item Is $A$
+				linearly independent or dependent?
+
+			\item Describe the span of $A$.
+
+			\item Can $A$ be extended (i.e., can vectors be added to $A$) so that
+				$A$ spans all of $\R^3$?
+		\end{enumerate}
+
+		\prob For each set below, determine whether it spans a point,
+		line, plane, volume, or other. \label{PROBSET3-SETS}
+		\begin{enumerate}
+			\item $\Set*{\mat{1\\1}}$
+
+			\item $\Set*{\mat{1\\3},\mat{2\\6}}$
+
+			\item $\Set*{\mat{2\\4},\mat{4\\2}}$
+
+			\item $\Set*{\mat{1\\2},\mat{-1\\-2}}$
+
+			\item $\Set*{\mat{1\\2},\mat{-1\\2}}$
+
+			\item $\Set*{}$
+
+			\item $\Set*{\mat{1\\2},\mat{2\\3},\mat{3\\4}}$
+
+			\item $\Set*{\mat{5\\4\\-3},\mat{1\\1\\0},\mat{2\\2\\2}}$
+
+			\item $\Set*{\mat{1\\-2\\0},\mat{4\\-5\\1}}$
+
+			\item $\Set*{\mat{1\\-2\\0},\mat{4\\-5\\1},\mat{5\\-7\\1}}$
+		\end{enumerate}
+
+		\prob
+		\begin{enumerate}
+			\item For each set in question \ref{PROBSET3-SETS}, determine whether it is
+				linearly independent or dependent.
+
+			\item Is the set $\Set*{\mat{1\\2\\3},\mat{5\\6\\7},
+				\mat{9\\10\\11}, \mat{13\\14\\15}}$ linearly
+				independent or dependent?
+
+			\item Can you find a set of $n+1$ vectors in $\R^{n}$ that is independent? Explain.
+		\end{enumerate}
+
+		\prob
+		\begin{enumerate}
+			\item If possible, express the following lines in $\R^{2}$
+				as spans. Otherwise, justify why the line cannot
+				be expressed as a span. \label{PROBSET3-R2-spans}
+				\begin{enumerate}
+					\item $x=0$
+
+					\item $2x+3y=0$
+
+					\item $5x-4y=0$
+
+					\item $-x-y=-1$
+
+					\item $9x-15y=8$
+				\end{enumerate}
+
+			\item For each line in question \ref{PROBSET3-R2-spans} that cannot
+				be expressed as a span, express it as a translated
+				span.
+
+			\item Each equation below specifies a line or a plane in $\R^3$. If possible,
+				express the specified line or plane as a span. Otherwise,
+				 justify
+				why it cannot be expressed as a span. \label{PROBSET3-R3-spans}
+				\begin{enumerate}
+					\item $2x-y+z=4$
+
+					\item $x+6y-z=0$
+
+					\item $x+3z=0$
+
+					\item $y=1$
+
+					\item $x=0$ and $z=0$
+
+					\item $2x-y=2$ and $z=-1$
+				\end{enumerate}
+
+			\item For lines or planes in question \ref{PROBSET3-R3-spans} that cannot
+				be expressed as spans, express as a translated
+				span.
+		\end{enumerate}
+
+		\prob Determine if the following planes, expressed in vector form, are the same plane.
+		\begin{enumerate}
+			\item $\vec x = t\mat{1\\2}+ s\mat{2\\7}$ and $\vec x =
+				t\mat{3\\5}+ s\mat{8\\4}$.
+
+			\item $\vec x = t\mat{2\\2\\3}+ s\mat{1\\0\\5}$ and $\vec
+				x = t\mat{1\\0\\5}+ s\mat{4\\2\\13}$.
+
+			\item $\vec x = t\mat{1\\2\\1}+ s\mat{2\\2\\1}$ and $\vec
+				x = t\mat{0\\1\\0}+ s\mat{1\\2\\1}$.
+		\end{enumerate}
+		
+		\prob Show that the set $\Set*{\mat{2\\0\\7},\mat{1\\1\\1},\mat{6\\4\\11}}$
+		is linearly dependent in two ways. First, using the geometric definition of linear dependence
+		and then using the algebraic definition.
+
+		\prob Choose vectors $\vec p$, $\vec d_{1}$, $\vec d_{2}$,
+		$\vec d_{3}$ in $\R^{4}$ such that the vector equation
+		$\vec x = t_{1}\vec d_{1} + t_{2}\vec d_{2} + t_{3}\vec d_{3}+\vec p$ specifies:
+		\begin{enumerate}
+			\item A hyperplane passing through the origin.
+
+			\item A plane not passing through the origin.
+
+			\item A line passing through the origin.
+
+			\item The point $(2,2,2,3)$.
+		\end{enumerate}
+
+		\prob Let $S=\Set*{\mat{1\\3},\mat{0\\-1}}$ and let $T=\Set*{\mat{-1\\-1},\mat{0\\2},\mat{0\\0}}$. Draw
+		the sets $S$, $T$, and $T+S$.
+
+		\prob Let $S=\Set*{\mat{1\\1},\mat{0\\-1}, \mat{0\\0}}$. 
+		\begin{enumerate}
+			\item 
+				Draw $S$, $S+S$, and $(S+S)+S$.
+			\item Is $(S+S)+S=S+(S+S)$? Does the expression $S+S+S$ make sense?
+			\item Draw $S+S+S+S+\cdots$.
+		\end{enumerate}
+
+		\prob Let $D\subseteq\R^2$ be the unit disk centered at the origin and let $L\subseteq \R^2$ be
+		the line segment from $(0,0)$ to $(0,2)$.
+		\begin{enumerate}
+			\item How many points are in $D$, $L$, and $D+L$?
+			\item Draw $D+L$.
+			\item Find the area of $D+L$.
+			\item Suppose $S\subseteq\R^2$ makes a smiley face when drawn and the ``thickness'' of
+				each line composing this smiley face is $0.01$ units. Can you find a set $A$ so
+				that the set $S+A$ represents a smiley face where the lines have a thickness of $0.05$?
+				If so, give an example of such an $A$. Otherwise, explain why it is impossible.
+		\end{enumerate}
+
+		\prob Let $\vec v_{1}, \vec v_{2}, \vec v_{3}$ be vectors. For each of the following statements,
+		justify whether the statement is true or false.
+		\begin{enumerate}
+			\item If $\vec v_{1}$ can be written as a linear combination
+				of $\vec v_{2}$ and $\vec v_{3}$, then $\Set{\vec
+				v_1,\vec v_2,\vec v_3}$ is linearly dependent.
+
+			\item If $\Set{\vec v_1,\vec v_2,\vec v_3}$ is linearly dependent,
+				then $\vec v_{1}$ can be written as a linear combination
+				of $\vec v_{2}$ and $\vec v_{3}$.
+
+			\item If $\vec v_{1}=k\vec v_{2}$ for some real number $k$,
+				then $\Set{\vec v_1,\vec v_2}$ is linearly dependent.
+
+			\item If $\vec v_{1}$ is not a scalar multiple of $\vec
+				v_{2}$, then $\Set{\vec v_1,\vec v_2,\vec v_3}$ is
+				linearly independent.
+
+			\item All spans contain $\vec 0$.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}

@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\pagenumbering{gobble}
+\usepackage{enumitem}
+
+\usepackage[paperheight=6in, paperwidth=8in, margin=.3in]{geometry}
+
+\begin{document}
+	\Large\bf \color{NavyBlue} \textit{Recall that}
+	\[
+		\overbrace{\vec{x} =
+		\begin{bmatrix}
+			1\\
+			0
+		\end{bmatrix}t +
+		\begin{bmatrix}
+			0\\
+			2
+		\end{bmatrix}}^{\ell_1}, \qquad \overbrace{\vec{x} =
+		\begin{bmatrix}
+			1 \\
+			-2
+		\end{bmatrix}t +
+		\begin{bmatrix}
+			1\\
+			3
+		\end{bmatrix}}^{\ell_2}.
+	\]
+
+
+	\medskip
+
+
+	\begin{enumerate}
+		\color{Violet} \vspace{.2cm} \hrule
+
+		\item Jack, you've made a mistake. The $t$'s can be different.
+			You need to set them different when you solve, and then
+			you'll see Tammy is correct.
+
+			\vspace{.2cm} \hrule
+
+		\item
+			\[
+				\ell_{1}\cap \ell_{2}\neq \{\}
+			\]
+			\[
+				\iff
+			\]
+			\[
+				\begin{bmatrix}
+					1\\
+					0
+				\end{bmatrix}t +
+				\begin{bmatrix}
+					0\\
+					2
+				\end{bmatrix}=
+				\begin{bmatrix}
+					1 \\
+					-2
+				\end{bmatrix}s +
+				\begin{bmatrix}
+					1\\
+					3
+				\end{bmatrix}\qquad\implies\qquad t=\frac{1}{2}\quad
+				s=\frac{3}{2}
+			\]
+			 So the lines intersect as Tammy said. \vspace{.2cm}
+			\hrule
+
+		\item The `$t$' that shows up in the vector form of a line is a dummy
+			variable. To determine if two lines written in vector form
+			intersect, you need to replace $t$ with a real variable.
+			For example, you could solve
+			\[
+				\begin{bmatrix}
+					1\\
+					0
+				\end{bmatrix}t +
+				\begin{bmatrix}
+					0\\
+					2
+				\end{bmatrix}=
+				\begin{bmatrix}
+					1 \\
+					-2
+				\end{bmatrix}s +
+				\begin{bmatrix}
+					1\\
+					3
+				\end{bmatrix}.
+			\]
+			 \vspace{.2cm} \hrule
+	\end{enumerate}
+\end{document}

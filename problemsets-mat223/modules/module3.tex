@@ -77,19 +77,18 @@ any location can be reached. To verify this algebraically, consider the vector e
 	\label{EQSPAN1}
 	\vec x=\mat{x\\y} = \alpha\mat{1\\1}+\beta\mat{1\\-2} = \alpha\vec u+\beta\vec v.
 \end{equation}
-Here $\vec x$ represents an arbitrary point in $\R^2$. Thus, if equation \eqref{EQSPAN1} always
+Here $\vec x$ represents an arbitrary point in $\R^2$. If equation \eqref{EQSPAN1} always
 has a solution\footnote{ The official terminology would be to say that
-the equations is always \emph{consistent}.}, any vector in $\R^2$ can be obtained as a linear combination of $\alpha$ and $\beta$.
+the equations are always \emph{consistent}.}, any vector in $\R^2$ can be obtained as a linear combination of $\vec u$ and $\vec v$.
 
 We can solve this equation for $\alpha$ and $\beta$ by considering the equations arising from the
 first and second coordinates. Namely,
-\begin{alignat*}{3}
-	x &{}={}& \alpha &{}+{}& \beta\\
-	y &{}={}& \alpha &{}-{}& 2\beta.
-\end{alignat*}
+	\[
+		\sysdelim..\systeme*{x=\alpha+\beta, y=\alpha-2\beta}
+	\]
 Subtracting the second equation from the first, we get $x-y=3\beta$ and so $\beta=(x-y)/3$. Plugging 
 $\beta$ into the first equation and solving, we get $\alpha=(2x+y)/3$. Thus, equation \eqref{EQSPAN1}
-\emph{always} has a solution. Namely,
+\emph{always} has the solution
 \begin{align*}
 	\alpha &= \tfrac{1}{3}(2x+y)\\
 	\beta &= \tfrac{1}{3}(x-y).
@@ -100,19 +99,62 @@ of others: \emph{span}\index{Span}.
 
 \SavedDefinitionRender{Span}
 
-We just showed above that $\Span\Set*{\mat{1\\1},\mat{-1\\2}}=\R^2$.
+We just showed above that $\Span\Set*{\mat{1\\1},\mat{1\\-2}}=\R^2$.
 
 \begin{example}
 	Let $\vec u=\mat{-1\\2}$ and $\vec v=\mat{1\\-2}$. Find $\Span\Set{\vec u,\vec v}$.
 
-	XXX Finish
+	By the definition of span,
+	\[
+		\Span\Set{\vec u,\vec v}=
+		\Set{\vec x\given \vec x=\alpha\vec u+\beta\vec v\text{ for some }\alpha,\beta\in\R}.
+	\]
+	We need to determine for which $x$ and $y$ the vector equation $\mat{x\\y} = \alpha\mat{-1\\2}+\beta\mat{1\\-2}$ is consistent.
+	
+	From the first and second coordinates, we get the system
+	\[
+		\sysdelim..\systeme*{x=-\alpha+\beta, y=2\alpha-2\beta}.
+	\]
+	Adding 2 times the first equation to the second, we get $2x+y=0$ and so $y=-2x$.
+	Therefore, if $\mat{x\\y}$ make the above system consistent, we must have
+	\[
+		\mat{x\\y}=\mat{t\\-2t}=t\vec v
+	\]
+	for some $t$.
+	Thus,
+	\[
+		\Span\Set{\vec u,\vec v}=
+		\Set{\vec x\given \vec x=t\vec v\text{ for some }t}=\Span\Set{\vec v},
+	\]
+	which is a line through the origin with direction $\vec v$.
 \end{example}
 
 \begin{example}
-	Let $\vec a=\mat{1\\2\\1}$, $\vec b=\mat{0\\1\\0}$, and $\vec c=\mat{1\\1\\1}$. Show that
+	Let $\vec a=\mat{1\\2\\1}$, $\vec b=\mat{0\\1\\0}$, and $\vec c=\mat{1\\1\\2}$. Show that
 	$\R^3=\Span\Set{\vec a,\vec b,\vec c}$.
 
-	XXX Finish
+	If the equation 
+	\[
+		\vec x=\mat{x\\y\\z} = \alpha_1\mat{1\\2\\1}+\alpha_2\mat{0\\1\\0}+\alpha_3\mat{1\\1\\2}
+		 = \alpha_1\vec a+\alpha_2\vec b+\alpha_3\vec c
+	\]
+	is always consistent, then any vector in $\R^3$ can be obtained as a linear combination of
+	$\vec a, \vec b$, and $\vec c$.
+	
+	Reading off the coordinates, we get the system
+	\[
+		\sysdelim..\systeme*{x=\alpha_1+\alpha_3, y=2\alpha_1+\alpha_2+\alpha_3, z=\alpha_1+2\alpha_3}.
+	\]
+	Solving this system, we see
+	\[
+		\begin{aligned}
+			\alpha_1&=2x-z\\
+			\alpha_2&=-3x+y+z\\
+			\alpha_3&=-x+z
+		\end{aligned}
+	\]
+	is always a solution (no matter the values of $x$, $y$, and $z$). Therefore,
+	$\Span\Set{\vec a,\vec b,\vec c}=\R^3$.
 \end{example}
 
 \Heading{Representing Lines \& Planes as Spans}
@@ -139,10 +181,10 @@ then
 \]
 
 If the ``$\vec p$'' in our vector form is $\vec 0$, then that vector form actually defines
-a span. This means, if you accept that every line/plane through the origin has a
-vector form, then every line/plane through the origin can be written as a span. Conversely,
+a span. This means (if you accept that every line/plane through the origin has a
+vector form) that every line/plane through the origin can be written as a span. Conversely,
 if $X=\Span\Set{\vec v_1,\ldots,\vec v_n}$ is a span, we know $\vec 0=0\vec v_1+\cdots+0\vec v_n\in X$,
-and so every span contains the origin.
+and so every span passes through the origin.
 
 
 As it turns out, spans exactly describe points, lines, planes, and volumes\footnote{
@@ -153,17 +195,16 @@ As it turns out, spans exactly describe points, lines, planes, and volumes\footn
 	$\ell_2\subseteq \R^2$ is described by the equation $4x-2y=6$.
 	If possible, describe $\ell_1$ and $\ell_2$ using spans.
 
-	XXX Finish
-\end{example}
+	We can express $\ell_1$ in vector form by
+	\[
+		\vec x=t\mat{2\\-1}+\vec 0,
+	\]
+	and so 
+	\[
+		\ell_1=\Span\Set*{\mat{2\\-1}}.
+	\]
 
-However, not all points, lines, planes, and volumes pass through the origin
-and so we can't describe every such object directly as a span. 
-
-\begin{example}
-	Show the line $\ell_2\subseteq\R^2$ described by the equation $4x-2y=6$
-	cannot be written as a span.
-
-	XXX Finish
+	However, $\ell_2$ does not pass through $\vec 0$, and so $\ell_2$ cannot be written as a span.
 \end{example}
 
 \begin{emphbox}[Takeaway]
@@ -187,9 +228,9 @@ the sets
 \]
 Rewriting, we see $X=\Set{\vec x+\yhat\given \norm{\vec x}=1}$ is just $C$ translated
 by $\yhat$. Similarly, $Y=\Set{\vec x+\vec v\given \norm{\vec x}=1\text{ and }\vec v=3\xhat\text{
-	or }\vec v=\yhat}=(C+\Set{3\xhat})\cup (C+\Set{\xhat})$, and so $Y$ is the union
+	or }\vec v=\yhat}=(C+\Set{3\xhat})\cup (C+\Set{\yhat})$, and so $Y$ is the union
 of two translated copies of $C$\footnote{ If you want to stretch your mind, consider what $C+C$
-is as a set.}.
+is as a set.}. Finally, $Z$ is the union of three translated copies of $C$.
 
 \begin{center}
 	\begin{tikzpicture}
@@ -271,7 +312,8 @@ Set addition allows us to easily create parallel lines and planes by translation
 consider the lines $\ell_1$ and $\ell_2$ given in vector form as $\vec x=t\vec d$ and $\vec x=t\vec d+\vec p$,
 respectively, where  $\vec d=\mat{2\\1}$ and $\vec p=\mat{-1\\1}$.  These lines
 differ from each other by a translation. That is, every point in $\ell_2$ can be obtained by adding $\vec p$ to
-a corresponding point in $\ell_1$. Using the idea of set addition, we can express this mathematically with the equation
+a corresponding point in $\ell_1$. Using the idea of set addition, we can express this relationship
+by the equation
 \[
 	\ell_2 = \ell_1+\Set{\vec p}.
 \]
@@ -338,14 +380,21 @@ a corresponding point in $\ell_1$. Using the idea of set addition, we can expres
 	\end{tikzpicture}
 \end{center}
 
-Note that it would be incorrect to write ``$\ell_2=\ell_1+\vec p$''. Because $\ell_1$
+Note: it would be incorrect to write ``$\ell_2=\ell_1+\vec p$''. Because $\ell_1$
 is a set and $\vec p$ is not a set, ``$\ell_1+\vec p$'' does not make mathematical sense.
 
 \begin{example}
 	Recall $\ell_2\subseteq\R^2$ is the line described by the equation $4x-2y=6$.
 	Describe $\ell_2$ as a translated span.
 
-	XXX Finish
+	We can express $\ell_2$ in vector form with the equation
+	\[
+		\vec x=t\mat{1\\2}+\mat{1\\-1}.
+	\]
+	Therefore,
+	\[
+		\ell_2=\Span\Set*{\mat{1\\2}}+\Set*{\mat{1\\-1}}.
+	\]
 \end{example}
 
 We can now see translated spans provide an alternative notation to vector form 
@@ -398,7 +447,8 @@ for some $a,b\in \R$,
 and so $\vec s\in\Span\Set{\vec u,\vec v,\vec w}$. Thus $\Span\Set{\vec u,\vec v}\subseteq\Span\Set{\vec u,\vec v,\vec w}$.
 We conclude $\Span\Set{\vec u,\vec v}=\Span\Set{\vec u,\vec v,\vec w}$.
 
-In this case, $\vec w$ was a redundant vector---it wasn't needed for the span.
+In this case, $\vec w$ was a redundant vector---it wasn't needed for the span. When a set contains
+a redundant vector, we call the set \emph{linearly dependent}.
 
 \SavedDefinitionRender{LinearlyDependentIndependentGeometric}
 
@@ -415,16 +465,45 @@ are linearly dependent \emph{if there is a redundant vector}.
 
 \begin{example}
 	\label{EXLINDEP}
-	Let $\vec u=\mat{1\\2}$, $\vec v=\mat{2\\3}$, and $\vec w=\mat{4\\5}$. Determine whether
-	$\Set{\vec u,\vec v,\vec w}$ is linearly independent or linearly dependent.
+	Let $\vec a=\mat{1\\2}$, $\vec b=\mat{2\\3}$, $\vec c=\mat{4\\6}$, and $\vec d=\mat{4\\5}$. Determine whether
+	$\Set{\vec a,\vec b,\vec c,\vec d}$ is linearly independent or linearly dependent.
 
-	XXX Finish
+	By inspection, we see $\vec c=2\vec b$. Therefore,
+	\[
+		\Span\Set{\vec a,\vec b,\vec c,\vec d}=\Span\Set{\vec a,\vec b,\vec d},
+	\]
+	and so $\Set{\vec a,\vec b,\vec c,\vec d}$ is linearly dependent.
 \end{example}
 
 \begin{example}
-	Determine whether the planes ... (given in vector form) are the same.
+	The planes $\mathcal P$ and $\mathcal Q$ are given in vector form by
+	\[
+		\overbrace{\vec x=t\mat{1\\2\\1}+s\mat{2\\2\\1}}^{\mathcal P}
+		\qquad\text{and}\qquad
+		\overbrace{\vec x=t\mat{3\\4\\2}+s\mat{2\\2\\1}}^{\mathcal Q}.
+	\]
+	Determine if $\mathcal P$ and $\mathcal Q$ are the same plane.
 
-	XXX Finish
+	Let $\vec a_1=\mat{1\\2\\1}$ and $\vec a_2=\mat{2\\2\\1}$ be the direction vectors
+	for $\mathcal P$ and let 
+	Let $\vec b_1=\mat{3\\4\\2}$ and $\vec b_2=\mat{2\\2\\1}$ be the direction vectors
+	for $\mathcal Q$. We know that $\mathcal P=\mathcal Q$ if every direction vector for $\mathcal Q$
+	is a linear combination of the direction vectors for $\mathcal P$. In other words, 
+	$\mathcal P=\mathcal Q$ if
+	\[
+		\Set{\vec a_1,\vec a_2,\vec b_1}\qquad\text{and}\qquad \Set{\vec a_1,\vec a_2,\vec b_2}
+	\]
+	are both linearly dependent sets. Since $\vec a_2=\vec b_2$, clearly $\Set{\vec a_1,\vec a_2,\vec b_2}$
+	is linearly dependent. 
+
+	We will now check whether $\Set{\vec a_1,\vec a_2,\vec b_1}$ is linearly dependent. Since $\Set{\vec a_1,\vec a_2}$
+	is a linearly independent set, we only need to check if $\vec b_1$ can be written as a linear combination of $\vec a_1$ and $\vec a_2$.
+	After solving the system
+	\[
+		\mat{3\\4\\2}=x\mat{1\\2\\1}+y\mat{2\\2\\1},
+	\]
+	we see that $\vec b_1=\vec a_1+\vec a_2$, and so $\Set{\vec a_1,\vec a_2,\vec b_1}$ is linearly dependent. Therefore,
+	$\mathcal P=\mathcal Q$.
 \end{example}
 
 We can also think of linear independence/dependence from an algebraic perspective.
@@ -442,7 +521,7 @@ to get
 	\vec 0=\vec u+\vec v-\vec w.
 \end{equation}
 Here we have expressed $\vec 0$ as a linear combination of $\vec u$, $\vec v$, and $\vec w$.
-By itself, this is nothing special. After all, without any thinking we know $\vec 0=0\vec u+0\vec v+0\vec w$
+By itself, this is nothing special. After all, we know $\vec 0=0\vec u+0\vec v+0\vec w$
 is a linear combination of $\vec u$, $\vec v$, and $\vec w$. However, the right side of equation \eqref{EQLIND2} has non-zero
 coefficients, which makes the linear combination \emph{non-trivial}.
 
@@ -453,31 +532,33 @@ be zero, but it turns out we can only write $\vec 0$ as a \emph{non-trivial} lin
 of vectors if those vectors are linearly dependent. This is the inspiration for another definition
 of linear independence/dependence.
 
-\begin{definition}[Linear Independence \& Linear Dependence (Algebraic)]
-	\label{DEFLININDII}
-	The vectors $\vec v_1,\ldots,\vec v_n$ are called \emph{linearly independent}\index{linearly independent}
-	if for the only linear combination satisfying
-	\[
-		\vec 0=\alpha_1\vec v_1+\cdots+\alpha_n\vec v_n
-	\]
-	is the trivial linear combination (where $\alpha_1=\cdots=\alpha_n=0$).
-\end{definition}
+\SavedDefinitionRender{LinearlyDependentIndependentAlgebraic}
 
 The idea of a ``redundant vector'' coming from the geometric definition of linear dependence
 is easy to visualize, but it can be hard to prove things with---checking for linear independence
 with the geometric definition involves verifying for every vector that it is not in the span of the others.
-The algebraic definition on the other hand is less obvious, but checking for linear independence or dependence
-of a set involves reasoning about solutions to just one equation.
+The algebraic definition on the other hand is less obvious, but the reasoning is easier.
+You only need to analyze solutions to one equation!
 
 \begin{example}
 	Let $\vec u=\mat{1\\2}$, $\vec v=\mat{2\\3}$, and $\vec w=\mat{4\\5}$. Use the algebraic definition
 	of linear independence to determine whether
 	$\Set{\vec u,\vec v,\vec w}$ is linearly independent or dependent.
 
-	%Notice that $\vec u$, $\vec v$, and $\vec w$ are the vectors from Example \ref{EXLINDEP},
-	%so we already know that they are linearly dependent by the geometric definition of linear dependence.
-
-	XXX Finish
+	We need to determine if there is a non-trivial solution to 
+	\[
+		x\vec u+y\vec v+z\vec w=\vec 0.
+	\]
+	This vector equation is equivalent to the system of equations
+	\[
+		\systeme{x+2y+4z=0,2x+3y+5z=0}.
+	\]
+	Solving this system using row reduction, we see the complete solution set can be expressed as
+	\[
+		\mat{x\\y\\z}=t\mat{2\\-3\\1}.
+	\]
+	In particular, $(x,y,z)=(2,-3,1)$ is a non-trivial solution to this system. Therefore $\Set{\vec u,\vec v,\vec w}$
+	is linearly dependent.
 \end{example}
 
 
@@ -508,7 +589,7 @@ of a set involves reasoning about solutions to just one equation.
 	
 	\medskip
 	\noindent
-	(geometric~$\implies$~algebraic) Suppose $\vec v_1,\ldots,\vec v_n$ are linearly dependent by the 
+	(algebraic~$\implies$~geometric) Suppose $\vec v_1,\ldots,\vec v_n$ are linearly dependent by the 
 	algebraic definition. That means there exist $\alpha_1,\ldots,\alpha_n$, not all zero, so that
 	\[
 		\vec 0=\alpha_1\vec v_1+\cdots +\alpha_n\vec v_n.
@@ -551,6 +632,7 @@ it has \emph{infinitely many} non-trivial solutions. Conversely, if  the equatio
 $\alpha\vec u+\beta \vec v+\gamma \vec w=\vec 0$ has infinitely many solutions, one of them
 has to be non-trivial!
 
+Equations where one side is $\vec 0$ show up often and are called \emph{homogeneous} equations.
 \SavedDefinitionRender{HomogeneousSystem}
 
 This insight links linear independence and homogeneous systems together, and is encapsulated
@@ -576,7 +658,7 @@ The equation
 \[
 	\vec x=t_1\vec d_1+t_2\vec d_2
 \]
-represents a plane in vector form of a plane whenever $\vec d_1$ and $\vec d_2$ are non-zero, non-parallel vectors.
+represents a plane in vector form whenever $\vec d_1$ and $\vec d_2$ are non-zero, non-parallel vectors.
 In other words, 
 	$\vec x=t_1\vec d_1+t_2\vec d_2$
 	represents a plane whenever $\Set{\vec d_1,\vec d_2}$ is linearly independent.
@@ -595,10 +677,11 @@ This reasoning generalizes to volumes. The equation
 represents a \emph{volume} in vector form exactly when $\Set{\vec d_1,\vec d_2,\vec d_3}$ is linearly independent.
 To see this, suppose $\Set{\vec d_1,\vec d_2,\vec d_3}$ were linearly dependent. That means one or
 more vectors could be removed from $ \Set{\vec d_1,\vec d_2,\vec d_3}$ without changing its span.
-Therefore, if $\Set{\vec d_1,\vec d_2,\vec d_3}$ is linearly independent $\vec x=t_1\vec d_1+t_2\vec d_2+t_3\vec d_3$
+Therefore, if $\Set{\vec d_1,\vec d_2,\vec d_3}$ is linearly dependent $\vec x=t_1\vec d_1+t_2\vec d_2+t_3\vec d_3$
 at best represents a plane (though it could be a line or a point).
 
-
+We now have a way of testing the validity of a vector-form representation of a line/plane/volume. Just check
+whether the chosen direction vectors are linearly independent!
 \begin{emphbox}[Takeaway]
 	When writing an object in vector form, the direction vectors must always be linearly independent.
 \end{emphbox}

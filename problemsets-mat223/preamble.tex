@@ -31,13 +31,36 @@
 	\usetikzlibrary{calc}
 	\tikzset{>=latex}
 	\usetikzlibrary{cd}
+	\usetikzlibrary{spy}
 \usepackage{fancyhdr}
 \usepackage{calc}
 \usepackage{wrapfig}
 \usepackage{marginnote}
 \usepackage{mparhack}
 \usepackage{marginfix}
-\usepackage[hidelinks]{hyperref}
+
+%\usepackage[
+%  linktocpage=false,      % no page numbers are clickable
+%  colorlinks=false,       % no color
+%  breaklinks=true,        % break URLs
+%  bookmarks,              % creates bookmarks in pdf
+%  hyperfootnotes=true,    % clickable footnotes
+%  pdfborder={0 0 0},      % for removing borders around links
+%  bookmarksnumbered=true, % If Acrobat bookmarks are requested, include section numbers.
+%  bookmarksopen=false,    % If Acrobat bookmarks are requested, show them with all the subtrees expanded.
+%  %hidelinks=true,
+%  %linkcolor=blue,
+%  %citecolor=blue,
+%  %urlcolor=blue,
+%  pdfpagemode={UseOutlines}, % show pdf bookmarks (indices) on startup; does not function all the time
+%  pdftitle={...}, % title
+%  pdfauthor={...}, % author
+%  pdfkeywords={...}, % subject of the document
+%  pdfsubject={...}, % list of keywords
+%  pdfmenubar=true,        % make PDF viewer’s menu bar visible
+%  pdfpagelabels,
+%]{hyperref}
+%\usepackage[hidelinks,]{hyperref}
 \usepackage{fnpct} % fancy footnote spacing
 \usepackage{bm}
 \usepackage{systeme}
@@ -48,6 +71,7 @@
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
+	\usepgfplotslibrary{fillbetween}
 %%%
 % Useful Linear Algebra macros
 %%%
@@ -110,7 +134,23 @@
 	#1
 }
 
-
+\newcommand{\scaledgrid}[1]{%
+	\begin{tikzpicture}[scale=#1]
+		\draw[thin, white!20!black, dotted] (-4.1,-4.1) grid (4.1,4.1);
+		\draw[ <->] (-4.3,0) -- (4.3,0);
+		\draw[ <->] (0,-4.3) -- (0,4.3);
+	\end{tikzpicture}
+}
+\newcommand{\scaledshortgrid}[1]{%
+	\begin{tikzpicture}[scale=#1]
+		\draw[thin, white!20!black, dotted] (-4.1,-2.1) grid (4.1,2.1);
+		\draw[ <->] (-4.3,0) -- (4.3,0);
+		\draw[ <->] (0,-2.3) -- (0,2.3);
+	\end{tikzpicture}
+}
+\newcommand{\singlegrid}{\scaledgrid{1}}
+\newcommand{\doublegrid}{\mbox{\scaledgrid{.9}\scaledgrid{.9}}\par}
+\newcommand{\triplegrid}{\mbox{\scaledgrid{.6}\scaledgrid{.6}\scaledgrid{.6}}\par}
 
 % labels for source attributions
 \NewDocumentCommand{\beezer}{o}{%

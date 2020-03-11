@@ -1,17 +1,86 @@
 \begin{exercises}
 	\begin{problist}
-		\prob  Example problem with parts
+		\prob 
+		Let
+		\[
+			\mathcal A=\Set*{\mat{2\\1}_{\mathcal E},
+			\mat{1\\-2}_{\mathcal E}}\quad\text{and}\quad
+			\mathcal B=\Set*{\mat{3\\-1}_{\mathcal E},
+			\mat{-2\\3}_{\mathcal E}}.
+		\]
+		be bases for $\R^2$. Define $\vec x\in \R^2$ by $[\vec x]_{\mathcal A}=\mat{1\\-1}$.
 		\begin{enumerate}
-			\item   The first part
-			\item   The second part
-		\end{enumerate}
-		\begin{solution}
-		Solutions to the parts
-			\begin{enumerate}
-				\item   $(2,4,8)$
-				\item   $(15,6,-21)$
-			\end{enumerate}
-		\end{solution}
+			\item	Find $[\vec x]_{\mathcal E}$ and
+				 $[\vec x]_{\mathcal B}$.
 
+			\item Find the change of basis matrices 
+				$\BasisChange{\mathcal A}{\mathcal E}$,
+				$\BasisChange{\mathcal E}{\mathcal A}$,
+				$\BasisChange{\mathcal A}{\mathcal B}$, and
+				$\BasisChange{\mathcal B}{\mathcal A}$.
+		\end{enumerate}
+
+		\prob 
+		Let
+		\[
+			\mathcal A=\Set*{
+				\mat{2\\1\\0}_{\mathcal E},
+				\mat{1\\-2\\0}_{\mathcal E},
+				\mat{0\\0\\1}_{\mathcal E}
+			}\quad\text{and}\quad
+			\mathcal B=\Set*{\vec b_1,\vec b_2,\vec b_3
+			}
+		\]
+		be bases for $\R^3$ where
+		\[
+			\vec b_1=\mat{1\\0\\0}_{\mathcal A}
+			\qquad
+			\vec b_2=\mat{1\\1\\0}_{\mathcal A}
+			\qquad
+			\vec b_3=\mat{1\\1\\1}_{\mathcal A}.
+		\]
+		
+		\begin{enumerate}
+			\item Find the representation of $\vec b_1$, $\vec b_2$, and $\vec b_3$
+				in the standard basis.
+			\item Find the change of basis matrices $\BasisChange{\mathcal E}{\mathcal A}$
+				and $\BasisChange{\mathcal B}{\mathcal E}$.
+			\item Use $\BasisChange{\mathcal E}{\mathcal A}$
+				and $\BasisChange{\mathcal B}{\mathcal E}$ to compute
+				$\BasisChange{\mathcal B}{\mathcal A}$.
+		\end{enumerate}
+
+		\prob Let $\mathcal B=\Set*{\mat{1\\0}_{\mathcal E},\mat{1\\1}_{\mathcal E}}$.
+		For each linear transformation
+		$\mathcal T:\R^{2}\to\R^{2}$ defined below, compute
+		$[\mathcal T]_{\mathcal E}$ and $[\mathcal T]_{\mathcal B}$.
+		\begin{enumerate}
+			\item Let $\mathcal T$ be the transformation that doubles
+				every vector.
+
+			\item Let $\mathcal T$ be the transformation that rotates
+				every vector counter clockwise by $180^{\circ}$.
+
+			\item Let $\mathcal T$ be the transformation that projects
+				every vector onto the $y$-axis.
+
+			\item Let $\mathcal T$ be the transformation that reflects
+				every vector over the line $y=x$.
+		\end{enumerate}
+
+		\prob For each statement below, determine whether it is true or false. Justify your answer.
+		\begin{enumerate}
+			\item Any invertible $n \times n$ matrix can be viewed as
+				a change of basis matrix.
+
+			\item Any $n \times n$ matrix is similar to itself.
+
+			\item Let $A$ be an $m \times n$ matrix. If $m
+				\neq n$, then there is not matrix that is
+				similar to $A$.
+
+			\item Any invertible $n \times n$ matrix $A$ is similar to
+				$A^{-1}$ since $AA^{-1}=I$.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}

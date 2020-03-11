@@ -1,44 +1,43 @@
 
-When we think of transformations or functions in general, we should think of a machine
-that performs some manipulation of its input and then gives an output. This perspective 
+We should think of transformations or functions as machines
+that perform some manipulation of their input and then give an output. This perspective 
 allows us to divide functions into two natural categories: those that can be undone and
 those that cannot. The official term for a function that can be undone is an
-\emph{invertible} function, and before we limit ourselves to talking about linear
-transformations, let's refresh on invertible functions.
+\emph{invertible} function.
 
 \Heading{Invertible Functions}
 
-The most natural function of them all is the \emph{identity function}.
+The simplest function is the \emph{identity function}.
 
 \SavedDefinitionRender{IdentityFunction}
 
 The identity function is the function that does nothing to its input\footnote{ Technically, for every
 set there exists a unique identity function with that set as the domain/codomain, but we won't
-belabor this point.}. When doing precise mathematics, we say another function or composition of functions
-does nothing to its input if it \emph{equals} the identity function\footnote{ This is similar to saying that
+belabor this point.}. When doing precise mathematics, we often prove a function or composition of functions
+does nothing to its input by showing it is \emph{equal} to the identity function\footnote{ This is similar to saying that
 we know $\vec x=\vec y$ if and only if $\vec x-\vec y=\vec 0$.}.
 
 In plain terms, a function is invertible if it can be undone. More precisely a function
 is invertible if there exists an inverse function that when composed with the original function
-produces the identity function and vice verse.
+produces the identity function and vice versa.
 
 \SavedDefinitionRender{InverseFunction}
 
-Let's consider a simple example. You have some money in your left and
-your right pockets. Let $f:\Set{\text{nickels in left pocket}}\to \N$
+Let's consider an example. You have some money in your 
+pockets. Let $l:\Set{\text{nickels in left pocket}}\to \N$
 be the function that adds up the value of all the nickels in your
-left pocket. Let $g:\Set{\text{nickels in either pocket}}\to \N$
+left pocket. Let $r:\Set{\text{nickels in either pocket}}\to \N$
 be the function that adds up the value of all the nickels in both of
-your pockets. In this case, $f$ would be invertible---if you know that
-$f(\text{\# nickels})=25$, you must have had $5$ nickels in your left pocket. We can write
-down a formula for $f^{-1}$ as
+your pockets. In this case, $l$ would be invertible---if you know that
+$l(\text{\# nickels})=25$, you must have had $5$ nickels in your left pocket. We can write
+down a formula for $l^{-1}$ as
 \[
-	f^{-1}(n)=\frac{n}{5}.
+	l^{-1}(n)=\frac{n}{5}.
 \]
 
-However, $g$ is not invertible. If $g(\text{\# nickels})=25$, you \emph{might}
+However, $r$ is not invertible. If $r(\text{\# nickels})=25$, you \emph{might}
 have had $5$ nickels in your left pocket, but you might have $3$ nickels in your left pocket
-and $2$ in your right. We just don't know, so no inverse to $g$ can exist.
+and $2$ in your right. We just don't know, so no inverse to $r$ can exist.
 
 What we've just learned is that for a function to be invertible, it must be \emph{one-to-one}.
 
@@ -46,7 +45,7 @@ What we've just learned is that for a function to be invertible, it must be \emp
 
 Whenever a function $f$ is one-to-one, there exists a function $g$ so that $g\circ f=\Ident$.
 However, this is not enough to declare that $f$ is invertible\footnote{ In this situation, we say that
-$f$ is \emph{left}-invertible.} because we also need $f\circ g=\Ident$. To ensure this, we also need
+$f$ is \emph{left}-invertible.} because we also need $f\circ g=\Ident$. To ensure this, we need
 $f$ to be \emph{onto}.
 
 \SavedDefinitionRender{Onto}
@@ -74,8 +73,8 @@ Now, suppose $\mathcal T$ is one-to-one and onto. By the Rank-nullity Theorem,
 \]
 and so $\mathcal T$ has the same domain and codomain (at least a domain and codomain of the same dimension).
 
-Using the rank-nullity theorem, we can start developing a list of properties that are equivalent to $\mathcal T$
-being invertible.
+Using the rank-nullity theorem, we can start developing a list of properties that are equivalent to invertibility of a
+linear transformation.
 \begin{itemize}
 	\item $\mathcal T:\R^n\to\R^m$ is invertible if and only if $\Nullity(\mathcal T)=0$ and $\Rank(\mathcal T)=m$.
 	\item $\mathcal T:\R^n\to\R^m$ is invertible if and only if $m=n$ and $\Nullity(\mathcal T)=0$.
@@ -86,17 +85,19 @@ being invertible.
 	Let $\mathcal P:\R^2\to\R^2$ be projection onto the $x$-axis and let $\mathcal R:\R^2\to\R^2$ be rotation counter-clockwise
 	by $15^\circ$. Classify each of $\mathcal P$ and $\mathcal R$ as invertible or not.
 	
-	Notice that $\mathcal P(\yhat)=\mathcal P(2\yhat)=\vec 0$, therefore $\mathcal P$ is not one-to-one.
+	\medskip
+	Notice that $\mathcal P(\yhat)=\mathcal P(2\yhat)=\vec 0$, therefore $\mathcal P$ is not one-to-one and so is not invertible.
 	
-	Let $\mathcal Q: R^2\to\R^2$ be rotation clockwise by $15^\circ$. Then $\mathcal R$ and $\mathcal Q$ will undo each other. In other words,
+	\medskip
+	Let $\mathcal Q: \R^2\to\R^2$ be rotation clockwise by $15^\circ$. $\mathcal R$ and $\mathcal Q$ will undo each other. Phrased mathematically,
 	\[
-	    \mathcal R\circ \mathcal R^{-1}=\Ident\qquad\text{and}\qquad \mathcal R^{-1}\circ \mathcal R=\Ident.
+	    \mathcal R\circ \mathcal Q=\Ident\qquad\text{and}\qquad \mathcal Q\circ \mathcal R=\Ident.
 	\]
-	Therefore by definition, $\mathcal R$ is invertible. 
+	Therefore, $\mathcal Q$ is an inverse of $\mathcal R$, and so $\mathcal R$ is invertible. 
 \end{example}
 
 One important fact about linear transformations is that if a linear transformation is invertible,
-it's inverse is also a linear transformation.
+its inverse is also a linear transformation.
 \begin{theorem}
 	Let $\mathcal T$ be an invertible linear transformation. Then $\mathcal T^{-1}$ is also
 	a linear transformation.
@@ -111,13 +112,14 @@ it's inverse is also a linear transformation.
 			\vec a+\vec b = \mathcal T\circ \mathcal T^{-1}\vec a+\mathcal T\circ \mathcal T^{-1}\vec b=
 			\mathcal T(\mathcal T^{-1}\vec a+ \mathcal T^{-1}\vec b).
 		\]
-		Since $\mathcal T^{-1}\circ \mathcal T=\Ident$, we know
+		Since $\mathcal T^{-1}\circ \mathcal T=\Ident$, by using the fact that
+			$\vec a+\vec b=\mathcal T(\mathcal T^{-1}\vec a+ \mathcal T^{-1}\vec b)$ we know
 		\[
 			\mathcal T^{-1}(\vec a+\vec b) = 
-			\mathcal T^{-1}\circ\mathcal T(\mathcal T^{-1}\vec a+ \mathcal T^{-1}\vec b)=
+			\mathcal T^{-1}\Big(\mathcal T(\mathcal T^{-1}\vec a+ \mathcal T^{-1}\vec b)\Big)=
 			\mathcal T^{-1}\vec a+ \mathcal T^{-1}\vec b.
 		\]
-		\item[(ii)] Similarly to the proof of (i), we see
+		\item[(ii)] Similar to the proof of (i), we see
 		\[
 			\mathcal T^{-1}(\alpha\vec a) = \mathcal T^{-1}\Big(\alpha \big(\mathcal T\circ \mathcal T^{-1}\vec a\big)\Big)
 			=\mathcal T^{-1}\circ \mathcal T(\alpha \mathcal T^{-1}\vec a) = \alpha\mathcal T^{-1}\vec a.
@@ -131,28 +133,31 @@ In the world of matrices, the \emph{identity matrix} takes the place of the iden
 
 \SavedDefinitionRender{IdentityMatrix}
 
-We now define a matrix as invertible analogously to how we defined a function to be invertible. 
-Except, we replace function composition with matrix multiplication.
+We can now define what it means for a matrix to be invertible\footnote{ This should look very similar to what it means
+for a function to be invertible.}.
 
 \SavedDefinitionRender{MatrixInverse}
 
 \begin{example}
 	Determine whether the matrices $A=\mat{2&5\\-3&-7}$ and $B=\mat{-7&-5\\3&2}$ are inverses of each other.
+
 	\begin{align*}
 	    AB &=\mat{2&5\\-3&-7}\mat{-7&-5\\3&2} =\mat{1&0\\0&1} = I\\
 	    BA &=\mat{-7&-5\\3&2}\mat{2&5\\-3&-7} =\mat{1&0\\0&1} = I .
 	\end{align*}
 
-	Therefore, matrices $A$ and $B$ are inverses of each other.
+	Therefore,  $A$ and $B$ are inverses of each other.
 \end{example}
 
 \begin{example}
 	Determine whether the matrices $A=\mat{2&5&0\\-3&-7&0}$ and $B=\mat{-7&-5\\3&2\\1&1}$ are inverses of each other.
-	\begin{align*}
-	    AB &=\mat{2&5&0\\-3&-7&0}\mat{-7&-5\\3&2\\1&1}=\mat{1&0\\0&1}=I \\
-	    BA &=\mat{-7&-5\\3&2\\1&1}\mat{2&5&0\\-3&-7&0}=\mat{1&0&0\\0&1&0\\-1&-2&0}\neq I.
-	\end{align*}
-	Therefore, matrices $A$ and $B$ are not inverses of each other.
+
+	\[
+	    AB =\mat{2&5&0\\-3&-7&0}\mat{-7&-5\\3&2\\1&1}=\mat{1&0\\0&1}=I
+	    \]but\[
+	    BA =\mat{-7&-5\\3&2\\1&1}\mat{2&5&0\\-3&-7&0}=\mat{1&0&0\\0&1&0\\-1&-2&0}\neq I.
+	\]
+	Therefore,  $A$ and $B$ are not inverses of each other.
 \end{example}
 
 Since every matrix induces a linear transformation, we can use the facts we know about invertible linear
@@ -187,10 +192,6 @@ Thus, if we have the inverse of a matrix handy, we can use it to solve a system 
 	\]
 	Multiplying both sides by $\mat{2&5\\-3&-7}^{-1}$ gives 
 	\[
-	    \mat{2&5\\-3&-7}^{-1}\mat{2&5\\-3&-7}\mat{x\\y}=\mat{2&5\\-3&-7}^{-1}\mat{2\\1}.
-	\]
-	Therefore,
-	\[
 	    \mat{x\\y}=\mat{2&5\\-3&-7}^{-1}\mat{2\\1}=\mat{-7&-5\\3&2}\mat{2\\1}=\mat{-19\\8}.
 	\]
 \end{example}
@@ -206,7 +207,7 @@ vector, the expression $\vec bA^{-1}$ is almost always undefined!
 \Heading{Finding a Matrix Inverse}
 Whereas before we only knew how to solve a matrix equation $A\vec x=\vec b$ using row reduction, we now
 know how to use $A^{-1}$ to solve the same system. In fact, $A^{-1}$ is the exact matrix so that $\vec x=A^{-1}\vec b$
-is always the solution to $A\vec x=\vec b$. Therefore, by picking different $\vec b$'s and solving for $\vec x$, we
+is the solution to $A\vec x=\vec b$. Therefore, by picking different $\vec b$'s and solving for $\vec x$, we
 can find $A^{-1}$.
 
 \begin{example}
@@ -236,14 +237,14 @@ can find $A^{-1}$.
 
 \Heading{Elementary Matrices}
 
-Finding the inverse of a matrix can be a lot of work. However, thinking in terms of linear transformations,
-if you already know how to reverse the operation, finding the inverse might not be so hard. For example, 
+Finding the inverse of a matrix can be a lot of work. However
+if you already know how to undo what the matrix does, finding the inverse might not be so hard. For example, 
 if $R_{30}$ is the matrix that rotates vectors in $\R^2$ counter-clockwise by $30^\circ$, its inverse must be
 $R_{-30}$, the matrix that rotates vectors in $\R^2$ \emph{clockwise} by $30^\circ$.
 
 Like before when we analyzed linear transformations by breaking them up into compositions
-of simpler linear transformations, another strategy for find an inverse matrix is to break a matrix
-into simpler ones whose inverses we can just write down without computing.
+of simpler linear transformations, another strategy for finding an inverse matrix is to break a matrix
+into simpler ones whose inverses we can just write down.
 
 Some of the simplest matrices around are the \emph{elementary matrices}.
 
@@ -253,12 +254,12 @@ Examples of elementary matrices include
 \[
 	\mat{1&0&0\\0&1&0\\0&0&-5}\qquad
 	\mat{1&0&7\\0&1&0\\0&0&1}\qquad
-	\mat{0&1&0\\1&0&0\\0&0&1},
+	\mat{0&1&0\\1&0&0\\0&0&1}.
 \]
-which are obtained from the row operations ``multiply the last row by $-5$'', ``add $7$ times the last row to the first'',
+These matrices are obtained from the row operations ``multiply the last row by $-5$'', ``add $7$ times the last row to the first'',
 and ``swap the first two rows''.
 
-Elementary matrices are incredible because multiplying by an elementary matrix performs the corresponding elementary row operation! See for
+Elementary matrices are useful because multiplying by an elementary matrix performs the corresponding elementary row operation! See for
 yourself:
 \begin{align*}
 	\mat{1&0&0\\0&1&0\\0&0&-5}
@@ -269,22 +270,22 @@ yourself:
 	\mat{1&0&7\\0&1&0\\0&0&1}
 	\mat{a&b&c\\d&e&f\\g&h&i}
 	&=
-	\mat{a+7g&b+7h&c+7i\\d&e&f\\g&h&i}
+	\matc{a+7g&b+7h&c+7i\\d&e&f\\g&h&i}
 \\
 	\mat{0&1&0\\1&0&0\\0&0&1}
 	\mat{a&b&c\\d&e&f\\g&h&i}
 	&=
 	\mat{d&e&f\\a&b&c\\g&h&i}
 \end{align*}
-As a refresher, the elementary row operations are
+As a refresher, the elementary row operations are:
 \begin{itemize}
 	\item multiply a row by a non-zero constant;
 	\item add a multiple of one row to another; and
-	\item swap to rows.
+	\item swap two rows.
 \end{itemize}
-Each one of these operations can be undone, and so every elementary matrix is invertible. Not only that, but the inverse is
-another elementary matrix and is
-easy to come up with.
+Each one of these operations can be undone, and so every elementary matrix is invertible. What's more, the inverse is
+another elementary matrix that is
+easy to write down.
 
 \begin{example}
 	Find the inverse of $E=
@@ -300,8 +301,8 @@ easy to come up with.
 \Heading{Elementary Matrices and Inverses}
 
 For a matrix $M$ to be invertible, we know that $M$ must be square and $\Nullity(M)=0$. That means,
-$M$ is invertible if and only if $\Rref(M)=I$. In other words, there is a sequence of elementary row operations
-that turn $M$ into $I$. Each one of these row operations can represented by an elementary matrix, which gives us the
+$M$ is invertible if and only if $\Rref(M)=I$. In other words, $M$ is invertible if there is a sequence of elementary row operations
+that turn $M$ into $I$. Each one of these row operations can be represented by an elementary matrix, which gives us the
 following theorem.
 
 \begin{theorem}
@@ -323,8 +324,9 @@ If we can argue that $MQ=I$, then $Q$ will be the inverse of $M$!
 \end{theorem}
 \begin{proof}
 	Suppose $A$ is a square matrix and that $AB=I$. Since $AB=I$, $B$ must also be square.
-	Since $\Null(B)\subseteq\Null(AB)$, we know $\Nullity(B)\leq \Nullity(AB)=\Nullity(I)=1$, 
-	and so $B$ is invertible. Observe now that
+	Since $\Null(B)\subseteq\Null(AB)$, we know $\Nullity(B)\leq \Nullity(AB)=\Nullity(I)=0$, 
+	and so $B$ is invertible (since it's a square matrix whose nullity is $0$). Let $B^{-1}$
+	be the inverse of $B$. Observe now that
 	\[
 		A=AI=A(BB^{-1})=(AB)B^{-1}=IB^{-1}=B^{-1},
 	\]
@@ -343,17 +345,17 @@ matrices together to find the inverse.
 
 	We can row-reduce $A$ with the following steps:
 	\[
-	    \mat{1&2&0\\0&4&0\\0&-1&1}\sim \mat{1&2&0\\0&1&0\\0&-1&1}\sim \mat{1&0&0\\0&1&0\\0&-1&1}\sim \mat{1&0&0\\0&1&0\\0&0&1} 
+	    \mat{1&2&0\\0&4&0\\0&-1&1}\to \mat{1&2&0\\0&1&0\\0&-1&1}\to \mat{1&0&0\\0&1&0\\0&-1&1}\to \mat{1&0&0\\0&1&0\\0&0&1} 
 	\]
 	The elementary matrices corresponding to these steps are
 	\[
 	    E_1=\mat{1&0&0\\0&\frac{1}{4}&0\\0&0&1} \qquad E_2=\mat{1&-2&0\\0&1&0\\0&0&1}\qquad E_3=\mat{1&0&0\\0&1&0\\0&1&1}.
 	\]
-	And so we have 
+	We now have 
 	\[
-	    E_3 E_2 E_1 A = I.
+	    E_3 E_2 E_1 A = I,
 	\]
-	Thus we obtain
+	and so
 	\[
 	    A^{-1}=E_3 E_2 E_1 = \mat{1&0&0\\0&1&0\\0&1&1}\mat{1&-2&0\\0&1&0\\0&0&1}\mat{1&0&0\\0&\frac{1}{4}&0\\0&0&1} = \mat{1&-\frac{1}{2}&0\\ 0&\frac{1}{4}&0\\ 0&\frac{1}{4}&1}.
 	\]
@@ -362,8 +364,8 @@ matrices together to find the inverse.
 \Heading{Decomposition into Elementary Matrices}
 
 If $A$ is an invertible matrix, then the double-inverse of $A$ (i.e., $(A^{-1})^{-1}$) is $A$ itself\footnote{ Formally
-we say that the operation of taking a matrix inverse is an \emph{involution}.}. This is easily proved. The definition of $(A^{-1})^{-1}$
-is a matrix $B$ so that $BA^{-1}=I$ and $A^{-1}B=I$. But $B=A$ already works!
+we say that the operation of taking a matrix inverse is an \emph{involution}.}. This is easily proved. By definition, $(A^{-1})^{-1}$
+is a matrix $B$ so that $BA^{-1}=I$ and $A^{-1}B=I$. But $B=A$ satisfies this condition! 
 
 Now, suppose $M$ is an invertible matrix. Then, there exists a sequence of elementary matrices $E_1,\ldots, E_k$ so that
 $E_k\cdots E_2E_1M=I$ and 
@@ -382,6 +384,7 @@ and so
 \[
 	M=(E_k\cdots E_2E_1)^{-1}=E_1^{-1}E_2^{-1}\cdots E_k^{-1}.
 \]
+(Notice the order of matrix multiplication reversed!)
 Each $E_i^{-1}$ is also an elementary matrix, and so we have just shown that every invertible matrix can
 be written as the product of elementary matrices. This is actually an if and only if.
 

@@ -1,22 +1,49 @@
-Consider the following situation: you're designing a 3d video game, but your uses only have 2d screens.
-Or, you have a 900 dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
+Consider the following situation: you're designing a 3d video game, but your users only have 2d screens.
+Or, you have a 900-dimensional dataset, but you want to visualize it on a continuum (i.e., as a line). 
 Each of these is an example
-of finding the best approximation to a set of points given some restrictions. In general, this operation
-is called a \emph{projection} and in the world of linear algebra, it has a very particular meaning.
+of finding the best approximation to particular points given restrictions. In general, this operation
+is called a \emph{projection}\footnote{ What we define as a \emph{projection} is sometimes
+called the \emph{orthogonal projection} to distinguish it from other types of projections.}, 
+and in the world of linear algebra, it has a very particular meaning.
 
 \SavedDefinitionRender{Projection}
 
 Let $\mathcal P_{xy}\subseteq\R^3$ be the $xy$-plane in $\R^3$ and let $\vec v=\mat{1\\2\\3}$. Intuitively, 
-$\Proj_{\mathcal P_{xy}}\!\!\vec v$ is the ``shadow'' that  $\vec v$ would casts on ${\mathcal P_{xy}}$ if 
+$\Proj_{\mathcal P_{xy}}\!\!\vec v$ is the ``shadow'' that  $\vec v$ would cast on ${\mathcal P_{xy}}$ if 
 the sun were directly overhead.
-In other words,
-\[
+Upon drawing a picture, we conclude $
 	\Proj_{\mathcal P_{xy}}\vec v=\mat{1\\2\\0}.
-\]
+$
 
-XXX Figure
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[grid=major,view={60}{40},%z buffer=sort,
+	    scale=1.5,
+	    axis lines=middle,
+	    enlargelimits={abs=0.5},
+	    zmin=0, zmax=4, xmin=-2, xmax=3, ymin=-2, ymax=3,
+	    xtick={-4,...,4},
+	    ytick={-4,...,4},
+	    ztick={-4,...,4},
+	    xlabel=$x$,
+	    ylabel=$y$,
+	    zlabel=$z$,
+	    %xticklabels={,,}, yticklabels={,,}, zticklabels={,,}
+	    ]
+		%\addplot3 [myorange, data cs=cart,surf,domain=-3:3,samples=2, opacity=0.5] {0};
+		\coordinate (O) at (axis cs:0,0,0);
+		\coordinate (V) at (axis cs:1,2,3);
+		\coordinate (P) at (axis cs:1,2,0);
+		\draw[dashed, black!50] (P) -- (V);
+		\draw[->, thick, mypink] (O) -- (V) node[above right] {$\vec v$};
+		\draw[->, thick, myorange] (O) -- (P) node[right] {$\Proj_{\mathcal P_{xy}}\vec v$};
+	%\addplot3[domain=4:30,samples=80,samples y=0,mark=none,orange, opacity=0.5,ultra thick]
+	%    ({x},{118.89/x},{2*x});
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
 
-Let $\ell_y\subseteq \R^3$ be the $x$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
+Continuing, let $\ell_y\subseteq \R^3$ be the $y$-axis in $\R^3$. It's a little bit harder to visualize what $\Proj_{\ell_y}\vec v$
 is, so let's appeal to some definitions.
 
 By definition, every vector in $\ell_y$ takes the form $\vec u_t=\mat{0\\t\\0}$ for some $t\in \R$. The distance
@@ -24,37 +51,112 @@ between $\vec u_t$ and $\vec v$ is
 \[
 	\Norm{\vec u_t-\vec v}=\norm*{\mat{0\\t\\0}-\mat{1\\2\\3}} = \sqrt{1^2+(t-2)^2+3^2}.
 \]
-Since $(t-2)^2$ is always positive, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$. That is,
+Since $(t-2)^2$ is always positive, the quantity $\sqrt{1^2+(t-2)^2+3^2}$ is minimized when $(t-2)^2=0$; that is,
 when $t=2$. Thus, we see $\vec u_2$ is the closest vector in $\ell_y$ to $\vec v$ and so,
 \[
 	\Proj_{\ell_y}\vec v=\vec u_2=\mat{0\\2\\0}.
 \]
 
-Here, we appealed directly to the definition of projection to find the answer.
 
 \begin{example}
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
 	and let $\vec v=\mat{-1\\-1}$. Use the definition of projection to find $\Proj_\ell \vec v$.
 
-	XXX Finish
+	Let $\vec u_t=t\mat{1\\1}+\mat{3\\-2}\in\ell$.
+	By definition, the distance between $\vec v$ and $\vec u_t$ is given by
+	\[
+		\Norm{\vec u_t-\vec v}=\norm*{\left(t\mat{1\\1}+\mat{3\\-2}\right)-\mat{-1\\-1}} = \norm*{\mat{t+4\\t-1}}
+	    =\sqrt{2t^2+6t+17}.
+	\]
+	The quantity $2t^2+6t+17$ is minimized when $t=-\frac{3}{2}$, and so the closest point
+	in $\ell$ to $\vec v$ is $\vec u_{-3/2}$. Thus,
+	\[
+	    \Proj_\ell \vec v=-\tfrac{3}{2}\mat{1\\1}+\mat{3\\-2}=\mat{3/2\\-7/2}.
+	\]
 \end{example}
 
 Every example of a projection so far shares a geometric property. In the case of lines and planes,
-the vector from the projection	to the original point is a normal vector for the line or plane.
+the vector from the  projection to the original point is a normal vector for the line or plane (provided it's non-zero).
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
+		 \draw ($(#3)!#1!(#2)$) -- 
+		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
+		       ($(#3)!#1!(#4)$);
+		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
+		}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-2,xmax=4,
+		    ymin=-1,ymax=3,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\begin{scope}[cm={1,0,0,1,(1,1)}]
+				\coordinate (A) at (1,2);
+				\coordinate (O) at (0,0);
+				\coordinate (B) at (2,-1);
+				\dotMarkRightAngle[size=6pt](B,O,A);
+				\draw[mypink, thick] ($-2*(-2,1)$) -- ($2*(-2,1)$);
+				\draw[myorange, thick, dashed, ->] (0,0) -- (1,2) node[midway, below right] {$\vec v-\proj_X\vec v$};
+				\fill[Violet]  (1,2) circle (2pt) node[above right] {$\vec v$};
+				\fill[mygreen] (0,0) node[below left, xshift=6pt, yshift=-2pt] {$\Proj_X\vec v$} circle (2pt);
+			\end{scope}
+		\end{axis}
+		\node[mypink, above right] at (2.8,.1) {$X$};
+	\end{tikzpicture}
+\end{center}
 
 Stated precisely, if $X$ is a line or plane and $\vec v\notin X$ is a vector, then $\vec v-\Proj_X\vec v$ is a
-normal vector for $X$. Using this fact, we can find projections onto lines and planes without solving
-non-linear equations.
+normal vector for $X$. Using this fact, we can find projections onto lines and planes without needing to compute
+any distances!
 
 \begin{example}
 	Let $\ell\subseteq \R^2$ be the line given in vector form by $\vec x=t\mat{1\\1}+\mat{3\\-2}$,
 	and let $\vec v=\mat{-1\\-1}$. Use the fact that $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$
-	to find Find $\Proj_\ell \vec v$.
+	to find $\Proj_\ell \vec v$.
 
-	XXX Finish
+	Since $\vec v-\Proj_\ell\vec v$ is a normal vector to $\ell$, we know $\vec v-\Proj_\ell\vec v$ is orthogonal to $\vec d=\mat{1\\1}$. 
+	Let $\mat{x\\y}=\Proj_\ell\vec v$ for some unknown $x,y\in\R$. We now know
+	\[
+		(\vec v-\Proj_\ell\vec v)\cdot\vec d=\left(\mat{-1\\-1}-\mat{x\\y}\right)\cdot\mat{1\\1}
+		=\mat{-1-x\\-1-y}\cdot \mat{1\\1}=-2-x-y=0.
+	\]
+	That is, 
+	\begin{equation}
+	\label{EQDOTZERO}
+	    x+y=-2.
+	\end{equation}
+	Also, since $\Proj_\ell\vec v\in\ell$, we know
+	\[
+    		\Proj_\ell\vec v = \mat{x\\y}=t\mat{1\\1}+\mat{3\\-2}=\mat{t+3\\t-2}.
+	\]
+	From this, we have that $x-t=3$ and $y-t=-2$. Combined with Equation \eqref{EQDOTZERO}, we have
+	three equations and three unknowns which produce the following system of linear equations.
+	\[
+		\systeme{x+y=-2,x-t=3,y-t=-2}
+	\]
+	Solving this system, we conclude that $x=3/2$ and $y=-7/2$ (we don't care about the value of $t$). Therefore
+	 $\Proj_\ell\vec v = \mat{3/2\\-7/2}$. 
 \end{example}
+
+\begin{emphbox}[Takeaway]
+	When projecting onto lines and planes, right angles appear in key places.
+\end{emphbox}
 
 \Heading{Projections Onto Other Sets}
 For projections onto lines and planes, we can use what we know about normal vectors to simplify our life.
@@ -64,24 +166,105 @@ The same is true when projecting onto other sets, but we must always keep the de
 	Let $\mathcal T\subseteq \R^2$ be the filled in triangle with vertices $\mat{0\\0}$, 
 	$\mat{1\\0}$, and $\mat{0\\2}$, and let
 	\[
-		\vec a=\mat{1/4\\1/4}\qquad \vec b=\mat{3\\1/2}\qquad \vec c=\mat{1\\1}.
+		\vec a=\mat{1/4\\1/4}\qquad \vec b=\mat{1\\1}\qquad \vec c=\matc{3\\1/2}.
 	\]
 	Find $\Proj_{\mathcal T}\vec a$, $\Proj_{\mathcal T}\vec b$, and  $\Proj_{\mathcal T}\vec c$.
 
-	XXX Finish
-	XXX Figure
+	We'll start by drawing a picture.
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-1,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=black!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (A) at (1/4,1/4);
+			\coordinate (B) at (3,1/2);
+			\coordinate (C) at (1,1);
+			\fill[blue, opacity=.3] (0,0) -- (1,0) -- (0,2) node[above right, opacity=.7] {$\mathcal T$};
+			\fill[mypink] (A) circle (2pt) node[above right] {$\vec a$};
+			\fill[mygreen] (B) circle (2pt) node[above right] {$\vec c$};
+			\fill[myorange] (C) circle (2pt) node[above right] {$\vec b$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+	From the picture, we see that $\vec a\in \mathcal T$ and so
+	\[
+		\Proj_{\mathcal T}\vec a=\vec a.
+	\]
+	We also see that $\vec b$ is closest to the hypotenuse of $\mathcal T$, and so $\Proj_{\mathcal T}\vec b$ is
+	the same as the projection of $\vec b$ onto the line $y=-2x+2$. Computing, we find
+	\[
+		\Proj_{\mathcal T}\vec b=\mat{3/5\\4/5}.
+	\]
+	Finally, drawing concentric circles centered at $\vec c$, we see that the lower-right corner of $\mathcal T$
+	is the closest point in $\mathcal T$ to $\vec c$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=3,
+		    ymin=-1,ymax=2,
+			xtick={-4,...,4},
+			ytick={-2,...,4},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=black!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (a) at (1/4,1/4);
+			\coordinate (b) at (3,1/2);
+			\coordinate (c) at (1,1);
+			\fill[blue, opacity=.3] (0,0) -- (1,0) -- (0,2) node[above right, opacity=.7] {$\mathcal T$};
+			\fill[mygreen] (b) circle (2pt) node[above right] {$\vec c$};
+			\draw[dashed] (b) circle (2.061) circle (1.6) circle (2.5);
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+	And so, 
+	\[
+		\Proj_{\mathcal T}\vec c =\mat{1\\0}.
+	\]
 \end{example}
 
 \Heading{Subtleties of Projections}
 You might be wondering, what is $\Proj_X\vec v$ if $\vec v$ is equidistant from \emph{two}
-closest points in $X$. Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$).
+closest points in $X$? Or, what if $X$ is an \emph{open} set (for example, an open interval in $\R^1$)?
 Then there might not be a closest point in $X$ to $\vec v$. In both these cases, we say $\Proj_X\vec v$
 is \emph{undefined}.
 
 Formally, for a fixed set $X$, we consider $P(\vec v)=\Proj_X\vec v$ as a function that inputs and outputs
 vectors. And, as a function, $P$ has a domain consisting of exactly the vectors $\vec v$ for which $P(\vec v)$
-is defined. As it happens, if $X$ is a line or a plane, the domain of $P$ is all of $\R^n$, and in this text,
-we will be sensible and only ask about projections restricted to an appropriate domain. 
+is defined. As it happens, if $X$ is a line or a plane in $\R^n$, the domain of $P$ is all of $\R^n$, and in this text,
+we will be sensible and only ask about projections that exist. 
 
 \Heading{Vector Components}
 
@@ -89,7 +272,7 @@ We've seen before that dot products can be used to measure how much one
 vector points in the direction of another. But, we can go further. Suppose 
 $\vec v\neq \vec 0$ and $\vec u$ are vectors. We might want to \emph{decompose}
 $\vec u$ into the sum of two vectors, one which is in the direction of $\vec v$
-and the other which is orthogonal to $\vec v$. The tool to that does this is the vector component.
+and the other which is orthogonal to $\vec v$. The tool that does this is the \emph{vector component}.
 
 \SavedDefinitionRender{Component}
 
@@ -97,24 +280,40 @@ From the definition, it's obvious that
 \[
 	\vec u=\Vcomp_{\vec v}\vec u + (\vec u-\Vcomp_{\vec v}\vec u)
 \]
-is a decomposition of $\vec u$ into the sum of two vectors, one, $\Vcomp_{\vec v}\vec u$, is in the direction of $\vec v$,
-and the other, $\vec u-\Vcomp_{\vec v}\vec u$, is orthogonal to $\vec v$.
+is a decomposition of $\vec u$ into the sum of two vectors, one ($\Vcomp_{\vec v}\vec u$) is in the direction of $\vec v$,
+and the other ($\vec u-\Vcomp_{\vec v}\vec u$) is orthogonal to $\vec v$.
 
 \begin{example}
-	Find the component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
+	Find the vector component of $\vec a=\mat{1\\2}$ in the direction of $\vec b=\mat{1\\1}$.
 
-	XXX Finish
+	Since $\Vcomp_{\vec b}\vec a$ is a vector in the direction of $\vec b$, we know
+	\[
+		\Vcomp_{\vec b}\vec a = k\vec b
+	\]
+	for some $k\in \R$. Since $\vec a-\Vcomp_{\vec b}\vec a$ is orthogonal to $\vec b$, we know
+	\[
+		(\vec a-\Vcomp_{\vec b}\vec a)\cdot \vec b=0.
+	\]
+	Combining these facts, we see
+	\[
+		(\vec a-\Vcomp_{\vec b}\vec a)\cdot \vec b = \bigg(\underbrace{\mat{1\\2}}_{\vec a}-\underbrace{\mat{k\\k}}_{k\vec b}\bigg)\cdot 
+		\underbrace{\mat{1\\1}}_{\vec b} =(1-k)+(2-k)=3-2k=0,
+	\]
+	and so $k=3/2$. Therefore
+	\[
+		\Vcomp_{\vec b}\vec a=k\vec b=\mat{3/2\\3/2}.
+	\]
 \end{example}
 
 Since we'll be computing vector components often, let's try to find a formula for $\Vcomp_{\vec v}\vec u$.
 
-By definition $\Vcomp_{\vec v}\vec u$ is a vector in the direction of $\vec v$, so
+By definition, $\Vcomp_{\vec v}\vec u$ is a vector in the direction of $\vec v$, so
 \[
 	\Vcomp_{\vec v}\vec u = k\vec v.
 \]
 Further, from the definition $\vec u-\Vcomp_{\vec v}\vec u$ is orthogonal to $\vec v$, and so
 \[
-	\vec v\cdot (\vec u-\Vcomp_{\vec v}\vec u) = \vec v\cdot (\vec u-k\vec v)=\vec v\cdot \vec u-k\vec v\cdot \vec v=0,
+	\vec v\cdot (\vec u-\Vcomp_{\vec v}\vec u) = \vec v\cdot (\vec u-k\vec v)=\vec v\cdot \vec u-k\vec v\cdot \vec v=0.
 \]
 Because $\vec v\neq \vec 0$, we know $\vec v\cdot \vec v\neq 0$. Therefore, we may rearrange and solve for $k$ to find
 \[
@@ -128,20 +327,105 @@ which means
 \Heading{The Relationship Between Vector Components and Projections}
 
 Vector components and projections onto lines are closely related. So closely related that many textbooks
-use the single word \emph{projection} to talk about both vector components and projections. Let's take a moment
+use the single word \emph{projection} to talk about both vector components and projections\footnote{ We will not.}. Let's take a moment
 to explore this relationship.
 
-Let $\vec v=\mat{2\\4}$ and $\vec u=\mat{2\\-1}$ and let $\ell=\Span\Set{\vec v}$. Drawing a picture of
+Let $\vec v=\mat{2\\4}$ and $\vec u=\mat{3\\1}$ and let $\ell=\Span\Set{\vec v}$. Drawing a picture of
 $\ell$, $\vec u$, and $\Proj_\ell\vec u$, we see that $\Proj_\ell\vec u$ satisfies all the properties
 of $\Vcomp_{\vec v}\vec u$.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
+		 \draw ($(#3)!#1!(#2)$) -- 
+		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
+		       ($(#3)!#1!(#4)$);
+		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
+		}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=6,
+			xtick={-4,...,8},
+			ytick={-2,...,8},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (A) at (2,4);
+			\coordinate (O) at (0,0);
+			\coordinate (P) at (1,2);
+			\coordinate (B) at (3,1);
+			\dotMarkRightAngle[size=6pt](O,P,B);
+			\draw[black!50,  dashed] (P) -- (B);
+			%\dotMarkRightAngle[size=6pt](O,P,B);
+			%\draw[black!80,  dashed] (P) -- (B);
+			\draw[myorange, thick] ($-2*(A)$) -- ($2*(A)$);
+			%\draw[black!80, very thick, dashed, ->] (0,0) -- (A) node[right] {$\vec v$};
+			\fill[mygreen]  (B) circle (2pt) node[above right] {$\vec u$};
+			\fill[mypink]  (P) circle (2pt) node[above left, yshift=4pt, xshift=4pt] {$\Proj_\ell\vec u$};
+			%\draw[mypink,  ->, xshift=-2pt, yshift=2pt] (0,0) -- (1,2);
+		\end{axis}
+		\node[myorange, above left] at (2.5,4.75) {$\ell=\Span\Set{\vec v}$};
+	\end{tikzpicture}
+	~~~~~
+	\begin{tikzpicture}
+		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
+		 \draw ($(#3)!#1!(#2)$) -- 
+		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
+		       ($(#3)!#1!(#4)$);
+		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
+		}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=4,
+		    ymin=-1,ymax=6,
+			xtick={-4,...,8},
+			ytick={-2,...,8},
+		    x=1cm,y=1cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\coordinate (A) at (2,4);
+			\coordinate (O) at (0,0);
+			\coordinate (P) at (1,2);
+			\coordinate (B) at (3,1);
+			\dotMarkRightAngle[size=6pt](O,P,B);
+			\draw[black!50,  dashed] (P) -- (B);
+			%\draw[myorange, thick] ($-2*(A)$) -- ($2*(A)$);
+			\draw[mygreen, ->, thick] (O) -- (B) node[above right] {$\vec u$};
+			\draw[mypink,  ->, thick, xshift=-2pt, yshift=1pt] (0,0) -- (1,2) node[above left, yshift=4pt, xshift=4pt] {$\Comp_{\vec v}\vec u$};
+			\draw[black!80, very thick, dashed, ->, xshift=0pt] (0,0) -- (2,4) node[right] {$\vec v$};
+		\end{axis}
+		%\node[myorange, above left] at (2.5,4.75) {$\ell=\Span\Set{\vec v}$};
+	\end{tikzpicture}
+\end{center}
 
 Since $\ell=\Span\Set{\vec v}$ and $\Proj_\ell\vec u\in\ell$, we know that $\Proj_\ell\vec u$ is in the direction
-of $\vec v$. Further, from geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
-and is therefore orthogonal to its direction vector, $\vec v$! What's more, we didn't
+of $\vec v$. Further, using geometric arguments, we know $\vec u-\Proj_\ell\vec u$ is a normal vector for $\ell$
+and is therefore orthogonal to its direction vector $\vec v$! What's more, we didn't
 use anything in particular about $\vec u$ and $\vec v$ when making this argument (other than $\vec v\neq \vec 0$). This means,
-we may establish a general formula. 
+we have established a general fact. 
 
 \begin{theorem}
 	For vectors $\vec u$ and $\vec v\neq 0$, we have
@@ -155,7 +439,12 @@ This is great news because vector components are easy to compute using dot produ
 \begin{example}
 	Compute the projection of $\vec a=\mat{3\\7}$ onto $\ell=\Span\Set*{\mat{1\\-4}}$.
 
-	XXX Finish
+	Let $\vec b = \mat{1\\-4}$. 
+	Since $\ell=\Span\Set{\vec b}$ and $\vec b\neq \vec 0$, by the theorem above, we have
+	\[
+	    \Proj_\ell \vec a = \Vcomp_{\vec b} \vec a = \left(\frac{\vec b\cdot \vec a}{\vec b\cdot \vec b}\right)\vec b 
+	    = \tfrac{3-28}{1+16}\mat{1\\-4}=\mat{-25/17\\100/17}.
+	\]
 \end{example}
 
 It's worth noting, however, that vector components are equal to projections \emph{only in the case when you're
@@ -163,7 +452,21 @@ projecting onto a span}. In general, projections and vector components are unrel
 
 \begin{example}
 	Let $\vec a=\mat{3\\7}$ , $\vec b=\mat{1\\-4}$, and let $\ell$ be the line given in vector form by
-	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec v}\vec a$.
+	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec b}\vec a$.
 
-	XXX Finish
+	By definition, $\Proj_{\ell}\vec a$ is the closest point in $\ell$ to $\vec a$. Since $\vec a\in\ell$, we must
+	have 	
+	\[
+	    \Proj_{\ell}\vec a = \vec a = \mat{3\\7}.
+	\]
+	We already computed $\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}$ in the previous example, and so we see
+	\[
+		\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}\neq \mat{3\\7}=\Proj_{\ell}\vec a.
+	\]
 \end{example}
+
+\begin{emphbox}[Takeaway]
+	When projecting onto the span of a single vector, you can use vector components as a computational shortcut, 
+	but if the set isn't a span, you cannot.
+\end{emphbox}
+
