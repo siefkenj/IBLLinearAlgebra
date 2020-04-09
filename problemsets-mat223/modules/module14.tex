@@ -959,7 +959,7 @@ We can use elementary matrices to compute the determinant of any invertible matr
 decomposing it into the product of elementary matrices. But, what about non-invertible matrices?
 
 Let $M$ be an $n\times n$ matrix that is \emph{not} invertible. Then, we must have $\Nullity(M)>0$
-and $\Col(M)<n$. Geometrically, this means there is at least one line of vectors, $\Null(M)$, that gets
+and $\Dim(\Col(M))=\Rank(M)<n$. Geometrically, this means there is at least one line of vectors, $\Null(M)$, that gets
 collapsed to $\vec 0$, and the column space of $M$ must be ``flattened'' (i.e., it has lost a dimension). 
 Therefore, the volume of the parallelepiped given by the columns of $M$ must be zero, and so $\det(M)=0$.
 
