@@ -20,7 +20,7 @@
 			\begin{enumerate}
 				\item Linearly dependent
 				\item $\Span(A)$ is the plane $\Set*{\mat{x \\y \\0} \in\R^3: x,y\in\R}$
-				\item Yes. If B = A\cup$\Set*{\mat{0\\0\\1}}$, then $\Span(B)=\R^3$
+				\item Yes. If B = $A\cup\Set*{\mat{0\\0\\1}}$, then $\Span(B)=\R^3$
 			\end{enumerate}
 		\end{solution}
 		
@@ -82,7 +82,7 @@
 					\item Linearly Independent
 					\item Lineraly Dependent
 					\item Linearly Independent
-					\item Point
+					\item Linearly Independent
 					\item Linearly Dependent
 					\item Linearly Independent
 					\item Linearly Independent
@@ -93,13 +93,12 @@
 				$\alpha_{1}\vec x_{1}+\alpha_{2}\vec x_{2}+\ldots+\alpha_{n+1}\vec x_{n+1}=0$
 				for $\alpha_{1},\alpha_{2},\ldots,\alpha_{n+1} \in \R$
 				are the solutions to a system of $n$ equations
-				in $n+1$ variables if $\vec x_1,\vec x_2,\ldots,\vec x_{n+1}\in
-				\R^n$. This system is consistent
+				in $n+1$ variables. This system is consistent
 				since
 				$\alpha_{1}=\alpha_{2}=\ldots=\alpha_{n+1}=0$
 				is a solution. The row reduced echelon form
 				of the corresponding augmented matrix has at
-				least one free variable since there are more
+				least one free variable column since there are more
 				columns than rows. Hence there are
 				infinitely many solutions, and in particular
 				there exists a non-trivial solution to the
@@ -173,11 +172,9 @@
 					\item Impossible since $\vec 0$ is not in the plane.
 				\end{enumerate}
 				\item 
-				\begin{enumerate}
-					\ref{PROBSET3-R3-i} $\Span\Set*{\mat{1\\2\\0}, \mat{0\\1\\1}} + \Set*{\mat{2\\0\\0}}$
-					\ref{PROBSET-R3-iv}$\Span\Set*{\mat{1\\0\\0}, \mat{0\\0\\1}} + \Set*{\mat{0\\1\\0}}$
-					\ref{PROBSET3-R3-vi}$\Span\Set*{\mat{1\\2\\0}} + \Set*{\mat{1\\0\\-1}}$
-				\end{enumerate}
+					\ref{PROBSET3-R3-i} $\Span\Set*{\mat{1\\2\\0}, \mat{0\\1\\1}} + \Set*{\mat{2\\0\\0}}$;
+					\ref{PROBSET-R3-iv} $\Span\Set*{\mat{1\\0\\0}, \mat{0\\0\\1}} + \Set*{\mat{0\\1\\0}}$;
+					\ref{PROBSET3-R3-vi} $\Span\Set*{\mat{1\\2\\0}} + \Set*{\mat{1\\0\\-1}}$
 			\end{enumerate}
 		\end{solution}
 		
@@ -205,7 +202,7 @@
 		and then using the algebraic definition.
 		\begin{solution}
 			The set is linearly dependent since: $\mat{6\\4\\11}=
-			\mat{2\\0\\7}+ 4\mat{1\\1\\1}$ (geometric) OR
+			\mat{2\\0\\7}+ 4\mat{1\\1\\1}$ (geometric) or
 			$\mat{2\\0\\7}+ 4\mat{1\\1\\1}+ (-1)\mat{6\\4\\11}=\vec 0$.
 		\end{solution}
 		
@@ -227,7 +224,7 @@
 				\item $\vec{d}_{1}= \mat{1\\0\\0\\0}$,
 				$\vec{d}_{2}= \mat{0\\1\\0\\0}$, $\vec{d}_{3}=\mat{0\\0\\1\\0}$,
 				$\vec{p}= \mat{0\\0\\0\\0}$
-				\item $\vec{d}_{1}= \mat{1\\0\\0\\0}$,
+				\item $\vec{d}_{1}= \mat{1\\0\\0\\0}$, and
 				$\vec{d}_{2}= \mat{0\\1\\0\\0}$, $\vec{d}_{3}=\mat{1\\1\\0\\0}$,
 				$\vec{p}= \mat{0\\0\\1\\0}$
 				\item $\vec{d}_{1}= \mat{1\\0\\0\\0}$,

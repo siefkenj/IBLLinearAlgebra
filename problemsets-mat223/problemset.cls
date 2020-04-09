@@ -561,13 +561,14 @@
 	\DeclareDocumentEnvironment{solution}{o}{
 		\nopagebreak
 		%\par
-			\begin{adjustwidth}{1cm}{}
+			\begin{adjustwidth}{0cm}{}  % indenting solutions seems to take up a lot of space
+			%\begin{adjustwidth}{1cm}{}
 			\color{cyan}
 	}{%
 			\end{adjustwidth}
 	}
 	% XXX hide the solutions for now...
-	\Probset@VoidEnvironment{solution}
+%	\Probset@VoidEnvironment{solution}
 
 	% tcolorbox doesn't work with tikz externalize,
 	% so we need to disable it around a tcolorbox.
