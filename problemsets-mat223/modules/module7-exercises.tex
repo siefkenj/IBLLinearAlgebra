@@ -17,6 +17,13 @@
 											-y=1
 										}$
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item $\mat{1&-1&1\\2&-1&1\\3&1&-1}\mat{x\\y\\z} = \mat{1\\2\\3}$
+				\item $\mat{1&0&1}\mat{x\\y\\z} = \mat{6}$
+				\item $\mat{5&-9&2\\0&-1&0}\mat{x\\y\\z} = \mat{0\\1}$
+			\end{enumerate}
+		\end{solution}
 
 		\prob Find all vectors orthogonal to:
 		\begin{enumerate}
@@ -25,14 +32,125 @@
 			\item $\mat{1\\0\\0}$, $\mat{0\\1\\0}$, and $\mat{0\\0\\1}$
 			\item $\mat{2\\6\\-1}$
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item \label{PARTA} If $\vec{x} = \mat{x\\y\\z}$ is orthogonal to $\mat{1\\2\\3}$ and $\mat{2\\2\\3}$, then
+				\begin{align*}
+					\vec x \cdot \mat{1\\2\\3} &= 0 \ \ \Rightarrow \ \ x+2y+3z = 0 \\
+					\vec x \cdot \mat{2\\2\\3} &= 0 \ \ \Rightarrow \ \ 2x+2y+3z = 0.
+				\end{align*}
+				This means we need to solve the system
+				$[
+					\underbrace{\mat{1&2&3\\2&2&3}}_{A} \mat{x\\y\\z} = \mat{0\\0}.
+				]$
+				Row reducing $A$ yields
+				$[
+					\rref(A) = \mat{1&0&0\\0&1&2/3},
+				]$
+				so third column corresponds to a free variable. Let $z=t$, then $x=0$ and $y = -\frac{3t}{2}$. The complete solution expressed in vector form is
+				$[
+					\vec x = t\mat{0\\-3/2\\1} $\quad$ \text{or} $\quad$ \vec x = t\mat{0\\-3\\2}.
+				]$
+				\item  Proceeding as in \ref{PARTA}, we need to solve the matrix equation
+				$[
+					\underbrace{\mat{0&5&6\\1&10&2} }_{B} \underbrace{\mat{x\\y\\z}}_{\vec{x}} = \mat{0\\0}.
+				]$
+				We obtain
+				$[
+					\rref (B) = \mat{1&0&-10\\0&1&6/5},
+				]$
+				so the complete solution is 
+				$[
+					\vec x = t\mat{10\\-6/5\\1} $\quad$ \text{or} $\quad$ \vec x = t\mat{50\\-6\\5}.
+				]$
+
+
+				\item We need to solve the matrix equation
+				$[
+					\mat{1&0&0\\0&1&0\\0&0&1} \mat{x\\y\\z} = \mat{0\\0\\0}.
+				]$
+				The only solution is $\vec x = \vec 0$.
+
+
+				\item We need to solve the matrix equation
+				$[
+					\underbrace{\mat{2&6&-1} }_{A} \underbrace{\mat{x\\y\\z}}_{\vec x} = \mat{0}.
+				]$
+				We obtain
+				$[
+					\rref (A) = \mat{1&3&-1/2}.
+				]$
+				Both the second and third columns correspond to free variables. Let $s=y$ and $t=z$, then $x = -3s + \frac{t}{2}$, so we have
+				$[
+					\mat{x\\y\\z} = \mat{-3s+t/2\\s\\t} = s\mat{-3\\1\\0} + t\mat{1/2\\0\\1}.
+				]$
+				Therefore, the complete solution is
+				$[
+					\vec x = s\mat{-3\\1\\0} + t\mat{1/2\\0\\1}.
+				]$
+			\end{enumerate}
+		\end{solution}	
 
 		\prob Express each plane or hyperplane in normal form.
-		\begin{enumerate}
-			\item $\vec x = t\mat{0\\2\\2}+s\mat{1\\1\\1}+\mat{1\\0\\3}$
-			\item $\vec x = t\mat{1\\6\\8}+s\mat{2\\0\\2}+\mat{0\\0\\9}$
-			\item $\vec x = t\mat{1\\5\\15\\20}+s\mat{3\\0\\35\\59}+
-			r\mat{1\\4\\0\\18}+\mat{1\\6\\0\\0}$
-		\end{enumerate}
+			\begin{enumerate}
+				\item $\vec x = t\mat{0\\2\\2}+s\mat{1\\1\\1}+\mat{1\\0\\3}$
+				\item $\vec x = t\mat{1\\6\\8}+s\mat{2\\0\\2}+\mat{0\\0\\9}$
+				\item $\vec x = t\mat{1\\5\\15\\20}+s\mat{3\\0\\35\\59}+
+				r\mat{1\\4\\0\\18}+\mat{1\\6\\0\\0}$
+			\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item \emph {Key fact to remember : a normal vector is orthogonal to the direction vectors.} 
+					If $\vec{n} = \mat{x\\y\\z}$ is a normal vector, then
+					\begin{align*}
+						\vec x \cdot \mat{0\\2\\2} &= 0  implies 2y+2z = 0
+						\vec x \cdot \mat{1\\1\\1} &= 0 implies x+y+z = 0.
+					\end{align*}
+					Expressed in matrix form, this system becomes 
+					\begin{align*}
+						\underbrace{\mat{0&2&2\\1&1&1}}_{A} \mat{x\\y\\z} = \mat{0\\0}.
+					\end{align*}
+					Row reduction yields
+					\begin{align*}
+						\Rref(A) = \mat{1&0&0\\0&1&1},
+					\end{align*}
+					so complete solution in vector form is 
+					\begin{align*}
+						\vec x = t\mat{0\\-1\\1}.
+					\end{align*}
+					This means that any non-zero multiple of $\mat{0&-1&1}$ is a normal vector for this plane, so the normal form of the plane is 
+					\begin{align*}
+						\mat{0&-1&1} \cdot \Set{\mat{x\\y\\z} - \mat{1\\0\\3}}.
+					\end{align*}
+				\item  We first wish to find all vectors $\vec x$ orthogonal to $\mat{1\\6\\8}$ and $\mat{2\\0\\2}$. To do this we solve the system 
+					$[\mat{1&6&8\\2&0&2}\mat{x\\y\\z}=\mat{0\\0}.]$ 
+					Row reducing, we have 
+					\begin{align*}
+						\mat{1&6&8\\2&0&2}&\rightarrow \mat{1&6&8\\0&-12&-14}\\
+						&\rightarrow \mat{1&6&8\\0&6&7}\\
+						&\rightarrow \mat{1&0&1\\0&6&7}\\
+					\end{align*}
+					which has nullspace equal to $\Span{\mat{6\\7\\-6}}$.
+					Since $\mat{0\\0\\9}$ is a point on the plane, we then get that the normal form of the plane is \[\mat{6\\7\\-6}\cdot \left(\mat{x\\y\\z}-\mat{0\\0\\9}\right)=0.\]
+					\item We first wish to find all vectors $\vec x$ orthogonal to $\mat{1\\5\\15\\20}$, $\mat{3\\0\\35\\59}$, and $\mat{1\\4\\0\\18}$. 
+						To do this we solve the system \[\mat{1&5&15&20\\3&0&35&59\\1&4&0&18}\mat{x\\y\\z\\w}=\mat{0\\0\\0}.\] 
+						Row reducing, we have 
+						\begin{align*}
+							\mat{1&5&15&20\\3&0&35&59\\1&4&0&18}&\rightarrow \mat{1&5&15&20\\3&0&35&59\\0&-1&-15&-2}\\
+							&\rightarrow \mat{1&5&15&20\\0&-15&-10&-1\\0&-1&-15&-2}\\
+							&\rightarrow \mat{1&5&15&20\\0&15&10&1\\0&1&15&2}\\
+							&\rightarrow \mat{1&5&15&20\\0&1&15&2\\0&15&10&1}\\
+							&\rightarrow \mat{1&5&15&20\\0&1&15&2\\0&0&-215&-29}\\
+							&\rightarrow \mat{1&0&-60&10\\0&1&15&2\\0&0&-215&-29}\\
+							&\rightarrow \mat{1&0&-60&10\\0&1&15&2\\0&0&215&29}\\
+							&\rightarrow \mat{1&0&-60&10\\0&1&0&-\frac{1}{43}\\0&0&215&29}\\
+							&\rightarrow \mat{1&0&0&\frac{778}{43}\\0&1&0&-\frac{1}{43}\\0&0&215&29}\\
+							&\rightarrow \mat{1&0&0&\frac{778}{43}\\0&1&0&-\frac{1}{43}\\0&0&1&\frac{29}{215}}
+						\end{align*}
+						which has nullspace equal to $\Span{\mat{3890\\-5\\29\\-215}}$. Thus, since $\mat{1\\6\\0\\0}$ is a point on the hyperplane, 
+						we then get that the normal form of the hyperplane is \[\mat{3890\\-5\\29\\-215}\cdot\left(\mat{x\\y\\z\\w}-\mat{1\\6\\0\\0} \right)=0.\]
+				\end{enumerate}
+			\end{solution}	
 
 		\prob
 		Let $\mathcal P=
@@ -47,6 +165,45 @@
 			\mat{2\\-8\\2} \cdot \left(\mat{x\\y\\z}-\mat{1\\7\\0}\right).
 		\]
 		Find $\mathcal P\cap\mathcal Q\cap\mathcal R$.
-
+		\begin{solution}
+			We first express all the planes in the same form (any form works but we choose to use the equation form).
+			$\mathcal{P}$ is already expressed in this form: $2x+4y-4z=7$.\\
+			We are given $\mathcal{Q}$ in the form \[\vec x=t\mat{-1\\2\\0}+s\mat{5\\0\\2}+\mat{0\\7\\1}\].
+			Writing this into vector form yields
+			\begin{align*}
+				x&=-t+5s\\
+				y&=2t+7\\
+				z&=2s+1
+			\end{align*}
+			then substituting the above values yields 
+			\begin{align*}
+				2x&=-2t+5(2s)\\
+				&=-(y-7)+5(z-1)\\
+				2x+y-5z&=2.
+			\end{align*}
+			Thus, having eliminated $t$ and $s$ from our original equations we find that the equation form of $\mathcal{Q}$ is $2x+y-5z=2$.
+			We are given $\mathcal{R}$ in the form \[\mat{2\\-8\\2}\cdot \left(\mat{x\\y\\z}-\mat{1\\7\\0}\right)=0\]
+			which, expanding the dot product, yields 
+			\begin{align*}
+				\mat{2\\-8\\2}\cdot \mat{x\\y\\z}&=\mat{2\\-8\\2}\cdot\mat{1\\7\\0}\\
+				2x-8y+2z&=2-7(8)\\
+				2x-8y+2z&=-54.
+			\end{align*}
+			Thus the equation form of $\mathcal{R}$ is $2x-8y+2z=-54$.
+			Having written all three planes in equation form, finding $\mathcal{P}\cap\mathcal{Q}\cap\mathcal{R}$ is the same as 
+			solving the matrix equation \[\mat{2&4&-4\\2&1&-5\\2&-8&2}\mat{x\\y\\z}=\mat{7\\2\\-54}.\] Row-reducing on both sides yields 
+			\begin{align*}
+				\mat{2&4&-4\\2&1&-5\\2&-8&2}\mat{x\\y\\z}=\mat{7\\2\\-54}&\rightarrow \mat{2&4&-4\\0&-3&-1\\2&-8&2}\mat{x\\y\\z}=\mat{7\\-5\\-54}\\
+				&\rightarrow \mat{2&4&-4\\0&-3&-1\\0&-12&6}\mat{x\\y\\z}=\mat{7\\-5\\-61}\\
+				&\rightarrow \mat{2&0&-\frac{16}{3}\\0&-3&-1\\0&-12&6}\mat{x\\y\\z}=\mat{\frac{1}{3}\\-5\\-61}\\
+				&\rightarrow \mat{2&0&-\frac{16}{3}\\0&-3&-1\\0&0&10}\mat{x\\y\\z}=\mat{\frac{1}{3}\\-5\\-41}\\
+				&\rightarrow \mat{2&0&-\frac{16}{3}\\0&-3&-1\\0&0&1}\mat{x\\y\\z}=\mat{\frac{1}{3}\\-5\\-\frac{41}{10}}\\
+				&\rightarrow \mat{2&0&0\\0&-3&-1\\0&0&1}\mat{x\\y\\z}=\mat{-\frac{323}{15}\\-5\\-\frac{41}{10}}\\
+				&\rightarrow \mat{2&0&0\\0&-3&0\\0&0&1}\mat{x\\y\\z}=\mat{-\frac{323}{15}\\-\frac{91}{10}\\-\frac{41}{10}}\\
+				&\rightarrow \mat{1&0&0\\0&1&0\\0&0&1}\mat{x\\y\\z}=\mat{-\frac{323}{30}\\ \frac{91}{30}\\-\frac{41}{10}}
+			\end{align*}
+			so that $\mathcal{P}\cap\mathcal{Q}\cap\mathcal{R}$ consists of exactly one point. 
+			\[ \mathcal{P}\cap\mathcal{Q}\cap\mathcal{R}=\left\lbrace\mat{-\frac{323}{30}\\ \frac{91}{30}\\-\frac{41}{10}}\right\rbrace.\]
+		\end{solution}	
 	\end{problist}
 \end{exercises}
