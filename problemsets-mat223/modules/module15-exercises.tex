@@ -1,62 +1,179 @@
+
 \begin{exercises}
+
 	\begin{problist}
-		\prob For each linear transformation defined below, find its
-		eigenvectors and eigenvalues. If it has no eigenvectors/values,
-		explain why not.
+		\prob For each linear transformation defined below, find its eigenvectors
+		and eigenvalues. If it has no eigenvectors/values, explain why not.
 		\begin{enumerate}
-			\item $\mathcal S:\R^{2}\to\R^{2}$, where $\mathcal S$
-				stretches every
-				vector by the factor of $3$.
+			\item $\mathcal S:\R^{2}\to\R^{2}$, where $\mathcal S$ stretches
+				every vector by the factor of $3$.
 
-			\item $\mathcal R:\R^{2}\to\R^{2}$, where $\mathcal R$  
-				rotates every vector
-				clockwise by $\frac{\pi}{4}$.
+			\item $\mathcal R:\R^{2}\to\R^{2}$, where $\mathcal R$ rotates
+				every vector clockwise by $\frac{\pi}{4}$.
 
-			\item $\mathcal P:\R^{2}\to\R^{2}$, where $\mathcal P$
-				projects every vector
-				onto the line $\ell$ given by $y=-x$.
+			\item $\mathcal P:\R^{2}\to\R^{2}$, where $\mathcal P$ projects
+				every vector onto the line $\ell$ given by $y=-x$.
 
-			\item $\mathcal F:\R^{2}\to\R^{2}$, where $\mathcal F$
-				reflects every
-				vector over the line $\ell$ given by $y=-x$.
+			\item $\mathcal F:\R^{2}\to\R^{2}$, where $\mathcal F$ reflects
+				every vector over the line $\ell$ given by $y=-x$.
 
-			\item $T:\R^{3}\to\R^{3}$, where $T$ is a linear
-				transformation induced by the matrix
-				$\mat{1&2&3\\3&4&5\\5&6&7}$.
+			\item $T:\R^{3}\to\R^{3}$, where $T$ is a linear transformation
+				induced by the matrix $\mat{1&2&3\\3&4&5\\5&6&7}$.
 
-			\item $U:\R^{3}\to\R^{2}$, where $U$ is a linear
-				transformation induced by the matrix
-				$\mat{1&2&3\\3&4&5}$.
+			\item $U:\R^{3}\to\R^{2}$, where $U$ is a linear transformation
+				induced by the matrix $\mat{1&2&3\\3&4&5}$.
 		\end{enumerate}
+
+		% Q1 Solutions
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item Every non-zero vector in $\R^{3}$ is an eigenvector with
+					eigenvalue 3.
+
+				\item $\Char(R)$ has no real root, so $R$ has no real eigenvalue
+					or eigenvectors.
+
+				\item There are two eigenvalues. $0$ is an eigenvalue with
+					eigenvector $\mat{1 \\ 1}$, and $1$ is an
+					eigenvalue with eigenvector $\mat{1\\-1}$.
+
+				\item There are two eigenvalues. $-1$ is an eigenvalue with
+					eigenvector $\mat{1\\1}$, and $1$ is an eigenvalue
+					with eigenvector $\mat{1 \\ -1}$.
+
+				\item $\Char(T) = - \lambda ( \lambda^{2} - 12 \lambda - 12)$.
+					Then, we have three eigevalues. $0$ is an
+					eigenvalue with eigenvector $\mat{1 \\ -2 \\ 1}$, $6
+					+ 4 \sqrt{3}$ is an eigenvalue with eigenvector $\mat{2
+					\\ 2 + \sqrt{3} \\ 0}$, and $6 - 4\sqrt{3}$ is an
+					eigenvalue with eigenvector
+					$\mat{2 \\ 2 - \sqrt{3} \\ 0}$.
+
+				\item $U$ is induced by a $2 \times 3$ matrix, and eigenvalues/eigenvectors
+					are only defined for linear maps from $\R^{n}$ to itself.
+					So, $U$ has no eigenvalues or eigenvectors.
+			\end{enumerate}
+		\end{solution}
 
 		\prob Let $A = \mat{a&b\\c&d}$, where $a,b,c,d \in \R$.
 		\begin{enumerate}
 			\item Find the characteristic polynomial of $A$.
-		
+
 			\item Find conditions on $a,b,c,d$ so that $A$ has (i) two distinct
 				real eigenvalues, (ii) exactly one real eigenvalue, (iii) no
 				real eigenvalues.
 		\end{enumerate}
 
+		%Q2 Solutions
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item By definition,
+					\begin{align*}
+						\Char(A) = \det (A - \lambda I) = \det \mat{a - \lambda & b \\ c & d - \lambda}= \lambda^{2} - (a + d)\lambda + ad - bc.
+					\end{align*}
+
+				\item By the quadratic formula, the discriminant $\Delta$ of
+					$\Char(A)$ is $\Delta = (a + d)^{2} - 4(ad - bc) =
+					(a - d)^{2} + 4 bc$. So, $A$ has two distinct real
+					eigenvalues if $(a - d)^{2} + 4bc > 0$, one real eigenvalue
+					if $(a - d)^{2} + 4bc = 0$, and no real
+					eigenvalues if $(a - d)^{2} + 4bc < 0.$
+			\end{enumerate}
+		\end{solution}
+
 		\prob Let $B=\mat{1&2\\0&4}$.
 		\begin{enumerate}
 			\item Find the eigenvalues of $B$.
-			\item Find the eigenvalues of $B^T$.
-			\item A vector $\vec v\neq\vec 0$ is called a \emph{left-eigenvector} for $B$ if
-				$\vec vB=\lambda \vec v$ for some scalar $\lambda$ (Here we consider $\vec v$ a \emph{row} vector). Find all
-				left eigenvectors for $B$.
+
+			\item Find the eigenvalues of $B^{T}$.
+
+			\item A vector $\vec v\neq\vec 0$ is called a \emph{left-eigenvector}
+				for $B$ if $\vec vB=\lambda \vec v$ for some scalar
+				$\lambda$ (Here we consider $\vec v$ a \emph{row} vector).
+				Find all left eigenvectors for $B$.
 		\end{enumerate}
 
-		\prob For each statement below, determine whether it is true or false. Justify your answer.
+		% Q3 Solutions
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item $\Char(B) = \det\mat{1 -\lambda & 2 \\ 0 & 4 - \lambda}=
+					(1 - \lambda)(4 - \lambda)$. So, $B$ has
+					eigenvalues $1$ and $4$.
+
+				\item $\Char(B) = \Char(B^{T})$, so $B^{T}$ also has
+					eigenvalues $1$ and $4$.
+
+				\item $\vec{v}^{T}B = \lambda \vec{v}^{T}$ if and only if $B^{T}
+					\vec{v}= \lambda \vec{v}$ where we use $\vec{v}$ for
+					a column vector and $\vec{v}^{T}$ for its corresponding
+					row vector. We observe that $B^{T}$ has eigenvector
+					$\mat{1 \\ 0}$ with eigenvalue $1$ and eigenvector
+					$\mat{0\\1}$ with eigenvalue $4$. Hence $B$ has
+					left eigenvector $\mat{1 & 0}$ with eigenvalue $1$
+					and left eigenvector $\mat{0 & 1}$ with eigenvalue
+					$4$.$\vec{v}^{T}B = \lambda \vec{v}^{T}$ if and
+					only if $B^{T} \vec{v}= \lambda \vec{v}$ where we
+					use $\vec{v}$ for a column vector and
+					$\vec{v}^{T}$ for its corresponding row vector. We
+					observe that $B^{T}$ has eigenvector
+					$\mat{1 \\ 0}$ with eigenvalue $1$ and eigenvector
+					$\mat{0\\1}$ with eigenvalue $4$. Hence $B$ has left
+					eigenvector $\mat{1 & 0}$ with eigenvalue $1$ and left
+					eigenvector $\mat{0 & 1}$ with eigenvalue $4$.
+			\end{enumerate}
+		\end{solution}
+
+		\prob For each statement below, determine whether it is true or false. Justify
+		you answer.
 		\begin{enumerate}
 			\item Zero cannot be an eigenvalue of any matrix.
+
 			\item $\vec 0$ cannot be an eigenvector of any matrix.
+
 			\item A $2\times 2$ matrix always has a real eigenvalue.
+
 			\item A $3\times 3$ matrix always has a real eigenvalue.
+
 			\item A $3\times 2$ matrix always has a real eigenvalue.
-			\item The matrix $M = \mat{3&3&3&3\\3&3&3&3\\3&3&3&3\\3&3&3&3}$
-				has exactly one eigenvalue.
+
+			\item The matrix $M = \mat{3&3&3&3\\3&3&3&3\\3&3&3&3\\3&3&3&3}$ has
+				exactly one eigenvalue.
+
 			\item An invertible matrix can never have zero as an eigenvalue.
 		\end{enumerate}
+
+		% Q4 Solutions
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item False. $0$ is an eigenvalue of $\mat{0 & 0 \\ 0 & 0}$.
+
+				\item True. An eigenvector is a nonzero vector by definition.
+
+				\item False. $\mat{0 & 1 \\ -1 & 0}$ has no real eigenvalue.
+
+				\item True. It's characteristic polynomial has degree $3$ and
+					hence has at least one real root.
+
+				\item False. Eigenvalues are not defined for a non-square matrix.
+
+				\item False. $\mat{3 & 3 & 3 & 3 \\ 3 & 3 & 3 & 3\\3 & 3 &
+					3 & 3\\3 & 3 & 3 & 3}$ has $0$ as an eigenvalue with
+					eigenvector $\mat{1 \\ -1 \\ 0 \\ 0}$. It also has
+					eigenvalue $12$ with eigenvector
+					$\mat{1 \\ 1 \\ 1 \\ 1}$.
+
+				\item True. Any eigenvector with eigenvalue $0$ lies in the
+					null space of the matrix, which implies that the null
+					space has dimension at least one.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
