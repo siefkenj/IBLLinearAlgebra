@@ -46,6 +46,58 @@
 						F}$.
 				\end{enumerate}
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item 
+					\begin{enumerate}
+						\item $[\vec{u}]_{\mathcal{E}} = \mat{1\\8}$,
+							$[\vec{v}]_{\mathcal{E}} = \mat{-1\\3}$, and
+							$[\vec{w}]_{\mathcal{E}} = \mat{2\\0}$.
+						\item $[\vec{u}]_{\mathcal{A}} = \mat{3\\-2}$,
+							$[\vec{v}]_{\mathcal{A}} = \mat{1\\-1}$, and
+							$[\vec{w}]_{\mathcal{A}} = \mat{2/11\\4/11}$.
+						\item $[\vec{u}]_{\mathcal{B}} = \mat{1/2\\1}$,
+							$[\vec{v}]_{\mathcal{B}} = \mat{1/2\\-1}$, and
+							$[\vec{w}]_{\mathcal{B}} = \mat{-5/11\\2}$.
+					\end{enumerate}
+				\item
+					\begin{enumerate}
+						\item $[\vec{q}]_{\mathcal{E}} = \mat{0\\11\\-4}$,
+							$[\vec{r}]_{\mathcal{E}} = \mat{5\\-12 \\8}$, and
+							$[\vec{s}]_{\mathcal{E}} = \mat{1\\0\\1}$.
+						\item We are given $\mathcal{D} = \Set*{ \mat{1\\2\\0}_{\mathcal{E}}, \mat{-3\\5\\-4}_{\mathcal{E}}, 
+							\mat{-8\\4\\11}_{\mathcal{E}}}$. 
+							Thus to find $[\vec{q}]_{\mathcal{D}}$, we need to find scalars 
+							$x, y, z$ such that \[ x \mat{1\\2\\0} + y \mat{-3\\5\\-4} +z 
+							\mat{-8\\4\\11} = \mat{0\\11\\-4}\] which 
+							gives rise to a system of equations whose augmented matrix is 
+							\[
+							\left[
+							\begin{array}{ccc|c}
+								1 & -3 & -8 & 0  \\
+								2 & 5 & 4 & 11 \\
+								0 & 4 & 11 & -4 \\
+							\end{array}
+							\right] \xrightarrow{\text{ row reduce it to obtain }}
+							\left[
+							\begin{array}{ccc|c}
+								1 & 0 & 0 & -101/41  \\
+								0 & 1 & 0 & 201/41 \\
+								0 & 0 & 1 & -88/41\\
+							\end{array}
+							\right]
+							\]
+							Thus $[\vec{q}]_{\mathcal{D}} = \mat{-101/41 \\ 201/41 \\ -88/41}$. Similarly find 
+							$[\vec{r}]_{\mathcal{D}} = \mat{-407/41 \\ -402/41 \\ 176/41}$ and $[\vec{s}]_{\mathcal{D}} = 
+							\mat{67/41 \\ -42/41 \\ 19/41}$
+						\item We are given $\mathcal{F} = \Set*{ \mat{1\\4\\4}_{\mathcal{E}}, \mat{-3\\20\\0}_{\mathcal{E}}, 
+							\mat{0\\21\\16}_{\mathcal{E}}}$. Therefore,
+							$[\vec{q}]_{\mathcal{F}} = \mat{3 \\ 1 \\ -1}$,
+							$[\vec{r}]_{\mathcal{F}} = \mat{2 \\ -1 \\0}$,
+							and $[\vec{s}]_{\mathcal{F}} = \mat{257/260 \\ -1/260 \\ -12/65}$
+					\end{enumerate}
+			\end{enumerate}
+		\end{solution}
 
 		\prob
 		\begin{enumerate}
@@ -59,6 +111,17 @@
 				basis $\mathcal N$ for $\R^{3}$ such that
 				$[\vec b]_{\mathcal N}=\mat{0\\1\\2}$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Let $\mathcal{M} = \Set{ \vec{u}, \vec{v}}$. 
+					Then $[\vec{a}]_{\mathcal{M}} = \mat{1\\0} \Rightarrow \vec{a} = 1 \vec{u} + 0 
+					\vec{v} \Rightarrow \vec{a} = \vec{u}$. So as long as we choose the first vector in $\mathcal{M}$ as $\vec{a}$, any 
+					linearly independent second vector will do. Thus take $\mathcal{M} = \Set{5\xhat - 12 \yhat , \xhat }$
+				\item The observation here is that the numbers that appear in the coordinates in both $[\vec{b}]_{\mathcal{E}}$ and 
+					$[\vec{b}]_{\mathcal{N}}$ are same but they are just shuffled. Thus we can take $\mathcal{N}$ to be the corresponding 
+					permutation of  $\mathcal{E}$. Take $\mathcal{N} = \Set{ \zhat, \yhat, \xhat}$
+			\end{enumerate}
+		\end{solution}
 
 		\prob Determine the orientation of each of the following bases
 		for $\R^{2}$.
@@ -71,6 +134,16 @@
 
 			\item $\Set*{\mat{6\\-1},\mat{2\\3}}$
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Positively oriented. (Rotate both vectors 180 degrees clockwise and scale)
+				\item Negatively oriented.
+				\item Negatively oriented. ( $\mat{1\\2}$ is to be transformed to $\vec{e}_1$. If we rotate it clockwise at some stage it points
+					 at the same direction as $\mat{2\\1}$, thus making it linearly dependent. If we try to rotate it counter clockwise, at
+					 some stage it also points at the same (negative) direction as $\mat{2\\1}$, where it becomes linerly dependent. )
+				\item Positively oriented.
+			\end{enumerate}
+		\end{solution}
 
 		\prob
 		\begin{enumerate}
@@ -88,6 +161,17 @@
 				\vec v_2, \vec v_3}$ for $\R^{3}$. What is the
 				orientation of this basis?
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Negatively oriented. ( only $\vec{v}_3$ needs to be taken care of. To transform it to $\vec{e}_3$, no matter what we do,
+					at some stage we have to cross the $xy$-plane. At that stage it becomes linearly dependent.)
+				\item Negatively oriented. ( $3\vec{v}_2$ can be scaled to $\vec{v}_2$. Then we are back at situation (a).)
+				\item Positively oriented. (This is a little bit tricky. Note that $\vec{v}_2$ is already $\vec{e}_2$. So we can leave that 
+					alone and limit our operations to the $xz$-plane. In the $xz$-plane rotate $-4 \vec{v}_1$ and $\vec{v_3}$ counter 
+					clockwise 180 degrees. Then $-4 \vec{v}_1$ transforms to $4 \vec{e}_1$, which then can be scaled to $\vec{e}_1$, and 
+					$\vec{v}_3$ transforms to $\vec{e}_3$.)
+			\end{enumerate}
+		\end{solution}
 
 		\prob
 		\begin{enumerate}
