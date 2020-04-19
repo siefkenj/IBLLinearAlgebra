@@ -1,6 +1,6 @@
 
 Associated with every linear transformation
-are two specially named subspaces: the range and the null space. 
+are two specially named subspaces: the range and the null space.
 
 \Heading{Range}
 \SavedDefinitionRender{Range}
@@ -12,7 +12,7 @@ of the entire domain of $T$ under $T$''. Used in this sense $\text{Image}(T)=\Ra
 is always a subspace.
 
 \begin{theorem}
-	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Range(T)\subseteq \R^m$ is a 
+	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Range(T)\subseteq \R^m$ is a
 	subspace.
 \end{theorem}
 \begin{proof}
@@ -43,7 +43,7 @@ in a number called the \emph{rank}.
 
 \SavedDefinitionRender{RankofaLinearTransformation}
 
-The rank of a linear transformation can be used to measure 
+The rank of a linear transformation can be used to measure
 its complexity or compressibility. A rank $0$ transformation must send all vectors to $\vec 0$. A rank
 $1$ transformation must send all vectors to a line, etc.. So, by knowing just a single number---the rank---you
 can judge how complicated the set of outputs of a linear transformation will be.
@@ -97,7 +97,7 @@ Just like the range of a linear transformation, the null space of a linear trans
 	\end{enumerate}
 \end{proof}
 
-Akin to the rank--range connection, there is a special number call the \emph{nullity} 
+Akin to the rank--range connection, there is a special number called the \emph{nullity} 
 which specifies the dimension of the null space.
 
 \SavedDefinitionRender{Nullity}
@@ -197,7 +197,7 @@ In addition, it helps us state the following theorem.
 \end{theorem}
 \begin{proof}
 	To prove $\Rank(A)=\Rank(A^T)$, we will rely on what we know about the row reduction algorithm and what
-	the reduced row echelon form of a matrix tells us. 
+	the reduced row echelon form of a matrix tells us.
 
 	\emph{Claim 1}: $\Row(\Rref(A))\subseteq \Row(A)$. To see this, observe that to get $\Rref(A)$, we take
 	linear combinations of the rows of $A$. Therefore, it must be that the span of the rows of $\Rref(A)$
@@ -214,7 +214,7 @@ In addition, it helps us state the following theorem.
 	echelon form. Above and below every pivot in $\Rref(A)$ are zeros. Therefore, a row in $\Rref(A)$
 	with a pivot cannot be written as a linear combination of any other row. Since every non-zero
 	row has a pivot, this proves the claim.
-	
+
 	Now, note the following two facts.
 	\begin{enumerate}
 		\item The columns of $A$ corresponding to pivot columns of $\Rref(A)$ form a basis for $\Col(A)$.
@@ -238,7 +238,7 @@ Similarly, the complete solution to $M\vec x=\vec b$ where $\vec b=\mat{1\\2}$ c
 	\vec x=t\mat{-1\\-2\\1}+\mat{1\\0\\0}.
 \]
 
-The set of solutions to $M\vec x=\vec 0$ and $M\vec x=\vec b$ look very similar. In fact, 
+The set of solutions to $M\vec x=\vec 0$ and $M\vec x=\vec b$ look very similar. In fact,
 \[
 	\Set{\text{solutions to $M\vec x=\vec b$}} = \Set{\text{solutions to $M\vec x=\vec 0$}}+\Set{\vec p}\qquad\text{where}
 	\qquad \vec p=\mat{1\\0\\0}.
@@ -272,7 +272,7 @@ where $V$ is a subspace and $\vec p$ is a particular solution. In fact, we can d
 	Let $S=\Set{\text{all solutions to $A\vec x=\vec b$}}$ and assume $\vec p\in S$. We will show $S=\Null(A)+\Set{\vec p}$.
 
 	First we will show $\Null(A)+\Set{\vec p}\subseteq S$. Let $\vec v\in \Null(A)+\Set{\vec p}$. By definition,
-	$\vec v=\vec n+\vec p$ for some $\vec n\in \Null(A)$. Now, by linearity of matrix multiplication 
+	$\vec v=\vec n+\vec p$ for some $\vec n\in \Null(A)$. Now, by linearity of matrix multiplication
 	and the definition of the null space,
 	\[
 		A\vec v=A(\vec n+\vec p)=A\vec n+A\vec p=\vec 0+\vec b=\vec b,
@@ -284,9 +284,9 @@ where $V$ is a subspace and $\vec p$ is a particular solution. In fact, we can d
 	\[
 		A(\vec u-\vec v)=A\vec u-A\vec v=\vec b-\vec b=\vec 0,
 	\]
-	and so $\vec u-\vec v\in \Null(A)$. 
-	
-	Fix $\vec w\in S$. By our previous observation, $\vec w-\vec p\in \Null(A)$. Therefore 
+	and so $\vec u-\vec v\in \Null(A)$.
+
+	Fix $\vec w\in S$. By our previous observation, $\vec w-\vec p\in \Null(A)$. Therefore
 	\[
 		\vec w=(\vec w-\vec p)+\vec p\in \Null(A)+\Set{\vec p},
 	\]
@@ -378,7 +378,7 @@ trying to be extra precise, we must make sure our boxes/lists of numbers and our
 	Let $\mathcal T$ be the transformation induced by the matrix $M=\mat{1&2&5\\2&-2&-2}$,
 	and let $\vec v=3\xhat-3\zhat$. Compute $\mathcal T(\vec v)$.
 
-	Since $\mathcal T$ is induced by $M=\mat{1&2&5\\2&-2&-2}$, by definition, 	
+	Since $\mathcal T$ is induced by $M=\mat{1&2&5\\2&-2&-2}$, by definition,
 	\[
 	    [\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E}=\mat{1&2&5\\2&-2&-2}[\vec v]_{\mathcal E}.
 	\]
@@ -396,7 +396,7 @@ In particular, we can define the rank and nullity of a matrix.
 \SavedDefinitionRender{NullityofaMatrix}
 
 \Heading{Range vs\mbox{.} Column Space \& Null Space vs\mbox{.} Null Space}
-Let $M=\mat{C_1&C_2&\cdots &C_m}$ be an $m\times m$ matrix with columns $C_1$, \ldots, $C_m$, and let $\mathcal T$ be 
+Let $M=\mat{C_1&C_2&\cdots &C_m}$ be an $m\times m$ matrix with columns $C_1$, \ldots, $C_m$, and let $\mathcal T$ be
 the transformation induced by $M$. The column space of $M$ is the set of all linear combinations of the columns of
 $M$. But, let's be precise. The columns of $M$ are lists of numbers, so to talk about the column space of $M$,
 we need to turn them into vectors. Fortunately, we have a nice notation for that. Since $C_i$ is a list of numbers,
@@ -424,7 +424,7 @@ In other words,
 	\Range(\mathcal T)=\Col(M).
 \]
 This means that when trying to answer a question about the range of a linear transformation, we could think about
-the column space of its matrix instead (or vice versa). 
+the column space of its matrix instead (or vice versa).
 
 \begin{example}
 	Let $\mathcal T:\R^3\to\R^2$ be defined by
@@ -501,7 +501,7 @@ The rank and the nullity of a linear transformation/matrix are connected by a po
 The Rank-nullity Theorem's statement is simple, but it is surprisingly useful. Consider
 the matrix \[M=\mat{1&2&2}.\] We already know that $\Null(M)$ is the plane with equation
 $x+2y+2z=0$ and therefore is two dimensional. Since $M$ has three columns, $\Rank(M)=1$, and
-so $\Dim(\Col(M))=\Dim(\Row(M))=1$, which means that $M$ has a one-dimensional set of normal vectors 
+so $\Dim(\Col(M))=\Dim(\Row(M))=1$, which means that $M$ has a one-dimensional set of normal vectors
 (if we include $\vec 0$).
 
 By contrast, let $\mathcal P\subseteq \R^4$ be the plane in $\R^4$ given in vector form by
@@ -522,4 +522,3 @@ Then
 
 Just like the Rank-nullity Theorem for matrices, the Rank-nullity Theorem for linear transformations
 can give insights about linear transformations that would be otherwise hard to see.
-
