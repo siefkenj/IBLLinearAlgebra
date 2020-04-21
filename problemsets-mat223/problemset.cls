@@ -701,3 +701,7 @@
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{.17cm}
+
+
+% make sure we are compatible with the older version of tcolorbox; tcbcol@frame was renamed to tcbcolframe in newer versions.
+\@ifundefined{\string\color@tcbcolframe}{\colorlet{tcbcolframe}{tcbcol@frame}}{}
