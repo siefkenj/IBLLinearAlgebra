@@ -77,13 +77,14 @@
 				\[
 					\underbrace{\mat{2&6&-1} }_{A} \underbrace{\mat{x\\y\\z}}_{\vec x} = \mat{0}.
 				\]
-				We obtain
+				Row reducing, we obtain
 				\[
 					\rref (A) = \mat{1&3&-1/2}.
 				\]
-				Both the second and third columns correspond to free variables. Let $s=y$ and $t=z$, then $x = -3s + \frac{t}{2}$, so we have
+				Both the second and third columns correspond to free variables. Let $s=y$ and $t=z$, then $x = -3s + \frac{t}{2}$, 
+					so we have
 				\[
-					\mat{x\\y\\z} = \mat{-3s+t/2\\s\\t} = s\mat{-3\\1\\0} + t\mat{1/2\\0\\1}.
+					\mat{x\\y\\z} = \matc{-3s+t/2\\s\\t} = s\mat{-3\\1\\0} + t\mat{1/2\\0\\1}.
 				\]
 				Therefore, the complete solution is
 				\[
@@ -100,31 +101,34 @@
 				r\mat{1\\4\\0\\18}+\mat{1\\6\\0\\0}$
 			\end{enumerate}
 		\begin{solution}
+			\emph{Key fact to remember}: a normal vector is orthogonal to the direction vectors.
 			\begin{enumerate}
-				\item \emph {Key fact to remember : a normal vector is orthogonal to the direction vectors.} 
+				\item  
 					If $\vec{n} = \mat{x\\y\\z}$ is a normal vector, then
 					\begin{align*}
-						\vec x \cdot \mat{0\\2\\2} &= 0  implies 2y+2z = 0
-						\vec x \cdot \mat{1\\1\\1} &= 0 implies x+y+z = 0.
+						\vec x \cdot \mat{0\\2\\2} &= 0  \quad\implies\quad 2y+2z = 0\\
+						\vec x \cdot \mat{1\\1\\1} &= 0 \quad\implies\quad x+y+z = 0.
 					\end{align*}
 					Expressed in matrix form, this system becomes 
-					\begin{align*}
+					\[
 						\underbrace{\mat{0&2&2\\1&1&1}}_{A} \mat{x\\y\\z} = \mat{0\\0}.
-					\end{align*}
+					\]
 					Row reduction yields
-					\begin{align*}
+					\[
 						\Rref(A) = \mat{1&0&0\\0&1&1},
-					\end{align*}
+					\]
 					so complete solution in vector form is 
-					\begin{align*}
+					\[
 						\vec x = t\mat{0\\-1\\1}.
-					\end{align*}
+					\]
 					This means that any non-zero multiple of $\mat{0&-1&1}$ is a normal vector for this plane, so the normal form of the plane is 
-					\begin{align*}
-						\mat{0&-1&1} \cdot \Set{\mat{x\\y\\z} - \mat{1\\0\\3}}.
-					\end{align*}
-				\item  We first wish to find all vectors $\vec x$ orthogonal to $\mat{1\\6\\8}$ and $\mat{2\\0\\2}$. To do this we solve the system 
-					$[\mat{1&6&8\\2&0&2}\mat{x\\y\\z}=\mat{0\\0}.]$ 
+					\[
+						\mat{0&-1&1} \cdot \left(\mat{x\\y\\z} - \mat{1\\0\\3}\right)=0.
+					\]
+				\item  We first wish to find all vectors $\vec x$ orthogonal to $\mat{1\\6\\8}$ and $\mat{2\\0\\2}$. 
+					To do this, we solve the system 
+					$\mat{1&6&8\\2&0&2}\mat{x\\y\\z}=\mat{0\\0}.$
+
 					Row reducing, we have 
 					\begin{align*}
 						\mat{1&6&8\\2&0&2}&\rightarrow \mat{1&6&8\\0&-12&-14}\\
