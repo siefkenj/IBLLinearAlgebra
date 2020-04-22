@@ -29,7 +29,7 @@
 		\begin{solution}
 
 			\begin{enumerate}
-				\item Every non-zero vector in $\R^{3}$ is an eigenvector with
+				\item Every non-zero vector in $\R^{2}$ is an eigenvector with
 					eigenvalue 3.
 
 				\item $\Char(R)$ has no real root, so $R$ has no real eigenvalue
@@ -47,9 +47,9 @@
 					Then, we have three eigevalues. $0$ is an
 					eigenvalue with eigenvector $\mat{1 \\ -2 \\ 1}$, $6
 					+ 4 \sqrt{3}$ is an eigenvalue with eigenvector $\mat{2
-					\\ 2 + \sqrt{3} \\ 0}$, and $6 - 4\sqrt{3}$ is an
+					\\ 2 + \sqrt{3} \\ 2\sqrt{3}}$, and $6 - 4\sqrt{3}$ is an
 					eigenvalue with eigenvector
-					$\mat{2 \\ 2 - \sqrt{3} \\ 0}$.
+					$\mat{2 \\ 2 - \sqrt{3} \\ 2-2\sqrt{3}}$.
 
 				\item $U$ is induced by a $2 \times 3$ matrix, and eigenvalues/eigenvectors
 					are only defined for linear maps from $\R^{n}$ to itself.
@@ -73,7 +73,8 @@
 			\begin{enumerate}
 				\item By definition,
 					\begin{align*}
-						\Char(A) = \det (A - \lambda I) = \det \mat{a - \lambda & b \\ c & d - \lambda}= \lambda^{2} - (a + d)\lambda + ad - bc.
+						\Char(A) = \det (A - \lambda I) &= \det \mat{a - \lambda & b \\ c & d - \lambda} \\
+						&= \lambda^{2} - (a + d)\lambda + ad - bc.
 					\end{align*}
 
 				\item By the quadratic formula, the discriminant $\Delta$ of
@@ -109,23 +110,17 @@
 				\item $\Char(B) = \Char(B^{T})$, so $B^{T}$ also has
 					eigenvalues $1$ and $4$.
 
-				\item $\vec{v}^{T}B = \lambda \vec{v}^{T}$ if and only if $B^{T}
-					\vec{v}= \lambda \vec{v}$ where we use $\vec{v}$ for
-					a column vector and $\vec{v}^{T}$ for its corresponding
-					row vector. We observe that $B^{T}$ has eigenvector
-					$\mat{1 \\ 0}$ with eigenvalue $1$ and eigenvector
+				\item The equation $\vec{v}^{T}B = \lambda \vec{v}^{T}$ holds if and only if $B^{T}
+					\vec{v}= \lambda \vec{v}$. Here, we interpret $\vec{v}$ as
+					a column vector and $\vec{v}^{T}$ as a 
+					row vector.
+
+					We observe that $B^{T}$ has eigenvector
+					$\mat{1 \\ 0}$ with eigenvalue $1$ and an eigenvector
 					$\mat{0\\1}$ with eigenvalue $4$. Hence $B$ has
 					left eigenvector $\mat{1 & 0}$ with eigenvalue $1$
 					and left eigenvector $\mat{0 & 1}$ with eigenvalue
-					$4$.$\vec{v}^{T}B = \lambda \vec{v}^{T}$ if and
-					only if $B^{T} \vec{v}= \lambda \vec{v}$ where we
-					use $\vec{v}$ for a column vector and
-					$\vec{v}^{T}$ for its corresponding row vector. We
-					observe that $B^{T}$ has eigenvector
-					$\mat{1 \\ 0}$ with eigenvalue $1$ and eigenvector
-					$\mat{0\\1}$ with eigenvalue $4$. Hence $B$ has left
-					eigenvector $\mat{1 & 0}$ with eigenvalue $1$ and left
-					eigenvector $\mat{0 & 1}$ with eigenvalue $4$.
+					$4$.
 			\end{enumerate}
 		\end{solution}
 
@@ -159,7 +154,7 @@
 
 				\item False. $\mat{0 & 1 \\ -1 & 0}$ has no real eigenvalue.
 
-				\item True. It's characteristic polynomial has degree $3$ and
+				\item True. Its characteristic polynomial has degree $3$ and
 					hence has at least one real root.
 
 				\item False. Eigenvalues are not defined for a non-square matrix.
