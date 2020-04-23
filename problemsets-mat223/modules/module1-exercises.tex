@@ -11,14 +11,20 @@
 				Write the following vectors as column vectors.
 				\begin{enumerate}
 					\item $4\xhat -3\zhat +2\yhat -2\xhat\in\R^3$.
-					\item $\yhat +\xhat -5\yhat \in\R^2$.
+					\item $1\yhat +\xhat -5\yhat \in\R^2$.
 				\end{enumerate}
 			\item
-				Write the following vectors as linear combinations of $\xhat$, $\yhat$, and
-				$\zhat$.
+				Write the following vectors as linear combinations of the standard
+				basis vectors $\sbasis{1}$, $\sbasis{2}$, $\sbasis{3}$, and
+				$\sbasis{4}$:
 				\begin{enumerate}
-					\item $\mat{1\\-2\\3}$.
-					\item $\mat{-2\\5\\4} + \mat{1\\-2\\ -5} + \mat{1\\0\\1}$.
+					\item $\mat{0\\-3\\2}$
+					\item $\displaystyle
+						\mat{-2\\5\\4} + (-1)\mat{-1\\2\\ 5} + \frac12\mat{2\\0\\2}$
+					\item $\displaystyle
+						2\mat{-1\\-2\\0\\ 5}
+						+1\mat{3\\4\\-2\\ 1}
+						+\left(-\frac13\right)\mat{0\\-3\\0\\ 6}$
 				\end{enumerate}
 		\end{enumerate}
 		% Q1 Solution
@@ -97,17 +103,38 @@
 
 		% Conceptual (3 questions)
 		\prob
+			Let $X$ be the set of all positive even integers. Let $Y$ be the set of
+			all positive multiples of $3$.
+			\begin{enumerate}
+				\item Write $X$ and $Y$ in set-builder notation.
+				\item Determine what $X\cap Y$ is. Write your solution in two ways: in
+					plain English words and also in set-builder notation.
+			\end{enumerate}
+		\prob
 			% Purpose: get students to understand (the beginnings of) scale-invariance
 			% of bases, as well as carefully reading mathematical expressions.
-			Draw the following sets of $\R^2$ and then determine which are equal or subsets of each other.
+			Draw the following subsets of $\R^2$ and then determine which are equal or
+			subsets of each other.
 			\begin{enumerate}
-				\item $A=\Set*{\vec v\in\R^2\given \vec v=n\mat{2\\1}\text{ for some integer }n\in\Z}$
+				\item $A=\Set*{\vec v\in\R^2\given \vec v=n\mat{2\\1} \text{ for some }n\in\Z}$
 				\item $B=\Set*{\vec v\in\R^2\given \vec v=t\mat{4\\2}\text{ for some }t\in\R}$
-				\item $C=\Set*{\vec v\in\R^2\given \vec v=n\mat{4\\2}\text{ for some integer }n\in\Z}$
+				\item $C=\Set*{\vec v\in\R^2\given \vec v=n\mat{4\\2} \text{ for some }n\in\Z}$
 				\item $D=\Set*{\vec v\in\R^2\given \vec v=t\mat{2\\1}\text{ for some }t\in\R}$
 			\end{enumerate}
 			\begin{solution}
 				We have $C\subseteq A$, $A\subseteq B$, and $B=D$.
+			\end{solution}
+		\prob
+			Suppose the vector $\vec v$ can be written as a linear combination of the
+			vectors $\vec a$, $\vec b$, and $\vec c$. Can $\vec v$ be written as a
+			linear combination of the vectors $2\vec a$, $-\vec b$ and
+			$\frac12\vec c$? Why or why not?
+		\prob
+			Demonstrate with a picture why $\vec v + \vec w = \vec w + \vec v$.
+			\begin{solution}
+				You get a parallelogram with side lengths $\norm{\vec v}$ and
+				$\norm{\vec w}$. This is why this property is sometimes called the
+				\emph{parallelogram law}.
 			\end{solution}
 		\prob Let $\vec a=\mat{1\\2}$, $\vec b=\mat{2\\4}$, $\vec c=\xhat+3\yhat$, and $\vec d=\vec a+\vec c$.
 		\begin{enumerate}
@@ -127,5 +154,11 @@
 		    \end{enumerate}
 		\end{solution}
 		% Challenge (3 questions)
+		\prob
+			Prove that for any sets $X$, $Y$ and $Z$ that:
+			\begin{enumerate}
+				\item $X \cap (Y \cup Z) = (X\cap Y) \cup (X\cap Z)$
+				\item $X \cup (Y \cap Z) = (X\cup Y) \cap (X\cup Z)$
+			\end{enumerate}
 	\end{problist}
 \end{exercises}
