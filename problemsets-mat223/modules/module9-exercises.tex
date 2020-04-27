@@ -9,8 +9,32 @@
 			\item $\mathcal C:\R^2\to\R^2$, where $\mathcal C$ sends all vectors above the $x$-axis to $\vec 0$
 				and all vectors on or below the $x$-axis to $-\yhat$.
 		\end{enumerate}
+		\begin{solution}
+		  \begin{enumerate}
+		    \item Yes. $\mathcal{A}$ is a linear transformation. Let $\vec{u} = \mat{u_1\\u_2}$
+and $\vec{v} = \mat{v_1 \\ v_2}$
+ be two vectors and $\alpha$ be a scalar.
+$\mathcal{A} (\vec{u}+\vec{v}) = \mathcal{A}\mat{u_1 + v_1 \\ u_2 + v_2} = \mat{-u_1 - v_1 \\ u_2 + v_2 } = \mat{-u_1 \\ u_2 } + \mat{ - v_1 \\  v_2 } = \mathcal{A}\mat{u_1\\u_2} + \mathcal{A}\mat{v_1 \\ v_2} = \mathcal{A} (\vec{u}) +\mathcal{A} (\vec{v})$ and
+$\mathcal{A}(\alpha \vec{u}) = \mathcal{A}\mat{\alpha u_1 \\ \alpha u_2} = \mat{ - \alpha u_1 \\ \alpha u_2} = \alpha \mat{ - u_1 \\u_2} = \alpha \mathcal{A}\mat{ u_1 \\u_2} = \alpha \mathcal{A}(\vec{u}) $
+So $\mathcal{A}$ satisfies all the properties of a linear transformation.
+        \item No. $\mathcal{B}\mat{0\\0} = \mat{-1\\0} \neq \mat{0\\0}$
+        \item Yes.  Let $\vec{u} = \mat{u_1\\u_2}$ and $\vec{v} = \mat{v_1 \\ v_2}$ be two vectors and $\alpha$ be a scalar.
+$\mathbf{id} (\vec{u}+\vec{v}) = \mathbf{id}\mat{u_1 + v_1 \\ u_2 + v_2} = \mat{u_1 + v_1 \\ u_2 + v_2 } = \mat{u_1 \\ u_2 } + \mat{ v_1 \\  v_2 } = \mathbf{id}\mat{u_1\\u_2} + \mathbf{id}\mat{v_1 \\ v_2} = \mathbf{id} (\vec{u}) +\mathbf{id} (\vec{v})$ and
+$\mathbf{id}(\alpha \vec{u}) =\mathbf{id}\mat{\alpha u_1 \\ \alpha u_2} = \mat{  \alpha u_1 \\ \alpha u_2} = \alpha \mat{  u_1 \\u_2} = \alpha \; \mathbf{id}\mat{ u_1 \\u_2} = \alpha \; \mathbf{id}(\vec{u}) $
+So $\mathbf{id} $ satisfies all the properties of a linear transformation.
+        \item No. As $\vec{0}$ is on the $x$-axis, $\mathcal{C}(\vec{0}) = - \vec{e}_2 \neq \vec{0}$ .
+		  \end{enumerate}
+		\end{solution}
 
 		\prob Draw the image of the unit circle under each transformation listed in \ref{PROBSETMOD9-linnonlin}.
+    \begin{solution}
+      \begin{enumerate}
+        \item Notice $\mathcal A$ is just reflection about $y$-axis. If you reflect all points on the circle about the $y$-axis you get back the unit circle.
+				\item $\mathcal{B}\mat{x\\y} = \mat{-x-1\\y} = \mat{-x\\y} + \mat{-1\\0}$. So the transformation $\mathcal{B}$ reflects about the $y$-axis and then translates. We already know the first operation keeps the circle as it is. So the final image is just a translated circle, that is unit circle with center at (-1,0).
+				\item $\Ident$ leaves all points unchanged. So the image of the unit circle under $\Ident$ is still the unit circle.
+				\item The unit circle under $\mathcal{C}$ is the set $\Set{(0,0), (0,-1)}$.
+      \end{enumerate}
+    \end{solution}
 
 		\prob Let $M=\mat{1&-2&3\\-4&5&-6}$ and let $T_M$ be the corresponding matrix transformation.
 		\begin{enumerate}
@@ -18,6 +42,13 @@
 			\item Calculate $T_M\left(\mat{2\\-1\\1}\right)$.
 			\item Find the image of the standard basis vectors of the domain under $T_M$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Recall that an $m \times n$ matrix represents a transformation from $\R^n \rightarrow \R^m$. The given matrix $M$ is $2 \times 3$, so $T_{M} : \R^3 \rightarrow \R^2$. Thus the domain of $T_M$ is $\R^3$ and codomain is $\R^2.$
+				\item $T_M \left( \mat{2\\-1\\1}\right) = \mat{1 & -2 & 3 \\ -4 & 5 & -6}\mat{2\\-1\\1} = \mat{7\\ -19}$
+				\item $T_M(\vec{e}_1) = \mat{1\\-4}$, $\;\;\; T_M(\vec{e}_2) = \mat{-2 \\ 5}$, $\;\;\; T_M(\vec{e}_3) = \mat{3\\-6}$
+			\end{enumerate}
+		\end{solution}
 
 		\prob Find a matrix for each transformation below, or explain why no such matrix exists.
 		\begin{enumerate}
@@ -36,10 +67,23 @@
 				is reflection over the line
 				$y=x$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item \label{itm:first} $\mat{2 & 0 \\ 0& 2}$
+				\item To determine the image of $\vec{e}_1, \vec{e}_2$, we use trigonometry. Note $\mathcal{R} \mat{1\\0} = \mat{- \cos (45^{o}) \\ - \sin (45^{o})} = \mat{- 1/ \sqrt{2} \\ - 1/ \sqrt{2}}$ and $\mathcal{R} \mat{0\\1} = \mat{ \cos (45^{o}) \\ - \sin (45^{o})} = \mat{ 1/ \sqrt{2} \\  -1/ \sqrt{2}}$. To see this draw pictures, draw angles and remember that $\vec{e}_1$ and $\vec{e}_2$ are unit vectors. Thus the matrix of $\mathcal{R}$ is $\mat{- \frac{1	}{\sqrt{2}} & \frac{1	}{\sqrt{2}}\\ - \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}}$.
+				\item No such matrix exists as this is not a linear transformation.
+				\item \label{itm:fourth} $\mat{0 & 0 \\ 0 & 1}$
+				\item \label{itm:fifth} $\mat{0 & 1 \\ 1 & 0}$
+			\end{enumerate}
+			\ref{itm:first}, \ref{itm:fourth}, and \ref{itm:fifth} are computed by taking a matrix $\mat{a & b \\ c & d}$ and applying it to $\vec{e}_1, \vec{e}_2$ to determine $a,b,c,d$.
+		\end{solution}
 
 		\prob Let $S:\R^n\to\R^m$ and $T:\R^n\to\R^m$ be linear transformations,
 		and define the transformation $R:\R^n\to\R^m$ by $R(\vec x)=S(\vec x)+T(\vec x)$.
 		Show that $R$ is also linear.
+		\begin{solution}
+			Let $\vec{u}$ and $\vec{v}$ be two vectors in $\R^n$ and $c$ be a scalar. Then we have, $R(\vec{u}+ \vec{v}) = S(\vec{u}+ \vec{v}) + T(\vec{u}+ \vec{v})$. Since given that both $S, T$ are linear transformations, we get $S(\vec{u}+ \vec{v}) + T(\vec{u}+ \vec{v}) = S(\vec{u})+ S(\vec{v}) + T(\vec{u})+T (\vec{v}) = (S(\vec{u})+ T(\vec{u})) + (S(\vec{v})+ T(\vec{v})) = R(\vec{u})+ R(\vec{v})$. Hence we have, $R(\vec{u}+ \vec{v})=R(\vec{u})+ R(\vec{v})$. Similarly, $R(c \vec{u})= S(c \vec{u})+T(c \vec{u}) = cS( \vec{u})+cT( \vec{u}) = cR( \vec{u})$. Thus $R$ is also linear.
+		\end{solution}
 
 		\prob For a fixed vector $\vec a\in\R^3$, define the function $D_{\vec a}$ by
 		$D_{\vec a}(\vec x) = \vec a\cdot\vec x$.
@@ -49,10 +93,29 @@
 			\item Is $D_{\vec a}$ a linear transformation for all $\vec a$? Prove your claim.
 			\item Find a matrix for $D_{\vec a}$ or explain why no such matrix exists.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Since dot product is only defined for vectors in the same space, if $\vec{a} \in \R^3$, $\vec{x}$ must also be in $\R^3$. So the domain of $D_{\vec{a}}$ is $\R^3.$
+				\item Let $\vec{u} = \mat{u_1\\u_2\\u_3}$ and $\vec{v} = \mat{v_1 \\ v_2\\v_3}$ be two vectors and $\alpha$ be a scalar. Then $D_{\vec{e}_1} (\vec{u}+ \vec{v}) = \mat{1\\0\\0} \cdot \mat{u_1 + v_1 \\ u_2 + v_2 \\ u_3+v_3} = u_1 + v_1 =  \mat{1\\0\\0} \cdot \mat{u_1 \\ u_2\\u_3} +  \mat{1\\0\\0} \cdot \mat{v_1 \\ v_2\\v_3} = D_{\vec{e}_1}(\vec{u}) + D_{\vec{e}_1}(\vec{v})$ and
+$D_{\vec{e}_1}(\alpha \vec{u}) = \mat{1\\0\\0} \cdot \mat{\alpha u_1 \\ \alpha u_2\\ \alpha u_3} = \alpha u_1 = \alpha \left( \mat{1\\0\\0} \cdot \mat{u_1 \\ u_2\\u_3} \right) = \alpha D_{\vec{e}_1}(\vec{u})$
+				\item Yes, $D_{\vec{a}}$ is a linear transformation for all vectors $\vec{a}$. The properties of linear transformation can be proved from properties of dot product. Let $\vec{u}$ and $\vec{v}$ be two vectors and $\alpha$ be a scalar. Then
+$D_{\vec{a}}(\vec{u} + \vec{v})= \vec{a} \cdot (\vec{u}+ \vec{v}) =  \vec{a} \cdot \vec{u}+ \vec{a} \cdot \vec{v} = D_{\vec{a}}(\vec{u}) + D_{\vec{a}}(\vec{v})$ and
+\[
+D_{\vec{a}}(\alpha \vec{u}) =  \vec{a} \cdot ( \alpha \vec{u}) = \alpha \; \vec{a} \cdot \vec{u} = \alpha D_{\vec{a}}(\vec{u})
+\]
+				\item $D_{\vec{a}} : \R^3 \rightarrow \R$. Thus the matrix, say $M_D$, will be $1 \times 3$. If $\vec{a} = \mat{a_1\\a_2\\ a_3} $ Then, $M_D = \mat{a_1 & a_2 & a_3}$
+			\end{enumerate}
+		\end{solution}
 
 		\prob Let $T:\R^2\to\R^2$ be a transformation with the property that $T(V)$ is a subspace
 		whenever $V$ is a subspace. Is this enough information to conclude that $T$ is a linear
 		transformation? Justify your answer.
+		\begin{solution}
+			No. Here is a (counter) example of a transformation which is not linear :
+	$T : \R^2 \rightarrow \R^2$ is such that $T$ keeps the coordinates of the points on $x$-axis unchanged and sends every other point to $\vec{0}$. That is, $T$ is given by $T \mat{x\\y} = \mat{0\\0}$ if $y\neq 0$, and $T\mat{x\\0} = \mat{x\\0}$.
+
+		Then $T$ satisfies the given condition : $T(\R^2)$ is the $x$-axis which is a subspace. $T(\vec{0})= \vec{0} \Rightarrow \{T(\vec{0}) \} = \{\vec{0}\}$, so $T$ sends the zero subspace to the zero subspace.  Other subspaces of $\R^2$ are lines through the origin. $T$ sends all such lines except for the $x$-axis to the subspace $\{ \vec{0}\}$. $T$ sends the subspace $x$-axis to $x$-axis. Thus $T(V)$ is a subspace whenever $V$ is a subspace. But clearly $T$ is not linear. Take for example : $T \mat{1\\1} = \mat{0\\0}$ by construction. But $\mat{1\\1} = \mat{1\\0} + \mat{0\\1}$ and $\left(   T\mat{1\\0} + T \mat{0\\1}  \right)= \mat{1\\0} + \mat{0\\0} = \mat{1\\0} \neq T \mat{1\\1} $
+		\end{solution}
 
 		\prob For each statement below, determine whether it is true or false. Justify your answer.
 		\begin{enumerate}
@@ -62,6 +125,20 @@
 			\item Every matrix is a linear transformation.
 			\item Parallel lines stay parallel under a linear transformation.
 		\end{enumerate}
-
+		\begin{solution}
+			\begin{enumerate}
+				\item False. Take $T : \R^2 \rightarrow \R^2$ given by $T\mat{x\\y} = \mat{x-1\\0}$. If there were a matrix $\mat{a & b \\ c& d}$ representing this transformation, then consider $T\mat{1\\0}$ and $T\mat{2\\0}$.
+$T\mat{1\\0}=\mat{a & b \\ c& d}\mat{1\\0}=\mat{0\\0}$ which implies that $a=0, c=0$.
+But $T\mat{2\\0}=\mat{a & b \\ c& d} \mat{2\\0}= \mat{1\\0}$ which implies $a=\tfrac{1}{2},c=0$ --- a contradiction!
+So no such matrix exists.  The correct statement is the following: Every ``linear" transformation from $\mathbb{R}^n$ to $\mathbb{R}^m$ can be represented by a matrix.
+				\item False. This follows directly from the theorem given in this chapter that if
+ $T : \mathbb R^n \rightarrow \mathbb R^m$ is a linear transformation, then $T$ takes subspaces to subspaces.
+ 				\item False. The transformation is linear. Check the properties. Note: this transformation is sometimes called ``the zero transformation.'
+				\item False. A matrix is just a box of numbers, it has no meaning unless we give it meaning. We can specify a linear transformation by using a matrix, but a matrix by itself is not a linear transformation.
+				\item False. There is a theorem in this module which explains this point. Suppose $T:\mathbb R^2 \rightarrow \mathbb R^2$ is the tranformation which takes all vectors to the zero vector, $\ell_1$ is given by the equation $y=x+1$ and $\ell_2$ is given by the equation $y=x+2$.
+Then $T$ is a linear transformation but $T(\ell_1)=T(\ell_2)=\Set{(0,0)}$.
+Hence it doesn't make sense to say $\ell_1$ and $\ell_2$ are parallel under $T$.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
