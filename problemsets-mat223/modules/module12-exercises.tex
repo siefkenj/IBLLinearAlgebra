@@ -180,9 +180,22 @@
 			\item Every elementary matrix is invertible.
 			\item The product of elementary matrices is sometimes an elementary matrix.
 			\item The product of elementary matrices is always an elementary matrix.
-			\item A matrix that induces an invertible linear transformation is not necessarily invertible.
+			\item A matrix that induces an invertible linear transformation is necessarily invertible.
 			\item A transformation that is one-to-one and onto is always invertible
-			\item For two Matricies $A$ and $B$, if $AB=I$ then $A$ and $B$ are invertible.
+			\item For two matricies $A$ and $B$, if $AB=I$ then $A$ and $B$ are invertible.
 		\end{enumerate}
+
+		\begin{solution}
+			\begin{enumerate}
+				\item True. If $m<n$ then $T$ cannot be onto. If $m>n$ then $T$ cannot be one-to-one. In both cases, $T$ cannot be invertible. We may conclude that the dimension of the domain and codomain must be equal in order for a transformation to be invertible.
+				\item False. Elementary matricies are one row operation away from the identity matrix. The identity matrix of any size is always square. There is no identity matrix such that performing one row operation on it yields $M$. We may conclude that elementary matricies are always square.
+				\item True. The inverse of an elementary matrix $E$ is another elementary matrix $E^{-1}$ which corresponds to the row operation that turns $E$ into the identity matrix. $E^{-1}$ is the "opposite" row operation.
+				\item True. Let $E_1$ correspond to multiplying row 1 by 4. Let $E_2$ correspond to multiplying row 1 by 2. The product $E_2E_1$ corresponds to multiplying row 1 by 8, which is also a single row operation and thus has a corresponding elementary matrix.
+				\item False. Let $E_1$ correspond to multiplying row 1 by 4. Let $E_2$ correspond to multiplying row 2 by 2. The product $E_2E_1$ corresponds to multiplying row 1 by 4 and row 2 by 2, which is not a single row operation and thus does not have a corresponding elementary matrix.
+				\item True.
+				\item True.
+				\item False. Let $A = \mat{1&0&0\\0&1&0}$. Let $B = \mat{1&0\\0&1\\0&0}. $AB = I$. $BA = \mat{1&0&0\\0&1&0\\0&0&0} \neq I$. $A$ and $B$ are not invertible. It is required that $AB = BA = I$ in order for matrices $A$ and $B$ to be invertible.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
