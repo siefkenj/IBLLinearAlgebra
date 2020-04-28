@@ -54,10 +54,10 @@
 			parameters produce that vector?
 			\begin{enumerate}
 				\item
-					$\mat{5\\-5}$ and
+					$\mat{5\\-5}$ and 
 					$\Set*{\vec v\in\R^2 \given
 					\vec v=k\mat{1\\-1}\text{ for some }k\in\R}$
-				\item $\mat{-1 \\ 2 \\ 1}$ and \\
+				\item $\mat{-1 \\ 2 \\ 1}$ and 
 					$\Set*{\vec v\in\R^3\given
 						\vec v=i\mat{-2 \\ 1 \\ 0} +j\mat{3 \\ 0 \\ 1}
 						\text{ for some }i,j\in\R
@@ -71,12 +71,12 @@
 						$\Set*{\vec v\in\R^2\given
 							\vec v=j\mat{5 \\ -4}\text{ for some }j\in\R
 						}$
-					\item $\mat{2 \\ 1 \\ -1}$ and \\
+					\item $\mat{2 \\ 1 \\ -1}$ and 
 						$\Set*{\vec v\in\R^3
 							\given \vec v= \mat{0 \\ 3 \\ -7} +r\mat{1 \\ -1 \\ 3}
 							\text{ for some }r\in\R
 						}$ 
-					\item $\mat{1 \\ 0 \\ 1}$ and \\
+					\item $\mat{1 \\ 0 \\ 1}$ and 
 						$\Set*{\vec v\in\R^3\given
 							\vec v= j\mat{2 \\ 0 \\ 1} +k\mat{-3 \\ -1 \\ 1}
 							\text{ for some }j,k\in\R
@@ -128,12 +128,11 @@
 		\end{solution}
 		
 		\prob
-		    Use set notations, vectors, or linear combinations of vectors to describe the following sets.
+		    Use set-builder notation to describe the following sets.
 		    \begin{enumerate}
-		        \item The set of vectors with rational components in $\R^2$.
-		        \item The set of vectors with irrational components in $\R^2$.
-		        \item The set that contains the empty set.
-		        \item $\R^3$.
+		        \item The set of vectors in $\R^2$ whose coordinates are rational numbers.
+		        \item The set of vectors in $\R^2$ whose coordinates are irrational numbers.
+		        \item Let $P(\vec x) = \{\vec x, -\vec x\}$. The set $\{P(\vec e_1), P(\vec e_2)\}$.
 		    \end{enumerate}
     		
 		% Challenge (3 questions)
@@ -142,22 +141,23 @@
 		% practice providing justification to their intuitive guesses
 		Which of the following statements is true about the set listed below? Justify your answers.
 		    \begin{enumerate}
-		        \item The y-axis in $\R^3$.
+		        \item $\mathcal Y$, the y-axis in $\R^3$.
 		        \begin{enumerate}
-		            \item It can be written as a set of linear combinations of vectors.
-		            \item There exists sets $A , B \subseteq \R^3$ such that this set is equal to $A \cup B$.
-		            \item There exists sets $A , B \subseteq \R^3$ such that this set is equal to $A \cap B$.
-		            \item For any vectors $\vec v \in \emptyset$, $\vec v \neq \vec 0$
-		            \item For some vectors $\vec v \in \emptyset$, $\vec v \neq \vec 0$.
+		            \item $\mathcal Y$ is a finite set.
+		            \item Let $\mathcal A = \{\vec a \in \R^3 : \vec a = \beta \vec v \text{ for some } \vec v \in \mathcal Y, \beta \in \R \}$, then $\mathcal A \subseteq \mathcal{Y}$.
+		            \item For all vectors $\vec v \in \mathcal Y$, $\vec v \neq \vec 0$。
+		            \item For some vectors $\vec v \in \mathcal Y$, $\vec v \neq \vec 0$.
+		            \item For all vectors $\vec v \in \mathcal Y$, there exists a vector $\vec x \in \mathcal Y$ such that $\vec x + \vec v = \vec e_2$.
+		            \item There exists a vector $\vec x \in \mathcal Y$ such that for all vectors $\vec v \in \mathcal Y$, $\vec x + \vec v = \vec e_2$.
 		        \end{enumerate}
-		        \item $\emptyset$
+		        \item $\mathcal S$, the set of vectors in $\R^3$ whose coordinates are $\pm 3$.
 		        \begin{enumerate}
-		            \item It is a finite set.
-		            \item It can be written as a set of linear combinations of vectors.
-		            \item There exists sets $A , B \subseteq \R^3$ such that this set is equal to $A \cup B$.
-		            \item There exists sets $A , B \subseteq \R^3$ such that this set is equal to $A \cap B$.
-		            \item For any vectors $\vec v \in \emptyset$, $\vec v \neq \vec 0$
-		            \item For some vectors $\vec v \in \emptyset$, $\vec v \neq \vec 0$.
+		            \item $\mathcal S$ is a finite set.
+		            \item Let $\mathcal A = \{\vec a \in \R^3 : \vec a = \beta \vec v \text{ for some } \vec v \in \mathcal S, \beta \in \R \}$, then $\mathcal A \subseteq \mathcal S$.
+		            \item For all vectors $\vec v \in \mathcal S$, $\vec v \neq \vec 0$.
+		            \item For some vectors $\vec v \in \mathcal S$, $\vec v \neq \vec 0$.
+		            \item For all vectors $\vec v \in \mathcal S$, there exists a vector $\vec x \in \mathcal S$ such that $\vec x + \vec v = \vec 0$.
+		            \item There exists a vector $\vec x \in \mathcal S$ such that for all vectors $\vec v \in \mathcal S$, $\vec x + \vec v = \vec 0$.
 		        \end{enumerate}
 		    \end{enumerate}
 		    
@@ -165,12 +165,12 @@
 		    % Propose: Give students some practices on proving general statements about sets
 		    Determine whether the following statement is correct or not. If it is, prove it. Otherwise, give a counterexample.
 		    \begin{enumerate}
+		        \item For all sets $A \subseteq \R^n$, $A$ can be written as a set of linear combinations of vectors in $\R^n$.
 		        \item If $A \subseteq B$, then $A \cap B = A$.
 		        \item If $A \subseteq B$, then $A \cap B \neq B$.
 		        \item If $C \subseteq A \cap B$, then $C \subseteq A$.
 		        \item If $C \subseteq A \cup B$, then $C \subseteq A$.
 		        \item If $C \subseteq A \cup B$ and $C \subseteq B$, then $A \cap B \subseteq C$.
-		        
 		    \end{enumerate}
 		
 	\end{problist}
