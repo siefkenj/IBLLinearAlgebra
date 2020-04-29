@@ -181,23 +181,48 @@
 				real numbers.
 			\end{enumerate}
 		\end{solution}
-        
-        \prob Let $\vec u, \vec v \in \R^n$. In this problem, we will prove $\Abs{\vec u \cdot \vec v} \leq \Norm{\vec u}\Norm{\vec v}$, the \emph{Cauchy-Schwarz inequality}.
-       \begin{enumerate}
-           \item Warm up: Suppose $\vec u, \vec v \in \R^2$ and $\vec u \cdot \vec v = \Norm{\vec u}\Norm{\vec v}\cos \theta$ where $\theta$ is the angle between $\vec u$ and $\vec v$. Show that $\Abs{\vec u \cdot \vec v} \leq \Norm{\vec u}\Norm{\vec v}$.
-           \item The result is immediate if one (or both) of $\vec u, \vec v$ is the zero vector. Assume $\vec u, \vec v$ are non-zero vectors. Consider the function $P: \R \to \R$ where $P(t) = \Norm{t\vec u - \vec v}^2$. Convince yourself that $P(t) \geq 0$ for all $t \in \R$.
-           \item Simplify $P(t)$ into a quadratic formula so that $P(t) = at^2 - bt + c$ by determining its coefficients $a, b, c$ in terms of $\vec u, \vec v$.
-           \item Prove $\Abs{\vec u \cdot \vec v} \leq \Norm{\vec u}\Norm{\vec v}$, the \emph{Cauchy-Schwarz inequality}. Hint: Consider $P(\frac{b}{2a})$.
-           \item Prove $\Abs{\vec u \cdot \vec v} = \Norm{\vec u}\Norm{\vec v}$ if the vectors $\vec u, \vec v$ are scalar multiples of each other.
-       \end{enumerate}
-       
-       \prob Let $\vec u, \vec v \in \R^n$. Prove $\Norm{\vec u + \vec v} \leq \Norm{\vec u} + \Norm{\vec v}$, the \emph{triangle inequality} in $\R^n$.
-       Hint: use the \emph{Cauchy-Schwarz inequality}.
-       
-       \prob Let $\mathcal {A} = \{\vec v_1,\dots , \vec v_k\} \subset \R^n$. $A$ is a set of mutually orthogonal vectors if for all $i \neq j$, $\vec v_i \cdot \vec v_j = 0$. 
-       \begin{enumerate}
-           \item Suppose $\mathcal{A}$ is a set of mutually orthogonal vectors. Is $\mathcal{A}$ a linearly independent set? Why or Why not?
-           \item Suppose $\mathcal{A}$ is a set of mutually orthogonal and non-zero vectors. Is $\mathcal{A}$ a linearly independent set? Why or Why not?
-       \end{enumerate}
+	
+		\prob Let $\vec u, \vec v \in \R^{n}$. In this problem, we will prove
+		$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm{\vec v}$, the \emph{Cauchy-Schwarz
+		inequality}.
+		\begin{enumerate}
+			\item Warm up: Suppose $\vec u, \vec v \in \R^{2}$ and $\vec u \cdot
+				\vec v = \Norm{\vec u}\Norm{\vec v}\cos \theta$ where $\theta$ is
+				the angle between $\vec u$ and $\vec v$. Show that
+				$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm{\vec v}$.
+
+			\item The result is immediate if one (or both) of $\vec u, \vec v$
+				is the zero vector. Assume $\vec u, \vec v$ are non-zero vectors.
+				Consider the function $P: \R \to \R$ where
+				$P(t) = \Norm{t\vec u - \vec v}^{2}$. Convince yourself that $P(
+				t) \geq 0$ for all $t \in \R$.
+
+			\item Simplify $P(t)$ into a quadratic formula so that
+				$P(t) = at^{2} - bt + c$ by determining its coefficients
+				$a, b, c$ in terms of $\vec u, \vec v$.
+
+			\item Prove
+				$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm{\vec v}$, the \emph{Cauchy-Schwarz
+				inequality}. Hint: Consider $P(\frac{b}{2a})$.
+
+			\item Prove $\Abs{\vec u \cdot \vec v}= \Norm{\vec u}\Norm{\vec v}$
+				if the vectors $\vec u, \vec v$ are scalar multiples of each
+				other.
+		\end{enumerate}
+
+		\prob Let $\vec u, \vec v \in \R^{n}$. Prove $\Norm{\vec u + \vec v}\leq
+		\Norm{\vec u}+ \Norm{\vec v}$, the \emph{triangle inequality} in
+		$\R^{n}$. Hint: use the \emph{Cauchy-Schwarz inequality}.
+
+		\prob Let $\mathcal{A}= \{\vec v_{1},\dots , \vec v_{k}\} \subset \R^{n}$.
+		$A$ is a set of mutually orthogonal vectors if for all $i \neq j$, $\vec
+		v_{i} \cdot \vec v_{j} = 0$.
+		\begin{enumerate}
+			\item Suppose $\mathcal{A}$ is a set of mutually orthogonal vectors.
+				Is $\mathcal{A}$ a linearly independent set? Why or Why not?
+
+			\item Suppose $\mathcal{A}$ is a set of mutually orthogonal and non-zero
+				vectors. Is $\mathcal{A}$ a linearly independent set? Why or Why
+				not?
 	\end{problist}
 \end{exercises}
