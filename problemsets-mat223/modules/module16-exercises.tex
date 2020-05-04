@@ -68,7 +68,9 @@
 							Geometric: 1
 					\end{enumerate}
 			\end{enumerate}
-		\end{solution}\prob For each matrix from question \ref{PROBMOD16-matrices},
+		\end{solution}
+
+		\prob For each matrix from question \ref{PROBMOD16-matrices},
 		diagonalize the matrix if possible. Otherwise explain why the matrix cannot
 		be diagonalized. % Q2 Solutions
 
@@ -104,11 +106,14 @@
 			$\Nullity(A - \lambda I) \geq 1$ and hence there exists at least one
 			eigenvector for the eigenvalue $\lambda$. Therefore the geometric
 			multiplicity of $\lambda$ is at least one.
-		\end{solution}\prob
+		\end{solution}
+
+		\prob
 		\begin{enumerate}
 			\item Show that if $\vec v_{1}$ and $\vec v_{2}$ are eigenvectors for
 				a matrix $M$ corresponding to different eigenvalues, then $\vec
 				v_{1}$ and $\vec v_{2}$ are linearly independent.
+				\label{MOD16PROBLININD}
 
 			\item If possible, give an example of a non-diagonalizable $3\times
 				3$ matrix where $1$ and $-1$ are the only eigenvalues.
@@ -116,5 +121,37 @@
 			\item If possible, give an example of a non-diagonalizable $2\times
 				2$ matrix where $1$ and $-1$ are the only eigenvalues.
 		\end{enumerate}
+
+		\begin{solution}
+			\begin{enumerate}
+				\item Let $\vec v_{1}$ and $\vec v_{2}$ be eigenvectors for a matrix $M$
+					corresponding to distinct eigenvalues $\lambda_{1}$ and
+					$\lambda_{2}$ respectively. Let $a,b \in \R$ be such that $a
+					\vec v_{1}+ b\vec v_{2}= \vec 0$. Multiplying both sides by
+					$M - \lambda_{1} I$,
+					we get 
+					\[
+						b(\lambda_{2}- \lambda_{1}) \vec v_{2}= \vec 0.
+					\]
+					Since
+					$\vec v_{2}$ is an eigenvector, it is nonzero. Hence, either $b=0$
+					or $\lambda_{2}- \lambda_{1} = 0$. Since $\lambda_1\neq\lambda_2$
+					we know $\lambda_{2}- \lambda_{1} \neq 0$ and so $b=0$.
+
+					We have deduced that $a
+					\vec v_{1}= \vec 0$. However, since $\vec v_{1}$ is nonzero (because it is an
+					eigenvector), we must have that $a = 0$. This means that $\vec v_{1}$
+					and $\vec v_{2}$ are linearly independent.
+
+				\item $\mat{1&1&0\\0&1&0\\0&0&-1}$
+
+				\item This is impossible. Suppose that for some matrix $M$, $\vec v_{1}$
+					is an eigenvector corresponding to $1$ and $\vec v_{2}$ is an eigenvector
+					corresponding to $-1.$ By \ref{MOD16PROBLININD}, $\vec v_{1}$ and $\vec v_{2}$
+					are linearly independent and thus form a basis for $\R^{2}$.
+					Since, $\R^{2}$ has a basis consisting of eignvectors of $M$,
+					we know $M$ is diagonalizable.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
