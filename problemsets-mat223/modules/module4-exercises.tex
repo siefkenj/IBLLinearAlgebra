@@ -182,66 +182,70 @@
 			\end{enumerate}
 		\end{solution}
 	
-        	\prob Let $\vec u, \vec v \in \R^{n}$. In this problem, we will prove
-		$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm{\vec v}$. This is called
-		the \emph{Cauchy-Schwarz inequality}.
+		\prob Let $\vec u, \vec v \in \R^{n}$. In this problem, we will prove
+		$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm{\vec v}$. This is called the \emph{Cauchy-Schwarz
+		inequality}.
 		\begin{enumerate}
 			\item Assuming the geometric definition
-				$\vec u \cdot \vec v = \Norm{\vec u}\Norm{\vec v}\cos \theta$
-				where $\theta$ is the angle between $\vec u$ and $\vec v$, prove
-				the \emph{Cauchy-Schwarz inequality}.
+				$\vec u \cdot \vec v = \Norm{\vec u}\Norm{\vec v}\cos \theta$ where
+				$\theta$ is the angle between $\vec u$ and $\vec v$, prove the \emph{Cauchy-Schwarz
+				inequality}.
 
-			\item The \emph{Cauchy-Schwartz inequality} can also be proved using
-				\emph{only} the algebraic definition of the dot product. Keep in
-				mind the following facts which come from the algebraic definition:
+			\item The \emph{Cauchy-Schwartz inequality} can also be proved using \emph{only}
+				the algebraic definition of the dot product. Keep in mind the following facts
+				which come from the algebraic definition: Let
+				$\vec x, \vec y, \vec z \in \R^{n}, k \in \R$. (i) $\Norm{\vec x}= \sqrt
+				{\vec x \cdot \vec x}$; (ii)
+				$(\vec x + \vec y) \cdot \vec z = \vec x \cdot \vec z + \vec y \cdot
+				\vec z$; (iii) $(k\vec x) \cdot \vec y = k(\vec x \cdot \vec y)$; (iv)
+				$\vec x \cdot \vec y = \vec y \cdot \vec x$.
 
 				\begin{enumerate}
-					\item Explain why the result is immediate if one (or both)
-						of $\vec u, \vec v$ is the zero vector.
+					\item Explain why the result is immediate if one (or both) of
+						$\vec u, \vec v$ is the zero vector.
 
-					\item Assume $\vec u, \vec v$ are non-zero vectors. Consider
-						the function $P: \R \to \R$ where $P(t) = \Norm
-						{t\vec u - \vec v}^{2}$. Convince yourself that
-						$P(t) \geq 0$ for all $t \in \R$.
+					\item Assume $\vec u, \vec v$ are non-zero vectors. Consider the function
+						$f: \R \to \R$ where $f(t) = \Norm{t\vec u - \vec v}^{2}$.
+						Convince yourself that $f(t) \geq 0$ for all $t \in \R$.
 
-					\item Simplify $P(t)$ into a quadratic formula so that
-						$P(t) = at^{2}- bt + c$ by determining its coefficients
+					\item Simplify $f(t)$ into a quadratic formula so that
+						$f(t) = at^{2}- bt + c$ by determining its coefficients
 						$a, b, c$ in terms of $\vec u, \vec v$.
 
 					\item Prove
-						$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm
-						{\vec v}$, the \emph{Cauchy-Schwarz inequality}. Hint: Consider
-						$P(\frac{b}{2a})$.
+						$\Abs{\vec u \cdot \vec v}\leq \Norm{\vec u}\Norm{\vec v}$, the \emph{Cauchy-Schwarz
+						inequality}. Hint: Consider $f(\frac{b}{2a})$.
 
-					\item Prove
-						$\Abs{\vec u \cdot \vec v}= \Norm{\vec u}\Norm{\vec v}$
-						if the vectors $\vec u, \vec v$ are scalar multiples of
-						each other.
+					\item Prove $\Abs{\vec u \cdot \vec v}= \Norm{\vec u}\Norm{\vec v}$
+						if the vectors $\vec u, \vec v$ are scalar multiples of each
+						other.
 				\end{enumerate}
 		\end{enumerate}
 
 		\prob Let $\vec u, \vec v \in \R^{n}$. In this problem, we will prove
-		$\Norm{\vec u + \vec v}\leq \Norm{\vec u}+ \Norm{\vec v}$. This is called the
-		\emph{Triangle Inequality}.
+		$\Norm{\vec u + \vec v}\leq \Norm{\vec u}+ \Norm{\vec v}$. This is called the \emph{Triangle
+		Inequality}.
 		\begin{enumerate}
-			\item Draw a picture and explain why it is called the \emph{Triangle Inequality}.
+			\item Pick your favorite vectors $\vec u, \vec v$ and draw a picture of
+				$\vec u, \vec v$, and $\vec u + \vec v$. Root your vectors so that they
+				form the edges of a triangle. Can you explain why the \emph{Triangle
+				Inequality} is true?
 
-			\item Express $\Norm{\vec u + \vec v}$ in terms of dot products and
-				square roots.
+			\item Express $\Norm{\vec u + \vec v}$ in terms of dot products and square
+				roots.
 
 			\item Prove the \emph{Triangle Inequality}.
 		\end{enumerate}
 
-		\prob Let $\mathcal{A}= \{\vec v_{1},\dots , \vec v_{k}\} \subset \R^{n}$.
-		$A$ is a set of mutually orthogonal vectors if for all $i \neq j$, we have
+		\prob Let $\mathcal{A}= \{\vec v_{1},\dots , \vec v_{k}\} \subset \R^{n}$. $A$ is
+		a set of mutually orthogonal vectors if for all $i \neq j$, we have
 		$\vec v_{i}\cdot \vec v_{j}= 0$.
 		\begin{enumerate}
-			\item Suppose $\mathcal{A}$ is a set of mutually orthogonal vectors.
-				Is $\mathcal{A}$ a linearly independent set? Why or Why not?
+			\item Suppose $\mathcal{A}$ is a set of mutually orthogonal vectors. Is $\mathcal{A}$
+				a linearly independent set? Why or Why not?
 
 			\item Suppose $\mathcal{A}$ is a set of mutually orthogonal and non-zero
-				vectors. Is $\mathcal{A}$ a linearly independent set? Why or Why
-				not?
+				vectors. Is $\mathcal{A}$ a linearly independent set? Why or Why not?
 		\end{enumerate}
 	\end{problist}
 \end{exercises}
