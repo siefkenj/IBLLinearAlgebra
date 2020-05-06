@@ -149,20 +149,22 @@
 					\item $\mathcal{Y}$ is a finite set.
 
 					\item Let
-						$\mathcal{A} = \{\vec a \in \R^{3} : \vec a = \beta \vec v
-						\text{ for some }\vec v \in \mathcal{Y}, \beta \in \R \}$, then $\mathcal{A}
-						\subseteq \mathcal{Y}$.
+						$\mathcal{A} = \Set*
+						{\vec a \in \R^3 \given \vec a = \beta \vec v \text{ for some } \vec v \in \mathcal{Y}, \beta \in \R}$,
+						then $\mathcal{A} \subseteq \mathcal{Y}$.
 
-					\item For all vectors $\vec v \in \mathcal{Y}$, $\vec v \neq \vec 0$。
+					\item For all vectors $\vec v \in \mathcal{Y}$, we have $\vec v \neq
+						\vec 0$。
 
-					\item For some vectors $\vec v \in \mathcal{Y}$, $\vec v \neq \vec 0$.
+					\item For some vectors $\vec v \in \mathcal{Y}$, we have $\vec v
+						\neq \vec 0$.
 
 					\item For all vectors $\vec v \in \mathcal{Y}$, there exists a vector
 						$\vec x \in \mathcal{Y}$ such that $\vec x + \vec v = \vec e_{2}$.
 
 					\item There exists a vector $\vec x \in \mathcal{Y}$ such that for
-						all vectors $\vec v \in \mathcal{Y}$, $\vec x + \vec v = \vec e
-						_{2}$.
+						all vectors $\vec v \in \mathcal{Y}$, we have $\vec x + \vec v =
+						\vec e_{2}$.
 				\end{enumerate}
 
 			\item $\mathcal{S}$, the set of vectors in $\R^{3}$ whose coordinates are $\pm
@@ -171,32 +173,36 @@
 					\item $\mathcal{S}$ is a finite set.
 
 					\item Let
-						$\mathcal{A} = \{\vec a \in \R^{3} : \vec a = \beta \vec v
-						\text{ for some }\vec v \in \mathcal{S}, \beta \in \R \}$, then $\mathcal{A}
-						\subseteq \mathcal{S}$.
+						$\mathcal{A} = \Set*
+						{\vec a \in \R^3 \given \vec a = \beta \vec v \text{ for some } \vec v \in \mathcal{S}, \beta \in \R }$,
+						then $\mathcal{A} \subseteq \mathcal{S}$.
 
-					\item For all vectors $\vec v \in \mathcal{S}$, $\vec v \neq \vec 0$.
+					\item For all vectors $\vec v \in \mathcal{S}$, we have $\vec v \neq
+						\vec 0$.
 
-					\item For some vectors $\vec v \in \mathcal{S}$, $\vec v \neq \vec 0$.
+					\item For some vectors $\vec v \in \mathcal{S}$, we have $\vec v
+						\neq \vec 0$.
 
 					\item For all vectors $\vec v \in \mathcal{S}$, there exists a vector
 						$\vec x \in \mathcal{S}$ such that $\vec x + \vec v = \vec 0$.
 
 					\item There exists a vector $\vec x \in \mathcal{S}$ such that for
-						all vectors $\vec v \in \mathcal{S}$, $\vec x + \vec v = \vec 0$.
+						all vectors $\vec v \in \mathcal{S}$, we have $\vec x + \vec v =
+						\vec 0$.
 				\end{enumerate}
 		\end{enumerate}
 
 		\prob % Propose: Give students some practices on proving general statements about sets
-		Determine whether the following statement is correct or not. If it is, prove it.
-		Otherwise, give a counterexample.
+		For each of the following statements, determine whether it is correct or not. If
+		it is, prove it. Otherwise, give a counterexample.
 		\begin{enumerate}
-			\item For all sets $A \subseteq \R^{n}$, $A$ can be written as a set of linear
-				combinations of vectors in $\R^{n}$.
-
 			\item If $A \subseteq B$, then $A \cap B = A$.
 
+			\item If $B \subseteq A$, then $A \cap B = A$.
+
 			\item If $A \subseteq B$, then $A \cap B \neq B$.
+
+			\item If $B \subseteq A$, then $A \cap B \neq B$.
 
 			\item If $C \subseteq A \cap B$, then $C \subseteq A$.
 
