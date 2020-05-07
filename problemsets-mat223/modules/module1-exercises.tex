@@ -54,10 +54,10 @@
 			parameters produce that vector?
 			\begin{enumerate}
 				\item
-					$\mat{5\\-5}$ and
+					$\mat{5\\-5}$ and 
 					$\Set*{\vec v\in\R^2 \given
 					\vec v=k\mat{1\\-1}\text{ for some }k\in\R}$
-				\item $\mat{-1 \\ 2 \\ 1}$ and
+				\item $\mat{-1 \\ 2 \\ 1}$ and 
 					$\Set*{\vec v\in\R^3\given
 						\vec v=i\mat{-2 \\ 1 \\ 0} +j\mat{3 \\ 0 \\ 1}
 						\text{ for some }i,j\in\R
@@ -71,12 +71,12 @@
 						$\Set*{\vec v\in\R^2\given
 							\vec v=j\mat{5 \\ -4}\text{ for some }j\in\R
 						}$
-					\item $\mat{2 \\ 1 \\ -1}$ and
+					\item $\mat{2 \\ 1 \\ -1}$ and 
 						$\Set*{\vec v\in\R^3
 							\given \vec v= \mat{0 \\ 3 \\ -7} +r\mat{1 \\ -1 \\ 3}
 							\text{ for some }r\in\R
-						}$
-					\item $\mat{1 \\ 0 \\ 1}$ and
+						}$ 
+					\item $\mat{1 \\ 0 \\ 1}$ and 
 						$\Set*{\vec v\in\R^3\given
 							\vec v= j\mat{2 \\ 0 \\ 1} +k\mat{-3 \\ -1 \\ 1}
 							\text{ for some }j,k\in\R
@@ -126,6 +126,90 @@
     		    \item Yes.
 		    \end{enumerate}
 		\end{solution}
+		
+		\prob Use set-builder notation to describe the following sets.
+		\begin{enumerate}
+			\item The set of vectors in $\R^{2}$ whose coordinates are rational numbers.
+
+			\item The set of vectors in $\R^{2}$ whose coordinates are irrational
+				numbers.
+
+			\item Let $P(\vec x) = \Set*{\vec x, -\vec x}$. The set $\Set*{P(\vec e_{1}), P(
+        		\vec e_{2})}$.
+		\end{enumerate}
+
 		% Challenge (3 questions)
+		\prob % Propose: get students to understand quantifiers and set operations
+		% practice providing justification to their intuitive guesses
+		Which of the following statements are true about the set listed below? Justify your
+		answers.
+		\begin{enumerate}
+			\item $\mathcal{Y}$, the $y$-axis in $\R^{3}$.
+				\begin{enumerate}
+					\item $\mathcal{Y}$ is a finite set.
+
+					\item Let
+						$\mathcal{A} = \Set*
+						{\vec a \in \R^3 \given \vec a = \beta \vec v \text{ for some } \vec v \in \mathcal{Y}, \beta \in \R}$,
+						then $\mathcal{A} \subseteq \mathcal{Y}$.
+
+					\item For all vectors $\vec v \in \mathcal{Y}$, we have $\vec v \neq
+						\vec 0$.
+
+					\item For some vectors $\vec v \in \mathcal{Y}$, we have $\vec v
+						\neq \vec 0$.
+
+					\item For all vectors $\vec v \in \mathcal{Y}$, there exists a vector
+						$\vec x \in \mathcal{Y}$ such that $\vec x + \vec v = \vec e_{2}$.
+
+					\item There exists a vector $\vec x \in \mathcal{Y}$ such that for
+						all vectors $\vec v \in \mathcal{Y}$, we have $\vec x + \vec v =
+						\vec e_{2}$.
+				\end{enumerate}
+
+			\item $\mathcal{S}$, the set of vectors in $\R^{3}$ whose coordinates are $\pm
+				3$.
+				\begin{enumerate}
+					\item $\mathcal{S}$ is a finite set.
+
+					\item Let
+						$\mathcal{A} = \Set*
+						{\vec a \in \R^3 \given \vec a = \beta \vec v \text{ for some } \vec v \in \mathcal{S}, \beta \in \R }$,
+						then $\mathcal{A} \subseteq \mathcal{S}$.
+
+					\item For all vectors $\vec v \in \mathcal{S}$, we have $\vec v \neq
+						\vec 0$.
+
+					\item For some vectors $\vec v \in \mathcal{S}$, we have $\vec v
+						\neq \vec 0$.
+
+					\item For all vectors $\vec v \in \mathcal{S}$, there exists a vector
+						$\vec x \in \mathcal{S}$ such that $\vec x + \vec v = \vec 0$.
+
+					\item There exists a vector $\vec x \in \mathcal{S}$ such that for
+						all vectors $\vec v \in \mathcal{S}$, we have $\vec x + \vec v =
+						\vec 0$.
+				\end{enumerate}
+		\end{enumerate}
+
+		\prob % Propose: Give students some practices on proving general statements about sets
+		For each of the following statements, determine whether it is correct or not. If
+		it is, prove it. Otherwise, give a counterexample.
+		\begin{enumerate}
+			\item If $A \subseteq B$, then $A \cap B = A$.
+
+			\item If $B \subseteq A$, then $A \cap B = A$.
+
+			\item If $A \subseteq B$, then $A \cap B \neq B$.
+
+			\item If $B \subseteq A$, then $A \cap B \neq B$.
+
+			\item If $C \subseteq A \cap B$, then $C \subseteq A$.
+
+			\item If $C \subseteq A \cup B$, then $C \subseteq A$.
+
+			\item If $C \subseteq A \cup B$ and $C \subseteq B$, then $A \cap B
+				\subseteq C$.
+		\end{enumerate}
 	\end{problist}
 \end{exercises}
