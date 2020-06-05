@@ -148,7 +148,7 @@
 
 				So $M_{1}^{-1}=\mat{\frac{7}{10}&\frac{3}{5}\\
 								 \frac{1}{5}&-\frac{2}{5}\\}$.
-				\item $\Rank(M_{2})=1\neq2$ so $M_{2}$ is not invertible.
+				\item $M_{2}$ does not row reduce to the identity matrix so it is not invertible.
 				\item $M_{3}^{-1}=\mat{3&-3&-2\\2&-2&-1\\-3&4&2}$
 				\item $M_{4}$ is not invertible because it is not a square matrix.
 				\item $M_{5}^{-1}=\frac{1}{23}\mat{-4&-1&12&3\\-8&-2&1&6\\-3&-18&9&8\\1&6&-3&5}$
@@ -175,12 +175,52 @@
 			\item For an arbitrary linear transformation $T:\R^{m}\to\R^{n}$,
 				if $n \neq m$, then the linear transformation is
 				not invertible.
-
 			\item The matrix $M = \mat{1&0&0\\1&1&0}$ is an elementary
 				matrix.
 			\item Every elementary matrix is invertible.
 			\item The product of elementary matrices is sometimes an elementary matrix.
 			\item The product of elementary matrices is always an elementary matrix.
+			\item A matrix that induces an invertible linear transformation is necessarily invertible.
+			\item A transformation that is one-to-one and onto is always invertible
+			\item For two matricies $A$ and $B$, if $AB=I$ then $A$ and $B$ are invertible.
 		\end{enumerate}
+
+		\begin{solution}
+			\begin{enumerate}
+				\item True. If $m<n$ then $T$ cannot be onto. If $m>n$ then $T$ cannot
+					be one-to-one. In both cases, $T$ cannot be invertible. We may conclude
+					that the dimension of the domain and codomain must be equal in order
+					for a transformation to be invertible.
+
+				\item False. Elementary matricies are one row operation away from the identity
+					matrix. The identity matrix of any size is always square. There is no
+					identity matrix such that performing one row operation on it yields $M$.
+					We may conclude that elementary matricies are always square.
+
+				\item True. The inverse of an elementary matrix $E$ is another elementary
+					matrix $E^{-1}$ which corresponds to the row operation that turns $E$
+					into the identity matrix. $E^{-1}$ is the ``opposite" row operation.
+
+				\item True. Let $E_{1}$ correspond to multiplying row 1 by 4. Let $E_{2}$
+					correspond to multiplying row 1 by 2. The product $E_{2}E_{1}$ corresponds
+					to multiplying row 1 by 8, which is also a single row operation and
+					thus has a corresponding elementary matrix.
+
+				\item False. Let $E_{1}$ correspond to multiplying row 1 by 4. Let $E
+					_{2}$ correspond to multiplying row 2 by 2. The product $E_{2}E_{1}$
+					corresponds to multiplying row 1 by 4 and row 2 by 2, which is not a
+					single row operation and thus does not have a corresponding
+					elementary matrix.
+
+				\item True.
+
+				\item True.
+
+				\item False. Let $A = \mat{1&0&0\\0&1&0}$. Let $B = \mat{1&0\\0&1\\0&0}$.
+					$AB = I$. $BA = \mat{1&0&0\\0&1&0\\0&0&0}\neq I$. $A$ and $B$ are not
+					invertible. It is required that $AB = BA = I$ in order for matrices
+					$A$ and $B$ to be invertible.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
