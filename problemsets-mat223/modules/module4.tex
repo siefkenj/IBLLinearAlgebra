@@ -117,7 +117,7 @@ a right angle and the idea of one of them being $\vec 0$.
 
 \medskip
 Before we continue, let's pin down exactly what we mean by
-the \emph{direction}\index{direction}\index{positive direction} of a vector.  
+the \emph{direction}\index{direction}\index{positive direction} of a vector.
 There are many ways we could define
 this term, but we'll go with the following.
 
@@ -125,32 +125,32 @@ this term, but we'll go with the following.
 
 The vector $2\xhat$ points in the direction of $\xhat$ since
 $\frac{1}{2}(2\xhat)=\xhat$.  Since $\frac{1}{2}>0$, $2\xhat$ also points
-in the positive direction of $\xhat$. In contrast, 
+in the positive direction of $\xhat$. In contrast,
 $-\xhat$ points in the direction $\xhat$ but not the positive direction of $\xhat$.
 
 When it comes to the relationship between two vectors, there are two extremes: they
 point in the same direction, or they are orthogonal. The dot product can be used to
-tell you which of these cases you're in, and more than that, it can tell you to 
+tell you which of these cases you're in, and more than that, it can tell you to
 what extent one vector points in the direction of another (even if they don't point in
 the same direction).
 
 \begin{example}
 	Let $\vec a=\mat{1\\2}$, $\vec b=\mat{3\\3}$, $\vec c=\mat{2\\1}$, and $\vec v=\mat{3\\4}$. Which vector out of
 	$\vec a$, $\vec b$, and $\vec c$ has a direction closest to the direction of $\vec v$?
-    
+
 	We would like to know when $\theta$, the angle between a pair of the given vectors, is smallest.
 	This is equivalent to finding when $\cos\theta$ is closest to 1 (since $\cos0=1$).
     	By equating the geometric and algebraic definitions of the dot product, we know
 	    \[
         	\cos\theta = \frac{\vec p\cdot\vec q}{\norm{\vec p}\norm{\vec q}}.
 	    \]
-    
-    Let $\alpha$, $\beta$ and $\gamma$ between the vector $\vec v$ and
+
+    Let $\alpha$, $\beta$, $\gamma$ between the vector $\vec v$ and
 	the vectors $\vec a$, $\vec b$, $\vec c$, respectively. Computing, we find
 	\begin{align*}
 	    \cos \alpha &= \frac{3+8}{5\sqrt{5}}=\frac{11\sqrt{5}}{25} \approx 0.9838699101 \\
 		\cos \beta &= \frac{9+12}{5\sqrt{18}} =\frac{7\sqrt{2}}{10} \approx 0.989949437\\
-	    \cos \gamma &= \frac{6+4}{5\sqrt{5}}=\frac{2\sqrt{5}}{5} \approx 0.894427191. 
+	    \cos \gamma &= \frac{6+4}{5\sqrt{5}}=\frac{2\sqrt{5}}{5} \approx 0.894427191.
 	\end{align*}
 	Since $\cos \beta$ is the closest to $1$, we know $\vec b$ has a direction closest to that of $\vec v$.
 \end{example}
@@ -169,7 +169,7 @@ this case, we call $\vec n$ a \emph{normal vector} for $\ell$.
 \begin{center}
 	\begin{tikzpicture}
 		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
-		 \draw ($(#3)!#1!(#2)$) -- 
+		 \draw ($(#3)!#1!(#2)$) --
 		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
 		       ($(#3)!#1!(#4)$);
 		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
@@ -217,7 +217,7 @@ time the line passes through $\vec p$.
 \begin{center}
 	\begin{tikzpicture}
 		\def\dotMarkRightAngle[size=#1](#2,#3,#4){%
-		 \draw ($(#3)!#1!(#2)$) -- 
+		 \draw ($(#3)!#1!(#2)$) --
 		       ($($(#3)!#1!(#2)$)!#1!90:(#2)$) --
 		       ($(#3)!#1!(#4)$);
 		 \path (#3) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$);
@@ -257,7 +257,7 @@ time the line passes through $\vec p$.
 \end{center}
 
 In fact, the line we get is $\ell_2=\Span\Set*{\mat{-2\\1}}+\Set*{\mat{1\\1}}=\ell+\Set{\vec p}$, which is just $\ell$ (the
-parallel line through the origin) translated by $\vec p$. 
+parallel line through the origin) translated by $\vec p$.
 
 Let's relate this to dot products and normal vectors. By definition, for every $\vec v\in \ell$, we have $\vec n\cdot \vec v=0$.
 Since $\ell_2$ is a translate of $\ell$ by $\vec p$, we deduce the relationship that for every $\vec v\in \ell_2$,
@@ -270,7 +270,7 @@ When a line is expressed as above, we say it is expressed in \emph{normal form}.
 
 
 \bigskip
-What about in $\R^3$? 
+What about in $\R^3$?
 Fix a non-zero vector $\vec n\in\R^3$ and let $\mathcal Q\subseteq\R^3$ be the set of vectors orthogonal to $\vec n$.
 $\mathcal Q$ is a plane through the origin, and again, we call $\vec n$ a \emph{normal vector}\index{normal vector} of the plane $\mathcal Q$.
 
@@ -311,7 +311,7 @@ And, for any $\vec p\in\R^3$, the translated plane $\mathcal Q+\Set{\vec p}$ is 
 \[
 	\vec n\cdot (\vec x-\vec p)=0.
 \]
-Thus, we see planes in $\R^3$ have a normal form just like lines in $\R^2$ do. 
+Thus, we see planes in $\R^3$ have a normal form just like lines in $\R^2$ do.
 
 \begin{example}
 	Find vector form and normal form of the plane $\mathcal P$ passing
@@ -345,12 +345,12 @@ we call objects in $\R^n$ which have a normal form \emph{hyperplanes}.
 \SavedDefinitionRender{Hyperplane}
 
 Hyperplanes always have dimension one less than the space they're contained in. So, hyperplanes in
-$\R^2$ are (one-dimensional) lines, hyperplanes in $\R^3$ are regular (two-dimensional) planes, 
+$\R^2$ are (one-dimensional) lines, hyperplanes in $\R^3$ are regular (two-dimensional) planes,
 and hyperplanes in $\R^4$ are (three-dimensional) volumes.
 
 \Heading{Hyperplanes and Linear Equations}
 
-Suppose $\vec n,\vec p\in \R^3$ and $\vec n\neq \vec 0$. Then, solutions to 
+Suppose $\vec n,\vec p\in \R^3$ and $\vec n\neq \vec 0$. Then, solutions to
 \[
 		\vec n\cdot(\vec x-\vec p)=0
 \]
