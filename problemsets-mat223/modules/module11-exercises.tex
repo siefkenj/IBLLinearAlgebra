@@ -228,5 +228,48 @@
 					A)=2$ $\Nullity(T) = \Nullity(A)=1$
 			\end{enumerate}
 		\end{solution}
+
+		\prob Give an example of a $3\times4$ matrix $M$ with the specified rank, or explain why one cannot exist.
+		\begin{enumerate}
+			\item $\Rank(M) = 0$
+			\item $\Rank(M) = 1$
+			\item $\Rank(M) = 3$
+			\item $\Rank(M) = 4$
+		\end{enumerate}
+
+		\begin{solution}
+			\begin{enumerate}
+				\item $\mat{0&0&0&0\\0&0&0&0\\0&0&0&0}$
+
+				\item $\mat{1&0&0&0\\0&0&0&0\\0&0&0&0}$
+
+				\item $\mat{1&0&0&0\\0&1&0&0\\0&0&1&0}$
+
+				\item A $3\times4$ matrix with rank 4 cannot exist. Examples of justifications
+					are: 1) The induced transformation maps from $R^{3}$ to $R^{4}$. By
+					the rank-nullity theorem, the dimension of the range (the rank) cannot
+					be greater than the dimension of the domain. 2) A matrix with rank 4
+					has 4 pivots. A $3\times4$ matrix can have at most 3 pivots, which is
+					less than 4
+			\end{enumerate}
+		\end{solution}
+
+		\prob Let $\mathcal{P}:\R^3\to\R^3$ be the projection onto the $xy$-plane.
+		\begin{enumerate}
+			\item Find a matrix $M_\mathcal{P}$ for the transformation.
+			\item Find the range of $\mathcal{P}$.
+			\item Find the column space of $M_\mathcal{P}$. Are there any similarities to your answer in the previous part?
+			\item Find the null space of $\mathcal{P}$ and $M_\mathcal{P}$. Are there similarities between the null space of a linear transformation and its associated matrix?
+		\end{enumerate}
+
+		\begin{solution}
+			\begin{enumerate}
+				\item $\mat{1&0&0\\0&1&0\\0&0&0}$
+				\item The range of $\mathcal{P}$ is the $xy$-plane.
+				\item The column space of $M_\mathcal{P}$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$ which is the $xy$-plane. The column space of a matrix is the same as the range of its induced transformation.
+				\item The null space of $\mathcal{P}$ and $M_\mathcal{P}$ is $\Span\Set*{\mat{0\\0\\1}}$ which is the $z$-axis. The null space of a matrix is the same as the null space of its induced transformation.
+			\end{enumerate}
+		\end{solution}
+
 	\end{problist}
 \end{exercises}
