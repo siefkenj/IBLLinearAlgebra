@@ -403,7 +403,7 @@
 			headheight=0in, 
 			right=1.2in, 
 			bottom=.5in, 
-			footskip=.3in,
+			footskip=.1in,
 			marginparsep=10pt, 
 			marginparwidth=1in,
 			left=1in,
@@ -465,10 +465,10 @@
 		breakable,
 		beforeafter skip=7pt,
 		%frame code={
-		%	\fill[fill=tcbcol@frame] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
+		%	\fill[fill=tcbcolframe] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
 		%	},
 		sharp corners,
-		borderline west={4pt}{0pt}{tcbcol@frame},
+		borderline west={4pt}{0pt}{tcbcolframe},
 		boxsep=0pt,
 		left=8pt,
 		right=5pt,
@@ -487,10 +487,10 @@
 		breakable,
 		beforeafter skip=7pt,
 		%frame code={
-		%	\fill[fill=tcbcol@frame] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
+		%	\fill[fill=tcbcolframe] (frame.south west) -- (interior.south west) -- (interior.north west) -- (frame.north west);
 		%	},
 		sharp corners,
-		borderline west={2pt}{0pt}{tcbcol@frame},
+		borderline west={2pt}{0pt}{tcbcolframe},
 		boxsep=0pt,
 		left=8pt,
 		right=5pt,
@@ -561,13 +561,14 @@
 	\DeclareDocumentEnvironment{solution}{o}{
 		\nopagebreak
 		%\par
-			\begin{adjustwidth}{1cm}{}
+			\begin{adjustwidth}{0cm}{}  % indenting solutions seems to take up a lot of space
+			%\begin{adjustwidth}{1cm}{}
 			\color{cyan}
 	}{%
 			\end{adjustwidth}
 	}
 	% XXX hide the solutions for now...
-	\Probset@VoidEnvironment{solution}
+%	\Probset@VoidEnvironment{solution}
 
 	% tcolorbox doesn't work with tikz externalize,
 	% so we need to disable it around a tcolorbox.
@@ -700,3 +701,7 @@
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{.17cm}
+
+
+% make sure we are compatible with the older version of tcolorbox; tcbcol@frame was renamed to tcbcolframe in newer versions.
+\@ifundefined{\string\color@tcbcolframe}{\colorlet{tcbcolframe}{tcbcol@frame}}{}

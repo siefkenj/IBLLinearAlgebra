@@ -1,30 +1,157 @@
+
 \begin{exercises}
+
 	\begin{problist}
-		\prob For each of the matrices below, find the geometric and algebraic multiplicity of
-		each eigenvalue. \label{PROBMOD16-matrices}
+		\prob For each of the matrices below, find the geometric and algebraic
+		multiplicity of each eigenvalue. \label{PROBMOD16-matrices}
 		\begin{enumerate}
-			\item   $A=\mat{2&0\\-2&1}$
-			\item   $B=\mat{3&0\\0&3}$
-			\item   $C=\mat{3&0\\3&0}$
-			\item   $D=\mat{0&3/2&4\\0&1&0\\-1&1&4}$
-			\item   $E=\mat{2&1/2&0\\0&1&0\\0&1/2&2}$
+			\item $A=\mat{2&0\\-2&1}$
+
+			\item $B=\mat{3&0\\0&3}$
+
+			\item $C=\mat{3&0\\3&0}$
+
+			\item $D=\mat{0&3/2&4\\0&1&0\\-1&1&4}$
+
+			\item $E=\mat{2&1/2&0\\0&1&0\\0&1/2&2}$
+		\end{enumerate}% Q1 Solutions
+
+		\begin{solution}
+
+			\begin{enumerate}
+				% a
+
+
+				\item
+					\begin{enumerate}
+						\item $\lambda=1$, Algebraic: 1,
+							Geometric: 1
+
+						\item $\lambda=2$, Algebraic: 1,
+							Geometric: 1
+					\end{enumerate}% b
+
+
+				\item
+					\begin{enumerate}
+						\item $\lambda=3$, Algebraic: 2,
+							Geometric: 2
+					\end{enumerate}% c
+
+
+				\item
+					\begin{enumerate}
+						\item $\lambda=0$, Algebraic: 1,
+							Geometric: 1
+
+						\item $\lambda=3$, Algebraic: 1,
+							Geometric: 1
+					\end{enumerate}% d
+
+
+				\item
+					\begin{enumerate}
+						\item $\lambda=1$, Algebraic: 1,
+							Geometric: 1
+
+						\item $\lambda=2$, Algebraic: 2,
+							Geometric: 1
+					\end{enumerate}% e
+
+
+				\item
+					\begin{enumerate}
+						\item $\lambda=2$, Algebraic: 2,
+							Geometric: 2
+
+						\item $\lambda=1$, Algebraic: 1,
+							Geometric: 1
+					\end{enumerate}
+			\end{enumerate}
+		\end{solution}
+
+		\prob For each matrix from question \ref{PROBMOD16-matrices},
+		diagonalize the matrix if possible. Otherwise explain why the matrix cannot
+		be diagonalized. % Q2 Solutions
+
+		\begin{solution}
+
+			\begin{enumerate}
+				\item $\mat{2&0\\0&1}$
+
+				\item $\mat{3&0\\0&3}$
+
+				\item $\mat{3&0\\0&0}$
+
+				\item Not diagonalizable.
+
+				\item $\mat{2&0&0\\0&2&0\\0&0&1}$
+			\end{enumerate}
+		\end{solution}
+
+		\prob Give an example of a $4\times 4$ matrix with $2$ and $7$
+		as its only eigenvalues.
+		\begin{solution}
+
+				$\mat{2&0&0&0\\0&2&0&0\\0&0&7&0\\0&0&0&7}$
+		\end{solution}
+
+		\prob Can the geometric multiplicity of an eigenvalue ever be $0$?
+		Explain.
+
+
+		\begin{solution}
+			No. If $\lambda$ is an eigenvalue of a matrix $A$, then $det(A -
+			\lambda I)=0$ and therefore $A - \lambda I$ is not invertible. Specifically,
+			$\Nullity(A - \lambda I) \geq 1$ and hence there exists at least one
+			eigenvector for the eigenvalue $\lambda$. Therefore the geometric
+			multiplicity of $\lambda$ is at least one.
+		\end{solution}
+
+		\prob
+		\begin{enumerate}
+			\item Show that if $\vec v_{1}$ and $\vec v_{2}$ are eigenvectors for
+				a matrix $M$ corresponding to different eigenvalues, then $\vec
+				v_{1}$ and $\vec v_{2}$ are linearly independent.
+				\label{MOD16PROBLININD}
+
+			\item If possible, give an example of a non-diagonalizable $3\times
+				3$ matrix where $1$ and $-1$ are the only eigenvalues.
+
+			\item If possible, give an example of a non-diagonalizable $2\times
+				2$ matrix where $1$ and $-1$ are the only eigenvalues.
 		\end{enumerate}
-		
-		\prob For each matrix from question \ref{PROBMOD16-matrices}, diagonalize the matrix if
-		possible. Otherwise explain why the matrix cannot be diagonalized.
 
-		\prob Give an example of a $4\times 4$ matrix with $2$ and $7$ as its only eigenvalues.
+		\begin{solution}
+			\begin{enumerate}
+				\item Let $\vec v_{1}$ and $\vec v_{2}$ be eigenvectors for a matrix $M$
+					corresponding to distinct eigenvalues $\lambda_{1}$ and
+					$\lambda_{2}$ respectively. Let $a,b \in \R$ be such that $a
+					\vec v_{1}+ b\vec v_{2}= \vec 0$. Multiplying both sides by
+					$M - \lambda_{1} I$,
+					we get 
+					\[
+						b(\lambda_{2}- \lambda_{1}) \vec v_{2}= \vec 0.
+					\]
+					Since
+					$\vec v_{2}$ is an eigenvector, it is nonzero. Hence, either $b=0$
+					or $\lambda_{2}- \lambda_{1} = 0$. Since $\lambda_1\neq\lambda_2$
+					we know $\lambda_{2}- \lambda_{1} \neq 0$ and so $b=0$.
 
-		\prob Can the geometric multiplicity of an eigenvector ever be $0$? Explain.
+					We have deduced that $a
+					\vec v_{1}= \vec 0$. However, since $\vec v_{1}$ is nonzero (because it is an
+					eigenvector), we must have that $a = 0$. This means that $\vec v_{1}$
+					and $\vec v_{2}$ are linearly independent.
 
-		\prob \begin{enumerate}
-			\item Show that if $\vec v_1$ and $\vec v_2$ are eigenvectors
-				for a matrix $M$ corresponding to different eigenvalues,
-				then $\vec v_1$ and $\vec v_2$ are linearly independent.
-			\item If possible, give an example of a non-diagonalizable $3\times 3$
-				matrix where $1$ and $-1$ are the only eigenvalues.
-			\item If possible, give an example of a non-diagonalizable $2\times 2$
-				matrix where $1$ and $-1$ are the only eigenvalues.
-		\end{enumerate}
+				\item $\mat{1&1&0\\0&1&0\\0&0&-1}$
+
+				\item This is impossible. Suppose that for some matrix $M$, $\vec v_{1}$
+					is an eigenvector corresponding to $1$ and $\vec v_{2}$ is an eigenvector
+					corresponding to $-1.$ By \ref{MOD16PROBLININD}, $\vec v_{1}$ and $\vec v_{2}$
+					are linearly independent and thus form a basis for $\R^{2}$.
+					Since, $\R^{2}$ has a basis consisting of eignvectors of $M$,
+					we know $M$ is diagonalizable.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
