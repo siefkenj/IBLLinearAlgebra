@@ -198,6 +198,9 @@
 %%\voidenvironment{notes}
 %%\voidenvironment{displayonly}
 
+% Allow an index to be created
+\makeindex[title=Index of Terms]
+\makeindex[name=definitions, title=Index of Definitions]
 
 
 
@@ -222,75 +225,6 @@
 \input{cover.tex}
 
 \newpage
-
-
-\newcommand{\standardintro}{
-\begin{center}
-{\huge\bf Inquiry Based Linear Algebra}\\
-
-\vspace{.7in}
-{
-\it \copyright\,Jason Siefken, 2016--2019 \\
-Creative Commons By-Attribution Share-Alike\, \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}
-}
-\end{center}
-
-\section*{About the Document}
-
-This document is a hybrid of many linear algebra resources, including those of
-the IOLA (Inquiry Oriented Linear Algebra) project and Jason Siefken's
-IBL Linear Algebra project.
-
-This document is a mix of short problems and more involved exploratory question. A typical
-class day looks like:
-\begin{enumerate}
-	\item {\bf Introduction by instructor.} This may involve giving a definition,
-		a broader context for the day's topics, or answering questions.
-
-	\item {\bf Students work on problems.} Students work individually or in pairs/small groups
-		on the prescribed problem. During this time the instructor moves
-		around the room addressing questions that students may have and giving
-		one-on-one coaching.
-
-	\item {\bf Instructor intervention.} When most students have successfully solved
-		the problem, the instructor refocuses the class by providing an
-		explanation or soliciting explanations from students.
-		This is also time for the instructor to ensure that everyone has
-		understood the main point of the exercise (since it is sometimes
-		easy to miss the point!).
-
-		If students are having trouble, the instructor can give hints
-		and additional guidance to ensure students' struggle is productive.
-
-	\item {\bf Repeat step 2.}
-\end{enumerate}
-
-Using this format, students are thinking (and happily so) most of the class. Further,
-after struggling with a question, students are especially primed to hear the insights of the instructor.
-
-These problems are geared towards concepts instead of computation, though some problems
-focus on simple computation. The questions also have a geometric lean. Vectors are initially
-introduced with familiar coordinate notation, but eventually, coordinates are understood to be
-\emph{representations} of vectors rather than ``true'' geometric vectors, and objects like the
-determinant are defined via oriented volumes rather than formulas involving matrix entries.
-
-\bigskip
-{\bf License} Unless otherwise mentioned, pages of this document are licensed under
-the Creative Commons By-Attribution Share-Alike License. That means, you are free
-to use, copy, and modify this document provided that you provide attribution to the
-previous copyright holders and you release your derivative work under the same license.
-Full text of the license is at \url{http://creativecommons.org/licenses/by-sa/4.0/}
-
-If you modify this document, you may add your name to the copyright list. Also,
-if you think your contributions would be helpful to others, consider making a
-pull request, or opening an \emph{issue} at \url{https://github.com/siefkenj/IBLLinearAlgebra}
-
-Content from other sources is reproduced here with permission and retains the
-Author's copyright. Please see the footnote of each page to verify the
-copyright.
-
-\newpage
-}
 
 \begin{bookonly}
 	\clearpage
@@ -8893,6 +8827,16 @@ While studying the subway map, you decide to pick two bases to help:
 			\end{solution}
 	\end{parts}
 
+\newpage
+
+\begin{bookonly}
+	\clearpage
+	\hbox{}
+	\newpage
+	\printindex
+	
+	\printindex[definitions]
+\end{bookonly}
 
 
 \end{document}
