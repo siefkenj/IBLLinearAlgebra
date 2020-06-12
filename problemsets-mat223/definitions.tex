@@ -6,7 +6,7 @@
 		title={Subset \& Superset}
 	]
 	The set $B$ is a \emph{subset}\index[definitions]{Subset} of the set $A$, written $B\subseteq A$\index[symbols]{$\subseteq$}, if for all
-	$b\in B$ we also have $b\in A$.  In this case, $A$ is called a \emph{superset}\index{Superset}\index[definitions]{Superset}
+	$b\in B$ we also have $b\in A$.  In this case, $A$ is called a \emph{superset}\index[definitions]{Superset}
 	of $B$.\footnote{
 		Some mathematicians use the symbol $\subset$ instead of $\subseteq$.}
 \end{SaveDefinition}
@@ -45,7 +45,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Set, title={Set}]
-	A \emph{set}\index{Set}\index[definition]{Set} is a (possibly infinite) collection of items and is notated
+	A \emph{set}\index[definitions]{Set} is a (possibly infinite) collection of items and is notated
 	with curly braces (for example, $\{1,2,3\}$ is the set containing the
 	numbers 1, 2, and 3). We call the items in a set
 	\emph{elements}.
@@ -72,7 +72,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=ZeroVector, title={Zero Vector}]
-		The \emph{zero vector}\index{Vector!zero}\index[definitions]{Vector!zero}, notated as $\vec 0$[\index[symbols]{$\vec 0$},
+		The \emph{zero vector}\index{Zero vector ($\vec 0$)}\index[definitions]{Zero vector ($\vec 0$)}, notated as $\vec 0$[\index[symbols]{$\vec 0$},
 		is the vector with no magnitude.
 \end{SaveDefinition}
 
@@ -100,7 +100,7 @@
 	\[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\geq 0.\]
 
 	The vector $\vec w$ is called a 
-	\emph{convex}\index{Linear combiantion!convex}\index[definitions]{Linear combiantion!convex} linear combination of
+	\emph{convex}\index{Linear combination!convex}\index[definitions]{Linear combination!convex} linear combination of
 	$\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$
 	if \[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\geq 0\qquad\text{and}\qquad
 	\alpha_{1}+\alpha_{2}+\cdots+\alpha_{n}=1.\]
@@ -136,10 +136,11 @@
 	\emph{span}\index{Span}\index[definitions]{Span} of a set of vectors $V$ is the set of all linear
 	combinations of vectors in $V$. That is,
 	\[
-		\Span V\index[symbols]{$\Span V$} = \Set{\vec v \given \vec v=\alpha_1\vec v_1+\alpha_2\vec
+		\Span V = \Set{\vec v \given \vec v=\alpha_1\vec v_1+\alpha_2\vec
 		v_2 + \cdots +\alpha_n\vec v_n\text{ for some }\vec v_1,\vec v_2,\ldots,\vec
 		v_n\in V \text{ and scalars }\alpha_1,\alpha_2,\ldots,\alpha_n}.
 	\]
+	\index[symbols]{$\Span V$}
 
 	Additionally, we define $\Span\Set{} = \Set{\vec 0}$.
 \end{SaveDefinition}
@@ -159,13 +160,13 @@
 	title={Linearly Dependent \& Independent (Geometric)}]
 
 	We say the vectors $\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$ are
-	\emph{linearly dependent}\index{Linearly dependent}\index[definitions]{Linearly dependent}\index[definitions]{Linearly dependent!(geometric)} if for at least one $i$,
+	\emph{linearly dependent}\index{Linearly dependent} if for at least one $i$,
 	\[
 		\vec v_{i}\in\Span\Set{\vec v_1,\vec v_2,\ldots,\vec v_{i-1}, \vec
 		v_{i+1},\ldots,\vec v_n}.
 	\]
 	 Otherwise, they are called
-	\emph{linearly independent}\index{Linearly independent}\index[definitions]{Linearly independent}\index[definitions]{Linearly independent!(geometric)}.
+	\emph{linearly independent}\index{Linearly independent}\index[definitions]{Linear dependence/independence!geometric definition}.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -187,7 +188,7 @@
 	The vectors $\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$ are
 	\emph{linearly dependent} if there is a non-trivial linear combination
 	of $\vec v_{1},\ldots,\vec v_{n}$ that equals the zero vector. Otherwise they
-	are linearly independent.
+	are linearly independent\index[definitions]{Linear dependence/independence!algebraic definition}.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
