@@ -36,7 +36,7 @@
 	%  e.g.  on Mac OS X
 	%  What is it under Windows ?
 	%
-	\gdef\ColorProfileDir{/Library/Application Support/Adobe/Color/Profiles/Recommended/}
+	\gdef\ColorProfileDir{./common/}
 	% 
 	%  For available profiles, see file  AdobeColorProfiles.tex
 	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex  
@@ -48,7 +48,7 @@
 	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
 \end{filecontents*}
 
-\documentclass{problemset}
+\documentclass{workbook}
 
 
 % pdfx will set color profile etc. information appropriately, so the pdf renders
@@ -65,7 +65,7 @@
 % import all needed packages and macros
 %%%
 \usepackage[yyyymmdd]{datetime}
-\input{preamble.tex}
+\input{common/preamble.tex}
 
 % in non-xelatex engines, hyperref is loaded by `pdfx`. If `pdfx` is not loaded, load it here.
 \ifxetex
@@ -113,6 +113,7 @@
 % allow pagebreaks that only display in `book` mode
 \newcommand{\bookonlynewpage}{\begin{bookonly}\newpage\end{bookonly}}
 
+
 %
 % Set up the three render modes: standard, instructor, and solutions.
 % These render with varying amounts of extra data (like solutions and notes)
@@ -144,8 +145,8 @@
 	\togglefalse{standard}
 	\togglefalse{solutions}
 	\toggletrue{book}
-	\setbookgeometry
 }
+
 
 %
 % Infer the document level from the \jobname
@@ -158,6 +159,39 @@
 		}
 	}
 }
+
+
+\setbookoptions{
+	twosided = false,
+	inline solutions = false,
+}
+
+
+\NewColoredEnvironment{
+	name = lesson,
+	display name = Lesson,
+	banner color = Plum,
+	title color = Plum,
+	banner on left = true,
+	open right = false,
+}
+\NewColoredEnvironment{
+	name = module,
+	display name = Module,
+	banner color = Turquoise,
+	title color = Cerulean,
+	definition color = Cerulean,
+	theorem color = myorange,
+}
+\NewColoredEnvironment{
+	name = appendix,
+	display name = Appendix,
+	banner color = Green,
+}
+
+
+
+
 
 %
 % Hide the non-problem environments
@@ -184,6 +218,7 @@
 	\voidenvironment{annotation}
 	\voidenvironment{lesson}
 	\renewcommand{\coversubtitle}{MAT223 Notes}
+	\loadgeometry{default}
 }{}
 \iftoggle{book}{
 	\voidenvironment{displayonly}
@@ -191,6 +226,11 @@
 	\voidenvironment{annotation}
 	\voidenvironment{lesson}
 	\renewcommand{\coversubtitle}{{\hspace{-5pt}\begin{tabular}{l}MAT223 Workbook\\\small\today{} Edition\end{tabular}}}
+	\setbookoptions{
+		twosided = true,
+		inline solutions = false,
+	}
+	\loadgeometry{book}
 }{}
 %\voidenvironment{solution}
 %\voidenvironment{annotation}
@@ -209,7 +249,7 @@
 %% Import definitions from definition.tex; all definitions can be restated multiple times
 %%
 
-\input{definitions.tex}
+\input{common/definitions.tex}
 
 %%
 %% End Definitions
@@ -222,7 +262,7 @@
 
 \pagestyle{empty}
 
-\input{cover.tex}
+\input{common/cover.tex}
 
 \newpage
 
@@ -232,7 +272,7 @@
 	\newpage
 	\input{modules/preface.tex}
 	\section*{Contributors}
-	\input{contributors.tex}
+	\input{common/contributors.tex}
 	\section*{Dedication}
 	\begin{center}
 		This book is dedicated to 

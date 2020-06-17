@@ -18,10 +18,10 @@
 %\usepackage{amsfonts}
 %\usepackage{amssymb}
 \usepackage{graphicx}
+\graphicspath{{images/}}
 \usepackage[inline]{enumitem}
 \usepackage{xparse}
 \usepackage{ifthen}
-\usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{color}
@@ -39,6 +39,7 @@
 \usepackage{mparhack}
 \usepackage{marginfix}
 \usepackage{indextools}
+\usepackage[open=false]{bookmark}  % render the pdf TOC in the proper order
 
 %\usepackage[
 %  linktocpage=false,      % no page numbers are clickable
@@ -168,3 +169,9 @@
 		{\color{blue}\sffamily{H}}%  XXX Todo, make this href to the appropriate problem number
 	}\xspace%
 }
+
+
+
+% Dummy, voidable environments
+\DeclareDocumentEnvironment{bookonly}{o}{}{}
+\DeclareDocumentEnvironment{displayonly}{o}{}{}
