@@ -29,7 +29,7 @@ cache:
     - $HOME/miniconda
     - $HOME/.cache/Tectonic
 script: # Change working directory each time so including files will work. Change back so the pdfs can be found for deployment. This way, building multiple files goes well.
- - cd ./problemsets-mat223/
+ - cd ./book/
  # Tectonic does not include makeindex, so that needs to be done manually.
  # linearalgebra-instructor.tex is the file where much is complied
  # but the modules are not compiled unless linearalgebra-book.tex is compiled
