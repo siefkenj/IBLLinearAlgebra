@@ -1,12 +1,12 @@
 \Heading{Sets}
-Modern mathematics makes heavy use of \emph{sets}\index{set}.  
+Modern mathematics makes heavy use of \emph{sets}.  
 A set is an unordered collection of distinct objects.  We won't try and pin
 it down more than this---our intuition about collections
 of objects will suffice\footnote{ When you pursue more rigorous math,
 you rely on definitions to get yourself out of philosophical jams.  For instance,
 with our definition of set, consider ``the set of all sets that don't
 contain themselves''.  Such a set cannot exist!
-This is called \emph{Russel's Paradox}, and shows
+This is called \emph{Russel's Paradox}\index{Russel's Paradox}, and shows
 that if we start talking about sets of sets, we may need more than
 intuition.}. We write a set with curly-braces $\{$ and $\}$ and
 list the objects inside.  For instance
@@ -14,9 +14,9 @@ list the objects inside.  For instance
 	\Set{1,2,3}.
 \]
 This would be read aloud as ``the set containing the elements $1$, $2$, and $3$''.
-Things in a set are called \emph{elements}\index{element of a set},
-and the symbol $\in$\index{$\in$} is used to specify that something is an element of a set.
-In contrast, $\notin$ is used to specify something is not an element of a set.  For example,
+Things in a set are called \emph{elements}\index{Set!element of},
+and the symbol $\in$\index[symbols]{$\in$} is used to specify that something is an element of a set.
+In contrast, $\notin$\index[symbols]{$\notin$} is used to specify something is not an element of a set.  For example,
 \[
 	3\in\Set{1,2,3}\qquad 4\notin\Set{1,2,3}.
 \]
@@ -29,15 +29,15 @@ is a perfectly valid set.
 It is tradition to use capital letters to name sets.  So we might say $A=\{6,7,12\}$
 or $X=\{7\}$.  However there are some special sets which
 already have names/symbols associated with them.
-The \emph{empty set} is the set containing no elements
-and is written $\emptyset$ or $\Set{}$.  Note that $\Set{\emptyset}$ is \emph{not}
+The \emph{empty set}\index{Set!empty}\index[definitions]{Set!empty} is the set containing no elements
+and is written $\emptyset$\index[symbols]{$\emptyset$} or $\Set{}$.  Note that $\Set{\emptyset}$ is \emph{not}
 the empty set---it is the set containing the empty set!  It is also traditional
-to call elements of a set \emph{points}\index{point} regardless of whether you
+to call elements of a set \emph{points}\index{Point!of a set} regardless of whether you
 consider them ``point-like''.
 
 \Heading{Operations on Sets}
-If the set $A$ contains all the elements that the set $B$ does, we call $B$ a \emph{subset}\index{subset}
-of $A$. Conversely, we call $A$ a \emph{superset}\index{superset} of $B$.  
+If the set $A$ contains all the elements that the set $B$ does, we call $B$ a \emph{subset}
+of $A$. Conversely, we call $A$ a \emph{superset} of $B$.  
 \SavedDefinitionRender{SubsetSuperset}
 
 Some simple examples are $\Set{1,2,3}\subseteq \Set{1,2,3,4}$ and $\Set{1,2,3}\subseteq\Set{1,2,3}$.
@@ -72,7 +72,7 @@ Having a definition of equality to lean on will help us when we need to prove th
 
 \Heading{Set-builder Notation}
 Specifying sets by listing all their elements can be a hassle, and if there are an infinite
-number of elements, it's impossible!  Fortunately, \emph{set-builder notation}\index{set-builder notation}
+number of elements, it's impossible!  Fortunately, \emph{set-builder notation}\index{Set-builder notation}\index[definitions]{Set-builder notation}
 solves these problems.
 If $X$ is a set, we can define a subset 
 \[
@@ -103,23 +103,23 @@ different than $A\cup(B\cap C)$!
 Some common sets have special notation:
 \begin{align*}
 	\emptyset &= \Set{}\text{, the empty set}\\
-	\N &= \Set{0,1,2,3,\ldots}=\Set{\text{natural numbers}}\\
-	\Z &= \Set{\ldots, -3,-2,-1,0,1,2,3,\ldots}=\Set{\text{integers}}\\
-	\Q &= \Set{\text{rational numbers}}\\
-	\R &= \Set{\text{real numbers}}\\
-	\R^n &= \Set{\text{vectors in $n$-dimensional Euclidean space}}\\
+	\N\index[symbols]{$\N$} &= \Set{0,1,2,3,\ldots}=\Set{\text{natural numbers}}\\
+	\Z\index[symbols]{$\Z$} &= \Set{\ldots, -3,-2,-1,0,1,2,3,\ldots}=\Set{\text{integers}}\\
+	\Q\index[symbols]{$\Q$} &= \Set{\text{rational numbers}}\\
+	\R\index[symbols]{$\R$} &= \Set{\text{real numbers}}\\
+	\R^n\index[symbols]{$\R^n$} &= \Set{\text{vectors in $n$-dimensional Euclidean space}}\\
 \end{align*}
 
 
 
 \Heading{Vectors \& Scalars}
-A \emph{scalar} number (also referred to as a \emph{scalar} or just an ordinary
+A \emph{scalar}\index{Scalar}\index[definitions]{Scalar} number (also referred to as a \emph{scalar} or just an ordinary
 \emph{number}) models a relationship between quantities. For example,
 a recipe might call for \emph{six} times as much flour as sugar. In 
-contrast, a \emph{vector} models a relationship between points. For example,
+contrast, a \emph{vector}\index{Vector}\index[definitions]{Vector} models a relationship between points. For example,
 the store might be \emph{2km East and 4km North} from your house.
-In this way, a vector may be thought of as a \emph{displacement} with a \emph{direction}
-and a \emph{magnitude}\footnote{
+In this way, a vector may be thought of as a \emph{displacement} with a \emph{direction}\index{Vector!direction of}
+and a \emph{magnitude}\index{Vector!magnitude of}\footnote{
 	Though in this book we will treat vectors as geometric objects 
 	relating to Euclidean
 	space, they are much more general.  For instance, someone's internet
@@ -129,7 +129,7 @@ and a \emph{magnitude}\footnote{
 }.
 
 Given points $P=(1,1)$ and $Q=(3,2)$, we specify the
-\emph{displacement}\index{displacement} from $P$ to $Q$ as a vector
+\emph{displacement}\index{Displacement} from $P$ to $Q$ as a vector
 $\overrightarrow{PQ}$ whose magnitude is $\sqrt{5}$ (as given by the Pythagorean
 theorem) and whose direction is specified by a directed line segment from $P$ to $Q$.
 
@@ -173,7 +173,7 @@ vector from $P$ to $Q$.  Absent points, a bold-faced letter (like {\bfseries a})
 or an arrow over 
 a letter (like $\vec a$) are the most common vector notations.
 In this text, we will use $\vec a$ to represent a vector.
-The notation $\norm{\vec a}$\index{$\norm{\:\cdot\:}$}\index{magnitude}\index{norm}
+The notation $\norm{\vec a}$\index[symbols]{$\norm{\:\cdot\:}$}\index{Vector!magnitude of}\index{Vector!norm of}
 represents the magnitude of the vector $\vec a$, which is sometimes called
 the \emph{norm} or \emph{length} of $\vec a$.
 
@@ -221,7 +221,7 @@ the same or different vectors?  As directed line segments,
 they are different because they are at different locations in space.  
 However, both $\vec a$ and $\vec x$ have the same
 magnitude and direction.  Thus, $\vec a=\vec x$ despite the fact that $A\neq X$\footnote{
-	Some theories use \emph{rooted vectors}\index{rooted vector} instead of
+	Some theories use \emph{rooted vectors}\index{Vector!rooted} instead of
 	vectors as the fundamental object of study. A rooted vector
 	represents a magnitude, direction, \emph{and} a starting point. And, 
 	as rooted vectors, $\vec a\neq \vec x$ (from the example above).
@@ -236,14 +236,14 @@ magnitude and direction.  Thus, $\vec a=\vec x$ despite the fact that $A\neq X$\
 
 \Heading{Vectors and Points}
 The distinction between vectors and points is sometimes nebulous because
-the two are so closely related.  A \emph{point}\index{point}
+the two are so closely related.  A \emph{point}\index{Point!in Euclidean Space}
 in Euclidean space specifies an absolute position whereas a vector
 specifies a displacement (i.e., a magnitude and direction).  However, given a point $P$,
 one associates $P$ with the vector $\vec p=\overrightarrow{OP}$, where $O$
 is the origin.  Similarly, we associate the vector $\vec v$ with
 the point $V$ so that $\overrightarrow{OV}=\vec v$.
 Thus, we have a way to unambiguously go back and forth between vectors and
-points\footnote{ Mathematically, we say there is an \emph{isomorphism} between
+points\footnote{ Mathematically, we say there is an \emph{isomorphism}\index{Isomorphism} between
 vectors and points (once an origin is fixed, of course!).}.  As such, \emph{we will treat vectors and points
 interchangeably}.
 
@@ -280,7 +280,7 @@ for any scalar $\alpha$ and any vectors
 $\vec v$ and $\vec w$, we could
 do algebra with vectors.
 
-We will define scalar multiplication and vector addition intuitively:
+We will define scalar multiplication\index[definitions]{Vector operations!scalar multiplication}\index{Vector operations!scalar multiplication}\index{Vector operations!addition}\index[definitions]{Vector operations!addition} intuitively:
 For a vector $\vec v$ and a scalar $\alpha>0$, the
 vector $\vec w=\alpha\vec v$ is the vector pointing in the same direction as
 $\vec v$ but with length scaled by $\alpha$.  That is, $\norm{\vec w}=\alpha\norm{\vec v}$.
@@ -343,7 +343,7 @@ following laws are always satisfied:
 	(\vec u+\vec v)+\vec w&=\vec u+(\vec v+\vec w)\tag{Associativity}\\
 	\vec u+\vec v&=\vec v+\vec u\tag{Commutativity}\\
 	\alpha(\vec u+\vec v)&=\alpha\vec u+\alpha \vec v\tag{Distributivity}
-\end{align*}
+\end{align*}\index{Vector operations!laws of}
 and
 \begin{align*}
 	(\alpha\beta)\vec v&=\alpha(\beta \vec v)\tag{Associativity II}\\
@@ -423,7 +423,7 @@ there is one standard one: the $xy$-coordinate system depicted below (which you'
 	\end{tikzpicture}
 \end{center}
 
-In conjunction with the standard coordinate system, there are also \emph{standard basis vectors}.
+In conjunction with the standard coordinate system, there are also \emph{standard basis vectors}\index{Standard basis}\index{Basis!standard basis}.
 The vector $\xhat$ always points one unit in the direction of the positive $x$-axis and $\yhat$
 always points one unit in the direction of the positive $y$-axis.
 
@@ -439,7 +439,7 @@ $\alpha$ and $\beta$.
 
 For a vector $\vec w=\alpha\xhat+\beta\yhat$,
 we call the pair $(\alpha,\beta)$  the
-\emph{standard coordinates}\index{coordinates} of the vector $\vec w$.  There
+\emph{standard coordinates}\index{Coordinates} of the vector $\vec w$.  There
 are many equivalent notations used to represent a vector in coordinates.
 \begin{center}
 	\begin{tabular}{c p{7cm}}
