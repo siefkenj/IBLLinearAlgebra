@@ -47,7 +47,7 @@
 \ExplSyntaxOn
 
 % We need some variants of several commands
-\cs_generate_variant:Nn \str_if_in:nnTF {eeTF}
+%\cs_generate_variant:Nn \str_if_in:nnTF {eeTF}  % Doesn't work with current version of tectonic
 \cs_generate_variant:Nn \int_set:Nn {Ne}
 \cs_generate_variant:Nn \tl_set:Nn {Ne}
 \cs_generate_variant:Nn \prop_gput:Nnn {Nne}
@@ -74,9 +74,10 @@
 }
 
 
-\DeclareDocumentCommand{\JobnameContains}{m}{
-	\str_if_in:eeTF { \str_lower_case:f {\c_sys_jobname_str} }{ \str_lower_case:n { #1 }}{ True }{ False }
-}
+% Doesn't work with current version of tectonic
+%\DeclareDocumentCommand{\JobnameContains}{m}{
+%	\str_if_in:eeTF { \str_lower_case:f {\c_sys_jobname_str} }{ \str_lower_case:n { #1 }}{ True }{ False }
+%}
 
 
 \bool_new:N \g__twosided
