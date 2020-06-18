@@ -10,8 +10,8 @@ cache:
     - /tmp/texlive
 script:
  - cd $TRAVIS_BUILD_DIR/book/
- - lualatex -interaction nonstopmode -halt-on-error -file-line-error -shell-escape   linearalgebra-book.tex
- - lualatex -interaction nonstopmode -halt-on-error -file-line-error -shell-escape   linearalgebra-instructor.tex
+ - latexmk -lualatex -latexoption="-interaction nonstopmode -halt-on-error -file-line-error -shell-escape"   linearalgebra-book.tex
+ - latexmk -lualatex -latexoption="-interaction nonstopmode -halt-on-error -file-line-error -shell-escape"   linearalgebra-instructor.tex
    #deploy:
    #  provider: releases
    #  api_key:
