@@ -497,15 +497,20 @@
 	% Set the itemize style for the environment
 	\setlist[itemize]{ label={\color{\l__title_color_tl!90!black}$\blacksquare$}, topsep=0pt}
 
-	\DeclareDocumentCommand{\Title}{m}{
-		\prop_gput:Nnn \g__environments_prop {#1/title} {##1}
+	\DeclareDocumentCommand{\Title}{s m}{
+		\prop_gput:Nnn \g__environments_prop {#1/title} {##2}
 
+		\vspace*{.0in}
 		\begin{center}
-			\color{\l__title_color_tl}{\sffamily\Large  ##1}
+			\color{\l__title_color_tl}{\sffamily\Large  ##2}
 		\end{center}
-		% \l__display_title_tl will be set after running this command
-		\__get_environment_display_name:nn {#1}{\c_false_bool}
-		\addcontentsline{toc}{section}{\l__display_title_tl}
+
+		% If \Title* is used, don't add the item to the TOC
+		\bool_if:nF ##1 {
+			% \l__display_title_tl will be set after running this command
+			\__get_environment_display_name:nn {#1}{\c_false_bool}
+			\addcontentsline{toc}{section}{\l__display_title_tl}
+		}
 		\par
 	}
 
