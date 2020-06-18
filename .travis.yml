@@ -5,45 +5,13 @@
 install:
         - cd ./testing
         - source ./install.sh
-        - cd ..
-        # We're no longer using tectonics because its packages are out of date
-        #  # Silent install from conda docs
-        #  # https://conda.io/docs/user-guide/install/macos.html#install-macos-silent
-        #  # adapted using
-        #  # https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
-        #
-        #  # Needed to check if conda already installed
-        #  - export PATH="$HOME/miniconda/bin:$PATH"
-        #
-        #  # If not yet installed, obtain Miniconda
-        #  # and tectonic
-        #  # From tectonic docs
-        #  # https://tectonic-typesetting.github.io/en-US/install.html#the-anaconda-method
-        #  - if ! command -v conda > /dev/null; then
-        #      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-        #      bash miniconda.sh -b -p $HOME/miniconda -u;
-        #      conda config --add channels conda-forge;
-        #      conda config --set always_yes yes;
-        #      conda update --all;
-        #      conda install tectonic;
-        #    fi
-        #  - conda info -a
 cache:
   directories:
-    - $HOME/miniconda
-    - $HOME/.cache/Tectonic
     - /tmp/texlive
-script: # Change working directory each time so including files will work. Change back so the pdfs can be found for deployment. This way, building multiple files goes well.
+script:
  - cd $TRAVIS_BUILD_DIR/book/
- - tail -n +1260 /tmp/texlive/texmf-dist/tex/latex/pdfx/pdfx.sty | head
  - lualatex -interaction nonstopmode -halt-on-error -file-line-error -shell-escape   linearalgebra-book.tex
  - lualatex -interaction nonstopmode -halt-on-error -file-line-error -shell-escape   linearalgebra-instructor.tex
-   # # Tectonic does not include makeindex, so that needs to be done manually.
-   # # linearalgebra-instructor.tex is the file where much is complied
-   # # but the modules are not compiled unless linearalgebra-book.tex is compiled
-   # - tectonic ./linearalgebra-instructor.tex --print
-   # - tectonic ./linearalgebra-book.tex --print
-   # - cd ../
    #deploy:
    #  provider: releases
    #  api_key:
