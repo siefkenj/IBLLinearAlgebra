@@ -1,11 +1,11 @@
 
 % WARNING!  Do not type any of the following 10 characters except as directed:
-%                &   $   #   %   _   {   }   ^   ~   \   
+%                &   $   #   %   _   {   }   ^   ~   \
 %
 %%
 %%  default option for pdfx.sty  if not specified on the command-line.
 \providecommand{\pdfxopt}{a-1b}
-%% 
+%%
 %%  Use  {filecontents}  for the  .xmpdata file before input encoding is specified.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,7 +17,7 @@
 	\Title{Linear Algebra (\jobname)}%  *not* set by LaTeX's  \title
 	\Author{Jason Siefken\sep et al.}% *not* set by LaTeX's \author
 	\Subject{Linear Algebra textbook/workbook}
-	\Keywords{linear algebra\sep vectors\sep mathematics\sep textbook} 
+	\Keywords{linear algebra\sep vectors\sep mathematics\sep textbook}
 	\Org{University of Toronto}
 	\CreatorTool{LaTeX + pdfx.sty with options \pdfxopt}
 	\Copyright{Jason Siefken}
@@ -26,7 +26,7 @@
 	\CoverDate{2019-08-014}%  must be in format  YYYY-MM-DD  or  YYYY-MM
 	\Doi{0.0.0.0}%
 	%
-	% setting the color profile, these reproduce the defaults; use your own, if required 
+	% setting the color profile, these reproduce the defaults; use your own, if required
 	%
 	% RGB is used with PDF/A (4 parameters):
 	\setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
@@ -39,10 +39,10 @@
 	\gdef\ColorProfileDir{./common/}
 	% 
 	%  For available profiles, see file  AdobeColorProfiles.tex
-	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex  
+	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex
 	%
 	%  Now you can use the macros defined in those files:
-	 \FOGRAXXXIX 
+	 \FOGRAXXXIX
 	%
 	% or CMYK is used with  PDF/X (4 parameters)
 	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
@@ -276,7 +276,7 @@
 	\input{common/contributors.tex}
 	\section*{Dedication}
 	\begin{center}
-		This book is dedicated to 
+		This book is dedicated to
 		\href{https://www.gazettetimes.com/news/local/obituaries/dr-robert-main-burton/article_9c087f07-c005-515a-bb3f-2c9c6a6b7332.html}{\color{blue}Dr.~Bob Burton}---friend and mentor.
 
 		\emph{\large ``Sometimes you have to walk the mystical path with practical feet.''}
@@ -1565,7 +1565,7 @@ argument supporting your answer.
 		\item How to express lines/planes/volumes through the origin as spans.
 		\item How to express lines/planes/volumes \emph{not} through the origin as
 			\emph{translated} spans using set addition.
-		\item Geometric and algebraic definitions of linear independence and linear 
+		\item Geometric and algebraic definitions of linear independence and linear
 			dependence.
 		\item How to find linearly independent subsets.
 	\end{itemize}
@@ -3036,7 +3036,7 @@ examples.
 	Projection of a vector onto a set, defined as the closet point in the
 	set to the vector, is a general operation used outside of linear algebra.
 	However, in the land of linear algebra, we have exact formulas for the
-	projection of a vector onto particular sets (e.g., subspaces). 
+	projection of a vector onto particular sets (e.g., subspaces).
 	Projections are a chance to explore a seemingly simple definition
 	and see it relate to sets, lines, normal form, and vector form.
 
@@ -4125,7 +4125,7 @@ examples.
 			\begin{itemize}
 				\item We are using the range of a matrix operator to describe a plane and the
 					null space of a matrix to define normal vectors.
-				\item Part 2 admits some trivial answers, but the interesting one is when 
+				\item Part 2 admits some trivial answers, but the interesting one is when
 					the range is $\mathcal P$.
 				\item For part 3, students might miss the $\vec n\neq \vec 0$ condition.
 				\item The matrices $K$ and $M$ do not have to be transposes of each other,
@@ -4932,11 +4932,11 @@ notice your group making or any questions for further pursuit.
 		\begin{notes}
 			\begin{itemize}
 				\item When talking about transformations, it is common
-					to drop the parentheses around the function argument. 
+					to drop the parentheses around the function argument.
 					E.g., $T(\vec x)\equiv T\vec x$. Point this out to students.
 				\item Part (a) is hard to write down a proof for. Don't spend so much time on it.
-				\item Spend time on the remaining parts having students write proofs. Proofs 
-					of whether something is linear follow a template. Motivate the template as: 
+				\item Spend time on the remaining parts having students write proofs. Proofs
+					of whether something is linear follow a template. Motivate the template as:
 					\emph{Start with the definitions, then write what you want. Next, write what you know.}
 					By that point, the problem is almost finished.
 			\end{itemize}
@@ -5196,7 +5196,7 @@ Suppose that the ``N'' on the left is written in regular 12-point font.  Find a 
 
 		\begin{notes}
 			\begin{itemize}
-				\item Carefully plan how to name your matrices. For example, $T$ for 
+				\item Carefully plan how to name your matrices. For example, $T$ for
 					the matrix that makes it \emph{taller} and $L$ for the matrix
 					that \emph{leans} the $N$.
 				\item Some students will have the question, ``Do we lean the taller $N$ or the original $N$?''
@@ -5461,7 +5461,7 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 			\begin{itemize}
 				\item These proofs have the same template as the previous subspace proofs but
 					are more abstract and so will present a new challenge to students. When
-					they are stuck, emphasize the technique: \emph{write the definitions; write what you want; 
+					they are stuck, emphasize the technique: \emph{write the definitions; write what you want;
 					write what you know.} Most will not have internalized this procedure!
 			\end{itemize}
 		\end{notes}
@@ -5573,11 +5573,11 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 					transformations are not the same thing. However, most will not know how to
 					create correct sentences that distinguish between matrices and linear transformations.
 
-					This problem forces the use of precise language and terminology (e.g., that of 
+					This problem forces the use of precise language and terminology (e.g., that of
 					change of basis) to discuss a matrix and its induced transformation.
 				\item Throughout most of the course, we are sloppy in distinguishing $\mat{1\\2}$ and
 					$\mat{1\\2}_{\mathcal E}$. This allows us to write $T\left(\mat{1\\2}\right)$ when $T:\R^2\to\R^2$
-					is a linear transformation (instead of the correct $T\left(\mat{1\\2}_{\mathcal E}\right)$). 
+					is a linear transformation (instead of the correct $T\left(\mat{1\\2}_{\mathcal E}\right)$).
 					
 					Acknowledge this---we will continue to be sloppy some times, but when push comes to
 					shove, we must be able to be precise.
@@ -5585,7 +5585,7 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 					than saying ``$T$ is the transformation given by multiplication by $M$ when
 					vectors are written in the standard basis'',
 					but both are formal and correct. We might also say, ``Consider the matrix transformation
-					$M:\R^m\to\R^n$.'' When we say this, we mean that we are using the letter $M$ 
+					$M:\R^m\to\R^n$.'' When we say this, we mean that we are using the letter $M$
 					to represent both the matrix and the induced transformation.
 			\end{itemize}
 		\end{notes}
@@ -6174,7 +6174,7 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 		\begin{notes}
 			\begin{itemize}
 				\item The rank-nullity theorem for matrices is easy to argue for using
-					the reduced row echelon form. The rank-nullity theorem for 
+					the reduced row echelon form. The rank-nullity theorem for
 					linear transformations is much harder to prove (unless you exploit
 					the links between transformations and their corresponding matrices).
 			\end{itemize}
@@ -6330,7 +6330,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 	\begin{annotation}
 		\begin{notes}
 			\begin{itemize}
-				\item This is the time to think about composition and ``undoing'' 
+				\item This is the time to think about composition and ``undoing''
 					transformations. In particular, the order that you undo
 					them in matters!
 				\item Plan the names of your transformations carefully. One option is to use the letters
@@ -6702,7 +6702,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 			The goal of this problem is to
 			\begin{itemize}
 				\item Create a correct formula for $(XY)^{-1}$ and
-					explain it algebraically or in terms of 
+					explain it algebraically or in terms of
 					function composition.
 				\item Relate invertibility of a matrix and its induced transformation.
 			\end{itemize}
@@ -6838,7 +6838,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 	\Heading{Motivation}
 	Change of basis is one of \emph{the} big ideas in linear algebra. The universe has no
 	privileged basis. Some bases are nicer than others, they may be orthonormal, for example, but
-	other than that, all bases are created equal. Therefore, we must understand the relationship 
+	other than that, all bases are created equal. Therefore, we must understand the relationship
 	\emph{between} bases. We need facility in converting from one basis to another. And, lo and behold,
 	converting between representations in a basis is a linear transformation!
 
@@ -7076,7 +7076,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 	\Heading{Objectives}
 	\begin{itemize}
 		\item Define the determinant as an oriented volume.
-		\item Given a linear transformation $T:\R^2\to\R^2$, 
+		\item Given a linear transformation $T:\R^2\to\R^2$,
 			compute the determinant from the definition.
 		\item Correctly extend the definition of orientation of a basis to the sign
 			of the determinant.
@@ -7235,7 +7235,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 				\item This is the first time orientation has shown up since we saw it last. Spend some
 					time explaining how orientation of a basis relates to orientation of $T(C_n)$.
 
-					It's helpful to draw an analogy with ``area under the curve'' and ``integral'' 
+					It's helpful to draw an analogy with ``area under the curve'' and ``integral''
 					from calculus. Rectangles with positive integral have sides in the $\vec e_1,\vec e_2$
 					directions (right-handed basis), and rectangles with negative integral
 					have sides in the $\vec e_1,-\vec e_2$ directions (left-handed basis).
@@ -7426,7 +7426,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 	\begin{parts}
 		\item Explain Volume Theorem I using the definition of determinant.
 			\begin{solution}
-				If $T:\R^n\to\R^n$ is a transformation with standard matrix $M=[\vec c_1|\cdots|\vec c_n]$, 
+				If $T:\R^n\to\R^n$ is a transformation with standard matrix $M=[\vec c_1|\cdots|\vec c_n]$,
 				then
 				$T(\vec e_i)$ (represented in the standard basis) will be $c_i$, the $i$th
 				column of $M$. The image of the unit cube will be a parallelepiped
@@ -7489,7 +7489,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 	The first theorem is proved because, for a matrix $A$, we have $A=X\!\Rref(A)$ where $X$ is the product of elementary matrices.
 	If $\Rref(A)\neq I$, the matrix cannot be invertible and $\det(A)=0$. If $\Rref(A)=I$, then $\det(A)\neq 0$.
 
-	The second theorem follows by noticing that if $E$ is an elementary matrix, $E^T$ is an elementary matrix 
+	The second theorem follows by noticing that if $E$ is an elementary matrix, $E^T$ is an elementary matrix
 	of the same type and it changes volume by the same amount. Thus, by decomposing $A$ as a product of elementary
 	matrices (assume it is invertible), we see $\det(A)=\det(A^T)$.
 
@@ -7517,7 +7517,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 					the volume of $T(X)$ given that you know the volume of $X$.
 
 					The argument comes from calculus: if we can show it works
-					for translated and scaled copies of $C_n$, it works for any 
+					for translated and scaled copies of $C_n$, it works for any
 					reasonable shape.
 
 					The pieces of this argument are there, but it isn't put together.
@@ -7571,13 +7571,13 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 		\item Compute the oriented volume of $M(R_1)$, $M(R_2)$, and $M(R)$.
 			\begin{solution}
 				The oriented volumes of $M(R_1)$ and $M(R_2)$ are $\tfrac{1}{2}$ and the oriented volume of
-				$M(R)$ is $2$. 
+				$M(R)$ is $2$.
 			\end{solution}
 		\item Do you have enough information to compute the oriented volume of $T(R_2)$? What about the oriented volume of $T(R+\Set{\yhat})$?
 			\begin{solution}
 				Yes. The oriented volume of $T(R_2)=\tfrac{1}{2}$ and the oriented volume of $T(R+\Set{\vec e_2})=2$.
 				
-				We don't have enough information to determine what $T(R_2)$ looks like, but we do know (i) $T(R_2)$ 
+				We don't have enough information to determine what $T(R_2)$ looks like, but we do know (i) $T(R_2)$
 				will be a parallelogram, (ii) $T(R)$ has oriented volume $2$, and (iii) $T(R)$ is made of
 				four translated copies of $T(R_2)$. From this we deduce that the oriented volume of $T(R_2)=\tfrac{1}{4}\big($oriented
 				volume of $T(R)\big)=(\tfrac{1}{4})(2)$.
@@ -7696,7 +7696,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 				\item In part 1, give the hint, ``imagine that you decomposed
 					$U$ into the product of elementary matrices. What types of
 					elementary matrices would you need?''
-				\item For part 1, a good way to to explain it is by explaining that 
+				\item For part 1, a good way to to explain it is by explaining that
 					reducing $U$ to a diagonal matrix won't affect the determinant.
 					Now reason geometrically about a diagonal matrix.
 				\item For part 2, argue algebraically: there is a matrix $R$ so $V=R\Rref(V)$.
@@ -7733,7 +7733,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 
 		\begin{notes}
 			\begin{itemize}
-				\item For part 1, emphasize the geometry first: if 
+				\item For part 1, emphasize the geometry first: if
 					the columns are linearly dependent they will
 					specify a ``flattened'' parallelepiped, which must have zero volume.
 
@@ -7768,7 +7768,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 			The goal of this problem is to
 			\begin{itemize}
 				\item Produce the determinant of $X^{-1}$ give the determinant of $X$.
-				\item Explain why a transformation $T$ is invertible if and only if 
+				\item Explain why a transformation $T$ is invertible if and only if
 					$\det(T)\neq 0$.
 			\end{itemize}
 		\end{goals}
@@ -7849,7 +7849,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 \addcontentsline{toc}{subsection}{The Green and the Black}
 
 \question
-The subway system of Oronto is laid out in a skewed grid. All tracks run parallel to one of the 
+The subway system of Oronto is laid out in a skewed grid. All tracks run parallel to one of the
 green lines shown. Compass directions are given by the black lines.
 
 While studying the subway map, you decide to pick two bases to help:
@@ -7974,7 +7974,7 @@ While studying the subway map, you decide to pick two bases to help:
 	properties of eigenvectors/values one step at a time.
 
 	As we've already seen, if $\vec v$ is an eigenvector for $A$, then $A\vec v$ is easy to compute.
-	It's less obvious to students that $(A+tI)\vec v$ is equally easy to compute. 
+	It's less obvious to students that $(A+tI)\vec v$ is equally easy to compute.
 	The algorithm for
 	finding eigenvectors/values relies on (i) our ability to compute the null space of $A-\lambda I$,
 	and (ii) our ability to algorithmically determine if $A-\lambda I$ is invertible. In this lesson we
@@ -8196,9 +8196,9 @@ While studying the subway map, you decide to pick two bases to help:
 		\item For what values of $\lambda$ does $E_\lambda$ have a non-trivial
 			null space?
 			\begin{solution}
-				$\lambda=-2$ and $\lambda=1$. 
+				$\lambda=-2$ and $\lambda=1$.
 
-				$E_\lambda$ has a non-trivial null space exactly when its 
+				$E_\lambda$ has a non-trivial null space exactly when its
 				determinant is zero. We compute:
 				\[
 					\det(E_\lambda)
@@ -8227,12 +8227,12 @@ While studying the subway map, you decide to pick two bases to help:
 				multiples of these).
 
 				We know from the previous part that finding an eigenvector with
-				corresponding eigenvalue $-2$ amounts to finding the non-zero 
-				vectors	in the null space of  
+				corresponding eigenvalue $-2$ amounts to finding the non-zero
+				vectors	in the null space of
 				$E_{-2}=\mat{1&2\\1&2}$. Computing,
 				\[\Null(E_{-2})=\Span\Set*{\mat{-2\\1}}.\]
 				Similarly, the eigenvectors with corresponding eigenvalue $1$ are
-				the non-zero vectors in the null space of $E_1=\mat{-2&2\\1&-1}$, 
+				the non-zero vectors in the null space of $E_1=\mat{-2&2\\1&-1}$,
 				and we compute that $\Null(E_1)=\Span\Set*{\mat{1\\1}}$.
 			\end{solution}
 	\end{parts}
@@ -8326,7 +8326,7 @@ While studying the subway map, you decide to pick two bases to help:
 	\begin{parts}
 		\item Compute $\chr(D)$.
 			\begin{solution}
-				$\chr(D)=(-2-\lambda)(3-\lambda)$. 
+				$\chr(D)=(-2-\lambda)(3-\lambda)$.
 
 				We compute:
 				\[
@@ -8339,8 +8339,8 @@ While studying the subway map, you decide to pick two bases to help:
 			\end{solution}
 		\item Find the eigenvalues of $D$.
 			\begin{solution}
-				The eigenvalues of $D$ are $-2$ and $3$. 
-				The eigenvalues of $D$ are the roots of $\chr(D)$. 
+				The eigenvalues of $D$ are $-2$ and $3$.
+				The eigenvalues of $D$ are the roots of $\chr(D)$.
 			\end{solution}
 	\end{parts}
 
@@ -8370,7 +8370,7 @@ While studying the subway map, you decide to pick two bases to help:
 					This part also requires a lot of sophistication to pin down.
 					It's easy to argue that the appropriate nullities will be $\geq 1$
 					and $<3$, but arguing that they are equal to $1$ (and not $2$) takes work.
-					Don't bother completing the argument pinning down the exact nullities 
+					Don't bother completing the argument pinning down the exact nullities
 					(but feel free to tell them the exact nullities).
 			\end{itemize}
 		\end{notes}
@@ -8381,17 +8381,17 @@ While studying the subway map, you decide to pick two bases to help:
 	\begin{parts}
 		\item What are the eigenvalues of $E$?
 			\begin{solution}
-				$0$, $2$, and $-3$. 
+				$0$, $2$, and $-3$.
 
-				The eigenvalues of $E$ are the roots of $\chr(E)$. 
+				The eigenvalues of $E$ are the roots of $\chr(E)$.
 			\end{solution}
 		\item Is $E$ invertible?
 			\begin{solution}
-				No. 
+				No.
 
 				Since $0$ is an eigenvalue of $E$, there must be a non-zero vector
 				$\vec v$ such that $E\vec v=0\vec v=\vec 0$. This means $\Nullity(E)>0$,
-				which implies $E$ is not invertible. 
+				which implies $E$ is not invertible.
 			\end{solution}
 		\item What can you say about $\Nullity(E)$, $\Nullity(E-3I)$, $\Nullity(E+3I)$?
 			\begin{solution}
@@ -8407,7 +8407,7 @@ While studying the subway map, you decide to pick two bases to help:
 
 				To pin down the nullities of $E$ and $E+3I$ exactly takes more work.
 				$E$ has three distinct eigenvalues and so $E$ must have three linearly
-				independent eigenvectors $\vec v_0,\vec v_2,\vec v_{-3}$. Further, $\Span\Set{\vec v_i}\subseteq 
+				independent eigenvectors $\vec v_0,\vec v_2,\vec v_{-3}$. Further, $\Span\Set{\vec v_i}\subseteq
 				\Null(E-\lambda_i I)$.				
 				Since $\vec v_0,\vec v_1,\vec v_{-3}\in\R^3$, it must be the case that $\Null(E-\lambda_i I)$ is one
 				dimensional for $i\in\Set{0,2,-3}$.
@@ -8583,8 +8583,8 @@ While studying the subway map, you decide to pick two bases to help:
 			\begin{solution}
 				Computing $[T_A]_{\mathcal V}[\vec y]_{\mathcal V}$ is easy, since
 				$[T_A]_{\mathcal V}$ just multiplies each coordinate of $[\vec y]_{\mathcal V}$
-				by a scalar. We know that $P^{-1}[\vec y]_{\mathcal E}=[\vec y]_{\mathcal V}$ 
-				and that $P[\vec x]_{\mathcal V}=[\vec x]_{\mathcal E}$ and so 
+				by a scalar. We know that $P^{-1}[\vec y]_{\mathcal E}=[\vec y]_{\mathcal V}$
+				and that $P[\vec x]_{\mathcal V}=[\vec x]_{\mathcal E}$ and so
 				given any vector $\vec v$ represented by $[\vec v]_{\mathcal E}$
 				in the standard basis, we have
 				\[
@@ -8676,11 +8676,11 @@ While studying the subway map, you decide to pick two bases to help:
 		\end{solution}
 		\item Is $B$ diagonalizable (i.e., similar to a diagonal matrix)?  If so, explain how to obtain its diagonalized form.
 		\begin{solution}
-			Yes. 
+			Yes.
 
 			$\mathcal V=\Set{\vec v_1,\ldots \vec v_n}$ is a basis consisting
 			of eigenvectors for $T_B$. By definition, $B[\vec v_i]_{\mathcal E}=\lambda_i[\vec v_i]_{\mathcal E}$
-			for each $i$. 
+			for each $i$.
 
 			Let $P$ be the matrix that takes vectors represented in the
 			$\mathcal V$ basis and outputs their representations in the standard
@@ -8695,14 +8695,14 @@ While studying the subway map, you decide to pick two bases to help:
 			\]
 			Therefore, the first column of $P^{-1}BP$ is $\matc{\lambda_1\\0\\\vdots\\0}$.
 			By similar reasoning, the $i^\text{th}$ column of $P^{-1}BP$ consists
-			of all zeroes except for $\lambda_i$ in the $i^\text{th}$ position. 
-			In other words, $B$ is similar to the diagonal matrix $D$ with 
+			of all zeroes except for $\lambda_i$ in the $i^\text{th}$ position.
+			In other words, $B$ is similar to the diagonal matrix $D$ with
 			$\lambda_1, \lambda_2, \dots, \lambda_n$ along the diagonal, in that
-			order. 
+			order.
 		\end{solution}
 		\item What if one of the eigenvalues of $T_B$ is zero?  Would $B$ be diagonalizable?
 			\begin{solution}
-				Yes. 
+				Yes.
 
 				The argument in the previous part does not depend on any of the
 				eigenvalues being non-zero.
@@ -8710,13 +8710,13 @@ While studying the subway map, you decide to pick two bases to help:
 		\item What if the eigenvectors of $T_B$ did not form a basis for $\R^n$.
 			Would $B$ be diagonalizable?
 			\begin{solution}
-				No. 
+				No.
 
 				The argument we used in the first part definitely would not work.
 
-				Consider the converse, and assume $B$ is similar to diagonal 
-				matrix $D$. That is, suppose there is an invertible matrix 
-				$P$ such that $B=PDP^{-1}$. Then, if $\vec v_1$ is the first 
+				Consider the converse, and assume $B$ is similar to diagonal
+				matrix $D$. That is, suppose there is an invertible matrix
+				$P$ such that $B=PDP^{-1}$. Then, if $\vec v_1$ is the first
 				column of $P$ and $\lambda_1$ is the first entry on	the diagonal
 				of $D$, we would have
 				\[
@@ -8729,10 +8729,10 @@ While studying the subway map, you decide to pick two bases to help:
 				\]
 				meaning that $[\vec v_1]_{\mathcal E}$ is an eigenvector of $B$. Similarly, all
 				of the columns of $P$ would be eigenvectors of $B$, with eigenvalues
-				equal to the corresponding entry on the diagonal of $D$. Since $P$ is 
+				equal to the corresponding entry on the diagonal of $D$. Since $P$ is
 				invertible, its columns must be linearly independent, and therefore
 				the $n$ columns of $P$ would form a basis of $\R^n$ consisting of
-				eigenvectors of $B$. 
+				eigenvectors of $B$.
 			\end{solution}
 	\end{parts}
 
@@ -8793,7 +8793,7 @@ While studying the subway map, you decide to pick two bases to help:
 				\item The explanation for part 3 depends on whether you allow complex numbers.
 					If you allow complex numbers, then $\sum$ algebraic multiplicities = dim
 					of space. If not, it's $\leq$ dim of space. In either case, geometric
-					multiplicity $<$ algebraic multiplicity implies not diagonalizable. 
+					multiplicity $<$ algebraic multiplicity implies not diagonalizable.
 					But only in the case of an algebraically closed field do you get
 					converse.
 				\item If you like, you can bring up an example of a rotation that has non-real
@@ -8810,16 +8810,16 @@ While studying the subway map, you decide to pick two bases to help:
 				$F$ is diagonalizable if and only if there is a basis of $\R^2$
 				consisting of eigenvectors of $F$, so we begin by computing all
 				eigenvectors of $F$.
-				$\chr(F)=(3-\lambda)^2$, so the only eigenvalue of $F$ is $3$, 
+				$\chr(F)=(3-\lambda)^2$, so the only eigenvalue of $F$ is $3$,
 				meaning that the eigenvectors of $F$ are precisely the non-zero
-				vectors in $\Null(F-3I)$. We check that 
+				vectors in $\Null(F-3I)$. We check that
 				\[
 					\Null(F-3I)
 					=\Null\left(\mat{0&1\\0&0}\right)
 					=\Span\Set*{\mat{1\\0}},
 				\]
 				which is one-dimensional, and so there cannot be a basis of $\R^2$
-				consisting of eigenvectors of $F$. 
+				consisting of eigenvectors of $F$.
 			\end{solution}
 		\item Is $G$ diagonalizable?  Why or why not?
 			\begin{solution}
@@ -8828,8 +8828,8 @@ While studying the subway map, you decide to pick two bases to help:
 		\item What are the geometric and algebraic multiplicities of each eigenvalue
 			of $F$? What about the multiplicities for each eigenvalue of $G$?
 			\begin{solution}
-				The only eigenvalue for $F$ is $3$. Its geometric multiplicity is $1$, 
-				and its algebraic multiplicity is $2$. 
+				The only eigenvalue for $F$ is $3$. Its geometric multiplicity is $1$,
+				and its algebraic multiplicity is $2$.
 				
 				The only eigenvalue for $G$ is $3$. Its geometric and algebraic multiplicity is $2$.
 			\end{solution}
@@ -8839,7 +8839,7 @@ While studying the subway map, you decide to pick two bases to help:
 			match?
 		\begin{solution}
 				If one of the geometric multiplicities is smaller than the corresponding
-				algebraic multiplicity, $A$ cannot be diagonalizable. 
+				algebraic multiplicity, $A$ cannot be diagonalizable.
 				
 				Since the characteristic polynomial of an $n\times n$ matrix has degree $n$,
 				it has at most $n$ real roots. Since each root is an eigenvalue, we have
@@ -8874,9 +8874,12 @@ While studying the subway map, you decide to pick two bases to help:
 	\clearpage
 	\hbox{}
 	\newpage
+	\printindex[symbols]
+	
 	\printindex
 	
 	\printindex[definitions]
+	
 \end{bookonly}
 
 
