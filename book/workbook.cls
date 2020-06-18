@@ -1105,6 +1105,8 @@
 
 % make sure we are compatible with the older version of tcolorbox; tcbcol@frame was renamed to tcbcolframe in newer versions.
 \@ifundefined{\string\color@tcbcolframe}{\colorlet{tcbcolframe}{tcbcol@frame}}{}
+% The tex install on travis-ci does not have \shellescape for some reason...
+\@ifundefined{\string\shellescape}{\gdef\shellescape{0}}{}
 
 
 \initializebook
