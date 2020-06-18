@@ -1,0 +1,325 @@
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \
+%
+%%
+%%  default option for pdfx.sty  if not specified on the command-line.
+\providecommand{\pdfxopt}{a-1b}
+%%
+%%  Use  {filecontents}  for the  .xmpdata file before input encoding is specified.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{filecontents*}{\jobname.xmpdata}
+	% a macro definition, used below
+	\pdfxEnableCommands{% simple macro definitions can be provided everything expands to characters
+	 \def\RossPete{Ross \& Pete}
+	 }
+	\Title{Linear Algebra (\jobname)}%  *not* set by LaTeX's  \title
+	\Author{Jason Siefken\sep et al.}% *not* set by LaTeX's \author
+	\Subject{Linear Algebra textbook/workbook}
+	\Keywords{linear algebra\sep vectors\sep mathematics\sep textbook}
+	\Org{University of Toronto}
+	\CreatorTool{LaTeX + pdfx.sty with options \pdfxopt}
+	\Copyright{Jason Siefken}
+	\WebStatement{https://github.com/siefkenj/IBLLinearAlgebra/}% should be URL to copyright statement on the web
+	\CoverDisplayDate{2019}
+	\CoverDate{2019-08-014}%  must be in format  YYYY-MM-DD  or  YYYY-MM
+	\Doi{0.0.0.0}%
+	%
+	% setting the color profile, these reproduce the defaults; use your own, if required
+	%
+	% RGB is used with PDF/A (4 parameters):
+	\setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
+	%
+	%  For Adobe Color Profiles, set the directory for your system
+	%
+	%  e.g.  on Mac OS X
+	%  What is it under Windows ?
+	%
+	\gdef\ColorProfileDir{./common/}
+	% 
+	%  For available profiles, see file  AdobeColorProfiles.tex
+	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex
+	%
+	%  Now you can use the macros defined in those files:
+	 \FOGRAXXXIX
+	%
+	% or CMYK is used with  PDF/X (4 parameters)
+	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
+\end{filecontents*}
+
+\documentclass{workbook}
+
+
+% pdfx will set color profile etc. information appropriately, so the pdf renders
+% consistently across devices. But, it doesn't work with the xelatex-based tectonics
+\usepackage{ifxetex}
+	\usepackage[utf8]{inputenc}
+\ifxetex
+\else
+	\usepackage[a-3u]{pdfx}
+\fi
+
+%%%
+% import all needed packages and macros
+%%%
+\usepackage[yyyymmdd]{datetime}
+\input{common/preamble.tex}
+
+% in non-xelatex engines, hyperref is loaded by `pdfx`. If `pdfx` is not loaded, load it here.
+\ifxetex
+	\usepackage{hyperref}
+\else
+\fi
+
+%%%
+% Set up the footers to have the correct copyright notices
+%%%
+
+\fancypagestyle{siefken}{%
+	\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015--2019 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+	\lfoot{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+\fancypagestyle{iola}{%
+	\rfoot{\footnotesize\it \copyright\,IOLA Team \url{iola.math.vt.edu} \ \makebox(30,5){\includegraphics[height=2.2em]{images/iolalogo.png}}}
+	\lfoot{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\DeclareDocumentEnvironment{iola}{o}{%
+	\newpage
+	\pagestyle{iola}
+}{%
+	\newpage
+}
+
+
+%%
+% Allow hiding of environments
+%%
+\usepackage{environ}% http://ctan.org/pkg/environ
+\makeatletter
+\newcommand{\voidenvironment}[1]{%
+  \expandafter\providecommand\csname env@#1@save@env\endcsname{}%
+  \expandafter\providecommand\csname env@#1@process\endcsname{}%
+  \@ifundefined{#1}{}{\RenewEnviron{#1}{}}%
+}
+\makeatother
+% allow pagebreaks that only display in `standard` mode
+\newcommand{\displayonlynewpage}{\begin{displayonly}\newpage\end{displayonly}}
+% allow pagebreaks that only display in `book` mode
+\newcommand{\bookonlynewpage}{\begin{bookonly}\newpage\end{bookonly}}
+
+
+
+
+\setbookoptions{
+	twosided = false,
+	inline solutions = false,
+}
+
+
+\NewColoredEnvironment{
+	name = lesson,
+	display name = Lesson,
+	banner color = Plum,
+	title color = Plum,
+	banner on left = true,
+	open right = false,
+}
+\NewColoredEnvironment{
+	name = module,
+	display name = Module,
+	banner color = Turquoise,
+	title color = Cerulean,
+	definition color = Cerulean,
+	theorem color = myorange,
+}
+\NewColoredEnvironment{
+	name = appendix,
+	display name = Appendix,
+	banner color = Green,
+}
+
+
+
+
+
+
+\begin{document}
+%%
+%% Import definitions from definition.tex; all definitions can be restated multiple times
+%%
+
+\input{common/definitions.tex}
+
+%%
+%% End Definitions
+%%
+
+
+
+
+\pagestyle{empty}
+
+\begin{module}
+	\Title{Example Module}
+
+	You can use this template to
+	\begin{itemize}
+		\item Draft a module.
+		\item Test-drive some figures.
+		\item Play with colors!
+	\end{itemize}
+
+	You can write definitions:
+	\begin{definition}[Turtle Dove]
+		A \emph{bird} that is also a \emph{turtle}.
+	\end{definition}
+	or reference definitions from {\tt definitions.tex}.
+	\SavedDefinitionRender{SetAddition}
+\end{module}
+
+\begin{lesson}
+	\Title{Linear Combinations}
+
+	\Heading{Textbook}
+	Module 1
+
+	\Heading{Objectives}
+	\begin{itemize}
+		\item Internalize vectors as geometric objects representing displacements.
+
+		\item Use column vector notation to write vectors.
+
+		\item Relate points and vectors and be able to interpret a point as
+			a vector and a vector as a point.
+
+		\item Solve simple equations involving vectors.
+	\end{itemize}
+
+	\Heading{Motivation} Students have differing levels of experience with vectors.
+	We want to establish a common notation for vectors and use vector notation
+	along with algebra to solve simple questions. E.g., ``How can I get to location
+	$A$ given that I can only walk parallel to the lines $y=4x$ and $y=-x$?''
+
+
+	\begin{annotation}
+		\begin{notes}
+			\begin{itemize}
+			\item
+			We will use the language \emph{component of $\vec v$ in
+			the direction $\vec u$} in the future and it will be a \emph{vector}.
+			For this reason, try to refer to the entries of a column
+			vector as \emph{coordinates} or \emph{entries} instead of components.
+
+			\item
+			Though we will almost exclusively use
+			column vector notation in this course, students should be able to parse
+			questions phrased in terms of row vectors.
+			\end{itemize}
+		\end{notes}
+	\end{annotation}We will use column vector notation and the idea of equating
+	coordinates in order to solve problems.
+
+\end{lesson}
+
+\begin{iola}
+\section*{The Magic Carpet Ride}
+\addcontentsline{toc}{subsection}{The Magic Carpet Ride}
+
+\question
+\begin{annotation}
+	\begin{goals}
+		\Goal{Hands-on experience with vectors as displacements.}
+		\begin{itemize}
+			\item Internalize vectors as geometric objects representing
+				displacements.
+
+			\item Use column vector notation to write vectors.
+
+			\item Use pre-existing knowledge of algebra to answer vector
+				questions.
+		\end{itemize}
+	\end{goals}
+	\begin{notes}
+
+		\begin{itemize}
+			\item There are many ways to solve this problem.
+				Some students
+				might start with equations. After they use their
+				equations to solve the problem, make them draw a picture
+				and come up with a graphical solution.
+
+			\item When the students start coming up with vector equations,
+				give them the vocabulary of \emph{linear
+				combinations}
+				and \emph{column vector notation}.
+		\end{itemize}
+	\end{notes}
+\end{annotation}
+You are a young adventurer. Having spent most of your time in the mythical city of Oronto,
+	you decide to leave home for the first time. Your parents
+want to help you on your journey, so just before your departure, they give you two
+gifts. Specifically, they give you two forms of transportation: a hover board and
+a magic carpet. Your parents inform you that both the hover board and the magic carpet
+have restrictions in how they operate:
+
+\begin{minipage}{\textwidth}
+	\vspace{.5cm}
+	\begin{wrapfigure}{l}{1in}
+	\vspace{-.8cm}
+	\includegraphics[width=1in]{images/HoverBoard-small.png}
+	\end{wrapfigure}
+
+	We denote the restriction on the hover board's movement by the vector
+	$\mat{3 \\1}$. By this we mean that if
+	the hover board traveled ``forward'' for one hour, it would move along a
+	``diagonal'' path that would result in a displacement of 3 km East and
+	1 km North of its starting location.
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\vspace{.5cm}
+	\begin{wrapfigure}{l}{1in}
+	\vspace{-.8cm}
+	\includegraphics[width=1in]{images/MagicCarpet-small.png}
+	\end{wrapfigure}
+
+	We denote the restriction on the magic carpet's movement by the vector
+	$\mat{1 \\2 }$. By this we mean that if the
+	magic carpet traveled ``forward'' for one hour, it would move along a
+	``diagonal'' path that would result in a displacement of 1 km East and
+	2 km North of its starting location.
+\end{minipage}
+
+\lfoot{\footnotesize Drawings by \url{@DavidsonJohnR} (twitter)}
+
+\vspace{10mm}
+
+% Scenario Section
+\textbf{Scenario One: The Maiden Voyage}
+
+Your Uncle Cramer suggests that your first adventure should be to go visit
+the wise man, Old Man Gauss. Uncle Cramer tells you that Old Man Gauss
+lives in a cabin that is 107 km East and 64 km North of your home.
+
+\vspace{5mm}
+
+\textbf{Task:}
+\par
+Investigate whether or not you can use the hover board and the magic
+carpet to get to Gauss's cabin. If so, how? If it is not possible to
+get to the cabin with these modes of transportation, why is that the case?
+
+%\vspace{5mm}
+% As a group, state and explain your answer(s) on the group whiteboard. Use
+% the vector notation for each mode of transportation as part of your
+% explanation and use a diagram or graphic to help illustrate your
+% point(s).
+\end{iola}
+
+
+
+\end{document}
