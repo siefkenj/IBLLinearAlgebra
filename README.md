@@ -7,11 +7,10 @@ the material.  This project is to create a series of
 Linear Algebra problem-sets to guide students through the
 concepts of a one-term first course in linear algebra.
 
-In `problemsets-mat223` you will find a document containing
+In `/dist` you will find a document containing
 Linear Algebra questions that closely follow the order
 of topics presented in *Introduction to Linear Algebra for Science and Engineering*, Second Edition
-by Norman and Wolczuk.  There is also a short problem-set going over
-the basics of complex numbers.
+by Norman and Wolczuk.
 
 
 LaTeX Code
