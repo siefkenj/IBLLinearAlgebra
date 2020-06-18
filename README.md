@@ -7,17 +7,15 @@ the material.  This project is to create a series of
 Linear Algebra problem-sets to guide students through the
 concepts of a one-term first course in linear algebra.
 
-In `/dist` you will find a document containing
-Linear Algebra questions that closely follow the order
-of topics presented in *Introduction to Linear Algebra for Science and Engineering*, Second Edition
-by Norman and Wolczuk.
+Pre-compiled pdfs can be found in the `dist/` directory. Sourcecode
+can be found in the `book/` directory.
 
 
 LaTeX Code
 ----------
 
-A few macros were created to make typesetting these problem-sets
-easier.  Peek at the code to see them!
+A new document class `workbook.cls` was created to typeset this book. For details,
+please see the code in `book/`!
 
 
 License
