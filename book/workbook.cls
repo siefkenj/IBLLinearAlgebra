@@ -611,7 +611,7 @@
 			}
 		}{
 			% If we're here, we have provided the optional argument
-			\tl_put_right:Nn \l__display_title_tl { {~} \l__openmark_tl ##1 \l__closemark_tl . }
+			\tl_put_right:Nn \l__display_title_tl { {~} \l__openmark_tl ##1 \l__closemark_tl . {~} }
 
 		}
 
