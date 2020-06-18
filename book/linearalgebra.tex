@@ -187,6 +187,13 @@
 	name = appendix,
 	display name = Appendix,
 	banner color = Green,
+	title color = Green,
+}
+\NewColoredEnvironment{
+	name = indices,
+	display name = Indices,
+	banner color = Green,
+	title color = Green,
 }
 
 
@@ -239,10 +246,14 @@
 %%\voidenvironment{displayonly}
 
 % Allow an index to be created
-\makeindex[title=Index of Terms]
-\makeindex[name=definitions, title=Index of Definitions]
-\makeindex[name=symbols, title=Index of Symbols]
+\makeindex[title=Index of Terms, columns=3]
+\makeindex[name=definitions, title=Index of Definitions, columns=3]
+\makeindex[name=symbols, title=Index of Symbols, columns=3]
 
+\indexsetup{
+	level=\Heading,
+	noclearpage
+}
 
 
 \begin{document}
@@ -8871,14 +8882,18 @@ While studying the subway map, you decide to pick two bases to help:
 \newpage
 
 \begin{bookonly}
-	\clearpage
-	\hbox{}
-	\newpage
-	\printindex[symbols]
-	
-	\printindex
-	
-	\printindex[definitions]
+
+	\begin{indices}*
+		\Title{Indices}
+
+		\printindex[symbols]
+
+		\bigskip
+		\printindex
+
+		\bigskip
+		\printindex[definitions]
+	\end{indices}
 	
 \end{bookonly}
 
