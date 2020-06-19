@@ -80,7 +80,7 @@ changes area/volume. This number (which is associated with a linear transformati
 the same domain and codomain) is called the \emph{determinant}\footnote{ This number is \emph{almost} the determinant.
 The only difference is that the determinant might have a $\pm$ in front.}.
 
-\Heading{Volumes}
+\Heading{Volumes}\index{Volume}
 
 In this module, most examples will be in $\R^2$ because they're easier to draw.
 The definitions given will extend to $\R^n$ for any $n$, however we need to establish some conventions
@@ -91,7 +91,7 @@ will use the term volume to also mean area} where appropriate.
 To measure how volume changes, we need to compare input volumes and output volumes. 
 The easiest volume to compute is that of the \emph{unit $n$-cube}, which has a special notation.
 
-\SavedDefinitionRender{Unitncube}
+\SavedDefinitionRender{Unitncube}\index[definitions]{Unit $n$-cube}
 
 $C_2$ should look familiar as the unit square in $\R^2$ with lower-left corner at the origin.
 
@@ -509,14 +509,14 @@ as the change in volume between $\mathcal T(B_n)$ and $B_n$, which is $\VolChang
 The determinant of a linear transformation $\mathcal T:\R^n\to\R^n$ is \emph{almost} the same
 as $\VolChange(\mathcal T)$, but with one twist: \emph{orientation}.
 
-\SavedDefinitionRender{Determinant}
+\SavedDefinitionRender{Determinant}\index[definitions]{Determinant}
 
 We need to understand what the term \emph{oriented volume} means.
 We've previously defined the orientation of a basis, and we can use the orientation
 of a basis to define whether a linear transformation is \emph{orientation preserving}
 or \emph{orientation reversing}.
 
-\SavedDefinitionRender{OrientationPreservingLinearTransformation}
+\SavedDefinitionRender{OrientationPreservingLinearTransformation}\index[definitions]{Linear transformation!orientation preserving/reversing}
 
 \begin{center}
 	\begin{tikzpicture}
@@ -691,7 +691,7 @@ orientation preserving and $-\Vol\mathcal Q(X)$ if $\mathcal Q$ is orientation r
 \end{example}
 
 
-\Heading{Determinants of Composition}
+\Heading{Determinants of Composition}\index{Linear transformation!composition}
 
 Volume changes are naturally multiplicative. If a linear transformation $\mathcal T$ changes volume by a factor
 of $\alpha$ and $\mathcal S$ changes volume by a factor of $\beta$, then $\mathcal S\circ \mathcal T$ changes
@@ -822,7 +822,7 @@ to show that the composition of two orientation-reversing transformations is ori
 This means that we can compute the determinant of a complicated transformation by breaking it up
 into simpler ones and computing the determinant of each piece. 
 
-\Heading{Determinants of Matrices}
+\Heading{Determinants of Matrices}\index{Matrix!elementary matrices}
 
 The determinant of a matrix is defined as the determinant of its induced transformation.
 That means, the determinant is multiplicative with respect to matrix multiplication (because
@@ -965,7 +965,7 @@ Therefore, the volume of the parallelepiped given by the columns of $M$ must be 
 
 Based on this argument, we have the following theorem.
 \begin{theorem}
-	Let $A$ be an $n\times n$ matrix. $A$ is invertible if and only if $\det(A)\neq 0$.
+	Let $A$ be an $n\times n$ matrix. $A$ is invertible\index{Matrix!invertible} if and only if $\det(A)\neq 0$.
 \end{theorem}
 \begin{proof}
 	If $A$ is invertible, $A=E_1\cdots E_k$, where $E_1,\ldots,E_k$ are elementary matrices,

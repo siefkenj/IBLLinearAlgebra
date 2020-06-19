@@ -3,7 +3,7 @@ Associated with every linear transformation
 are two specially named subspaces: the range and the null space.
 
 \Heading{Range}
-\SavedDefinitionRender{Range}
+\SavedDefinitionRender{Range}\index[definitions]{Linear transformation!range (image)}
 
 The range of a linear transformation has the exact same definition as the range of a function---it's the set of all outputs.
 In other words, the range of a linear transformation is the \emph{image} of the entire domain with respect to that linear
@@ -13,7 +13,7 @@ is always a subspace.
 
 \begin{theorem}
 	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Range(T)\subseteq \R^m$ is a
-	subspace.
+	subspace\index{Subspace!range}.
 \end{theorem}
 \begin{proof}
 	Since $\Range(T)=T(\R^n)$ and $\R^n$ is non-empty, we know that $\Range(T)$ is non-empty.
@@ -41,7 +41,7 @@ When analyzing subspaces, we are often interested in how big they are. That info
 \emph{dimension} of the subspace. For transformations, we also have a notion of how ``big'' they are, which is captured
 in a number called the \emph{rank}.
 
-\SavedDefinitionRender{RankofaLinearTransformation}
+\SavedDefinitionRender{RankofaLinearTransformation}\index[definitions]{Linear transformation!rank}
 
 The rank of a linear transformation can be used to measure
 its complexity or compressibility. A rank $0$ transformation must send all vectors to $\vec 0$. A rank
@@ -65,7 +65,7 @@ can judge how complicated the set of outputs of a linear transformation will be.
 \Heading{Null Space}
 The second special subspace is called the \emph{null space}.
 
-\SavedDefinitionRender{NullSpace}
+\SavedDefinitionRender{NullSpace}\index[definitions]{Linear transformation!null space}
 
 We've seen null spaces before. In the context of matrices when we asked questions like, ``Are these column vectors
 linearly independent?'' Now that we understand linear transformation and subspaces,
@@ -74,7 +74,7 @@ we can consider this question anew.
 Just like the range of a linear transformation, the null space of a linear transformation is always a subspace.
 
 \begin{theorem}
-	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Null(T)\subseteq \R^n$ is a subspace.
+	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Null(T)\subseteq \R^n$ is a subspace\index{Subspace!null space}.
 \end{theorem}
 \begin{proof}
 	Since $T$ is linear, $T(\vec 0)=\vec 0$ and so $\vec 0\in\Null(T)$ which shows that $\Null(T)$ is non-empty.
@@ -100,7 +100,7 @@ Just like the range of a linear transformation, the null space of a linear trans
 Akin to the rank--range connection, there is a special number called the \emph{nullity} 
 which specifies the dimension of the null space.
 
-\SavedDefinitionRender{Nullity}
+\SavedDefinitionRender{Nullity}\index[definitions]{Linear transformation!nullity}
 
 \begin{example}
 	Let $\mathcal P$ be the plane given by $x+y+z=0$, and let $T:\R^3\to\R^3$ be projection onto $\mathcal P$.
@@ -123,7 +123,7 @@ which specifies the dimension of the null space.
 Every linear transformation has a range and a null space. Analogously, every matrix is associated with
 three fundamental subspaces.
 
-\SavedDefinitionRender{FundamentalSubspaces}
+\SavedDefinitionRender{FundamentalSubspaces}\index[definitions]{Matrix!fundamental subspaces}
 
 Computationally, it's much easier to find the row space/column space/null space of a matrix than it is
 to find the range/null space of a linear transformation because we can turn matrix questions into systems
@@ -183,7 +183,7 @@ When talking about fundamental subspaces, we often switch between talking about 
 row vectors belonging to a matrix. The operation of swapping rows for columns is
 called the \emph{transpose}.
 
-\SavedDefinitionRender{Transpose}
+\SavedDefinitionRender{Transpose}\index[definitions]{Matrix!transpose}
 
 Using the transpose, we can make statements like
 \[
@@ -197,7 +197,7 @@ In addition, it helps us state the following theorem.
 \end{theorem}
 \begin{proof}
 	To prove $\Rank(A)=\Rank(A^T)$, we will rely on what we know about the row reduction algorithm and what
-	the reduced row echelon form of a matrix tells us.
+	the reduced row echelon form\index{Matrix!reduced row echelon form} of a matrix tells us.
 
 	\emph{Claim 1}: $\Row(\Rref(A))\subseteq \Row(A)$. To see this, observe that to get $\Rref(A)$, we take
 	linear combinations of the rows of $A$. Therefore, it must be that the span of the rows of $\Rref(A)$
@@ -367,7 +367,7 @@ next multiplying by the matrix, and finally taking the list of numbers and using
 for a linear combination involving the basis vectors. This is what we actually mean
 when we say that a matrix \emph{induces} a linear transformation.
 
-\SavedDefinitionRender{InducedTransformation}
+\SavedDefinitionRender{InducedTransformation}\index[definitions]{Linear transformation! matrix representation}
 
 Previously, we would write ``$\mathcal T(\vec x)=M\vec x$'' which hides the fact that when we relate a matrix and a linear
 transformation, there is a basis hidden in the background. And, like before, when we're only considering a single basis,
@@ -392,8 +392,8 @@ trying to be extra precise, we must make sure our boxes/lists of numbers and our
 Using induced transformations, we can extend linear-transformation definitions to matrix definitions.
 In particular, we can define the rank and nullity of a matrix.
 
-\SavedDefinitionRender{RankofaMatrix}
-\SavedDefinitionRender{NullityofaMatrix}
+\SavedDefinitionRender{RankofaMatrix}\index[definitions]{Matrix!rank}
+\SavedDefinitionRender{NullityofaMatrix}\index[definitions]{Matrix!nullity}
 
 \Heading{Range vs\mbox{.} Column Space \& Null Space vs\mbox{.} Null Space}
 Let $M=\mat{C_1&C_2&\cdots &C_m}$ be an $m\times m$ matrix with columns $C_1$, \ldots, $C_m$, and let $\mathcal T$ be
@@ -492,7 +492,7 @@ $\Null(\mathcal T)=\Null(M)$. From this fact, we deduce the following theorem.
 
 The rank and the nullity of a linear transformation/matrix are connected by a powerful theorem.
 
-\begin{theorem}(Rank-nullity Theorem for Matrices) For a matrix $A$,
+\begin{theorem}(Rank-nullity Theorem for Matrices)\index{Matrix!rank-nullity theorem} For a matrix $A$,
 \[
 	\Rank(A)+\Nullity(A)=\ \#\text{ of columns in $A$}.
 \]
@@ -513,7 +513,7 @@ and so has nullity $2$. Therefore, there exist two linearly independent normal d
 
 \medskip
 There is an equivalent Rank-nullity Theorem for linear transformations.
-\begin{theorem}(Rank-nullity Theorem for Linear Transformations) Let $\mathcal T$ be a linear transformation.
+\begin{theorem}(Rank-nullity Theorem for Linear Transformations)\index{Linear transformation!rank-nullity theorem} Let $\mathcal T$ be a linear transformation.
 Then
 \[
 	\Rank(\mathcal T)+\Nullity(\mathcal T)=\Dim(\text{domain of $\mathcal T$}).

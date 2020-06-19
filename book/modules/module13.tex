@@ -50,7 +50,7 @@ For a basis $\mathcal A$, the invertible function that takes a vector $\vec x$ a
 is a linear function. Therefore, for bases $\mathcal A$ and $\mathcal B$, the function that converts $[\vec x]_{\mathcal A}$ to $[\vec x]_{\mathcal B}$
 must have a matrix. This matrix is called the \emph{change of basis} matrix.
 
-\SavedDefinitionRender{ChangeofBasisMatrix}
+\SavedDefinitionRender{ChangeofBasisMatrix}\index[definitions]{Matrix!change of basis}
 
 \begin{example}
 	Let $\mathcal A=\Set{\vec a_1,\vec a_2}$ where $\vec a_1=\mat{1\\1}_{\mathcal E}$ and $\vec a_2=\mat{1\\-1}_{\mathcal E}$ and let
@@ -122,7 +122,7 @@ take vectors and rewrite them in the same basis, which is to say, they do nothin
 The argument above shows that every change of basis matrix is invertible. The converse is also true.
 
 \begin{theorem}
-	An $n\times n$ matrix is invertible if and only if it is a change of basis matrix.
+	An $n\times n$ matrix is invertible\index{Matrix!invertible} if and only if it is a change of basis matrix.
 \end{theorem}
 \begin{proof}
 	Suppose $M=\BasisChange{\mathcal A}{\mathcal B}$ is a change-of-basis matrix. Then
@@ -170,7 +170,7 @@ This matrix is defined as the matrix $M$ so that
 \]
 But, what if we swapped out $\mathcal E$ for a different basis?
 
-\SavedDefinitionRender{LinearTransformationinaBasis}
+\SavedDefinitionRender{LinearTransformationinaBasis}\index[definitions]{Linear transformation! matrix representation}
 
 Just like there are many ways to write down coordinates for a vector---one per choice of basis---there
 are many ways to write down a matrix for a linear transformation. Up to this point, when we've said
@@ -277,7 +277,7 @@ two matrices relate to each other. After all,
 \]
 In this case, we call these matrices \emph{similar}\footnote{ Another commonly used term is \emph{conjugate}.}.
 
-\SavedDefinitionRender{SimilarMatrices}
+\SavedDefinitionRender{SimilarMatrices}\index[definitions]{Matrix!similar matrices}
 
 The $X$ in the definition of similar matrices is always a change-of-basis matrix. 
 
