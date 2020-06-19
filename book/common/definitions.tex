@@ -72,8 +72,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=ZeroVector, title={Zero Vector}]
-		The \emph{zero vector}\index{Zero vector ($\vec 0$)}\index[definitions]{Zero vector ($\vec 0$)}, notated as
-		$\vec 0$\index[symbols]{$\vec 0$},
+		The \emph{zero vector}\index{Zero vector ($\vec 0$)}\index[definitions]{Zero vector ($\vec 0$)}, notated as $\vec 0$[\index[symbols]{$\vec 0$},
 		is the vector with no magnitude.
 \end{SaveDefinition}
 
@@ -175,12 +174,10 @@
 	title={Trivial Linear Combination}]
 
 	The linear combination $\alpha_1\vec v_1+\cdots+\alpha_n\vec v_n$ is called
-	\emph{trivial}\index{Linear combination!trivial}
+	\emph{trivial}\index{Linear combination!trivial}\index[definitions]{Linear combination!trivial}
 	if $\alpha_1=\cdots=\alpha_n=0$. If at least one $\alpha_i\neq 0$,
 	the linear combination is called \emph{non-trivial}.
 \end{SaveDefinition}
-
-% 2020/6/9 Above; editing finished; review
 
 \begin{SaveDefinition}[
 	key=LinearlyDependentIndependentAlgebraic,
@@ -198,7 +195,7 @@
 
 	A system of linear equations or a vector equation in the variables $\alpha_1$, \ldots, 
 	$\alpha_n$ is called
-	\emph{homogeneous} if it takes the form
+	\emph{homogeneous}\index{System of linear equations!homogeneous}\index[definitions]{Homogeneous system} if it takes the form
 	\[
 		\alpha_1\vec v_1+\alpha_2\vec v_2+\cdots +\alpha_n\vec v_n=\vec 0,
 	\]
@@ -233,7 +230,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Direction, title={Direction}]
-	The vector $\vec u$ points in the \emph{direction} of
+	The vector $\vec u$ points in the \emph{direction}\index{Direction}\index{Vector!positive direction of} of
 	the vector $\vec v$ if $k\vec u=\vec v$ for some scalar $k$.
 	The vector $\vec u$ points in the \emph{positive direction} of
 	$\vec v$ if $k\vec u=\vec v$ for some positive scalar $k$.
@@ -252,19 +249,19 @@
 
 \begin{SaveDefinition}[key=Orthogonal, title={Orthogonal}]
 	Two vectors $\vec u$ and $\vec v$ are
-	\emph{orthogonal} to each other if $\vec u\cdot \vec v=0$. The word orthogonal
+	\emph{orthogonal}\index{Orthogonality}\index[definitions]{Orthogonality} to each other if $\vec u\cdot \vec v=0$. The word orthogonal
 	is synonymous with the word perpendicular.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=NormalVector, title={Normal Vector}]
 	A
-	\emph{normal vector} to a line (or plane or hyperplane) is a non-zero
+	\emph{normal vector}\index[definitions]{Line!normal vector}[definitions]\index{Plane!normal vector}\index{Line!normal vector}\index{Plane!normal vector} to a line (or plane or hyperplane) is a non-zero
 	vector that is orthogonal to all direction vectors for the line (or plane
 	or hyperplane).
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=NormalFormofaLine, title={Normal Form of a Line}]
-	A line $\ell\subseteq \R^2$ is expressed in \emph{normal form} if $\ell$
+	A line $\ell\subseteq \R^2$ is expressed in \emph{normal form}\index{Line!normal form}\index[definitions]{Line!normal form} if $\ell$
 	is the solution set to the equation
 	\[
 		\vec n\cdot (\vec x-\vec p)=0
@@ -273,7 +270,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Hyperplane, title={Hyperplane}]
-	The set $X\subseteq \R^n$ is called a \emph{hyperplane} if there
+	The set $X\subseteq \R^n$ is called a \emph{hyperplane}\index{Hyperplane}\index[definitions]{Hyperplane} if there
 	exists $\vec n\neq \vec 0$ and $\vec p$ so that $X$ is the set of solutions
 	to the equation
 	\[
@@ -285,14 +282,14 @@
 \begin{SaveDefinition}[key=Projection, title={Projection}]
 	Let $X$ be a set. The
 	\emph{projection} of the vector $\vec v$ onto $X$, written $\Proj_{X}\vec
-	v$, is the closest point in $X$ to $\vec v$.
+	v$, is the closest point in $X$ to $\vec v$.\index[definitions]{Projection}\index{Projection}\index[symbols]{$\Proj_{X}\vec v$}
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Component, title={Vector Components}]
 	Let $\vec u$ and $\vec v\neq \vec 0$ be vectors. The
 	\emph{vector component of $\vec u$ in the $\vec v$ direction}, written $\Comp_{\vec
 	v}\vec u$, is the vector in the direction of $\vec v$ so that
-	$\vec u-\Comp_{\vec v}\vec u$ is orthogonal to $\vec v$.
+	$\vec u-\Comp_{\vec v}\vec u$ is orthogonal to $\vec v$.\index{Vector component}\index[definitions]{Vector component}\index[symbols]{$\Comp_{\vec v}\vec u$}
 	\begin{center}
 		\usetikzlibrary{patterns, decorations.pathreplacing}
 		\begin{tikzpicture}[>=latex, scale=2.5]
@@ -318,7 +315,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Subspace, title={Subspace}]
-	A non-empty subset $V\subseteq \R^{n}$ is called a \emph{subspace} if for all $\vec u,\vec v\in V$ and all
+	A non-empty subset $V\subseteq \R^{n}$ is called a \emph{subspace}\index{Subspace}\index[definitions]{Subspaces} if for all $\vec u,\vec v\in V$ and all
 	scalars $k$ we have
 	\begin{enumerate}
 		\item[(i)] $\vec u+\vec v\in V$; and
@@ -328,23 +325,23 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=TrivialSubspace, title={Trivial Subspace}]
-	The subset $\Set{\vec 0}\subseteq\R^n$ is called the \emph{trivial subspace}.
+	The subset $\Set{\vec 0}\subseteq\R^n$ is called the \emph{trivial subspace}\index{Subspace!trivial subspace}\index[definitions]{Subspace!trivial subspace}.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Basis, title={Basis}]
 	A
-	\emph{basis} for a subspace $\mathcal V$ is a linearly independent set of vectors,
+	\emph{basis}\index[definitions]{Basis}\index{Basis} for a subspace $\mathcal V$ is a linearly independent set of vectors,
 	$\mathcal B$, so that $\Span\mathcal B=\mathcal V$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Dimension, title={Dimension}]
 	The
-	\emph{dimension} of a subspace $V$ is the number of elements in a basis
+	\emph{dimension}\index[definitions]{Subspace!dimension}\index{Subspace!dimension} of a subspace $V$ is the number of elements in a basis
 	for $V$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=StandardBasisforRn, title={Standard Basis}]
-	The \emph{standard basis} for $\R^n$ is the set $\Set{\vec e_1,\ldots,\vec e_n}$ where
+	The \emph{standard basis}\index[definitions]{Basis!standard basis}\index{Basis!standard basis} for $\R^n$ is the set $\Set{\vec e_1,\ldots,\vec e_n}$ where
 	\[
 		\vec e_1=\matc{1\\0\\0\\\vdots}\qquad
 		\vec e_2=\matc{0\\1\\0\\\vdots}\qquad
