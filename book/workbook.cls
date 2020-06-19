@@ -583,6 +583,13 @@
 			\def\par{\oldpar\medskip\let\par\oldpar}
 		}
 	}
+	\_workbook_define_new_theorem_box:nn {objectives} {
+		% For definitions, we just print the term being defined without the word "Definition"
+		% in front.
+		display~name = {},
+		color = \prop_item:Nn \g_workbook_environments_prop {#1/emphbox~color},
+		bgcolor = \prop_item:Nn \g_workbook_environments_prop {#1/emphbox~bgcolor},
+	}
 }
 
 % Create an environment with a `leftborderbox`
