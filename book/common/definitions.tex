@@ -72,7 +72,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=ZeroVector, title={Zero Vector}]
-		The \emph{zero vector}\index{Zero vector ($\vec 0$)}\index[definitions]{Zero vector ($\vec 0$)}, notated as $\vec 0$[\index[symbols]{$\vec 0$},
+		The \emph{zero vector}\index{Zero vector ($\vec 0$)}\index[definitions]{Zero vector ($\vec 0$)}, notated as $\vec 0$\index[symbols]{$\vec 0$},
 		is the vector with no magnitude.
 \end{SaveDefinition}
 
@@ -249,7 +249,7 @@
 
 \begin{SaveDefinition}[key=Orthogonal, title={Orthogonal}]
 	Two vectors $\vec u$ and $\vec v$ are
-	\emph{orthogonal}\index{Orthogonality}\index[definitions]{Orthogonality} to each other if $\vec u\cdot \vec v=0$. The word orthogonal
+	\emph{orthogonal}\index{Orthogonal}\index[definitions]{Orthogonal} to each other if $\vec u\cdot \vec v=0$. The word orthogonal
 	is synonymous with the word perpendicular.
 \end{SaveDefinition}
 
@@ -290,7 +290,7 @@
 	Let $\vec u$ and $\vec v\neq \vec 0$ be vectors. The
 	\emph{vector component of $\vec u$ in the $\vec v$ direction}, written $\Comp_{\vec
 	v}\vec u$, is the vector in the direction of $\vec v$ so that
-	$\vec u-\Comp_{\vec v}\vec u$ is orthogonal to $\vec v$.\index{Vector component}\index[definitions]{Vector component}\index[symbols]{$\Comp_{\vec v}\vec u$}
+	$\vec u-\Comp_{\vec v}\vec u$ is orthogonal to $\vec v$.\index{Vector component}\index[definitions]{Vector component}\index[symbols]{$\Vcomp_{\vec v}\vec u$}
 	\begin{center}
 		\usetikzlibrary{patterns, decorations.pathreplacing}
 		\begin{tikzpicture}[>=latex, scale=2.5]
@@ -358,8 +358,8 @@
 
 	Let $\mathcal B=\Set{\vec b_1,\ldots,\vec b_n}$ be a basis for a
 	subspace $V$ and let $\vec v\in V$. The
-	\emph{representation of $\vec v$ in the $\mathcal B$ basis}, notated $[\vec
-	v]_{\mathcal B}$, is the column matrix
+	\emph{representation of $\vec v$ in the $\mathcal B$ basis}\index{Vector!representation in a basis}\index[definitions]{Vector!representation in a basis}, notated $[\vec
+	v]_{\mathcal B}$\index[symbols]{$[\vec v]_{\mathcal B}$}, is the column matrix
 	\[
 		[\vec v]_{\mathcal B}= \matc{\alpha_1\\\vdots\\\alpha_n}
 	\]
@@ -377,7 +377,7 @@
 
 \begin{SaveDefinition}[key=OrthonormalBasis, title={Orthonormal Basis}]
 	A basis $\mathcal B=\{\vec b_{1},\ldots,\vec b_{n}\}$ is called
-	\emph{orthonormal} if every basis vector is a unit vector and all
+	\emph{orthonormal}\index[definitions]{Basis!orthonormal basis}\index{Basis!orthonormal basis} if every basis vector is a unit vector and all
 	basis vectors are orthogonal to each other. That is,
 	\[
 		\vec b_i\cdot \vec b_j=\begin{cases}
@@ -389,18 +389,18 @@
 
 \begin{SaveDefinition}[key=OrientationofaBasis, title={Orientation of a Basis}]
 	The ordered basis $\mathcal B=\{\vec b_{1},\ldots,\vec b_{n}\}$ is
-	\emph{right-handed} or
-	\emph{positively oriented} if it can be continuously transformed to the
+	\emph{right-handed}\index[definitions]{Basis!right-handed}\index{Basis!right handed} or
+	\emph{positively oriented}\index[definitions]{Basis!positively oridented}\index{Basis!positively oriented} if it can be continuously transformed to the
 	standard basis (with $\vec b_{i}\mapsto \vec e_{i}$) while remaining
 	linearly independent throughout the transformation. Otherwise,
 	$\mathcal B$ is called
-	\emph{left-handed} or
-	\emph{negatively oriented}.
+	\emph{left-handed}\index[definitions]{Basis!left-handed}\index{Basis!left-handed} or
+	\emph{negatively oriented}\index[definitions]{Basis!negatively oriented}\index{negatively oriented}.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=LinearTransformation, title={Linear Transformation}]
 	Let $V$ and $W$ be subspaces. A function $T:V\to W$ is called a
-	\emph{linear transformation} if
+	\emph{linear transformation}\index[definitions]{Linear transformation}\index{Linear transformation} if
 	\[
 		T(\vec u+\vec v)=T(\vec u)+T(\vec v) \qquad\text{and}\qquad T(\alpha
 		\vec v)=\alpha T(\vec v)
@@ -410,7 +410,7 @@
 
 \begin{SaveDefinition}[key=ImageofaSet, title={Image of a Set}]
 	Let $L:\R^n\to \R^m$ be a transformation and let $X\subseteq \R^n$ be a set. The
-	\emph{image of the set $X$ under $L$}, denoted $L(X)$, is the set
+	\emph{image of the set $X$ under $L$}\index[definitions]{Set!image of}\index{Set!image of}, denoted $L(X)$\index[symbols]{$L(X)$ (Image of a set)}, is the set
 	\[
 		L(X)=\Set{\vec y\in \R^m \given \vec y=L(\vec x)\text{ for some }\vec
 		x\in X}.
@@ -418,7 +418,7 @@
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=CompositionofFunctions, title={Composition of Functions}]
-	Let $f:A\to B$ and $g:B\to C$. The \emph{composition} of $g$ and $f$, notated $g\circ f$,
+	Let $f:A\to B$ and $g:B\to C$. The \emph{composition}\index[definitions]{Function!composition}\index{Function!composition} of $g$ and $f$, notated $g\circ f$\index[symbols]{$g\circ f$},
 	is the function $h:A\to C$ defined by
 	\[
 		h(x)=g\circ f(x) = g\Big(f(x)\Big).
@@ -428,7 +428,7 @@
 \begin{SaveDefinition}[key=Range, title={Range}]
 	The
 	\emph{range} (or
-	\emph{image}) of a linear transformation $T:V\to W$ is the set of vectors
+	\emph{image})\index[definitions]{Linear transformation!range (image)}\index{Linear transformation!range (image)} of a linear transformation $T:V\to W$ is the set of vectors
 	that $T$ can output. That is,
 	\[
 		\Range(T)=\Set{\vec y\in W \given \vec y=T\vec x\text{ for some }\vec
@@ -440,7 +440,7 @@
 \begin{SaveDefinition}[key=NullSpace, title={Null Space}]
 	The
 	\emph{null space} (or
-	\emph{kernel}) of a linear transformation $T:V\to W$ is the set of vectors
+	\emph{kernel})\index[definitions]{Linear transformation!null space (kernel)}\index{Linear transformations!null space (kernel)} of a linear transformation $T:V\to W$ is the set of vectors
 	that get mapped to the zero vector under $T$. That is,
 	\[
 		\Null(T)=\Set{\vec x\in V \given T\vec x=\vec 0}.
@@ -453,7 +453,7 @@
 	title={Induced Transformation}]
 
 	Let $M$ be an $n\times m$ matrix. We say $M$
-	\emph{induces} a linear transformation $\mathcal T_{M}:\R^{m}\to\R^{n}$ defined
+	\emph{induces}\index[definitions]{Matrix!linear transformation induced by}\index{Matrix!linear transformation induced by}\index[definitions]{Linear transformation!induced}\index{Linear transformation!induced} a linear transformation $\mathcal T_{M}:\R^{m}\to\R^{n}$ defined
 	by
 	\[
 		[\mathcal T_{M}\vec v]_{\mathcal E'}= M[\vec v]_{\mathcal E},
@@ -474,7 +474,7 @@
 		\vdots &\vdots&\vdots &\ddots&\vdots\\
 		a_{n1}&a_{n2}&a_{n3}&\cdots&a_{nm}}.
 	\]
-	The \emph{transpose} of $M$, notated $M^T$, is the $m\times n$ matrix produced by swapping the rows
+	The \emph{transpose}\index[definitions]{Matrix!transpose of}\index{Matrix!transpose of} of $M$, notated $M^T$\index[symbols]{$M^T$}, is the $m\times n$ matrix produced by swapping the rows
 	and columns of $M$. That is
 	\[
 		M^T=\matc{
@@ -490,14 +490,14 @@
 	key=ElementaryMatrix,
 	title={Elementary Matrix}]
 
-	A matrix is called an \emph{elementary matrix} if it is an identity matrix with a single elementary row operation applied.
+	A matrix is called an \emph{elementary matrix}\index[definitions]{Matrix!elementary matrix}\index{Matrix!elementary matrix} if it is an identity matrix with a single elementary row operation applied.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
 	key=MatrixInverse,
 	title={Matrix Inverse}]
 		
-	The \emph{inverse} of a matrix $A$ is a
+	The \emph{inverse}\index[definitions]{Matrix!inverse of}\index{Matrix!inverse of} of a matrix $A$ is a
 		matrix $B$ such that $AB=I$ and $BA=I$.
 		In this case, $B$ is called the inverse of $A$ and is notated $A^{-1}$.
 \end{SaveDefinition}
@@ -506,8 +506,8 @@
 	key=IdentityFunction,
 	title={Identity Function}]
 	
-	Let $X$ be a set. The \emph{identity function} with domain and codomain $X$,
-	notated $\Ident:X\to X$, is the function satisfying
+	Let $X$ be a set. The \emph{identity function}\index[definitions]{Function!identity}\index{Function!identity} with domain and codomain $X$,
+	notated $\Ident:X\to X$\index[symbols]{$\Ident$}, is the function satisfying
 	\[
 		\Ident(x)=x
 	\]
@@ -518,9 +518,9 @@
 	key=InverseFunction,
 	title={Inverse Function}]
 		
-	Let $f:X\to Y$ be a function. We say $f$ is \emph{invertible} if
+	Let $f:X\to Y$ be a function. We say $f$ is \emph{invertible}\index[definitions]{Function!invertible function}\index{Function!invertible function} if
 	there exists a function $g:Y\to X$ so that $f\circ g=\Ident$ and $g\circ f=\Ident$.
-	In this case, we call $g$ an \emph{inverse} of $f$ and write
+	In this case, we call $g$ an \emph{inverse}\index[definitions]{Function!inverse of}\index{Function!inverse of} of $f$ and write
 	\[
 		f^{-1}=g.
 	\]
@@ -530,7 +530,7 @@
 	key=Onetoone,
 	title={One-to-one}]
 		
-	Let $f:X\to Y$ be a function. We say $f$ is \emph{one-to-one} (or \emph{injective}) if
+	Let $f:X\to Y$ be a function. We say $f$ is \emph{one-to-one}\index[definitions]{One-to-one function}\index{One-to-one function} (or \emph{injective}) if
 	distinct inputs to $f$ produce distinct outputs. That is $f(x)=f(y)$ implies $x=y$.
 \end{SaveDefinition}
 
@@ -539,7 +539,7 @@
 	title={Onto}]
 		
 	Let $f:X\to Y$ be a function.
-	We say $f$ is \emph{onto} (or \emph{surjective}) if every point in the codomain of $f$ gets mapped to.
+	We say $f$ is \emph{onto}\index{Onto function}\index[definitions]{Onto function} (or \emph{surjective}) if every point in the codomain of $f$ gets mapped to.
 	That is $\Range(f)=Y$.
 \end{SaveDefinition}
 
@@ -547,63 +547,64 @@
 	key=IdentityMatrix,
 	title={Identity Matrix}]
 	
-	An \emph{identity matrix} is a square matrix with ones on the diagonal
+	An \emph{identity matrix}\index{Matrix!identity}\index[definitions]{Matrix!identity} is a square matrix with ones on the diagonal
 	and zeros everywhere else. The $n\times n$ identity matrix is denoted $I_{n\times n}$,
 	or just $I$ when its size is implied.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=FundamentalSubspaces, title={Fundamental Subspaces}]
+	\index{Matrix!fundmamental subspaces of}\index[definitions]{Matrix!fundamental subspaces of}
 	Associated with any matrix $M$ are three fundamental subspaces: the
-	\emph{row space} of $M$, denoted $\Row(M)$, is the span of the rows of
+	\emph{row space}\index{Matrix!row space}\index[definitions]{Matrix!row space} of $M$, denoted $\Row(M)$\index[symbols]{$\Row(M)$}, is the span of the rows of
 	$M$; the
-	\emph{column space} of $M$, denoted $\Col(M)$, is the span of the
+	\emph{column space}\index{Matrix!column space}\index[definitions]{Matrix!column space} of $M$, denoted $\Col(M)$\index[symbols]{$\Col(M)$}, is the span of the
 	columns of $M$; and the
-	\emph{null space} of $M$, denoted $\Null(M)$, is the set of solutions to
+	\emph{null space}\index{Matrix!null space}\index[definitions]{Matrix!null space} of $M$, denoted $\Null(M)$\index[symbols]{$\Null(M)$}, is the set of solutions to
 	$M\vec x=\vec 0$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=RankofaLinearTransformation, title={Rank of a Linear Transformation}]
 	For a linear transformation $T:\R^n\to \R^m$, the
-	\emph{rank} of $T$, denoted $\Rank(T)$, is the dimension of the range of
+	\emph{rank}\index[definitions]{Linear transformation!rank}\index{Linear transformation!rank} of $T$, denoted $\Rank(T)$\index[symbols]{$\Rank(T)$}, is the dimension of the range of
 	$T$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=RankofaMatrix, title={Rank of a Matrix}]
 	Let $M$ be a matrix.
-	The \emph{rank} of $M$, denoted $\Rank(M)$, is the rank of
+	The \emph{rank}\index[definitions]{Matrix!rank}\index{Matrix!rank} of $M$, denoted $\Rank(M)$\index[symbols]{$\Rank(M)$}, is the rank of
 	the linear transformation induced by $M$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=NullityofaMatrix, title={Nullity of a Matrix}]
 	Let $M$ be a matrix.
-	The \emph{nullity} of $M$, denoted $\Nullity(M)$, is the nullity of
+	The \emph{nullity}\index[definitions]{Matrix!nullity}\index{Matrix!nullity} of $M$, denoted $\Nullity(M)$\index[symbols]{$\Nullity(M)$}, is the nullity of
 	the linear transformation induced by $M$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Rank, title={Rank}]
 	For a linear transformation $T:\R^n\to \R^m$, the
 	\emph{rank} of $T$, denoted $\Rank(T)$, is the dimension of the range of
-	$T$.
+	$T$.\index[definitions]{Linear transformation!rank}\index{Linear transformation!rank}
 
 	For an $m\times n$ matrix $M$, the
 	\emph{rank} of $M$, denoted $\Rank(M)$, is the number of pivots in
-	$\rref(M)$.
+	$\rref(M)$.\index[definitions]{Matrix!nullity}\index{Matrix!nullity}
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Nullity, title={Nullity}]
 	For a linear transformation $T:\R^n\to \R^m$, the
 	\emph{nullity} of $T$, denoted $\Nullity(T)$, is the dimension of the null space of
-	$T$.
+	$T$.\index[definitions]{Linear transformation!nullity}\index{Linear transformation!nullity}
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=ChangeofBasisMatrix, title={Change of Basis Matrix}]
 	Let $\mathcal A$ and $\mathcal B$ be bases for $\R^n$. The matrix $M$ is called
-	a \emph{change of basis} matrix (which converts from $\mathcal A$ to $\mathcal B$) if
+	a \emph{change of basis} matrix\index[definition]{Change of basis matrix}\index{Change of basis matrix} (which converts from $\mathcal A$ to $\mathcal B$) if
 	for all $\vec x\in \R^n$
 	\[
 		M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal B}.
 	\]
-	 Notationally, $\BasisChange{\mathcal A}{\mathcal B}$
+	 Notationally, $\BasisChange{\mathcal A}{\mathcal B}$\index[symbols]{$\BasisChange{\mathcal A}{\mathcal B}$}
 	stands for the change of basis matrix converting from $\mathcal A$ to $\mathcal B$,
 	and we may write $M=\BasisChange{\mathcal A}{\mathcal B}$.
 \end{SaveDefinition}
@@ -618,6 +619,7 @@
 	\]
 	In this case, we say the matrix $[\mathcal T]_{\mathcal B}$ is the representation
 	of $\mathcal T$ in the $\mathcal B$ basis.
+	\index{Matrix!of a linear transformation}\index[definitions]{Matrix!of a linear transformation}\index{Linear transformation!representation in a basis}\index[definitions]{Linear transformation!representation in a basis}
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=SimilarMatrices, title={Similar Matrices}]
@@ -627,48 +629,48 @@
 	$A\sim B$ if there is an invertible matrix $X$ so that
 	\[
 		A=XBX^{-1}.
-	\]
+	\]\index[definitions]{Matrix!similar}\index{Matrix!similar}
 
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Unitncube, title={Unit $n$-cube}]
 	The
-	\emph{unit $n$-cube} is the $n$-dimensional cube with sides given by the
+	\emph{unit $n$-cube}\index[definitions]{Unit $n$-cube ($C_n$)}\index{Unit $n$-cube ($C_n$)} is the $n$-dimensional cube with sides given by the
 	standard basis vectors and lower-left corner located at the origin. That
 	is
 	\[
 		C_{n}=\Set*{\vec x\in\R^n:\vec x=\sum_{i=1}^n\alpha_i\vec e_i\text{
 		for some }\alpha_1,\ldots,\alpha_n\in[0,1]}=[0,1]^{n}.
-	\]
+	\]\index[symbols]{$C_n$}
 
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Determinant, title={Determinant}]
 	The
-	\emph{determinant} of a linear transformation $X:\R^{n}\to \R^{n}$, denoted $\det(X)$ or $\Abs{X}$, is
+	\emph{determinant}\index{Determinant}\index[definitions]{Determinant} of a linear transformation $X:\R^{n}\to \R^{n}$, denoted $\det(X)$\index[symbols]{$\det(X)$} or $\Abs{X}$\index[symbols]{$\Abs{X}$}, is
 	the oriented volume of the image of the unit $n$-cube. The determinant of
 	a square matrix is the determinant of its induced transformation.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=OrientationPreservingLinearTransformation, title={Orientation Preserving Linear Transformation}]
 	Let $\mathcal T:\R^n\to\R^n$ be a linear transformation. We say $\mathcal T$
-	is \emph{orientation preserving} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
+	is \emph{orientation preserving}\index[definitions]{Linear transformation!orientation preserving}\index{Linear transformation!orientation preserving} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
 	is positively oriented  and we say $\mathcal T$
-	is \emph{orientation reversing} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
+	is \emph{orientation reversing}\index[definitions]{Linear transformation!orientation reversing}\index{Linear transformation!orientation reversing} if the ordered basis $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
 	is negatively oriented. If $\Set{\mathcal T(\vec e_1),\ldots, \mathcal T(\vec e)}$
 	is not a basis for $\R^n$, then $\mathcal T$ is neither orientation preserving nor orientation reversing.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Eigenvector, title={Eigenvector}]
 	Let $X$ be a linear transformation or a matrix. An
-	\emph{eigenvector} for $X$ is a non-zero vector that doesn't change
+	\emph{eigenvector}\index[definitions]{Eigenvector}\index{Eigenvector} for $X$ is a non-zero vector that doesn't change
 	directions when $X$ is applied. That is, $\vec v\neq \vec 0$ is an
 	eigenvector for $X$ if
 	\[
 		X\vec v=\lambda \vec v
 	\]
 	 for some scalar $\lambda$. We call $\lambda$ the
-	\emph{eigenvalue} of $X$ corresponding to the eigenvector $\vec v$.
+	\emph{eigenvalue}\index[definitions]{Eigenvalue}\index{Eigenvalue} of $X$ corresponding to the eigenvector $\vec v$.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[
@@ -676,29 +678,29 @@
 	title={Characteristic Polynomial}]
 
 	For a matrix $A$, the
-	\emph{characteristic polynomial} of $A$ is
+	\emph{characteristic polynomial}\index{Characteristic polynomial}\index[definition]{Characteristic Polynomial} of $A$ is
 	\[
 		\chr(A)=\det(A-\lambda I).
-	\]
+	\]\index[symbols]{$\chr(A)$}
 
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Diagonalizable, title={Diagonalizable}]
 	A matrix is
-	\emph{diagonalizable} if it is similar to a diagonal matrix.
+	\emph{diagonalizable}\index{Matrix!diagonalizable}\index[definitions]{Matrix!diagonalizible} if it is similar to a diagonal matrix.
 \end{SaveDefinition}
 
 \begin{SaveDefinition}[key=Eigenspace, title={Eigenspace}]
 	Let $A$ be an $n\times n$ matrix with eigenvalues
 	$\lambda_{1},\ldots,\lambda_{m}$. The
-	\emph{eigenspace} of $A$ corresponding to the eigenvalue $\lambda_{i}$
+	\emph{eigenspace}\index[definitions]{Eigenspace}\index{Eigenspace} of $A$ corresponding to the eigenvalue $\lambda_{i}$
 	is the null space of $A-\lambda_{i} I$. That is, it is the space spanned
 	by all eigenvectors that have the eigenvalue $\lambda_{i}$.
 
 	The
-	\emph{geometric multiplicity} of an eigenvalue $\lambda_{i}$ is the
+	\emph{geometric multiplicity}\index[definitions]{Eigenvalue!geometric multiplicity}\index{Eigenvalue!geometric multiplicity} of an eigenvalue $\lambda_{i}$ is the
 	dimension of the corresponding eigenspace. The
-	\emph{algebraic multiplicity} of $\lambda_{i}$ is the number of times
+	\emph{algebraic multiplicity}\index[definitions]{Eigenvalue!algebraic multiplicity}\index{Eigenvalue!algebraic multiplicity} of $\lambda_{i}$ is the number of times
 	$\lambda_{i}$ occurs as a root of the characteristic polynomial of $A$ (i.e.,
 	the number of times $x-\lambda_{i}$ occurs as a factor).
 \end{SaveDefinition}
