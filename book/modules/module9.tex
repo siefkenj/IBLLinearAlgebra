@@ -483,7 +483,7 @@ In other words, $T$ \emph{distributes over linear combinations}.
 	Since at least one required property of a linear transformation is violated, $\mathcal T$ cannot be a linear transformation.
 \end{example}
 
-\Heading{Function Notation vs\mbox{.} Linear Transformation Notation}
+\Heading{Function Notation vs\mbox{.} Linear Transformation Notation}\index{Linear transformation!notation}
 
 Linear transformations are just special types of functions. In calculus, it is traditional to use lower case
 letters for a function and parenthesis ``('' and ``)'' around the input to the function.
@@ -598,7 +598,7 @@ a linear transformation.
 Let's prove some basic facts about linear transformations.
 
 \begin{theorem}
-	If $T:\R^n\to\R^m$ is a linear transformation, then $T(\vec 0)=\vec 0$.
+	If $T:\R^n\to\R^m$ is a linear transformation, then $T(\vec 0)=\vec 0$\index{Zero vector ($\vec 0$)}.
 \end{theorem}
 \begin{proof}
 	Suppose $T:\R^n\to\R^m$ is a linear transformation and $\vec v\in \R^n$. We know
@@ -723,7 +723,7 @@ all vectors at once while (ii) having named vectors that we can actually use in 
 
 
 \begin{emphbox}[Takeaway]
-	Starting a linearity proof with ``\emph{let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar}''
+	Starting a linearity proof\index{Linear transformation!proving linearity} with ``\emph{let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar}''
 	allows you to argue about all vectors and scalars simultaneously.
 \end{emphbox}
 
@@ -785,7 +785,7 @@ we can think of multiplication by $M$ as a transformation on $\R^2$. Define
 \[
 	T:\R^2\to\R^2\qquad\text{by}\qquad T(\vec x)=M\vec x.
 \]
-Because $T$ is defined by a matrix, we call $T$ a \emph{matrix transformation}.
+Because $T$ is defined by a matrix, we call $T$ a \emph{matrix transformation}\index{Matrix!matrix transformation}.
 It turns out all matrix transformations are linear transformations and most linear transformations
 are matrix transformations\footnote{ If you believe in the axiom of choice and you allow infinitely sized matrices,
 every linear transformation can be expressed as a matrix transformation.}. 
@@ -819,7 +819,7 @@ For a matrix $M$, the following are correct.
 
 \Heading{Finding a Matrix for a Linear Transformation}
 
-Every linear transformation from $\R^n$ to $\R^m$ has a matrix, and we can use basic algebra to find
+Every linear transformation from $\R^n$ to $\R^m$ has a matrix\index{Linear transformation!matrix representation of}, and we can use basic algebra to find
 an appropriate matrix.
 
 Let $T:\R^n\to\R^m$ be a linear transformation. Since $T$ inputs vectors with $n$ coordinates and outputs

@@ -39,7 +39,7 @@ are equally valid, but writing $\mathcal T$ in the $\mathcal V$ basis gives a ve
 
 \Heading{Diagonalization}
 
-Recall that two matrices are similar if they represent the same transformation but in possibly different bases.
+Recall that two matrices are similar\index{Matrix!similar matrices} if they represent the same transformation but in possibly different bases.
 The process of \emph{diagonalizing} a matrix $A$ is that of finding a diagonal matrix that is similar to $A$,
 and you can bet that this process is closely related to eigenvectors/values.
 
@@ -88,8 +88,8 @@ which is a diagonal matrix.
 What we've shown is summarized by the following theorem.
 \begin{theorem}
 	A linear transformation $\mathcal T:\R^n\to\R^n$ can be represented by a diagonal matrix if and
-	only if there exists a basis for $\R^n$ consisting of eigenvectors for $\mathcal T$. If
-	$\mathcal B$ is such a basis, then $[\mathcal T]_{\mathcal B}$ is a diagonal matrix.
+	only if there exists a basis for $\R^n$ consisting of eigenvectors\index{Eigenvector} for $\mathcal T$. If
+	$\mathcal B$ is such a basis, then $[\mathcal T]_{\mathcal B}$ is a diagonal matrix\index{Matrix!diagonal matrix}.
 \end{theorem}
 
 Now that we have a handle on representing a linear transformation by a diagonal matrix, let's tackle
@@ -108,7 +108,7 @@ In other words, $A$ and $B$ are similar if there is some invertible change-of-ba
 \[
 	A=PBP^{-1}.
 \]
-Based on our earlier discussion, $B$ will be a diagonal matrix if and only if $P$ is the change-of-basis matrix for a
+Based on our earlier discussion, $B$ will be a diagonal matrix if and only if $P$ is the change-of-basis\index{Basis!change-of-basis} matrix for a
 basis of eigenvectors. In this case, we know $B$ will be the diagonal matrix with eigenvalues along the diagonal (in the proper order).
 
 \begin{example}
@@ -148,7 +148,7 @@ A\vec v_1=\matc{20\\20\\4}=4\vec v_1,\qquad A\vec v_2=\mat{8\\8\\8}=8\vec v_2,\q
 \Heading{Non-diagonalizable Matrices}
 
 Is every matrix diagonalizable? Unfortunately the world is not that sweet. But, we have a tool to tell if a matrix is
-diagonalizable---checking to see if there is a basis of eigenvectors.
+diagonalizable\index{Diagonalizable}---checking to see if there is a basis of eigenvectors.
 
 \begin{example}
 	Is the matrix $R=\mat{0&-1\\1&0}$ diagonalizable?
