@@ -80,7 +80,7 @@ changes area/volume. This number (which is associated with a linear transformati
 the same domain and codomain) is called the \emph{determinant}\footnote{ This number is \emph{almost} the determinant.
 The only difference is that the determinant might have a $\pm$ in front.}.
 
-\Heading{Volumes}
+\Heading{Volumes}\index{Volume}
 
 In this module, most examples will be in $\R^2$ because they're easier to draw.
 The definitions given will extend to $\R^n$ for any $n$, however we need to establish some conventions
@@ -691,7 +691,7 @@ orientation preserving and $-\Vol\mathcal Q(X)$ if $\mathcal Q$ is orientation r
 \end{example}
 
 
-\Heading{Determinants of Composition}
+\Heading{Determinants of Composition}\index{Linear transformation!composition of}
 
 Volume changes are naturally multiplicative. If a linear transformation $\mathcal T$ changes volume by a factor
 of $\alpha$ and $\mathcal S$ changes volume by a factor of $\beta$, then $\mathcal S\circ \mathcal T$ changes
@@ -822,7 +822,7 @@ to show that the composition of two orientation-reversing transformations is ori
 This means that we can compute the determinant of a complicated transformation by breaking it up
 into simpler ones and computing the determinant of each piece. 
 
-\Heading{Determinants of Matrices}
+\Heading{Determinants of Matrices}\index{Matrix!elementary matrices}
 
 The determinant of a matrix is defined as the determinant of its induced transformation.
 That means, the determinant is multiplicative with respect to matrix multiplication (because
@@ -965,7 +965,7 @@ Therefore, the volume of the parallelepiped given by the columns of $M$ must be 
 
 Based on this argument, we have the following theorem.
 \begin{theorem}
-	Let $A$ be an $n\times n$ matrix. $A$ is invertible if and only if $\det(A)\neq 0$.
+	Let $A$ be an $n\times n$ matrix. $A$ is invertible\index{Matrix!invertible} if and only if $\det(A)\neq 0$.
 \end{theorem}
 \begin{proof}
 	If $A$ is invertible, $A=E_1\cdots E_k$, where $E_1,\ldots,E_k$ are elementary matrices,
@@ -998,7 +998,7 @@ which gives
 \Heading{Determinants and Transposes}
 
 Somewhat mysteriously, we have the following theorem.
-\begin{theorem}[Volume Theorem II]
+\begin{theorem}(Volume Theorem II)
 	The determinant of a square matrix $A$ is equal to the oriented volume of the parallelepiped
 	given by the rows of $A$.
 \end{theorem}
