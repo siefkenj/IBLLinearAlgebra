@@ -141,6 +141,16 @@
 	#1
 }
 
+
+% redefine bmatrix,etc to allow optional argument for augmenting
+% code from https://tex.stackexchange.com/questions/2233/whats-the-best-way-make-an-augmented-coefficient-matrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
 \newcommand{\scaledgrid}[1]{%
 	\begin{tikzpicture}[scale=#1]
 		\draw[thin, white!20!black, dotted] (-4.1,-4.1) grid (4.1,4.1);
