@@ -13,7 +13,7 @@ is always a subspace.
 
 \begin{theorem}
 	Let $T:\R^n\to\R^m$ be a linear transformation. Then $\Range(T)\subseteq \R^m$ is a
-	subspace.
+	subspace\index{Subspace}.
 \end{theorem}
 \begin{proof}
 	Since $\Range(T)=T(\R^n)$ and $\R^n$ is non-empty, we know that $\Range(T)$ is non-empty.
@@ -38,7 +38,7 @@ is always a subspace.
 \end{proof}
 
 When analyzing subspaces, we are often interested in how big they are. That information is captured by a number---the
-\emph{dimension} of the subspace. For transformations, we also have a notion of how ``big'' they are, which is captured
+\emph{dimension}\index{Dimension} of the subspace. For transformations, we also have a notion of how ``big'' they are, which is captured
 in a number called the \emph{rank}.
 
 \SavedDefinitionRender{RankofaLinearTransformation}
@@ -197,7 +197,7 @@ In addition, it helps us state the following theorem.
 \end{theorem}
 \begin{proof}
 	To prove $\Rank(A)=\Rank(A^T)$, we will rely on what we know about the row reduction algorithm and what
-	the reduced row echelon form of a matrix tells us.
+	the reduced row echelon form\index{Matrix!reduced row echelon form} of a matrix tells us.
 
 	\emph{Claim 1}: $\Row(\Rref(A))\subseteq \Row(A)$. To see this, observe that to get $\Rref(A)$, we take
 	linear combinations of the rows of $A$. Therefore, it must be that the span of the rows of $\Rref(A)$
@@ -492,7 +492,7 @@ $\Null(\mathcal T)=\Null(M)$. From this fact, we deduce the following theorem.
 
 The rank and the nullity of a linear transformation/matrix are connected by a powerful theorem.
 
-\begin{theorem}(Rank-nullity Theorem for Matrices) For a matrix $A$,
+\begin{theorem}(Rank-nullity Theorem for Matrices)\index{Rank-nullity theorem!for matrices} For a matrix $A$,
 \[
 	\Rank(A)+\Nullity(A)=\ \#\text{ of columns in $A$}.
 \]
@@ -513,7 +513,7 @@ and so has nullity $2$. Therefore, there exist two linearly independent normal d
 
 \medskip
 There is an equivalent Rank-nullity Theorem for linear transformations.
-\begin{theorem}(Rank-nullity Theorem for Linear Transformations) Let $\mathcal T$ be a linear transformation.
+\begin{theorem}(Rank-nullity Theorem for Linear Transformations)\index{Rank-nullity theorem!for linear transformations} Let $\mathcal T$ be a linear transformation.
 Then
 \[
 	\Rank(\mathcal T)+\Nullity(\mathcal T)=\Dim(\text{domain of $\mathcal T$}).
