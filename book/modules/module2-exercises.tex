@@ -72,8 +72,33 @@
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
-				\item The lines $y=x$ and $y= -x$ divide $\R^{2}$ into four
-				regions. $A$ is the right-most region. 
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-1,xmax=2,
+						ymin=-1,ymax=1,
+						xtick={-2,...,3},
+						ytick={-2,...,3},
+						x=1cm,y=1cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=0.5},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [mygreen, opacity=.3] (0,0) -- (3,3) -- (3,-3) -- cycle;
+						\draw [black, thick, dashed, ->] (0,0) -- (1,1) node[midway, above left] {$\vec a$};
+						\draw [black, thick, dashed, ->] (0,0) -- (1,-1) node[midway, below left, yshift=2pt] {$\vec b$};
+					\end{axis}
+					\node[mygreen] at (1.5,0.25) {$A$};
+				\end{tikzpicture}
 				\item $\ell$
 				is given by the set
 				\[
@@ -81,7 +106,7 @@
 				\]
 				 \item The above set can be rewritten as
 				\[
-					\Set{\vec x\in\R^2\given \vec x=t (\vec a + \vec b)+\vec b\text{ for some }t\in\R}.
+					\Set{\vec x\in\R^2\given \vec x=t (\vec a - \vec b)+\vec b\text{ for some }t\in\R}.
 				\]
 				 This is exactly the line given in vector form by
 				\[
@@ -90,6 +115,63 @@
 				Since $\vec a-\vec b=\mat{0\\2}$, 
 				$\ell$ is the vertical line containing $\vec b$ (and $\vec a$).
 
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-1,xmax=2,
+						ymin=-1,ymax=1,
+						xtick={-2,...,3},
+						ytick={-2,...,3},
+						x=1cm,y=1cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=0.5},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [mygreen, opacity=.3] (0,0) -- (3,3) -- (3,-3) -- cycle;
+						\draw [black, thick, dashed, ->] (0,0) -- (1,1) node[midway, above left] {$\vec a$};
+						\draw [black, thick, dashed, ->] (0,0) -- (1,-1) node[midway, below left, yshift=2pt] {$\vec b$};
+						\draw [WildStrawberry, thick, -] (1,2) -- (1,-2);
+					\end{axis}
+					\node[WildStrawberry] at (0.75,-1.25) {$\ell$};
+					\node[mygreen] at (1.5,0.25) {$A$};
+				\end{tikzpicture}
+				
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-1,xmax=2,
+						ymin=-1,ymax=1,
+						xtick={-2,...,3},
+						ytick={-2,...,3},
+						x=1cm,y=1cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=0.5},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\draw [black, thick, dashed, ->] (0,0) -- (1,1) node[midway, above left] {$\vec a$};
+						\draw [black, thick, dashed, ->] (0,0) -- (1,-1) node[midway, below left, yshift=2pt] {$\vec b$};
+						\draw [WildStrawberry, thick, -] (1,1) -- (1,-1);
+					\end{axis}
+					\node[WildStrawberry] at (1.5,0.5) {$A \cap \ell$};
+				\end{tikzpicture}
+				
 				\item $A \cap \ell$ is the set
 				\[
 					\Set{\alpha \vec a+\beta \vec b\given \alpha,\beta \geq 0\text{ and }
@@ -121,54 +203,121 @@
 	\begin{solution}
 		\begin{enumerate}
 			\item
-				$
-					\vec d = \tfrac{1}{2}\vec a + \tfrac{1}{2}\vec b.
-				$
-				 \item
-				$
-					\vec e= \tfrac{1}{2}\vec c+\tfrac{1}{2}\vec d.
-				$
-				 \item
-				\begin{align*}
-					\vec e & = \tfrac{1}{2}\vec c+\tfrac{1}{2}(\tfrac{1}{2}\vec a + \tfrac{1}{2}\vec b)\\
-					       & = \tfrac{1}{2}\vec c+\tfrac{1}{4}\vec a + \tfrac{1}{4}\vec b.
-				\end{align*}
-				\item 
-				\item The set is the filled-in
-				triangle with vertices given by $\vec a$,
-				$\vec b$, and $\vec c$. To see this, notice
-				that the set of convex linear combinations of
-				$\vec a$, $\vec b$, and $\vec c$ is the set of
-				convex linear combinations of $\vec c$ and any
-				convex linear combination of $\vec a$ and
-				$\vec b$. Indeed,
-				\[
-				\begin{split}
-					&\alpha_{1} \vec a+\alpha_{2} \vec b+ \alpha_{3}
-					\vec c \\
-					&\qquad= (1-\alpha_{3})\left(\tfrac{\alpha_1}{1-\alpha_3}\vec
-					a + \tfrac{\alpha_2}{1-\alpha_3}\vec b\right)+\alpha_{3}
-					\vec c,
-				\end{split}
-				\]
-				 and $\alpha_{1} \vec a+\alpha_{2} \vec b+ \alpha_{3}
-				\vec c$ is a convex linear combination of $\vec
-				a$, $\vec b$, and $\vec c$ exactly when
-				\[
-					\frac{\alpha_1}{1-\alpha_3}\vec a + \frac{\alpha_2}{1-\alpha_3}\vec
-					b
-				\]
-				 is a convex linear combination of $\vec a$ and $\vec
-				b$ (verify this!).
-
+			$
+				\vec d = \tfrac{1}{2}\vec a + \tfrac{1}{2}\vec b.
+			$
+			\item
+			$
+				\vec e= \tfrac{1}{2}\vec c+\tfrac{1}{2}\vec d.
+			$
+			\item
+			\begin{align*}
+				\vec e & = \tfrac{1}{2}\vec c+\tfrac{1}{2}(\tfrac{1}{2}\vec a + \tfrac{1}{2}\vec b)\\
+				       & = \tfrac{1}{2}\vec c+\tfrac{1}{4}\vec a + \tfrac{1}{4}\vec b.
+			\end{align*}
+			\item 
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					name=plot1,
+					disabledatascaling,
+					xmin=-1,xmax=2,
+					ymin=-1,ymax=2,
+					xtick={-4,...,4},
+					ytick={-2,...,4},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=black!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\coordinate (A) at (2,0);
+					\coordinate (B) at (0,2);
+					\coordinate (C) at (-1,-1);
+					\coordinate (D) at (1,1);
+					\coordinate (E) at (0,0);
+					\fill[WildStrawberry] (E) circle (2pt) node[above left] {$\vec e$};
+					\draw[semithick, WildStrawberry, ->] (0,0) -- (A);
+					\draw[semithick, WildStrawberry, ->] (0,0) -- (B);
+					\draw[semithick, WildStrawberry, ->] (0,0) -- (C);
+					\draw[semithick, WildStrawberry, ->] (0,0) -- (D);
+				\end{axis}
+				\node[above, WildStrawberry] at (A) {$\vec a$};
+				\node[right, WildStrawberry] at (B) {$\vec b$};
+				\node[above left, WildStrawberry, xshift=1pt] at (C) {$\vec c$};
+				\node[right, WildStrawberry] at (D) {$\vec d$};
+			\end{tikzpicture}
+			\item 
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					name=plot1,
+					disabledatascaling,
+					xmin=-1,xmax=2,
+					ymin=-1,ymax=2,
+					xtick={-4,...,4},
+					ytick={-2,...,4},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=black!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=\currentbackgroundcolor},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\coordinate (A) at (2,0);
+					\coordinate (B) at (0,2);
+					\coordinate (C) at (-1,-1);
+					\fill[mygreen, opacity=.3] (A) -- (B) -- (C) -- cycle;
+					\fill [black] (A) circle (2pt) node [above, yshift=1pt] {$\vec a$};
+					\fill [black] (B) circle (2pt) node [above right] {$\vec b$};
+					\fill [black] (C) circle (2pt) node [above left, xshift=1pt] {$\vec c$};
+				\end{axis}
+			\end{tikzpicture}
+			
+			The set is the filled-in
+			triangle with vertices given by $\vec a$,
+			$\vec b$, and $\vec c$. To see this, notice
+			that the set of convex linear combinations of
+			$\vec a$, $\vec b$, and $\vec c$ is the set of
+			convex linear combinations of $\vec c$ and any
+			convex linear combination of $\vec a$ and
+			$\vec b$. Indeed,
+			\[
+			\begin{split}
+				&\alpha_{1} \vec a+\alpha_{2} \vec b+ \alpha_{3}
+				\vec c \\
+				&\qquad= (1-\alpha_{3})\left(\tfrac{\alpha_1}{1-\alpha_3}\vec
+				a + \tfrac{\alpha_2}{1-\alpha_3}\vec b\right)+\alpha_{3}
+				\vec c,
+			\end{split}
+			\]
+			and $\alpha_{1} \vec a+\alpha_{2} \vec b+ \alpha_{3}
+			\vec c$ is a convex linear combination of $\vec
+			a$, $\vec b$, and $\vec c$ exactly when
+			\[
+				\frac{\alpha_1}{1-\alpha_3}\vec a + \frac{\alpha_2}{1-\alpha_3}\vec b
+			\]
+			 is a convex linear combination of $\vec a$ and $\vec
+			b$ (verify this!).
 				By the previous part, the set of convex linear combinations
-				of $\vec a$ and $\vec b$ is the line segment
-				between $\vec a$ and $\vec b$. Call this line segment $S$.
-				Now we know the set of convex linear
-				combinations of $\vec a$, $\vec b$, and $\vec c$
-				is the union of every line segment from $\vec c$
-				and a vector in $S$. This is the solid triangle with
-				vertices given by $\vec a$, $\vec b$, and $\vec	c$.
+			of $\vec a$ and $\vec b$ is the line segment
+			between $\vec a$ and $\vec b$. Call this line segment $S$.
+			Now we know the set of convex linear
+			combinations of $\vec a$, $\vec b$, and $\vec c$
+			is the union of every line segment from $\vec c$
+			and a vector in $S$. This is the solid triangle with
+			vertices given by $\vec a$, $\vec b$, and $\vec	c$.
 		\end{enumerate}
 	\end{solution}
 
@@ -184,19 +333,137 @@
 		\end{enumerate}
 	\begin{solution}
 		\begin{enumerate}
-			\item The acute angled section of $\R^{2}$ between the ray
-				from the origin through $\mat{1 \\ 1}$ and the ray
-				from the origin through $\mat{3 \\ -1}$. 
+			\item 
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=0,xmax=3,
+					ymin=-1,ymax=1,
+					xtick={-2,...,3},
+					ytick={-2,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [mygreen, opacity=.3] (0,0) -- (5,5) -- (5,-5/3) -- cycle;
+					\draw [black, thick, dashed, ->] (0,0) -- (1,1) node[midway, above left] {$\vec x$};
+					\draw [black, thick, dashed, ->] (0,0) -- (3,-1) node[midway, below left, yshift=2pt] {$\vec y$};
+				\end{axis}
+			\end{tikzpicture}
+			\item 
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-2,xmax=1,
+					ymin=-2,ymax=1,
+					xtick={-2,...,3},
+					ytick={-2,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [black] (1,1) circle (2pt) node [below right] {$\vec x$};
+					\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+					\draw [mygreen, thick, -] (2,2) -- (-3,-3);
+				\end{axis}
+			\end{tikzpicture}
+			\item 
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-2,xmax=3,
+					ymin=-2,ymax=0,
+					xtick={-2,...,3},
+					ytick={-2,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [black] (3,-1) circle (2pt) node [below right] {$\vec y$};
+					\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+					\draw [mygreen, thick, -] (3,-1) -- (-2,-2);
+				\end{axis}
+			\end{tikzpicture}
+			\item 
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-2,xmax=1,
+					ymin=-2,ymax=1,
+					xtick={-2,...,3},
+					ytick={-2,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [black] (1,1) circle (2pt) node [below right] {$\vec x$};
+					\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+					\draw [mygreen, thick, -] (1,1) -- (-2,-2);
+				\end{axis}
+			\end{tikzpicture}
 			\item
-				The line through the origin and
-				$\mat{1 \\ 1}$. 
-			\item The line segment between $\mat{3
-				\\ -1}$ and $\mat{-2 \\ -2}.$ 
-			\item The line segment
-				between $\mat{1 \\ 1}$ and $\mat{-2 \\ -2}.$ 
-			\item
-				The filled-in triangle with vertices $\mat{1\\1}$,
-				$\mat{3 \\ -1}$ and $\mat{-2 \\ -2}.$
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-2,xmax=3,
+					ymin=-2,ymax=1,
+					xtick={-2,...,3},
+					ytick={-2,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [mygreen, opacity=.3] (1,1) -- (3,-1) -- (-2,-2) -- cycle;
+					\fill [black] (1,1) circle (2pt) node [left, yshift=1pt] {$\vec x$};
+					\fill [black] (3,-1) circle (2pt) node [below right] {$\vec y$};
+					\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+				\end{axis}
+			\end{tikzpicture}
 		\end{enumerate}
 	\end{solution}
 
@@ -218,6 +485,40 @@
 		combinations of the vectors $\vec u =\mat{1 \\4}$, $\vec v =\mat{-5 \\8}$, 
 		and $\vec w =\mat{-2 \\-6}$. First solve this question by drawing a picture. Then justify algebraically.
 	\begin{solution}
+		\begin{tikzpicture}[baseline = (current bounding box.north)]
+			\begin{axis}[
+				anchor=origin,
+				disabledatascaling,
+				xmin=-5,xmax=1,
+				ymin=-6,ymax=8,
+				xtick={-5,...,1},
+				ytick={-6,-4,-2,0,2,4,6,8},
+				x=1cm,y=0.5cm,
+				grid=both,
+				grid style={line width=.1pt, draw=gray!10},
+				%major grid style={line width=.2pt,draw=gray!50},
+				axis lines=middle,
+				minor tick num=0,
+				enlargelimits={abs=0.5},
+				axis line style={latex-latex},
+				ticklabel style={font=\tiny,fill=white},
+				xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+				ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+			]
+				\coordinate (P) at (-2,0);
+				\coordinate (Q) at (0,-2);
+				\coordinate (U) at (1,4);
+				\coordinate (V) at (-5,8);
+				\coordinate (W) at (-2,-6);
+				\fill [mygreen, opacity=.3] (U) -- (V) -- (W) -- cycle;
+				\fill [mypink] (P) circle (2pt) node [above, yshift=1pt] {$P$};
+				\fill [mypink] (Q) circle (2pt) node [right, xshift=1pt] {$Q$};
+				\fill [black] (U) circle (2pt) node [above, yshift=1pt] {$\vec u$};
+				\fill [black] (V) circle (2pt) node [below left] {$\vec v$};
+				\fill [black] (W) circle (2pt) node [left, xshift=-1pt] {$\vec w$};
+			\end{axis}
+		\end{tikzpicture}
+		
 		Geometrically, the set of convex linear combinations of $\vec u$, $\vec v$, and $\vec w$ is a
 		filled-in triangle with vertices at $\vec u, \vec v$ and $\vec w$. The point
 		$P$ lies inside this triangle, while $Q$ does not.
@@ -233,7 +534,6 @@
 		 The same procedure with $Q$ gives a unique solution with coefficients
 		$t_{1}=\frac 59, t_{2}=-\frac 19, t_{3}=\frac 59$, and so $Q$ is
 		not a convex linear combination of $\vec u$, $\vec v$, and $\vec w$.
-
 	\end{solution}
 	\end{problist}
 \end{exercises}
