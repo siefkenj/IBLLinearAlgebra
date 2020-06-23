@@ -1,0 +1,391 @@
+	\label{APPSLEI}
+
+	An \emph{equation} encodes a relationship between quantities. For
+	example, writing
+	\[
+		\underbrace{\text{Slices of cake}}_C = \underbrace{\text{Slices you ate}}_M + \underbrace{\text{Slices your brother ate}}_B
+	\]
+	specifies a precise relationship between the quantities $C$, $M$, and $B$. 
+	Without more information, $C$, $M$, and $B$ could be almost anything. As such, we call 
+	$C$, $M$, and $B$
+	\emph{variables} or \emph{unknowns}. 
+	However, the
+	relationship \emph{between} them is precisely defined. 
+
+	Additional relationships give rise to additional equations, which we express concisely as a
+	\emph{system of equations}, that is, a list of equations. For example, suppose you know the cake
+	had six pieces and your brother ate twice as many pieces as you. We might now write the system
+	\[
+		\sysdelim..
+		\systeme{C=M+B,B=2M,C=6}
+	\]
+	which should be interpreted as: ``the relationship $C=M+B$ holds \emph{and} the relationship $B=2M$ holds \emph{and}
+	the relationship $C=6$ holds.''
+	All this information, taken together, is enough to deduce the unknowns: $M=2$, $B=4$, and $C=6$.
+
+	Systems of equations naturally appear in linear algebra through vector equations. Suppose $\vec u=\mat{1\\2}$, $\vec v=\mat{2\\3}$,
+	and $\vec w=\mat{1\\1}$. You might wonder if $\vec w$ was a linear combination of $\vec u$ and $\vec v$. The answer is \emph{yes} if and
+	only if the vector equation
+	\[
+		\vec w=a\vec u+b\vec v
+	\]
+	has a solution for some $a$ and $b$. Written in coordinates, this equation is equivalent to
+	\[
+		\mat{1\\1}=a\mat{1\\2}+b\mat{2\\3} = \mat{a+2b\\2a+3b}.
+	\]
+	Equating coordinates, a system of equations appears:
+	\[
+		\systeme{a+2b=1,2a+3b=1}
+	\]
+
+	Every vector equation, by way of coordinates, corresponds to a system of equations. And, fortunately for us, there is
+	an \emph{algorithm} to find all solutions to these systems\footnote{ Saying there is an \emph{algorithm} for ``$X$''
+	means that there is a specific set of (non-random) rules that \emph{always} accomplishes ``$X$''. As a consequence, doing
+	``$X$'' never requires special insight. For example, there \emph{is} an algorithm for multiplying numbers, but there \emph{is not}
+	an algorithm for factoring polynomials of degree 5 or greater.}.
+
+	\Heading{Systems of Linear Equations}
+
+	There's no guarantee that a general equation, like $x^4-e^x+7=0$, has a solution, and it might
+	be impossible to decide if an arbitrary equation has a solution, let alone what the solutions 
+	are!\footnote{ Fermat's Last Theorem famously claimed that $a^n+b^n=c^n$
+	has no positive integer solutions for $n\geq 3$. However, it took 350 years of human ingenuity before anyone was able rigorously
+	back up the claim.} However, for \emph{linear} equations and systems of linear equations we can \emph{always} tell
+	whether there is a solution and what the solution(s) are.
+	
+	\begin{definition}[Linear Equation]
+		A \emph{linear equation} in the variables $x_1,\ldots,x_n$ is one that can be expressed
+		as
+		\[
+			a_1x_1+a_2x_2+\cdots+a_nx_n=c
+		\]
+		for constants $a_1,\ldots, a_n$ and $c$. A \emph{system of linear equations} is a system of equations 
+		consisting of one or more linear equations.
+	\end{definition}
+
+	Every vector equation corresponds to an \emph{equivalent} system of linear equations and vice versa, where equivalent
+	means ``expresses the same relationships between variables''.
+
+	\begin{example}
+		Write down the vector equation corresponding to the system of linear equations $\systeme{2x+3y+z=2,y-z=-1}$
+		and the system of linear equations corresponding to the vector equation $t\vec w+\vec u=r\vec v$ where $\vec w=\mat{1\\-1}$, $\vec u=\mat{2\\3}$,
+		and $\vec v=\mat{4\\4}$.
+
+		XXX Finish
+	\end{example}
+
+	\begin{emphbox}[Takeaway]
+		Every vector equation corresponds to a system of linear equations and every system of linear equations
+		corresponds to a vector equation.
+	\end{emphbox}
+
+	\Heading{Solutions Sets}
+
+	Before looking at how to solve systems of linear equations, let's agree on some terminology.
+
+	A \emph{solution} to an equation is a particular choice of values for the variables that satisfy (i.e. make true)
+	the equation. For example
+	\begin{equation}
+		\label{SOLNSETEXAMPLE}
+		x+y=4
+	\end{equation}
+	has a solution $x=y=2$. However, $x=y=2$ is just one of \emph{many} possible solutions; we also have $x=4$ and $y=0$ or $x=-2$ and
+	$y=6$. The \emph{solution set},
+	also called the \emph{complete solution}, to an equation (or system of equations) is the set of all possible solutions.
+	For example, the solution set to Equation \eqref{SOLNSETEXAMPLE} is $S=\Set{(x,y)\given y=4-x}$. %=\Set{(t,4-t)\given a\in \R}$.
+	In this case, $S$ contains infinitely many solutions, including $(x,y)=(2,2)$, the first solution we found.
+
+	Solution sets look a lot like sets of vectors: the set $S=\Set{(x,y)\given y=4-x}$ could be thought of as a subset of $\R^2$
+	where we identify a solution $x=a$ and $y=b$ with the column vector $\mat{a\\b}$. Drawing $S$ as a subset of $\R^2$, we see a familiar
+	picture.
+
+	XXX Figure
+
+	It's the graph of the line given in $y=mx+b$ for by $y=-x+4$. In other words, \emph{via solution sets, equations and systems
+	of equations can represent geometric objects.}
+
+%	\medskip
+%	If this all seems straightforward, great! Since grade school you've been training to apply algebra to geometry problems
+%	and vice versa\footnote{ It was a big deal when equations saw their first applications to geometry and it is by no means
+%	an obvious idea! If you're interested, look up the history of \emph{analytic geometry}, which is the formal name for what
+%	we're doing.}. However, we need to take special care to note the assumptions we've made. After all, it would be
+%	perfectly reasonable to claim that $S'=\Set{(y,x)\given y=4-x}$ (note the difference between $S$ and $S'$) 
+%	is the solution set to Equation \eqref{SOLNSETEXAMPLE}.
+%	However, it becomes less clear how $S'$ should be interpreted as a subset of $\R^2$. Should $(y,x)=(a,b)$ correspond to the
+%	column vector $\mat{a\\b}$ or is $\mat{b\\a}$ the correct column vector? To solve this issue, we use the following convention.
+%
+%	\begin{emphbox}[Solution Set Convention] Unless otherwise specified,
+%		solutions are converted to column vectors based on the order the variables are specified
+%		in the original equations. This order will almost always be alphabetical if variables are assigned
+%		different letters (e.g, $x$, $y$, $z$) or numerically if variables are indexed (e.g., $x_1$, $x_2$, $x_3$).
+%	\end{emphbox}
+%
+%	Following this convention, $S$ is the ``correct'' solution set. That is, without specifying otherwise, the solutions
+%	to $x+y=4$ correspond to the set $\Set*{\mat{a\\b}\given b=4-a}\subseteq \R^2$. This just so happens to agree with grade-school
+%	convention\footnote{ It's as if there's a vast underworld of educators who plan how math should be taught from the time you
+%	were five up until now.}.
+
+	\Heading{Consistent \& Inconsistent Systems}
+
+	Consider the following equations (as separate equations, not as a system):
+	\[
+		x^2=0\qquad\text{with solution set}\qquad S_x\subseteq \R,
+	\]
+	\[
+		y^2=4\qquad\text{with solution set}\qquad S_y\subseteq \R,
+	\]
+	and
+	\[
+		z^2=-1\qquad\text{with solution set}\qquad S_z\subseteq \R.
+	\]
+	$S_x=\Set{0}$ consists of a single number. $S_y=\Set{2,-2}$ consists of two numbers, and $S_z=\Set{}$ consists of no
+	numbers\footnote{ We're not allowing complex numbers at the moment.}.
+	In this case, we would call the first two equations \emph{consistent} and the third equation \emph{inconsistent}.
+
+	\begin{definition}[Consistent \& Inconsistent]
+		An equation or system of equations is called \emph{consistent} if it has at least one solution. That
+		is, its solution set is non-empty. Otherwise, an equation or system of equations is called \emph{inconsistent}.
+	\end{definition}
+
+	Why the word \emph{consistent}? This comes from the term \emph{logically consistent} which means ``able to be true''.
+	An equation is an assertion that the left hand side equals the right hand side. If that can never happen, the assertion
+	is not logically consistent.
+
+	This terminology becomes more clear with systems. Consider the system
+	\[
+		\systeme{x-y=0,x-y=1}.
+	\]
+	From the first equation, we deduce $x=y$. From the second equation, we deduce $x=1+y$. Since $x=x$, we know that
+	$y=1+y$. However, this is never true! There is a logical inconsistency between the two equations. In isolation, they're
+	fine, but taken together, they're not.
+
+	\Heading{Equivalent Systems}
+	Two systems of equations are logically equivalent if they express the same relationships
+	between their variables. For example, the equations $x=2y$ and $\tfrac{1}{2}x=y$ express the exact same
+	relationship between the variables $x$ and $y$. This can be formalized using solution sets.
+
+	\begin{definition}[Equivalent Systems]
+		Two equations or systems of equations are called \emph{equivalent} if they have the same solution sets.
+	\end{definition}
+
+	Again, $x=2y$ and $\tfrac{1}{2}x=y$ both have the same solution set (a line through the origin of slope $\tfrac{1}{2}$),
+	and so they are equivalent.
+
+	Philosophical note: the process of ``doing algebra'' can be viewed as
+	the process of \emph{manipulating equations/systems into easier to understand equivalent 
+	equations/systems}. When you're asked to algebraically solve $x^2-4=0$. You might first factor it to get the 
+	equivalent equation $(x-2)(x+2)=0$. Then, since non-zero numbers cannot multiply to give zero, we know
+	$x-2=0$ or $x+2=0$, which in turn is equivalent to $x=\pm2$. It's always been about equivalent systems!\footnote{
+	Technically, up to this point we've been talking about \emph{conjunctive} systems, which means that a solution
+	must hold for all equations of a system. The system $x=\pm 2$ is a \emph{disjunctive} system, which means a solution
+	only needs to hold for \emph{one} of the equations ($x=2$ or $x=-2$), but the idea is the same.}
+
+	\Heading{Row Reduction}
+
+	Consider the vector equation
+	\[
+		t\vec u+s\vec v+r\vec w = \vec p\qquad\text{where}\qquad \vec u=\mat{1\\2\\1},\ 
+		\vec v=\mat{2\\1\\-4},\ \vec w=\mat{-2\\-5\\1},\ \vec p=\mat{-15\\-21\\18}.
+	\]
+	By expanding in terms of coordinates, we get an equivalent system of linear equations.
+	\begin{equation}
+		\label{EQVECEQ2}
+		\systeme[tsr]{
+			t+2s-2r=-15@\qquad\text{row}_1,
+			2t+s-5r=-21@\qquad\text{row}_2,
+			t-4s+r=18@\qquad\text{row}_3
+		}
+	\end{equation}
+
+	The most general way to solve any system is by \emph{substitution}. For System 
+	\eqref{EQVECEQ2}, we could solve the first equation for $t$, substitute the result in
+	the remaining equations, solve the next equation for $s$, etc.. However,
+	because System \eqref{EQVECEQ2} is a \emph{linear} system, there's an alternate
+	method: \emph{row reduction}\footnote{
+	Row reduction is sometimes referred to as \emph{Gaussian elimination},
+	\emph{Gauss-Jordan elimination}, or just \emph{elimination}; though there are subtle differences between Gaussian
+	and Guass-Jordan elimination,
+	they aren't important, and we'll refer to all similar methods as \emph{row reduction}.}.
+
+	Study the following manipulations of System \eqref{EQVECEQ2} and convince yourself
+	that each operation produces a system equivalent to the one it came from.
+	\begin{align}
+	\sysdelim\{.
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			2t+s-5r=-21,
+			t-4s+r=18
+		}
+		&\xrightarrow{\text{row}_3\mapsto\text{row}_3-\text{row}_1}
+	\sysdelim\{.
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			2t+s-5r=-21,
+			-6s+3r=33
+		}\nonumber\\[4pt]
+		&\xrightarrow{\text{row}_2\mapsto\text{row}_2-2\text{row}_1}
+	\sysdelim\{.
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			-3s-r=9,
+			-6s+3r=33
+		}\nonumber\\[4pt]
+		&\xrightarrow{\text{row}_3\mapsto\text{row}_3-2\text{row}_3}
+	\sysdelim\{.
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			-3s-r=9,
+			  5r=15
+		}\label{EQEQUIVSYS}
+	\end{align}
+	From the final system, System \eqref{EQEQUIVSYS}, it's easy to see that $r=3$.
+	From there,
+	we can substitute $r=3$ into the second row of System \eqref{EQEQUIVSYS}
+	to find $s=-4$ and we can substitute both $r$ and $s$ into the first row of System \eqref{EQEQUIVSYS}
+	to find $t=-1$.
+
+	By adding and subtracting rows, we ``reduced'' the number of variables from some equations until
+	they were easy to solve. As an added benefit, every system along the way to System \eqref{EQEQUIVSYS}
+	was nicely organised and formatted. In fact, the systems are so well organized that we can
+	save time by not writing the variables and keeping track of the numbers in an \emph{augmented matrix}\footnote{
+		A \emph{matrix} is a box of numbers. An \emph{augmented matrix} is a matrix with
+		extra information associated with it.
+	}. That is, instead of writing
+	\[
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			2t+s-5r=-21,
+			t-4s+r=18
+		}
+	\]
+	we will write
+	\[
+		\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			2&1&-5&-21\\
+			1&-4&1&18
+		\end{bmatrix}.
+	\]
+	We call the matrix an \emph{augmented matrix} to stress that it contains two types of information:
+	the \emph{coefficients} of the variables $t$, $s$, and $r$ and the \emph{constants} on
+	the right hand side of equation. An (optional) vertical line
+	separates the two types of numbers.
+
+
+	Now, the process of row reduction looks like this:
+	\begin{align*}
+		{\footnotesize
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			2t+s-5r=-21,
+			t-4s+r=18
+		}
+		} \rightarrow
+		\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			2&1&-5&-21\\
+			1&-4&1&18
+		\end{bmatrix}
+		&\xrightarrow{\text{row}_3\mapsto\text{row}_3-\text{row}_1}
+		\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			2&1&-5&-21\\
+			0&-6&3&33
+		\end{bmatrix}\\
+		&\xrightarrow{\text{row}_2\mapsto\text{row}_2-2\text{row}_1}
+		\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			0&-3&-1&9\\
+			0&-6&3&33
+		\end{bmatrix}\\
+		&\xrightarrow{\text{row}_3\mapsto\text{row}_3-2\text{row}_3}
+		\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			0&-3&-1&9\\
+			0&0&5&15
+		\end{bmatrix}
+		\rightarrow
+		{\footnotesize
+			\systeme[tsr]{
+			t+2s-2r=-15,
+			-3s-r=9,
+			  5r=15
+			}
+		}
+	\end{align*}
+
+	The operations are identical, but we write augmented matrices instead of equation.
+
+	\begin{emphbox}[Takeaway]
+		Augmented matrices are a notational tool that makes the process of doing row reduction more efficient.
+	\end{emphbox}
+
+	\Heading{The Rules of Row Reduction}
+
+	So far, we've been able to row reduce systems by adding a multiple of one row to another\footnote{ Technically, we subtracted, but
+	that's just adding a negative.}, but to fully solve \emph{any} system, we need additional operations\footnote{ If you're clever,
+	you can think up alternatives to the elementary row operations that work just as well, but there's good reason to favor 
+	the
+	three elementary row operations. We'll see them when discussing matrix decompositions.}.
+	\begin{definition}[Elementary Row Operations]
+		The three \emph{elementary row operations}, which can be performed on a matrix or system of equations, are
+		\smallskip
+		\begin{itemize}
+			\item swapping two rows (written $\text{row}_i\leftrightarrow \text{row}_j$),
+			\item multiplying a row by a non-zero scalar (written $\text{row}_i\mapsto k\,\text{row}_i$), and
+			\item adding a multiple of one row to another (written $\text{row}_i\mapsto \text{row}_i+ k\,\text{row}_j$).
+		\end{itemize}
+	\end{definition}
+
+	Notice that each elementary row operation can be undone. For example, if you perform $\text{row}_i\mapsto k\,\text{row}_i$,
+	you can undo it with $\text{row}_i\mapsto \tfrac{1}{k}\,\text{row}_i$. Therefore, applying an elementary row operation
+	to a system is guaranteed to
+	produce an equivalent system. 
+
+	The strategy for solving a system is now summarized as:
+	\begin{enumerate}
+		\item Rewrite the system as an augmented matrix.
+		\item Use elementary row operations to zero-out the lower triangle of the augmented matrix.
+		\item Convert the matrix back to a system of equations.
+		\item Read off the solution (substituting when necessary).
+	\end{enumerate}
+
+	\begin{example}
+		XXX Finish. Unique solution to a 3x3 system with no row swaps; Use back subsitution
+	\end{example}
+
+	\begin{example}
+		XXX Finish. Unique solution to a 3x4 system that needs a row swap; Use back subsitution
+	\end{example}
+
+	In the examples so far, we've stopped row reducing when the equations became simple enough
+	to solve by inspection. However, we could continue row reducing until the system is as simple as possible.
+
+	\begin{example}
+		XXX Finish. Example 1 again, but this time put it in rref. 
+	\end{example}
+
+	What happens when you apply row reduction to an inconsistent system? Let's see. Consider the system
+	\begin{equation}
+		\label{EQSYSINCONEX}
+		\systeme{x+y=1,4x+4y=7}
+	\end{equation}
+	Before continuing, convince yourself that this system is inconsistent.
+	The augmented matrix for System \eqref{EQSYSINCONEX} is
+	\[
+		\begin{bmatrix}[cc|c]1&1&1\\4&4&7\end{bmatrix}.
+	\]
+	We apply the row operation $\text{row}_2\mapsto \text{row}_2-4\text{row}_1$ to get
+	\[
+		\begin{bmatrix}[cc|c]1&1&1\\0&0&3\end{bmatrix},
+	\]
+	which corresponds to the system
+	\[
+		\systeme{x+y=1,0x+0y=3}.
+	\]
+	But, the last equation says $0x+0y=3$, which is not true for any choice of $x$ and $y$!
+	Thus, we see applying row reduction to an inconsistent system reveals its inconsistency.
+
+	\begin{example}
+		XXX Finish. Example of an inconsistent 3x3 using row reduction (but not too many steps)
+	\end{example}
