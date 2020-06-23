@@ -589,7 +589,21 @@
 		display~name = {},
 		color = \prop_item:Nn \g_workbook_environments_prop {#1/emphbox~color},
 		bgcolor = \prop_item:Nn \g_workbook_environments_prop {#1/emphbox~bgcolor},
+		precode = \addtolength{\parskip}{1mm}
 	}
+
+	% Configure the `section` commands in case they are used instead of
+	% \Title and \Heading
+
+	\titleformat{\chapter}
+	  {\normalfont\sffamily\huge\color{\prop_item:Nn \g_workbook_environments_prop {#1/title~color}}}
+	  {\thesection}{1em}{}
+	\titleformat{\section}
+	  {\normalfont\sffamily\Large\color{\prop_item:Nn \g_workbook_environments_prop {#1/title~color}}}
+	  {\thesection}{1em}{}
+	\titleformat{\subsection}
+	  {\normalfont\sffamily\large\color{\prop_item:Nn \g_workbook_environments_prop {#1/title~color}}}
+	  {\thesection}{1em}{}
 }
 
 % Create an environment with a `leftborderbox`
