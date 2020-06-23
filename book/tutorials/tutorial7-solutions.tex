@@ -1,0 +1,48 @@
+		\begin{enumerate}
+			\item $f:\R^n\to\R^n$ is invertible if there exists a function $g:\R^n\to\R^n$ so
+				that $f\circ g=g\circ f=$id, the identity function.
+				The matrix $A$ is invertible if there exists a matrix $B$ so that
+				$AB=I$ and $BA=I$.
+			\item \begin{enumerate}
+					\item Totally incorrect. If $\vec b$ is a column
+						vector $\vec b A^{-1}$ won't be defined.
+						It should be $\vec x=A^{-1}\vec b$.
+					\item Totally correct.
+					\item Totally incorrect. There is no division operation
+						for matrices. Instead, you must multiply both sides by $A^{-1}$.
+					\item Mostly incorrect. The notation $\tfrac{1}{A}$ is not defined. We
+						use the notation $A^{-1}$ for the matrix such that $A^{-1}A=AA^{-1}=I$.
+					\item Totally incorrect. You cannot divide by a vector.
+			\end{enumerate}
+			\item \begin{itemize}
+					\item[$R$] This transformation is invertible and its inverse is
+						clockwise rotation by $30^{\circ}$.
+					\item[$D$] This transformation is invertible and its inverse is
+						itself.
+					\item[$P$] This transformation is not invertible. Since
+						$P(\vec 0) = P\left(\mat{-4\\1}\right)=\vec 0$, there
+						is no way to ``undo'' $P$. Formally, $P$ is not one-to-one,
+						so it cannot be invertible.
+					\item[$S$] This transformation is invertible and its inverse is
+						halving the length of each vector.
+			\end{itemize}
+			\item \begin{enumerate}
+				\item $R,D,S$ are rank 2 and $P$ is rank 1.
+				\item Yes. If a transformation from $\R^n\to\R^n$ is invertible
+					its rank must be $n$. We can argue as follows:
+
+					Suppose $T:\R^n\to\R^n$ has rank $< n$. Then the range of $T$ cannot
+					be all of $\R^n$. Thus, there cannot exist a transformation $S$ so that
+					$T\circ S=$id, where id is the identity function on all of $\R^n$.
+				\item
+					\[
+						[R]_{\mathcal E} = \mat{\sqrt{3}/2&-1/2\\1/2&\sqrt{3}/2}\qquad
+						[D]_{\mathcal E} = \tfrac{1}{17}\mat{-15&8\\8&15}
+						\]\[
+						[P]_{\mathcal E} = \tfrac{1}{17}\mat{1&4\\4&16}\qquad
+						[S]_{\mathcal E} = \mat{2&0\\0&2}
+					\]
+					The matrix for a transformation is invertible if and only if the
+					transformation is invertible. This is not affected by the choice of basis.
+			\end{enumerate}
+		\end{enumerate}

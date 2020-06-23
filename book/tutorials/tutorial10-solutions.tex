@@ -1,0 +1,65 @@
+		\begin{enumerate}
+			\item \begin{enumerate}
+					\item $\vec v$ is an eigenvector for $T$ if $\vec v\neq \vec 0$ and
+						$T\vec v=\lambda \vec v$ for some scalar $\lambda$.
+					\item $\vec v$ is an eigenvector for $T$ if it doesn't change directions
+						when $T$ is applied.
+			\end{enumerate}
+			\item
+				For $A$:
+				$\vec v_1$ is an eigenvector with eigenvalue $-1$;
+				$\vec v_2$ is an eigenvector with eigenvalue $2$.
+
+				For $B$:
+				$\vec v_2$ is an eigenvector with eigenvalue $2$;
+				$\vec v_4$ is an eigenvector with eigenvalue $-1$.
+
+				For $C$:
+				$\vec v_4$ is an eigenvector with eigenvalue $0$.
+			\item $\mathcal P$ has eigenvalues of $0$ and $1$. All non-zero multiples of $\mat{0\\1}$
+				have eigenvalue $0$ and non-zero multiples of $\mat{1\\0}$ have eigenvalue $1$.
+
+				$\mathcal R$ has no real eigenvalues and no real eigenvectors. Every non-zero
+				vector changes direction when $\mathcal R$ is applied.
+			\item It is not possible.
+
+				\emph{Proof:} Since $\vec v$ is an eigenvector for $T$ with eigenvalue
+				$2$, we know $T\vec v=2\vec v$. Since $T$ is linear, we know
+				\[
+					T(7\vec v)=7T\vec v=14\vec v,
+				\]
+				and so $7\vec v$ is an eigenvector for $T$ with eigenvalue $2$. There is no
+				other possibility.
+			\item \begin{enumerate}
+				\item $T^{100}\vec w=\vec v_1+\tfrac{1}{2^{100}}\vec v_2 \approx \vec v_1$.
+				\item Yes. Since $\vec v_1$ and $\vec v_2$ are eigenvectors, neither is zero.
+				Suppose $\{\vec v_1,\vec v_2\}$ is linearly dependent. Then, $\vec v_1=t\vec v_2$
+					for some $t$ (because $\vec v_2\neq \vec 0$). Computing,
+					\[
+						T\vec v_1=T(t\vec v_2)=tT\vec v_2=\tfrac{t}{2}\vec v_2 = \tfrac{1}{2}\vec v_1,
+					\]
+					and so $\vec v_1$ would have an eigenvalue of $\tfrac{1}{2}$. But, this
+					is a contradiction since the eigenvalue
+					of $\vec v_1$ is $1$. Thus $\{\vec v_1,\vec v_2\}$ must be linearly independent.
+
+					Finally, a linearly independent set of two vectors in $\R^2$ must span all of $\R^2$,
+					and so $\{\vec v_1,\vec v_2\}$ is a basis for $\R^2$.
+				\item Yes. First write $\mat{a\\b}$ in the $\{\vec v_1,\vec v_2\}$ basis. Then throw away
+					the $\vec v_2$ component.
+
+					The matrix that converts from the standard basis to the $\{\vec v_1,\vec v_2\}$ basis is
+					\[
+						C=\mat{-5&3\\2&-1}.
+					\]
+					The matrix that drops second coordinate of a vector is
+					\[
+						D=\mat{1&0\\0&0}.
+					\]
+					Thus
+					\[
+						T^{100}\mat{a\\b} \approx C^{-1}DC\mat{a\\b}=\mat{-5a+3b\\-10a+6b}.
+					\]
+				\item Yes. Suppose $S$ has a unique, largest, positive eigenvalue $\lambda$. Then $S'=\tfrac{1}{\lambda}S$
+					behaves similarly to $T$. Approximate the same way, then multiply by $\lambda$.
+			\end{enumerate}
+		\end{enumerate}

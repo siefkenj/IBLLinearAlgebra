@@ -1,0 +1,72 @@
+\subsection*{Learning Objectives}
+	Students need to be able to\ldots
+	\begin{itemize}
+		\item Identify whether a transformation is linear
+		\item Write a coherent argument showing why a function is or isn't linear
+		\item Come up with examples of linear and non-linear transformations
+	\end{itemize}
+
+\vspace*{-.5cm}
+\subsection*{Context}
+	Students have seen linear transformations and matrix transformations in class as well
+		as range, null space, row space, column space, and rank. The \emph{rank} of a transformation
+		is defined as the dimension of the range---it is a theorem, not the definition,
+		that that this number is the same as the number of pivots in the reduced row
+		echelon form of a matrix for the transformation.
+	
+	Students should have thought a lot about linear transformations as geometric things.
+		In this tutorial we treat them more as formal and algebraic objects. There are
+		several valid ways to define a linear transformation and different sections
+		may have used different, but equivalent definitions. The most common ones are:
+
+	\begin{itemize}
+		\item A function $T:V\to W$ is \emph{linear} if it satisfies (a) $T(\vec u+\vec v)=T\vec u+T\vec v$
+			and (b) $T(\alpha\vec u)=\alpha T\vec u$ for all $\vec u,\vec v\in V$ and all scalars $\alpha$.
+		\item A function $T:V\to W$ is \emph{linear} if it satisfies $T(\alpha\vec u+\beta\vec v)=\alpha T\vec u+
+			\beta T\vec v$ for all $\vec u,\vec v\in V$ and scalars $\alpha,\beta$.
+	\end{itemize}
+
+\vspace*{-.5cm}
+\subsection*{What to Do}
+	Introduce the learning objectives for the day's tutorial. Explain that linear transformations
+		are the second pillar of linear algebra (the first being change of basis).
+		Explain that today we are focusing on formal arguments to justify claims
+		about linearity, and so we will rely heavily on definitions.
+
+	Have students work in small groups. Again, this tutorial starts with a definition. Students from
+		different sections may have different, but equivalent, definitions. Make sure everyone
+		knows that there are multiple correct ways to define linearity.
+
+	The meat of this tutorial is \#2. The point of \#2 is to have them practice writing formal proofs.
+		Many will be able to come up with judgements, or even counterexamples, but not be able to write
+		a proof. When the class gets stuck, have a discussion about what needs to be shown
+		to satisfy the definition of linearity. You can provide them with a ``proof template'', since
+		all linearity proofs follow the form:
+		\begin{quote}
+			Let $\vec u,\vec v\in$domain and let $\alpha$ be a scalar. Then $T(\vec u+\vec v)=\cdots$application
+			of definition of $T$$\cdots=T\vec u+T\vec v$, and so on.
+		\end{quote}
+
+	\#2 will likely take the whole tutorial. Don't let groups move on until they \emph{have actually written down}
+		proofs for each of the transformations. They think they have it in their head, but they don't!
+
+		As groups come up with proofs, have multiple groups write their proofs on the board (for example,
+		two proofs of $\mathcal A$), and have a class discussion about whether the proofs are correct and
+		whether they could be improved. Remember: you're the ultimate math authority in the room. Have a
+		friendly discussion and allow everyone to share their opinions, but be unambiguous when wrapping up and discussing
+		what is ``correct''. In particular, don't say, ``it would be better like this'' if it was wrong initially. Instead,
+		say, ``As written, it is not correct, but you could fix it by writing\ldots''.
+	
+	A good wrap-up for this tutorial is a class discussion/comparison of proofs for \#2. If everyone finishes \#2 (and
+	did a good job on it, pick a suitable problem, as usual, and present a solution.
+
+\subsection*{Notes}
+	\begin{itemize}
+		\item Students from different sections may have different definitions of linearity.
+		\item Transformations from $\R^n\to \R$ and piecewise functions confuse students, so
+			expect $\mathcal B$ to confuse them.
+		\item If they get stuck on \#3, have them write down the definition of rank. The problem
+			will be easier after that.
+		\item The solutions for \#5 list trivial examples. The students find trivial examples
+			harder than non-trivial ones. If you discuss this problem with them, pick non-trivial examples.
+	\end{itemize}

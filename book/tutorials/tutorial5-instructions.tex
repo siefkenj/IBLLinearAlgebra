@@ -1,0 +1,63 @@
+\subsection*{Learning Objectives}
+	Students need to be able to\ldots
+	\begin{itemize}
+		\item Write vectors in multiple bases
+		\item Write matrices for linear transformations in multiple bases
+		\item Explain the pros and cons for one basis over another in a particular problem
+	\end{itemize}
+
+\subsection*{Context}
+	In class, students have gone over bases, subspaces, dimension, linear transformations, and
+		matrix transformations. In this class, we only work with $\R^n$ and subspaces of $\R^n$,
+		so we won't be talking about bases for abstract spaces.
+	
+	Bases are especially hard for students---they're used to thinking of lists of numbers
+		as the actual vectors instead of representations of the vectors. They need
+		a lot of hand-holding to make this transition.
+
+\subsection*{What to Do}
+	Start by explaining to students that bases and linear transformations are \emph{the}
+		two big ideas from linear algebra and that today we're going to focus on bases.
+		Further tell them that up till now we've been considering vectors and lists
+		of numbers as interchangeable, but now we think of lists of numbers
+		as a \emph{representation} of a vector instead of a true vector (kind of like
+		the symbol ``4'' is not literally four, it is a graphical representation of
+		the abstract idea of the number four).
+	
+	Proceed as usual, asking students to form small groups and start working.
+		Again, this tutorial starts with a definition question, which they all need to actually write out.
+		The meat of this tutorial is problem \#2.
+		When most groups are on \#2(c), have a class discussion on 2(a) and 2(b), to
+		make sure everyone is on the same page.
+
+
+	Remember, the point of this tutorial (and all tutorials) is not to get through all the problems.
+	It is to get practice with difficult and new mathematics. Don't cut thinking time short trying
+	to get through more problems!
+
+	8 minutes before the end of class, pick a problem that most groups have started, or a problem
+		that they've finished but you think needs more attention, and do that problem as a wrap-up.
+
+
+\subsection*{Notes}
+		\begin{enumerate}
+			\item To talk about representations in a basis we technically need \emph{ordered} sets. In this class,
+				when writing a set down and declaring it a basis, we imply that the order of the basis vectors
+				is the left-to-right order that they're written in. The student's won't think about regular sets lacking
+				order,
+				so don't bring it up unless they ask.
+			\item We use the notation $[\vec v]_{\mathcal X}$ to mean the list of numbers representing
+				$\vec v$ in the basis $\mathcal X=\{\vec x_1,\vec x_2,\ldots\}$. We use $\mat{1\\2\\\vdots}_{\mathcal X}$ to
+				mean the linear combination $1\vec x_1+2\vec x_2+\cdots$. Thus $[[\vec v]_{\mathcal X}]_{\mathcal X}=\vec v$.
+			\item Lists of number that are not subscripted and are treated as vectors have an implicit
+				subscript of $\mathcal E$, the standard basis. Students may be uncomfortable
+				that sometimes we demand subscripts and sometimes we don't. It should always be clear from context
+				whether we are talking about a list of numbers or a vector written in the standard basis, and on
+				tests we will be very clear.
+			\item For 2(c), make sure that the shortcut comes out that $[7\vec v]_{\mathcal X} = 7[\vec v]_{\mathcal X}$ and,
+				in fact, changing basis is a linear operation.
+			\item Problems 2(d) and 4 ask for value judgments. There's no ``right'' answer to these questions, but
+				some answers are better reasoned than others. Hold the students accountable for coming
+				up with good reasons.
+			\item No one will get to \#4, but if they do, encourage them to use a calculator to speed things along.
+		\end{enumerate}

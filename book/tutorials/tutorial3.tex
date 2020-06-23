@@ -1,0 +1,62 @@
+		\begin{objectives}
+	In this tutorial you will explore orthogonality in depth.
+
+	These problems relate to the following course learning objectives:
+	\textit{Work independently to understand concepts and procedures that have not been previously
+		explained to you},
+		\textit{translate between algebraic and geometric viewpoints to solve problems}, and
+		\textit{understand definitions that have been written by others}.
+		\end{objectives}
+
+		\vspace{-.4cm}
+\subsection*{Definitions}
+		Recall the vectors $\vec a$ and $\vec b$ are \emph{orthogonal} if $\vec a\cdot \vec b=0$.
+		We say the \emph{sets $A$ and $B$ are orthogonal} if every vector in $A$ is orthogonal to every
+		vector in $B$.
+
+		\vspace{-.4cm}
+\subsection*{Problems}
+Let $\vec v_1=\mat{1\\1\\1\\1}$,
+		$\vec v_2=\mat{-1\\1\\1\\1}$,
+		$\vec v_3=\mat{-1\\-1\\1\\1}$,
+		$\vec v_4=\mat{1\\0\\0\\1}$,
+		$\vec v_5=\mat{3\\-1\\-1\\-1}$, and
+		$\vec v_6=\mat{1\\1\\2\\0}$.
+
+\begin{enumerate}
+	\item
+	\begin{enumerate}
+		\item Identify all pairs of orthogonal vectors among $\vec v_1$, \ldots, $\vec v_6$.
+		\item Let $A=\{\vec v_1, \vec v_2\}$ and $B=\{\vec v_3,\vec v_4\}$. Are $A$ and $B$ orthogonal sets?
+			Why or why not?
+		\item Let $P=\{\vec v_1, \vec v_6\}$ and $Q=\{\vec v_3,\vec v_5\}$. Are $P$ and $Q$ orthogonal sets?
+			Why or why not?
+		\item Can you split the vectors $\vec v_1$, \ldots, $\vec v_6$ into two non-empty sets that are orthogonal to
+			each other? Explain.
+	\end{enumerate}
+	\item
+	\begin{enumerate}
+		\item Using guess-and-check, find two vectors that are orthogonal to both $\vec v_1$ and $\vec v_2$.
+		\item Set up and solve a system of equations to find all vectors orthogonal to $\vec v_1$ and $\vec v_2$.
+	\end{enumerate}
+	\item The dot product is \emph{commutative} and \emph{distributive}. That is $\vec v\cdot (\alpha\vec a+\vec b)=
+		(\alpha\vec a+\vec b)\cdot \vec v=\alpha(\vec a\cdot \vec v)+\vec b\cdot\vec v$. Use this to show that if
+		the set $X=\{\vec x\}$ is orthogonal to the set $Y=\{\vec y_1,\vec y_2,\vec y_3,\vec y_4\}$,
+		then $X$ is also orthogonal to $\Span Y$.
+	
+	\item We say that $\vec a$ and $\vec b$ are \emph{close} if $\|\vec a-\vec b\|$ is small. We will see if we can
+		extend this concept to lines.
+
+		Let the lines $\ell_1$, $\ell_2$, $\ell_3$, and $\ell_4$ be given by the equations $y=x$, $y=1.001x$,
+				$y=2000x$, $y=3000x$.
+		\begin{enumerate}
+			\item Out of $\ell_1$, \ldots, $\ell_4$, which lines would you call ``close''? Can you come up
+				with a mathematical definition to justify your conclusion?
+			\item For $\ell_1$, \ldots, $\ell_4$, find unit normal vectors $\vec n_1$, \ldots, $\vec n_4$.
+				For consistency, ensure each unit normal vector points towards the upper left (i.e., has negative first coordinate
+				and positive second coordinate).
+			\item Compute the distances between $\vec n_1$, \ldots, $\vec n_4$. Do these distances coincide with your
+				intuition about closeness? Why might comparing normal vectors be preferable to comparing direction vectors?
+		\end{enumerate}
+	
+\end{enumerate}
