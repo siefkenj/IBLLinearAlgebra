@@ -647,11 +647,11 @@
 			}
 		}{
 			% If we're here, we have provided the optional argument
-			\tl_put_right:Nn \l_workbook_display_title_tl { {~} \l_workbook_openmark_tl ##1 \l_workbook_closemark_tl . {~} }
+			\tl_put_right:Nn \l_workbook_display_title_tl { {~} \l_workbook_openmark_tl ##1 \l_workbook_closemark_tl . }
 
 		}
 
-		{\bfseries\sffamily\color{\l_workbook_color_tl} \l_workbook_display_title_tl}
+		{\bfseries\sffamily\color{\l_workbook_color_tl} \l_workbook_display_title_tl} ~
 
 		\l_workbook_precode_tl
 	}{

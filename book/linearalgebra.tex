@@ -186,8 +186,10 @@
 \NewColoredEnvironment{
 	name = appendix,
 	display name = Appendix,
-	banner color = Green,
-	title color = Green,
+	banner color = LimeGreen,
+	title color = LimeGreen!70!Green!80!black,
+	definition color = Cerulean,
+	theorem color = myorange,
 }
 \NewColoredEnvironment{
 	name = indices,
@@ -213,12 +215,14 @@
 \newcommand{\coversubtitle}{} % we override the subtitle in each mode, so make sure the command exists to override.
 \iftoggle{instructor}{
 	\voidenvironment{module}
+	\voidenvironment{appendix}
 	\voidenvironment{bookonly}
 	\voidenvironment{displayonly}
 	\renewcommand{\coversubtitle}{Instructor Guide}
 }{}
 \iftoggle{solutions}{
 	\voidenvironment{module}
+	\voidenvironment{appendix}
 	\voidenvironment{bookonly}
 	\voidenvironment{displayonly}
 	\voidenvironment{lesson}
@@ -227,6 +231,7 @@
 }{}
 \iftoggle{standard}{
 	\voidenvironment{module}
+	\voidenvironment{appendix}
 	\voidenvironment{bookonly}
 	\voidenvironment{solution}
 	\voidenvironment{annotation}
@@ -8886,10 +8891,124 @@ While studying the subway map, you decide to pick two bases to help:
 			\end{solution}
 	\end{parts}
 
-\newpage
+\begin{appendix}
+	\Title{Systems of Linear Equations I}
+
+	In this appendix you will learn
+	\begin{itemize}
+		\item What a system of linear equations is.
+		\item What the solution set to a system of equations is, and what it means for a system of equations
+			to be consistent or inconsistent.
+		\item How augmented matrices can be used to solve systems of linear equations.
+		\item How to apply row reduction to find a unique solution to a system of linear
+			equations and to determine if a system of linear equations is consistent or inconsistent.
+	\end{itemize}
+
+	\input{modules/appendix1.tex}
+	\input{modules/appendix1-exercises.tex}
+\end{appendix}
+
+\begin{appendix}
+	\Title{Systems of Linear Equations II}
+
+	In this appendix you will learn
+	\begin{itemize}
+		\item How to put a matrix into reduced row echelon form.
+		\item How to use free variables to write down the complete solution to a system of linear equations.
+		\item That a system of linear equations has 0, 1, or infinitely many solutions.
+		\item How solution sets to systems of linear equations relate to intersecting hyperplanes.
+	\end{itemize}
+
+	\input{modules/appendix2.tex}
+	\input{modules/appendix2-exercises.tex}
+\end{appendix}
 
 \begin{bookonly}
 
+  \begin{tutorial}
+    \Title{Math \& the World}
+
+    \input{tutorials/tutorial1.tex}
+    % \input{tutorials/tutorial1-solutions.tex}
+      % \input{tutorials/tutorial1-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Definitions}
+
+
+    \input{tutorials/tutorial2.tex}
+    % \input{tutorials/tutorial2-solutions.tex}
+    % \input{tutorials/tutorial2-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Orthogonality}
+
+    \input{tutorials/tutorial3.tex}
+    % \input{tutorials/tutorial3-solutions.tex}
+    % \input{tutorials/tutorial3-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Projections}
+
+    \input{tutorials/tutorial4.tex}
+    % \input{tutorials/tutorial4-solutions.tex}
+    % \input{tutorials/tutorial4-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Change of Basis}
+
+    \input{tutorials/tutorial5.tex}
+    % \input{tutorials/tutorial5-solutions.tex}
+    % \input{tutorials/tutorial5-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Transformations}
+
+    \input{tutorials/tutorial6.tex}
+    % \input{tutorials/tutorial6-solutions.tex}
+    % \input{tutorials/tutorial6-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Inverses}
+
+    \input{tutorials/tutorial7.tex}
+    % \input{tutorials/tutorial7-solutions.tex}
+    % \input{tutorials/tutorial7-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Constructing Examples}
+
+    \input{tutorials/tutorial8.tex}
+    % \input{tutorials/tutorial8-solutions.tex}
+    % \input{tutorials/tutorial8-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Determinants}
+
+    \input{tutorials/tutorial9.tex}
+    % \input{tutorials/tutorial9-solutions.tex}
+    % \input{tutorials/tutorial9-instructions.tex}
+  \end{tutorial}
+
+  \begin{tutorial}
+    \Title{Eigenstuff}
+
+    \input{tutorials/tutorial10.tex}
+    % \input{tutorials/tutorial10-solutions.tex}
+    % \input{tutorials/tutorial10-instructions.tex}
+  \end{tutorial}
+
+\begin{appendix}
+	\PrintExerciseSolutions
+\end{appendix}
 	\begin{indices}*
 		\Title{Indices}
 
@@ -8901,94 +9020,6 @@ While studying the subway map, you decide to pick two bases to help:
 		\bigskip
 		\printindex[definitions]
 	\end{indices}
-
-	\begin{appendix}
-		\PrintExerciseSolutions
-	\end{appendix}
-
 \end{bookonly}
-
-\newpage
-
-\begin{tutorial}
-	\Title{Math \& the World}
-
-	\input{tutorials/tutorial1.tex}
-	% \input{tutorials/tutorial1-solutions.tex}
-    % \input{tutorials/tutorial1-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Definitions}
-	
-
-	\input{tutorials/tutorial2.tex}
-	% \input{tutorials/tutorial2-solutions.tex}
-	% \input{tutorials/tutorial2-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Orthogonality}
-
-	\input{tutorials/tutorial3.tex}
-	% \input{tutorials/tutorial3-solutions.tex}
-	% \input{tutorials/tutorial3-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Projections}
-
-	\input{tutorials/tutorial4.tex}
-	% \input{tutorials/tutorial4-solutions.tex}
-	% \input{tutorials/tutorial4-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Change of Basis}
-
-	\input{tutorials/tutorial5.tex}
-	% \input{tutorials/tutorial5-solutions.tex}
-	% \input{tutorials/tutorial5-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Transformations}
-
-	\input{tutorials/tutorial6.tex}
-	% \input{tutorials/tutorial6-solutions.tex}
-	% \input{tutorials/tutorial6-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Inverses}
-
-	\input{tutorials/tutorial7.tex}
-	% \input{tutorials/tutorial7-solutions.tex}
-	% \input{tutorials/tutorial7-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Constructing Examples}
-
-	\input{tutorials/tutorial8.tex}
-	% \input{tutorials/tutorial8-solutions.tex}
-	% \input{tutorials/tutorial8-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Determinants}
-
-	\input{tutorials/tutorial9.tex}
-	% \input{tutorials/tutorial9-solutions.tex}
-	% \input{tutorials/tutorial9-instructions.tex}
-\end{tutorial}
-
-\begin{tutorial}
-	\Title{Eigenstuff}
-
-	\input{tutorials/tutorial10.tex}
-	% \input{tutorials/tutorial10-solutions.tex}
-	% \input{tutorials/tutorial10-instructions.tex}
-\end{tutorial}
 
 \end{document}
