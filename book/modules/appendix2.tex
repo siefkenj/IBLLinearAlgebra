@@ -1,0 +1,521 @@
+	Consider the system
+	\begin{equation}
+		\label{EQUNDERDET}
+		\systeme{x-2y=0,2x-4y=0}.
+	\end{equation}
+	Notice that every solution to the first equation is also a solution to the second equation.
+	Applying row reduction, we get the system
+	\[
+		\systeme{x-2y=0,0x+0y=0},
+	\]
+	but that second equation, $0x+0y=0$, is funny. It is always true, no matter the choice of $x$ and $y$.
+	It adds no new information! In retrospect, it might be obvious that both equations from System \eqref{EQUNDERDET}
+	contain the same information making one equation redundant.
+
+	System \eqref{EQUNDERDET} is an example of an \emph{underdetermined} system of equations, meaning 
+	there is not enough information to uniquely determine the value of each variable.
+	Its solution
+	set is a line, which we can find by graphing.
+	
+	XXX Figure
+
+	From this picture, we could describe the complete solution to System \eqref{EQUNDERDET} in \emph{vector form} by
+	\[
+		\vec x = t\mat{-2\\1}.
+	\]
+
+	But, what about a more complicated system? The system
+	\[
+		\systeme{x+y+z=1,y-z=2}
+	\]
+	is also underdetermined. It has a complete solution described by
+	\[
+		\mat{x\\y\\z} =t\mat{-2\\1\\1} + \mat{1\\2\\0},
+	\]
+	but this is much harder to find by graphing.
+	Fortunately, we won't have to graph. Row reduction, combined with the notion of \emph{free variables},
+	will provide a solution.
+
+	\Heading{Reduced Row Echelon Form}
+	Before we tackle complete solutions for underdetermined systems, we need to talk about \emph{reduced row echelon form}\footnote{
+		Reduced row echelon form is alternatively called \emph{row reduced echelon form}; whether you say ``reduce row'' or 
+		``row reduced'' makes no difference to the math!
+	},
+	which is abbreviated \emph{rref}.
+	The reduced row echelon form of a matrix is the
+	simplest (in terms of reading off solutions) form a matrix can be turned into via elementary row operations.
+
+	\begin{definition}[Reduce Row Echelon Form (RREF)]
+		A matrix $X$ is in \emph{reduced row echelon form} if the following conditions hold:
+		\smallskip
+		\begin{itemize}
+			\item The first non-zero entry in every row is a $1$; these entries are called \emph{pivots}
+				or \emph{leading ones}.
+			\item Above and below each leading one are zeros.
+			\item The leading ones form an echelon (staircase) pattern. That is, if row $i$ has a leading
+				one, every leading one appearing in row $j>i$ also appears to the {\it right} of
+				the leading one in row $i$.
+			\item All rows of zeros occur at the bottom of $X$.
+		\end{itemize}
+		\smallskip
+
+		Columns of a reduced row echelon form matrix that contain pivots are called \emph{pivot columns}\footnote{
+			If a matrix is augmented, we usually do not refer to the augmented column as a pivot column, even
+			if it contains a pivot.
+		}.
+	\end{definition}
+
+	\begin{example}
+		Which of the follow matrices are in reduced row echelon form? For those that are, identify which
+		columns are pivot columns. For those that are not, what condition(s) fail?
+
+		XXX Finish include examples of 4 matrices, one of which is in RREF
+	\end{example}
+
+	We've encountered the reduced row echelon form of a matrix already in the examples of Appendix \ref{APPSLEI}.
+	Recall the system 
+	\[
+		\systeme[tsr]{
+			t+2s-2r=-15,
+			2t+s-5r=-21,
+			t-4s+r=18
+		}\qquad\text{with augmented matrix}\qquad
+		X=\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			2&1&-5&-21\\
+			1&-4&1&18
+		\end{bmatrix}.
+	\]
+	The matrix $X$ could be row reduced to
+	\[
+		X'=\begin{bmatrix}[rrr|r]
+			1&2&-2 & -15\\
+			0&-3&-1&9\\
+			0&0&5&15
+		\end{bmatrix},
+	\]
+	which was suitable for solving the system. However, $X'$ is not in reduced row echelon form (the leading non-zero entries
+	must all be ones). We can further row reduce $X'$ to
+	\[
+		X''=\begin{bmatrix}[rrr|r]
+			1&0&0 & -1\\
+			0&1&0&-4\\
+			0&0&1&3
+		\end{bmatrix}.
+	\]
+	$X''$ is the \emph{reduced row echelon form} of $X$, and reading off the solution to the original system from $X''$ is as simple
+	as can be!
+
+	\medskip
+	Every matrix, $M$, has a unique reduced row echelon form, written $\Rref(M)$, which can be obtained from
+	$M$ by applying elementary row operations. There are many ways to compute the reduced row echelon form
+	of a matrix, but the following algorithm always works.
+
+	\begin{definition}[Row Reduction Algorithm]
+		Let $M$ be a matrix.
+		\begin{enumerate}
+			\item If $M$ takes the form $M=[\vec 0|M']$ (that is, its first column
+			is all zeros), apply the algorithm to $M'$.
+		\item If not, perform a row-swap (if needed) so the upper-left entry of $M$ is
+				non-zero.
+			\item Let $\alpha$ be the upper-left entry of $M$. 
+				Perform the row operation $\text{row}_1\mapsto \tfrac{1}{\alpha}\text{row}_1$.
+				The upper-left entry of $M$ is now $1$ and is called a 
+				\emph{pivot}.
+			\item Use row operations of the form $\text{row}_i\mapsto \text{row}_i+\beta\,\text{row}_1$
+			to zero every entry below the pivot.
+			\item Now, $M$ has the form
+			\[
+				M=\begin{bmatrix}[c|c]
+					1 & ??\\
+					\hline\\[\dimexpr-\normalbaselineskip+2pt]
+					\vec 0 & M'
+				\end{bmatrix},
+			\]
+			where $M'$ is a {\it submatrix} of $M$.
+			Apply the algorithm to $M'$.
+
+		\end{enumerate}
+
+		The resulting matrix is in \emph{pre-reduced row echelon form}. To put the matrix in 
+		\emph{reduced row echelon form}, additionally apply step 6.
+		\begin{enumerate}
+			\item[6.] Use the row operations of the form $\text{row}_i\mapsto \text{row}_i+\beta\,\text{row}_j$
+			to zero above each pivot.
+		\end{enumerate}
+	\end{definition}
+
+	Though there might be more efficient ways, and you might encounter ugly fractions, the row reduction algorithm will
+	\emph{always} convert a matrix to its reduced row echelon form.
+
+	\begin{example}
+		Apply the row-reduction algorithm to the matrix
+		\[
+			M=\mat{0&0&0&-2&-2\\0&1&2&3&2\\0&2&4&5&3}.
+		\]
+		
+		First notice that $M$ starts with a column of zeros, so we will focus on
+		the right side of $M$. We will draw a line to separate it.
+		\[
+		M=\begin{bmatrix}[r|rrrr]
+			0&0&0&-2&-2\\0&1&2&3&2\\0&2&4&5&3
+		\end{bmatrix}
+		\]
+		Next, we perform a row swap to bring a non-zero entry to the upper left.
+		\[
+		\begin{bmatrix}[r|rrrr]
+			0&0&0&-2&-2\\0&1&2&3&2\\0&2&4&5&3
+		\end{bmatrix}
+		\xrightarrow{\text{row}_1\leftrightarrow\text{row}_2}
+		\begin{bmatrix}[r|rrrr]
+			0&1&2&3&2\\0&0&0&-2&-2\\0&2&4&5&3
+		\end{bmatrix}
+		\]
+		The upper-left entry is already a $1$, so we can use it to zero all entries below.
+		\[
+		\begin{bmatrix}[r|rrrr]
+			0&1&2&3&2\\0&0&0&-2&-2\\0&2&4&5&3
+		\end{bmatrix}
+		\xrightarrow{\text{row}_3\mapsto\text{row}_3-2\text{row}_1}
+		\begin{bmatrix}[r|rrrr]
+			0&1&2&3&2\\0&0&0&-2&-2\\0&0&0&-1&-1
+		\end{bmatrix}
+		\]
+		Now we work on the submatrix.
+		\[
+		\begin{bmatrix}[rr|rrr]
+			0&1&2&3&2\\
+			\hline\\[\dimexpr-\normalbaselineskip+2pt]
+			0&0&0&-2&-2\\0&0&0&-1&-1
+		\end{bmatrix}
+		\]
+		Again, the submatrix has a first column of zeros, so we pass to a sub-submatrix.
+		\[
+		\begin{bmatrix}[rrr|rr]
+			0&1&2&3&2\\
+			\hline\\[\dimexpr-\normalbaselineskip+2pt]
+			0&0&0&-2&-2\\0&0&0&-1&-1
+		\end{bmatrix}
+		\]
+		Now we turn the upper left entry into a $1$ and use that pivot
+		to zero all entries below.
+		\[
+		\begin{bmatrix}[rrr|rr]
+			0&1&2&3&2\\
+			\hline\\[\dimexpr-\normalbaselineskip+2pt]
+			0&0&0&-2&-2\\0&0&0&-1&-1
+		\end{bmatrix}
+		\xrightarrow{\text{row}_2\mapsto\tfrac{-1}{2}\text{row}_2}
+		\begin{bmatrix}[rrr|rr]
+			0&1&2&3&2\\
+			\hline\\[\dimexpr-\normalbaselineskip+2pt]
+			0&0&0&1&1\\0&0&0&-1&-1
+		\end{bmatrix}
+		\xrightarrow{\text{row}_3\mapsto\text{row}_3+\text{row}_2}
+		\begin{bmatrix}[rrr|rr]
+			0&1&2&3&2\\
+			\hline\\[\dimexpr-\normalbaselineskip+2pt]
+			0&0&0&1&1\\0&0&0&0&0
+		\end{bmatrix}
+		\]
+		The matrix is now in pre-reduced row echelon form. To put it in reduced row echelon
+		form, we zero above each pivot.
+		\[
+			\mat{
+				0&1&2&3&2\\
+				0&0&0&1&1\\0&0&0&0&0
+			}
+			\xrightarrow{\text{row}_1\mapsto\text{row}_1-3\text{row}_2}
+			\mat{
+				0&1&2&0&-1\\
+				0&0&0&1&1\\0&0&0&0&0
+			}
+		\]
+	\end{example}
+
+	All matrices, whether augmented or not, have a reduced row echelon form. 
+	Correctly applying the row reduction algorithm takes practice,
+	but being able to row reduce a matrix is the analogue of ``knowing your multiplication tables'' for
+	linear algebra.
+
+
+	\Heading{Free Variables \& Complete Solutions}
+	
+	By now we are very familiar with the system
+	\[
+			\systeme{
+				x+2y-2z=-15,
+				2x+y-5z=-21,
+				x-4y+z=18
+			},
+	\]
+	which has a unique solution $(x,y,z)=(-1,-4,3)$. 
+	We can compute this by row reducing the associated augmented matrix:
+	\[
+		\Rref\left(\begin{bmatrix}[rrr|r]
+				1&2&-2 & -15\\
+				2&1&-5&-21\\
+				1&-4&1&18
+		\end{bmatrix}\right)
+			\qquad=\qquad
+			\begin{bmatrix}[rrr|r]
+				1&0&0 & -1\\
+				0&1&0&-4\\
+				0&0&1&3
+			\end{bmatrix},
+	\]
+	which corresponds to the system
+	\[
+			\systeme{
+				x\quad =-1,y\quad =-4,z=3
+			},
+	\]
+	from which the solution is immediate. But what happens when there isn't a 
+	unique solution?
+
+	Consider the system
+	\begin{equation}
+		\label{EQFREEVAR}
+		\systeme{x+3y=2,2x+6y=4}.
+	\end{equation}
+	When using an augmented matrix to solve this system, we run into an issue.
+	\[
+			\begin{bmatrix}[rr|r]
+				1&3 & 2\\
+				2&6&4\\
+			\end{bmatrix}
+			\qquad\Rrefto\qquad
+			\begin{bmatrix}[rr|r]
+				1&3&2\\
+				0&0&0\\
+			\end{bmatrix}
+	\]
+	From the reduced row echelon form, we're left with the equation $x+3y=2$, which isn't exactly
+	a \emph{solution}. Effectively, the original system had only one equation's worth of information,
+	so we cannot solve for both $x$ and $y$ based on the original system. To get ourselves out of
+	this pickle, we will use a notational trick: introduce the arbitrary equation $y=t$\footnote{ This equation
+	is called \emph{arbitrary} because it introduces no new information about the original variables. The restrictions
+	on $x$ and $y$ aren't changed by introducing the fact $y=t$.}.
+	Now, because we've already done row-reduction, we see
+	\[
+		\systeme{x+3y=2,2x+6y=4,y=t}\qquad\Rrefto\qquad
+		\systeme{x+3y=2,y=t}.
+	\]
+	Here we've omitted the equation $0=0$ since it adds no information.
+	Now, we can solve for $x$ and $y$ in terms of $t$.
+	\[
+		\vec x=\mat{x\\y} = \matc{2-3t\\t}=t\mat{-3\\1}+\mat{2\\0}.
+	\]
+	Notice that $t$ here stands for an arbitrary real number. Any choice of $t$
+	produces a valid solution to the original system (go ahead, pick some values
+	for $t$ and see what happens).  We call $t$ a \emph{parameter} and $y$ a
+	\emph{free variable}\footnote{ We call $y$ \emph{free} because we may pick
+	it to be anything we want and still produce a solution to the system.}.
+	Notice further that 
+	\[
+		\vec x=t\mat{-3\\1}+\mat{2\\0}
+	\]
+	is vector form of the line $x+3y=2$.
+
+	\medskip
+	Though you can usually make many choices about which variables are free variables, one choice always works:
+	\emph{pick all variables corresponding to non-pivot columns to be free variables}. For this reason,
+	we refer to non-pivot non-augmented columns of a row-reduced matrix as \emph{free variable columns}.
+
+	\begin{example}
+		Use row reduction to find the complete solution to $\systeme{x+y+z=1,y-z=2}$
+	
+		XXX Finish. Express answer both in vector form and as a set.
+	\end{example}
+
+
+	\medskip
+	Consider the (somewhat strange) system of one equation
+	\[
+		\systeme{0x+0y+z=1}.
+	\]
+	The solution set for this system is the $xy$-plane in $\R^3$ shifted up by one unit. We can
+	use row reduction and free variables to see this.
+
+	The system corresponds to the augmented matrix
+	\[
+		\begin{bmatrix}[ccc|c]
+			0&0&1&1
+		\end{bmatrix}
+	\]
+	which is already in reduced row echelon form. It's third column is the only pivot column, making columns $1$ and $2$
+	free variable columns (remember, we don't count augmented columns as free variable columns). 
+	Thus, we introduce two arbitrary equations, $x=t$ and $y=s$, and solve the new system
+	\[
+		\systeme{0x+0y+z=1,x=t,y=s}
+	\]
+	for $(x,y,z)$, which gives
+	\[
+		\mat{x\\y\\z}= \mat{1\\t\\s} = t\mat{0\\1\\0}+s\mat{0\\0\\1}+\mat{1\\0\\0}.
+	\]
+
+	\medskip
+	Using row reduction and free variables, we can find complete solutions to very complicated systems.
+	The process is straight-forward enough that even a computer can do it!\footnote{
+		Computers usually don't follow the algorithm outlined here because they have
+		to deal with \emph{rounding error}. But, there is a modification of the row
+		reduction algorithm called row reduction with \emph{partial pivoting} which
+		solves some issues with rounding error.
+	}
+
+	\begin{example}
+		Consider the system of equations in the variables $x$, $y$, $z$, and $w$:
+		\[
+			\systeme[xyzw]{-2w=-2,y+2z+3w=2,2y+4z+5w=3}
+		\]
+		Find the solution set for this system.
+
+		The augmented matrix corresponding to this system is
+		\[
+			M=\begin{bmatrix}[cccc|c]0&0&0&-2&-2\\0&1&2&3&2\\0&2&4&5&3\end{bmatrix},
+		\]
+		which we've row reduced in a previous example:
+		\[
+			\Rref(M) = 
+			\begin{bmatrix}[cccc|c]
+				0&1&2&0&-1\\
+				0&0&0&1&1\\0&0&0&0&0
+			\end{bmatrix}.
+		\]
+
+		Here, columns $1$ and $3$ are free variable columns, so we introduce the equations $x=t$ and $z=s$.
+		Now, solving the system
+
+
+		XXX Finish
+	\end{example}
+
+	\Heading{Free Variables \& Inconsistent Systems}
+
+	If you need a free variable/parameter to describe the complete solution to a system of linear equations,
+	the system necessarily has an infinite number of solutions---one coming from every choice of value for your
+	free variable/parameter. However, one still needs to be careful when deciding \emph{from an augmented matrix}
+	whether a system of linear equations has an infinite number of solutions.
+
+	Consider the augmented matrices $A$ and $B$, which are given in reduced row echelon form.
+	\[
+		A=\begin{bmatrix}[cc|c]
+			1&2&-1\\0&0&0
+		\end{bmatrix}
+		\qquad
+		B=\begin{bmatrix}[cc|c]
+			1&2&0\\0&0&1
+		\end{bmatrix}
+	\]
+	Both matrices lack a pivot in their second column. However, $A$ corresponds to a system with an infinite solution
+	set, while $B$ corresponds to an inconsistent system with an empty solution set. We can debate whether it is appropriate
+	to say that $B$ has a free variable column\footnote{ On the one hand, the second column fits the description. On the other hand,
+	you cannot make any choices when picking a solution, since there are no solutions.}, but one thing is clear:
+	when evaluating the number of solutions to a system, you must pay attention to whether or not the system is consistent.
+
+
+	Putting everything together, we can fully classify the number of solutions to a system of linear equations
+	based on pivots/free variables.
+
+	\begin{center}
+		\begin{tabular}{ccc}
+			Consistent & Pivots & Number of Solutions\\
+			\hline
+			False & At least one column doesn't have a pivot & 0\\
+			True & Every column has a pivot & 1\\
+			True & At least one column doesn't have a pivot & Infinitely many\\
+		\end{tabular}
+	\end{center}
+
+	This information is so important, we will also codify it in a theorem.
+
+	\begin{theorem}
+		A system of linear equations has either $0$ solutions, $1$ solution, or infinitely many solutions.
+	\end{theorem}
+	
+	\Heading{The Geometry of Systems of Equations}
+
+	Consider the system of equations
+	\begin{equation}
+		\label{EQINTERSECTINGLINES}
+		\systeme{
+			x-2y=0@\qquad\text{row}_1,
+			x+y=3@\qquad\text{row}_2
+		}
+	\end{equation}
+	The only values of $x$ and $y$ that satisfy both equations is
+	$(x,y)=(2,1)$. However, each row, view in isolation, specifies a line in $\R^2$. Call the line
+	coming from the first row $\ell_1$ and the line coming from the second row $\ell_2$.
+
+	XXX Figure
+
+	These two lines intersect exactly at the point $\mat{2\\1}$. And, of course they should.
+	By definition, a solution to a system of equations satisfies \emph{all} equations. In other words,
+	a solution to System \eqref{EQINTERSECTINGLINES} is a point that lies in both $\ell_1$ and $\ell_2$.
+	In other words, solutions lie in $\ell_1\cap \ell_2$.
+
+	\begin{emphbox}[Takeaway]
+		Geometrically, a solution to a system of equations is the intersection of objects specified
+		by the individual equations.
+	\end{emphbox}
+
+	This perspective sheds some light on inconsistent systems. The system
+	\[
+		\systeme{
+			x-2y=0@\qquad\text{row}_1,
+			2x-4y=2@\qquad\text{row}_2
+		}
+	\]
+	is inconsistent. And, when we graph the lines specified by the rows, we see that they are parallel 
+	and never intersect. Thus, the solution set is empty.
+
+	\Heading{Planes \& Hyperplanes}
+
+	Consider the solution set to a single linear equation viewed in isolation. For example,
+	in the three-variable case, we might consider
+	\[
+		x+2y-z=3.
+	\]
+	The solution set to this equation is a \emph{plane}. Why? For starters, writing down the complete
+	solution involves picking two free variables. Suppose we pick $y=t$ and $z=s$. Then, before we
+	even do a calculation, we know the complete solution will be described in vector form by
+	\[
+		\vec x=t\vec d_1+s\vec d_2+\vec p,
+	\]
+	where $\vec d_1$, $\vec d_2$, and $\vec p$ come from doing the usual computations. But, that is vector form
+	of a plane!
+
+	In general, a single equation in $n$ variables requires $n-1$ free variables to describe its complete
+	solution. The only exception is the trivial equation, $0x_1+\cdots +0x_n=0$, which requires $n$ free variables.
+	For the sake of brevity, from now on we will assume that \emph{a linear equation in $n$ variables} means 
+	\emph{a non-trivial
+	linear equation in $n$ variables}.
+
+	Applying this knowledge, we can construct a table for systems consisting of a single linear equation.
+
+	\begin{center}
+		\begin{tabular}{ccc}
+			Number of Variables & Number of Free Variables & Complete Solution\\
+			\hline\\[-9pt]
+			2 & 1 & Line in $\R^2$\\
+			3 & 2 & Plane in $\R^3$\\
+			4 & 3 & Volume in $\R^4$\\
+		\end{tabular}
+	\end{center}
+
+	Notice that the dimension of the solution set (a line being one dimensional, a plane being two dimensional, and a volume
+	being three dimensional) is always one less than the dimension of the ambient space ($\R^2$, $\R^3$, $\R^4$)\footnote{
+		Another way to describe these sets would be to say that they have \emph{co-dimension} 1.}.
+	Such sets are called \emph{hyperplanes} because they are flat and plane-like. However, unlike a plane,
+	the dimension of a \emph{hyperplane} need not be two.
+
+	\medskip
+	With our newfound geometric intuition, we can understand solutions to systems of linear equations in a different way.
+	The solution set to a system of linear equations of two variables must be the result of intersecting lines. Therefore,
+	the only options are: a point, a line, or the empty set. The solution to a system of linear equations of three variables
+	is similarly restricted. I can only be: a point, a line, a plane, or the empty set.
+
+	XXX Figure of three planes intersecting in a line and three planes pairwise-intersecting, but not mutually intersecting.
+
+	In higher dimensions, the picture is the same: solution sets are formed by intersecting hyperplanes and we can use
+	algebra to precisely describe these sets of intersection.

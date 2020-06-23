@@ -140,6 +140,17 @@
 	\renewcommand\given{\SetSymbol[\delimsize]}
 	#1
 }
+\newcommand{\Rrefto}{\xrightarrow{\text{row reduces to}}}
+
+
+% redefine bmatrix,etc to allow optional argument for augmenting
+% code from https://tex.stackexchange.com/questions/2233/whats-the-best-way-make-an-augmented-coefficient-matrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
 
 \newcommand{\scaledgrid}[1]{%
 	\begin{tikzpicture}[scale=#1]
