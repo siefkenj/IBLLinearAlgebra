@@ -237,9 +237,7 @@
 		
 		\prob Let $S=\Set*{\mat{1\\3},\mat{0\\-1}}$ and let $T=\Set*{\mat{-1\\-1},\mat{0\\2},\mat{0\\0}}$. Draw
 		the sets $S$, $T$, and $T+S$.
-		\begin{solution}
-			The set $S$:
-			
+		\begin{solution}			
 			\begin{tikzpicture}[baseline = (current bounding box.north)]
 				\begin{axis}[
 					anchor=origin,
@@ -263,9 +261,8 @@
 					\fill [WildStrawberry] (1,3) circle (2pt);
 					\fill [WildStrawberry] (0,-1) circle (2pt);
 				\end{axis}
+				\node [WildStrawberry] at (1.5,2.5) {$S$};
 			\end{tikzpicture}
-			
-			The set $T$:
 			
 			\begin{tikzpicture}[baseline = (current bounding box.north)]
 				\begin{axis}[
@@ -287,41 +284,41 @@
 					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 				]
-					\fill [WildStrawberry] (0,0) circle (2pt);
-					\fill [WildStrawberry] (-1,-1) circle (2pt);
-					\fill [WildStrawberry] (0,2) circle (2pt);
+					\fill [mygreen] (0,0) circle (2pt);
+					\fill [mygreen] (-1,-1) circle (2pt);
+					\fill [mygreen] (0,2) circle (2pt);
 				\end{axis}
+				\node [mygreen] at (1.5,2.5) {$T$};
 			\end{tikzpicture}
-			
-			The set $T+S$:
 			
 			\begin{tikzpicture}[baseline = (current bounding box.north)]
 				\begin{axis}[
 					anchor=origin,
 					disabledatascaling,
-					xmin=-2,xmax=2,
+					xmin=-4,xmax=4,
 					ymin=-2,ymax=6,
-					xtick={-2,...,2},
+					xtick={-4,-2,0,2,4},
 					ytick={-2,0,2,4,6},
-					x=1cm,y=0.5cm,
+					x=0.5cm,y=0.5cm,
 					grid=both,
 					grid style={line width=.1pt, draw=gray!10},
 					%major grid style={line width=.2pt,draw=gray!50},
 					axis lines=middle,
 					minor tick num=0,
-					enlargelimits={abs=0.5},
+					enlargelimits={abs=1},
 					axis line style={latex-latex},
 					ticklabel style={font=\tiny,fill=white},
 					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 				]
-					\fill [WildStrawberry] (0,2) circle (2pt);
-					\fill [WildStrawberry] (-1,-2) circle (2pt);
-					\fill [WildStrawberry] (1,5) circle (2pt);
-					\fill [WildStrawberry] (0,1) circle (2pt);
-					\fill [WildStrawberry] (1,3) circle (2pt);
-					\fill [WildStrawberry] (0,-1) circle (2pt);
+					\fill [myorange] (0,2) circle (2pt);
+					\fill [myorange] (-1,-2) circle (2pt);
+					\fill [myorange] (1,5) circle (2pt);
+					\fill [myorange] (0,1) circle (2pt);
+					\fill [myorange] (1,3) circle (2pt);
+					\fill [myorange] (0,-1) circle (2pt);
 				\end{axis}
+				\node [myorange] at (1.5,2.5) {$T+S$};
 			\end{tikzpicture}
 		\end{solution}
 		
@@ -454,25 +451,25 @@
 						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 					]
-						\fill [myorange] (0,-4) circle (2pt);
 						\fill [WildStrawberry] (0,-3) circle (2pt);
 						\fill [WildStrawberry] (0,-2) circle (2pt);
 						\fill [WildStrawberry] (0,-1) circle (2pt);
 						\fill [WildStrawberry] (0,0) circle (2pt);
-						\fill [myorange] (1,-2) circle (2pt);
 						\fill [WildStrawberry] (1,-1) circle (2pt);
 						\fill [WildStrawberry] (1,0) circle (2pt);
 						\fill [WildStrawberry] (1,1) circle (2pt);
-						\fill [myorange] (2,0) circle (2pt);
 						\fill [WildStrawberry] (2,1) circle (2pt);
 						\fill [WildStrawberry] (2,2) circle (2pt);
-						\fill [myorange] (3,2) circle (2pt);
 						\fill [WildStrawberry] (3,3) circle (2pt);
-						\fill [myorange] (4,4) circle (2pt);
 					\end{axis}
+					\foreach \x [evaluate=\x as \ymax using 2*\x] in {0,...,4} {
+						\foreach \y in {0,...,\ymax} {
+							\fill [orange] (\x,-2+\y/2) circle (2pt);
+						}
+					}
 				\end{tikzpicture}
 				
-				Notice that we obtain the orange points when an additional $S$ is added to the set sum $S+S+S$. We can consider the set $(S+S+S)+S$ as the union of three translated copies of $S+S+S$. Since we are considering the infinite sum $S+S+S+S+\cdots$, the process continues infinitely.
+				Notice that we obtain the orange points when we add additional $S$ to the set sum. Since we are considering the infinite sum $S+S+S+S+\cdots$, the process continues infinitely.
 			\end{enumerate}
 		\end{solution}
 		
