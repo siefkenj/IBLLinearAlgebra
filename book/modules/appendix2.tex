@@ -418,7 +418,7 @@
 	based on pivots/free variables.
 
 	\begin{center}
-		\begin{tabular}{c|c|c}
+		\begin{tabular}{ccc}
 			Consistent & Pivots & Number of Solutions\\
 			\hline
 			False & At least one column doesn't have a pivot & 0\\
@@ -432,3 +432,90 @@
 	\begin{theorem}
 		A system of linear equations has either $0$ solutions, $1$ solution, or infinitely many solutions.
 	\end{theorem}
+	
+	\Heading{The Geometry of Systems of Equations}
+
+	Consider the system of equations
+	\begin{equation}
+		\label{EQINTERSECTINGLINES}
+		\systeme{
+			x-2y=0@\qquad\text{row}_1,
+			x+y=3@\qquad\text{row}_2
+		}
+	\end{equation}
+	The only values of $x$ and $y$ that satisfy both equations is
+	$(x,y)=(2,1)$. However, each row, view in isolation, specifies a line in $\R^2$. Call the line
+	coming from the first row $\ell_1$ and the line coming from the second row $\ell_2$.
+
+	XXX Figure
+
+	These two lines intersect exactly at the point $\mat{2\\1}$. And, of course they should.
+	By definition, a solution to a system of equations satisfies \emph{all} equations. In other words,
+	a solution to System \eqref{EQINTERSECTINGLINES} is a point that lies in both $\ell_1$ and $\ell_2$.
+	In other words, solutions lie in $\ell_1\cap \ell_2$.
+
+	\begin{emphbox}[Takeaway]
+		Geometrically, a solution to a system of equations is the intersection of objects specified
+		by the individual equations.
+	\end{emphbox}
+
+	This perspective sheds some light on inconsistent systems. The system
+	\[
+		\systeme{
+			x-2y=0@\qquad\text{row}_1,
+			2x-4y=2@\qquad\text{row}_2
+		}
+	\]
+	is inconsistent. And, when we graph the lines specified by the rows, we see that they are parallel 
+	and never intersect. Thus, the solution set is empty.
+
+	\Heading{Planes \& Hyperplanes}
+
+	Consider the solution set to a single linear equation viewed in isolation. For example,
+	in the three-variable case, we might consider
+	\[
+		x+2y-z=3.
+	\]
+	The solution set to this equation is a \emph{plane}. Why? For starters, writing down the complete
+	solution involves picking two free variables. Suppose we pick $y=t$ and $z=s$. Then, before we
+	even do a calculation, we know the complete solution will be described in vector form by
+	\[
+		\vec x=t\vec d_1+s\vec d_2+\vec p,
+	\]
+	where $\vec d_1$, $\vec d_2$, and $\vec p$ come from doing the usual computations. But, that is vector form
+	of a plane!
+
+	In general, a single equation in $n$ variables requires $n-1$ free variables to describe its complete
+	solution. The only exception is the trivial equation, $0x_1+\cdots +0x_n=0$, which requires $n$ free variables.
+	For the sake of brevity, from now on we will assume that \emph{a linear equation in $n$ variables} means 
+	\emph{a non-trivial
+	linear equation in $n$ variables}.
+
+	Applying this knowledge, we can construct a table for systems consisting of a single linear equation.
+
+	\begin{center}
+		\begin{tabular}{ccc}
+			Number of Variables & Number of Free Variables & Complete Solution\\
+			\hline\\[-9pt]
+			2 & 1 & Line in $\R^2$\\
+			3 & 2 & Plane in $\R^3$\\
+			4 & 3 & Volume in $\R^4$\\
+		\end{tabular}
+	\end{center}
+
+	Notice that the dimension of the solution set (a line being one dimensional, a plane being two dimensional, and a volume
+	being three dimensional) is always one less than the dimension of the ambient space ($\R^2$, $\R^3$, $\R^4$)\footnote{
+		Another way to describe these sets would be to say that they have \emph{co-dimension} 1.}.
+	Such sets are called \emph{hyperplanes} because they are flat and plane-like. However, unlike a plane,
+	the dimension of a \emph{hyperplane} need not be two.
+
+	\medskip
+	With our newfound geometric intuition, we can understand solutions to systems of linear equations in a different way.
+	The solution set to a system of linear equations of two variables must be the result of intersecting lines. Therefore,
+	the only options are: a point, a line, or the empty set. The solution to a system of linear equations of three variables
+	is similarly restricted. I can only be: a point, a line, a plane, or the empty set.
+
+	XXX Figure of three planes intersecting in a line and three planes pairwise-intersecting, but not mutually intersecting.
+
+	In higher dimensions, the picture is the same: solution sets are formed by intersecting hyperplanes and we can use
+	algebra to precisely describe these sets of intersection.
