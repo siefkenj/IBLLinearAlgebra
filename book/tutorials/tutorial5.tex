@@ -1,0 +1,45 @@
+		\begin{objectives}
+	In this tutorial you will examine the pros and cons of different bases.
+
+	These problems relate to the following course learning objectives:
+	\textit{Write vectors in
+different bases and pick an appropriate basis when working on problems}.
+		\end{objectives}
+
+
+\subsection*{Problems}
+
+\begin{enumerate}
+	\item Write down the definition of what it means for a set $\mathcal B$ to be a \emph{basis}
+		for the subspace $V$.
+	\item Let $\mathcal E=\{\vec e_1,\vec e_2,\vec e_3\}$, $\mathcal B=\left\{\mat{1\\-1\\0},\mat{0\\1\\0},\mat{2\\-2\\1}\right\}$,
+		and $\mathcal C=\left\{\mat{1\\-1\\1},\mat{0\\1\\1},\mat{2\\-2\\3}\right\}$
+		be ordered bases, and let $\vec v=4\vec e_1-4\vec e_2+2\vec e_3$.
+	\begin{enumerate}
+		\item Are the vectors in $\mathcal B$ and $\mathcal C$ written in a basis? If so, which one(s)?
+			What about the vectors in $\mathcal E$?\
+		\item Compute $[\vec v]_{\mathcal E}$, $[\vec v]_{\mathcal B}$, and $[\vec v]_{\mathcal C}$.
+		\item Compute $[7\vec v]_{\mathcal E}$, $[7\vec v]_{\mathcal B}$, and $[7\vec v]_{\mathcal C}$. \emph{Hint: look
+			at what you've already done; you might not have to do much more work.}
+		\item Suppose, during a scientific experiment, you repeatedly measure multiples of the vector $\vec v$. Which
+			basis would you prefer to write down your measurements in? Why?
+	\end{enumerate}
+\item Let $\mathcal E=\left\{\vec e_1, \vec e_2\right\}$ and $\mathcal B=\left\{\mat{1\\0},\mat{1\\1}\right\}$
+		be bases for $\R^2$ and let $R:\R^2\to\R^2$ be rotation counter-clockwise by 90$^\circ$.
+		\begin{enumerate}
+			\item Find a matrix, $P$, for $R$ in the basis $\mathcal E$. That is $P[\vec x]_{\mathcal E} = [R\vec x]_{\mathcal E}$.
+			\item Find a matrix, $Q$, for $R$ in the basis $\mathcal B$. That is $Q[\vec x]_{\mathcal B} = [R\vec x]_{\mathcal B}$.
+		\end{enumerate}
+	\item In math, a real number can have infinitely many digits. In a computer, however, there is limited space, so a computer
+		will \emph{truncate} numbers it stores\footnote{ \emph{Truncate} means erasing digits after a certain point. So $3.14159\ldots$ might become
+		$3.141$.}. Consider the bases
+		\[
+			\mathcal E_1=\left\{\mat{1\\0},\mat{1\\1}\right\}\qquad
+			\mathcal E_2=\left\{\mat{1\\0},\mat{1\\.1}\right\}\qquad
+			\mathcal E_3=\left\{\mat{1\\0},\mat{1\\.01}\right\}\qquad
+			\mathcal E_4=\left\{\mat{1\\0},\mat{1\\.001}\right\}\qquad\cdots
+		\]
+		and the vector $\vec v=\mat{1\\0.1234567\ldots}$, written in the standard basis. Suppose your computer can only store two decimal places
+		(after the decimal point) when it stores a number. Which basis should you use to represent $\vec v$? Why?
+	
+\end{enumerate}

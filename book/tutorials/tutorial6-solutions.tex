@@ -1,0 +1,38 @@
+		\begin{enumerate}
+		\item $T:\R^n\to\R^m$ is linear if for all vectors $\vec u,\vec v\in \R^n$ and all
+			scalars $\alpha,\beta$, we have
+			\[
+				T(\alpha\vec u+\beta\vec v)=\alpha T(\vec u)+\beta T(\vec v).
+			\]
+		\item $\mathcal A$ is linear. Let $\vec a=\mat{x\\y}$ and $\vec b=\mat{p\\q}$. Then
+			\[
+				\mathcal A(t\vec a+s\vec b) =
+				\mathcal A\left(t\mat{x\\y}+s\mat{p\\q}\right)\]\[=
+				\mathcal A\left(\mat{tx+sp\\ty+sq}\right)=\mat{tx+sp\\0\\ty+sq}
+				=t\mat{x\\0\\y}+s\mat{p\\0\\q}=t\mathcal A(\vec a)+s\mathcal A(\vec b)
+			\]
+			for all scalars $t,s$.
+			
+			$\mathcal B$ is not linear because $\mathcal B(\vec e_1+(-\vec e_1)) = \mathcal B(\vec 0)=0\neq
+			1=\mathcal B(\vec e_1)+\mathcal B(-\vec e_1)$.
+
+			$\mathcal C$ is linear. Let $\vec a,\vec b$ be arbitrary. Then $\mathcal C(t\vec a+s\vec b)=
+			\vec 0=t\vec 0+s\vec 0=t\mathcal C(\vec a)+s\mathcal C(\vec b)$ for all scalars $t,s$.
+
+			$\mathcal D$ is not linear because $\mathcal D(4\vec e_1) = \mat{1\\1}\neq 4\mat{1\\1} = 4\mathcal D(\vec e_1)$.
+
+		\item The rank of $\mathcal A$ is 2  and the rank of $\mathcal C$ is 0.
+		\item The null space of $\mathcal A$ is $\{\vec 0\}$ and its range is the $xz$-plane. The null space of $\mathcal C$ is
+			$\R^2$ and its range is $\{\vec 0\}$.
+
+		\item \begin{enumerate}
+			\item $\mathcal X(\vec x)=\vec x$, the identity transformation.
+			\item Impossible. To have rank $3$, the dimension of the range must be three, but since the codomain
+				is $\R^2$, the dimension of the range is limited to $2$.
+			\item $\mathcal Z(\mat{x\\y}) = \mat{x\\0\\0}$.
+			\item $\mathcal W(x)=17x$.
+			\item Impossible, since $\mathcal Q$ couldn't be linear. Observe $\mathcal Q(\vec 0+\vec 0)=
+				\mathcal Q(\vec 0)=4\neq 4+4=\mathcal Q(\vec 0)+\mathcal Q(\vec 0)$.
+		\end{enumerate}
+
+		\end{enumerate}
