@@ -1013,8 +1013,10 @@ We can prove Volume Theorem II using elementary matrices.
 	Suppose $A$ is invertible and $A=E_1\cdots E_k$ where $E_1,\ldots, E_k$ are elementary
 	matrices. We then have
 	\[
-		A^T = E_k^T\cdots E_1^T.
+		A^T = E_k^T\cdots E_1^T,
 	\]
+	which follows from the fact that the transpose reverses the order of matrix multiplication
+	(i.e., $(XY)^T=Y^TX^T$).
 	However, for each $E_i$, we may observe that $E_i^T$ is another elementary matrix
 	of the same type and with the same determinant. Therefore,
 	\begin{align*}

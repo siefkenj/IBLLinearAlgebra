@@ -140,7 +140,9 @@
 			\item The matrix $M = \mat{3&3&3&3\\3&3&3&3\\3&3&3&3\\3&3&3&3}$ has
 				exactly one eigenvalue.
 
-			\item An invertible matrix can never have zero as an eigenvalue.
+			\item An invertible square matrix can never have zero as an eigenvalue.
+			
+			\item A non-invertible square matrix \emph{always} has zero as an eigenvalue.
 		\end{enumerate}
 
 		% Q4 Solutions
@@ -168,6 +170,12 @@
 				\item True. Any eigenvector with eigenvalue $0$ lies in the
 					null space of the matrix, which implies that the null
 					space has dimension at least one.
+
+				\item True. Suppose $A$ was a non-invertible square matrix.
+					Then, we must have $\Nullity(A)>0$, and so $\Null(A)$
+					contains at least one non-zero vector, $\vec v$. By
+					definition $A\vec v=\vec 0=0\vec v$, and so $\vec v$ is
+					an eigenvector for $A$ with eigenvalue $0$.
 			\end{enumerate}
 		\end{solution}
 	\end{problist}
