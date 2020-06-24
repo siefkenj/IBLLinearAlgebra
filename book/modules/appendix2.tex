@@ -120,6 +120,8 @@
 			\end{bmatrix}
 		\]
 		
+		$A$ is not in reduced row echelon form because the second row of $A$ is a row of zeros but does not occur at the bottom.
+		
 		\[
 			A=
 			\begin{bmatrix}[cccc]
@@ -129,7 +131,7 @@
 			\end{bmatrix}
 		\]
 		
-		The second row of $A$ is a row of zeros and it does not occur at the bottom, so the fourth condition fails and $A$ is not in reduced row echelon form.
+		$B$ is not in reduced row echelon form for two reasons: (i) the first non-zero entry in the third row is not a $1$, and (ii) the entry below the leading one in the second row is not zero.
 		
 		\[
 			B=
@@ -140,7 +142,7 @@
 			\end{bmatrix}
 		\]
 		
-		The first non-zero entry in the third row of $B$ is not a 1, so the first condition fails. This entry is below the leading one in the second row and is non-zero, so the second condition fails. $B$ is not in reduced row echelon form.
+		$C$ is in reduced row echelon form and the first, second, third columns are the pivot columns of $C$.
 		
 		\[
 			C=
@@ -151,7 +153,7 @@
 			\end{bmatrix}
 		\]
 		
-		$C$ is in reduced row echelon form and column 1, 2, 3 are the pivot columns of $C$.
+		$D$ is not in reduced row echelon form for two reasons: (i) the entries above the leading one in the third row are not all zeros, and (ii) the leading one in the second row appears to the left of the leading one in the first row.
 		
 		\[
 			D=
@@ -161,8 +163,6 @@
 			0 & 0 & 1 & 4\\
 			\end{bmatrix} 
 		\]
-		
-		The entires above the leading one in the third row of $D$ are not all zeros, so the second condition fails. The leading one in the second row appears to the left of the leading one in the first row, so the third condition fails. $D$ is not in reduced row echelon form.
 	\end{example}
 
 	We've encountered the reduced row echelon form of a matrix already in the examples of Appendix \ref{APPSLEI}.
@@ -420,13 +420,14 @@
 		
 		The corresponding augmented matrix for the system is
 		\[
-			\begin{bmatrix}[ccc|c]
+			A=\begin{bmatrix}[ccc|c]
 			1 & 1 & 1 & 1\\
 			0 & 1 & -1 & 2
 			\end{bmatrix}
+			=\Rref(A)
 		\]
 		
-		The matrix is already in pre-reduced row echelon form, so we only need to zero above each pivot.
+		$A$ is already in pre-reduced row echelon form, so we only need to zero above each pivot.
 		\[
 			\begin{bmatrix}[ccc|c]
 			1 & 1 & 1 & 1\\
@@ -439,7 +440,10 @@
 			\end{bmatrix}
 		\]
 		
-		The third column is a free variable column, so we introduce the arbitrary equation $z=t$ and solve the system in terms of $t$.
+		The third column of $\Rref(A)$ is a free variable column, so we introduce the arbitrary equation $z=t$ and solve the system in terms of $t$
+		\[
+			\systeme{x+2z=-1,y-z=2,z=t}.
+		\]
 		
 		The complete solution to the system in vector form is
 		\[
@@ -687,7 +691,7 @@
 			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.8, mygreen] ({x}, {y}, {x/2});
 			\end{axis}
 		\end{tikzpicture}
-		~~~~~
+		\hspace{.4in}
 		\begin{tikzpicture}
 			\begin{axis}[
 				view={10}{20},
