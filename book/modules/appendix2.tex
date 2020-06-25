@@ -423,8 +423,7 @@
 			A=\begin{bmatrix}[ccc|c]
 			1 & 1 & 1 & 1\\
 			0 & 1 & -1 & 2
-			\end{bmatrix}
-			=\Rref(A)
+			\end{bmatrix}.
 		\]
 		
 		$A$ is already in pre-reduced row echelon form, so we only need to zero above each pivot.
@@ -438,20 +437,22 @@
 			1 & 0 & 2 & -1\\
 			0 & 1 & -1 & 2
 			\end{bmatrix}
+			=\Rref(A).
 		\]
 		
-		The third column of $\Rref(A)$ is a free variable column, so we introduce the arbitrary equation $z=t$ and solve the system in terms of $t$
+		The third column of $\Rref(A)$ is a free variable column, so we
+		introduce the arbitrary equation $z=t$ and solve the system in terms of $t$:
 		\[
-			\systeme{x+2z=-1,y-z=2,z=t}.
+			\systeme{x+2z=-1,y-z=2,z=t}
 		\]
 		
-		The complete solution to the system in vector form is
+		Written in vector form, the complete solution is
 		\[
 			\mat{x\\y\\z} = \matc{-1-2t\\2+t\\t} = t\mat{-2\\1\\1}+\mat{-1\\2\\0},
 		\]
 		and written as a set, the solution set is
 		\[
-			\Set{\vec x \given \vec x=(-1-2t)\xhat+(2+t)\yhat+t\zhat \text{ for some } t\in\R}.
+			\Set*{\vec x\in\R^3 \given \vec x= t\mat{-2\\1\\1}+\mat{-1\\2\\0}\text{ for some } t\in\R}.
 		\]
 	\end{example}
 
@@ -515,9 +516,13 @@
 		\[
 			\systeme[xyzw]{y+2z=-1,w=1,x=t,z=s}
 		\]
-		for $(x,y,z,w)$, which gives
+		for $(x,y,z,w)$, gives
 		\[
 			\mat{x\\y\\z\\w} = \matc{t\\-1-2s\\s\\1} = t\mat{1\\0\\0\\0}+s\mat{0\\-2\\1\\0}+\mat{0\\-1\\0\\1}.
+		\]
+		Thus, the solution set to the system is
+		\[
+			\Set*{\vec x\in\R^4\given \vec x = t\mat{1\\0\\0\\0}+s\mat{0\\-2\\1\\0}+\mat{0\\-1\\0\\1} \text{ for some }t,s\in\R}.
 		\]
 	\end{example}
 
@@ -683,12 +688,12 @@
 				z buffer=sort,
 				hide axis,
 			]
-			\addplot3 [surf,domain=-5:0,y domain=-10:10,samples=2, opacity=.8, mygreen] ({x}, {y}, {x/2});
-			\addplot3 [surf,domain=-5:0,y domain=-10:10,samples=2, opacity=.8, myorange] ({x}, {y}, {0});
-			\addplot3 [surf,domain=-5:0,y domain=-10:10,samples=2, opacity=.9, WildStrawberry] ({x}, {y}, {-x/2});
-			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.9, WildStrawberry] ({x}, {y}, {-x/2});
-			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.8, myorange] ({x}, {y}, {0});
-			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.8, mygreen] ({x}, {y}, {x/2});
+			\addplot3 [surf,domain=-5:0,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {x/2});
+			\addplot3 [surf,domain=-5:0,y domain=-10:10,samples=2, opacity=.6, myorange] ({x}, {y}, {0});
+			\addplot3 [surf,domain=-5:0,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-x/2});
+			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-x/2});
+			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.6, myorange] ({x}, {y}, {0});
+			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {x/2});
 			\end{axis}
 		\end{tikzpicture}
 		\hspace{.4in}
@@ -698,17 +703,17 @@
 				z buffer=sort,
 				hide axis,
 			]
-			\addplot3 [surf,domain=-5:-2.5,y domain=-10:10,samples=2, opacity=.8, mygreen] ({x}, {y}, {2*x+5});
-			\addplot3 [surf,domain=-5:2.5,y domain=-10:10,samples=2, opacity=.8, myorange] ({x}, {y}, {0});
-			\addplot3 [surf,domain=-2.5:0,y domain=-10:10,samples=2, opacity=.8, mygreen] ({x}, {y}, {2*x+5});
-			\addplot3 [surf,domain=-2.5:0,y domain=-10:10,samples=2, opacity=.9, WildStrawberry] ({x}, {y}, {-2*x+5});
-			\addplot3 [surf,domain=0:2.5,y domain=-10:10,samples=2, opacity=.9, WildStrawberry] ({x}, {y}, {-2*x+5});
-			\addplot3 [surf,domain=2.5:5,y domain=-10:10,samples=2, opacity=.9, WildStrawberry] ({x}, {y}, {-2*x+5});
-			\addplot3 [surf,domain=2.5:5,y domain=-10:10,samples=2, opacity=.8, myorange] ({x}, {y}, {0});
-			\addplot3 [surf,domain=0:2.5,y domain=-10:10,samples=2, opacity=.8, mygreen] ({x}, {y}, {2*x+5});
+			\addplot3 [surf,domain=-5:-2.5,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {2*x+5});
+			\addplot3 [surf,domain=-5:2.5,y domain=-10:10,samples=2, opacity=.7, myorange] ({x}, {y}, {0});
+			\addplot3 [surf,domain=-2.5:0,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {2*x+5});
+			\addplot3 [surf,domain=-2.5:0,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-2*x+5});
+			\addplot3 [surf,domain=0:2.5,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-2*x+5});
+			\addplot3 [surf,domain=2.5:5,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-2*x+5});
+			\addplot3 [surf,domain=2.5:5,y domain=-10:10,samples=2, opacity=.7, myorange] ({x}, {y}, {0});
+			\addplot3 [surf,domain=0:2.5,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {2*x+5});
 			\end{axis}
 		\end{tikzpicture}
 	\end{center}
 
-	In higher dimensions, the picture is the same: solution sets are formed by intersecting hyperplanes and we can use
+	In higher dimensions, the story is the same: solution sets are formed by intersecting hyperplanes and we can use
 	algebra to precisely describe these sets of intersection.
