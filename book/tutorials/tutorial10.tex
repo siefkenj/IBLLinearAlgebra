@@ -1,0 +1,52 @@
+		\begin{objectives}
+	In this tutorial you will be working with eigenvectors and eigenvalues.
+
+	These problems relate to the following course learning objectives:
+			\textit{Clearly and correctly express the mathematical ideas of linear algebra to others}
+			and \textit{translate between algebraic and geometric viewpoints to solve problems}.
+		\end{objectives}
+
+
+\begin{enumerate}
+	\item Let $T:\R^n\to\R^n$ be a linear transformation.
+	\begin{enumerate}
+		\item Write a mathematically precise definition of what it means for $\vec v$ to be an eigenvector
+			for $T$.
+		\item Describe in plain English what it means for $\vec v$ to be an eigenvector for $T$.
+	\end{enumerate}
+	\item Consider
+		\[
+			A=\mat{3&-2\\2&-2}\qquad
+			B=\mat{5&-6\\3&-4}\qquad
+			C=\mat{-3&3\\-3&3}
+		\]
+		\[
+			\vec v_1=\mat{1\\2}\qquad
+			\vec v_2=\mat{2\\1}\qquad
+			\vec v_3=\mat{3\\4}\qquad
+			\vec v_4=\mat{1\\1}\qquad
+			\vec v_5=\mat{1\\0}\qquad
+			\vec v_6=\mat{0\\0}
+		\]
+		For each $\vec v_i$, determine whether $\vec v_i$ is an eigenvector for $A$, $B$, or $C$. If so,
+		identify the corresponding eigenvalue.
+	\item Let $\mathcal P:\R^2\to\R^2$ be projection onto the $x$-axis and $\mathcal R:\R^2\to\R^2$ be rotation
+		counter-clockwise by $90^\circ$.
+
+		Find all eigenvectors and eigenvalues for $\mathcal P$ and $\mathcal R$.
+	\item Suppose $T:\R^n\to\R^n$ is a linear transformation and that $\vec v$ is an eigenvector for
+		$T$ with eigenvalue $2$. Is it possible that $7\vec v$ is an eigenvector for $T$ with eigenvalue
+		$14$? Prove your answer.
+
+	\item Let $T:\R^2\to\R^2$ be a linear transformation. $T$ has an eigenvector $\vec v_1$ with eigenvalue $1$
+		and an eigenvector $\vec v_2$ with eigenvalue $1/2$. Further, $\|\vec v_1\|,\|\vec v_2\|\leq 100$.
+		\begin{enumerate}
+			\item Let $\vec w=\vec v_1+\vec v_2$. Approximate $T^{100}\vec w$.
+			\item Is $\{\vec v_1,\vec v_2\}$ a basis for $\R^2$? Prove your answer.
+			\item Suppose $\vec v_1=\mat{1\\2}$ and $\vec v_2=\mat{3\\5}$. With this information,
+				can you approximate $T^{100}\mat{a\\b}$?
+			\item Can you generalize your procedure from (c) to any linear transformation $S:\R^2\to\R^2$
+				that has two positive, distinct eigenvalues?
+		\end{enumerate}
+
+\end{enumerate}

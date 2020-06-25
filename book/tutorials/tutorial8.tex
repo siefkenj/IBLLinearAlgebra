@@ -1,0 +1,60 @@
+		\begin{objectives}
+	In this tutorial you will be constructing matrices and linear transformations that satisfy
+			given conditions, or explaining why they don't exist.
+
+	These problems relate to the following course learning objectives:
+			\textit{Use matrices to solve problems},
+			\textit{translate between algebraic and geometric viewpoints to solve problems}, and
+			\textit{clearly and correctly express the mathematical ideas of linear algebra to others}.
+		\end{objectives}
+
+
+\begin{enumerate}
+	\item Write mathematically precise definitions of the rank of a matrix $A$ and the rank of a linear transformation $\mathcal{T}$.
+
+	\item Give an example of a $2\times 3$ matrix $A$ with the specified rank, or explain why it cannot exist.
+	\begin{enumerate}
+		\item $\Rank(A) = 1$
+		\item $\Rank(A) = 2$
+		\item $\Rank(A) = 3$
+		\item $\Rank(A) = 0$
+	\end{enumerate}
+
+	\item For a linear transformation $\mathcal L: \R^n\to \R^m$, explain how $\Rank(\mathcal L)$ relates to $m$ or $n$ under the following conditions:
+	\begin{enumerate}
+		\item $\mathcal L$ is one-to-one.
+		\item $\mathcal L$ is {\bf not} one-to-one.
+		\item $\mathcal L$ is onto.
+		\item $\mathcal L$ is {\bf not} onto.
+	\end{enumerate}
+
+	\item Give examples of linear transformations $\mathcal T, \mathcal S: \R^3\to\R^3$ that satisfy the following, or explain why they cannot exist.
+	\begin{enumerate}
+		\item $\Rank(\mathcal T)=\Rank(\mathcal S)=\Rank(\mathcal S\circ \mathcal T)=2$
+		\item $\Rank(\mathcal T)=\Rank(\mathcal S)=2$, and $\Rank(\mathcal S\circ \mathcal T)=1$
+		\item $\Rank(\mathcal T)=\Rank(\mathcal S)=2$, and $\Rank(\mathcal S\circ \mathcal T)=3$
+		\item $\Rank(\mathcal T)=2$, $\Rank(\mathcal S)=1$ and $\Rank(\mathcal S\circ \mathcal T)=0$
+	\end{enumerate}
+
+	\item Tommy has returned once again and is working on similar matrices.
+	\begin{enumerate}
+		\item Write down a mathematically precise definition for two matrices to be similar.
+
+\item
+Tommy began with a $3\times 3$ matrix $A$ and multiplied by a change of basis matrix $X$ to find $B=XAX^{-1}$. His matrix computations gave
+			\[A=\mat{
+1 & 0 & 0  \\
+0 & 2 & 0 \\
+0 & 0 & 3
+}\quad \text{ and } \quad
+			B=\mat{
+1 & 1 & 0  \\
+2 & -1 & 0 \\
+0 & 0 & 0
+}.
+\]
+	Unfortunately, Tommy lost his paper containing $X$.
+			Can you help him by finding a change of basis matrix
+			$X$ that gives this solution or explaining to Tommy why no such matrix exists?
+		\end{enumerate}
+\end{enumerate} 

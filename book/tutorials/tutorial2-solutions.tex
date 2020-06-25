@@ -1,0 +1,32 @@
+		\begin{enumerate}
+			\item $\Span\{\vec u,\vec v,\vec w\}=\{\vec x:\vec x=\alpha\vec u+\beta\vec v+\gamma \vec w\text{ for some }\alpha,\beta,\gamma\in \R\}$.
+			\item $\vec x\in S$ because $\vec x=\vec a+\vec b$.
+				
+				$\vec y\notin S$. The last coordinate of $\vec y$ is $0$, so if $\vec y$ were a linear combination of
+				$\vec a$ and $\vec b$, it would have to take the form $t\vec a+0\vec b=\mat{t\\t\\0}$. But the first
+				and second coordinates of $\vec y$ differ, so this is impossible.
+
+				$\vec z\notin S$ because $\vec z$ has two coordinates and every vector in $S$ has three
+				coordinates.
+				
+				$\vec 0\in S$ because $\vec 0=0\vec a+0\vec b$.
+			\item \begin{enumerate}
+					\item $\mathcal P=\Span\left\{\mat{1\\-1\\0},\mat{1\\0\\-1}\right\}$.
+					\item $\mathcal P=\Span\left\{\mat{1\\-1\\0},\mat{1\\0\\-1}, \mat{2\\-1\\-1}\right\}$.
+			\end{enumerate}
+			\item ``The span of two \emph{linearly independent} vector $\vec p,\vec q\in \R^3$ is \emph{the} plane through
+				the origin containing them.''
+			\item \begin{enumerate}
+				\item Positive $\Span\{\vec u,\vec v,\vec w\}=\{\vec x:\vec x=\alpha\vec u+\beta\vec v+\gamma \vec w\text{ for some }\alpha,\beta,\gamma\geq 0\}$.
+				\item The \emph{positive span} of $\mat{1\\0}$ and $\mat{0\\1}$ is the first quadrant of the $xy$-plane, whereas
+					the \emph{span} is the entire $xy$-plane.
+				\item The positive span of linearly independent vectors could never be all of $\R^2$.
+					Let $\vec u,\vec v\in \R^2$ be linearly independent.
+					In this case, $\vec u\neq 0$ and $\vec u\neq t\vec v$ for any $t$.
+					Therefore, the positive span of $\vec u$ and $\vec v$ cannot contain the vector $-\vec u\in \R^2$,
+					and so the positive span of $\vec u$ and $\vec v$ is not all of $\R^2$.
+
+					However, the positive span of a linearly dependent set could be all of $\R^2$. For example, $\left\{
+						\mat{1\\0},\mat{0\\1},\mat{-1\\-1}\right\}$ has positive span equal to $\R^2$.
+			\end{enumerate}
+		\end{enumerate}

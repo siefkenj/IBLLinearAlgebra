@@ -1,0 +1,55 @@
+		\begin{enumerate}
+			\item
+			\begin{enumerate}
+				\item
+				$\vec v_1\perp \vec v_3$,\quad  $\vec v_1\perp \vec v_5$, \quad
+				$\vec v_2\perp\vec v_4$,\quad  $\vec v_3\perp \vec v_4$,\quad
+				$\vec v_3\perp \vec v_6$,\quad  $\vec v_5\perp \vec v_6$.
+
+				\item No. $\vec v_2\cdot \vec v_3\neq 0$.
+				\item Yes. $\vec v_1\cdot \vec v_3=\vec v_1\cdot \vec v_5=0$ and
+					$\vec v_6\cdot \vec v_3=\vec v_6\cdot \vec v_5=0$.
+				\item No. Whatever set contains $\vec v_1$ must also contain $\vec v_2$ and
+					$\vec v_4$ and $\vec v_6$.
+					However $\Span\{\vec v_1,\vec v_2,\vec v_4,
+					\vec v_6\}=\R^4$, so the only non-empty set orthogonal
+					to $\{\vec v_1,\vec v_2,\vec v_4,
+					\vec v_6\}$ is $\{\vec 0\}$, which isn't a possibility in this case.
+			\end{enumerate}
+			\item \begin{enumerate}
+					\item $\mat{0\\1\\-1\\0}$ and $\mat{0\\0\\1\\-1}$.
+					\item \[
+							\begin{cases}x_1+x_2+x_3+x_4&=0\\ -{x_1}+x_2+x_3+x_4&=0\end{cases}
+						\]
+					has complete solution
+					\[
+						\vec x = t\mat{0\\-1\\1\\0}+s\mat{0\\-1\\0\\1}.
+					\]
+			\end{enumerate}
+
+			\item By definition, if $\vec u\in\Span(Y)$, then $\vec u=\alpha_1\vec y_1+\cdots+\alpha_4\vec y_4$.
+				By distributivity of the dot product, we have
+				\[
+					\vec x\cdot \vec u = \vec x\cdot (\alpha_1\vec y_1+\cdots+\alpha_4\vec y_4)
+					=\alpha_1(\vec x\cdot \vec y_1)+\cdots +\alpha_4(\vec x\cdot \vec y_4)=0,
+				\]
+				so $\vec x$ is orthogonal to every vector in $\Span(Y)$.
+
+			\item \begin{enumerate}
+				\item $\ell_1$ and $\ell_2$ are close and $\ell_3$ and $\ell_4$ are close.
+				\item $\vec n_1\approx\mat{-0.70711\\0.70711}$,
+					$\vec n_2\approx\mat{-0.70675\\0.70746}$,
+					$\vec n_3\approx\mat{-0.0005\\1}$, and $\vec n_4\approx\mat{-0.0003\\1}$.
+				\item
+					$\|\vec n_1-\vec n_2\|\approx 0.0005$,
+					$\|\vec n_1-\vec n_3\|\approx \|\vec n_1-\vec n_4\|
+					\approx \|\vec n_2-\vec n_3\|\approx \|\vec n_2-\vec n_4\|\approx 0.765$,
+					and
+					$\|\vec n_3-\vec n_4\|\approx 0.0017$.
+
+					These distances coincide with my intuitive idea of closeness. Using normal
+					vectors might be preferable to using direction vectors, because it generalizes to
+					planes. A plane has a unique
+					normal direction but infinitely many direction vectors that might be hard to compare.
+			\end{enumerate}
+		\end{enumerate}

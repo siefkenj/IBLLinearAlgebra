@@ -1,0 +1,59 @@
+		\begin{enumerate}
+			\item
+				\begin{enumerate}
+					\item
+				We can use the determinant to compute the volume of each gem.
+				\[
+					\text{vol}(X) = |\det([\vec a|\vec b|\vec c])| = 5\qquad
+					\text{vol}(Y) = |\det([\vec c|\vec d|\vec e])| = 2\qquad
+					\text{vol}(Z) = |\det([\vec a|\vec d|\vec e])| = 1
+				\]
+			So gem $X$ has the largest volume.
+					\item One way to define ``pointiness'' of a parallelepiped
+						is as the ratio between the volume of the parallelepiped if
+						it were a rectangular prism and its true volume. A sharp ``point''
+						of the crystal will cause it to have less volume than a point that is close
+						to $90^\circ$.
+
+						Computing,
+						\[
+							\|\vec a\|=\sqrt{2}\qquad
+							\|\vec b\|=\sqrt{6}\qquad
+							\|\vec c\|=\sqrt{11}\qquad
+							\|\vec d\|=\sqrt{3}\qquad
+							\|\vec e\|=1,
+						\]
+						so the pointiness ratios are
+						\[
+							\text{rat}(X)=\frac{5}{\sqrt{2}\sqrt{6}\sqrt{11}}\approx 0.435\qquad
+							\text{rat}(Y)=\frac{2}{\sqrt{11}\sqrt{3}(1)}\approx 0.348\qquad
+							\text{rat}(Z)=\frac{1}{\sqrt{2}\sqrt{3}(1)}\approx 0.408.
+						\]
+						Using this measure, gem $Y$ would be the pointiest.
+				\end{enumerate}
+			\item After row reduction we get
+				\[
+					x=\frac{d}{ad-bc}\qquad y=\frac{-c}{ad-bc}.
+				\]
+				In both cases, we're dividing by $\det\left(\mat{a&b\\c&d}\right)=0$, which is not allowed.
+
+			\item The largest possible volume occurs when $\vec f$ is orthogonal to $\vec a$ and $\vec d$.
+				By inspection we see that $\vec f=t\mat{1\\-1\\0}$. Since $\vec f$ is a unit vector, we know
+				$\vec f=\pm\mat{1/\sqrt{2}\\-1/\sqrt{2}\\0}$. Computing,
+				\[
+					\det([\vec a|\vec d|\vec f]) = \pm \frac{2}{\sqrt{2}},
+				\]
+				and so $2/\sqrt{2}$ is the largest possible volume.
+			\item Let $\vec C=\vec u\times \vec v$. Since $\vec u\perp \vec v$, we know $\|\vec C\|=\|\vec u\|\|\vec v\|=\sqrt{42}$.
+				Further, $\vec C$ is orthogonal to $\vec u$ and $\vec v$, so $\vec C\in \text{null}(M)$ where $M$ is the matrix
+				with rows $\vec u$ and $\vec v$. Row reducing,
+				\[
+					\text{rref}(M) = \mat{1&0&-5\\0&1&4},
+				\]
+				and so $\vec C=t\mat{5\\-4\\1}$. Since $\|\vec C\|=\sqrt{42}$, we in fact see $\vec C=\pm \mat{5\\-4\\1}$. Finally,
+				computing
+				\[
+					\det([\vec u|\vec v|\vec C]) = +42
+				\]
+				when $\vec C=-\mat{5\\-4\\1}$ and so $\vec u\times \vec v = \mat{-5\\4\\-1}$.
+		\end{enumerate}

@@ -274,7 +274,8 @@ We can now deduce the following.
 	induction. If $\vec v_1$ is an eigenvector for $A$, it is non-zero and so $\Set{\vec v_1}$ is linearly independent.
 	Suppose $\Set{\vec v_1,\ldots,\vec v_k}$ is a linearly independent set of eigenvectors for $A$ with eigenvalues
 	$\alpha_1,\ldots,\alpha_k$ and that $\vec v_{k+1}$ is an eigenvector with eigenvalue $\alpha_{k+1}\neq \alpha_i$
-	for $i\leq k$. Further, suppose $\vec v_{k+1}\in\Span\Set{\vec v_1,\ldots,\vec v_k}$. Since $\Set{\vec v_1,\ldots,\vec v_k}$
+	for $i\leq k$. Now, for the sake of a contradiction,
+	suppose $\vec v_{k+1}\in\Span\Set{\vec v_1,\ldots,\vec v_k}$. Since $\Set{\vec v_1,\ldots,\vec v_k}$
 	is linearly independent, there are unique scalars $s_1,\ldots,s_k$ so that
 	\[
 		\vec v_{k+1}=\sum_{i\leq k}s_i\vec v_i.

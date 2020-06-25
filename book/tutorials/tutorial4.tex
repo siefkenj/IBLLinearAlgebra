@@ -1,0 +1,54 @@
+		\begin{objectives}
+			Projections are used in mathematics, physics, computer science, and
+			statistics.
+	In this tutorial you will obtain a deeper understanding of projections.
+
+	These problems relate to the following course learning objectives:
+			\textit{Translate between algebraic and geometric viewpoints to solve problems},
+			and
+			\textit{work independently to understand concepts and procedures that have not been previously
+			explained to you}.
+		\end{objectives}
+
+		\vspace{-.5em}
+		\subsection*{Problems}
+		\vspace{-.5em}
+
+		Let $R$ be the square with side-length 1 and lower-left corner at $(0,0)$;
+		let $C$ be the corners of $R$; and, let $S$ be the circle of radius $\sqrt{2}$ centered
+		at $(0,0)$.
+
+\begin{enumerate}
+	\item Write down a mathematically precise definition of the projection of the vector $\vec v$ onto the set $X$.
+	\item Let $\vec v_1=\mat{1/3\\0}$, $\vec v_2=\mat{2\\2}$, $\vec v_3=\mat{2\\1}$ and $\vec v_4=\mat{1/3\\2}$.
+	\begin{enumerate}
+		\item Draw $R$, $C$, and $S$ on separate grids.
+		\item Using your drawings, estimate the projections of $\vec v_1$, \ldots, $\vec v_4$ onto $R$, $C$, and $S$.
+		\item Compute exactly the projections of $\vec v_1$, \ldots, $\vec v_4$ onto $R$, $C$, and $S$.
+	\end{enumerate}
+
+
+	\item Let $\ell$ be the line given in vector form by $\vec x=t\vec d$ where $\vec d=\mat{1\\2}$, and let $\vec r=\mat{2\\2}$.
+		\begin{enumerate}
+			\item Find a formula for the distance between $t\vec d$ and $\vec r$ in terms of $t$.
+			\item Compute $\Proj_\ell \vec r$.
+			\item What is the angle between $\vec d$ and $\vec r-\Proj_\ell \vec r$?
+			\item Explain the link between $\Proj_\ell \vec r$ and $\Comp_{\vec d}\vec r$.
+		\end{enumerate}
+
+	\item In $\R^3$, the projection of a vector onto the $xy$-plane can be thought of as the shadow
+		of the vector at high noon. But where would this shadow be when it's not high noon?\
+
+		To simplify things, let's work in $\R^2$. Assume the $x$-axis is the ``ground'' and the $y$-axis is
+		pointing straight up. If the sun is located far off in the distance in the direction of $\vec e_2$,
+		the shadow of a vector will be its projection onto the $x$-axis.
+		\begin{enumerate}
+			\item Find a formula for where the shadow of the vector $\vec x=\mat{x\\y}$ will be at high noon.
+			\item Suppose the ground is modeled with the equation $y=\tfrac{1}{2}x$ and that at 4:00pm, the sun shines
+				perpendicularly to the ground. That is, the sun is far away in the direction $\mat{-1\\2}$.
+				Find a formula for the shadow of the vector $\vec x=\mat{x\\y}$ on the slanted ground at 4:00pm.
+			\item The vector $\vec y=\mat{a\\b}$ is above flat ground (i.e., the ground is modeled by the $x$-axis).
+				Find a formula for the position of the shadow of $\vec y$ at 4:00pm.
+		\end{enumerate}
+
+\end{enumerate}

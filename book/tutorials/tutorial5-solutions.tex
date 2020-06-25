@@ -1,0 +1,37 @@
+		\begin{enumerate}
+			\item $\mathcal B$ is a basis for $V$ if it is a linearly independent set of
+				vectors that spans $V$.
+			\item \begin{enumerate}
+					\item Yes. The vectors in $\mathcal B$ and $\mathcal C$ are written in
+						the standard basis. The vectors in $\mathcal E$ are not written in
+						any basis---they are referred to directly by name.
+					\item $[\vec v]_{\mathcal E} = \mat{4\\-4\\2}$,
+						$[\vec v]_{\mathcal B} = \mat{0\\0\\2}$, and
+						$[\vec v]_{\mathcal C} = \mat{8\\0\\-2}$.
+					\item $[7\vec v]_{\mathcal E} = \mat{28\\-28\\14}$,
+						$[7\vec v]_{\mathcal B} = \mat{0\\0\\14}$, and
+						$[7\vec v]_{\mathcal C} = \mat{56\\0\\-14}$.
+					\item I would pick basis $\mathcal B$ since every multiple of $\vec v$ written
+						in the basis $\mathcal B$ takes the form $\mat{0\\0\\t}$, so there are
+						fewer numbers to write down.
+
+			\end{enumerate}
+			\item \begin{enumerate}
+					\item $[R]_{\mathcal E} = P=\mat{0&-1\\1&0}$.
+					\item $[R]_{\mathcal B} = Q=\mat{-1&-2\\1&1}$.
+			\end{enumerate}
+
+			\item Computing, we see
+				\[
+					[\vec v]_{\mathcal E_1} = \mat{0.8765\ldots\\0.1234\ldots}\quad
+					[\vec v]_{\mathcal E_2} = \mat{-0.2345\ldots\\1.2345\ldots}\quad
+					[\vec v]_{\mathcal E_3} = \mat{-11.3456\ldots\\12.3456\ldots}\quad
+					[\vec v]_{\mathcal E_4} = \mat{-122.4567\ldots\\123.4567\ldots}
+				\]
+			Given the pattern, it might be best to pick $\mathcal E_i$ for $i$ as large as possible.
+				However, if the computer were to also store the basis in standard form,
+				$\mathcal E_i$ for $i\geq 4$ couldn't be stored. Thus, the most accuracy we
+				could get is by using $\mathcal E_3$.
+		\end{enumerate}
+	
+	
