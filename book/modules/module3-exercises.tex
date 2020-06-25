@@ -71,7 +71,7 @@
 				\mat{9\\10\\11}, \mat{13\\14\\15}}$ linearly
 			independent or dependent?
 			
-			\item Can you find a set of $n+1$ vectors in $\R^{n}$ that is independent? Explain.
+			\item Can you find a set of $n+1$ vectors in $\R^{n}$ that is linearly independent? Explain.
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
@@ -245,6 +245,90 @@
 		
 		\prob Let $S=\Set*{\mat{1\\3},\mat{0\\-1}}$ and let $T=\Set*{\mat{-1\\-1},\mat{0\\2},\mat{0\\0}}$. Draw
 		the sets $S$, $T$, and $T+S$.
+		\begin{solution}			
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-2,xmax=2,
+					ymin=-1,ymax=3,
+					xtick={-2,...,2},
+					ytick={-1,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [WildStrawberry] (1,3) circle (2pt);
+					\fill [WildStrawberry] (0,-1) circle (2pt);
+				\end{axis}
+				\node [WildStrawberry] at (1.5,2.5) {$S$};
+			\end{tikzpicture}
+			
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-2,xmax=2,
+					ymin=-1,ymax=3,
+					xtick={-2,...,2},
+					ytick={-1,...,3},
+					x=1cm,y=1cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=0.5},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [mygreen] (0,0) circle (2pt);
+					\fill [mygreen] (-1,-1) circle (2pt);
+					\fill [mygreen] (0,2) circle (2pt);
+				\end{axis}
+				\node [mygreen] at (1.5,2.5) {$T$};
+			\end{tikzpicture}
+			
+			\begin{tikzpicture}[baseline = (current bounding box.north)]
+				\begin{axis}[
+					anchor=origin,
+					disabledatascaling,
+					xmin=-4,xmax=4,
+					ymin=-2,ymax=6,
+					xtick={-4,-2,0,2,4},
+					ytick={-2,0,2,4,6},
+					x=0.5cm,y=0.5cm,
+					grid=both,
+					grid style={line width=.1pt, draw=gray!10},
+					%major grid style={line width=.2pt,draw=gray!50},
+					axis lines=middle,
+					minor tick num=0,
+					enlargelimits={abs=1},
+					axis line style={latex-latex},
+					ticklabel style={font=\tiny,fill=white},
+					xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+					ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+				]
+					\fill [myorange] (0,2) circle (2pt);
+					\fill [myorange] (-1,-2) circle (2pt);
+					\fill [myorange] (1,5) circle (2pt);
+					\fill [myorange] (0,1) circle (2pt);
+					\fill [myorange] (1,3) circle (2pt);
+					\fill [myorange] (0,-1) circle (2pt);
+				\end{axis}
+				\node [myorange] at (1.5,2.5) {$T+S$};
+			\end{tikzpicture}
+		\end{solution}
 		
 		\prob Let $S=\Set*{\mat{1\\1},\mat{0\\-1}, \mat{0\\0}}$. 
 		\begin{enumerate}
@@ -253,6 +337,149 @@
 			\item Is $(S+S)+S=S+(S+S)$? Does the expression $S+S+S$ make sense?
 			\item Draw $S+S+S+S+\cdots$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item 
+				The set $S$:
+				
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=0,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={0,...,4},
+						ytick={-4,-2,0,2,4},
+						x=1cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlarge x limits={abs=0.5},
+						enlarge y limits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [WildStrawberry] (1,1) circle (2pt);
+						\fill [WildStrawberry] (0,-1) circle (2pt);
+						\fill [WildStrawberry] (0,0) circle (2pt);
+					\end{axis}
+				\end{tikzpicture}
+				
+				The set $S+S$:
+				
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=0,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={0,...,4},
+						ytick={-4,-2,0,2,4},
+						x=1cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlarge x limits={abs=0.5},
+						enlarge y limits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [WildStrawberry] (2,2) circle (2pt);
+						\fill [WildStrawberry] (1,0) circle (2pt);
+						\fill [WildStrawberry] (0,-2) circle (2pt);
+						\fill [WildStrawberry] (1,1) circle (2pt);
+						\fill [WildStrawberry] (0,-1) circle (2pt);
+						\fill [WildStrawberry] (0,0) circle (2pt);
+					\end{axis}
+				\end{tikzpicture}
+				
+				The set $(S+S)+S$:
+				
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=0,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={0,...,4},
+						ytick={-4,-2,0,2,4},
+						x=1cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlarge x limits={abs=0.5},
+						enlarge y limits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [WildStrawberry] (0,-3) circle (2pt);
+						\fill [WildStrawberry] (0,-2) circle (2pt);
+						\fill [WildStrawberry] (0,-1) circle (2pt);
+						\fill [WildStrawberry] (0,0) circle (2pt);
+						\fill [WildStrawberry] (1,-1) circle (2pt);
+						\fill [WildStrawberry] (1,0) circle (2pt);
+						\fill [WildStrawberry] (1,1) circle (2pt);
+						\fill [WildStrawberry] (2,1) circle (2pt);
+						\fill [WildStrawberry] (2,2) circle (2pt);
+						\fill [WildStrawberry] (3,3) circle (2pt);
+					\end{axis}
+				\end{tikzpicture}
+				\item The set $(S+S)+S$ and $S+(S+S)$ are equal since vector addition is associative. This means that $S+S+S$ is well-defined and we can drop the parentheses, so the expression $S+S+S$ makes sense.
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=0,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={0,...,4},
+						ytick={-4,-2,0,2,4},
+						x=1cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlarge x limits={abs=0.5},
+						enlarge y limits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [WildStrawberry] (0,-3) circle (2pt);
+						\fill [WildStrawberry] (0,-2) circle (2pt);
+						\fill [WildStrawberry] (0,-1) circle (2pt);
+						\fill [WildStrawberry] (0,0) circle (2pt);
+						\fill [WildStrawberry] (1,-1) circle (2pt);
+						\fill [WildStrawberry] (1,0) circle (2pt);
+						\fill [WildStrawberry] (1,1) circle (2pt);
+						\fill [WildStrawberry] (2,1) circle (2pt);
+						\fill [WildStrawberry] (2,2) circle (2pt);
+						\fill [WildStrawberry] (3,3) circle (2pt);
+					\end{axis}
+					\foreach \x [evaluate=\x as \ymax using 2*\x] in {0,...,4} {
+						\foreach \y in {0,...,\ymax} {
+							\fill [orange] (\x,-2+\y/2) circle (2pt);
+						}
+					}
+				\end{tikzpicture}
+				
+				Notice that we obtain the orange points when we add an additional $S$ to the set sum. Since we are considering the infinite sum $S+S+S+S+\cdots$, the process continues infinitely.
+			\end{enumerate}
+		\end{solution}
 		
 		\prob Let $D\subseteq\R^2$ be the unit disk centered at the origin and let $L\subseteq \R^2$ be
 		the line segment from $(0,0)$ to $(0,2)$.
@@ -268,7 +495,33 @@
 		\begin{solution}
 			\begin{enumerate}
 				\item There are infinitely many points in each of D, L, and $D+L$.
-				\item %%See comment again
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-2,xmax=2,
+						ymin=-1,ymax=3,
+						xtick={-2,...,2},
+						ytick={-1,...,3},
+						x=1cm,y=1cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						%major grid style={line width=.2pt,draw=gray!50},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=0.5},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\fill [mygreen, opacity=.3] (0,0) -- (-1,0) arc (180:360:1.0cm) -- cycle;
+						\fill [mygreen, opacity=.3] (0,2) -- (1,2) arc (0:180:1.0cm) -- cycle;
+						\fill [mygreen, opacity=.3] (1,0) -- (-1,0) -- (-1,2) -- (1,2) -- cycle;
+					\end{axis}
+					\node [mygreen] at (1.5,1.5) {$D+L$};
+				\end{tikzpicture}
 				\item $D+L$ can be decomposed into $2$ unit radius half-circles and a square with side length
 				$2$. The area of $D+L$ is then $\pi+4$.
 				\item We can take A to be a circle of radius $0.02$ units.
