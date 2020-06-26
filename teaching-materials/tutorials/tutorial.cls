@@ -42,7 +42,7 @@
 	%	},
 	sharp corners,
 	parbox=false,
-	borderline west={4pt}{0pt}{tcbcol@frame},
+	borderline west={4pt}{0pt}{tcbcolframe},
 	boxsep=0pt,
 	left=15pt,
 	right=5pt,
@@ -155,3 +155,5 @@
 \newenvironment{objectives}{\subsection*{Learning Objectives}\begin{leftborderbox}[colframe=uoftyellow, colback=white]}{\end{leftborderbox}}
 
 
+% make sure we are compatible with the older version of tcolorbox; tcbcol@frame was renamed to tcbcolframe in newer versions.
+\@ifundefined{\string\color@tcbcolframe}{\colorlet{tcbcolframe}{tcbcol@frame}}{}
