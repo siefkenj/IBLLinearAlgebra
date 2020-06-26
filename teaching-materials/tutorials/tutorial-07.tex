@@ -73,174 +73,17 @@
 \begin{document}
 	\begin{tutorial}
 
-		\begin{objectives}
-	In this tutorial you will be working with inverses and examining how they connect algebra
-			and geometry.
-
-	These problems relate to the following course learning objectives:
-			\textit{Translate between algebraic and geometric viewpoints to solve problems}, and
-	\textit{clearly and correctly express the mathematical ideas of linear algebra to others, 
-	and understand and apply logical arguments and definitions that have been written by others}.
-		\end{objectives}
-
-
-\subsection*{Problems}
-
-	\begin{enumerate}
-	\item Let $f:\R^n\to\R^n$ be a function and let $A$ be a matrix. Write down the definition of (i) what it means
-		for $f$ to be \emph{invertible} and (ii) what it means for $A$ to be invertible.
-	
-	\item Below are several samples from student answers to a MAT223 exam question relating to solving the matrix equation
-		$A\vec x=\vec b$. For each sample, decide whether it is totally correct, mostly correct, mostly incorrect, or 
-		totally incorrect.
-		If it is not totally correct, explain what is wrong, and if possible, how to fix it.
-
-		You may assume the student can correctly compute $A^{-1}$.
-		\begin{enumerate}
-			\item $A\vec x=\vec b$ $\quad\implies\quad$ $\vec x=\vec bA^{-1}$.
-			\item $A\vec x=\vec b$ $\quad\implies\quad$ $\vec x=A^{-1}\vec b$.
-			\item $A\vec x=\vec b$ $\quad\implies\quad$ $\vec x=\vec b/A$.
-			\item $A\vec x=\vec b$ $\quad\implies\quad$ $\vec x=\tfrac{1}{A}\vec b$.
-			\item $A\vec x=\vec b$ $\quad\implies\quad$ $A/\vec b=1/\vec x$. $\quad\implies\quad$ $1/(A/\vec b)=\vec x$.
-		\end{enumerate}
-
-	\item Let $R:\R^2\to\R^2$ be rotation counter-clockwise by $30^\circ$; let $D:\R^2\to\R^2$ be reflection across the
-		line $y=4x$; let $P:\R^2\to\R^2$ be projection onto the line $y=4x$; and let $S:\R^2\to\R^2$ be the transformation
-			that doubles the length of every vector.
-
-			For each transformation, (i) decide if it is invertible, and (ii) describe the inverse-transformation in words.
-		\item Let $R$, $D$, $P$, and $S$ be defined as before.
-			\begin{enumerate}
-				\item Determine the rank of $R$, $D$, $P$, and $S$.
-				\item Does rank relate to invertibility? Write down an argument to support your conjecture.
-				\item Find matrices for $R$, $D$, $P$, and $S$. How does the invertibility of these
-					matrices relate to the invertibility of the original transformations?
-					Is this relationship affected by which basis you choose to represent the
-					transformation in?
-			\end{enumerate}
-	\end{enumerate}
-
-
-
+	\input{../../book/tutorials/tutorial7.tex}
 	\end{tutorial}
 
 
 	\begin{solutions}
-		\begin{enumerate}
-			\item $f:\R^n\to\R^n$ is invertible if there exists a function $g:\R^n\to\R^n$ so
-				that $f\circ g=g\circ f=$id, the identity function. 
-				The matrix $A$ is invertible if there exists a matrix $B$ so that
-				$AB=I$ and $BA=I$.
-			\item \begin{enumerate}
-					\item Totally incorrect. If $\vec b$ is a column
-						vector $\vec b A^{-1}$ won't be defined.
-						It should be $\vec x=A^{-1}\vec b$.
-					\item Totally correct.
-					\item Totally incorrect. There is no division operation
-						for matrices. Instead, you must multiply both sides by $A^{-1}$.
-					\item Mostly incorrect. The notation $\tfrac{1}{A}$ is not defined. We
-						use the notation $A^{-1}$ for the matrix such that $A^{-1}A=AA^{-1}=I$.
-					\item Totally incorrect. You cannot divide by a vector.
-			\end{enumerate}
-			\item \begin{itemize}
-					\item[$R$] This transformation is invertible and its inverse is
-						clockwise rotation by $30^{\circ}$.
-					\item[$D$] This transformation is invertible and its inverse is
-						itself.
-					\item[$P$] This transformation is not invertible. Since 
-						$P(\vec 0) = P\left(\mat{-4\\1}\right)=\vec 0$, there
-						is no way to ``undo'' $P$. Formally, $P$ is not one-to-one,
-						so it cannot be invertible.
-					\item[$S$] This transformation is invertible and its inverse is
-						halving the length of each vector.
-			\end{itemize}
-			\item \begin{enumerate}
-				\item $R,D,S$ are rank 2 and $P$ is rank 1.
-				\item Yes. If a transformation from $\R^n\to\R^n$ is invertible 
-					its rank must be $n$. We can argue as follows:
-
-					Suppose $T:\R^n\to\R^n$ has rank $< n$. Then the range of $T$ cannot
-					be all of $\R^n$. Thus, there cannot exist a transformation $S$ so that
-					$T\circ S=$id, where id is the identity function on all of $\R^n$.
-				\item 
-					\[
-						[R]_{\mathcal E} = \mat{\sqrt{3}/2&-1/2\\1/2&\sqrt{3}/2}\qquad
-						[D]_{\mathcal E} = \tfrac{1}{17}\mat{-15&8\\8&15}
-						\]\[
-						[P]_{\mathcal E} = \tfrac{1}{17}\mat{1&4\\4&16}\qquad
-						[S]_{\mathcal E} = \mat{2&0\\0&2}
-					\]
-					The matrix for a transformation is invertible if and only if the
-					transformation is invertible. This is not affected by the choice of basis.
-			\end{enumerate}
-		\end{enumerate}
+	\input{../../book/tutorials/tutorial7-solutions.tex}
 	\end{solutions}
 	\begin{instructions}
 
 
-\subsection*{Learning Objectives}
-	Students need to be able to\ldots
-	\begin{itemize}
-		\item Read others' mathematical arguments and identify whether they are correct
-		\item Multiply matrices in the correct order when solving matrix equations
-		\item Apply the meaning of invertibility (that a transformation can be ``undone'')
-		\item Formally define invertibility
-		\item Recognize the identity function as a legitimate function
-	\end{itemize}
-
-\subsection*{Context}
-	In lecture, students have seen rank of a matrix and a linear transformation; null space of a matrix/linear
-		transformation;	column space, row space of a matrix; and elementary matrices. However, most
-		of them will be shaky on what an inverse actually ``means'' and even more shaky on how to
-		define the inverse of a function (even though this is grade 11 material). Many lectures,
-		but not all, have used the terms ``one-to-one'' and ``onto'' when talking about inverses.
-		You may use these terms (the students should know them from high school). Prefer ``one-to-one''
-		and ``onto'' over ``injective'' and ``surjective''.
-
-\subsection*{What to Do}
-	Start the tutorial by stating the day's learning objectives and that today has two focuses: \emph{inverses}
-		and \emph{reading others' work}. You may tell them that the idea of inverse \emph{functions} is used
-		in general contexts, not just in linear algebra, but that we only
-		deal with inverse \emph{matrices} in linear algebra. This is why they are asked for two
-		definitions to start.
-
-		After everyone has written down a definition for inverse functions and inverse matrices, 
-		get a correct definition on the board and have a short ($\leq $ 3 minute) discussion on why
-		inverses are useful for solving equations/matrix equations. Then, have them start \#2.
-
-		\#2 shouldn't take long, but should allow a for a good discussion of the fact that
-		when we write out matrix equations, they look the same as equations with numbers, but if
-		we don't remember that they're actually linear algebra objects, we'll do nonsensical things.
-		\emph{The power of algebra (in the symbolic sense) is that it allows us to shut off our brains
-		and follow symbolic steps, but we cannot shut off our brains too much!}
-
-		\#3 asks students to connect geometric transformations with
-		the formal definition of a function being invertible. This will be hard for some and easy for
-		others. If they get stuck and frustrated, you can ask them to try 4(c) and then come back to 3.
-
-		6 minutes before the end of class, pick a suitable problem to do as a wrap-up.
-
-\subsection*{Notes}
-	\begin{itemize}
-		\item Students will be uncomfortable with function composition. They would prefer
-			to write $h(x) = f(g(x))$ over $h=f\circ g$. We want them to get comfortable
-			with $f\circ g$ notation, but you may use $f(g(x))$ notation if they're confused.
-		\item \#2 is trivial in some sense. And, we could extend notational definitions to
-			make many of those correct. However, in this class we're using the standard 
-			North-American notations, so only (b) is acceptable.
-		\item For \#3 encourage them to draw some ``before and after'' pictures of vectors
-			subjected to each transformation. This will aid their thinking (and should
-			be their natural inclination).
-		\item For \#4(b), it is easier to argue invertible$\implies$full rank than 
-			full rank$\implies$invertible. Focus on invertible$\implies$full rank and
-			leave the converse as a challenge for the stronger students.
-
-			Also, you may use matrix theory when arguing \#4, but make sure
-			that a distinction between \emph{matrices} and \emph{transformations} is made.
-			Just like we can tell things about vectors by looking
-			at their representation in a basis, so can we tell things about transformations
-			by looking at their matrix representation. However these aren't the same thing!
-	\end{itemize}
+\input{../../book/tutorials/tutorial7-instructions.tex}
 
 	\end{instructions}
 
