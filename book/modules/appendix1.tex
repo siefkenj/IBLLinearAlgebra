@@ -35,7 +35,7 @@
 	\]
 	Equating coordinates, a system of equations appears:
 	\[
-		\systeme{a+2b=1,2a+3b=1}
+		\systeme{a+2b=1,2a+3b=1}.
 	\]
 
 	Every vector equation, by way of coordinates, corresponds to a system of equations. And, fortunately for us, there is
@@ -71,7 +71,21 @@
 		and the system of linear equations corresponding to the vector equation $t\vec w+\vec u=r\vec v$ where $\vec w=\mat{1\\-1}$, $\vec u=\mat{2\\3}$,
 		and $\vec v=\mat{4\\4}$.
 
-		XXX Finish
+		Paying attention to the coordinates and treating $x$, $y$, and $z$ as coefficients\index{Linear combination!coefficient of}, we can see that $\systeme{2x+3y+z=2,0x+y-z=-1}$ corresponds to the vector equation
+		\[
+			x\mat{2\\0} + y\mat{3\\1} + z\mat{1\\-1} = \mat{2\\-1}.
+		\]
+		
+		As for the vector equation $t\vec w+\vec u=r\vec v$, rewriting each vector in coordinates gives us a corresponding system of linear equations:
+		\begin{align*}
+			t\vec w + \vec u = r\vec v
+			\rightarrow
+			t\mat{1\\-1} + \mat{2\\3} &= r\mat{4\\4}\\
+			\mat{t+2\\-t+3} &= \mat{4r\\4r}
+			\rightarrow
+			\systeme{t+2=4r, -t+3=4r}.
+		\end{align*}
+
 	\end{example}
 
 	\begin{emphbox}[Takeaway]
@@ -79,7 +93,7 @@
 		corresponds to a vector equation.
 	\end{emphbox}
 
-	\Heading{Solutions Sets}
+	\Heading{Solution Sets}
 
 	Before looking at how to solve systems of linear equations, let's agree on some terminology.
 
@@ -99,7 +113,30 @@
 	where we identify a solution $x=a$ and $y=b$ with the column vector $\mat{a\\b}$. Drawing $S$ as a subset of $\R^2$, we see a familiar
 	picture.
 
-	XXX Figure
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				anchor=origin,
+				disabledatascaling,
+				xmin=0,xmax=5,
+				ymin=0,ymax=5,
+				xtick={-1,...,5},
+				ytick={-1,...,5},
+				x=1cm,y=1cm,
+				grid=both,
+				grid style={line width=.1pt, draw=gray!10},
+				axis lines=middle,
+				minor tick num=0,
+				enlargelimits={abs=0.5},
+				axis line style={latex-latex},
+				ticklabel style={font=\tiny,fill=white},
+				xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+				ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+			]
+				\draw [mygreen, thick, -] (-2,6) -- (6,-2);
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
 
 	It's the graph of the line given in $y=mx+b$ for by $y=-x+4$. In other words, \emph{via solution sets, equations and systems
 	of equations can represent geometric objects.}
@@ -165,7 +202,7 @@
 	relationship between the variables $x$ and $y$. This can be formalized using solution sets.
 
 	\begin{definition}[Equivalent Systems]
-		Two equations or systems of equations are called \emph{equivalent} if they have the same solution sets.
+		Two equations or systems of equations are called \emph{equivalent}\index[definitions]{Equivalent systems} if they have the same solution sets.
 	\end{definition}
 
 	Again, $x=2y$ and $\tfrac{1}{2}x=y$ both have the same solution set (a line through the origin of slope $\tfrac{1}{2}$),
@@ -184,7 +221,7 @@
 
 	Consider the vector equation
 	\[
-		t\vec u+s\vec v+r\vec w = \vec p\qquad\text{where}\qquad \vec u=\mat{1\\2\\1},\ 
+		t\vec u+s\vec v+r\vec w = \vec p\qquad\text{where}\qquad \vec 	u=\mat{1\\2\\1},\ 
 		\vec v=\mat{2\\1\\-4},\ \vec w=\mat{-2\\-5\\1},\ \vec p=\mat{-15\\-21\\18}.
 	\]
 	By expanding in terms of coordinates, we get an equivalent system of linear equations.
@@ -204,7 +241,7 @@
 	method: \emph{row reduction}\footnote{
 	Row reduction is sometimes referred to as \emph{Gaussian elimination},
 	\emph{Gauss-Jordan elimination}, or just \emph{elimination}; though there are subtle differences between Gaussian
-	and Guass-Jordan elimination,
+	and Gauss-Jordan elimination,
 	they aren't important, and we'll refer to all similar methods as \emph{row reduction}.}.
 
 	Study the following manipulations of System \eqref{EQVECEQ2} and convince yourself
@@ -246,7 +283,7 @@
 
 	By adding and subtracting rows, we ``reduced'' the number of variables from some equations until
 	they were easy to solve. As an added benefit, every system along the way to System \eqref{EQEQUIVSYS}
-	was nicely organised and formatted. In fact, the systems are so well organized that we can
+	was nicely organized and formatted. In fact, the systems are so well organized that we can
 	save time by not writing the variables and keeping track of the numbers in an \emph{augmented matrix}\footnote{
 		A \emph{matrix} is a box of numbers. An \emph{augmented matrix} is a matrix with
 		extra information associated with it.
@@ -267,8 +304,8 @@
 		\end{bmatrix}.
 	\]
 	We call the matrix an \emph{augmented matrix} to stress that it contains two types of information:
-	the \emph{coefficients} of the variables $t$, $s$, and $r$ and the \emph{constants} on
-	the right hand side of equation. An (optional) vertical line
+	the \emph{coefficients} of the variables $t$, $s$, and $r$ and the \emph{constants} in
+	the corresponding system of equations. An (optional) vertical line
 	separates the two types of numbers.
 
 
@@ -314,7 +351,7 @@
 		}
 	\end{align*}
 
-	The operations are identical, but we write augmented matrices instead of equation.
+	The operations are identical, but we write augmented matrices instead of equations.
 
 	\begin{emphbox}[Takeaway]
 		Augmented matrices are a notational tool that makes the process of doing row reduction more efficient.
@@ -351,24 +388,189 @@
 	\end{enumerate}
 
 	\begin{example}
-		XXX Finish. Unique solution to a 3x3 system with no row swaps; Use back subsitution
+		Find a solution to the following system:
+		\[
+			\systeme[abc]{
+				a+3b+2c=1,
+				2a+7b+5c=2,
+				-a-4b=11
+			}.
+		\]
+		To do so, we rewrite the system as an augmented matrix then row reduce.
+		\begin{align*}
+			{\footnotesize
+			\systeme[abc]{
+				a+3b+2c=1,
+				2a+7b+5c=2,
+				-a-4b=11
+			}
+			} \rightarrow
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				2&7&5 & 2\\
+				-1&-4&0 & 11
+			\end{bmatrix}
+			&\xrightarrow{\text{row}_2\mapsto\text{row}_2-2\text{row}_1}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&1 & 0\\
+				-1&-4&0 & 11
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_3\mapsto\text{row}_3+\text{row}_1+\text{row}_2}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&1 & 0\\
+				0&0&3 & 12
+			\end{bmatrix}
+			\rightarrow
+			{\footnotesize
+				\systeme[abc]{
+				a+3b+2c=1,
+				b+c=0,
+				3c=12
+				}
+			}
+		\end{align*}
+		The third row reveals that $c=4$ and we substitute that into the second row to find $b=-4$. Now we can substitute $b=-4$ and $c=4$ into the first row and we obtain $a=5$.
+		
+		As a vector, the solution is $\mat{5\\-4\\4}$ and since it is unique, the solution set is $\Set*{\mat{5\\-4\\4}}$.
 	\end{example}
 
 	\begin{example}
-		XXX Finish. Unique solution to a 3x4 system that needs a row swap; Use back subsitution
+		Consider the system
+		\[
+			\systeme[tsr]{
+				3t+s+13r=-2,
+				t+5r=1,
+				-t+s-6r=-8
+			}.
+		\]
+		Again, we row reduce the corresponding augmented matrix to find an equivalent system\index{System of linear equations!equivalent} that is easier to find the solution set.
+		\begin{align*}
+			{\footnotesize
+			\systeme[tsr]{
+				3t+s+13r=-2,
+				t+5r=1,
+				-t+s-6r=-8
+			}
+			} \rightarrow
+			\begin{bmatrix}[rrr|r]
+				3&1&13 & -2\\
+				1&0&5 & 1\\
+				-1&1&-6 & -8
+			\end{bmatrix}
+			&\xrightarrow{\text{row}_1\leftrightarrow\text{row}_2}
+			\begin{bmatrix}[rrr|r]
+				1&0&5 & 1\\
+				3&1&13 & -2\\
+				-1&1&-6 & -8
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_2\mapsto\text{row}_2-3\text{row}_1}
+			\begin{bmatrix}[rrr|r]
+				1&0&5 & 1\\
+				0&1&-2 & -5\\
+				-1&1&-6 & -8
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_3\mapsto\text{row}_3+\text{row}_1-\text{row}_2}
+			\begin{bmatrix}[rrr|r]
+				1&0&5 & 1\\
+				0&1&-2 & -5\\
+				0&0&1 & -2
+			\end{bmatrix}
+			\rightarrow
+			{\footnotesize
+				\systeme[tsr]{
+				t+5r=1,
+				s-2r=-5,
+				r=-2
+				}
+			}
+		\end{align*}
+		Our equivalent system reveals $r=-2$ which we can substitute back into the first and second rows to find that $t=11$ and $s=-9$, respectively.
+		
+		The solution vector is $\mat{11\\-9\\-2}$ and so the solution set is $\Set*{\mat{11\\-9\\-2}}$.
 	\end{example}
 
 	In the examples so far, we've stopped row reducing when the equations became simple enough
 	to solve by inspection. However, we could continue row reducing until the system is as simple as possible.
 
 	\begin{example}
-		XXX Finish. Example 1 again, but this time put it in rref. 
+		We return to the earlier system
+		\[
+			\systeme[abc]{
+				a+3b+2c=1,
+				2a+7b+5c=2,
+				-a-4b=11
+			}
+		\]
+		except now let's try row reducing as much as possible.
+		\begin{align*}
+			{\footnotesize
+			\systeme[abc]{
+				a+3b+2c=1,
+				2a+7b+5c=2,
+				-a-4b=11
+			}
+			} \rightarrow
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				2&7&5 & 2\\
+				-1&-4&0 & 11
+			\end{bmatrix}
+			&\xrightarrow{\text{row}_2\mapsto\text{row}_2-2\text{row}_1}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&1 & 0\\
+				-1&-4&0 & 11
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_3\mapsto\text{row}_3+\text{row}_1+\text{row}_2}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&1 & 0\\
+				0&0&3 & 12
+			\end{bmatrix}
+			\rightarrow
+			{\footnotesize
+				\systeme[abc]{
+				a+3b+2c=1,
+				b+c=0,
+				3c=12
+				}
+			}\\
+			&\xrightarrow{\text{row}_3\mapsto\tfrac{1}{3}\,\text{row}_3}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&1 & 0\\
+				0&0&1 & 4
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_2\mapsto\text{row}_2-\text{row}_3}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&0 & -4\\
+				0&0&1 & 4
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_1\mapsto\text{row}_1-3\text{row}_2-2\text{row}_3}
+			\begin{bmatrix}[rrr|r]
+				1&0&0 & 5\\
+				0&1&0 & -4\\
+				0&0&1 & 4
+			\end{bmatrix}
+			\rightarrow
+			{\footnotesize
+				\systeme[abc]{
+				a=5,
+				b=-4,
+				c=4
+				}
+			}
+		\end{align*}
+		We obtain the same solution vector as before: $\mat{5\\-4\\4}$.
 	\end{example}
 
 	What happens when you apply row reduction to an inconsistent system? Let's see. Consider the system
 	\begin{equation}
 		\label{EQSYSINCONEX}
-		\systeme{x+y=1,4x+4y=7}
+		\systeme{x+y=1,4x+4y=7}.
 	\end{equation}
 	Before continuing, convince yourself that this system is inconsistent.
 	The augmented matrix for System \eqref{EQSYSINCONEX} is
@@ -387,5 +589,54 @@
 	Thus, we see applying row reduction to an inconsistent system reveals its inconsistency.
 
 	\begin{example}
-		XXX Finish. Example of an inconsistent 3x3 using row reduction (but not too many steps)
+		Find a solution to the following system:
+		\[
+			\systeme[xyz]{
+				x+z=4,
+				x+y+2z=-8,
+				x+3y+4z=-18
+			}.
+		\]
+		As usual we rewrite the system as an augmented matrix then row reduce.
+		\begin{align*}
+			{\footnotesize
+			\systeme[xyz]{
+				x+z=4,
+				x+y+2z=-8,
+				x+3y+4z=-18
+			}
+			} \rightarrow
+			\begin{bmatrix}[rrr|r]
+				1&0&1 & 4\\
+				1&1&2 & -8\\
+				1&3&4 & -18
+			\end{bmatrix}
+			&\xrightarrow{\text{row}_3\mapsto\text{row}_3-\text{row}_2}
+			\begin{bmatrix}[rrr|r]
+				1&0&1 & 4\\
+				1&1&2 & -8\\
+				0&2&2 & -10
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_2\mapsto\text{row}_2-\text{row}_1}
+			\begin{bmatrix}[rrr|r]
+				1&0&1 & 4\\
+				0&1&1 & -12\\
+				0&2&2 & -10
+			\end{bmatrix}\\
+			&\xrightarrow{\text{row}_3\mapsto\text{row}_3-2\text{row}_2}
+			\begin{bmatrix}[rrr|r]
+				1&0&1 & 4\\
+				0&1&1 & -12\\
+				0&0&0 & 14
+			\end{bmatrix}
+			\rightarrow
+			{\footnotesize
+				\systeme[xyz]{
+				x+z=4,
+				y+z=-12,
+				0x+0y+0z=14
+				}
+			}
+		\end{align*}
+		The equation $0x + 0y + 0z = 14$ can never be true and so the system is inconsistent. There exists no vector $\mat{x\\y\\z}$ that solves the system and as such, the solution set is $\Set*{}$.
 	\end{example}
