@@ -695,6 +695,7 @@
 			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.6, myorange] ({x}, {y}, {0});
 			\addplot3 [surf,domain=0:5,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {x/2});
 			\end{axis}
+			\node [black] at (5.5,7.5,5) {Intersecting in a line};
 		\end{tikzpicture}
 		\hspace{.4in}
 		\begin{tikzpicture}
@@ -710,8 +711,9 @@
 			\addplot3 [surf,domain=0:2.5,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-2*x+5});
 			\addplot3 [surf,domain=2.5:5,y domain=-10:10,samples=2, opacity=.6, WildStrawberry] ({x}, {y}, {-2*x+5});
 			\addplot3 [surf,domain=2.5:5,y domain=-10:10,samples=2, opacity=.7, myorange] ({x}, {y}, {0});
-			\addplot3 [surf,domain=0:2.5,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {2*x+5});
+			\addplot3 [surf,domain=0:2.75,y domain=-10:10,samples=2, opacity=.6, mygreen] ({x}, {y}, {2*x+5});
 			\end{axis}
+			\node [black] at (5.5,7.5,5) {Empty intersection};
 		\end{tikzpicture}
 	\end{center}
 
