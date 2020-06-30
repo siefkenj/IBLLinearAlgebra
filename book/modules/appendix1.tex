@@ -85,7 +85,6 @@
 			\rightarrow
 			\systeme{t-4r=-2, -t-4r=-3}.
 		\end{align*}
-
 	\end{example}
 
 	\begin{emphbox}[Takeaway]
@@ -433,7 +432,7 @@
 		\end{align*}
 		The third row reveals that $c=4$; substituting into the second row, we find $b=-4$. Now we can substitute $b=-4$ and $c=4$ into the first row and we obtain $a=5$.
 		
-		The solution is $\mat{a\\b\\c}=\mat{5\\-4\\4}$. Since this is the only solution to the system, the solution set is $\Set*{\mat{5\\-4\\4}}$.
+		Thus, the solution is $\mat{a\\b\\c}=\mat{5\\-4\\4}$. Since this is the only solution to the system, the solution set is $\Set*{\mat{5\\-4\\4}}$.
 	\end{example}
 
 	\begin{example}
@@ -446,7 +445,7 @@
 				t+s+4r=-6
 			}.
 		\]
-		Again, we row reduce the corresponding augmented matrix to find an equivalent system\index{System of linear equations!equivalent} that is easier to find the solution set.
+		Again, we row reduce the corresponding augmented matrix to find an equivalent system\index{System of linear equations!equivalent} from which we can more easily compute the solution.
 		\begin{align*}
 			{\footnotesize
 			\systeme[tsr]{
@@ -507,9 +506,9 @@
 				}
 			}
 		\end{align*}
-		Our equivalent system reveals $r=-2$ which we can substitute back into the first and second rows to find that $t=11$ and $s=-9$, respectively.
+		Our equivalent system reveals $r=-2$, which we can substitute back into the first and second rows to find that $t=11$ and $s=-9$.
 		
-		The solution vector is $\mat{t\\s\\r}=\mat{11\\-9\\-2}$ and so the solution set is $\Set*{\mat{11\\-9\\-2}}$.
+		As a vector, the solution is $\mat{t\\s\\r}=\mat{11\\-9\\-2}$ and so the solution set is $\Set*{\mat{11\\-9\\-2}}$.
 	\end{example}
 
 	In the examples so far, we've stopped row reducing when the equations became simple enough
@@ -525,23 +524,26 @@
 			}
 		\]
 		Notice that we solved this system using a combination of row reduction and substitution in a previous example.
-		This time, let us use only row reduction and the equivalent system
+		This time, let us use only row reduction.
+		
+		The augmented matrix for this system is
 		\[
-			\systeme{
-				a+3b+2c=1,
-				b+c=0,
-				3c=12
-			}
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				2&7&5 & 2\\
+				-1&-4&0 & 11
+			\end{bmatrix}.
 		\]
-		as our starting point.
+		Based on the work from the previous example, we know it can be reduced to
+		\[
+			\begin{bmatrix}[rrr|r]
+				1&3&2 & 1\\
+				0&1&1 & 0\\
+				0&0&3 & 12
+			\end{bmatrix}.
+		\]
+		Now let us continue row reducing.
 		\begin{align*}
-			{\footnotesize
-			\systeme{
-				a+3b+2c=1,
-				b+c=0,
-				3c=12
-			}
-			} \rightarrow
 			\begin{bmatrix}[rrr|r]
 				1&3&2 & 1\\
 				0&1&1 & 0\\
@@ -574,9 +576,7 @@
 				}
 			}
 		\end{align*}
-		The solution is $\mat{a\\b\\c}=\mat{5\\-4\\4}$ and the solution set is $\Set*{\mat{5\\-4\\4}}$.
-		
-		Notice how we found the same solution and solution set using only row reduction.
+		The solution is $\mat{a\\b\\c}=\mat{5\\-4\\4}$ and the solution set is $\Set*{\mat{5\\-4\\4}}$, which is the same as we got before.
 	\end{example}
 
 	What happens when you apply row reduction to an inconsistent system? Let's see. Consider the system
@@ -609,7 +609,7 @@
 				x+3y+4z=-18
 			}.
 		\]
-		As usual we rewrite the system as an augmented matrix then row reduce.
+		As usual we rewrite the system as an augmented matrix and then row reduce.
 		\begin{align*}
 			{\footnotesize
 			\systeme{
@@ -651,5 +651,5 @@
 			}
 		\end{align*}
 		The equation $0x + 0y + 0z = 14$ is never true and so the system is inconsistent.
-		There exists no vector $\mat{x\\y\\z}$ that solves the system and as such, the solution set is $\Set*{}$.
+		Since there are no values of $x$, $y$, and $z$ that satisfy the system, the solution set is $\Set*{}$, the empty set.
 	\end{example}
