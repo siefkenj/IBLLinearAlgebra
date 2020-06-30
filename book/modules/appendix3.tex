@@ -1,0 +1,166 @@
+\input xy
+\xyoption{all}
+
+Determinant is useful: it measures the volume distortion of a linear transformation, it helps us determine if a matrix is invertible of not, and it provides us with a simple formula for solving \(A\vec x=\vec y\) when \(\vec x\) is invertible.
+
+In Module 14, you will learn an algorithm for evaluating determinants via row reduction. However, for \(2\times 2\) and \(3\times 3\) determinants, we have methods which are more convenient than row reduction. We will explore these methods in this appendix.
+
+\Heading{A formula for \(2\times 2\) determinants}
+For a \(2\times 2\) matrix, once we know its four entries, we can calculate its determinant directly.
+\begin{theorem}[\(2\times 2\) determinant formula]
+  Let \(M\) be a \(2\times 2\) matrix. Suppose \(M=\mat{a & b \\ c & d}\). Then \[\det(M)=ad-bc.\]
+\end{theorem}
+\begin{example}
+Use the \(2\times 2\) determinant formula to find \(\det(M)\), where \(M=\mat{1 & 6 \\ 2  & 7}\).
+\end{example}
+\textbf{Solution. }Apply the formula, and we get \[\det(M)=1\times 7-2\times 6=-5.\]
+
+Notice that if we apply row reduction algorithm on \(M\), we get \[\mat{1 & -6 \\ 0 & 1}\mat{1 & 0 \\ 0 & -\frac{1}{5}}\mat{1 & 0 \\ -2 & 1}M=I_{2}.\]
+Thus, \[M=\mat{1 & 0 \\ 2 & 1}\mat{1 & 0 \\ 0 & -5}\mat{1 & 6 \\ 0 & 1}.\]
+Using theory developed in Module 14, this gives us that \(\det(M)=-5\). In other words, the result given by the formula agrees with the result given by row reduction.
+
+\Heading{Calculating \(3\times 3\) determinants (I): The diagonal trick}
+Now we turn to \(3\times 3\) determinants. We still have a manageable formula, although it is less appealing than the \(2\times 2\) formula:
+\begin{theorem}[\(3\times 3\) determinant formula]
+  Let \(M\) be a \(3\times 3\) matrix. Suppose \(M=\mat{a & b & c \\ d & e & f \\ g & h & i}\). Then \[\det(M)=aei+bfg+cdh-gec-hfa-idb.\]
+\end{theorem}
+You see, this formula is not easy to remember. To help you remember this formula, here's a trick called the \textit{diagonal trick}. Applying this formula, then, is no more than applying this trick on the matrix.
+
+Now we outline the procedure of calculating \(\det(\mat{a & b & c \\ d & e & f \\ g & h & i})\) via this trick.
+
+\textbf{Step 1. }Copy the matrix, and then copy the \emph{first two columns} to the right of the matrix:
+\[\xymatrix{
+a & b & c & a & b \\
+d & e & f & d & e \\
+g & h & i & g & h
+}.\]
+
+\textbf{Step 2. }Now go along the three arrows as illustrated below. Multiply all numbers along the same arrow. Finally, sum up the three numbers you get. Call this number \(F\).
+\[
+\xymatrix{
+a\ar[dr]^{\times} & b\ar[dr]^{\times} & c\ar[dr]^{\times} & a & b & & \\
+d & e\ar[dr]^{\times} & f\ar[dr]^{\times} & d\ar[dr]^{\times} & e & & \\
+g & h & i\ar@{.>}[dr]^{=} & g\ar@{.>}[dr]^{=} & h\ar@{.>}[dr]^{=} & & \\
+   &  &    & aei & bfg & cdh &*+[F]{F=aei+bfg+cdh}
+}
+\]
+
+\textbf{Step 3. }Now we go the other way. Go along the three arrows as illustrated below. Multiply all numbers along the same arrow. Finally, sum up the three numbers you get. Call this number \(G\).
+\[
+\xymatrix{
+   &  &    & gec & hfa & idb &*+[F]{G=gec+hfa+idb} \\
+a & b & c\ar@{.>}[ur]^{=} & a\ar@{.>}[ur]^{=} & b\ar@{.>}[ur]^{=} & & \\
+d & e\ar[ur]^{\times} & f\ar[ur]^{\times} & d\ar[ur]^{\times} & e & & \\
+g\ar[ur]^{\times} & h\ar[ur]^{\times} & i\ar[ur]^{\times} & g & h & &
+}
+\]
+
+\textbf{Step 4. }Finally, subtract \(G\) from \(F\):
+\[\det(M)=F-G=aei+bfg+cdh-gec-hfa-idb.\]
+
+We illustrate this trick with an example.
+
+\begin{example}
+Calculate \(\det(M)\) by the diagonal trick, where \(M=\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\).
+\end{example}
+\textbf{Solution. }
+Using the diagonal trick to calculate \(F\) and \(G\):
+\newpage
+\[
+\xymatrix{
+1\ar[dr]^{\times} & 4\ar[dr]^{\times} & 0\ar[dr]^{\times} & 1 & 4 & & \\
+-2 & 3\ar[dr]^{\times} & 1\ar[dr]^{\times} & -2\ar[dr]^{\times} & 3 & & \\
+0 & 2 & 1\ar@{.>}[dr]^{=} & 0\ar@{.>}[dr]^{=} & 2\ar@{.>}[dr]^{=} & & \\
+   &  &    & 3 & 0 & 0 &*+[F]{F=3+0+0=3}
+}
+\]
+
+\[
+\xymatrix{
+   &  &    & 0 & 2 & -8 &*+[F]{G=0+2-8=-6} \\
+1 & 4 & 0\ar@{.>}[ur]^{=} & 1\ar@{.>}[ur]^{=} & 4\ar@{.>}[ur]^{=} & & \\
+-2 & 3\ar[ur]^{\times} & 1\ar[ur]^{\times} & -2\ar[ur]^{\times} & 3 & & \\
+0\ar[ur]^{\times} & 2\ar[ur]^{\times} & 1\ar[ur]^{\times} & 0 & 2 & &
+}
+\]
+Thus, \[\det(M)=F-G=3-(-6)=9.  \]
+
+\Heading{Calculating \(3\times 3\) determinants (II): Expanding along the first column}
+The second method of calculating \(3\times 3\) determinants actually uses \(2\times 2\) determinants. This method is called \textbf{expanding along the first column}.
+
+\begin{theorem}
+  Let \(A\) be a \(3\times 3\) matrix. Suppose \(A=\mat{a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}}\). Then \[\det(A)=a_{11}\det\mat{a_{22} & a_{23} \\ a_{32} & a_{33}}-a_{21}\det\mat{a_{12} & a_{13} \\ a_{32} & a_{33}}+a_{31}\det\mat{a_{12} & a_{13} \\ a_{22} & a_{23}}.\]
+\end{theorem}
+\begin{proof}
+ Using the \(2\times 2\) determinant formula, we get
+\begin{align*}
+   & a_{11}\det\mat{a_{22} & a_{23} \\ a_{32} & a_{33}}-a_{21}\det\mat{a_{12} & a_{13} \\ a_{32} & a_{33}}+a_{31}\det\mat{a_{12} & a_{13} \\ a_{22} & a_{23}} \\
+  = &a_{11}(a_{22}a_{33}-a_{23}a_{32})-a_{21}(a_{12}a_{33}-a_{13}a_{32})+a_{31}(a_{12}a_{23}-a_{13}a_{22})  \\
+  = & a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}.
+\end{align*}
+This agrees with the \(3\times 3\) determinant formula.
+\end{proof}
+
+Before moving on, we give an explanation about the name ``expanding along the first column''.
+
+The formula involves three determinants. If we delete the first column and first row of \(A\). we are left with a \(2\times 2\) matrix (below, a green-shaded column/row means that this column/row is deleted).
+\[
+\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{1-2,1-3,2-1,3-1} \cellcolor{green!28}{1-1}}]
+a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{bNiceMatrix}
+\]
+Note that the determinant of this matrix is exactly the one appeared in the first term of the formula. We can give a similar interpretation to the other determinants appeared in the formula. Thus, our formula can be interpreted as:
+\[\det(\begin{bNiceMatrix}
+a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{bNiceMatrix})=a_{11}\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{1-2,1-3,2-1,3-1} \cellcolor{green!28}{1-1}}]
+a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{bNiceMatrix}-a_{21}\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{2-2,2-3,1-1,3-1} \cellcolor{green!28}{2-1}}]
+a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{bNiceMatrix}+a_{31}\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{3-2,3-3,1-1,2-1} \cellcolor{green!28}{3-1}}]
+a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{bNiceMatrix}.\]
+This is the origin of the name ``expanding along the first column''.
+
+If we let \(M_{rs}\) be the determinant of the matrix obtained by deleting the \(r\)'th row and \(s\)'th column, then \[\det(A)=a_{11}M_{11}-a_{21}M_{21}+a_{31}M_{31}.\]
+Using the summation notation, this can be written in a more compact form: \[\det(A)=\sum_{r=1}^{3}(-1)^{r+1}a_{r1}M_{r1}.\footnote{In fact, this can be generalized to determinants of arbitriary size: for any \(n\times n\) matrix \(A\), \(\det(A)=\sum_{r=1}^{n}(-1)^{r+1}a_{r1}M_{r1}\). Some textbooks use this as the definition of determinant.}\]
+
+\begin{example}
+By expanding along the first column, calculate \(\det(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4})\). Prove that \(\Set{\mat{1 \\ 2 \\ 3},\mat{2 \\ 3 \\ 1},\mat{3\\ 5 \\4}}\) is linearly dependent.
+\end{example}
+\textbf{Solution. }
+We first calculate the three determinants:
+\[M_{11}=\det\mat{3 & 5 \\ 1 & 4}=3\times 4 - 5\times 1=7;\]
+\[M_{21}=\det\mat{2 & 3 \\ 1 & 4}=2\times 4 - 3\times 1=5;\]
+\[M_{31}=\det\mat{2 & 3 \\ 3 & 5}=2\times 5 - 3\times 3=1.\]
+Thus, \[\det(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4})=a_{11}M_{11}-a_{21}M_{21}+a_{31}M_{31}=1\times 7=2\times 5+3\times 1=0.\]
+Since \(\det(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4})=0\), we conclude that \(\Set{\mat{1 \\ 2 \\ 3},\mat{2 \\ 3 \\ 1},\mat{3\\ 5 \\4}}\) is linearly dependent.
+
+\Heading{Calculating \(3\times 3\) determinants (III): Expanding along an arbitrary column/row}
+You might be wondering what is special for the first column. Can we also expand along another column?
+
+The answer is: Yes, we can expand along another column. Indeed, we have the following theorem:
+\begin{theorem}
+  Let \(s\) be a fixed number selected from \(\{1,2,3\}\). Then \[\det(A)=\sum_{r=1}^{3}(-1)^{r+s}a_{rs}M_{rs}.\]
+\end{theorem}
+
+Finally, we can also expand along a row.
+\begin{theorem}
+  Let \(r\) be a fixed number selected from \(\{1,2,3\}\). Then \[\det(A)=\sum_{s=1}^{3}(-1)^{r+s}a_{rs}M_{rs}.\]
+\end{theorem}
+
+\begin{example}
+Calculate \(\det(\mat{1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0})\) by expanding along a suitable column or row.
+\end{example}
+\textbf{Solution. }Notice that the second column involves more zeros than other columns or rows. Thus, it will be better if we expand along the second row.
+
+\begin{align*}
+  \det\mat{1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0} & =-a_{12}\begin{bNiceMatrix}[code-before = {\cellcolor{green!15}{1-1,1-3,2-2,3-2} \cellcolor{green!28}{1-2}}]
+  1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
+  \end{bNiceMatrix}+a_{22}\begin{bNiceMatrix}[code-before = {\cellcolor{green!15}{2-1,2-3,1-2,3-2} \cellcolor{green!28}{2-2}}]
+  1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
+  \end{bNiceMatrix}-a_{32}\begin{bNiceMatrix}[code-before = {\cellcolor{green!15}{3-1,3-3,1-2,2-2} \cellcolor{green!28}{3-2}}]
+  1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
+  \end{bNiceMatrix} \\
+   &=-2\det\mat{1 & 5 \\ 2 & 4}  \\
+   &=12.
+\end{align*} 
