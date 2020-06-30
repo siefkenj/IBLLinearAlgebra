@@ -1,6 +1,3 @@
-\input xy
-\xyoption{all}
-
 Determinant is useful: it measures the volume distortion of a linear transformation, it helps us determine if a matrix is invertible of not, and it provides us with a simple formula for solving \(A\vec x=\vec y\) when \(\vec x\) is invertible.
 
 In Module 14, you will learn an algorithm for evaluating determinants via row reduction. However, for \(2\times 2\) and \(3\times 3\) determinants, we have methods which are more convenient than row reduction. We will explore these methods in this appendix.
@@ -29,31 +26,37 @@ You see, this formula is not easy to remember. To help you remember this formula
 Now we outline the procedure of calculating \(\det(\mat{a & b & c \\ d & e & f \\ g & h & i})\) via this trick.
 
 \textbf{Step 1. }Copy the matrix, and then copy the \emph{first two columns} to the right of the matrix:
-\[\xymatrix{
-a & b & c & a & b \\
-d & e & f & d & e \\
-g & h & i & g & h
-}.\]
+\[\begin{NiceArray}{CCCCCCCCCCC}[margin]
+a & & b & & c & & a & & b & & \\
+  & &   & &   & &   & &   & & \\
+d & & e & & f & & d & & e & & \\
+  & &   & &   & &   & &   & & \\
+g & & h & & i & & g & & h & & 
+\end{NiceArray}\]
 
-\textbf{Step 2. }Now go along the three arrows as illustrated below. Multiply all numbers along the same arrow. Finally, sum up the three numbers you get. Call this number \(F\).
-\[
-\xymatrix{
-a\ar[dr]^{\times} & b\ar[dr]^{\times} & c\ar[dr]^{\times} & a & b & & \\
-d & e\ar[dr]^{\times} & f\ar[dr]^{\times} & d\ar[dr]^{\times} & e & & \\
-g & h & i\ar@{.>}[dr]^{=} & g\ar@{.>}[dr]^{=} & h\ar@{.>}[dr]^{=} & & \\
-   &  &    & aei & bfg & cdh &*+[F]{F=aei+bfg+cdh}
-}
-\]
+\textbf{Step 2. }Now go \textit{downwards} along the three dotted tracks as illustrated below. Multiply all numbers on the same track. Finally, sum up the three numbers you get. Call this number \(F\).
+\[\begin{NiceArrayWithDelims}
+{\downarrow}{\downarrow}{CCCCCCCCCCC}[margin]
+a & & b & & c & & a & & b & & \\
+  &\Ddots &   & \Ddots&   &\Ddots &   & &   & & \\
+d & & e & & f & & d & & e & & \\
+  & &   &\Ddots &   &\Ddots &   &\Ddots &   & & \\
+g & & h & & i & & g & & h & & \\
+  &  &  & &   &\Ddots &   &\Ddots  &  &\Ddots & \\
+ & &  & &  & & =aei & &= bfg & &=cdh 
+\end{NiceArrayWithDelims}F=aei+bfg+cdh\]
 
-\textbf{Step 3. }Now we go the other way. Go along the three arrows as illustrated below. Multiply all numbers along the same arrow. Finally, sum up the three numbers you get. Call this number \(G\).
-\[
-\xymatrix{
-   &  &    & gec & hfa & idb &*+[F]{G=gec+hfa+idb} \\
-a & b & c\ar@{.>}[ur]^{=} & a\ar@{.>}[ur]^{=} & b\ar@{.>}[ur]^{=} & & \\
-d & e\ar[ur]^{\times} & f\ar[ur]^{\times} & d\ar[ur]^{\times} & e & & \\
-g\ar[ur]^{\times} & h\ar[ur]^{\times} & i\ar[ur]^{\times} & g & h & &
-}
-\]
+\textbf{Step 3. }Now we go the other way. Go \textit{upwards} along the three dotted tracks as illustrated below. Multiply all numbers on the same track. Finally, sum up the three numbers you get. Call this number \(G\).
+\[\begin{NiceArrayWithDelims}
+{\uparrow}{\uparrow}{CCCCCCCCCCC}[margin]
+ & &  & &  & & =gec & & =hfa & & =idb\\
+  &  &  & &   &\Iddots &   &\Iddots  &  &\Iddots & \\
+a & & b & & c & & a & & b & & \\
+  & &   &\Iddots &   &\Iddots &   &\Iddots &   & & \\
+d & & e & & f & & d & & e & & \\
+  &\Iddots &   & \Iddots&   &\Iddots &   & &   & & \\
+g & & h & & i & & g & & h & &
+\end{NiceArrayWithDelims}G=gec+hfa+idb\]
 
 \textbf{Step 4. }Finally, subtract \(G\) from \(F\):
 \[\det(M)=F-G=aei+bfg+cdh-gec-hfa-idb.\]
@@ -65,24 +68,27 @@ Calculate \(\det(M)\) by the diagonal trick, where \(M=\mat{1 & 4 & 0 \\ -2 & 3 
 \end{example}
 \textbf{Solution. }
 Using the diagonal trick to calculate \(F\) and \(G\):
+\[\begin{NiceArrayWithDelims}
+{\downarrow}{\downarrow}{CCCCCCCCCCC}[margin]
+1 & & 4 & & 0 & & 1 & & 4 & & \\
+  &\Ddots &   & \Ddots&   &\Ddots &   & &   & & \\
+-2 & & 3 & & 1 & & -2 & & 3 & & \\
+  & &   &\Ddots &   &\Ddots &   &\Ddots &   & & \\
+0 & & 2 & & 1 & & 0 & & 2 & & \\
+  &  &  & &   &\Ddots &   &\Ddots  &  &\Ddots & \\
+ & &  & &  & & =3 & & =0 & &=0
+\end{NiceArrayWithDelims}F=3+0+0=3\]
 \newpage
-\[
-\xymatrix{
-1\ar[dr]^{\times} & 4\ar[dr]^{\times} & 0\ar[dr]^{\times} & 1 & 4 & & \\
--2 & 3\ar[dr]^{\times} & 1\ar[dr]^{\times} & -2\ar[dr]^{\times} & 3 & & \\
-0 & 2 & 1\ar@{.>}[dr]^{=} & 0\ar@{.>}[dr]^{=} & 2\ar@{.>}[dr]^{=} & & \\
-   &  &    & 3 & 0 & 0 &*+[F]{F=3+0+0=3}
-}
-\]
-
-\[
-\xymatrix{
-   &  &    & 0 & 2 & -8 &*+[F]{G=0+2-8=-6} \\
-1 & 4 & 0\ar@{.>}[ur]^{=} & 1\ar@{.>}[ur]^{=} & 4\ar@{.>}[ur]^{=} & & \\
--2 & 3\ar[ur]^{\times} & 1\ar[ur]^{\times} & -2\ar[ur]^{\times} & 3 & & \\
-0\ar[ur]^{\times} & 2\ar[ur]^{\times} & 1\ar[ur]^{\times} & 0 & 2 & &
-}
-\]
+\[\begin{NiceArrayWithDelims}
+{\uparrow}{\uparrow}{CCCCCCCCCCC}[margin]
+ & &  & &  & &= 0 & & =2 & &= -8\\
+  &  &  & &   &\Iddots &   &\Iddots  &  &\Iddots & \\
+1 & & 4 & & 0 & & 1 & & 4 & & \\
+  & &   &\Iddots &   &\Iddots &   &\Iddots &   & & \\
+-2 & & 3 & & 1 & & -2 & & 3 & & \\
+  &\Iddots &   & \Iddots&   &\Iddots &   & &   & & \\
+0 & & 2 & & 1 & & 0 & & 2 & &
+\end{NiceArrayWithDelims}G=0+2-8=-6\]
 Thus, \[\det(M)=F-G=3-(-6)=9.  \]
 
 \Heading{Calculating \(3\times 3\) determinants (II): Expanding along the first column}
