@@ -1,41 +1,96 @@
 \begin{exercises}
-\begin{problist}
-  \prob For each matrix given below, calculate its determinant, determine if it is invertible, and ,if it is invertible, find its inverse via adjugate method.
-  \begin{enumerate}
-    \item \(A=\mat{1 & 0 \\ 2 & 4}\);
-    \item \(B=\mat{1 & 5 \\ 1 & 5}\);
-    \item \(C=\mat{1 & 0 \\ 0 & 1}\);
-    \item \(D=\mat{1 & 1 \\ 0 & 0}\).
-  \end{enumerate}
-  \prob For each of the following matrices, calculate its determinant by (1) using the diagonal trick, and (2) expanding along a suitable column or row.
-  \begin{enumerate}
-  \item \(E=\mat{1 & 4 & 9 \\ 7 & 6 & 5 \\ 2 & 2 & 3}\);
-  \item \(F=\mat{1 & 0 & 8 \\ 1 & 4 & 8 \\ 1 & 6 & 5}\);
-  \item \(G=\mat{2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3}\);
-  \item \(H=\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}\).
-  \end{enumerate}
-  \prob Suppose \(M=\mat{a & b \\ c & d}\) is invertible. Let \(M^{\text{adj}}=\mat{d & -b \\ -c & a}\). Prove that \(M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}\).
-  \prob (Harder) Suppose you are studying with your pal Kokoro. She understands \(3\times 3\) formula on expanding along the first column, but she is quite unconfident about the formula on expanding along an arbitrary column/row. You are going to help her solve her confusion.
-      \begin{enumerate}
-        \item Explain to her, using complete English sentence, why we can expand along the second column. (Hint: you will probably need to use a theorem from Module 14.)
-        \item Inspired by your argument, Kokoro then developed an argument about the invalidity of expanding along the third columns: \textit{If I swap the first and the third column, the third column becomes the first column and I can apply the formula for expanding along the first column. However, this determinant differs from the original determinant by a sign. Thus, we cannot expand along the third column.}
-            Of course, her argument is wrong. Explain, using complete English sentence, why her argument is wrong.
-        \item Now, explain to her, using complete English sentence, why we can expand along the third columns. (Hint: swap columns in a smart way.)
-        \item Finally, explain to her why we can expand along a row. (Hint: refer to a theorem in Module 14.)
-      \end{enumerate}
-  \prob (Harder) In \(\mathbb{R}^3\) the \textit{vector product} or \textit{cross product} of two vectors \(\vec{a}=a_1\vec{e}_1+a_2\vec{e}_2+a_3\vec{e}_3\) is defined to be the vector \(\vec{a}\times \vec{b}=(a_2b_3-a_3b_2)\vec{e}_1+(a_3b_1-a_1b_3)\vec{e}_2+(a_1b_2-a_2b_1)\vec{e}_3\). (An informal way is to write \(\vec{a}\times \vec{b}=\det(\mat{a_1 & b_1 & \vec e_1 \\ a_2 & b_2 & \vec e_2 \\ a_3 & b_3 & \vec e_3})\))
-      \begin{enumerate}
-        \item Show that \((\vec{a}\times b)\perp\vec{a}\) and \((\vec{a}\times \vec{b})\perp \vec{b}\).
-        \item Show that \(\norm{\vec{a}\times\vec{b}}=\norm{\vec{a}}\norm{\vec{b}}\sin\measuredangle(\vec{a},\vec{b})\), where \(\measuredangle(\vec{a},\vec{b})\) is the angle between \(\vec{a}\) and \(\vec{b}\).
-        \item Show that for \(\vec{c}=c_1\vec{e}_1+c_2\vec{e}_2+c_3\vec{e}_3\), the \textit{triple scalar product} \((\vec a\times \vec b). \vec c\) has the value \[\det(\mat{a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3}).\]
-      \end{enumerate}
-  \prob (Harder) In this exercise, you are going to rediscover the \(2\times 2\) formula and the famous \(\det(MN)=\det(M)\det(N)\) formula (in the \(2\times 2\) case). Let \(M=\mat{a & b \\ c & d}\) and \(N=\mat{e & f \\ g & h}\) be given.
-      \begin{enumerate}
-        \item Calculate \(\det(MN)\).
-        \item Using row reduction to show that \(\det(MN)=(ad-bc)\det(N)\).
-        \item Conclude that \(\det(M)=ad-bc\).
-        \item Conclude that \(\det(MN)=\det(M)\det(N)\).
-      \end{enumerate}
-      Note that by the arbitrariness of \(M\) and \(N\), this actually gives us a proof of the \(2\times 2\) formula and \(\det(MN)=\det(M)\det(N)\) in the \(2\times 2\) case. \footnote{In fact, we can generalize this exercise to get a formula for any \(n\times n\) determinants. However, precisely stating the formula requires new algebraic tool, which is beyond the scope of the book.}
-\end{problist}
-\end{exercises}
+	\begin{problist}
+		\prob For each matrix given below, calculate its determinant.
+		\begin{enumerate}
+			\item $A=\mat{1 & 0 \\ 2 & 4}$;
+
+			\item $B=\mat{1 & 5 \\ 1 & 5}$;
+
+			\item $C=\mat{1 & 0 \\ 0 & 1}$;
+
+			\item $D=\mat{1 & 1 \\ 0 & 0}$.
+		\end{enumerate}
+		\prob For each of the following matrices, calculate its determinant by (1)
+		using the diagonal trick, and (2) expanding along a suitable column or row.
+		\begin{enumerate}
+			\item $E=\mat{1 & 4 & 9 \\ 7 & 6 & 5 \\ 2 & 2 & 3}$;
+
+			\item $F=\mat{1 & 0 & 8 \\ 1 & 4 & 8 \\ 1 & 6 & 5}$;
+
+			\item $G=\mat{2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3}$;
+
+			\item $H=\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}$.
+		\end{enumerate}
+		\prob Suppose $M=\mat{a & b \\ c & d}$ is invertible. Let $M^{\text{adj}}
+		=\mat{d & -b \\ -c & a}$. Prove that
+		$M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}$. \prob (Harder) Suppose you are studying
+		with your pal Kokoro. She understands $3\times 3$ formula on expanding
+		along the first column, but she is quite unconfident about the formula on
+		expanding along an arbitrary column/row. You are going to help her solve
+		her confusion.
+		\begin{enumerate}
+			\item Explain to her, using complete English sentence, why we can expand
+				along the second column. (Hint: you will probably need to use a
+				theorem from Module \ref{determinant module}.)
+
+			\item Inspired by your argument, Kokoro then developed an argument
+				about the invalidity of expanding along the third columns: \textit{If
+				I swap the first and the third column, the third column becomes
+				the first column and I can apply the formula for expanding along
+				the first column. However, this determinant differs from the
+				original determinant by a sign. Thus, we cannot expand along the
+				third column.} Of course, her argument is wrong. Explain, using complete
+				English sentence, why her argument is wrong.
+
+			\item Now, explain to her, using complete English sentence, why we
+				can expand along the third columns. (Hint: swap columns in a smart
+				way.)
+
+			\item Finally, explain to her why we can expand along a row. (Hint: refer
+				to a theorem in Module \ref{determinant module}.)
+		\end{enumerate}
+		\prob (Harder) In $\mathbb{R}^{3}$ the \textit{vector product} or
+		\textit{cross product} of two vectors $\vec{a}=a_{1}\vec{e}_{1}+a_{2}\vec
+		{e}_{2}+a_{3}\vec{e}_{3}$ and $\vec{b}=b_{1}\vec{e}_{1}+b_{2}\vec{e}_{2}+
+		b_{3}\vec{e}_{3}$ is defined to be the vector $\vec{a}\times \vec{b}=(a_{2}
+		b_{3}-a_{3}b_{2})\vec{e}_{1}+(a_{3}b_{1}-a_{1}b_{3})\vec{e}_{2}+(a_{1}b_{2}
+		-a_{2}b_{1})\vec{e}_{3}$. (An informal way is to write $\vec{a}\times \vec
+		{b}=\det(\mat{a_1 & b_1 & \vec e_1 \\ a_2 & b_2 & \vec e_2 \\ a_3 & b_3 & \vec e_3}
+		)$)
+		\begin{enumerate}
+			\item Show that $(\vec{a}\times b)\perp\vec{a}$ and $(\vec{a}\times \vec
+				{b})\perp \vec{b}$.
+
+			\item Show that $\norm{\vec{a}\times\vec{b}}=\norm{\vec{a}}\norm{\vec{b}}
+				\sin\measuredangle(\vec{a},\vec{b})$, where
+				$\measuredangle(\vec{a},\vec{b})$ is the angle between $\vec{a}$
+				and $\vec{b}$.
+
+			\item Show that for $\vec{c}=c_{1}\vec{e}_{1}+c_{2}\vec{e}_{2}+c_{3}\vec
+				{e}_{3}$, the \textit{triple scalar product} $(\vec a\times \vec
+				b). \vec c$ has the value
+				\[
+					\det(\mat{a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3}).
+				\]
+		\end{enumerate}
+		\prob (Harder) In this exercise, you are going to rediscover the $2\times
+		2$ formula and the famous $\det(MN)=\det(M)\det(N)$ formula (in the
+		$2\times 2$ case). Let $M=\mat{a & b \\ c & d}$ and
+		$N=\mat{e & f \\ g & h}$ be given.
+		\begin{enumerate}
+			\item Calculate $MN$.
+
+			\item Using row reduction to show that $\det(MN)=(ad-bc)\det(N)$.
+
+			\item Conclude that $\det(M)=ad-bc$.
+
+			\item Conclude that $\det(MN)=\det(M)\det(N)$.
+		\end{enumerate}
+		Note that by the arbitrariness of $M$ and $N$, this actually gives us a
+		proof of the $2\times 2$ formula and $\det(MN)=\det(M)\det(N)$ in the
+		$2\times 2$ case. \footnote{In fact, we can generalize this exercise to
+		get a formula for any $n\times n$ determinants. However, precisely
+		stating the formula requires new algebraic tool, which is beyond the scope
+		of the book.}
+	\end{problist}
+\end{exercises} 
