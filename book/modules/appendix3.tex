@@ -37,8 +37,7 @@ result given by row reduction.
 to $3\times 3$ determinants. We still have a manageable formula, although it is less
 appealing than the $2\times 2$ formula:
 \begin{theorem}[$3\times 3$ determinant formula]
-	Let $M$ be a $3\times 3$ matrix. Suppose
-	$M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. Then
+	Let $M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. Then
 	\[
 		\det(M)=aei+bfg+cdh-gec-hfa-idb.
 	\]
@@ -50,8 +49,8 @@ no more than applying this trick on the matrix.
 Now we outline the procedure of calculating $\det(\mat{a & b & c \\ d & e & f \\ g & h & i}
 )$ via this trick.
 
-\begin{itemize}
-	\item[Step 1. ] Copy the matrix, and then copy the \emph{first two columns} to
+\begin{enumerate}[leftmargin=1.4cm]
+	\item[\bfseries Step 1. ] Copy the matrix, and then copy the \emph{first two columns} to
 		the right of the matrix:
 		\[
 			\begin{bmatrix}
@@ -61,39 +60,39 @@ Now we outline the procedure of calculating $\det(\mat{a & b & c \\ d & e & f \\
 			\end{bmatrix}
 		\]
 
-	\item[Step 2. ] Now multiply all three numbers colored in {\color{red} red}.
-		Similarly, multiply three numbers colored in {\color{blue} blue} and {\color{violet} purple}.
+	\item[\bfseries Step 2. ] Now multiply all three numbers highlighted in {\color{Salmon} red}.
+		Similarly, multiply three numbers colored in {\color{SeaGreen} green} and {\color{Sepia} brown}.
 		Finally, sum up the three products you get. Call this number $F$.
 		\[
-			\begin{bmatrix}
-				[ccc|cc] {\color{red} a} & {\color{blue} b} & {\color{violet} c} & a                 & b                  \\
-				d                        & {\color{red} e}  & {\color{blue} f}   & {\color{violet}d} & e                  \\
-				g                        & h                & {\color{red} i}    & {\color{blue} g}  & {\color{violet} h}
-			\end{bmatrix}
+			\begin{bNiceArray}{CCC|CC}[code-before = {\cellcolor{Salmon!72}{1-1,2-2,3-3}\cellcolor{SeaGreen!42}{1-2,2-3,3-4}\cellcolor{Sepia!28}{1-3,2-4,3-5}}]
+			 a & b & c & a & b \\
+             d & e & f & d & e \\
+             g & h & i & g & h
+			\end{bNiceArray}
 		\]
 		\[
-			F={\color{red} aei}+{\color{blue} bfg}+{\color{violet} cdh}.
+			F={\color{Salmon} aei}+{\color{SeaGreen} bfg}+{\color{Sepia} cdh}.
 		\]
 
-	\item[Step 3. ] Multiply all three numbers colored in {\color{red} red}.
-		Similarly, multiply three numbers colored in {\color{blue} blue} and {\color{violet} purple}.
+	\item[\bfseries Step 3. ] Multiply all three numbers highlighted in {\color{Salmon} red}.
+		Similarly, multiply three numbers colored in {\color{SeaGreen} green} and {\color{Sepia} brown}.
 		Finally, sum up the three products you get. Call this number $F$.
 		\[
-			\begin{bmatrix}
-				[ccc|cc] a     & b               & {\color{red}c}    & {\color{blue} a}   & {\color{violet} b} \\
-				d              & {\color{red}e}  & {\color{blue}f}   & {\color{violet} d} & e                  \\
-				{\color{red}g} & {\color{blue}h} & {\color{violet}i} & g                  & h
-			\end{bmatrix}
+			\begin{bNiceArray}{CCC|CC}[code-before = {\cellcolor{Salmon!72}{3-1,2-2,1-3}\cellcolor{SeaGreen!42}{3-2,2-3,1-4}\cellcolor{Sepia!28}{3-3,2-4,1-5}}]
+			 a & b & c & a & b \\
+             d & e & f & d & e \\
+             g & h & i & g & h
+			\end{bNiceArray}
 		\]
 		\[
-			G={\color{red} gec}+{\color{blue} hfa}+{\color{violet} idb}
+			G={\color{Salmon} gec}+{\color{SeaGreen} hfa}+{\color{Sepia} idb}
 		\]
 
-	\item[Step 4. ] Finally, subtract $G$ from $F$:
+	\item[\bfseries Step 4. ] Finally, subtract $G$ from $F$:
 		\[
 			\det(M)=F-G=aei+bfg+cdh-gec-hfa-idb.
 		\]
-\end{itemize}
+\end{enumerate}
 We illustrate this trick with an example.
 
 \begin{example}
@@ -101,32 +100,24 @@ We illustrate this trick with an example.
 	trick.
 
 	\[
-		\begin{bmatrix}
-			[ccc|cc] {\color{red}1} & {\color{blue}4} & {\color{violet}0} & 1                  & 4                 \\
-			-2                      & {\color{red}3}  & {\color{blue}1}   & {\color{violet}-2} & 3                 \\
-			0                       & 2               & {\color{red}1}    & {\color{blue}0}    & {\color{violet}2}
-		\end{bmatrix}
+	\begin{bNiceArray}{CCC|CC}[code-before = {\cellcolor{Salmon!72}{1-1,2-2,3-3}\cellcolor{SeaGreen!42}{1-2,2-3,3-4}\cellcolor{Sepia!28}{1-3,2-4,3-5}}]
+	1 & 4 & 0 & 1 & 4 \\
+	-2 & 3 & 1 & -2 & 3 \\
+	0 & 2 & 1 & 0 & 2
+	\end{bNiceArray}
 	\]
-	%\[
-	%\begin{bNiceArray}{CCC|CC}[code-before = %{\cellcolor{red!15}{1-1,2-2,3-3}\cellcolor{blue!15}{1-2,2-3,3-4}\cellcolor{violet!15}{1-3,2-4,3-5}}]
-	%1 & 4 & 0 & 1 & 4 \\
-	%-2 & 3 & 1 & -2 & 3 \\
-	%0 & 2 & 1 & 0 & 2
-	%\end{bNiceArray}
-	%\]
 	\[
-		F={\color{red} 1 \times 3 \times 1}+{\color{blue} 4\times 1 \times 0}+{\color{violet}0\times{-2}\times 2}=3.
+		F={\color{Salmon} 1 \times 3 \times 1}+{\color{SeaGreen} 4\times 1 \times 0}+{\color{Sepia}0\times{-2}\times 2}=3.
 	\]
 
 	\[
-		\begin{bmatrix}
-			[ccc|cc] 1     & 4               & {\color{red}0}    & {\color{blue}1}    & {\color{violet}4} \\
-			-2             & {\color{red}3}  & {\color{blue}1}   & {\color{violet}-2} & 3                 \\
-			{\color{red}0} & {\color{blue}2} & {\color{violet}1} & 0                  & 2
-		\end{bmatrix}
-	\]
+	\begin{bNiceArray}{CCC|CC}[code-before = {\cellcolor{Salmon!72}{3-1,2-2,1-3}\cellcolor{SeaGreen!42}{3-2,2-3,1-4}\cellcolor{Sepia!28}{3-3,2-4,1-5}}]
+	1 & 4 & 0 & 1 & 4 \\
+	-2 & 3 & 1 & -2 & 3 \\
+	0 & 2 & 1 & 0 & 2
+	\end{bNiceArray}\]
 	\[
-		G={\color{red}0 \times 3 \times 0}+{\color{blue}2\times 1 \times 1}+{\color{violet} 1 \times (-2)\times 4}=-6.
+		G={\color{Salmon}0 \times 3 \times 0}+{\color{SeaGreen}2\times 1 \times 1}+{\color{Sepia} 1 \times (-2)\times 4}=-6.
 	\]
 	Thus, $\det\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}=3-(-6)=9$.
 \end{example}
@@ -156,20 +147,20 @@ The second method of calculating $3\times 3$ determinants actually uses $2\times
 Before moving on, we give an explanation about the name ``expanding along the first
 column''.
 
-The formula involves three determinants. If we delete the first column and first row of \(A\). we are left with a \(2\times 2\) matrix (below, a green-shaded column/row means that this column/row is deleted).
+The formula involves three determinants. If we delete the first column and first row of \(A\). we are left with a \(2\times 2\) matrix (below, a highlighted column/row means that this column/row is deleted).
 \[
-\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{1-2,1-3,2-1,3-1} \cellcolor{green!28}{1-1}}]
+\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
 \end{bNiceMatrix}
 \]
 Note that the determinant of this matrix is exactly the one appeared in the first term of the formula. We can give a similar interpretation to the other determinants appeared in the formula. Thus, our formula can be interpreted as:
 \[\det(\begin{bNiceMatrix}
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix})=a_{11}\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{1-2,1-3,2-1,3-1} \cellcolor{green!28}{1-1}}]
+\end{bNiceMatrix})=a_{11}\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}-a_{21}\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{2-2,2-3,1-1,3-1} \cellcolor{green!28}{2-1}}]
+\end{bNiceMatrix}-a_{21}\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{2-2,2-3,1-1,3-1} \cellcolor{Peach!42}{2-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}+a_{31}\begin{bNiceMatrix}[ code-before = {\cellcolor{green!15}{3-2,3-3,1-1,2-1} \cellcolor{green!28}{3-1}}]
+\end{bNiceMatrix}+a_{31}\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{3-2,3-3,1-1,2-1} \cellcolor{Peach!42}{3-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
 \end{bNiceMatrix}.\]
 This is the origin of the name ``expanding along the first column''.
@@ -237,14 +228,14 @@ Finally, we can also expand along a row.
 	Thus, it will be better if we expand along the second row.
 
 	\begin{align*}
-  \det\mat{1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0} & =-a_{12}\begin{bNiceMatrix}[code-before = {\cellcolor{green!15}{1-1,1-3,2-2,3-2} \cellcolor{green!28}{1-2}}]
+  \det\mat{1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0} & =-a_{12}\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{1-1,1-3,2-2,3-2} \cellcolor{Peach!42}{1-2}}]
   1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
-  \end{bNiceMatrix}+a_{22}\begin{bNiceMatrix}[code-before = {\cellcolor{green!15}{2-1,2-3,1-2,3-2} \cellcolor{green!28}{2-2}}]
+  \end{bNiceMatrix}+a_{22}\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{2-1,2-3,1-2,3-2} \cellcolor{Peach!42}{2-2}}]
   1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
-  \end{bNiceMatrix}-a_{32}\begin{bNiceMatrix}[code-before = {\cellcolor{green!15}{3-1,3-3,1-2,2-2} \cellcolor{green!28}{3-2}}]
+  \end{bNiceMatrix}-a_{32}\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{3-1,3-3,1-2,2-2} \cellcolor{Peach!42}{3-2}}]
   1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
   \end{bNiceMatrix} \\
    &=-2\det\mat{1 & 5 \\ 2 & 4}  \\
    &=12.
-\end{align*} 
-\end{example}
+\end{align*}
+\end{example} 
