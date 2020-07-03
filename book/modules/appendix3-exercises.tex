@@ -21,9 +21,13 @@
 
 			\item $H=\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}$.
 		\end{enumerate}
-		\prob Suppose $M=\mat{a & b \\ c & d}$ is invertible. Let $M^{\text{adj}}
-		=\mat{d & -b \\ -c & a}$. Prove that
-		$M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}$. \prob (Harder) Suppose you are studying
+        \prob Let $A=\mat{1 & 1 & 1 \\ 4 & 2 & 1 \\\ 9 & 3 & 1}$. Let $\mathcal{T}:\mathbb{R}^3\rightarrow\mathbb{R}^3$, where $\mathcal{T}(\vec x)=A\vec x$.
+        \begin{enumerate}
+          \item Determine $\det(\mathcal{T})$;
+          \item Determine $\VolChange(\mathcal{T})$;
+          \item What is \(\Col(A)\)? Justify your answer.
+        \end{enumerate}
+        \prob (Harder) Suppose you are studying
 		with your pal Kokoro. She understands $3\times 3$ formula on expanding
 		along the first column, but she is quite unconfident about the formula on
 		expanding along an arbitrary column/row. You are going to help her solve
@@ -34,7 +38,7 @@
 				theorem from Module \ref{determinant module}.)
 
 			\item Inspired by your argument, Kokoro then developed an argument
-				about the invalidity of expanding along the third columns: \textit{If
+				about the invalidity of expanding along the third columns: \emph{If
 				I swap the first and the third column, the third column becomes
 				the first column and I can apply the formula for expanding along
 				the first column. However, this determinant differs from the
@@ -49,30 +53,10 @@
 			\item Finally, explain to her why we can expand along a row. (Hint: refer
 				to a theorem in Module \ref{determinant module}.)
 		\end{enumerate}
-		\prob (Harder) In $\mathbb{R}^{3}$ the \textit{vector product} or
-		\textit{cross product} of two vectors $\vec{a}=a_{1}\vec{e}_{1}+a_{2}\vec
-		{e}_{2}+a_{3}\vec{e}_{3}$ and $\vec{b}=b_{1}\vec{e}_{1}+b_{2}\vec{e}_{2}+
-		b_{3}\vec{e}_{3}$ is defined to be the vector $\vec{a}\times \vec{b}=(a_{2}
-		b_{3}-a_{3}b_{2})\vec{e}_{1}+(a_{3}b_{1}-a_{1}b_{3})\vec{e}_{2}+(a_{1}b_{2}
-		-a_{2}b_{1})\vec{e}_{3}$. (An informal way is to write $\vec{a}\times \vec
-		{b}=\det(\mat{a_1 & b_1 & \vec e_1 \\ a_2 & b_2 & \vec e_2 \\ a_3 & b_3 & \vec e_3}
-		)$)
-		\begin{enumerate}
-			\item Show that $(\vec{a}\times b)\perp\vec{a}$ and $(\vec{a}\times \vec
-				{b})\perp \vec{b}$.
-
-			\item Show that $\norm{\vec{a}\times\vec{b}}=\norm{\vec{a}}\norm{\vec{b}}
-				\sin\measuredangle(\vec{a},\vec{b})$, where
-				$\measuredangle(\vec{a},\vec{b})$ is the angle between $\vec{a}$
-				and $\vec{b}$.
-
-			\item Show that for $\vec{c}=c_{1}\vec{e}_{1}+c_{2}\vec{e}_{2}+c_{3}\vec
-				{e}_{3}$, the \textit{triple scalar product} $(\vec a\times \vec
-				b). \vec c$ has the value
-				\[
-					\det(\mat{a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3}).
-				\]
-		\end{enumerate}
+        \prob (Harder) Suppose $M=\mat{a & b \\ c & d}$ is invertible. Let $M^{\text{adj}}
+		=\mat{d & -b \\ -c & a}$. Prove that
+		$\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}$. 
+		
 		\prob (Harder) In this exercise, you are going to rediscover the $2\times
 		2$ formula and the famous $\det(MN)=\det(M)\det(N)$ formula (in the
 		$2\times 2$ case). Let $M=\mat{a & b \\ c & d}$ and
