@@ -1,6 +1,6 @@
 \begin{exercises}
 	\begin{problist}
-		\prob For each matrix given below, calculate its determinant.
+		\prob For each matrix given below, calculate its determinant by (1) row reduction, and (2) using the $2\times 2$ determinant formula.
 		\begin{enumerate}
 			\item $A=\mat{1 & 0 \\ 2 & 4}$;
 
@@ -21,13 +21,14 @@
 
 			\item $H=\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}$.
 		\end{enumerate}
-        \prob Let $A=\mat{1 & 1 & 1 \\ 4 & 2 & 1 \\\ 9 & 3 & 1}$. Let $\mathcal{T}:\mathbb{R}^3\rightarrow\mathbb{R}^3$, where $\mathcal{T}(\vec x)=A\vec x$.
+        \prob For each ordered set given below, determine, using only determinant, if it constitutes a basis of $\R^2$ (or $\R^3$) and, if yes, determine its orientation.
         \begin{enumerate}
-          \item Determine $\det(\mathcal{T})$;
-          \item Determine $\VolChange(\mathcal{T})$;
-          \item What is \(\Col(A)\)? Justify your answer.
+          \item $\mathcal{A}=\left\{\matc{1 \\ 0 \\ 3},\matc{1 \\ 2 \\ 5},\matc{1 \\ -1 \\ 1}\right\}$;
+          \item $\mathcal{B}=\left\{\matc{1 \\ 4 \\ 9},\matc{1 \\ 2 \\ 3},\matc{1 \\ 1 \\ 1}\right\}$;
+          \item $\mathcal{C}=\left\{\matc{4 \\ 2 \\ 4},\matc{4 \\ 2 \\ 0},\matc{2 \\ 1 \\ 6}\right\}$;
+          \item $\mathcal{D}=\left\{\matc{a^2 \\ ab},\matc{ab \\ b^2}\right\}$, where $a,b\in \R$.
         \end{enumerate}
-        \prob (Harder) Suppose you are studying
+        \prob Suppose you are studying
 		with your pal Kokoro. She understands $3\times 3$ formula on expanding
 		along the first column, but she is quite unconfident about the formula on
 		expanding along an arbitrary column/row. You are going to help her solve
@@ -52,29 +53,22 @@
 
 			\item Finally, explain to her why we can expand along a row. (Hint: refer
 				to a theorem in Module \ref{determinant module}.)
+            
+            \item Kokoro then came up with a question: \emph{can we expand along a diagonal?} 
+            Please give her your answer (yes/no). If your answer is ``yes'', explain why; if your
+            answer is ``no'', provide an example to show that we cannot expand along a diagonal. 
 		\end{enumerate}
-        \prob (Harder) Suppose $M=\mat{a & b \\ c & d}$ is invertible. Let $M^{\text{adj}}
-		=\mat{d & -b \\ -c & a}$. Prove that
-		$\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}$. 
+        \prob Let $M=\mat{a & b \\ c & d}$. The \emph{classical adjoint} of $M$, notated
+        $M^{\text{adj}}$, is the matrix given by $M^{\text{adj}}=\mat{d & -b \\ -c & a}$. Prove that if $M$ is invertible, then $\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}$.
 		
-		\prob (Harder) In this exercise, you are going to rediscover the $2\times
-		2$ formula and the famous $\det(MN)=\det(M)\det(N)$ formula (in the
-		$2\times 2$ case). Let $M=\mat{a & b \\ c & d}$ and
-		$N=\mat{e & f \\ g & h}$ be given.
-		\begin{enumerate}
-			\item Calculate $MN$.
-
-			\item Using row reduction to show that $\det(MN)=(ad-bc)\det(N)$.
-
-			\item Conclude that $\det(M)=ad-bc$.
-
-			\item Conclude that $\det(MN)=\det(M)\det(N)$.
-		\end{enumerate}
-		Note that by the arbitrariness of $M$ and $N$, this actually gives us a
-		proof of the $2\times 2$ formula and $\det(MN)=\det(M)\det(N)$ in the
-		$2\times 2$ case. \footnote{In fact, we can generalize this exercise to
-		get a formula for any $n\times n$ determinants. However, precisely
-		stating the formula requires new algebraic tool, which is beyond the scope
-		of the book.}
+		\prob For each statement below, determine whether it is true or
+           false. Justify your answer.
+         \begin{enumerate}
+           \item A $2\times 2$ matrix $M$ has determinant $1$ if and only if $M=I_2$.
+           \item For any $2\times 2$ matrix $M$, $M^{\text{adj}}M=\abs{M}I_2$.
+           \item A $3\times 3$ matrix $M$ has determinant $1$ if and only if $\VolChange(\mathcal{T}_{M})$ is equal to 1, where $\mathcal{T}_M$ is the transformation given by $\mathcal{T}_M(\vec x)=M\vec x$.
+           \item For any ordered basis $\mathcal{B}=\left\{\matc{a \\ b},\matc{c \\ d}\right\}\subseteq \mathbb{R}^2$,
+           $\mathcal{B}$ is positively oriented if and only if $\VolChange(\mathcal{T})=\det(\mathcal{T})$, where $\mathcal{T}$ is the linear transformation given by $\mathcal{T}(\vec x)=\mat{a & c \\ b & d}\vec x$.
+         \end{enumerate}
 	\end{problist}
 \end{exercises} 

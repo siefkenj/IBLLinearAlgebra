@@ -8,7 +8,7 @@ have direct formulas. We will explore these formulas in this appendix.
 
 \Heading{Calculating \(2\times 2\) Determinants} For a $2\times 2$ matrix, once we
 know its four entries, we can calculate its determinant directly.
-\begin{theorem}[$2\times 2$ determinant formula]
+\begin{theorem}[$2\times 2$ determinant formula]\index{Determinant!$2\times 2$ formula}
 	Let $M=\mat{a & b \\ c & d}$. Then
 	\[
 		\det(M)=ad-bc.
@@ -36,14 +36,14 @@ result given by row reduction.
 \Heading{Calculating $3\times 3$ Determinants (I): The Diagonal Trick} Now we turn
 to $3\times 3$ determinants. We still have a manageable formula, although it is less
 appealing than the $2\times 2$ formula:
-\begin{theorem}[$3\times 3$ determinant formula]
+\begin{theorem}[$3\times 3$ determinant formula]\index{Determinant!$3\times 3$ formula}
 	Let $M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. Then
 	\[
 		\det(M)=aei+bfg+cdh-gec-hfa-idb.
 	\]
 \end{theorem}
 You see, this formula is not easy to remember. To help you remember this formula,
-here's a trick called the \textit{diagonal trick}. Applying this formula, then, is
+here's a trick called the \textit{diagonal trick}\index{Determinant!$3\times 3$ diagonal trick}. Applying this formula, then, is
 no more than applying this trick on the matrix.
 
 Now we outline the procedure of calculating $\det\left(\mat{a & b & c \\ d & e & f \\ g & h & i}\right)
@@ -122,11 +122,15 @@ We illustrate this trick with an example.
 	Thus, $\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)=3-(-6)=9$.
 \end{example}
 
+\begin{emphbox}[Warning]
+The diagonal trick is invalid in $n\times n$ ($n\ge 4$) cases.
+\end{emphbox}
+
 \Heading{Calculating $3\times 3$ Determinants (II): Expanding along the First Column}
 The second method of calculating $3\times 3$ determinants actually uses $2\times
-2$ determinants. This method is called \textbf{expanding along the first column}.
+2$ determinants. This method is called \emph{expanding along the first column}.
 
-\begin{theorem}
+\begin{theorem}\index{Determinant!$3\times 3$ cofactor expansion}
 	Let $A$ be a $3\times 3$ matrix. Suppose
 	$A=\mat{a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}}$.
 	Then
@@ -147,7 +151,7 @@ The second method of calculating $3\times 3$ determinants actually uses $2\times
 Before moving on, we give an explanation about the name ``expanding along the first
 column''.
 
-The formula involves three determinants. If we delete the first column and first row of \(A\). we are left with a \(2\times 2\) matrix (below, a highlighted column/row means that this column/row is deleted).
+The formula involves three determinants. If we delete the first column and first row of $A$. we are left with a $2\times 2$ matrix (below, a highlighted column/row means that this column/row is deleted).
 \[
 \begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
@@ -156,11 +160,11 @@ a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
 Note that the determinant of this matrix is exactly the one appeared in the first term of the formula. We can give a similar interpretation to the other determinants appeared in the formula. Thus, our formula can be interpreted as:
 \[\det\left(\begin{bNiceMatrix}
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}\right)=a_{11}\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
+\end{bNiceMatrix}\right)=a_{11}\det\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}-a_{21}\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{2-2,2-3,1-1,3-1} \cellcolor{Peach!42}{2-1}}]
+\end{bNiceMatrix}-a_{21}\det\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{2-2,2-3,1-1,3-1} \cellcolor{Peach!42}{2-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}+a_{31}\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{3-2,3-3,1-1,2-1} \cellcolor{Peach!42}{3-1}}]
+\end{bNiceMatrix}+a_{31}\det\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{3-2,3-3,1-1,2-1} \cellcolor{Peach!42}{3-1}}]
 a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
 \end{bNiceMatrix}.\]
 This is the origin of the name ``expanding along the first column''.
