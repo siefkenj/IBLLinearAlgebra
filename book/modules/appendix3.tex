@@ -14,6 +14,237 @@ know its four entries, we can calculate its determinant directly.
 		\det(M)=ad-bc.
 	\]
 \end{theorem}
+\begin{proof}
+Let $\mathcal{T}_{M}$ be the matrix multiplication mapping induced by \(M\), namely \[\mathcal{T}_{M}:\mathbb{R}^2\rightarrow \mathbb{R}^2,\quad \text{ where }\mathcal{T}(\vec x)=M\vec x.\]
+
+If $\Set{\matc{a \\ c},\matc{b \\ d}}$ is linearly dependent, then $\dim \Range(\mathcal{T}_M)<2$, then $\mathcal {T}_{{M}}(C_2)$ is either a point or a one-dimensional object. In either case it has signed area $0$, so $\det(\mathcal{T}_{M})=0$. Thus, $\det(M)=0$. Now, the fact that $\Set{\matc{a \\ c},\matc{b \\ d}}$ is linearly dependent implies that there exists a scalar $\lambda$ such that $\matc{a \\ c}=\lambda\matc{b \\ d}$. Then $ad-bc=(\lambda b)d-b(\lambda c)=0$. Thus, $\det(M)=ad-bc$ in the case when column vectors of $M$ are linearly dependent.
+
+Now let's consider when $\Set{\matc{a \\ c},\matc{b \\ d}}$ is linearly independent. Suppose further that $\mathcal{T}_{M}$ is orientation preserving.
+
+ We first consider the case as illustrated below, namely tips of $\mathcal{T}_M(\xhat)$ and $\mathcal{T}_{M}(\yhat)$ are in the first and second quadrant respectively.
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below] {$\xhat$};
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{scope}
+			\coordinate (A) at (1.25,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={2,1,-1,0.5,(0,0)}, mygreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below right] {$\mathcal T(\xhat)$};;
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, below left, yshift=4pt] {$\mathcal T(\yhat)$};
+		\end{scope}
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal T$} (B) ;
+		\node at ($(plot2.north)+(0,.5cm)$) {Orientation Preserving};
+	\end{tikzpicture}
+\end{center}
+Let $\mathcal{P}=\mathcal{T}_M(C_2)$. Note that \[\mathcal{T}_{M}(\xhat)= \matc{a \\ c},\quad \mathcal{T}_{M}(\yhat)=\matc{b \\ d}.\] Then \[\operatorname{Signed~Area}(\mathcal{P})=\operatorname{Area}(\mathcal{P})=(a-b)(c+d)-2\times \frac{1}{2}ac-2\times \frac{1}{2}(-b)d=ad-bc,\] which agrees with the formula. Note that you can always calculate the signed area in a similar way if the tips of two image vectors are in two neighboring quadrants.
+
+The next case is when tips of $\mathcal{T}_M(\xhat)$ and $\mathcal{T}_{M}(\yhat)$ are both in the first quadrant.
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below] {$\xhat$};
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{scope}
+			\coordinate (A) at (1.25,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={0.7,0.3,0.2,0.5,(0,0)}, mygreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below right] {$\mathcal T(\xhat)$};;
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, below left, yshift=4pt] {$\mathcal T(\yhat)$};
+		\end{scope}
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal T$} (B) ;
+		\node at ($(plot2.north)+(0,.5cm)$) {Orientation Preserving};
+	\end{tikzpicture}
+\end{center}
+Let $\mathcal{P}=\mathcal{T}_M(C_2)$. Note that \[\mathcal{T}_{M}(\xhat)= \matc{a \\ c},\quad \mathcal{T}_{M}(\yhat)=\matc{b \\ d}.\] Then \[\operatorname{Signed~Area}(\mathcal{P})=\operatorname{Area}(\mathcal{P})=(a+b)(c+d)-2\times \frac{1}{2}ac-2\times \frac{1}{2}bd-2bc=ad-bc,\] which agrees with the formula. Note that you can always calculate the signed area in a similar way if the tips of two image vectors are in two neighboring quadrants.
+
+The next case is when tips of $\mathcal{T}_M(\xhat)$ and $\mathcal{T}_{M}(\yhat)$ are in the first and third quadrant respectively.
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+		    anchor=origin,
+		    name=plot1,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,0,0,1,(0,0)}, mypink]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below] {$\xhat$};
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, left] {$\yhat$};
+		\end{scope}
+			\coordinate (A) at (1.25,1.25);
+		\end{axis}
+		\begin{axis}[
+			name=plot2,
+			at={($(plot1.east) + (1cm, 0)$)},
+			anchor=west,
+		    disabledatascaling,
+		    xmin=-1,xmax=2,
+		    ymin=0,ymax=1,
+			xtick={-2,...,4},
+			ytick={-2,...,4},
+			xticklabels={,,},
+			yticklabels={,,},
+		    x=1.5cm,y=1.5cm,
+		    grid=both,
+		    grid style={line width=.1pt, draw=gray!10},
+		    %major grid style={line width=.2pt,draw=gray!50},
+		    axis lines=middle,
+		    minor tick num=0,
+		    enlargelimits={abs=0.5},
+		    axis line style={latex-latex},
+		    ticklabel style={font=\tiny,fill=white},
+		    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+
+		\begin{scope}[cm={1,1.4,-1,-0.5,(0,0)}, mygreen]
+			%\node[transform shape, black] at (.5,.5) {$C_2$};
+			%\node[black] at (.5,.5) {$\mathcal T(C_2)$};
+			\fill[opacity=.3] (0,0) rectangle (1,1);
+			\draw[very thick, ->] (0,0) -- (1,0) node[midway, below right] {$\mathcal T(\xhat)$};;
+			\draw[very thick, densely dotted, ->] (0,0) -- (0,1) node[midway, below left, yshift=4pt] {$\mathcal T(\yhat)$};
+		\end{scope}
+			\coordinate (B) at (-.25,1.25);
+		\end{axis}
+
+		\draw[thick] (A) edge[bend left, ->] node[midway,above] {$\mathcal T$} (B) ;
+		\node at ($(plot2.north)+(0,.5cm)$) {Orientation Preserving};
+	\end{tikzpicture}
+\end{center}
+Let $\mathcal{P}=\mathcal{T}_M(C_2)$. Note that \[\mathcal{T}_{M}(\xhat)= \matc{a \\ c},\quad \mathcal{T}_{M}(\yhat)=\matc{b \\ d}.\] Then \[\operatorname{Signed~Area}(\mathcal{P})=\operatorname{Area}(\mathcal{P})=(a-b)(c-d)-2\times \frac{1}{2}ac-2\times \frac{1}{2}(-b)(-d)-2(a)(-d)=ad-bc,\] which agrees with the formula. Note that you can always calculate the signed area in a similar way if the tips of two image vectors are in the second and fourth quadrants respectively.
+
+The case when $\mathcal{T}_{M}$ is orientation reversing is left to you.
+\end{proof}
 \begin{example}
 	We use the $2\times 2$ determinant formula to find $\det(M)$, where
 	$M=\mat{1 & 6 \\ 2 & 7}$. Apply the formula, and we get
