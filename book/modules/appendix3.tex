@@ -1,5 +1,3 @@
-
-
 Determinant is useful: it measures the volume distortion of a linear transformation,
 it helps us determine if a matrix is invertible of not, and it provides us with a
 simple formula for solving $A\vec x=\vec y$ when $A$ is invertible.
@@ -143,8 +141,12 @@ Now we outline the procedure of calculating $\det\left(\mat{a & b & c \\ d & e &
 		{\color{CornflowerBlue} cyan}. Finally, sum up the three products you get.
 		Call this number $F$.
 		\[
-			\begin{bNiceArray}{CCC|CC}[code-before = {\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
-				a & b & c & a & b \\ d & e & f & d & e \\ g & h & i & g & h
+			\begin{bNiceArray}{
+				CCC|CC
+			}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
+				a & b & c & a & b \\
+				d & e & f & d & e \\
+				g & h & i & g & h
 			\end{bNiceArray}
 		\]
 		\[
@@ -156,8 +158,12 @@ Now we outline the procedure of calculating $\det\left(\mat{a & b & c \\ d & e &
 		{\color{CornflowerBlue} cyan}. Finally, sum up the three products you get.
 		Call this number $F$.
 		\[
-			\begin{bNiceArray}{CCC|CC}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
-				a & b & c & a & b \\ d & e & f & d & e \\ g & h & i & g & h
+			\begin{bNiceArray}{
+				CCC|CC
+			}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
+				a & b & c & a & b \\
+				d & e & f & d & e \\
+				g & h & i & g & h
 			\end{bNiceArray}
 		\]
 		\[
@@ -176,9 +182,12 @@ We illustrate this trick with an example.
 	the diagonal trick.
 
 	\[
-		\begin{bNiceArray}
-			{CCC|CC}[code-before = {\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
-			1 & 4 & 0 & 1 & 4 \\ -2 & 3 & 1 & -2 & 3 \\ 0 & 2 & 1 & 0 & 2
+		\begin{bNiceArray}{
+			CCC|CC
+		}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
+			1  & 4 & 0 & 1  & 4 \\
+			-2 & 3 & 1 & -2 & 3 \\
+			0  & 2 & 1 & 0  & 2
 		\end{bNiceArray}
 	\]
 	\[
@@ -186,9 +195,12 @@ We illustrate this trick with an example.
 	\]
 
 	\[
-		\begin{bNiceArray}
-			{CCC|CC}[code-before = {\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
-			1 & 4 & 0 & 1 & 4 \\ -2 & 3 & 1 & -2 & 3 \\ 0 & 2 & 1 & 0 & 2
+		\begin{bNiceArray}{
+			CCC|CC
+		}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
+			1  & 4 & 0 & 1  & 4 \\
+			-2 & 3 & 1 & -2 & 3 \\
+			0  & 2 & 1 & 0  & 2
 		\end{bNiceArray}
 	\]
 	\[
@@ -230,22 +242,46 @@ The formula involves three determinants. If we delete the first column and first
 row of $A$. we are left with a $2\times 2$ matrix (below, a highlighted column/row
 means that this column/row is deleted).
 \[
-\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
-a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}
+	\begin{bNiceMatrix}[
+		code-before={\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}
+	]
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bNiceMatrix}
 \]
 Note that the determinant of this matrix is exactly the one appeared in the
 first term of the formula. We can give a similar interpretation to the other determinants
 appeared in the formula. Thus, our formula can be interpreted as:
-\[\det\left(\begin{bNiceMatrix}
-a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}\right)=a_{11}\det\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}]
-a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}-a_{21}\det\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{2-2,2-3,1-1,3-1} \cellcolor{Peach!42}{2-1}}]
-a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}+a_{31}\det\begin{bNiceMatrix}[ code-before = {\cellcolor{Peach!28}{3-2,3-3,1-1,2-1} \cellcolor{Peach!42}{3-1}}]
-a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
-\end{bNiceMatrix}.\]
+\[
+	\det\left(
+	\begin{bNiceMatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bNiceMatrix}\right)=a_{11}\det
+	\begin{bNiceMatrix}[
+		code-before={\cellcolor{Peach!28}{1-2,1-3,2-1,3-1} \cellcolor{Peach!42}{1-1}}
+	]
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bNiceMatrix}-a_{21}\det
+	\begin{bNiceMatrix}[
+		code-before={\cellcolor{Peach!28}{2-2,2-3,1-1,3-1} \cellcolor{Peach!42}{2-1}}
+	]
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bNiceMatrix}+a_{31}\det
+	\begin{bNiceMatrix}[
+		code-before={\cellcolor{Peach!28}{3-2,3-3,1-1,2-1} \cellcolor{Peach!42}{3-1}}
+	]
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bNiceMatrix}.
+\]
 This is the origin of the name ``expanding along the first column''.
 
 If we let $M_{rs}$ be the determinant of the matrix obtained by deleting the $r$'th
@@ -260,8 +296,8 @@ Using the summation notation, this can be written in a more compact form:
 \]
 
 \begin{example}
-	We calculate $\det\left(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4}\right)$ by expanding along
-	the first column.
+	We calculate $\det\left(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4}\right)$ by
+	expanding along the first column.
 
 	We first calculate the three determinants:
 	\[
@@ -277,9 +313,9 @@ Using the summation notation, this can be written in a more compact form:
 	\[
 		\det\left(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4}\right)=a_{11}M_{11}-a_{21}M_{21}+a_{31}M_{31}=1\times 7=2\times 5+3\times 1=0.
 	\]
-	Since $\det\left(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4}\right)=0$, we conclude that
-	$\Set{\mat{1 \\ 2 \\ 3},\mat{2 \\ 3 \\ 1},\mat{3\\ 5 \\4}}$ is linearly
-	dependent.
+	Since $\det\left(\mat{1 & 2 & 3 \\ 2 & 3 & 5 \\ 3 & 1 & 4}\right)=0$, we
+	conclude that $\Set{\mat{1 \\ 2 \\ 3},\mat{2 \\ 3 \\ 1},\mat{3\\ 5 \\4}}$ is
+	linearly dependent.
 \end{example}
 
 \Heading{Calculating $3\times 3$ determinants (III): Expanding along an Arbitrary Column/Row}
@@ -311,14 +347,8 @@ Finally, we can also expand along a row.
 	Thus, it will be better if we expand along the second row.
 
 	\begin{align*}
-  \det\left(\mat{1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0}\right) & =-a_{12}\det\left(\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{1-1,1-3,2-2,3-2} \cellcolor{Peach!42}{1-2}}]
-  1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
-  \end{bNiceMatrix}\right)+a_{22}\det\left(\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{2-1,2-3,1-2,3-2} \cellcolor{Peach!42}{2-2}}]
-  1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
-  \end{bNiceMatrix}\right)-a_{32}\det\left(\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{3-1,3-3,1-2,2-2} \cellcolor{Peach!42}{3-2}}]
-  1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0
-  \end{bNiceMatrix}\right) \\
-   &=-2\det\left(\mat{1 & 5 \\ 2 & 4}\right)  \\
-   &=12.
-\end{align*}
-\end{example} 
+		\det\left(\mat{1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0}\right) & =-a_{12}\det\left(\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{1-1,1-3,2-2,3-2} \cellcolor{Peach!42}{1-2}}]1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0\end{bNiceMatrix}\right)+a_{22}\det\left(\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{2-1,2-3,1-2,3-2} \cellcolor{Peach!42}{2-2}}]1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0\end{bNiceMatrix}\right)-a_{32}\det\left(\begin{bNiceMatrix}[code-before = {\cellcolor{Peach!28}{3-1,3-3,1-2,2-2} \cellcolor{Peach!42}{3-2}}]1 & 0 & 5 \\ 2 & 0 & 4 \\ 4 & 2 & 0\end{bNiceMatrix}\right) \\
+		                                                           & =-2\det\left(\mat{1 & 5 \\ 2 & 4}\right)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          \\
+		                                                           & =12.
+	\end{align*}
+\end{example}
