@@ -1,93 +1,69 @@
 \begin{exercises}
 	\begin{problist}
-		\prob For each matrix given below, calculate its determinant by (1) row
-		reduction, and (2) using the $2\times 2$ determinant formula.
+		\prob For each matrix given below, calculate its determinant
+		using both row reduction/elementary matrices and the $2\times 2$ determinant formula.
 		\begin{enumerate}
-			\item $A=\mat{1 & 0 \\ 2 & 4}$;
+			\item $\mat{1 & 0 \\ 2 & 4}$
 
-			\item $B=\mat{1 & 5 \\ 1 & 5}$;
+			\item $\mat{1 & 5 \\ 1 & 5}$
 
-			\item $C=\mat{1 & 0 \\ 0 & 1}$;
+			\item $\mat{1 & 0 \\ 0 & 1}$
 
-			\item $D=\mat{1 & 1 \\ 0 & 0}$.
+			\item $\mat{1 & 1 \\ 0 & 0}$
 		\end{enumerate}
-		\prob For each of the following matrices, calculate its determinant by (1)
-		using the diagonal trick, and (2) expanding along a suitable column or
-		row.
+		\prob For each matrix given below, calculate its determinant
+		using both row reduction/elementary matrices and the $3\times 3$ determinant formula.
 		\begin{enumerate}
-			\item $E=\mat{1 & 4 & 9 \\ 7 & 6 & 5 \\ 2 & 2 & 3}$;
+			\item $\mat{1 & 0 & 0 \\ 1 & 0 & 2 \\ 1 & 6 & 5}$
 
-			\item $F=\mat{1 & 0 & 8 \\ 1 & 4 & 8 \\ 1 & 6 & 5}$;
+			\item $\mat{1 & -4 & 1 \\ 2 & 6 & 5 \\ 2 & 2 & 3}$
 
-			\item $G=\mat{2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3}$;
+			\item $\mat{-1 & 0 & -8 \\ 1 & -3 & -8 \\ 1 & -2 & -1}$
 
-			\item $H=\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}$.
+			\item $\mat{2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3}$
+
+			\item $\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}$
 		\end{enumerate}
-		\prob For each ordered set given below, determine, using only determinant,
-		if it constitutes a basis of $\R^{2}$ (or $\R^{3}$) and, if yes,
-		determine its orientation.
+		\prob For each ordered set given below, determine, use
+		a determinant to decide whether it is a right-handed basis, a left-handed basis,
+		or not a basis.
 		\begin{enumerate}
-			\item $\mathcal{A}=\Set*{\matc{1 \\ 0 \\ 3},\matc{1 \\ 2 \\ 5},\matc{1 \\ -1 \\ 1}}$;
+			\item $\Set*{\mat{1 \\ -3},\mat{1 \\ 2}}$
 
-			\item $\mathcal{B}=\Set*{\matc{1 \\ 4 \\ 9},\matc{1 \\ 2 \\ 3},\matc{1 \\ 1 \\ 1}}$;
+			\item $\Set*{\mat{1 \\ -3},\mat{-2 \\ 6}}$
 
-			\item $\mathcal{C}=\Set*{\matc{4 \\ 2 \\ 4},\matc{4 \\ 2 \\ 0},\matc{2 \\ 1 \\ 6}}$;
+			\item $\Set*{\mat{1 \\ 0 \\ 3},\mat{1 \\ 2 \\ 5},\mat{1 \\ -1 \\ 1}}$
 
-			\item $\mathcal{D}=\Set*{\matc{a^2 \\ ab},\matc{ab \\ b^2}}$, where
-				$a,b\in \R$.
+			\item $\Set*{\mat{1 \\ 4 \\ 9},\mat{1 \\ 2 \\ 3},\mat{1 \\ 1 \\ 1}}$
+
+			\item $\Set*{\mat{4 \\ 2 \\ 4},\mat{4 \\ 2 \\ 0},\mat{2 \\ 1 \\ 6}}$
 		\end{enumerate}
-		\prob Suppose you are studying with your pal Kokoro. She understands
-		$3\times 3$ formula on expanding along the first column, but she is quite
-		unconfident about the formula on expanding along an arbitrary column/row.
-		You are going to help her solve her confusion.
-		\begin{enumerate}
-			\item Explain to her, using complete English sentence, why we can expand
-				along the second column. (Hint: you will probably need to use a
-				theorem from Module \ref{determinant module}.)
 
-			\item Inspired by your argument, Kokoro then developed an argument
-				about the invalidity of expanding along the third columns: \emph{If
-				I swap the first and the third column, the third column becomes
-				the first column and I can apply the formula for expanding along
-				the first column. However, this determinant differs from the
-				original determinant by a sign. Thus, we cannot expand along the
-				third column.} Of course, her argument is wrong. Explain, using complete
-				English sentence, why her argument is wrong.
+		\prob Find all values of $a,b\in \R$ so that the set
+			$\Set*{\mat{a^2 \\ ab},\mat{ab \\ b^2}}$ is (a)
+			a right-handed basis, (b) a left-handed basis, (c) not a basis.
 
-			\item Now, explain to her, using complete English sentence, why we
-				can expand along the third columns. (Hint: swap columns in a smart
-				way.)
-
-			\item Finally, explain to her why we can expand along a row. (Hint: refer
-				to a theorem in Module \ref{determinant module}.)
-
-			\item Kokoro then came up with a question: \emph{can we expand along
-				a diagonal?} Please give her your answer (yes/no). If your answer
-				is ``yes'', explain why; if your answer is ``no'', provide an
-				example to show that we cannot expand along a diagonal.
-		\end{enumerate}
-		\prob Let $M=\mat{a & b \\ c & d}$. The \emph{classical adjoint} of $M$,
+		\prob Let $M=\mat{a & b \\ c & d}$. The \emph{adjugate matrix} (sometimes called the
+		\emph{classical adjoint}) of $M$,
 		notated $M^{\text{adj}}$, is the matrix given by $M^{\text{adj}}=\mat{d & -b \\ -c & a}$.
-		Prove that if $M$ is invertible, then $\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\abs{M}}$.
+		Prove that if $M$ is invertible, then $\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\det(M)}$.
 
 		\prob For each statement below, determine whether it is true or false. Justify
 		your answer.
 		\begin{enumerate}
 			\item A $2\times 2$ matrix $M$ has determinant $1$ if and only if $M=
-				I_{2}$.
-
-			\item For any $2\times 2$ matrix $M$, $M^{\text{adj}}M=\abs{M}I_{2}$.
+				I_{2\times 2}$.
 
 			\item A $3\times 3$ matrix $M$ has determinant $1$ if and only if $\VolChange
 				(\mathcal{T}_{M})$ is equal to 1, where $\mathcal{T}_{M}$ is the
 				transformation given by $\mathcal{T}_{M}(\vec x)=M\vec x$.
 
-			\item For any ordered basis $\mathcal{B}=\left\{\matc{a \\ b},\matc{c \\ d}
-				\right\}\subseteq \mathbb{R}^{2}$, $\mathcal{B}$ is positively
-				oriented if and only if
-				$\VolChange(\mathcal{T})=\det(\mathcal{T})$, where $\mathcal{T}$
-				is the linear transformation given by $\mathcal{T}(\vec x)=\mat{a & c \\ b & d}
-				\vec x$.
+			\item For vectors $\vec a,\vec b\in \R^2$, it is always the case that $\det([\vec a|\vec b])=-\det([\vec b|\vec a])$.
+
+			\item For a $2\times 2$ or $3\times 3$ matrix $M$, multiplying a single entry of
+				$M$ by $4$ will change $\det(M)$ by a factor of $4$.
+
+			\item For a square matrix $A$, it is always the case that $\det(A^TA)\geq 0$.
 		\end{enumerate}
 	\end{problist}
 \end{exercises}
