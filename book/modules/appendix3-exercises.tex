@@ -59,10 +59,10 @@
         \begin{solution}
         \begin{enumerate}
           \item Since $\det(\mat{1 & 1 \\ -3 & 2})=5>0$, the ordered set $\Set*{\mat{1 \\ -3},\mat{1 \\ 2}}$ is a right-handed basis.
-          \item Since $\det(\mat{1 & -2 \\ -3 & 6})=0$, the ordered set $\Set*{\mat{1 \\ -3},\mat{-2 \\ 6}}$ is not a basis.
-          \item Since $\det(\mat{1 & 1 & 1 \\ 0 & 2 & -1 \\ 3 & 5 & 1})=-2$, the ordered set $\Set*{\mat{1 \\ 0 \\ 3},\mat{1 \\ 2 \\ 5},\mat{1 \\ -1 \\ 1}}$ is a left-handed basis.
+          \item Since $\det(\mat{1 & -2 \\ -3 & 6})=0$, the set $\Set*{\mat{1 \\ -3},\mat{-2 \\ 6}}$ is linearly independent and so is not a basis.
+          \item Since $\det(\mat{1 & 1 & 1 \\ 0 & 2 & -1 \\ 3 & 5 & 1})=-2<0$, the ordered set $\Set*{\mat{1 \\ 0 \\ 3},\mat{1 \\ 2 \\ 5},\mat{1 \\ -1 \\ 1}}$ is a left-handed basis.
           \item Since $\det(\mat{1 & 1 & 1 \\ 4 & 2 & 1 \\ 9 & 3 & 1})=-2<0$, the ordered set $\Set*{\mat{1 \\ 4 \\ 9},\mat{1 \\ 2 \\ 3},\mat{1 \\ 1 \\ 1}}$ is a left-handed basis.
-          \item Since $\det(\mat{4 & 4 & 2 \\ 2 & 2 & 1 \\ 4 & 0 & 6})=0$, the ordered set $\Set*{\mat{4 \\ 2 \\ 4},\mat{4 \\ 2 \\ 0},\mat{2 \\ 1 \\ 6}}$ is not a basis.
+          \item Since $\det(\mat{4 & 4 & 2 \\ 2 & 2 & 1 \\ 4 & 0 & 6})=0$, the set $\Set*{\mat{4 \\ 2 \\ 4},\mat{4 \\ 2 \\ 0},\mat{2 \\ 1 \\ 6}}$ is linearly independent and so is not a basis.
         \end{enumerate}
         \end{solution}
 
@@ -70,7 +70,7 @@
 			$\Set*{\mat{a^2 \\ ab},\mat{ab \\ b^2}}$ is (a)
 			a right-handed basis, (b) a left-handed basis, (c) not a basis.
         \begin{solution}
-        Note that $\det(\mat{a^2 & ab \\ ab & b^2})=a^2b^2-a^2b^2=0$. Thus, the set $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b^2}}$ can never be linearly independent. Thus, $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b^2}}$ is not a basis for any $a,b\in\R$.
+        Note that $\det(\mat{a^2 & ab \\ ab & b^2})=a^2b^2-a^2b^2=0$. Thus, $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b^2}}$ is not a basis for any $a,b\in\R$.
         \end{solution}
 
 		\prob Let $M=\mat{a & b \\ c & d}$. The \emph{adjugate matrix} (sometimes called the
@@ -78,7 +78,7 @@
 		notated $M^{\text{adj}}$, is the matrix given by $M^{\text{adj}}=\mat{d & -b \\ -c & a}$.
 		Prove that if $M$ is invertible, then $\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\det(M)}$.
         \begin{solution}
-        Since $\displaystyle \frac{M^{\text{adj}}}{\det(M)}M=\mat{\frac{da-bc}{ad-bc} & \frac{db-bd}{ad-bc} \\ \frac{-ca+ac}{ad-bc}& \frac{-cb+ad}{ad-bc}}=\mat{1 & 0 \\ 0 & 1}=I_{2\times 2}$ and $\displaystyle M\frac{M^{\text{adj}}}{\det(M)}=\mat{\frac{ad-bc}{ad-bc} & \frac{-ab+ba}{ad-bc} \\ \frac{cd-dc}{ad-bc}& \frac{-cb+da}{ad-bc}}=\mat{1 & 0 \\ 0 & 1}=I_{2\times 2}$, we conclude that \(\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\det(M)}\).
+        Since $\displaystyle \frac{M^{\text{adj}}}{\det(M)}M=\frac{1}{ad-bc}\mat{da-bc & db-bd \\ -ca+ac& -cb+ad}=\mat{1 & 0 \\ 0 & 1}=I_{2\times 2}$ and similarly, $\displaystyle M\frac{M^{\text{adj}}}{\det(M)}=\frac{1}{ad-bc}\mat{ad-bc & -ab+ba \\ cd-dc& -cb+da}=\mat{1 & 0 \\ 0 & 1}=I_{2\times 2}$, we conclude that \(\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\det(M)}\).
         \end{solution}
 
 		\prob For each statement below, determine whether it is true or false. Justify
@@ -103,7 +103,7 @@
             \item False. A counterexample is $M=\mat{2 & 0 \\ 0 & \frac{1}{2}}$.
             \item False. A counterexample is $M=\mat{-1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1}$.
             \item True. Note that $\det([\vec a|\vec b])=\det([\vec a|\vec b]^T)$ and $\det([\vec b|\vec a])=\det([\vec b|\vec a]^T)$. Now, $[\vec a|\vec b]^T$ is obtained by swapping two rows of $[\vec b|\vec a]^T$, so $\det([\vec a|\vec b]^T)=-\det([\vec b|\vec a]^T)$. Therefore, $\det([\vec a|\vec b])=-\det([\vec a|\vec b])$.
-            \item False. Counterexample: Let $M=\mat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}$. We multiply $(1,2)$th entry by $4$ to get another matrix $N$. Note that $N$ is still $\mat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 }$, and $\det(M)=1=\det(N)\ne 4\det(N)$.
+            \item False. A counterexample is $M=\mat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}$. We multiply the $(1,2)$th entry by $4$ to get another matrix $N$. Note that $N$ is still $\mat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 }$, and $\det(M)=1=\det(N)\ne 4\det(N)$.
             \item True. Note that $\det(A^T A)=\det(A^T)\det(A)=\det(A)\det(A)=\det(A)^2\ge 0$.
         \end{enumerate}
         \end{solution}
