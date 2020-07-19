@@ -1,7 +1,57 @@
-
 \begin{exercises}
 
 	\begin{problist}
-		\prob XXX Finish
+		\prob For each equation given below, determine if it is linear. If so, write it in its standard form. If not, explain what makes it nonlinear.
+    \begin{enumerate}
+      \item $\cos(4)x_1+\mathrm{e}y_2+\pi z_3=\mathrm{e}^{\pi}$
+      \item $4x_1+2x_2+5x_4=4x_2+4x_5+5$
+      \item $12x+3xy+5z=2$
+      \item $\sin(4)x+\cos(4)y+\tan(4)z=\operatorname{sec}(4)x+\operatorname{cosec}(4)y+\operatorname{cot}(4)z$
+      \item $5x+2y+8z=\cos(y)$
+    \end{enumerate}
+    
+    \prob For each system of linear equations given below, (a) write down its augmented matrix; (b) use row reduction algorithm to determine if it is consistent or not; (c) for each consistent system, give the complete solution set.
+    \begin{enumerate}
+      \item \systeme{-10x_1-4x_2+4x_3=28, 3x_1+x_2-x_3=-8, x_1+x_2-\frac{1}{2}x_3=-3}
+      \item \systeme{3x_1-2x_2+4x_3=54, 5x_1-3x_2+6x_3=88, x_1=-3}
+      \item \systeme{x_1+2x_2+4x_3-3x_4=0, 3x_1+5x_2+6x_3-4x_4=1, 4x_1+5x_2-2x_3+3x_4=3}
+      \item \systeme{x_1-x_2+5x_3+x_4=1, x_1+x_2-2x_3+3x_4=3, 3x_1-x_2+8x_3+x_4=5, x_1+3x_2-9x_3+7x_4=5}
+    \end{enumerate}
+    
+    \prob Let $\mathcal{A}$ be a system of linear equations with $n$ unknowns and $m$ equations. Kokoro is studying the condition for $\mathcal{A}$ to be consistent. Below, let $\operatorname{Coe}(\mathcal{A})$ be the coefficient matrix of \(\mathcal{A}\), and let $\operatorname{Aug}(\mathcal{A})$ be the augmented matrix of \(\mathcal{A}\).
+    \begin{enumerate}
+      \item Kokoro purposed:
+      
+      \emph{If $\mathcal{A}$ is consistent, then every system of linear equations $\mathcal{B}$ such that $\operatorname{Coe}(\mathcal{A})$ is row-equivalent to $\operatorname{Coe}(\mathcal{B})$ is consistent, since having row-equivalent coefficient matrix implies that the reduced row echelon form of $\operatorname{Coe}(\mathcal{B})$ is the same as the reduced row echelon form of $\operatorname{Coe}(\mathcal{A})$, which implies that we can use the same set of variables as free variables and others as basic variables.}
+      
+      Is her argument correct? If not, come up with two systems $\mathcal{A}$ and $\mathcal{B}$ so that $\operatorname{Coe}(\mathcal{A})$ is row-equivalent to $\operatorname{Coe}(\mathcal{B})$ but one is consistent and the other is not.
+      \item Kokoro proposed another argument:
+      
+      \emph{The last column (the rightmost column) of $\operatorname{Aug}(\mathcal{A})$ cannot be pivotal, because a pivotal column must correspond to a basic variable, but the last column corresponds to constants, not a basic variable.}
+      
+      Is her argument correct? If not, come up with a system \(\mathcal{A}\) so that the last column of  \(\operatorname{Aug}(\mathcal{A})\) is pivotal.
+      \item Is it true that $\Rank\operatorname{Coe}(\mathcal{A})=\Rank\operatorname{Aug}(\mathcal{A})$ for any system of linear equations $\mathcal{A}$? If not, what will happen if $\Rank\operatorname{Coe}(\mathcal{A})\ne\Rank\operatorname{Aug}(\mathcal{A})$?
+      \item Based on previous parts, Kokoro proposed her final conjecture:
+      
+      \emph{A system of linear equations $\mathcal{A}$ is consistent if and only if $\Rank\operatorname{Coe}(\mathcal{A})=\Rank\operatorname{Aug}(\mathcal{A})$.}
+      
+      Is her conjecture true? If yes, give a proof. If not, provide a counterexample. (Note that this is a ``if and only if'' statement, so it has two sides.)
+    \end{enumerate}
+    
+    
+    \prob Here's a classical Chinese problem:
+    
+    \emph{In the cage were chickens and rabbits. We had 35 in total, and together they have 94 legs. How many chickens and how many rabbits were in the cage?}
+    
+    \begin{enumerate}
+      \item Set up a system of linear equations representing this scenario. 
+      \item Is the system consistent? If so, give the complete solution set.
+      \item Kokoro is considering variations of this problem. For each variation she proposed, explain to her what will happen to the system representing the scenario. In particular, will the system be consistent or not? How will the complete solution to the system change? What will be the answer to the variation she made?
+      \begin{enumerate}
+        \item \emph{I can change ``chicken'' to ``cats'', ``rabbits'' to ``dogs'', and leave the numerical data (35 and 94) unchanged.}
+        \item \emph{I can change ``chicken'' to ``cats'', ``rabbits'' to ``dogs'', change ``94'' to ``140'', and leave the other numerical datum (35) unchanged.}
+        \item \emph{I can leave ``chicken'' and ``rabbits'' unchanged, change the total number of animals to ``42'', and change the total number of lets to ``77''.}
+      \end{enumerate}
+    \end{enumerate}
 	\end{problist}
 \end{exercises}
