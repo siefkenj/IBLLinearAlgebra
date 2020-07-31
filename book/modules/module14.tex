@@ -822,7 +822,7 @@ to show that the composition of two orientation-reversing transformations is ori
 This means that we can compute the determinant of a complicated transformation by breaking it up
 into simpler ones and computing the determinant of each piece. 
 
-\Heading{Determinants of Matrices}\index{Matrix!elementary matrices}
+\Heading{Determinants of Matrices}\index{Matrix!elementary matrix}
 
 The determinant of a matrix is defined as the determinant of its induced transformation.
 That means, the determinant is multiplicative with respect to matrix multiplication (because
@@ -838,7 +838,7 @@ it's multiplicative with respect to function composition).
 We will derive an algorithm for finding the determinant of a matrix by considering the determinant of
 elementary matrices. But first, consider the following theorem.
 
-\begin{theorem}[Volume Theorem I]
+\begin{theorem}[Volume Theorem I]\index{Volume!theorem I}
 	For a square matrix $M$, $\det(M)$ is the oriented volume of the parallelepiped\footnote{ A parallelepiped is the
 	$n$-dimensional analog of a parallelogram.} given by the column
 	vectors.
@@ -998,15 +998,15 @@ which gives
 \Heading{Determinants and Transposes}
 
 Somewhat mysteriously, we have the following theorem.
-\begin{theorem}[Volume Theorem II]
+\begin{theorem}[Volume Theorem II]\index{Volume!theorem II}
 	The determinant of a square matrix $A$ is equal to the oriented volume of the parallelepiped
 	given by the rows of $A$.
 \end{theorem}
 
-Volume Theorem II can be concisely stated as $\det(A)=\det(A^T)$, and joins other
+Volume theorem II can be concisely stated as $\det(A)=\det(A^T)$, and joins other
 strange transpose-related facts (like $\Rank(A)=\Rank(A^T)$).
 
-We can prove Volume Theorem II using elementary matrices.
+We can prove volume theorem II using elementary matrices.
 \begin{proof}
 	Suppose $A$ is not invertible. Then, neither is $A^T$ and so $\det(A)=\det(A^T)=0$.
 
