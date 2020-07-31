@@ -1001,6 +1001,24 @@ argument supporting your answer.
 			objects (like line segments or polygons).
 	\end{itemize}
 
+	Before you read this section, make sure you are comfortable with the following tasks.
+	Please do the ``Quick Check'' problem to see if you are comfortable with each
+	task.
+	\begin{itemize}
+		\item Distinguishing between two kinds of quantifiers
+	
+		\item[] Quick Check: Let $\mathbb{L}$ be the set of English letters. Let $S=\Set
+			{e,\ell,a}$. Write down a subset $T_{1}$ of $\mathbb{L}$ so that \emph{some}
+			elements of $S$ are in $T_{1}$. Write down another subset $T_{2}$ of
+			$\mathbb{L}$ so that \emph{all} elements of $S$ are in $T_{2}$.
+	
+		\item Visualizing vector addition and scalar multiplication.
+	
+		\item[] Quick Check: On a coordinate sheet, draw the vector $\vec v_{1} = (1,
+			0)$ and $\vec v_{2} = (1,1)$. Draw the set of all scalar multiples of
+			$\vec v_{1}$. Draw the vector $\vec v_{1} + \vec v_{2}$.
+	\end{itemize}
+
 	\input{modules/module2.tex}
 	\input{modules/module2-exercises.tex}
 
@@ -1592,6 +1610,27 @@ argument supporting your answer.
 		\item Geometric and algebraic definitions of linear independence and linear
 			dependence.
 		\item How to find linearly independent subsets.
+	\end{itemize}
+
+	Before you read this section, make sure you are comfortable with the following tasks.
+	Please do the ``Quick Check'' problem to see if you are comfortable with each
+	task.
+	\begin{itemize}
+		\item Understanding the definition of linear combination
+	
+		\item[] Quick Check: Write down the set of all linear combinations of
+			$\mat{2 \\ 3}$ and $\mat{4 \\ 6}$ using set-builder notation. Is $\mat{2 \\ 2}$a
+			linear combination of these two vectors?
+	
+		\item Solving simple systems of linear equations
+	
+		\item[] Quick Check: Solve the system of linear equations
+			$\systeme{x+2y=7, -x+3y=8}$.
+	
+		\item Working with lines and planes
+	
+		\item[] Quick Check: Let $\mathcal{L}$ be the line passing through $(1,0)$ and $(2,4)$.
+			Write down the vector form of $\mathcal{L}$.
 	\end{itemize}
 
 	\input{modules/module3.tex}
@@ -2376,6 +2415,27 @@ examples.
 		\item The \emph{normal form} of lines, planes, and hyperplanes.
 	\end{itemize}
 
+	Before you read this section, make sure you are comfortable with the following tasks.
+	Please do the ``Quick Check'' problem to see if you are comfortable with each
+	task.
+	\begin{itemize}
+		\item Working with triangle ratios
+	
+		\item[] Quick Check: Define $\cos$, $\sin$, and $\tan$ of an arbitrary angle
+			(not necessarily acute).
+	
+		\item Using Pythagoras' theorem
+	
+		\item[] Quick Check: In triangle $\mathbf{ABC}$, $\widehat{ABC}=90^{\circ}$.
+			Suppose the length of $\overline{AB}$ and $\overline{BC}$ are $5$ and
+			$12$ respectively. What's the length of $\overline{AC}$?
+	
+		\item Working with spans and translated spans
+	
+		\item[] Quick Check: Express the line passing through $(2,3)$ and $(4,6)$ as a span or a translated
+			span.
+	\end{itemize}
+
 	\input{modules/module4.tex}
 	\input{modules/module4-exercises.tex}
 \end{module}
@@ -3040,6 +3100,24 @@ examples.
 		\item How to project a vector onto a line.
 	\end{itemize}
 
+	Before you read this section, make sure you are comfortable with the following tasks.
+	Please do the “Quick Check” problem to see if you are comfortable with each task.
+	\begin{itemize}
+		\item Working with dot product
+	
+		\item[] Quick Check: Let $\vec x=(4,2)$, $y=(2,-4)$. Calculate
+			$\vec x\cdots \vec y$. What does this tell you about $\vec x$ and $\vec y$?
+	
+		\item Calculating the norm of a vector
+	
+		\item[] Let $\vec x=(7,-24)$. Calculate $\abs{\vec x}$.
+	
+		\item Working with normal form of a line
+	
+		\item[] Let $\mathcal{L}$ be given by $\mat{3 \\ 2}\cdot (\vec x-\mat{4 \\ 7}
+			)=0$. Write down a normal vector and a direction vector of $\mathcal{L}$.
+	\end{itemize}
+
 	\input{modules/module5.tex}
 	\input{modules/module5-exercises.tex}
 
@@ -3477,6 +3555,35 @@ examples.
 		\item The relationship between subspaces and spans.
 		\item How to prove whether or not a set is a subspace.
 		\item How to find a basis for and the dimension of a subspace.
+	\end{itemize}
+
+	Before you read this section, make sure you are comfortable with the following tasks.
+	Please do the “Quick Check” problem to see if you are comfortable with each task.
+	\begin{itemize}
+		\item Working with spans
+
+		\item[] Quick Check: Let $S=\Span\Set{\mat{4 \\ 2}, \mat{8 \\ 4}}$. What's the
+			geometric meaning of $S$? If $\vec v_{1},\vec v_{2}\in S$, is $\vec v_{1}
+			+\vec v_{2}\in S$?
+
+		\item Working with simple definitions
+
+		\item[] Quick Check: A subset $\mathbb{S}$ of $\mathbb{Z}$ is called an $I$-subset
+			if for all $s\in\mathbb{S}$ and $r\in\mathbb{Z}$, we have $rs\in\mathbb{S}$.
+			Is the set of all even numbers an $I$-subset? Is the set of all odd numbers
+			an $I$-subset? Justify your answer.
+
+		\item Verifying if a set is linearly (in)dependent
+
+		\item[] Quick Check: Let $\vec v_{1}=\mat{1 \\ 0 \\ 0}$, $\vec v_{2}=\mat{4 \\ 2 \\ 0}$,
+			and $\vec v_{3} = \mat{0 \\ 4 \\ 2}$. Is the set $\Set{\vec v_1, \vec v_2, \vec v_3}$
+			linearly independent?
+
+		\item Verifying if a set spans the whole space
+
+		\item[] Quick Check: Let $\vec v_{1},\vec v_{2}, \vec v_{3}$ be given as in
+			the previous Quick Check problem. Prove that $\Span\Set{\vec v_1,\vec v_2,\vec v_3}
+			=\R^{3}$.
 	\end{itemize}
 
 	\input{modules/module6.tex}
