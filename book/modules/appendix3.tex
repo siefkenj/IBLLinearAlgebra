@@ -1,0 +1,249 @@
+Module \ref{determinant module} discusses the theory of determinants and gives a general algorithm
+for computing determinants by using elementary matrices\index{Matrix!elementary matrix}. But, since $2\times 2$ and $3\times 3$
+matrices arise so often in day-to-day life,\footnote{ The day-to-day life of a mathematics student, at least!}
+it is worth learning some special-purpose formulas for computing the determinants of $2\times 2$ and $3\times 3$
+matrices.
+
+It should be noted that these formulas are \emph{special}. Though there do exist
+formulas for determinants of $n\times n$ matrices, \emph{they are exponentially more complex
+than the formulas for $2\times 2$ and $3\times 3$ matrices}. As such, determinants of large matrices
+are usually computed using row reduction/elementary matrices and not formulas\footnote{
+	General determinant formulas are primarily useful as theoretical tools for writing proofs.}.
+
+\Heading{Computing $2\times 2$ Determinants}
+
+For a $2\times 2$ matrix, we can calculate its determinant directly from its entries.
+
+\begin{theorem}
+	\index{Determinant!$2\times 2$ formula}
+	Let $M=\mat{a & b \\ c & d}$. Then,
+	\[
+		\det(M)=ad-bc.
+	\]
+\end{theorem}
+
+The $2\times 2$ determinant formula can be deduced from volume theorem I\index{Volume!theorem I}.
+Let $M=\mat{a&b\\c&d}$ and let $\vec c_1=\mat{a\\c}$ and $\vec c_2=\mat{b\\d}$ be the columns of $M$.
+We need to compute the area of the parallelogram $\mathcal P$, with sides $\vec c_1$ and $\vec c_2$.
+
+XXX Figure of $\mathcal P$.
+
+
+We can compute the area of $\mathcal P$ by computing the area of a rectangle that contains
+$\mathcal P$ and subtracting off any area that we ``over counted''.
+
+XXX Figure of $\mathcal P$ and its
+bounding box, next to a figure of $\mathcal P$ and the ``excess'' area (the two rectangles and four triangles).
+
+Thus,
+\[
+	\Vol(\mathcal P) = \text{area of big rectangle} - \text{area of little rectangles} - \text{area of triangles}.
+\]
+Using the coordinates for $\vec c_1$ and $\vec c_2$, we get
+\begin{equation}
+	\label{EQDETFORM}
+	\Vol(\mathcal P) = \underbrace{(a+b)(d+c)}_{\text{area of big rectangle}} \qquad -
+	\underbrace{2bc}_{\text{area of little rectangles}} -
+	\underbrace{4\tfrac{ad}{2}}_{\text{area of triangles}} = ad-bc.
+\end{equation}
+
+XXX Figure showing the little squares and triangles
+
+Equation \eqref{EQDETFORM} is beautiful and simple, but its derivation should give you pause. Volume theorem I refers
+to \emph{oriented} volume and we didn't make any reference to orientation in our figures! Indeed, we played tricks
+with pictures. We drew $\vec c_1$ and $\vec c_2$ in a right-handed orientation\index{Basis!right-handed} in the first quadrant, even though the
+vectors $\mat{a\\c}$ and $\mat{b\\d}$ could be in \emph{any} quadrant (and one or both could even be the zero vector)!
+To fully justify Equation \eqref{EQDETFORM}, we need to consider cases based on all the possible ways $\vec c_1$ and $\vec c_2$
+can form a parallelogram. However, it turns out that every case gives the same answer: $\det\left(\mat{a&b\\c&d}\right)=ad-bc$.
+
+\begin{example}
+	Directly compute the determinant of $M=\mat{1 & 6 \\ 2 & 7}$ using the $2\times 2$ formula.
+	Then, find the determinant of $M$ after decomposing it into the product of elementary matrices.
+
+	Using the $2\times 2$ formula, we get
+	\[
+		\det(M)=(1)(7)-(2)(6)=-5.
+	\]
+
+	Alternatively, row reducing and keeping track of the elementary matrices for each step, we see
+	\[
+		\underbrace{\mat{1 & -6 \\ 0 & 1}}_{\textstyle E_3}
+		\underbrace{\mat{1 & 0 \\ 0 & -\frac{1}{5}}}_{\textstyle E_2}
+		\underbrace{\mat{1 & 0 \\ -2 & 1}}_{\textstyle E_1} M = \mat{1&0\\0&1},
+	\]
+	and so
+	\[
+		M = \mat{1 & 0 \\ 2 & 1}
+		    \mat{1 & 0 \\ 0 & -5}
+		    \mat{1 & 6 \\ 0 & 1} = E_1^{-1} E_2^{-1} E_3^{-1}.
+	\]
+
+	$E_1^{-1}$ and $E_3^{-1}$ both have determinant $1$, and $E_2^{-1}$ has determinant $-5$. Thus,
+	\[
+		\det(M)=\det(E_1^{-1})\det(E_2^{-1})\det(E_3^{-1})=(1)(-5)(1)=-5,
+	\]
+	which is exactly what we got using the formula.
+\end{example}
+
+\Heading{Computing $3\times 3$ Determinants}
+
+The formula for a $3\times 3$ matrix is more complicated than the $2\times 2$ formula.
+
+\begin{theorem}
+	\index{Determinant!$3\times 3$ formula} Let
+	$M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. Then
+	\[
+		\det(M)=aei+bfg+cdh-gec-hfa-idb.
+	\]
+\end{theorem}
+
+Fortunately, there is a clever mnemonic for remembering this formula called \emph{the Rule of Sarrus} or
+\emph{the diagonal trick}.
+
+\medskip
+{\bfseries Rule of Sarrus}
+
+Let $M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. To compute the determinant of $M$ using the Rule of Sarrus,
+apply the following four steps.
+
+\begin{enumerate}[leftmargin=2.4cm]
+	\item[\bfseries Step 1.] Augment $M$ with copies of its \emph{first two
+		columns}.
+		\[
+			\begin{bmatrix}
+				[ccc|cc] a & b & c & a & b \\
+				d          & e & f & d & e \\
+				g          & h & i & g & h
+			\end{bmatrix}
+		\]
+
+	\item[\bfseries Step 2.] Multiply together and then \emph{add} the entries along the three
+		diagonals of the new matrix.
+		These are called the \emph{diagonal products}.
+		\[
+			\begin{bNiceArray}{
+				CCC|CC
+			}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
+				a & b & c & a & b \\
+				d & e & f & d & e \\
+				g & h & i & g & h
+			\end{bNiceArray}
+		\]
+		\[
+			\text{sum of diagonal products}={\color{LimeGreen!80!black} aei} + {\color{NavyBlue} bfg} + {\color{CornflowerBlue!70!black} cdh}.
+		\]
+
+	\item[\bfseries Step 3.] Multiply together and then \emph{subtract} the entries along the three anti-diagonals.
+		These are called the \emph{anti-diagonal products}.
+		\[
+			\begin{bNiceArray}{
+				CCC|CC
+			}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
+				a & b & c & a & b \\
+				d & e & f & d & e \\
+				g & h & i & g & h
+			\end{bNiceArray}
+		\]
+		\[
+			\text{difference of anti-diagonal products}=-{\color{LimeGreen!80!black} gec}-{\color{NavyBlue} hfa}-{\color{CornflowerBlue!70!black} idb}
+		\]
+
+	\item[\bfseries Step 4.] Add the diagonal products and subtract the anti-diagonal products to get the
+		determinant.
+		\[
+			\det(M)=aei+bfg+cdh-gec-hfa-idb.
+		\]
+\end{enumerate}
+
+\begin{example}
+	Use the diagonal trick to compute $\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)$.
+
+	\[
+		\begin{bNiceArray}{
+			CCC|CC
+		}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
+			1  & 4 & 0 & 1  & 4 \\
+			-2 & 3 & 1 & -2 & 3 \\
+			0  & 2 & 1 & 0  & 2
+		\end{bNiceArray}
+	\]
+	\[
+		\text{sum of diagonal products}={\color{LimeGreen!70!black} (1)(3) (1)}+{\color{NavyBlue} (4)(1) (0)}+{\color{CornflowerBlue!70!black}(0)(-2)(2)}=3+0+0.
+	\]
+
+	\[
+		\begin{bNiceArray}{
+			CCC|CC
+		}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
+			1  & 4 & 0 & 1  & 4 \\
+			-2 & 3 & 1 & -2 & 3 \\
+			0  & 2 & 1 & 0  & 2
+		\end{bNiceArray}
+	\]
+	\[
+		\text{difference of anti-diagonal products}=-{\color{LimeGreen!70!black}(0) (3) (0)}-{\color{NavyBlue}(2)(1) (1)}-{\color{CornflowerBlue!70!black} (1) (-2)(4)}=-0-2-(-8).
+	\]
+	Thus, \[\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)=3\ +0\ +0\quad-0\ -2\ -(-8)=9.\]
+\end{example}
+
+It may be tempting to apply the Rule of Sarrus to $4\times 4$ and larger matrices, but \emph{don't do it!}
+There is a formula for $4\times 4$ determinants, but \emph{it's not given by the Rule of Sarrus}\footnote{
+	Because your curiosity is never ending, here's the formula. For a matrix $4\times 4$ matrix $A=[a_{ij}]$,
+	we have $\det(A)=
+a_{1 1} a_{2 2} a_{3 3} a_{4 4} - a_{1 1} a_{2 2} a_{3 4} a_{4 3} - a_{1 1} a_{2 3} a_{3 2} a_{4 4} + a_{1 1} a_{2 3} a_{3 4} a_{4 2} + a_{1 1} a_{2 4} a_{3 2} a_{4 3} - a_{1 1} a_{2 4} a_{3 3} a_{4 2} - a_{1 2} a_{2 1} a_{3 3} a_{4 4} + a_{1 2} a_{2 1} a_{3 4} a_{4 3} + a_{1 2} a_{2 3} a_{3 1} a_{4 4} - a_{1 2} a_{2 3} a_{3 4} a_{4 1} - a_{1 2} a_{2 4} a_{3 1} a_{4 3} + a_{1 2} a_{2 4} a_{3 3} a_{4 1} + a_{1 3} a_{2 1} a_{3 2} a_{4 4} - a_{1 3} a_{2 1} a_{3 4} a_{4 2} - a_{1 3} a_{2 2} a_{3 1} a_{4 4} + a_{1 3} a_{2 2} a_{3 4} a_{4 1} + a_{1 3} a_{2 4} a_{3 1} a_{4 2} - a_{1 3} a_{2 4} a_{3 2} a_{4 1} - a_{1 4} a_{2 1} a_{3 2} a_{4 3} + a_{1 4} a_{2 1} a_{3 3} a_{4 2} + a_{1 4} a_{2 2} a_{3 1} a_{4 3} - a_{1 4} a_{2 2} a_{3 3} a_{4 1} - a_{1 4} a_{2 3} a_{3 1} a_{4 2} + a_{1 4} a_{2 3} a_{3 2} a_{4 1}
+	$. This formula involves $24$ products. The $5\times 5$ formula involves $120$ products and the $6\times 6$ formula involves $720$ products. It only
+	gets worse from there.
+
+}.
+
+Like the $2\times 2$ formula for determinants, we can derive the $3\times 3$ formula directly from the definition. However, it takes
+quite a bit more work\footnote{ If you're interested in proving the $3\times 3$ determinant formula, try using the elementary matrix
+approach rather than computing the volume of a parallelepiped directly.}.
+
+\Heading{Determinant Formulas and Orientation}
+
+Determinants and orientation are connected and our determinant formulas (if we accept them as true) give us an
+alternative way to determine the orientation of a basis\index{Basis!orientation of}.
+
+Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ be an ordered basis for $\R^2$, and let $M=[\vec b_1|\vec b_2]$ be the matrix whose
+columns are $\vec b_1$ and $\vec b_2$. Since $\mathcal B$ is linearly independent, we know that $\det(M)\neq 0$.
+Further, applying the definition of the determinant, we know
+\[
+	\det(M)>0
+\]
+means that $\mathcal B$ is a right-handed basis and $\det(M)<0$ means $\mathcal B$ is a left-handed basis.
+
+\begin{example}
+	Use a determinant to decide whether the ordered basis $\Set*{\mat{1\\2},\mat{-3\\2}}$ is left-handed or right-handed.
+
+	Let $A = \mat{1 & -3 \\ 2 & 2}$ be the matrix whose columns are the elements of the given ordered basis.
+	
+	Using the formula for $2 \times 2$ determinants gives us
+	\[
+		\det(A) = (1)(2) - (2)(-3) = 8 > 0
+	\]
+	and so we conclude $\Set*{\mat{1\\2},\mat{-3\\2}}$ is a right-handed basis.
+
+\end{example}
+
+\medskip
+Recall the ordered basis $\mathcal Q=\Set{\xhat, \vec u_{\theta}}$ where $\vec u_\theta = \mat{\cos\theta\\\sin\theta}$ is the
+unit vector which forms an angle of $\theta$ with the positive $x$-axis.
+
+XXX Figure
+
+Visually, we can see that $\mathcal Q$ should be right-handed when $\theta\in(0,\pi)$, left handed when
+$\theta\in(\pi,2\pi)$ and $\mathcal Q$ is not a basis when $\theta=0$ or $\theta =\pi$.
+
+But what does the determinant say?
+
+Computing the determinant of the matrix $Q=[\xhat|\,\vec u_\theta]$ directly using the $2\times 2$ determinant formula, we get
+\[
+	\det(Q) = \det([\xhat|\,\vec u_\theta]) = \det\left(\mat{1&\cos\theta\\0&\sin\theta}\right) = \sin\theta.
+\]
+
+Notice that $\det(Q)=\sin\theta>0$ when $\theta\in(0,\pi)$, $\det(Q)=\sin\theta < 0$ when $\theta\in(\pi,2\pi)$
+and $\det(Q)=\sin\theta=0$ when $\theta\in\Set{0,\pi}$.
+
+The determinant supports our intuition.
+

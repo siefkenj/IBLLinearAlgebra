@@ -269,7 +269,6 @@
 	noclearpage
 }
 
-
 \begin{document}
 %%
 %% Import definitions from definition.tex; all definitions can be restated multiple times
@@ -7076,7 +7075,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 
 
 
-\begin{module}
+\begin{module}\label{determinant module}
 	\Title{Determinants}
 
 	In this module you will learn
@@ -7449,7 +7448,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 		\end{notes}
 	\end{annotation}
 	\begin{parts}
-		\item Explain Volume Theorem I using the definition of determinant.
+		\item Explain volume theorem I using the definition of determinant.
 			\begin{solution}
 				If $T:\R^n\to\R^n$ is a transformation with standard matrix $M=[\vec c_1|\cdots|\vec c_n]$,
 				then
@@ -7458,11 +7457,11 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 				with sides $T(\vec e_1)=\vec c_1$, \ldots, $T(\vec e_n)=\vec c_n$, and so $\det(T)$
 				will be the oriented volume of the parallelepiped with sides given by $\vec c_1$, \ldots, $\vec c_n$.
 			\end{solution}
-		\item Based on Volume Theorems I and II, how should $\det(M)$ and $\det(M^T)$
+		\item Based on volume theorems I and II, how should $\det(M)$ and $\det(M^T)$
 			relate for a square matrix $M$?
 			\begin{solution}
 				$\det(M)=\det(M^T)$. Since the transpose switches columns for rows,
-				this is an immediate consequence of Volume Theorems I and II.
+				this is an immediate consequence of volume theorems I and II.
 			\end{solution}
 	\end{parts}
 	\vspace{\stretch{1}}
@@ -8923,6 +8922,19 @@ While studying the subway map, you decide to pick two bases to help:
 
 	\input{modules/appendix2.tex}
 	\input{modules/appendix2-exercises.tex}
+\end{appendix}
+
+\begin{appendix}
+	\Title{Formulas for $2\times 2$ and $3\times 3$ Determinants}
+	In this appendix you will learn:
+\begin{itemize}
+  \item A practical formula for $2\times 2$ determinants.
+  \item How to calculate $3\times 3$ determinants using diagonal method.
+  \item How to calculate $3\times 3$ determinants using cofactor expansion method.
+\end{itemize}
+
+\input{modules/appendix3.tex}
+\input{modules/appendix3-exercises.tex}
 \end{appendix}
 
 \begin{bookonly}
