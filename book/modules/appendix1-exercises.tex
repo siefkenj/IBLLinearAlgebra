@@ -6,12 +6,12 @@
 			\item $\cos(4)x_{1}+\mathrm{e}y_{2}+\pi z_{3}=\mathrm{e}^{\pi}$
 
 			\item $4x_{1}+2x_{2}+5x_{4}=4x_{2}+4x_{5}+5$
+			
+			\item $5x+2y+8z=\cos(y)$
 
 			\item $12x+3xy+5z=2$
 
-			\item $\cos(4)x+\sin(4)y+\tan(4)z=\sec(4)x+\csc(4)y+\cot(4)z$
-
-			\item $5x+2y+8z=\cos(y)$
+			\item $\cos(4)x+\sin(4)y=\tan(4)x$
 
 			\item $\mathrm{e}^{x}=2^{x+y}$
 
@@ -22,9 +22,12 @@
 		equations.
 
 		\begin{enumerate}
-			\item $x\mat{3 \\ 2 \\ 4}+y\mat{3 \\ 4 \\ 7}+z\mat{4 \\ 6 \\ 1}=\mat{4 \\ 6 \\ 2}$
+			\item $x\mat{1 \\ -1 \\ 0}+y\mat{0 \\ 1 \\ 0}+z\mat{4 \\ 6 \\ 1}=\mat{2 \\ -5 \\ 2}$
 
 			\item $x\mat{7 \\ 16}+y\mat{8 \\ 13}=\mat{11 \\ 30}$
+
+			\item $\vec u+t\vec u - s(\vec v+\vec w)=\vec 0$ where $\vec u=\mat{1\\1}$, $\vec v=\mat{2\\-1}$,
+				and $\vec w=\mat{3\\4}$.
 		\end{enumerate}
 
 		\prob Convert each system of linear equations given below to a vector equation.
@@ -34,76 +37,53 @@
 			\item \systeme{0x+0y+0z=0, x+y+z=3}
 		\end{enumerate}
 
-		\prob For each system of linear equations given below: (i) write down
-		its augmented matrix, (ii) use row reduction algorithm to determine if it
-		is consistent or not, (iii) for each consistent system, give its complete
-		solution.
+		\prob Consider the vector equation $x\mat{2 \\ 4}+y\mat{8 \\ 16}=\vec b$ where $\vec b$ is unknown.
 		\begin{enumerate}
-			\item \systeme{-10x_1-4x_2+4x_3=28, 3x_1+x_2-x_3=-8, x_1+x_2-\frac{1}{2}x_3=-3}
-
-			\item \systeme{3x_1-2x_2+4x_3=54, 5x_1-3x_2+6x_3=88, x_1=-3}
-
-			\item \systeme{x+2y=5}
-
-			\item \systeme{4x=6, 2x=3}
-
-			\item \systeme{x_1+2x_2+4x_3-3x_4=0, 3x_1+5x_2+6x_3-4x_4=1, 4x_1+5x_2-2x_3+3x_4=3}
-
-			\item \systeme{x_1-x_2+5x_3+x_4=1, x_1+x_2-2x_3+3x_4=3, 3x_1-x_2+8x_3+x_4=5, x_1+3x_2-9x_3+7x_4=5}
-
-			\item \systeme{0x+0y+0z=0}
-		\end{enumerate}
-
-		\prob Consider the vector equation $x\mat{2 \\ 4}+y\mat{8 \\ 16}=\vec b$.
-		\begin{enumerate}
-			\item Show that with $\vec b=\mat{7 \\ 14}$, the system is
+			\item Show that if $\vec b=\mat{7 \\ 14}$, the system is
 				consistent.
 
-			\item Come up with another $\vec b$ to make the system consistent.
-				Justify your answer.
+			\item Are there other vectors $\vec b$ that make the system consistent?
+				If so, how many? Justify your answer.
 
-			\item Show that with $\vec b=\mat{5 \\ 12}$, the system is
+			\item Show that if $\vec b=\mat{5 \\ 12}$, the system is
 				inconsistent.
 
-			\item Come up with another $\vec b$ to make the system inconsistent.
-				Justify your answer.
+			\item Are there other vectors $\vec b$ that make the system inconsistent?
+				If so, how many? Justify your answer.
 		\end{enumerate}
 
-		\prob On Kokoro's farm, there is a cage with $35$ animals, some are chickens
-		and some are rabbits. Kokoro counted the total number of legs in the
+		\prob On Kokoro's farm, there is a cage with $35$ animals, some of which 
+		are chickens
+		and some of which are rabbits. Kokoro counted the total number of legs in the
 		cage and found that there were $94$ legs in all (notably, each chicken
-		has exactly two legs and each rabbit has four legs). Kokoro then decided
+		has exactly two legs and each rabbit has four legs). Kokoro decides
 		to use this information to figure out how many chickens and how many
-		rabbits there were.\footnote{This problem is modified based on a
-		classical Chinese problem, which first occurred in the ancient Chinese treatise
+		rabbits there are\footnote{ This problem based on a
+		classical Chinese problem from the ancient Chinese treatise
 		\emph{Mathematical Classic of Master Sun} (or \emph{Sunzi Suanjing}) written
-		during 3rd to 5th centuries \textsc{a.d.}.}
+		during 3rd to 5th centuries \textsc{a.d.}}.
 
 		\begin{enumerate}
-			\item Set up a system of linear equations representing this scenario.
+			\item Set up a system of linear equations that you could solve to answer
+				Kokoro's question.
 
-			\item Is the system consistent? If so, give the complete solution and,
-				based on you solution, tell how many chickens and how many rabbits
-				there were. If not, what would that mean about the information (total
-				number of animals and total number of legs) Kokoro shared?
+			\item Is the system consistent? If so, answer Kokoro's question.
 
-			\item Kokoro wants to set up three other cages so that for each cage,
-				one of the following conditions is satisfied. Explain to Kokoro,
-				using complete English sentences, if there exists a configuration
-				of animals so that the condition is satisfied. If so, give her one
-				such configuration. If not, explain to her why she cannot configure
-				a cage to satisfy the condition.
+			\item Kokoro wants to set up three other cages.
+				For each described cage below, explain using complete English sentences,
+				whether such a configuration is possible. Justify your answers using linear
+				algebra.
 				\begin{enumerate}
-					\item Kokoro wants to set up the first cage with \emph{cats}
+					\item Kokoro wants to set up a cage with \emph{cats}
 						and \emph{dogs} (notably, each cat has exactly four legs
 						and each dog has four legs) so that there are $35$
 						animals in total, and the total number of legs is $94$.
 
-					\item Kokoro wants to set up the second cage with \emph{cats}
+					\item Kokoro wants to set up a cage with \emph{cats}
 						and \emph{dogs} so that there are $35$ animals in total,
 						and the total number of legs is $140$.
 
-					\item Kokoro wants to set up the third cage with \emph{chickens}
+					\item Kokoro wants to set up a cage with \emph{chickens}
 						and \emph{rabbits} so that there are $42$ animals in total,
 						and the total number of legs is $77$.
 				\end{enumerate}
@@ -118,15 +98,13 @@
 			\item Any system of linear equation with $0x_{1}+0x_{2}+\cdots+0x_{n}
 				=0$ being one of the equations must be consistent.
 
-			\item Swapping two rows can also be achieved by performing a sequence
-				of the other two elementary row operations.
+			\item There are $m,c\in \R$ so that the $y$-axis is the solution set to the equation $y=mx+c$.
+			
+			\item There are $m,c\in \R$ so that the $x$-axis is the solution set to the equation $y=mx+c$.
+			
+			\item There are $m_1,m_2,c\in \R$ so that the $x$-axis (in $\R^3$) is the solution set to the equation $z=m_1x+m_2y+c$.
 
-			\item Let $\mathcal{L}_{1}$ be given by $y=kx+b$, and let
-				$\mathcal{L}_{2}$ be given by $y=mx+c$. Then $\mathcal{L}_{1}$ and
-				$\mathcal{L}_{2}$ intersect at exactly one point if and only if $k
-				\ne m$.
-
-			\item The $y$-axis can be represented by $y=mx+c$ for some $m,c\in \R$.
+			\item A system of exactly one equation can have an empty solution set.
 		\end{enumerate}
 	\end{problist}
 \end{exercises}
