@@ -1,5 +1,5 @@
 Module \ref{determinant module} discusses the theory of determinants and gives a general algorithm
-for computing determinants by using elementary matrices. But, since $2\times 2$ and $3\times 3$
+for computing determinants by using elementary matrices\index{Matrix!elementary matrix}. But, since $2\times 2$ and $3\times 3$
 matrices arise so often in day-to-day life,\footnote{ The day-to-day life of a mathematics student, at least!}
 it is worth learning some special-purpose formulas for computing the determinants of $2\times 2$ and $3\times 3$
 matrices.
@@ -15,13 +15,14 @@ are usually computed using row reduction/elementary matrices and not formulas\fo
 For a $2\times 2$ matrix, we can calculate its determinant directly from its entries.
 
 \begin{theorem}
+	\index{Determinant!$2\times 2$ formula}
 	Let $M=\mat{a & b \\ c & d}$. Then,
 	\[
 		\det(M)=ad-bc.
 	\]
 \end{theorem}
 
-The $2\times 2$ determinant formula can be deduced from Volume Theorem I.
+The $2\times 2$ determinant formula can be deduced from volume theorem I\index{Volume!theorem I}.
 Let $M=\mat{a&b\\c&d}$ and let $\vec c_1=\mat{a\\c}$ and $\vec c_2=\mat{b\\d}$ be the columns of $M$.
 We need to compute the area of the parallelogram $\mathcal P$, with sides $\vec c_1$ and $\vec c_2$.
 
@@ -48,16 +49,16 @@ Using the coordinates for $\vec c_1$ and $\vec c_2$, we get
 
 XXX Figure showing the little squares and triangles
 
-Equation \eqref{EQDETFORM} is beautiful and simple, but its derivation should give you pause. Volume Theorem I refers
+Equation \eqref{EQDETFORM} is beautiful and simple, but its derivation should give you pause. Volume theorem I refers
 to \emph{oriented} volume and we didn't make any reference to orientation in our figures! Indeed, we played tricks
-with pictures. We drew $\vec c_1$ and $\vec c_2$ in a right-handed orientation in the first quadrant, even though the
+with pictures. We drew $\vec c_1$ and $\vec c_2$ in a right-handed orientation\index{Basis!right-handed} in the first quadrant, even though the
 vectors $\mat{a\\c}$ and $\mat{b\\d}$ could be in \emph{any} quadrant (and one or both could even be the zero vector)!
 To fully justify Equation \eqref{EQDETFORM}, we need to consider cases based on all the possible ways $\vec c_1$ and $\vec c_2$
 can form a parallelogram. However, it turns out that every case gives the same answer: $\det\left(\mat{a&b\\c&d}\right)=ad-bc$.
 
 \begin{example}
-	Compute the determinant of $M=\mat{1 & 6 \\ 2 & 7}$ using both the $2\times 2$ formula and
-	the decomposition into elementary matrices.
+	Directly compute the determinant of $M=\mat{1 & 6 \\ 2 & 7}$ using the $2\times 2$ formula.
+	Then, find the determinant of $M$ after decomposing it into the product of elementary matrices.
 
 	Using the $2\times 2$ formula, we get
 	\[
@@ -66,18 +67,22 @@ can form a parallelogram. However, it turns out that every case gives the same a
 
 	Alternatively, row reducing and keeping track of the elementary matrices for each step, we see
 	\[
-		\mat{1 & -6 \\ 0 & 1}\mat{1 & 0 \\ 0 & -\frac{1}{5}}\mat{1 & 0 \\ -2 & 1}M=\mat{1&0\\0&1},
+		\underbrace{\mat{1 & -6 \\ 0 & 1}}_{\textstyle E_3}
+		\underbrace{\mat{1 & 0 \\ 0 & -\frac{1}{5}}}_{\textstyle E_2}
+		\underbrace{\mat{1 & 0 \\ -2 & 1}}_{\textstyle E_1} M = \mat{1&0\\0&1},
 	\]
 	and so
 	\[
-		M=\mat{1 & 0 \\ 2 & 1}\mat{1 & 0 \\ 0 & -5}\mat{1 & 6 \\ 0 & 1}=E_1E_2E_3.
+		M = \mat{1 & 0 \\ 2 & 1}
+		    \mat{1 & 0 \\ 0 & -5}
+		    \mat{1 & 6 \\ 0 & 1} = E_1^{-1} E_2^{-1} E_3^{-1}.
 	\]
 
-	$E_1$ and $E_3$ both have determinant $1$, and $E_2$ has determinant $-5$. Thus,
+	$E_1^{-1}$ and $E_3^{-1}$ both have determinant $1$, and $E_2^{-1}$ has determinant $-5$. Thus,
 	\[
-		\det(M)=\det(E_1)\det(E_2)\det(E_3)=(1)(-5)(1)=-5,
+		\det(M)=\det(E_1^{-1})\det(E_2^{-1})\det(E_3^{-1})=(1)(-5)(1)=-5,
 	\]
-	which is exactly what we got from the formula.
+	which is exactly what we got using the formula.
 \end{example}
 
 \Heading{Computing $3\times 3$ Determinants}
@@ -151,7 +156,7 @@ apply the following four steps.
 \end{enumerate}
 
 \begin{example}
-	Use the diagonal trick to compue $\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)$.
+	Use the diagonal trick to compute $\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)$.
 
 	\[
 		\begin{bNiceArray}{
@@ -198,7 +203,7 @@ approach rather than computing the volume of a parallelepiped directly.}.
 \Heading{Determinant Formulas and Orientation}
 
 Determinants and orientation are connected and our determinant formulas (if we accept them as true) give us an
-alternative way to determine the orientation of a basis.
+alternative way to determine the orientation of a basis\index{Basis!orientation of}.
 
 Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ be an ordered basis for $\R^2$, and let $M=[\vec b_1|\vec b_2]$ be the matrix whose
 columns are $\vec b_1$ and $\vec b_2$. Since $\mathcal B$ is linearly independent, we know that $\det(M)\neq 0$.
@@ -211,7 +216,13 @@ means that $\mathcal B$ is a right-handed basis and $\det(M)<0$ means $\mathcal 
 \begin{example}
 	Use a determinant to decide whether the ordered basis $\Set*{\mat{1\\2},\mat{-3\\2}}$ is left-handed or right-handed.
 
-	Let $M=\mat{1 & -3 \\ 2 & 2}$. Since $\det(M)=(1)(2)-(2)(-3)=8>0$, we conclude that $\Set*{\mat{1\\2},\mat{-3\\2}}$ is right-handed.
+	Let $A = \mat{1 & -3 \\ 2 & 2}$ be the matrix whose columns are the elements of the given ordered basis.
+	
+	Using the formula for $2 \times 2$ determinants gives us
+	\[
+		\det(A) = (1)(2) - (2)(-3) = 8 > 0
+	\]
+	and so we conclude $\Set*{\mat{1\\2},\mat{-3\\2}}$ is a right-handed basis.
 \end{example}
 
 \medskip
@@ -220,12 +231,18 @@ unit vector which forms an angle of $\theta$ with the positive $x$-axis.
 
 XXX Figure
 
-We can compute the determinant of the matrix $Q=[\xhat|\,\vec u_\theta]$ directly using the $2\times 2$ determinant formula.
+Visually, we can see that $\mathcal Q$ should be right-handed when $\theta\in(0,\pi)$, left handed when
+$\theta\in(\pi,2\pi)$ and $\mathcal Q$ is not a basis when $\theta=0$ or $\theta =\pi$.
+
+But what does the determinant say?
+
+Computing the determinant of the matrix $Q=[\xhat|\,\vec u_\theta]$ directly using the $2\times 2$ determinant formula, we get
 \[
 	\det(Q) = \det([\xhat|\,\vec u_\theta]) = \det\left(\mat{1&\cos\theta\\0&\sin\theta}\right) = \sin\theta.
 \]
 
-Visually, we know that $\mathcal Q$ is right-handed when $\theta\in(0,\pi)$, left handed when $\theta\in(\pi,2\pi)$ and $\mathcal Q$
-is not a basis when $\theta=0$ or $\theta =\pi$. And, the determinant corroborates this. $\det(Q)=\sin\theta>0$ when $\theta\in(0,\pi)$,
-$\det(Q)=\sin\theta < 0$ when $\theta\in(\pi,2\pi)$ and $\det(Q)=\sin\theta=0$ when $\theta\in\Set{0,\pi}$.
+Notice that $\det(Q)=\sin\theta>0$ when $\theta\in(0,\pi)$, $\det(Q)=\sin\theta < 0$ when $\theta\in(\pi,2\pi)$
+and $\det(Q)=\sin\theta=0$ when $\theta\in\Set{0,\pi}$.
+
+The determinant supports our intuition.
 
