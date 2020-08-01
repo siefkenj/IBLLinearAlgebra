@@ -1028,7 +1028,7 @@
 	% We save the display name for referencing later.
 	% after \_workbook_get_environment_display_name:nn is run, \l_workbook_display_title_tl will be set.
 	% Passing \c_bool_true as the second argument means we get the short version of the name.
-	\_workbook_get_environment_display_name:nn {module} \c_true_bool
+	\_workbook_get_environment_display_name:nn {\theenvironmentname} \c_true_bool
 	\prop_gput:Nee \g_workbook_exercises_prop {\l_workbook_exercises_key/display~name} {\l_workbook_display_title_tl}
 
 	% It is more reliable to access the sequence via name, so store the name
