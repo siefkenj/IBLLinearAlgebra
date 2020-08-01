@@ -19,7 +19,122 @@
 				$\BasisChange{\mathcal A}{\mathcal B}$, and
 				$\BasisChange{\mathcal B}{\mathcal A}$.
 		\end{enumerate}
-
+		\begin{solution}
+			\begin{enumerate}
+				\item Note that by definition
+				\[
+					A=\Set{2\vec e_1+\vec e_2, \vec e_1-2\vec e_2}.
+				\]
+				
+				Since $[\vec x]_{\mathcal A}=\mat{1\\-1}$, it follows that
+				\[
+					\vec x=(2\vec e_1+\vec e_2)-(\vec e_1-2\vec e_2)=\vec e_1+3\vec e_2.
+				\]
+				
+				It thus follows that $[\vec x]_{\mathcal E}=\mat{1\\3}$.
+				
+				To find $[\vec x]_{\mathcal B}$, we must first express the two elements of
+				$\mathcal A$ as linear combinations of the two elements of $\mathcal B$.
+				This involves solving two systems of linear equations:
+				\[
+					2\vec e_1+\vec e_2=x_1(3\vec e_1-\vec e_2)+x_2(-2\vec e_1+3\vec e_2)
+				\]
+				and
+				\[
+					\vec e_1-2\vec e_2=y_1(3\vec e_1-\vec e_2)+y_2(-2\vec e_1+3\vec e_2).
+				\]
+				
+				Written as column vectors, these are
+				\[
+					\mat{2\\1}=x_1\mat{3\\-1}+x_2\mat{-2\\3}
+				\]
+				and
+				\[
+					\mat{1\\-2}=y_1\mat{3\\-1}+y_2\mat{-2\\3}.
+				\]
+				
+				Solving the systems and applying the definition, we obtain
+				\[
+					[\vec a_1]_{\mathcal B}=\mat{x_1\\x_2}=\frac{1}{7}\mat{8\\5},\quad
+					[\vec a_2]_{\mathcal B}=\mat{y_1\\y_2}=\frac{1}{7}\mat{-1\\-5}.
+				\]
+				
+				Now we have
+				\[
+					[\vec x]_{\mathcal B}=[\vec a_1]_{\mathcal B}-[\vec a_2]_{\mathcal B}=\frac{1}{7}\mat{8\\5}-\frac{1}{7}\mat{8\\5}=\frac{1}{7}\mat{9\\10}.
+				\]
+				\item By definition, $\BasisChange{\mathcal A}{\mathcal E}$ is the matrix $M$ satisfying
+				\[
+					M[\vec x]_{\mathcal A}=[\vec x]_{\mathcal E}
+				\]
+				for all vectors $\vec x$. In particular, it must satisfy
+				\[
+					M[\vec a_1]_{\mathcal A}=[\vec a_1]_{\mathcal E},\quad
+					M[\vec a_2]_{\mathcal A}=[\vec a_2]_{\mathcal E}.
+				\]
+				
+				It thus follows that $M$ satisfies
+				\[
+					M\mat{1\\0}=\mat{2\\1},\quad
+					M\mat{0\\1}=\mat{1\\-2}.
+				\]
+				
+				Solving for $M$ gives
+				\[
+					M=
+					\begin{bmatrix}
+						2 & 1 \\ 1 & -2
+					\end{bmatrix}.
+				\]
+				
+				To find $\BasisChange{\mathcal E}{\mathcal A}$, we simply need to compute $M^{-1}$.
+				Following the explicit inverse formula for $2\times2$ matrices, we see that
+				\[
+					\BasisChange{\mathcal E}{\mathcal A}=M^{-1}=\frac{1}{5}
+					\begin{bmatrix}
+						2 & 1 \\ 1 & -2
+					\end{bmatrix}.
+				\]
+				
+				To compute $\BasisChange{\mathcal A}{\mathcal B}$, we note that
+				\[
+					\BasisChange{\mathcal A}{\mathcal B}=\BasisChange{\mathcal E}{\mathcal B}\BasisChange{\mathcal A}{\mathcal E}.
+				\]
+				
+				We compute $\BasisChange{\mathcal E}{\mathcal B}$ readily as
+				\[
+					\BasisChange{\mathcal B}{\mathcal E}=
+					\begin{bmatrix}
+						3 & -2 \\ -1 & 3
+					\end{bmatrix}.
+				\]
+				
+				Thus,
+				\[
+					\BasisChange{\mathcal E}{\mathcal B}=\BasisChange{\mathcal B}{\mathcal E}^{-1}=\frac{1}{7}
+					\begin{bmatrix}
+						3 & 2 \\ 1 & 3
+					\end{bmatrix}.
+				\]
+				
+				Therefore,
+				\[
+					\BasisChange{\mathcal A}{\mathcal B}=\frac{1}{7}
+					\begin{bmatrix}
+						3 & 2 \\ 1 & 3
+					\end{bmatrix}
+					\begin{bmatrix}
+						2 & 1 \\ 1 & -2
+					\end{bmatrix}=
+					\frac{1}{7}
+					\begin{bmatrix}
+						8 & -1 \\ 5 & -5
+					\end{bmatrix}.
+				\]
+				
+				Taking inverse gives $\BasisChange{\mathcal B}{\mathcal A}$.
+			\end{enumerate}
+		\end{solution}
 		\prob 
 		Let
 		\[
@@ -39,7 +154,6 @@
 			\qquad
 			\vec b_3=\mat{1\\1\\1}_{\mathcal A}.
 		\]
-		
 		\begin{enumerate}
 			\item Find the representation of $\vec b_1$, $\vec b_2$, and $\vec b_3$
 				in the standard basis.
@@ -49,7 +163,74 @@
 				and $\BasisChange{\mathcal B}{\mathcal E}$ to compute
 				$\BasisChange{\mathcal B}{\mathcal A}$.
 		\end{enumerate}
-
+		\begin{solution}
+			\begin{enumerate}
+				\item By definition, we have
+				\[
+					\begin{aligned}
+						[\vec b_1]_{\mathcal E}&=[\vec a_1]_{\mathcal E}=2\vec e_1+\vec e_2,\\
+						[\vec b_2]_{\mathcal E}&=[\vec a_1]_{\mathcal E}+[\vec a_2]_{\mathcal E}\\
+						&=(2\vec e_1+\vec e_2)+(\vec e_1-2\vec e_2)=3\vec e_1-\vec e_2,\\
+						[\vec b_3]_{\mathcal E}&=[\vec a_1]_{\mathcal E}+[\vec a_2]_{\mathcal E}+[\vec a_3]_{\mathcal E}\\
+						&=(2\vec e_1+\vec e_2)+(\vec e_1-2\vec e_2)+(\vec e_3)\\
+						&=3\vec e_1-\vec e_2+\vec e_3.
+					\end{aligned}
+				\]
+				\item We have that
+				\[
+					\BasisChange{\mathcal A}{\mathcal E}=
+					\begin{bmatrix}
+						2 & 1 & 0\\
+						1 & -2 & 0\\
+						0 & 0 & 1
+					\end{bmatrix}.
+				\]
+				
+				By part (a), we have
+				\[
+					\BasisChange{\mathcal B}{\mathcal E}=
+					\begin{bmatrix}
+						2 & 3 & 3\\
+						1 & -1 & -1\\
+						0 & 0 & 1
+					\end{bmatrix}.
+				\]
+				
+				Inverting the former, we see that
+				\[
+					\BasisChange{\mathcal E}{\mathcal A}=\frac{1}{5}
+					\begin{bmatrix}
+						2 & 1 & 0\\
+						1 & -2 & 0\\
+						0 & 0 & 5
+					\end{bmatrix}.
+				\]
+				\item We have
+				\[
+					\begin{aligned}
+						\BasisChange{\mathcal B}{\mathcal A}
+						&=\BasisChange{\mathcal E}{\mathcal A}\BasisChange{\mathcal B}{\mathcal E}\\
+						&=\frac{1}{5}
+						\begin{bmatrix}
+							2 & 1 & 0\\
+							1 & -2 & 0\\
+							0 & 0 & 5
+						\end{bmatrix}
+						\begin{bmatrix}
+							2 & 3 & 3\\
+							1 & -1 & -1\\
+							0 & 0 & 1
+						\end{bmatrix}\\
+						&=
+						\begin{bmatrix}
+							1 & 1 & 1\\
+							0 & 1 & 1\\
+							0 & 0 & 1
+						\end{bmatrix}.
+					\end{aligned}
+				\]
+			\end{enumerate}
+		\end{solution}
 		\prob Let $\mathcal B=\Set*{\mat{1\\0}_{\mathcal E},\mat{1\\1}_{\mathcal E}}$.
 		For each linear transformation
 		$\mathcal T:\R^{2}\to\R^{2}$ defined below, compute
@@ -67,7 +248,45 @@
 			\item Let $\mathcal T$ be the transformation that reflects
 				every vector over the line $y=x$.
 		\end{enumerate}
-
+		\begin{solution}
+			\begin{enumerate}
+				\item 
+				$[\mathcal T]_{\mathcal E}=[\mathcal T]_{\mathcal B}=
+				\begin{bmatrix}
+					2 & 0 \\ 0 & 2
+				\end{bmatrix}$
+				\item 
+				$[\mathcal T]_{\mathcal E}=[\mathcal T]_{\mathcal B}=
+				\begin{bmatrix}
+				-1 & 0 \\ 0 & -1
+				\end{bmatrix}$
+				\item 
+				$[\mathcal T]_{\mathcal E}=
+				\begin{bmatrix}
+					0 & 0 \\ 0 & 1
+				\end{bmatrix}$
+				
+				To compute $[\mathcal T]_{\mathcal B}$, note that $\mathcal T\vec b_1=\mathcal T\vec e_1=\vec 0$
+				and $\mathcal T\vec b_2=\mathcal T(\vec e_1+\vec e_2)=\vec e_2$. Further,
+				$\vec e_2=-\vec b_1+\vec b_2$. Therefore, 
+				$[\mathcal T]_{\mathcal B}=
+				\begin{bmatrix}
+					0 & -1 \\ 0 & 1
+				\end{bmatrix}$.
+				\item Note that $\mathcal T\vec e_1=\vec e_2$ and $\mathcal T\vec e_2=\vec e_1$, so
+				$[\mathcal T]_{\mathcal E}=
+				\begin{bmatrix}
+					0 & 1 \\ 1 & 0
+				\end{bmatrix}$.
+				To compute $[\mathcal T]_{\mathcal B}$, we simply observe that $\vec b_1=\vec e_1$
+				and $\vec b_2=\vec e_1+\vec e_2$. Thus, $\mathcal T\vec b_1=\vec e_2=-\vec b_1+\vec b_2$
+				and $\mathcal T\vec b_2=\vec e_1+\vec e_2=\vec b_2$. Therefore, 
+				$[\mathcal T]_{\mathcal B}=
+				\begin{bmatrix}
+					-1 & 0 \\ 1 & 1
+				\end{bmatrix}$.
+			\end{enumerate}
+		\end{solution}
 		\prob For each statement below, determine whether it is true or false. Justify your answer.
 		\begin{enumerate}
 			\item Any invertible $n \times n$ matrix can be viewed as
@@ -82,5 +301,19 @@
 			\item Any invertible $n \times n$ matrix $A$ is similar to
 				$A^{-1}$ since $AA^{-1}=I$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item True. A square matrix $M$ is invertible if and only if it is a change of basis matrix.
+				\item True. Any square matrix $M$ satsifies $M=IMI^{-1}$.
+				\item True. The definition of similarity requires the existence of an invertible matrix $P$,
+					i.e. a square matrix, and a matrix $B$ such that $B=PAP^{-1}$. If $A$ is not a square matrix,
+					then either $PA$ or $AP^{-1}$ is not defined, so such a matrix $P$ cannot exist.
+				\item False. For example, 
+				$A=\begin{bmatrix}
+					2 & 0 \\ 0 & -1
+				\end{bmatrix}$
+				is not similar to its inverse.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}

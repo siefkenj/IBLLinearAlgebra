@@ -34,8 +34,8 @@
 				\]
 				
 				The third and fourth column of $\Rref(X)$ are free variable columns,
-				so we introduce the arbitrary equations $z=t$ and $w=s$, and
-				solve the system in terms of $t$ and $s$:
+				so we introduce the arbitrary equations $z=t$ and $w=s$ and
+				solve the following system in terms of $t$ and $s$:
 				\[
 					\systeme[xyzw]{x-w=0,y+1/2z-w=1,z=t,w=s}.
 				\]
@@ -68,7 +68,7 @@
 				\]
 				
 				The fourth column of $\Rref(X)$ is a free variable column,
-				so we introduce the arbitrary equation $w=t$, and solve the system
+				so we introduce the arbitrary equation $w=t$ and solve the following system
 				in terms of $t$:
 				\[
 					\systeme[xyzw]{x-2w=1,y+2w=-1,z=-1,w=t}.
@@ -99,7 +99,7 @@
 				\]
 				
 				The third column of $\Rref(X)$ is a free variable column, so
-				we introduce the arbitrary equation $z=t$, and solve the system
+				we introduce the arbitrary equation $z=t$ and solve the following system
 				in terms of $t$:
 				\[
 					\systeme{x-7/5z=-8/5,y-3/5z=-17/5,z=t}.
@@ -132,7 +132,7 @@
 				\]
 				
 				The third column of $\Rref(X)$ is a free variable column, so
-				we introduce the arbitrary equation $z=t$, and solve the system
+				we introduce the arbitrary equation $z=t$ and solve the following system
 				in terms of $t$:
 				\[
 					\systeme{x+6/5z=2/5,y+9/5z=13/5,z=t}.
@@ -198,7 +198,30 @@
 				\]
 			\end{enumerate}
 		\end{solution}
+
+
+		\prob For each system of linear equations given below: (i) write down
+		its augmented matrix, (ii) use row reduction algorithm to determine if it
+		is consistent or not, (iii) for each consistent system, give the complete
+		solution.
+		\begin{enumerate}
+			\item \systeme{-10x_1-4x_2+4x_3=28, 3x_1+x_2-x_3=-8, x_1+x_2-\frac{1}{2}x_3=-3}
+
+			\item \systeme{3x_1-2x_2+4x_3=54, 5x_1-3x_2+6x_3=88, x_1=-3}
+
+			\item \systeme{x+2y=5}
+
+			\item \systeme{4x=6, 2x=3}
+
+			\item \systeme{x_1+2x_2+4x_3-3x_4=0, 3x_1+5x_2+6x_3-4x_4=1, 4x_1+5x_2-2x_3+3x_4=3}
+
+			\item \systeme{x_1-x_2+5x_3+x_4=1, x_1+x_2-2x_3+3x_4=3, 3x_1-x_2+8x_3+x_4=5, x_1+3x_2-9x_3+7x_4=5}
+
+			\item \systeme{0x+0y+0z=0}
+		\end{enumerate}
+
 		\prob 
+		\label{QSETUPEQUATIONS}
 		\begin{enumerate}
 			\item Let $\vec v_{1}=\mat{1\\1\\-2\\4}$,
 			$\vec v_{2}=\mat{1\\4\\0\\2}$ and
@@ -222,13 +245,12 @@
 			\]
 			Set up and solve a system of linear equations whose solution will
 			determine if the lines $\ell_{1}$ and $\ell_{2}$ intersect.
-			\item Let $\mathcal{P}_{1}$, $\mathcal{P}_{2}$ and $\mathcal{P}_{3}$
+			\item Let $\mathcal{P}_{1}$ and $\mathcal{P}_{2}$
 			be described in vector form by
 			\[
 				\begin{aligned}
-					&\mathcal{P}_1: \vec x=t\mat{1\\-1\\0}+s\mat{-1\\-1\\2},\\
-					&\mathcal{P}_2: \vec x=t\mat{1\\-1\\1}+s\mat{-1\\3\\-2}+\mat{0\\1\\-1},\\
-					&\mathcal{P}_3: \vec x=t\mat{1\\0\\1}+s\mat{0\\-3\\1}+\mat{-1\\4\\-3}.
+					&\mathcal{P}_1:\quad \vec x=t\mat{1\\-1\\0}+s\mat{-1\\-1\\2},\\
+					&\mathcal{P}_2:\quad \vec x=t\mat{1\\-1\\1}+s\mat{-1\\3\\-2}+\mat{0\\1\\-1}.
 				\end{aligned}
 			\]
 			Set up and solve a system of linear equations whose solution
@@ -238,13 +260,13 @@
 		\begin{solution}
 			\begin{enumerate}
 				\item The vectors $\vec v_{1}$, $\vec v_{2}$ and $\vec v_{3}$
-				are linearly independent if there does not exist a non-trivial
-				solution to
+				are linearly independent if 
 				\[
-					x\vec v_1+y\vec v_2+z\vec v_3=\vec 0.
+					x\vec v_1+y\vec v_2+z\vec v_3=\vec 0
 				\]
+				only has the trivial solution.
 				
-				The vector equation is equivalent to the system of linear equations
+				This vector equation is equivalent to the system of linear equations
 				\[
 					\systeme{x+y-2z=0,x+4y-2z=0,-2x+4z=0,4x+2y-8z=0}.
 				\]
@@ -254,34 +276,29 @@
 					\mat{x\\y\\z}=t\mat{2\\0\\1}.
 				\]
 				
-				Since $(x, y, z)=(2, 0, 1)$ is a non-trivial solution to this
-				system, the vectors $\vec v_{1}$, $\vec v_{2}$ and $\vec v_{3}$
+				In particular, $(x, y, z)=(2, 0, 1)$ is a non-trivial solution to this
+				system, so the vectors $\vec v_{1}$, $\vec v_{2}$ and $\vec v_{3}$
 				are linearly dependent.
 				
-				\item Since $\vec v_{1}, \vec v_{2}, \vec v_{3}\in\R^{3}$, they
-				span $\R^{3}$ if they are linearly independent. We need to determine
-				if there exists a non-trivial solution to
+				\item By definition, the vectors $\vec v_{1}$, $\vec v_{2}$, and $\vec v_{3}$
+				span $\R^3$ if every vector can be written as a linear combination of $\vec v_1$, $\vec v_2$,
+				and $\vec v_3$. In other words, the equation
 				\[
-					x\vec v_1+y\vec v_2+z\vec v_3=\vec 0.
+					x\vec v_1+y\vec v_2+z\vec v_3=\mat{a\\b\\c}
 				\]
-				
-				This is equivalent to the system of linear equations
+				is consistent for all choices of $a$, $b$, and $c$.
+				This vector equation is equivalent to the system of linear equations
 				\[
-					\systeme{x-2y+2z=0,2x+y+7z=0,3x+z=0}.
+					\systeme{x-2y+2z=a,2x+y+7z=b,3x+z=c}.
 				\]
+				Row reducing, we notice that every column is a pivot column
+				and so the system is always consistent. Therefore, $\Span\Set{\vec v_1,\vec v_2,\vec v_3}=\R^3$.
 				
-				The only solution to this system is
-				\[
-					\mat{x\\y\\z}=\mat{0\\0\\0}.
-				\]
 				
-				Since the only solution is the trivial solution, the vectors
-				$\vec v_{1}$, $\vec v_{2}$ and $\vec v_{3}$ are linearly
-				independent.
-				
-				\item The lines $\ell_{1}$ and $\ell_{2}$ intersect when the components
-				of $\vec x$ are equal. We first set the parameter of
-				$\ell_{2}$ to $s$. Then, equating the components of $\vec x$
+				\item The lines $\ell_{1}$ and $\ell_{2}$ intersect when their
+				$x$ and $y$-coordinates. We first set the parameter variable of $\ell_1$ to $t$ and
+				the parameter variable of $\ell_2$ to $s$.
+				Then, equating the coordinates
 				gives the system of linear equations
 				\[
 					\systeme[ts]{t-2s=2,3t-s=3}.
@@ -292,14 +309,13 @@
 					\mat{t\\s}=\mat{4/5\\-3/5}.
 				\]
 				
-				Since $\vec x=\mat{9/5\\17/5}$ when $t=4/5$, the intersection
+					Since $\vec x=\mat{9/5\\17/5}$ when $t=4/5$ (or $s=-3/5$), the intersection
 				of $\ell_{1}$ and $\ell_{2}$ is the point $\mat{9/5\\17/5}$.
 				
 				\item The planes $\mathcal{P}_{1}$ and $\mathcal{P}_{2}$ intersect
-				when the components of $\vec x$ are equal. We first set the
-				parameter variables of $\mathcal{P}_{2}$ to $q$ and $r$. Then,
-				equating the components of $\vec x$ gives the system of
-				linear equations
+				when their coordinates are equal. Relabeling the parameter variables
+				for $\mathcal P_2$ as $q$ and $r$ and equating both vector forms, we get
+				the following system of linear equations:
 				\[
 					\systeme[tsqr]{t-s-q+r=0,-t-s+q-3r=1,2s-q+2r=-1}.
 				\]
@@ -308,32 +324,36 @@
 				\[
 					\mat{t\\s\\q\\r}=u\mat{-2\\-1\\0\\1}+\mat{-1/2\\-1/2\\0\\0}.
 				\]
+				Thus there are an infinite number of points in $\mathcal P_1\cap \mathcal P_2$.
 				
-				Substitute $q=0$ and $r=u$ into the vector form of
-				$\mathcal{P}_{2}$, the intersection of $\mathcal{P}_{1}$ and
-				$\mathcal{P}_{2}$ is
+				To find these points, we substitute
+				$q=0$ and $r=u$ into the vector form of
+				$\mathcal{P}_{2}$. This shows us that $\mathcal P_1\cap \mathcal P_2$ can be
+				expressed in vector form by
 				\[
 					\mat{x\\y\\z}=u\mat{-1\\3\\-2}+\mat{0\\1\\-1}.
 				\]
 			\end{enumerate}
 		\end{solution}
-		\prob Presented below are other students' arguments for the previous
-		problem. Evaluate whether their reasoning is correct, and point out the
-		flaws in their reasoning, if any.
+		\prob Presented below some students' arguments for question \ref{QSETUPEQUATIONS}.
+		Evaluate whether their reasoning is totally correct, mostly correct, or incorrect.
+		If their reasoning is not totally correct, point out what mistake(s) they made and
+		how they might be fixed.
+
 		\begin{enumerate}
-			\item The following argument is for part (a):
-			
+			\item[(a) i.]
 			Consider the vector equation
 			\[
 				x\vec v_1+y\vec v_2+z\vec v_3=\vec 0
 			\]
 			where $x, y, z\in\R$.
 			
-			Since $(x, y, z)=(0, 0, 0)$ is a solution to the equation, the
+			Since $(x, y, z)=(0, 0, 0)$ is a solution to the equation, the equation
+			has the trivial solution. Therefore, the
 			vectors $\vec v_{1}$, $\vec v_{2}$ and $\vec v_{3}$ are linearly
 			independent.
-			\item The following argument is for part (a):
-			
+
+			\item[(a) ii.]
 			Consider the vector equation
 			\[
 				x\vec v_1+y\vec v_2+z\vec v_3=\vec 0
@@ -345,11 +365,8 @@
 			the vectors $\vec v_{1}$, $\vec v_{2}$ and $\vec v_{3}$ are
 			linearly independent.
 			
-			\item The following argument is for part (c):
-			
-			The lines $\ell_{1}$ and $\ell_{2}$ intersect when the components
-			of $\vec x$ are equal. Equating the components of $\vec x$ gives
-			the equations
+			\item[(c) i.]	The lines $\ell_{1}$ and $\ell_{2}$ intersect when their $x$ and $y$-coordinates
+			are equal. Equating $x$ and $y$-coordinates gives
 			\[
 				\systeme{t+1=2t+3,3t+1=t+4}.
 			\]
@@ -359,32 +376,26 @@
 				\systeme{t=-2,2t=3}.
 			\]
 			
-			Since this system is inconsistent, there does not exist a solution
-			to this system, so the lines $\ell_{1}$ and $\ell_{2}$ do not
+			Since this system is inconsistent, the lines $\ell_{1}$ and $\ell_{2}$ do not
 			intersect.
 			
-			\item The following argument is for part (c):
-			
-			The lines $\ell_{1}$ and $\ell_{2}$ intersect when the components
-			of $\vec x$ are equal. Equating the components of $\vec x$ gives
-			the equations
+			\item[(c) ii.] The lines $\ell_{1}$ and $\ell_{2}$ intersect when their $x$ and $y$-coordinates
+			are equal. Equating $x$ and $y$-coordinates gives
 			\[
 				\systeme{t+1=2s+3,3t+1=s+4}.
 			\]
 			
 			This system is equivalent to
 			\[
-				\systeme[ts]{t-2s=2,3t-s=3}.
+				\systeme[ts]{t-2s=2,3t-s=3},
 			\]
-			
-			The solution to this system is
+			and the solution is
 			\[
-				\mat{t\\s}=\mat{4/5\\-3/5},
+				\mat{t\\s}=\mat{4/5\\-3/5}.
 			\]
-			so the lines $\ell_1$ and $\ell_2$ intersect at $\mat{4/5\\3/5}$.
-			\item The following argument is for part (d):
-			
-			Notice that
+			Therefore the lines $\ell_1$ and $\ell_2$ intersect at $\mat{4/5\\3/5}$.
+
+		\item[(d) i.] 	Notice that
 			\[
 				\vec x=\mat{1/2\\-1/2\\0}=1/2\mat{1\\-1\\0}+0\mat{-1\\-1\\2}
 			\]
@@ -393,16 +404,13 @@
 				\vec x=\mat{1/2\\-1/2\\0}=0\mat{1\\-1\\1}-1/2\mat{-1\\3\\-2}+\mat{0\\1\\-1}.
 			\]
 			
-			Then, $\vec x=\mat{1/2\\-1/2\\0}$ is a point on $\mathcal{P}_{1}$
-			and $\mathcal{P}_{2}$, so the planes $\mathcal{P}_{1}$ and
+			So, $\vec x=\mat{1/2\\-1/2\\0}$ is a point on $\mathcal{P}_{1}$
+			and $\mathcal{P}_{2}$. Therefore the planes $\mathcal{P}_{1}$ and
 			$\mathcal{P}_{2}$ intersect.
 			
-			\item The following argument is for part (d):
-			
-			Notice that $\vec x=\mat{1\\0\\0}$ is a point on $\mathcal{P}_{2}$,
-			but it is not a point on $\mathcal{P}_{3}$. Then, we conclude
-			that the planes $\mathcal{P}_{2}$ and $\mathcal{P}_{3}$ do not
-			intersect.
+		\item[(d) ii.] Notice that $\vec x=\mat{1\\0\\0}$ is a point in $\mathcal{P}_{2}$,
+			but this point is not in $\mathcal P_1$. Therefore the planes do not intersect.
+
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
@@ -412,21 +420,21 @@
 				\[
 					\alpha_1\vec v_1+\cdots+\alpha_k\vec v_k=\vec 0
 				\]
-				where $\vec v_{1}, \dots, \vec v_{k}$ are arbitrary vectors in
-				$\R^{n}$.
+				no matter what $\vec v_{1}, \dots, \vec v_{k}$ are.
 				
 				To determine if a set of vectors is linearly independent, we
 				need to find out whether the trivial solution is the \emph{only}
 				solution to the vector equation. That is, there does not exist
 				any non-trivial solution to the vector equation.
 				
-				\item The reasoning is incorrect. The trivial solution is the
-				solution where \emph{all} the variables equal to zero, so
-				the solution $(x, y, z)=(-2, 0, -1)$ is not the trivial
+				\item The reasoning is incorrect. A trivial solution is the
+				solution where \emph{all} the variables equal zero, so
+				the solution $(x, y, z)=(-2, 0, -1)$ is not a trivial
 				solution.
 				
-				\item The reasoning is incorrect. When equating the components
-				of $\vec x$, the parameter variables needs to be set to different
+				\item The reasoning is incorrect. When equating coordinates
+				of two different vector forms,
+				the parameter variables needs to be set to different
 				letters.
 				
 				A valid system of linear equations is
@@ -452,11 +460,11 @@
 				plane based on only one point, so we need to set up and solve
 				an appropriate system of linear equations.
 				
-				\item The reasoning is incorrect. Since the intersection of two planes can be a line,
-				finding one point that is on $\mathcal{P}_{2}$ but not on $\mathcal{P}_{3}$ is
-				not sufficient to conclude that the planes do not intersection. There may exist some
-				points that are on $\mathcal{P}_{2}$ but not on $\mathcal{P}_{3}$ and some points
-				that are on $\mathcal{P}_{3}$ but not on $\mathcal{P}_{2}$.
+				\item The reasoning is incorrect. 
+				Finding one point that is in $\mathcal{P}_{2}$ but not in $\mathcal{P}_{1}$ 
+				shows that $\mathcal P_1$ does not intersect $\mathcal P_2$ \emph{at that point}, but
+				does not rule out the possibility that $\mathcal P_1$ intersects $\mathcal P_2$
+				at a \emph{different} point.
 			\end{enumerate}
 		\end{solution}
 	\end{problist}
