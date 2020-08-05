@@ -186,7 +186,7 @@
 	}\xspace%
 }
 
-\newenvironment{beforeyouread}{
+\DeclareDocumentEnvironment{beforeyouread}{}{
 Before you read, make sure you are comfortable with the following tasks.
 Please do the ``Quick Check'' problem to see if you are comfortable with each
 ask.
@@ -194,7 +194,7 @@ ask.
 }{
 \end{itemize}
 }
-\newcommand\quickcheck[1]{\vspace{-0.5cm}\item[] {\footnotesize \textsc{Quick Check.} \textrm{#1}}}
+\newcommand\quickcheck[1]{\par {\footnotesize \textsc{Quick Check.} \textrm{#1}}}
 
 % Dummy, voidable environments
 \DeclareDocumentEnvironment{bookonly}{o}{}{}
