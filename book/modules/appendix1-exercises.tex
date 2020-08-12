@@ -6,7 +6,7 @@
 			\item $\cos(4)x_{1}+\mathrm{e}y_{2}+\pi z_{3}=\mathrm{e}^{\pi}$
 
 			\item $4x_{1}+2x_{2}+5x_{4}=4x_{2}+4x_{5}+5$
-			
+
 			\item $5x+2y+8z=\cos(y)$
 
 			\item $12x+3xy+5z=2$
@@ -17,18 +17,50 @@
 
 			\item $\frac{x}{y}=1$
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item It is a linear equation.
+
+				\item It is a linear equation.
+
+				\item It is not a linear equation, because it involves $\cos(y)$,
+					the cosine of a variable.
+
+				\item It is not a linear equation, because it involves $xy$, a product
+					of two variables.
+
+				\item It is a linear equation.
+
+				\item It is not a linear equation, because it involves
+					$\mathrm{e}^{x}$, the natural exponential of a variable. It
+					also involves a nonlinear $2^{x+y}$.
+
+				\item If is not a linear equation, because it involves dividing
+					a variable.
+			\end{enumerate}
+		\end{solution}
 
 		\prob Convert each vector equation given below to a system of linear
 		equations.
 
 		\begin{enumerate}
-			\item $x\mat{1 \\ -1 \\ 0}+y\mat{0 \\ 1 \\ 0}+z\mat{4 \\ 6 \\ 1}=\mat{2 \\ -5 \\ 2}$
+			\item $x\mat{1 \\ -1 \\ 0}+y\mat{0 \\ 1 \\ 0}+z\mat{4 \\ 6 \\ 1}=\mat
+				{2 \\ -5 \\ 2}$
 
 			\item $x\mat{7 \\ 16}+y\mat{8 \\ 13}=\mat{11 \\ 30}$
 
-			\item $\vec u+t\vec u - s(\vec v+\vec w)=\vec 0$ where $\vec u=\mat{1\\1}$, $\vec v=\mat{2\\-1}$,
-				and $\vec w=\mat{3\\4}$.
+			\item $\vec u+t\vec u - s(\vec v+\vec w)=\vec 0$ where $\vec u=\mat{1\\1}$,
+				$\vec v=\mat{2\\-1}$, and $\vec w=\mat{3\\4}$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item \systeme{x+4z=2, -x+y+6z=-5, z=2}
+
+				\item \systeme{7x+8y=11, 16x+13y=30}
+
+				\item \systeme{t-5s=-1, t-3s=-1}
+			\end{enumerate}
+		\end{solution}
 
 		\prob Convert each system of linear equations given below to a vector equation.
 		\begin{enumerate}
@@ -37,10 +69,20 @@
 			\item \systeme{0x+0y+0z=0, x+y+z=3}
 		\end{enumerate}
 
-		\prob Consider the vector equation $x\mat{2 \\ 4}+y\mat{8 \\ 16}=\vec b$ where $\vec b$ is unknown.
+		\begin{solution}
+			\begin{enumerate}
+				\item $x_{1}\mat{0 \\ 1 \\ 0}+x_{2}\mat{4 \\ 0 \\ 9}+x_{3}\mat{2 \\ 2 \\ 2}
+					=\mat{0 \\ 0 \\ 1}$
+
+				\item $x_{1}\mat{0 \\ 1}+x_{2}\mat{0 \\ 1}+x_{3}\mat{0 \\ 1}=\mat
+					{0 \\ 3}$
+			\end{enumerate}
+		\end{solution}
+
+		\prob Consider the vector equation $x\mat{2 \\ 4}+y\mat{8 \\ 16}=\vec b$
+		where $\vec b$ is unknown.
 		\begin{enumerate}
-			\item Show that if $\vec b=\mat{7 \\ 14}$, the system is
-				consistent.
+			\item Show that if $\vec b=\mat{7 \\ 14}$, the system is consistent.
 
 			\item Are there other vectors $\vec b$ that make the system consistent?
 				If so, how many? Justify your answer.
@@ -52,16 +94,71 @@
 				If so, how many? Justify your answer.
 		\end{enumerate}
 
-		\prob On Kokoro's farm, there is a cage with $35$ animals, some of which 
-		are chickens
-		and some of which are rabbits. Kokoro counted the total number of legs in the
-		cage and found that there were $94$ legs in all (notably, each chicken
-		has exactly two legs and each rabbit has four legs). Kokoro decides
-		to use this information to figure out how many chickens and how many
-		rabbits there are\footnote{ This problem based on a
-		classical Chinese problem from the ancient Chinese treatise
-		\emph{Mathematical Classic of Master Sun} (or \emph{Sunzi Suanjing}) written
-		during 3rd to 5th centuries \textsc{a.d.}}.
+		\begin{solution}
+			\begin{enumerate}
+				\item If $\vec b=\mat{7 \\ 14}$, then the vector equation
+					becomes
+					\[
+						x\mat{2 \\ 4}+y\mat{8 \\ 16}=\mat{7 \\ 14}.
+					\]
+					Convert it to a system of linear equations:
+					\[
+						\systeme{2x+8y=7,4x+16y=14}.
+					\]
+					Row reduce this system, and we get
+					\[
+						\systeme{x+4y=3.5, 0x+0y=0}.
+					\]
+					The solution to this system is then
+					\[
+						\left\{
+						\begin{array}
+							{ccc} x & = & 3.5-4t \\ y & = & t
+						\end{array}\right. (t\in \mathbb{R}).
+					\]
+					This system is consistent.
+
+				\item There are vectors $\vec{b}$ that makes the system consistent.
+					For instance, $\vec b=\mat{5 \\ 10}$ is such a vector. In
+					general, any vector $\vec b$ with $\vec b=\mat{t \\ 2t}$ for
+					some $t\in\mathbb{R}$ makes the system consistent. Since
+					there are infinitely many real numbers, we conclude that there
+					are infinitely many vectors $\vec b$ that makes the system consistent.
+
+				\item If $\vec b=\mat{5 \\ 14}$, then the vector equation
+					becomes
+					\[
+						x\mat{2 \\ 4}+y\mat{8 \\ 16}=\mat{5 \\ 12}.
+					\]
+					Convert it to a system of linear equations:
+					\[
+						\systeme{2x+8y=5,4x+16y=12}.
+					\]
+					Row reduce this system, and we get
+					\[
+						\systeme{x+4y=2.5, 0x+0y=2}.
+					\]
+					This system is inconsistent.
+
+				\item There are vectors $\vec b$ that makes the system inconsistent.
+					For instance, $\mat{10 \\ 24}$ is is such a vector. In
+					general, any vector $\vec b$ with $\vec b=\mat{5t \\ 12t}$ for
+					some $t\in\mathbb{R}$ ($t\ne 0$) makes the system inconsistent.
+					Since there are infinitely many real numbers, we conclude that
+					there are infinitely many vectors $\vec b$ that makes the system
+					inconsistent.
+			\end{enumerate}
+		\end{solution}
+
+		\prob On Kokoro's farm, there is a cage with $35$ animals, some of which
+		are chickens and some of which are rabbits. Kokoro counted the total
+		number of legs in the cage and found that there were $94$ legs in all (notably,
+		each chicken has exactly two legs and each rabbit has four legs). Kokoro
+		decides to use this information to figure out how many chickens and how
+		many rabbits there are\footnote{ This problem based on a classical
+		Chinese problem from the ancient Chinese treatise \emph{Mathematical
+		Classic of Master Sun} (or \emph{Sunzi Suanjing}) written during 3rd to
+		5th centuries \textsc{a.d.}}.
 
 		\begin{enumerate}
 			\item Set up a system of linear equations that you could solve to answer
@@ -69,28 +166,116 @@
 
 			\item Is the system consistent? If so, answer Kokoro's question.
 
-			\item Kokoro wants to set up three other cages.
-				For each described cage below, explain using complete English sentences,
-				whether such a configuration is possible. Justify your answers using linear
+			\item Kokoro wants to set up three other cages. For each described
+				cage below, explain using complete English sentences, whether
+				such a configuration is possible. Justify your answers using linear
 				algebra.
 				\begin{enumerate}
-					\item Kokoro wants to set up a cage with \emph{cats}
-						and \emph{dogs} (notably, each cat has exactly four legs
-						and each dog has four legs) so that there are $35$
-						animals in total, and the total number of legs is $94$.
+					\item Kokoro wants to set up a cage with \emph{cats} and
+						\emph{dogs} (notably, each cat has exactly four legs and
+						each dog has four legs) so that there are $35$ animals
+						in total, and the total number of legs is $94$.
 
-					\item Kokoro wants to set up a cage with \emph{cats}
-						and \emph{dogs} so that there are $35$ animals in total,
-						and the total number of legs is $140$.
+					\item Kokoro wants to set up a cage with \emph{cats} and
+						\emph{dogs} so that there are $35$ animals in total, and
+						the total number of legs is $140$.
 
-					\item Kokoro wants to set up a cage with \emph{chickens}
-						and \emph{rabbits} so that there are $42$ animals in total,
+					\item Kokoro wants to set up a cage with \emph{chickens} and
+						\emph{rabbits} so that there are $42$ animals in total,
 						and the total number of legs is $77$.
 				\end{enumerate}
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Let $x$ be the number of chickens, and let $y$ be the
+					number of rabbits. Using the information given in the problem,
+					we have
+					\[
+						\systeme{x+y=35, 2x+4y=94}.
+					\]
 
-		\prob For each statement below, determine whether it is true or false. Justify
-		your answer.
+				\item Row reduce the system in (a), and we get
+					\[
+						\systeme{x+y=35, y=12}.
+					\]
+					This shows that the system is consistent. The solution to this
+					system is
+					\[
+						x=23, y=12.
+					\]
+					Thus, there are 23 chickens and 12 rabbits in the farm.
+
+				\item Before discussing each configuration, we point out that a
+					configuration is possible if there exists a natural number
+					solution to the system of linear equations associated with
+					the configuration.
+					\begin{enumerate}
+						\item For the first configuration, let $x$ be the number
+							of cats, and let $y$ be the number of dogs. Using
+							the information given in the problem, we have
+							\[
+								\systeme{x+y=35, 4x+4y=94}.
+							\]
+							Row reduce this system, and we get
+							\[
+								\systeme{x+y=35, 0x+0y=-46}.
+							\]
+							This system is inconsistent, which means there's no solution
+							to this system, not to say natural number solution. Therefore,
+							Kokoro's first configuration is not possible.
+
+						\item For the second configuration, let $x$ be the
+							number of cats, and let $y$ be the number of dogs.
+							Using the information given in the problem, we have
+							\[
+								\systeme{x+y=35, 4x+4y=140}.
+							\]
+							Row reduce this system, and we get
+							\[
+								\systeme{x+y=35, 0x+0y=0}.
+							\]
+							This system is consistent, and the complete solution
+							is given by
+							\[
+								\left\{
+								\begin{array}
+									{ccc} x & = & 35-t \\ y & = & t
+								\end{array}\right. (t\in \mathbb{R}).
+							\]
+							Take $t=1$, and we get a natural number solution
+							$x=34,y=1$. (In fact, there are more than one natural
+							number solutions.) Therefore, Kokoro's second
+							configuration is possible.
+
+						\item For the third configuration, let $x$ be the number
+							of chickens, and let $y$ be the number of rabbits.
+							Using the information given in the problem, we have
+							\[
+								\systeme{x+y=42, y=77}.
+							\]
+							Row reduce this system, and we get
+							\[
+								\systeme{x+y=42, y=-\frac{7}{2}}.
+							\]
+							This system is consistent, and the complete solution
+							is given by
+							\[
+								\left\{
+								\begin{array}
+									{ccc} x & = & \frac{91}{2} \\ y & = & -\frac{7}{2}
+								\end{array}\right.
+							\]
+							However, this is not a natural number solution. Since
+							this is the only solution to the system, we conclude
+							that there's no natural number solution to the
+							system. Therefore, Kokoro's third configuration is
+							not possible.
+					\end{enumerate}
+			\end{enumerate}
+		\end{solution}
+
+		\prob For each statement below, determine whether it is true or false.
+		Justify your answer.
 		\begin{enumerate}
 			\item A system of linear equations of 4 variables with 3 equations is
 				always consistent.
@@ -98,13 +283,64 @@
 			\item Any system of linear equation with $0x_{1}+0x_{2}+\cdots+0x_{n}
 				=0$ being one of the equations must be consistent.
 
-			\item There are $m,c\in \R$ so that the $y$-axis is the solution set to the equation $y=mx+c$.
-			
-			\item There are $m,c\in \R$ so that the $x$-axis is the solution set to the equation $y=mx+c$.
-			
-			\item There are $m_1,m_2,c\in \R$ so that the $x$-axis (in $\R^3$) is the solution set to the equation $z=m_1x+m_2y+c$.
+			\item There are $m,c\in \R$ so that the $y$-axis is the solution set
+				to the equation $y=mx+c$.
+
+			\item There are $m,c\in \R$ so that the $x$-axis is the solution set
+				to the equation $y=mx+c$.
+
+			\item There are $m_{1},m_{2},c\in \R$ so that the $x$-axis (in
+				$\R^{3}$) is the solution set to the equation $z=m_{1}x+m_{2}y+c$.
 
 			\item A system of exactly one equation can have an empty solution set.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item False. A counterexample is given by
+					\[
+						\systeme{x_1+x_2+x_3+x_4=1, x_1+x_2+x_3+x_4=2, x_1+x_2+x_3+x_4=3}.
+					\]
+
+				\item False. A counterexample is given by
+					\[
+						\systeme{0x_1+0x_2=0, 0x_1+0x_2=1}.
+					\]
+
+				\item False. Reason: The $y$-axis can be described as $\Set*{\mat{0 \\ y}\in\R^2: y\in\R}$.
+					If there exists $m,c$ so that the $y$-axis is the solution
+					set to the equation $y = mx + c$, then both $x=0, y=1$ and $x
+					=0, y=2$ are solutions to the equation. Plug in $x=0, y=1$, and
+					we get $m=0$, $c=1$. Plug in $x=0$, $y=2$, and we get $m=0$,
+					$c=2$. Of course, $c=1$ and $c=2$ cannot happen at the same
+					time. Therefore, there's no $m,c\in \R$ so that the $y$-axis
+					is the solution set to the equation $y = mx + c$.
+
+				\item True. Reason: Take $m=0$, $c=0$. The equation then becomes
+					$y=0$. A complete solution to this equation is given by
+					$x=t$, $y=0$ ($t\in \R$), which is exactly the $x$-axis.
+
+				\item False. Reason: The $x$-axis in $\R^{3}$ can be described as
+					$\Set*{\mat{x \\ 0 \\ 0}\in\R^3: x\in\R}$. If there exists
+					$m_{1}, m_{2}, c\in \R$ so that the $x$-axis is the solution
+					set to the equation $z=m_{1}x+m_{2}y+c$, then $x=1, y=0, z=0$
+					is one solution to the equation, and $x=2, y=0, z=0$ is
+					another. Plug in $x=1$, $y=0$, and $y=0$, and we get
+					$0=m_{1}+0+c$. Plug in $x=2$, $y=0$, and $z=0$ and we get $0=
+					2m_{1}+0+c$. Thus, $m_{1}=2m_{1}=-c$. So we must have $c=0$
+					and $m_{1}=0$. The equation then becomes $z=m_{2}y$. However,
+					for each choice of $m_{2}$, $x=0, y=1, z=m_{2}$ is a
+					solution to the system which does not lie in the $x$-axis. Therefore,
+					for every choice of $m_{1},m_{2},c$, the solution set to the
+					equation $z=m_{1}x+m_{2}y+c$ cannot be the $x$-axis. In
+					other words, there's no there's no $m_{1}, m_{2} ,c\in \R$ so
+					that the $x$-axis is the solution set to the equation $z = m_{1}
+					x + m_{2}y+ c$.
+
+				\item True. An example is given by
+					\[
+						\systeme{0x+0y=1}.
+					\]
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}
