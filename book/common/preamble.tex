@@ -31,6 +31,7 @@
 	\tikzset{>=latex}
 	\usetikzlibrary{cd}
 	\usetikzlibrary{spy}
+	\usetikzlibrary{patterns}
 \usepackage{fancyhdr}
 \usepackage{calc}
 \usepackage{wrapfig}
@@ -186,7 +187,15 @@
 	}\xspace%
 }
 
-
+\DeclareDocumentEnvironment{beforeyouread}{}{
+Before you read, make sure you are comfortable with the following.
+Please do the ``Quick Check'' problem to see if you are comfortable with each
+task.
+\begin{itemize}
+}{
+\end{itemize}
+}
+\newcommand\quickcheck[1]{\par {\footnotesize \textsc{Quick Check.} \textrm{#1}}}
 
 % Dummy, voidable environments
 \DeclareDocumentEnvironment{bookonly}{o}{}{}

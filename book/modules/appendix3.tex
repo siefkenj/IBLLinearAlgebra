@@ -26,14 +26,112 @@ The $2\times 2$ determinant formula can be deduced from volume theorem I\index{V
 Let $M=\mat{a&b\\c&d}$ and let $\vec c_1=\mat{a\\c}$ and $\vec c_2=\mat{b\\d}$ be the columns of $M$.
 We need to compute the area of the parallelogram $\mathcal P$, with sides $\vec c_1$ and $\vec c_2$.
 
-XXX Figure of $\mathcal P$.
-
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			anchor=origin,
+			disabledatascaling,
+			xmin=0,xmax=4,
+			ymin=0,ymax=4,
+			xtick={1.5,2,3.5},
+			ytick={1,3,4},
+			xticklabels={$b$, $a$, $a+b$},
+			yticklabels={$c$, $d$, $c+d$},
+			x=1cm,y=1cm,
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10},
+			%major grid style={line width=.2pt,draw=gray!50},
+			axis lines=middle,
+			minor tick num=0,
+			enlargelimits={abs=0.5},
+			axis line style={latex-latex},
+			ticklabel style={font=\tiny,fill=white,text height=2pt},
+			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\draw [mygreen, fill=mygreen, fill opacity=.3] (0,0) -- (2,1) -- (3.5,4) -- (1.5,3) -- cycle;
+			\draw [black, thick, ->] (0,0) -- (2,1);
+			\draw [black, thick, ->] (0,0) -- (1.5,3);
+		\end{axis}
+		\node [black] at (1.5,0.35) {$\vec c_1$};
+		\node [black] at (0.65,2.1) {$\vec c_2$};
+		\node [mygreen] at (1.75,2) {$\mathcal{P}$};
+	\end{tikzpicture}
+\end{center}
 
 We can compute the area of $\mathcal P$ by computing the area of a rectangle that contains
 $\mathcal P$ and subtracting off any area that we ``over counted''.
 
-XXX Figure of $\mathcal P$ and its
-bounding box, next to a figure of $\mathcal P$ and the ``excess'' area (the two rectangles and four triangles).
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			anchor=origin,
+			disabledatascaling,
+			xmin=0,xmax=4,
+			ymin=0,ymax=4,
+			xtick={1.5,2,3.5},
+			ytick={1,3,4},
+			xticklabels={$b$, $a$, $a+b$},
+			yticklabels={$c$, $d$, $c+d$},
+			x=1cm,y=1cm,
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10},
+			%major grid style={line width=.2pt,draw=gray!50},
+			axis lines=middle,
+			minor tick num=0,
+			enlargelimits={abs=0.5},
+			axis line style={latex-latex},
+			ticklabel style={font=\tiny,fill=white,text height=2pt},
+			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\draw [mygreen, fill=mygreen, fill opacity=.2] (0,0) -- (2,1) -- (3.5,4) -- (1.5,3) -- cycle;
+			\draw [mypink, pattern=dots, pattern color=mypink] (0,0) rectangle (3.5,4);
+			\draw [black, thick, ->] (0,0) -- (2,1);
+			\draw [black, thick, ->] (0,0) -- (1.5,3);
+		\end{axis}
+		\node [mygreen] at (1.75,2) {$\mathcal{P}$};
+		\node [black] at (1.75, 4.2) {Surrounding rectangle};
+	\end{tikzpicture}
+	\quad
+	\begin{tikzpicture}
+		\begin{axis}[
+			anchor=origin,
+			disabledatascaling,
+			xmin=0,xmax=4,
+			ymin=0,ymax=4,
+			xtick={1.5,2,3.5},
+			ytick={1,3,4},
+			xticklabels={$b$, $a$, $a+b$},
+			yticklabels={$c$, $d$, $c+d$},
+			x=1cm,y=1cm,
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10},
+			%major grid style={line width=.2pt,draw=gray!50},
+			axis lines=middle,
+			minor tick num=0,
+			enlargelimits={abs=0.5},
+			axis line style={latex-latex},
+			ticklabel style={font=\tiny,fill=white,text height=2pt},
+			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\fill [mygreen, opacity=.3] (0,0) -- (2,1) -- (3.5,4) -- (1.5,3) -- cycle;
+			\draw [mypink] (0,0) rectangle (3.5,4);
+			\draw [mypink] (0,3) rectangle (1.5,4);
+			\draw [mypink] (2,0) rectangle (3.5,1);
+			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (1.5,3) -- (3.5,4) -- (0,4) -- cycle;
+			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (2,1) -- (3.5,4) -- (3.5,0) -- cycle;
+		\end{axis}
+		\node [mygreen] at (1.75,2) {$\mathcal{P}$};
+		\node [mypink, ] at (0.75, 3.5) {\tiny little rectangle};
+		\node [mypink, ] at (2.75, 0.5) {\tiny little rectangle};
+		\node [mypink, ] at (1.6, 0.5) {\tiny triangle};
+		\node [mypink, ] at (1.9, 3.5) {\tiny triangle};
+		\node [mypink, ] at (0.5, 2) {\tiny triangle};
+		\node [mypink, ] at (3, 2) {\tiny triangle};
+	\end{tikzpicture}
+\end{center}
 
 Thus,
 \[
@@ -47,7 +145,37 @@ Using the coordinates for $\vec c_1$ and $\vec c_2$, we get
 	\underbrace{4\tfrac{ad}{2}}_{\text{area of triangles}} = ad-bc.
 \end{equation}
 
-XXX Figure showing the little squares and triangles
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			anchor=origin,
+			disabledatascaling,
+			xmin=0,xmax=4,
+			ymin=0,ymax=4,
+			xtick={1.5,2,3.5},
+			ytick={1,3,4},
+			xticklabels={$b$, $a$, $a+b$},
+			yticklabels={$c$, $d$, $c+d$},
+			x=1cm,y=1cm,
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10},
+			%major grid style={line width=.2pt,draw=gray!50},
+			axis lines=middle,
+			minor tick num=0,
+			enlargelimits={abs=0.5},
+			axis line style={latex-latex},
+			ticklabel style={font=\tiny,fill=white,text height=2pt},
+			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\draw [mypink] (0,0) rectangle (3.5,4);
+			\draw [mypink] (0,3) rectangle (1.5,4);
+			\draw [mypink] (2,0) rectangle (3.5,1);
+			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (1.5,3) -- (3.5,4) -- (0,4) -- cycle;
+			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (2,1) -- (3.5,4) -- (3.5,0) -- cycle;
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 Equation \eqref{EQDETFORM} is beautiful and simple, but its derivation should give you pause. Volume theorem I refers
 to \emph{oriented} volume and we didn't make any reference to orientation in our figures! Indeed, we played tricks
@@ -229,7 +357,33 @@ means that $\mathcal B$ is a right-handed basis and $\det(M)<0$ means $\mathcal 
 Recall the ordered basis $\mathcal Q=\Set{\xhat, \vec u_{\theta}}$ where $\vec u_\theta = \mat{\cos\theta\\\sin\theta}$ is the
 unit vector which forms an angle of $\theta$ with the positive $x$-axis.
 
-XXX Figure
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			anchor=origin,
+			disabledatascaling,
+			xmin=0,xmax=1,
+			ymin=0,ymax=1,
+			xtick={0,1},
+			ytick={0,1},
+			x=2cm,y=2cm,
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10},
+			%major grid style={line width=.2pt,draw=gray!50},
+			axis lines=middle,
+			minor tick num=0,
+			enlargelimits={abs=0.5},
+			axis line style={latex-latex},
+			ticklabel style={font=\tiny,fill=white},
+			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+		]
+			\draw [black, thick, ->] (0,0) -- (1,0) node [midway, below] {$\xhat$};
+			\draw [black, thick, ->] (0,0) -- ++(60:2cm) node [midway, above, xshift=-4pt] {$\vec u_\theta$};
+			\draw [mypink] (0.5, 0) arc (0:60:0.5) node [midway, above right, yshift=-2pt] {$\theta$};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
 
 Visually, we can see that $\mathcal Q$ should be right-handed when $\theta\in(0,\pi)$, left handed when
 $\theta\in(\pi,2\pi)$ and $\mathcal Q$ is not a basis when $\theta=0$ or $\theta =\pi$.
