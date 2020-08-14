@@ -8,33 +8,33 @@
 		\prob
 		\begin{enumerate}
 			\item
-				Write the following vectors as column vectors.
-				\begin{enumerate}
-					\item $4\xhat -3\zhat +2\yhat -2\xhat\in\R^3$.
-					\item $\yhat +\xhat -5\yhat \in\R^2$.
-				\end{enumerate}
+			Write the following vectors as column vectors.
+			\begin{enumerate}
+				\item $4\xhat -3\zhat +2\yhat -2\xhat\in\R^3$.
+				\item $\yhat +\xhat -5\yhat \in\R^2$.
+			\end{enumerate}
 			\item
-				Write the following vectors as linear combinations of $\xhat$, $\yhat$, and
-				$\zhat$.
-				\begin{enumerate}
-					\item $\mat{1\\-2\\3}$.
-					\item $\mat{-2\\5\\4} + \mat{1\\-2\\ -5} + \mat{1\\0\\1}$.
-				\end{enumerate}
+			Write the following vectors as linear combinations of
+			$\xhat$, $\yhat$, and $\zhat$.
+			\begin{enumerate}
+				\item $\mat{1\\-2\\3}$.
+				\item $\mat{-2\\5\\4} + \mat{1\\-2\\ -5} + \mat{1\\0\\1}$.
+			\end{enumerate}
 		\end{enumerate}
 		% Q1 Solution
 		\begin{solution}
-		    \begin{enumerate}
-		        \item
-		            \begin{enumerate}
-		                \item $\mat{2\\2\\-3}$
-		                \item $\mat{1\\-4}$
-		            \end{enumerate}
-		        \item
-		            \begin{enumerate}
-		                \item $\xhat - 2\yhat + 3\zhat$
-		                \item $3\yhat$
-		            \end{enumerate}
-		    \end{enumerate}
+			\begin{enumerate}
+				\item
+				\begin{enumerate}
+					\item $\mat{2\\2\\-3}$
+					\item $\mat{1\\-4}$
+				\end{enumerate}
+				\item
+				\begin{enumerate}
+					\item $\xhat - 2\yhat + 3\zhat$
+					\item $3\yhat$
+				\end{enumerate}
+			\end{enumerate}
 		\end{solution}
 
 		\prob
@@ -50,42 +50,38 @@
 		\end{solution}
 
 		\prob[\hefferon[2.21,2.22]]
-			Decide if the vector is in the set. If it is, what value of the
-			parameters produce that vector?
-			\begin{enumerate}
-				\item
-					$\mat{5\\-5}$ and
-					$\Set*{\vec v\in\R^2 \given
-					\vec v=k\mat{1\\-1}\text{ for some }k\in\R}$
-				\item $\mat{-1 \\ 2 \\ 1}$ and
-					$\Set*{\vec v\in\R^3\given
-						\vec v=i\mat{-2 \\ 1 \\ 0} +j\mat{3 \\ 0 \\ 1}
-						\text{ for some }i,j\in\R
-					}$
-					\item
-						$\mat{3 \\ -1}$ and $\Set*{ \vec v\in\R^2\given
-							\vec v=k\mat{-6 \\ 2}\text{ for some } k\in\R
-						}$
-					\item
-						$\mat{5 \\ 4}$ and
-						$\Set*{\vec v\in\R^2\given
-							\vec v=j\mat{5 \\ -4}\text{ for some }j\in\R
-						}$
-					\item $\mat{2 \\ 1 \\ -1}$ and
-						$\Set*{\vec v\in\R^3
-							\given \vec v= \mat{0 \\ 3 \\ -7} +r\mat{1 \\ -1 \\ 3}
-							\text{ for some }r\in\R
-						}$
-					\item $\mat{1 \\ 0 \\ 1}$ and
-						$\Set*{\vec v\in\R^3\given
-							\vec v= j\mat{2 \\ 0 \\ 1} +k\mat{-3 \\ -1 \\ 1}
-							\text{ for some }j,k\in\R
-						}$
-			\end{enumerate}
-
+		Decide if the vector is in the set. If it is, what value of the
+		parameters produce that vector?
+		\begin{enumerate}
+			\item $\mat{5\\-5}$ and the set
+			\[
+				\Set*{\vec{v}\in\R^2 \given \vec{v}=k\mat{1\\-1} \text{ for some } k\in\R}
+			\]
+			\item $\mat{-1\\2\\1}$ and the set
+			\[
+				\Set*{\vec{v}\in\R^3 \given
+				\vec{v}=i\mat{-2\\1\\0}+j\mat{3\\0\\1} \text{ for some } i,j\in\R}
+			\]
+			\item $\mat{3\\-1}$ and the set
+			\[
+				\Set*{\vec{v}\in\R^2 \given \vec{v}=k\mat{-6\\2} \text{ for some } k\in\R}
+			\]
+			\item $\mat{5\\4}$ and the set
+			\[
+				\Set*{\vec{v}\in\R^2 \given \vec{v}=j\mat{5\\-4} \text{ for some } j\in\R}
+			\]
+			\item $\mat{2\\1\\-1}$ and the set
+			\[
+				\Set*{\vec{v}\in\R^3 \given \vec{v}=r\mat{1\\-1\\3}+\mat{0\\3\\-7} \text{ for some } r\in\R}
+			\]
+			\item $\mat{1\\0\\1}$ and the set
+			\[
+				\Set*{\vec{v}\in\R^3 \given \vec{v}=j\mat{2\\0\\1}+k\mat{-3\\-1\\1} \text{ for some } j,k\in\R}
+			\]
+		\end{enumerate}
 		% Q3 solution
 		\begin{solution}
-		    \begin{enumerate}
+			\begin{enumerate}
 		        \item Yes, take $k=5$.
 		        \item Yes, take $i=2,j=1$.
 		        \item Yes, take $k=-\frac{1}{2}$.
@@ -97,26 +93,104 @@
 
 		% Conceptual (3 questions)
 		\prob
-			% Purpose: get students to understand (the beginnings of) scale-invariance
-			% of bases, as well as carefully reading mathematical expressions.
-			Draw the following sets of $\R^2$ and then determine which are equal or subsets of each other.
+		% Purpose: get students to understand (the beginnings of) scale-invariance
+		% of bases, as well as carefully reading mathematical expressions.
+		Draw the following subsets of $\R^2$ and then determine which are equal or subsets of each other.
+		\begin{enumerate}
+			\item $A=\Set*{\vec v\in\R^2\given \vec v=n\mat{2\\1}\text{ for some integer }n\in\Z}$
+			\item $B=\Set*{\vec v\in\R^2\given \vec v=t\mat{4\\2}\text{ for some }t\in\R}$
+			\item $C=\Set*{\vec v\in\R^2\given \vec v=n\mat{4\\2}\text{ for some integer }n\in\Z}$
+			\item $D=\Set*{\vec v\in\R^2\given \vec v=t\mat{2\\1}\text{ for some }t\in\R}$
+		\end{enumerate}
+		\begin{solution}
 			\begin{enumerate}
-				\item $A=\Set*{\vec v\in\R^2\given \vec v=n\mat{2\\1}\text{ for some integer }n\in\Z}$
-				\item $B=\Set*{\vec v\in\R^2\given \vec v=t\mat{4\\2}\text{ for some }t\in\R}$
-				\item $C=\Set*{\vec v\in\R^2\given \vec v=n\mat{4\\2}\text{ for some integer }n\in\Z}$
-				\item $D=\Set*{\vec v\in\R^2\given \vec v=t\mat{2\\1}\text{ for some }t\in\R}$
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-4,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={-4,-2,0,2,4},
+						ytick={-4,-2,0,2,4},
+						x=0.5cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+					\end{axis}
+					\foreach \n in {-2,...,2} {
+						\fill [mypink] (\n,\n/2) circle (2pt);
+					}
+				\end{tikzpicture}
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-4,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={-4,-2,0,2,4},
+						ytick={-4,-2,0,2,4},
+						x=0.5cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+						\draw [mygreen, thick] (-5,-2.5) -- (5,2.5);
+					\end{axis}
+				\end{tikzpicture}
+				\item 
+				\begin{tikzpicture}[baseline = (current bounding box.north)]
+					\begin{axis}[
+						anchor=origin,
+						disabledatascaling,
+						xmin=-4,xmax=4,
+						ymin=-4,ymax=4,
+						xtick={-4,-2,0,2,4},
+						ytick={-4,-2,0,2,4},
+						x=0.5cm,y=0.5cm,
+						grid=both,
+						grid style={line width=.1pt, draw=gray!10},
+						axis lines=middle,
+						minor tick num=0,
+						enlargelimits={abs=1.0},
+						axis line style={latex-latex},
+						ticklabel style={font=\tiny,fill=white},
+						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
+					]
+					\end{axis}
+					\foreach \n in {-1,...,1} {
+						\fill [mypink] (\n*2,\n) circle (2pt);
+					}
+				\end{tikzpicture}
+				\item 
+				The set $D$ and $B$ are equal.
 			\end{enumerate}
-			\begin{solution}
-				We have $C\subseteq A$, $C\subseteq B$, $C\subseteq D$,  $A\subseteq B$, $A\subseteq D$, and $B=D$.
-			\end{solution}
-		\prob Let $\vec a=\mat{1\\2}$, $\vec b=\mat{2\\4}$, $\vec c=\xhat+3\yhat$, and $\vec d=\vec a+\vec c$.
+			We have $C\subseteq A$, $C\subseteq B$, $C\subseteq D$,  $A\subseteq B$, $A\subseteq D$, and $B=D$.
+		\end{solution}
+
+		\prob
+		Let $\vec a=\mat{1\\2}$, $\vec b=\mat{2\\4}$, $\vec c=\xhat+3\yhat$, and $\vec d=\vec a+\vec c$.
 		\begin{enumerate}
 			\item Is $\xhat$ a linear combination of $\vec a$ and $\vec b$?
 			\item Is $\vec d$ a linear combination of $\vec a$ and $\vec b$?
 			\item Is $\vec p=\mat{1\\1}$ a linear combination of $\vec a$ and $\vec c$?
 			\item Is $\vec q=\mat{-3\\3}$ a linear combination of $\vec a$, $\vec b$, $\vec c$, and $\vec d$?
 		\end{enumerate}
-		
 		% Q5 Solutions
 		\begin{solution}
             \begin{enumerate}
@@ -127,7 +201,8 @@
 		    \end{enumerate}
 		\end{solution}
 		
-		\prob Use set-builder notation to describe the following sets.
+		\prob
+		Use set-builder notation to describe the following sets.
 		\begin{enumerate}
 			\item The set of vectors in $\R^{2}$ whose coordinates are rational numbers.
 
@@ -137,6 +212,13 @@
 			\item Let $P(\vec x) = \Set*{\vec x, -\vec x}$. The set $\Set*{P(\vec e_{1}), P(
         		\vec e_{2})}$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item $\Set*{\vec{v}\in\R^2 \given \vec{v}=\mat{\alpha\\\beta} \text{ for some } \alpha,\beta\in\Q}$
+				\item $\Set*{\vec{v}\in\R^2 \given \vec{v}=\mat{\alpha\\\beta} \text{ for some } \alpha,\beta\in\R\setminus\Q}$
+				\item $\Set*{\vec{v}\in\R^2 \given \vec{v}=\pm\vec{e}_1 \text{ or } \vec{v}=\pm\vec{e}_2}$
+			\end{enumerate}
+		\end{solution}
 
 		% Challenge (3 questions)
 		\prob % Propose: get students to understand quantifiers and set operations
@@ -167,8 +249,7 @@
 						\vec e_{2}$.
 				\end{enumerate}
 
-			\item $\mathcal{S}$, the set of vectors in $\R^{3}$ whose coordinates are $\pm
-				3$.
+			\item $\mathcal{S}$, the set of vectors in $\R^{3}$ whose coordinates are $\pm3$.
 				\begin{enumerate}
 					\item $\mathcal{S}$ is a finite set.
 
@@ -191,6 +272,28 @@
 						\vec 0$.
 				\end{enumerate}
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item 
+				\begin{enumerate}
+					\item False.
+					\item True.
+					\item False.
+					\item True.
+					\item True.
+					\item False.
+				\end{enumerate}
+				\item 
+				\begin{enumerate}
+					\item True.
+					\item False.
+					\item True.
+					\item True.
+					\item True.
+					\item False.
+				\end{enumerate}
+			\end{enumerate}
+		\end{solution}
 
 		\prob % Propose: Give students some practices on proving general statements about sets
 		For each of the following statements, determine whether it is correct or not. If
@@ -211,5 +314,16 @@
 			\item If $C \subseteq A \cup B$ and $C \subseteq B$, then $A \cap B
 				\subseteq C$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Correct.
+				\item Incorrect.
+				\item Incorrect.
+				\item Incorrect.
+				\item Correct.
+				\item Incorrect.
+				\item Incorrect.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}

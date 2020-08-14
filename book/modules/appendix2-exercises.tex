@@ -199,7 +199,6 @@
 			\end{enumerate}
 		\end{solution}
 
-
 		\prob For each system of linear equations given below: (i) write down
 		its augmented matrix, (ii) use row reduction algorithm to determine if it
 		is consistent or not, (iii) for each consistent system, give the complete
@@ -219,6 +218,282 @@
 
 			\item \systeme{0x+0y+0z=0}
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item[(a) i.]
+				\[
+					\begin{bmatrix}[ccc|c]
+						-10 & -4 & 4 & 28\\
+						3 & 1 & -1 & -8\\
+						1 & 1 & -1/2 & -3
+					\end{bmatrix}
+				\]
+				\item[(a) ii.]
+				\begin{align*}
+					\displaybreak[0]
+					&\begin{bmatrix}[ccc|c]
+						-10 & -4 & 4 & 28\\
+						3 & 1 & -1 & -8\\
+						1 & 1 & -1/2 & -3
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 1 & -1/2 & -3\\
+						3 & 1 & -1 & -8\\
+						-10 & -4 & 4 & 28
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 1 & -1/2 & -3\\
+						0 & -2 & 1/2 & 1\\
+						0 & 6 & -1 & -2
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 1 & -1/2 & -3\\
+						0 & 1 & -1/4 & -1/2\\
+						0 & 6 & -1 & -2
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 1 & -1/2 & -3\\
+						0 & 1 & -1/4 & -1/2\\
+						0 & 0 & 1/2 & 1
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 1 & -1/2 & -3\\
+						0 & 1 & -1/4 & -1/2\\
+						0 & 0 & 1 & 2
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 0 & 0 & -2\\
+						0 & 1 & 0 & 0\\
+						0 & 0 & 1 & 2
+					\end{bmatrix}
+				\end{align*}
+				\item[(a) iii.]
+				This system of linear equations is consistent. Its complete solution is
+				\[
+					\mat{x_1\\x_2\\x_3}=\mat{-2\\0\\2}.
+				\]
+				\item[(b) i.]
+				\[
+					\begin{bmatrix}[ccc|c]
+						3 & -2 & 4 & 54\\
+						5 & -3 & 6 & 88\\
+						1 & 0 & 0 & -3
+					\end{bmatrix}
+				\]
+				\item[(b) ii.]
+				\begin{align*}
+					\displaybreak[0]
+					&\begin{bmatrix}[ccc|c]
+						3 & -2 & 4 & 54\\
+						5 & -3 & 6 & 88\\
+						1 & 0 & 0 & -3
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 0 & 0 & -3\\
+						5 & -3 & 6 & 88\\
+						3 & -2 & 4 & 54
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 0 & 0 & -3\\
+						0 & -3 & 6 & 103\\
+						0 & -2 & 4 & 63
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 0 & 0 & -3\\
+						0 & 1 & -2 & -103/3\\
+						0 & -2 & 4 & 63
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[ccc|c]
+						1 & 0 & 0 & -3\\
+						0 & 1 & -2 & -103/3\\
+						0 & 0 & 0 & -17/3
+					\end{bmatrix}
+				\end{align*}
+				\item[(b) iii.]
+				This system of linear equations is inconsistent.
+				\item[(c) i.]
+				\[
+					\begin{bmatrix}[cc|c]
+						1 & 2 & 5
+					\end{bmatrix}
+				\]
+				\item[(c) ii.]
+				The augmented matrix of this system of linear equations is already in reduced row echelon form.
+				\item[(c) iii.]
+				This system of linear equations is consistent. Its complete solution is
+				\[
+					\mat{x\\y}=t\mat{-2\\1}+\mat{5\\0}.
+				\]
+				\item[(d) i.]
+				\[
+					\begin{bmatrix}[c|c]
+						4 & 6\\
+						2 & 3
+					\end{bmatrix}
+				\]
+				\item[(d) ii.]
+				\[
+					\begin{bmatrix}[c|c]
+					4 & 6\\
+					2 & 3
+					\end{bmatrix}
+					\rightarrow
+					\begin{bmatrix}[c|c]
+					1 & 3/2\\
+					2 & 3
+					\end{bmatrix}
+					\rightarrow
+					\begin{bmatrix}[c|c]
+					1 & 3/2\\
+					0 & 0
+					\end{bmatrix}
+				\]
+				\item[(d) iii.]
+				This system of linear equations is consistent. Its complete solution is $x=3/2$.
+				\item[(e) i.]
+				\[
+					\begin{bmatrix}[cccc|c]
+						1 & 2 & 4 & -3 & 0\\
+						3 & 5 & 6 & -4 & 1\\
+						4 & 5 & -2 & 3 & 3
+					\end{bmatrix}
+				\]
+				\item[(e) ii.]
+				\begin{align*}
+					\displaybreak[0]
+					&\begin{bmatrix}[cccc|c]
+						1 & 2 & 4 & -3 & 0\\
+						3 & 5 & 6 & -4 & 1\\
+						4 & 5 & -2 & 3 & 3
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & 2 & 4 & -3 & 0\\
+						0 & -1 & -6 & 5 & 1\\
+						0 & -3 & -18 & 15 & 3
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & 2 & 4 & -3 & 0\\
+						0 & 1 & 6 & -5 & -1\\
+						0 & -3 & -18 & 15 & 3
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & 2 & 4 & -3 & 0\\
+						0 & 1 & 6 & -5 & -1\\
+						0 & 0 & 0 & 0 & 0
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & 0 & -8 & 7 & 2\\
+						0 & 1 & 6 & -5 & -1\\
+						0 & 0 & 0 & 0 & 0
+					\end{bmatrix}
+				\end{align*}
+				\item[(e) iii.]
+				This system of linear equations is consistent. Its complete solution is
+				\[
+					\mat{x_1\\x_2\\x_3\\x_4}=t\mat{8\\-6\\1\\0}+s\mat{-7\\5\\0\\1}+\mat{2\\-1\\0\\0}.
+				\]
+				\item[(f) i.]
+				\[
+					\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						1 & 1 & -2 & 3 & 3\\
+						3 & -1 & 8 & 1 & 5\\
+						1 & 3 & -9 & 7 & 5
+					\end{bmatrix}
+				\]
+				\item[(f) ii.]
+				\begin{align*}
+					\displaybreak[0]
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						1 & 1 & -2 & 3 & 3\\
+						3 & -1 & 8 & 1 & 5\\
+						1 & 3 & -9 & 7 & 5
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						0 &  & -2 & 3 & 3\\
+						3 & -1 & 8 & 1 & 5\\
+						1 & 3 & -9 & 7 & 5
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						0 & 2 & -7 & 2 & 2\\
+						0 & 2 & -7 & -2 & 2\\
+						0 & 4 & -14 & 6 & 4
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						0 & 1 & -7/2 & 1 & 1\\
+						0 & 2 & -7 & -2 & 2\\
+						0 & 4 & -14 & 6 & 4
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						0 & 1 & -7/2 & 1 & 1\\
+						0 & 0 & 0 & -4 & 0\\
+						0 & 0 & 0 & 2 & 0
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						0 & 1 & -7/2 & 1 & 1\\
+						0 & 0 & 0 & 1 & 0\\
+						0 & 0 & 0 & 2 & 0
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & -1 & 5 & 1 & 1\\
+						0 & 1 & -7/2 & 1 & 1\\
+						0 & 0 & 0 & 1 & 0\\
+						0 & 0 & 0 & 0 & 0
+					\end{bmatrix}\\
+					\rightarrow
+					&\begin{bmatrix}[cccc|c]
+						1 & 0 & 3/2 & 0 & 2\\
+						0 & 1 & -7/2 & 0 & 1\\
+						0 & 0 & 0 & 1 & 0\\
+						0 & 0 & 0 & 0 & 0
+					\end{bmatrix}
+				\end{align*}
+				\item[(f) iii.]
+				This system of linear equations is consistent. Its complete solution is
+				\[
+					\mat{x_1\\x_2\\x_3\\x_4}=t\mat{-3/2\\7/2\\1\\0}+\mat{2\\1\\0\\0}.
+				\]
+				\item[(g) i.]
+				\[
+					\begin{bmatrix}[ccc|c]
+						0 & 0 & 0 & 0
+					\end{bmatrix}
+				\]
+				\item[(g) ii.]
+				The augmented matrix of this system of linear equations is already in reduced row echelon form.
+				\item[(g) iii.]
+				This system of linear equations is consistent. Its complete solution is
+				\[
+					\mat{x\\y\\z}=t\mat{1\\0\\0}+s\mat{0\\1\\0}+r\mat{0\\0\\1}.
+				\]
+			\end{enumerate}
+		\end{solution}
 
 		\prob 
 		\label{QSETUPEQUATIONS}

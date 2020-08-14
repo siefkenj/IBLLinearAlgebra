@@ -18,9 +18,9 @@
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
-				\item Linearly dependent
-				\item $\Span(A)$ is the plane $\Set*{\mat{x \\y \\0} \in\R^3: x,y\in\R}$
-				\item Yes. If B = $A\cup\Set*{\mat{0\\0\\1}}$, then $\Span(B)=\R^3$
+				\item $A$ is linearly dependent.
+				\item $\Span(A)$ is the plane $\Set*{\mat{x \\y \\0} \in\R^3: x,y\in\R}$.
+				\item Yes. If $A'=A\cup\Set*{\mat{0\\0\\1}}$, then $\Span(A')=\R^3$.
 			\end{enumerate}
 		\end{solution}
 		
@@ -76,7 +76,7 @@
 		\begin{solution}
 			\begin{enumerate}
 				\item
-				\begin{enumerate*}
+				\begin{enumerate}
 					\item Linearly Independent
 					\item Linearly Dependent
 					\item Linearly Independent
@@ -87,7 +87,7 @@
 					\item Linearly Independent
 					\item Linearly Independent
 					\item Linearly Dependent
-				\end{enumerate*}
+				\end{enumerate}
 				\item Linearly Dependent
 				\item No. The solutions to the vector equation
 				$\alpha_{1}\vec x_{1}+\alpha_{2}\vec x_{2}+\ldots+\alpha_{n+1}\vec x_{n+1}=0$
@@ -156,25 +156,25 @@
 					\item $\Span\Set*{\mat{0\\-1}}$
 					\item $\Span\Set*{\mat{3\\-2}}$
 					\item $\Span\Set*{\mat{4\\5}}$
-					\item Not possible since \[\mat{0\\0}\notin \Set*{\mat{x\\y}\in \R^2: -x-y=-1}.\]
+					\item Not possible since $\mat{0\\0}$ is not on the line.
 					\item Not possible since $\mat{0\\0}$ is not on the line.
 				\end{enumerate}
 				\item
-				\ref{PROBSET3-R2-iv} $\Span\Set*{\mat{1\\-1}} + \Set*{\mat{1\\0}}$;
-				\ref{PROBSET3-R2-v} $\Span\Set*{\mat{5\\3}} + \Set*{\mat{8/9\\0}}$
+				\ref{PROBSET3-R2-iv}: $\Span\Set*{\mat{1\\-1}} + \Set*{\mat{1\\0}}$\\
+				\ref{PROBSET3-R2-v}: $\Span\Set*{\mat{5\\3}} + \Set*{\mat{8/9\\0}}$
 				\item 
 				\begin{enumerate}
-					\item Impossible since $\vec 0$ is not in the plane.
+					\item Not possible since $\vec 0$ is not in the plane.
 					\item $\Span\Set*{\mat{6\\-1\\0}, \mat{1\\0\\1}}$
 					\item $\Span\Set*{\mat{3\\0\\-1}, \mat{0\\1\\0}}$
 					\item Impossible since $\vec 0$ is not in the plane.
 					\item $\Span\Set*{\mat{0\\1\\0}}$
-					\item Impossible since $\vec 0$ is not in the plane.
+					\item Not possible since $\vec 0$ is not in the plane.
 				\end{enumerate}
 				\item 
-					\ref{PROBSET3-R3-i} $\Span\Set*{\mat{1\\2\\0}, \mat{0\\1\\1}} + \Set*{\mat{2\\0\\0}}$;
-					\ref{PROBSET-R3-iv} $\Span\Set*{\mat{1\\0\\0}, \mat{0\\0\\1}} + \Set*{\mat{0\\1\\0}}$;
-					\ref{PROBSET3-R3-vi} $\Span\Set*{\mat{1\\2\\0}} + \Set*{\mat{1\\0\\-1}}$
+				\ref{PROBSET3-R3-i}: $\Span\Set*{\mat{1\\2\\0}, \mat{0\\1\\1}} + \Set*{\mat{2\\0\\0}}$\\
+				\ref{PROBSET-R3-iv}: $\Span\Set*{\mat{1\\0\\0}, \mat{0\\0\\1}} + \Set*{\mat{0\\1\\0}}$\\
+				\ref{PROBSET3-R3-vi}: $\Span\Set*{\mat{1\\2\\0}} + \Set*{\mat{1\\0\\-1}}$
 			\end{enumerate}
 		\end{solution}
 		
@@ -203,7 +203,7 @@
 		\begin{solution}
 			The set is linearly dependent since: $\mat{6\\4\\11}=
 			\mat{2\\0\\7}+ 4\mat{1\\1\\1}$ (geometric) or
-			$\mat{2\\0\\7}+ 4\mat{1\\1\\1}+ (-1)\mat{6\\4\\11}=\vec 0$.
+			$\mat{2\\0\\7}+ 4\mat{1\\1\\1}+ (-1)\mat{6\\4\\11}=\vec 0$ (algebraic).
 		\end{solution}
 		
 		\prob Choose vectors $\vec p$, $\vec d_{1}$, $\vec d_{2}$,
@@ -219,7 +219,6 @@
 			\item The point $(2,2,2,3)$.
 		\end{enumerate}
 		\begin{solution}
-			$\vec {x} = t_{1}\vec {d}_{1}+t_{2}\vec {d}_{2}+t_{3}\vec {d}_{3}+t_{4}\vec {d}_{4}+\vec {p}$
 			\begin{enumerate}
 				\item $\vec{d}_{1}= \mat{1\\0\\0\\0}$,
 				$\vec{d}_{2}= \mat{0\\1\\0\\0}$, $\vec{d}_{3}=\mat{0\\0\\1\\0}$,
@@ -239,7 +238,7 @@
 		\begin{solution}
 			The set $A$ is linearly independent. Since $A$ contains no vectors, there is no way to
 			write $\vec 0$ as a non-trivial linear combination of vectors in $A$. However, $B$ is linearly
-			dependent, since $\vec 0=7\vec 0$ is a non-trivial linear combination of vectors in $B$ that give
+			dependent, since $\vec 0=7\vec 0$ is a non-trivial linear combination of vectors in $B$ that gives
 			the zero vector.
 		\end{solution}
 		
@@ -550,7 +549,7 @@
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
-				\item True by the geometric definition of linear dependence.
+				\item True. This follows from the geometric definition of linear dependence.
 				\item False. $\Set*{\mat{1\\0},\mat{0\\0},\mat{0\\1}}$ is linearly
 				dependent, but $\mat{1\\0}$ is not a linear combination of $\mat{0\\0}$ and $\mat{0\\1}$.
 				\item True. $\vec{v}_{1}$ is a linear combination of $\vec{v}_{2}$ and so 
