@@ -15,11 +15,11 @@
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate*}
-				\item 78 
-				\item 2 
-				\item 57 
-				\item 12 
-				\item -1 
+				\item $78$
+				\item $2$
+				\item $57$
+				\item $12$
+				\item $-1$
 			\end{enumerate*}
 		\end{solution}
 		\prob Compute the length of the following vectors.
@@ -30,7 +30,7 @@
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate*}
-				\item 2 
+				\item $2$
 				\item $\sqrt{14}$ 
 				\item $4\sqrt{290}$ 
 			\end{enumerate*}
@@ -58,13 +58,13 @@
 			\item $\mat{0\\1\\1\\\frac{1}{2}}$
 		\end{enumerate}
 		\begin{solution}
-			\begin{enumerate*}
+			\begin{enumerate}
 				\item $\mat{1\\0}$ and $\mat{-1\\0}$
 				\item $\dfrac{1}{\sqrt{5}}\mat{2\\-1}$ and $\dfrac{1}{\sqrt{5}}\mat{-2\\1}$
 				\item $\dfrac{1}{\sqrt{10}}\mat{3\\-1\\0}$ and $\dfrac{1}{\sqrt{26}}\mat{5\\0\\-1}$
 				\item $\dfrac{1}{\sqrt{6}}\mat{1\\-2\\1}$ and $\dfrac{1}{\sqrt{41}}\mat{0\\5\\4}$
 				\item $\mat{1\\0\\0\\0}$ and $\dfrac{1}{\sqrt{2}}\mat{0\\1\\-1\\0}$
-			\end{enumerate*}
+			\end{enumerate}
 		\end{solution}
 		
 		\prob Compute the distance between the following pairs of vectors.
@@ -247,5 +247,20 @@
 			\item Suppose $\mathcal{A}$ is a set of mutually orthogonal and non-zero
 				vectors. Is $\mathcal{A}$ a linearly independent set? Why or Why not?
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item $\mathcal{A}$ is linearly dependent if $\vec{0}\in\mathcal{A}$, and is linearly independent otherwise.
+				\item 
+				Suppose
+				\[
+					\alpha_1\vec{v}_1+\cdots+\alpha_n\vec{v}_n=\vec{0}
+				\]
+				for some $\alpha_{1}, \dots, \alpha_{n}\in\R$.
+				
+				For any $i=1, \dots, n$, take the dot product of $\vec{v}_i$ with both sides of this equation, we have $\alpha_i\Norm{\vec{v_i}}^2=0$. Since $\vec{v}_i$ is a non-zero vector, this implies that $\alpha_i=0$.
+				
+				Then, $\alpha_1=\cdots=\alpha_n=0$ and therefore $\mathcal{A}$ is linearly independent.
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises}

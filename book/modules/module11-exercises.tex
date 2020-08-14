@@ -38,19 +38,25 @@
 					\end{align*}
 
 				\item $\rref(M_{2})=\mat{1&0&4/3\\0&1&1/2}$.
-					$$\Null(M_{2})=\Span\Set*{\mat{4/3\\1/2\\-1}}$$
-					$$\Col(M_{2})=\Span\Set*{\mat{0\\3},\mat{2\\2}}=\R^{2}$$
-					$$\Row(M_{2})=\Span\Set*{\mat{0\\2\\1},\mat{3\\2\\5}}$$
+					\begin{align*}
+					\Null(M_{2})&=\Span\Set*{\mat{4/3\\1/2\\-1}}\\
+					\Col(M_{2})&=\Span\Set*{\mat{0\\3},\mat{2\\2}}=\R^{2}\\
+					\Row(M_{2})&=\Span\Set*{\mat{0\\2\\1},\mat{3\\2\\5}}
+					\end{align*}
 
 				\item $\rref(M_{3})=\mat{1&0\\0&1\\0&0}$.
-					$$\Null(M_{3})=\Set*{\mat{0\\0}}$$
-					$$\Col(M_{3})=\Span\Set*{\mat{1\\3\\4},\mat{2\\1\\0}}$$
-					$$\Row(M_{3})=\Span\Set*{\mat{1\\2},\mat{3\\1}}=\R^{2}$$
+					\begin{align*}
+					\Null(M_{3})&=\Set*{\mat{0\\0}}\\
+					\Col(M_{3})&=\Span\Set*{\mat{1\\3\\4},\mat{2\\1\\0}}\\
+					\Row(M_{3})&=\Span\Set*{\mat{1\\2},\mat{3\\1}}=\R^{2}
+					\end{align*}
 
 				\item $\rref(M_{4})=I_{4\times4}$.
-					$$\Null(M_{4})=\Set*{\mat{0\\0\\0\\0}}$$
-					$$\Col(M_{4})=\R^{4}$$
-					$$\Row(M_{4})=\R^{4}$$
+					\begin{align*}
+					\Null(M_{4})&=\Set*{\mat{0\\0\\0\\0}}\\
+					\Col(M_{4})&=\R^{4}\\
+					\Row(M_{4})&=\R^{4}
+					\end{align*}
 			\end{enumerate}
 		\end{solution}
 
@@ -67,44 +73,30 @@
 		\begin{solution}
 
 			\begin{enumerate}
-				\item $\Range(T)=\mathcal{P}$ For any vector $\vec x \in
-					\mathcal{P}$; $T(\vec x) = \vec x$ So,
-					$\vec x\in \text{Image}(T) \implies \mathcal{P}\subseteq
-					\Range(T)$
+				\item
+				Since $T$ is the projection onto $\mathcal{P}$, $T(\vec{x})=\vec{x}$ for any $\vec{x}\in\mathcal{P}$ and thus $\mathcal{P}\subseteq\Range(T)$.
+				
+				Let $\vec{y}\in\Range(T)$. This means that $\vec{y}=T(\vec{x})$ for some $\vec{x}\in\R^3$. By definition of a projection, $\vec{y}$ is the closest point in $\mathcal{P}$ to $\vec{x}$, so $\vec{y}\in\mathcal{P}$ and thus $\Range(T)\subseteq\mathcal{P}$.
+				
+				This shows that $\Range(T)=\mathcal{P}$.
+				
+				Since $\Range(T)=\mathcal{P}$ is a plane, we have $\Rank(T)=\Dim(\Range(T))=\Dim(\mathcal{P})=2$.
 
-					Let $\vec{y}\in$ Range $(T) \Rightarrow$ There is
-					an input $\vec{a}\in \mathbb{R}^{3}$ such that
-					$T(\vec{a})=\vec{y}$. By definition of projection,
-					the closest point to $\vec{a}$ in $\mathcal{P}$ is
-					$\vec{y}$. In particular, $\vec{y}$ is a point in
-					$\mathcal{P}$. $\Rightarrow \vec{y}\in P$
-
-					Thus Range $(T) \subseteq \mathcal{P},$ and hence $\mathcal{P}=$
-					Range $(T)$
-
-					$\mathcal{P}$ is a plane through origin in $\mathbb{R}^{3}$;
-					So it is a 2 dimensional subspace of
-					$\mathbb{R}^{3}$. dim $\mathcal{P}=2$
-
-					$\implies \Dim \Range(T) = \Rank(T)=2$
-
-				\item By the rank-nullity theorem, $\Rank(T)+\Nullity(T) =
-					\Dim(\text{domain of }T)$
-					\[
-						\implies 2+\Nullity(T)=3 \implies \Nullity(T)=1
-					\]
-
-
-					Notice that the vector $\vec n = \mat{3\\4\\5}$ is
-					normal to P.
-
-					Thus, the projection of $\vec n$ onto P is $\vec 0$;
-					i.e. $T(\vec n) =\vec 0$
-
-					So, $\vec n\in \Null(T)$. Since $\Nullity(T)=1, \;\Null(T)$
-					is a 1 dimensional subspace.
-
-					Hence, $\Null(T) = \Span\Set*{\mat{3\\4\\5}}$
+				\item
+				By the rank-nullity theorem,
+				\[
+					\Rank(T)+\Nullity(T)=\Dim(\text{domain of $T$}).
+				\]
+				
+				Thus,
+				\[
+					\Nullity(T)=\Dim(\text{domain of $T$})-\Rank(T)=3-2=1.
+				\]
+				
+				Since $\vec{n}=\mat{3\\4\\5}$ is normal to $\mathcal{P}$, we have $T(\vec{n})=\vec{0}$ and thus $\vec{n}\in\Null(T)$. Since $\Nullity(T)=1$ and $\vec{n}$ is a non-zero vector in $\Null(T)$, we have
+				\[
+					\Null(T)=\Span\Set*{\mat{3\\4\\5}}.
+				\]
 			\end{enumerate}
 		\end{solution}
 
@@ -132,32 +124,32 @@
 		\begin{solution}
 
 			\begin{enumerate}
-				\item Similar to Problem 2.(a)
-					$\Range(P) = \Set*{\text{line given by the
-					equation } y=x}= \Span\Set*{\mat{1\\1}}$
-					$\Null(P) = \Set*{\text{line given by the equation }
-					y=-x}= \Span\Set*{\mat{1\\-1}}$
+				\item Similar to Problem 2.(a),
+					\begin{align*}
+					\Range(P)&=\Set*{\text{line given by the equation } y=x}\\
+					&=\Span\Set*{\mat{1\\1}}\\
+					\Null(P)&=\Set*{\text{line given by the equation } y=-x}\\
+					&=\Span\Set*{\mat{1\\-1}}
+					\end{align*}
 
 				\item Notice that if we have a non-zero vector, after rotation
 					the vector still remains non-zero as rotation does
 					not change magnitude of vectors. Thus, $\Null(R)=\Set*{\mat{0\\0}}$.
-					From the rank-nullity theorem, $\Rank(R) = 2$
-					$\implies \Range(R) = \R^{2}$
+					From the rank-nullity theorem, $\Rank(R) = 2$ implies that $\Range(R) = \R^{2}$.
 
-				\item So, $F\mat{x\\y}= \mat{x\\-y}$. Thus,
-					$F\mat{x\\y}= \mat{0\\0}\implies x=0, \; y=0$
+				\item Since $F\mat{x\\y}= \mat{x\\-y}$, if $F\mat{x\\y}= \mat{0\\0}$, then $x=y=0$.
 					Thus, $\Null(F)=\Set*{\mat{0\\0}}$. From the rank-nullity
-					theorem, $\Rank(F) = 2$ $\implies \Range(F) = \R^{2}$
+					theorem, $\Rank(F)=2$ implies that $\Range(F)=\R^{2}$.
 
 				\item Let M be the matrix of the transformation $\mathcal{M}$.
 					$\Rref(M)= \mat{1&0&-1\\0&1&2\\0&0&0}$ So,
 					$\Range(M)=\Col(M)=\Span\Set*{\mat{1\\4\\7},\mat{2\\5\\8}}$
-					$\Null(M)=\Span\Set*{\mat{1\\-2\\1}}$
+					and $\Null(M)=\Span\Set*{\mat{1\\-2\\1}}$.
 
-				\item Notice, $\Range(Q)\subseteq \R^{1}$ For any $t\in\R^{1},
-					\; Q\mat{t\\0\\0}=t+0=t \implies t \in \Range(Q)$ Hence,
-					$\Range(Q) = \R^{1}$ For $\vec x \in \R^{3}, \; Q(\vec
-					x) = \vec 0 \implies Q\mat{x\\y\\z}=0 \implies x+z=0$
+				\item Notice that $\Range(Q)\subseteq\R$. For any $t\in\R^{1}$, we have
+					$Q\mat{t\\0\\0}=t+0=t$ and thus $t\in\Range(Q)$. Hence,
+					$\Range(Q) = \R^{1}$. For $\vec x \in \R^{3}$, $Q(\vec
+					x)=Q\mat{x\\y\\z}=x+z=0$.
 					Thus, $\Null(Q)$ is the plane given by the equation
 					$x+z=0$ Alternatively, $\Null(Q) = \Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\0}}$
 			\end{enumerate}
@@ -280,10 +272,9 @@
 			\begin{enumerate}
 				\item $\mat{1&0&0\\0&1&0\\0&0&0}$
 				\item The range of $\mathcal{P}$ is the $xy$-plane.
-				\item The column space of $M_\mathcal{P}$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$ which is the $xy$-plane. The column space of a matrix is the same as the range of its induced transformation.
-				\item The null space of $\mathcal{P}$ and $M_\mathcal{P}$ is $\Span\Set*{\mat{0\\0\\1}}$ which is the $z$-axis. The null space of a matrix is the same as the null space of its induced transformation.
+				\item The column space of $M_\mathcal{P}$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$, which is the $xy$-plane. The column space of a matrix is the same as the range of its induced transformation.
+				\item The null space of $\mathcal{P}$ and $M_\mathcal{P}$ is $\Span\Set*{\mat{0\\0\\1}}$, which is the $z$-axis. The null space of a matrix is the same as the null space of its induced transformation.
 			\end{enumerate}
 		\end{solution}
-
 	\end{problist}
 \end{exercises}

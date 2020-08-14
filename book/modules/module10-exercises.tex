@@ -42,24 +42,30 @@
 		\begin{solution}
 
 			\begin{enumerate}
-				\item $(\mathcal R \circ \mathcal P)(\mat{1\\0}) = \mat{0\\0}$,
-					$(\mathcal R \circ \mathcal P)(\mat{0\\1}) = \mat{\tfrac{1}{\sqrt{2}}\\
-					-\tfrac{1}{\sqrt{2}}}$, $(\mathcal P \circ \mathcal
-					R)(\mat{1\\0}) = \mat{0\\ -\tfrac{1}{\sqrt{2}}}$,
-					$(\mathcal P \circ \mathcal R)(\mat{0\\1}) = \mat{0\\
-					- \tfrac{1}{\sqrt{2}}}$. We can use the effect of the
+				\item 
+					\begin{align*}
+						(\mathcal R \circ \mathcal P)\left(\mat{1\\0}\right)=\mat{0\\0},\quad
+						(\mathcal R \circ \mathcal P)\left(\mat{0\\1}\right)=\mat{\tfrac{1}{\sqrt{2}}\\-\tfrac{1}{\sqrt{2}}}\\
+						(\mathcal P \circ \mathcal R)\left(\mat{1\\0}\right)=\mat{0\\-\tfrac{1}{\sqrt{2}}},\quad
+						(\mathcal P \circ \mathcal R)\left(\mat{0\\1}\right)=\mat{0\\-\tfrac{1}{\sqrt{2}}}
+					\end{align*}
+					We can use the effect of the
 					transformation on the standard basis to compute the
 					matrix.
-
-
 					\begin{enumerate}
-						\item $M_{R\circ P}= \mat{\mathcal R(\mathcal
-							P(\xhat))& \mathcal R( \mathcal P(\yhat))}=
-							\mat{0&\tfrac{1}{\sqrt{2}}\\0&-\tfrac{1}{\sqrt{2}}}$
+						\item 
+							\begin{align*}
+							M_{R\circ P}= \mat{\mathcal R(\mathcal
+								P(\xhat))& \mathcal R( \mathcal P(\yhat))}=
+							\mat{0&\tfrac{1}{\sqrt{2}}\\0&-\tfrac{1}{\sqrt{2}}}
+							\end{align*}
 
-						\item $M_{P\circ R}= \mat{\mathcal P(
-							\mathcal R(\xhat))& \mathcal P(\mathcal
-							R(\yhat))}= \mat{0&0\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}$
+						\item 
+							\begin{align*}
+							M_{P\circ R}= \mat{\mathcal P(
+								\mathcal R(\xhat))& \mathcal P(\mathcal
+								R(\yhat))}= \mat{0&0\\-\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}}
+							\end{align*}
 
 						\item Since $M_{\mathcal U}=M_{\mathcal P
 							\circ \mathcal R}$ and $\tfrac{1}{\sqrt{2}}=\tfrac{\sqrt{2}}{2}$,
@@ -68,10 +74,14 @@
 							\mathcal R$.
 					\end{enumerate}
 
-				\item $(\mathcal F \circ \mathcal S)(\mat{1\\0}) = \mat{0\\2}$,
-					$(\mathcal F \circ \mathcal S)(\mat{0\\1}) = \mat{2\\0}$,
-					$(\mathcal S \circ \mathcal F)(\mat{1\\0}) = \mat{0\\2}$,
-					$(\mathcal S \circ \mathcal F)(\mat{0\\1}) = \mat{2\\0}$.
+				\item
+					\begin{align*}
+						(\mathcal F \circ \mathcal S)\left(\mat{1\\0}\right) = \mat{0\\2},\quad
+						(\mathcal F \circ \mathcal S)\left(\mat{0\\1}\right) = \mat{2\\0}\\
+						(\mathcal S \circ \mathcal F)\left(\mat{1\\0}\right) = \mat{0\\2},\quad
+						(\mathcal S \circ \mathcal F)\left(\mat{0\\1}\right) = \mat{2\\0}
+					\end{align*}
+					
 					We can use the effect of the transformation on the
 					standard basis to compute the matrix.
 					\begin{enumerate}
@@ -111,13 +121,14 @@
 		\begin{solution}
 
 			\begin{enumerate}
-				\item $M_{\mathcal T}\mat{1\\0}= M_{\mathcal A}M_{\mathcal
-					B}\mat{1\\0}= M_{\mathcal A}\mat{3&2\\0&4}\mat{1\\0}=
-					\mat{2&2\\1&3}\mat{3\\0}= \mat{6\\3}$ \\ $M_{\mathcal
-					T}\mat{0\\1}= M_{\mathcal A}M_{\mathcal B}\mat{0\\1}=
-					M_{\mathcal A}\mat{3&2\\0&4}\mat{0\\1}= \mat{2&2\\1&3}\mat{2\\4}=
-					\mat{12\\14}$. Therefore
-					$M_{\mathcal T}= \mat{6&12\\3&14}$
+				\item 
+				\begin{align*}
+					M_{\mathcal{T}}\mat{1\\0}&=M_{\mathcal A}M_{\mathcal{B}}\mat{1\\0}=M_{\mathcal A}\mat{3&2\\0&4}\mat{1\\0}\\
+					&=\mat{2&2\\1&3}\mat{3\\0}=\mat{6\\3}\\
+					M_{\mathcal{T}}\mat{0\\1}&=M_{\mathcal A}M_{\mathcal B}\mat{0\\1}=M_{\mathcal A}\mat{3&2\\0&4}\mat{0\\1}\\
+					&=\mat{2&2\\1&3}\mat{2\\4}=\mat{12\\14}
+				\end{align*}
+				Therefore, $M_{\mathcal T}=\mat{6&12\\3&14}$.
 
 				\item $M_{\mathcal T}= M_{\mathcal A}M_{\mathcal B}= \mat{2&2\\1&3}\mat{3&2\\0&4}=
 					\mat{6&12\\3&14}$
@@ -145,8 +156,11 @@
 		\begin{solution}
 
 			\begin{enumerate}
-				\item $\mathcal T = \mathcal B \circ \mathcal A$, thus
-					$\mathcal T : \R^{3}\to \R$. \\ $\mathcal T \mat{1\\0\\0}=
+				\item 
+					$\mathcal T = \mathcal B \circ \mathcal A$, thus
+					$\mathcal T : \R^{3}\to \R$.
+					
+					$\mathcal T \mat{1\\0\\0}=
 					(\mathcal B \circ \mathcal A) \mat{1\\0\\0}=
 					\mathcal B \mat{2\\2}= 10$
 
@@ -155,6 +169,7 @@
 
 					$\mathcal T \mat{0\\0\\1}= (\mathcal B \circ \mathcal
 					A) \mat{0\\0\\1}= \mathcal B \mat{0\\0}= 0$.
+					
 					Therefore $M_{\mathcal T}= \mat{10&9&0}$
 
 				\item $M_{\mathcal T}= M_{\mathcal B}M_{\mathcal A}= \mat{3&2}\mat{2&1&0\\2&3&0}=
