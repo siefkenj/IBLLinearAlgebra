@@ -19,24 +19,21 @@
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
-				\item It is a linear equation.
+				\item Linear equation.
 
-				\item It is a linear equation.
+				\item Linear equation.
 
-				\item It is not a linear equation, because it involves $\cos(y)$,
-					the cosine of a variable.
+				\item Not a linear equation because of the $\cos(y)$ term.
 
-				\item It is not a linear equation, because it involves $xy$, a product
-					of two variables.
+				\item Not a linear equation because of the $3xy$ term.
 
-				\item It is a linear equation.
+				\item Linear equation.
 
-				\item It is not a linear equation, because it involves
-					$\mathrm{e}^{x}$, the natural exponential of a variable. It
-					also involves a nonlinear $2^{x+y}$.
+				\item Linear equation because applying $\ln$ to both sides gives $x=(\ln 2)(x+y)$, which is linear.
 
-				\item If is not a linear equation, because it involves dividing
-					a variable.
+				\item Not a linear equation because of the $\frac{x}{y}$ term. Note that it is \emph{almost} equivalent to the equation $x=y$, but they are not equivalent because \(
+						x  =  0,y = 0
+					\) is a solution to the latter equation but not the former.
 			\end{enumerate}
 		\end{solution}
 
@@ -101,13 +98,9 @@
 					\[
 						x\mat{2 \\ 4}+y\mat{8 \\ 16}=\mat{7 \\ 14}.
 					\]
-					Convert it to a system of linear equations:
+					Converting it to a system of linear equations and row reducing we get
 					\[
-						\systeme{2x+8y=7,4x+16y=14}.
-					\]
-					Row reduce this system, and we get
-					\[
-						\systeme{x+4y=3.5, 0x+0y=0}.
+						\systeme{2x+8y=7,4x+16y=14}\rightarrow \systeme{x+4y=3.5, 0x+0y=0}.
 					\]
 					The solution to this system is then
 					\[
@@ -119,9 +112,7 @@
 					This system is consistent.
 
 				\item There are vectors $\vec{b}$ that makes the system consistent.
-					For instance, $\vec b=\mat{5 \\ 10}$ is such a vector. In
-					general, any vector $\vec b$ with $\vec b=\mat{t \\ 2t}$ for
-					some $t\in\mathbb{R}$ makes the system consistent. Since
+					For instance, any vector $\vec b = \vec b=\mat{t \\ 2t}$ where $t\in\mathbb{R}$ makes the system consistent. Since
 					there are infinitely many real numbers, we conclude that there
 					are infinitely many vectors $\vec b$ that makes the system consistent.
 
@@ -130,20 +121,15 @@
 					\[
 						x\mat{2 \\ 4}+y\mat{8 \\ 16}=\mat{5 \\ 12}.
 					\]
-					Convert it to a system of linear equations:
+					Converting it to a system of linear equations and row reducing we get
 					\[
-						\systeme{2x+8y=5,4x+16y=12}.
-					\]
-					Row reduce this system, and we get
-					\[
-						\systeme{x+4y=2.5, 0x+0y=2}.
+						\systeme{2x+8y=5,4x+16y=12} \rightarrow \systeme{x+4y=2.5, 0x+0y=2}.
 					\]
 					This system is inconsistent.
 
 				\item There are vectors $\vec b$ that makes the system inconsistent.
 					For instance, $\mat{10 \\ 24}$ is is such a vector. In
-					general, any vector $\vec b$ with $\vec b=\mat{5t \\ 12t}$ for
-					some $t\in\mathbb{R}$ ($t\ne 0$) makes the system inconsistent.
+					general, any vector $\vec b$ with $\vec b=\mat{5t \\ 12t}$ where $t\in\mathbb{R}$ ($t\ne 0$) makes the system inconsistent.
 					Since there are infinitely many real numbers, we conclude that
 					there are infinitely many vectors $\vec b$ that makes the system
 					inconsistent.
@@ -194,15 +180,18 @@
 						\systeme{x+y=35, 2x+4y=94}.
 					\]
 
-				\item Row reduce the system in (a), and we get
+				\item Row reducing
+\[
+						\systeme{x+y=35, 2x+4y=94},
+					\] we get
 					\[
 						\systeme{x+y=35, y=12}.
 					\]
 					This shows that the system is consistent. The solution to this
 					system is
-					\[
-						x=23, y=12.
-					\]
+					\(
+						x=23, y=12
+					\).
 					Thus, there are 23 chickens and 12 rabbits in the farm.
 
 				\item Before discussing each configuration, we point out that a
@@ -216,12 +205,12 @@
 							\[
 								\systeme{x+y=35, 4x+4y=94}.
 							\]
-							Row reduce this system, and we get
+							Row reducing this system, we get
 							\[
 								\systeme{x+y=35, 0x+0y=-46}.
 							\]
 							This system is inconsistent, which means there's no solution
-							to this system, not to say natural number solution. Therefore,
+							to this system. Therefore,
 							Kokoro's first configuration is not possible.
 
 						\item For the second configuration, let $x$ be the
@@ -230,21 +219,18 @@
 							\[
 								\systeme{x+y=35, 4x+4y=140}.
 							\]
-							Row reduce this system, and we get
+							Row reducing this system, we get
 							\[
 								\systeme{x+y=35, 0x+0y=0}.
 							\]
 							This system is consistent, and the complete solution
 							is given by
 							\[
-								\left\{
-								\begin{array}
-									{ccc} x & = & 35-t \\ y & = & t
-								\end{array}\right. (t\in \mathbb{R}).
+                                \systeme{x=35-t, y=t} (t\in \mathbb{R}).
 							\]
 							Take $t=1$, and we get a natural number solution
-							$x=34,y=1$. (In fact, there are more than one natural
-							number solutions.) Therefore, Kokoro's second
+							$x=34,y=1$. (In fact, there is more than one natural
+							number solution.) Therefore, Kokoro's second
 							configuration is possible.
 
 						\item For the third configuration, let $x$ be the number
@@ -253,22 +239,15 @@
 							\[
 								\systeme{x+y=42, y=77}.
 							\]
-							Row reduce this system, and we get
+							Row reducing this system, we get
 							\[
 								\systeme{x+y=42, y=-\frac{7}{2}}.
 							\]
-							This system is consistent, and the complete solution
-							is given by
-							\[
-								\left\{
-								\begin{array}
-									{ccc} x & = & \frac{91}{2} \\ y & = & -\frac{7}{2}
-								\end{array}\right.
-							\]
-							However, this is not a natural number solution. Since
-							this is the only solution to the system, we conclude
-							that there's no natural number solution to the
-							system. Therefore, Kokoro's third configuration is
+							This system is consistent and the unique solution is
+							\(
+								 x =  \frac{91}{2}, y  =  -\frac{7}{2}
+							\)
+							However, there cannot be 91/2 of a chicken, so Kokoro's third configuration is
 							not possible.
 					\end{enumerate}
 			\end{enumerate}
@@ -306,33 +285,18 @@
 						\systeme{0x_1+0x_2=0, 0x_1+0x_2=1}.
 					\]
 
-				\item False. Reason: The $y$-axis can be described as $\Set*{\mat{0 \\ y}\in\R^2: y\in\R}$.
-					If there exists $m,c$ so that the $y$-axis is the solution
-					set to the equation $y = mx + c$, then both $x=0, y=1$ and $x
-					=0, y=2$ are solutions to the equation. Plug in $x=0, y=1$, and
-					we get $m=0$, $c=1$. Plug in $x=0$, $y=2$, and we get $m=0$,
-					$c=2$. Of course, $c=1$ and $c=2$ cannot happen at the same
-					time. Therefore, there's no $m,c\in \R$ so that the $y$-axis
+				\item False.
+Assume the $y$-axis can be represented as the complete solution to $y=mx+c$ for some $m,c$. Since $(x,y)=(0,0)$ and $(x,y)=(0,1)$ are both on the $y$ axis, we know \(0=0m+c\) and \(1=0m+c\). This gives \(0=1\), which is false. Therefore, there's no $m,c\in \R$ so that the $y$-axis
 					is the solution set to the equation $y = mx + c$.
 
-				\item True. Reason: Take $m=0$, $c=0$. The equation then becomes
+				\item True. Take $m=0$, $c=0$. The equation then becomes
 					$y=0$. A complete solution to this equation is given by
-					$x=t$, $y=0$ ($t\in \R$), which is exactly the $x$-axis.
+					$\mat{t \\ 0}$ ($t\in \R$), which is exactly the $x$-axis.
 
-				\item False. Reason: The $x$-axis in $\R^{3}$ can be described as
-					$\Set*{\mat{x \\ 0 \\ 0}\in\R^3: x\in\R}$. If there exists
-					$m_{1}, m_{2}, c\in \R$ so that the $x$-axis is the solution
-					set to the equation $z=m_{1}x+m_{2}y+c$, then $x=1, y=0, z=0$
-					is one solution to the equation, and $x=2, y=0, z=0$ is
-					another. Plug in $x=1$, $y=0$, and $y=0$, and we get
-					$0=m_{1}+0+c$. Plug in $x=2$, $y=0$, and $z=0$ and we get $0=
-					2m_{1}+0+c$. Thus, $m_{1}=2m_{1}=-c$. So we must have $c=0$
-					and $m_{1}=0$. The equation then becomes $z=m_{2}y$. However,
+				\item False. The $x$-axis in $\R^{3}$ can be described as
+					$\Set*{\mat{x \\ 0 \\ 0}\in\R^3: x\in\R}$. Assume the $x$-axis can be represented as the complete solution to $z=m_1x+m_2y+c$ for some $m_1,m_2,c$. Since $(x,y,z)=(0,0,0)$ is on the $x$ axis, we know \(c=0\). Since \((x,y,z)=(1,0,0)\) is on the \(x\) axis, we know that \(m_1=0\).  The equation then becomes $z=m_{2}y$. However,
 					for each choice of $m_{2}$, $x=0, y=1, z=m_{2}$ is a
-					solution to the system which does not lie in the $x$-axis. Therefore,
-					for every choice of $m_{1},m_{2},c$, the solution set to the
-					equation $z=m_{1}x+m_{2}y+c$ cannot be the $x$-axis. In
-					other words, there's no there's no $m_{1}, m_{2} ,c\in \R$ so
+					solution to the system which does not lie in the $x$-axis. Therefore, there's no there's no $m_{1}, m_{2} ,c\in \R$ so
 					that the $x$-axis is the solution set to the equation $z = m_{1}
 					x + m_{2}y+ c$.
 
@@ -343,4 +307,4 @@
 			\end{enumerate}
 		\end{solution}
 	\end{problist}
-\end{exercises}
+\end{exercises} 
