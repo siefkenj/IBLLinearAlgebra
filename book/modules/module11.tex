@@ -191,9 +191,10 @@ Using the transpose, we can make statements like
 \]
 
 In addition, it helps us state the following theorem.
-\begin{theorem}
-	For a matrix $A$, the dimension of the row space equals the dimension of the column space. That is,
-	$\Rank(A)=\Rank(A^T)$.
+\begin{theorem}[Row-Col Dimension]
+	For a matrix $A$, the dimension of the row space equals the dimension of the column space. 
+	%That is,
+	%$\Rank(A)=\Rank(A^T)$.
 \end{theorem}
 \begin{proof}
 	To prove $\Rank(A)=\Rank(A^T)$, we will rely on what we know about the row reduction algorithm and what
@@ -222,8 +223,9 @@ In addition, it helps us state the following theorem.
 	\end{enumerate}
 
 	To complete the proof, note that every pivot of $\Rref(A)$ lies in exactly one row and one column. Therefore,
-	the number of basis vectors in $\Row(A)$ is the same as the number of basis vectors in $\Col(A)$. Thus
-	$\Rank(A)=\Rank(A^T)$.
+	the number of basis vectors in $\Row(A)$ is the same as the number of basis vectors in $\Col(A)$. 
+	%Thus
+	%$\Rank(A)=\Rank(A^T)$.
 \end{proof}
 
 \Heading{Equations, Null Spaces, and Geometry}
@@ -488,11 +490,26 @@ $\Null(\mathcal T)=\Null(M)$. From this fact, we deduce the following theorem.
 	is a basis for $\Null(M)$, and so $\Nullity(\mathcal T)=k$, which completes the proof.
 \end{proof}
 
+Combining these facts, we can reformulate the Row-Col Dimension theorem as a theorem
+about ranks.
+\begin{theorem}
+	For a matrix $A$, we have $\Rank(A)=\Rank(A^T)$.
+\end{theorem}
+\begin{proof}
+	By the Row-Col Dimension theorem, we know $\dim(\Col(A))=\dim(\Row(A))$. By the definition
+	of the transpose, we know $\Row(A)=\Col(A^T)$. Therefore,
+	\[
+		\dim(\Col(A))=\dim(\Col(A^T)),
+	\]
+	which is another way of saying $\Rank(A)=\Rank(A^T)$.
+\end{proof}
+
+
 \Heading{The Rank-Nullity Theorem}
 
 The rank and the nullity of a linear transformation/matrix are connected by a powerful theorem.
 
-\begin{theorem}(Rank-nullity Theorem for Matrices)\index{Rank-nullity theorem!for matrices} For a matrix $A$,
+\begin{theorem}[Rank-nullity Theorem for Matrices]\index{Rank-nullity theorem!for matrices} For a matrix $A$,
 \[
 	\Rank(A)+\Nullity(A)=\ \#\text{ of columns in $A$}.
 \]
@@ -513,7 +530,7 @@ and so has nullity $2$. Therefore, there exist two linearly independent normal d
 
 \medskip
 There is an equivalent rank-nullity theorem for linear transformations.
-\begin{theorem}(Rank-nullity Theorem for Linear Transformations)\index{Rank-nullity theorem!for linear transformations} Let $\mathcal T$ be a linear transformation.
+\begin{theorem}[Rank-nullity Theorem for Linear Transformations]\index{Rank-nullity theorem!for linear transformations} Let $\mathcal T$ be a linear transformation.
 Then
 \[
 	\Rank(\mathcal T)+\Nullity(\mathcal T)=\Dim(\text{domain of $\mathcal T$}).
