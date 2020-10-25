@@ -906,7 +906,7 @@ argument supporting your answer.
 			linear combination of $\vec v_1$ and $\vec v_2$, what are the
 			coefficients of $\vec v_1$ and $\vec v_2$?
 			\begin{solution}
-				$\vec w=\mat{3\\2}$; the coefficients are $(2,1)$.
+				$\vec w=\mat{3\\1}$; the coefficients are $(2,1)$.
 			\end{solution}
 		\item Is $\mat{3\\3}$ a linear combination of $\vec v_1$ and $\vec v_2$?
 			\begin{solution}[inline]
@@ -5069,7 +5069,7 @@ notice your group making or any questions for further pursuit.
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $S=\Set*{\mat{x\\y} \given 0\leq x,y\leq 1}\subseteq \R^2$ be the filled-in unit
+	Let $S=\Set*{\mat{x\\y} \given 0\leq x\leq 1\text{ and } 0\leq y\leq 1}\subseteq \R^2$ be the filled-in unit
 	square and let $C=\Set{\vec 0, \xhat,\yhat,\xhat+\yhat}\subseteq \R^2$
 	be the corners of the unit square.
 	\begin{parts}
@@ -5615,40 +5615,44 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 		\end{notes}
 	\end{annotation}
 	\label{inducedTransform}
-	Let $M$ be a $2\times 2$ matrix and let $\vec v\in\R^2$. Further, let $T_M$
+	Let $M=\mat{a&b\\c&d}$, let $\vec v=\xhat+\yhat\in \R^2$, and let $\mathcal T_M$
 	be the transformation induced by $M$.
 	\begin{parts}
 		\item What is the difference between
 			``$M\vec v$'' and ``$M[\vec v]_{\mathcal E}$''?
 			\begin{solution}
 				``$M\vec v$'' is ambiguous notation, as it is only defined if
-				$\vec v$ is a specific column vector. There are infinitely many
-				different bases of $\R^2$, and so a given vector $\vec v$ has
-				infinitely many different representations as a column vector,
-				each in a different basis.
+				$\vec v$ is a specific list of numbers. There are infinitely many
+				different bases of $\R^2$ and so $\vec v$ has
+				infinitely many different representations as a list of numbers
+				(a different basis produces a different representation). For example,
+				let $\mathcal B=\Set{\vec v, \xhat}$. We now have
+				$[\vec v]_{\mathcal E}=\mat{1\\1}$ and $[\vec v]_{\mathcal B}=\mat{1\\0}$.
+				There's no way to decide whether $M\vec v$ should mean $M\mat{1\\1}$ or $M\mat{1\\0}$
+				or any of the infinitely many other options.
 
 				``$M[\vec v]_{\mathcal E}$'' is unambiguous, as
 				$[\vec v]_{\mathcal E}$ is an explicit representation of $\vec v$
 				in a particular basis.
 			\end{solution}
-		\item What is $[T_M\xhat]_{\mathcal E}$?
+		\item What is $[\mathcal T_M\xhat]_{\mathcal E}$?
 			\begin{solution}
 				It is the first column of $M$.
 
 				By definition,
-				$[T_M\xhat]_{\mathcal E}=M[\xhat]_{\mathcal E}=M\mat{1\\0}$,
+				$[\mathcal T_M\xhat]_{\mathcal E}=M[\xhat]_{\mathcal E}=M\mat{1\\0}$,
 				which equals the first column of $M$.
 			\end{solution}
 		\item \label{inducedTransform.3}
-			Can you relate the columns of $M$ to the range of $T_M$?
+			Can you relate the columns of $M$ to the range of $\mathcal T_M$?
 			\begin{solution}
-				The range of $T_M$ equals the span of the columns of $M$.
+				The range of $\mathcal T_M$ equals the span of the columns of $M$.
 
 				By the previous part, the first column of $M$ is in the range of
-				$T_M$. By a similar argument, the second column of $M$ is also
-				in the range of $T_M$, since it equals $[T_M\yhat]_{\mathcal E}$.
+				$\mathcal T_M$. By a similar argument, the second column of $M$ is also
+				in the range of $\mathcal T_M$, since it equals $[\mathcal T_M\yhat]_{\mathcal E}$.
 				Therefore the span of the columns of $M$ is a subset of the range
-				of $T_M$.
+				of $\mathcal T_M$.
 
 				On the other hand, if $\vec v_1=\mat{a\\c}$ and $\vec v_2=\mat{b\\d}$
 				are the columns of $M$ and $\vec x = \alpha_1\vec v_1+\alpha_2\vec v_2$
@@ -5656,10 +5660,10 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 				\[
 					[\vec x]_{\mathcal E}
 					=\alpha_1\mat{a\\c}+\alpha_2\mat{b\\d}
-					=\alpha_1[T_M\xhat]_{\mathcal E}+\alpha_2[T_M\yhat]_{\mathcal E}
-					=[T_M(\alpha_1\xhat+\alpha_2\yhat)]_{\mathcal E}.
+					=\alpha_1[\mathcal T_M\xhat]_{\mathcal E}+\alpha_2[\mathcal T_M\yhat]_{\mathcal E}
+					=[\mathcal T_M(\alpha_1\xhat+\alpha_2\yhat)]_{\mathcal E}.
 				\]
-				Therefore $\vec x$ is in the range of $T_M$.
+				Therefore $\vec x$ is in the range of $\mathcal T_M$.
 			\end{solution}
 	\end{parts}
 
@@ -6028,7 +6032,7 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 	\end{parts}
 
 
-	\bookonlynewpage
+	\vspace{\stretch{1}}
 	\question
 	\begin{annotation}
 		\begin{goals}
@@ -6102,6 +6106,7 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 			\end{solution}
 	\end{parts}
 
+	\vspace{\stretch{1}}
 	\bookonlynewpage
 	\question
 	\begin{annotation}
@@ -8592,9 +8597,17 @@ While studying the subway map, you decide to pick two bases to help:
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
+	Recall from Problem \ref{actingOnEigenvectors} that
+	\[
+		A=\mat{1&0&1\\0&1&1\\1&1&0}\qquad
+		\vec v_1=\mat{1\\1\\1}\qquad
+		\vec v_2=\mat{1\\1\\-2}\qquad
+		\vec v_3=\mat{-1\\1\\0}
+	\]
+	and $\mathcal V=\Set{\vec v_1,\vec v_2, \vec v_3}$.
+	Let $T_A$ be the transformation induced by $A$.
 	The matrix $P^{-1}$ takes vectors in the standard basis and outputs
-	vectors in their $\mathcal V$-basis representation. Here, $A$, $T_A$, and $\mathcal V$
-	come from Problem \ref{actingOnEigenvectors}.
+	vectors in their $\mathcal V$-basis representation.
 	\begin{parts}
 		\item Describe in words what $P$ does.
 			\begin{solution}
@@ -8939,86 +8952,86 @@ While studying the subway map, you decide to pick two bases to help:
 
 \begin{bookonly}
 
-  \begin{tutorial}
-    \Title{Math \& the World}
-
-    \input{tutorials/tutorial1.tex}
-    % \input{tutorials/tutorial1-solutions.tex}
-      % \input{tutorials/tutorial1-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Definitions}
-
-
-    \input{tutorials/tutorial2.tex}
-    % \input{tutorials/tutorial2-solutions.tex}
-    % \input{tutorials/tutorial2-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Orthogonality}
-
-    \input{tutorials/tutorial3.tex}
-    % \input{tutorials/tutorial3-solutions.tex}
-    % \input{tutorials/tutorial3-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Projections}
-
-    \input{tutorials/tutorial4.tex}
-    % \input{tutorials/tutorial4-solutions.tex}
-    % \input{tutorials/tutorial4-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Change of Basis}
-
-    \input{tutorials/tutorial5.tex}
-    % \input{tutorials/tutorial5-solutions.tex}
-    % \input{tutorials/tutorial5-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Transformations}
-
-    \input{tutorials/tutorial6.tex}
-    % \input{tutorials/tutorial6-solutions.tex}
-    % \input{tutorials/tutorial6-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Inverses}
-
-    \input{tutorials/tutorial7.tex}
-    % \input{tutorials/tutorial7-solutions.tex}
-    % \input{tutorials/tutorial7-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Constructing Examples}
-
-    \input{tutorials/tutorial8.tex}
-    % \input{tutorials/tutorial8-solutions.tex}
-    % \input{tutorials/tutorial8-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Determinants}
-
-    \input{tutorials/tutorial9.tex}
-    % \input{tutorials/tutorial9-solutions.tex}
-    % \input{tutorials/tutorial9-instructions.tex}
-  \end{tutorial}
-
-  \begin{tutorial}
-    \Title{Eigenstuff}
-
-    \input{tutorials/tutorial10.tex}
-    % \input{tutorials/tutorial10-solutions.tex}
-    % \input{tutorials/tutorial10-instructions.tex}
-  \end{tutorial}
+%  \begin{tutorial}
+%    \Title{Math \& the World}
+%
+%    \input{tutorials/tutorial1.tex}
+%    % \input{tutorials/tutorial1-solutions.tex}
+%      % \input{tutorials/tutorial1-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Definitions}
+%
+%
+%    \input{tutorials/tutorial2.tex}
+%    % \input{tutorials/tutorial2-solutions.tex}
+%    % \input{tutorials/tutorial2-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Orthogonality}
+%
+%    \input{tutorials/tutorial3.tex}
+%    % \input{tutorials/tutorial3-solutions.tex}
+%    % \input{tutorials/tutorial3-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Projections}
+%
+%    \input{tutorials/tutorial4.tex}
+%    % \input{tutorials/tutorial4-solutions.tex}
+%    % \input{tutorials/tutorial4-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Change of Basis}
+%
+%    \input{tutorials/tutorial5.tex}
+%    % \input{tutorials/tutorial5-solutions.tex}
+%    % \input{tutorials/tutorial5-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Transformations}
+%
+%    \input{tutorials/tutorial6.tex}
+%    % \input{tutorials/tutorial6-solutions.tex}
+%    % \input{tutorials/tutorial6-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Inverses}
+%
+%    \input{tutorials/tutorial7.tex}
+%    % \input{tutorials/tutorial7-solutions.tex}
+%    % \input{tutorials/tutorial7-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Constructing Examples}
+%
+%    \input{tutorials/tutorial8.tex}
+%    % \input{tutorials/tutorial8-solutions.tex}
+%    % \input{tutorials/tutorial8-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Determinants}
+%
+%    \input{tutorials/tutorial9.tex}
+%    % \input{tutorials/tutorial9-solutions.tex}
+%    % \input{tutorials/tutorial9-instructions.tex}
+%  \end{tutorial}
+%
+%  \begin{tutorial}
+%    \Title{Eigenstuff}
+%
+%    \input{tutorials/tutorial10.tex}
+%    % \input{tutorials/tutorial10-solutions.tex}
+%    % \input{tutorials/tutorial10-instructions.tex}
+%  \end{tutorial}
 
 \begin{appendix}
 	\PrintExerciseSolutions
