@@ -95,8 +95,8 @@ That is,
 \[
 	\BasisChange{\mathcal A}{\mathcal C}=\BasisChange{\mathcal B}{\mathcal C}\BasisChange{\mathcal A}{\mathcal B}.
 \]
-The backwards arrow ``$\leftarrow$'' in the change-of-basis matrix notation comes because we multiply vectors on the
-\emph{left} by matrices. So, \[
+The backwards arrow ``$\leftarrow$'' in the change-of-basis matrix notation comes because when we multiply a
+vector and a matrix, the matrix is always to the \emph{left} of the vector. So, \[
 	[\vec x]_{\mathcal C}=
 	\BasisChange{\mathcal A}{\mathcal C}[\vec x]_{\mathcal A}
 	=\BasisChange{\mathcal B}{\mathcal C}\BasisChange{\mathcal A}{\mathcal B}[\vec x]_{\mathcal A}.
@@ -242,7 +242,7 @@ to represent a particular linear transformation.
 
 \begin{example}
 	Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{2\\-3}_{\mathcal E}$ and $\vec b_2=\mat{5\\-7}_{\mathcal E}$
-	be a basis for $\R^2$ and let $\mathcal S:\R^2\to\R^2$ be the transformation that stretches in the $\vec b_1=2\vec e_1-3\vec e_3$ direction 
+	be a basis for $\R^2$ and let $\mathcal S:\R^2\to\R^2$ be the transformation that stretches in the $\vec b_1=2\vec e_1-3\vec e_2$ direction 
 	by a factor of $2$ and reflects vectors in the $\vec b_2=5\xhat-7\yhat$ direction. 
 	Find $[\mathcal S]_{\mathcal E}$ and $[\mathcal S]_{\mathcal B}$.
 
@@ -266,7 +266,7 @@ to represent a particular linear transformation.
 	\]
 	Therefore
 	\[
-		[\mathcal S]_{\mathcal B} = \mat{2&5\\-3&-7}\mat{2&0\\0&-1}\mat{-7&-5\\3&2}=\mat{-34&-30\\63&44}.
+		[\mathcal S]_{\mathcal E} = \mat{2&5\\-3&-7}\mat{2&0\\0&-1}\mat{-7&-5\\3&2}=\mat{-34&-30\\63&44}.
 	\]
 \end{example}
 
