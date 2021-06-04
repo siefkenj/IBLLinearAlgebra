@@ -113,8 +113,8 @@ the vector from the  projection to the original point is a normal vector for the
 				\dotMarkRightAngle[size=6pt](B,O,A);
 				\draw[mypink, thick] ($-2*(-2,1)$) -- ($2*(-2,1)$);
 				\draw[myorange, thick, dashed, ->] (0,0) -- (1,2) node[midway, below right] {$\vec v-\proj_X\vec v$};
-				\fill[Violet]  (1,2) circle (2pt) node[above right] {$\vec v$};
-				\fill[mygreen] (0,0) node[below left, xshift=6pt, yshift=-2pt] {$\Proj_X\vec v$} circle (2pt);
+				\fill[Violet]  (1,2) circle[radius=2pt] node[above right] {$\vec v$};
+				\fill[mygreen] (0,0) node[below left, xshift=6pt, yshift=-2pt] {$\Proj_X\vec v$} circle[radius=2pt];
 			\end{scope}
 		\end{axis}
 		\node[mypink, above right] at (2.8,.1) {$X$};
@@ -198,9 +198,9 @@ The same is true when projecting onto other sets, but we must always keep the de
 			\coordinate (B) at (3,1/2);
 			\coordinate (C) at (1,1);
 			\fill[blue, opacity=.3] (0,0) -- (1,0) -- (0,2) node[above right, opacity=.7] {$\mathcal T$};
-			\fill[mypink] (A) circle (2pt) node[above right] {$\vec a$};
-			\fill[mygreen] (B) circle (2pt) node[above right] {$\vec c$};
-			\fill[myorange] (C) circle (2pt) node[above right] {$\vec b$};
+			\fill[mypink] (A) circle[radius=2pt] node[above right] {$\vec a$};
+			\fill[mygreen] (B) circle[radius=2pt] node[above right] {$\vec c$};
+			\fill[myorange] (C) circle[radius=2pt] node[above right] {$\vec b$};
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
@@ -243,8 +243,8 @@ The same is true when projecting onto other sets, but we must always keep the de
 			\coordinate (b) at (3,1/2);
 			\coordinate (c) at (1,1);
 			\fill[blue, opacity=.3] (0,0) -- (1,0) -- (0,2) node[above right, opacity=.7] {$\mathcal T$};
-			\fill[mygreen] (b) circle (2pt) node[above right] {$\vec c$};
-			\draw[dashed] (b) circle (2.061) circle (1.6) circle (2.5);
+			\fill[mygreen] (b) circle[radius=2pt] node[above right] {$\vec c$};
+			\draw[dashed] (b) circle[radius=2.061] circle[radius=1.6] circle[radius=2.5];
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
@@ -372,8 +372,8 @@ of $\Vcomp_{\vec v}\vec u$.
 			%\draw[black!80,  dashed] (P) -- (B);
 			\draw[myorange, thick] ($-2*(A)$) -- ($2*(A)$);
 			%\draw[black!80, very thick, dashed, ->] (0,0) -- (A) node[right] {$\vec v$};
-			\fill[mygreen]  (B) circle (2pt) node[above right] {$\vec u$};
-			\fill[mypink]  (P) circle (2pt) node[above left, yshift=4pt, xshift=4pt] {$\Proj_\ell\vec u$};
+			\fill[mygreen]  (B) circle[radius=2pt] node[above right] {$\vec u$};
+			\fill[mypink]  (P) circle[radius=2pt] node[above left, yshift=4pt, xshift=4pt] {$\Proj_\ell\vec u$};
 			%\draw[mypink,  ->, xshift=-2pt, yshift=2pt] (0,0) -- (1,2);
 		\end{axis}
 		\node[myorange, above left] at (2.5,4.75) {$\ell=\Span\Set{\vec v}$};

@@ -37,17 +37,17 @@ displacing by some multiple of $\vec d$.  This is a line!
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
 
-		\draw [Green,fill] (A) circle (1.5pt) node [below right] {$P$};
-		\draw [Green,fill] (B) circle (1.5pt) node [below right] {$Q$};
+		\draw [Green,fill] (A) circle[radius=1.5pt] node [below right] {$P$};
+		\draw [Green,fill] (B) circle[radius=1.5pt] node [below right] {$Q$};
 		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,below right,yshift=2pt] {$\vec d$};
 
 
 		\end{axis}
 		\foreach \x in {-1,5} {
-			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt) node [left] {\footnotesize$\tfrac{\x}{3}\vec d+P$};
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle[radius=1.5pt] node [left] {\footnotesize$\tfrac{\x}{3}\vec d+P$};
 		}
 		\foreach \x in {-3,-2,4,6} {
-			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt);
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle[radius=1.5pt];
 		}
 	\end{tikzpicture}
 	\begin{tikzpicture}
@@ -72,8 +72,8 @@ displacing by some multiple of $\vec d$.  This is a line!
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
 
-		\draw [Green,fill] (A) circle (1.5pt) node [below right] {$P$};
-		\draw [Green,fill] (B) circle (1.5pt) node [below right] {$Q$};
+		\draw [Green,fill] (A) circle[radius=1.5pt] node [below right] {$P$};
+		\draw [Green,fill] (B) circle[radius=1.5pt] node [below right] {$Q$};
 		\draw[->,thick,myred!60!white] (A) -- (B) node [midway,below right,yshift=2pt] {$\vec d$};
 
 		\end{axis}
@@ -82,10 +82,10 @@ displacing by some multiple of $\vec d$.  This is a line!
 			\draw [->, gray!50!white] (0,0) -- ($(A)+\x/3*(D)$);
 		}
 		\foreach \x in {-1,5} {
-			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt) node [left] {\footnotesize$\tfrac{\x}{3}\vec d+P$};
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle[radius=1.5pt] node [left] {\footnotesize$\tfrac{\x}{3}\vec d+P$};
 		}
 		\foreach \x in {-3,-2,4,6} {
-			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle (1.5pt);
+			\draw [mypink,fill] ($(A)+\x/3*(D)$) circle[radius=1.5pt];
 		}
 	\end{tikzpicture}
 \end{center}
@@ -433,7 +433,7 @@ the plane $\mathcal P$ can be written in vector form as
 		\coordinate (B) at (axis cs:3,4,7);
 		\coordinate (C) at (axis cs:-4,4,0);
 
-		\draw [mypink,fill] (A) circle (1.5pt) node [below right] {$A$};
+		\draw [mypink,fill] (A) circle[radius=1.5pt] node [below right] {$A$};
 		\draw [->, thick] (A) -- (B) node [midway,below right] {$\vec d_1$};
 		\draw [->, thick] (A) -- (C) node [midway,above left] {$\vec d_2$};
     \end{axis}
@@ -714,8 +714,8 @@ of two vectors gives a point on the line segment connecting them.
 			\coordinate (B) at (1,-1);
 			\coordinate (C) at ($.3*(A)+.7*(B)$);
 			\coordinate (D) at ($.7*(A)+.3*(B)$);
-			%\fill[mypink] (A) circle (2pt) node[above right] {$\vec a$};
-			%\fill[mygreen] (B) circle (2pt) node[above right] {$\vec b$};
+			%\fill[mypink] (A) circle[radius=2pt] node[above right] {$\vec a$};
+			%\fill[mygreen] (B) circle[radius=2pt] node[above right] {$\vec b$};
 			\draw[thick, mypink, ->] (0,0) -- (A) ;
 			\draw[thick, mypink!30!mygreen, ->] (0,0) -- (C) ;
 			\draw[thick, mypink!70!mygreen, ->] (0,0) -- (D) ;
@@ -751,8 +751,8 @@ of two vectors gives a point on the line segment connecting them.
 			\coordinate (B) at (1,-1);
 			\coordinate (C) at ($.3*(A)+.7*(B)$);
 			\coordinate (D) at ($.7*(A)+.3*(B)$);
-			\fill[mypink] (A) circle (2pt);
-			\fill[mygreen] (B) circle (2pt);
+			\fill[mypink] (A) circle[radius=2pt];
+			\fill[mygreen] (B) circle[radius=2pt];
 			%\draw[thick, mypink, ->] (0,0) -- (A) ;
 			%\draw[thick, mypink!30!mygreen, ->] (0,0) -- (C) ;
 			%\draw[thick, mypink!70!mygreen, ->] (0,0) -- (D) ;

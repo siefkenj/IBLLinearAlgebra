@@ -249,7 +249,7 @@ time the line passes through $\vec p$.
 				\dotMarkRightAngle[size=6pt](B,O,A);
 				\draw[mypink, thick] ($-2*(-2,1)$) -- ($2*(-2,1)$);
 				\draw[mygreen, thick, ->] (0,0) -- (1,2) node[midway, below right] {$\vec n$};
-				\fill[myorange] (0,0) node[below left] {$\vec p$} circle (2pt);
+				\fill[myorange] (0,0) node[below left] {$\vec p$} circle[radius=2pt];
 			\end{scope}
 		\end{axis}
 		\node[mypink, above right] at (3,0) {$\ell_2=\Span\Set*{\mat{-2\\1}}+\Set*{\mat{1\\1}}$};
@@ -299,7 +299,7 @@ $\mathcal Q$ is a plane through the origin, and again, we call $\vec n$ a \emph{
 		\coordinate (B) at (axis cs:4,4,2);
 		\coordinate (C) at (axis cs:-4,4,0);
 
-		\draw [mypink,fill] (A) circle (1.5pt) node [below right] {$\vec 0$};
+		\draw [mypink,fill] (A) circle[radius=1.5pt] node [below right] {$\vec 0$};
 		\draw [->, thick] (A) -- (B) node [midway,below right] {$\vec d_1$};
 		\draw [->, thick] (A) -- (C) node [midway,above left] {$\vec d_2$};
 		\draw [->, thick] (A) -- (N) node [midway,left] {$\vec n$};

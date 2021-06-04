@@ -268,7 +268,7 @@
 						\coordinate (C) at (-1,-1);
 						\coordinate (D) at (1,1);
 						\coordinate (E) at (0,0);
-						\fill[WildStrawberry] (E) circle (2pt) node[above left] {$\vec e$};
+						\fill[WildStrawberry] (E) circle[radius=2pt] node[above left] {$\vec e$};
 						\draw[semithick, mypink, ->] (0,0) -- (A);
 						\draw[semithick, mypink, ->] (0,0) -- (B);
 						\draw[semithick, mypink, ->] (0,0) -- (C);
@@ -305,9 +305,9 @@
 						\coordinate (B) at (0,2);
 						\coordinate (C) at (-1,-1);
 						\fill[mygreen, opacity=.3] (A) -- (B) -- (C) -- cycle;
-						\fill [black] (A) circle (2pt) node [above, yshift=1pt] {$\vec a$};
-						\fill [black] (B) circle (2pt) node [above right] {$\vec b$};
-						\fill [black] (C) circle (2pt) node [above left, xshift=1pt] {$\vec c$};
+						\fill [black] (A) circle[radius=2pt] node [above, yshift=1pt] {$\vec a$};
+						\fill [black] (B) circle[radius=2pt] node [above right] {$\vec b$};
+						\fill [black] (C) circle[radius=2pt] node [above left, xshift=1pt] {$\vec c$};
 					\end{axis}
 				\end{tikzpicture}
 				
@@ -405,8 +405,8 @@
 						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 					]
-						\fill [black] (1,1) circle (2pt) node [below right] {$\vec x$};
-						\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+						\fill [black] (1,1) circle[radius=2pt] node [below right] {$\vec x$};
+						\fill [black] (-2,-2) circle[radius=2pt] node [below right] {$\vec z$};
 						\draw [mygreen, thick, -] (2,2) -- (-3,-3);
 					\end{axis}
 				\end{tikzpicture}
@@ -431,8 +431,8 @@
 						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 					]
-						\fill [black] (3,-1) circle (2pt) node [below right] {$\vec y$};
-						\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+						\fill [black] (3,-1) circle[radius=2pt] node [below right] {$\vec y$};
+						\fill [black] (-2,-2) circle[radius=2pt] node [below right] {$\vec z$};
 						\draw [mygreen, thick, -] (3,-1) -- (-2,-2);
 					\end{axis}
 				\end{tikzpicture}
@@ -457,8 +457,8 @@
 						xlabel style={at={(ticklabel* cs:1)},anchor=north west},
 						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 					]
-						\fill [black] (1,1) circle (2pt) node [below right] {$\vec x$};
-						\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+						\fill [black] (1,1) circle[radius=2pt] node [below right] {$\vec x$};
+						\fill [black] (-2,-2) circle[radius=2pt] node [below right] {$\vec z$};
 						\draw [mygreen, thick, -] (1,1) -- (-2,-2);
 					\end{axis}
 				\end{tikzpicture}
@@ -484,9 +484,9 @@
 						ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 					]
 						\fill [mygreen, opacity=.3] (1,1) -- (3,-1) -- (-2,-2) -- cycle;
-						\fill [black] (1,1) circle (2pt) node [left, yshift=1pt] {$\vec x$};
-						\fill [black] (3,-1) circle (2pt) node [below right] {$\vec y$};
-						\fill [black] (-2,-2) circle (2pt) node [below right] {$\vec z$};
+						\fill [black] (1,1) circle[radius=2pt] node [left, yshift=1pt] {$\vec x$};
+						\fill [black] (3,-1) circle[radius=2pt] node [below right] {$\vec y$};
+						\fill [black] (-2,-2) circle[radius=2pt] node [below right] {$\vec z$};
 					\end{axis}
 				\end{tikzpicture}
 			\end{enumerate}
@@ -537,11 +537,11 @@
 					\coordinate (V) at (-5,8);
 					\coordinate (W) at (-2,-6);
 					\fill [mygreen, opacity=.3] (U) -- (V) -- (W) -- cycle;
-					\fill [mypink] (P) circle (2pt) node [above, yshift=1pt] {$P$};
-					\fill [mypink] (Q) circle (2pt) node [right, xshift=1pt] {$Q$};
-					\fill [black] (U) circle (2pt) node [above, yshift=1pt] {$\vec u$};
-					\fill [black] (V) circle (2pt) node [below left] {$\vec v$};
-					\fill [black] (W) circle (2pt) node [left, xshift=-1pt] {$\vec w$};
+					\fill [mypink] (P) circle[radius=2pt] node [above, yshift=1pt] {$P$};
+					\fill [mypink] (Q) circle[radius=2pt] node [right, xshift=1pt] {$Q$};
+					\fill [black] (U) circle[radius=2pt] node [above, yshift=1pt] {$\vec u$};
+					\fill [black] (V) circle[radius=2pt] node [below left] {$\vec v$};
+					\fill [black] (W) circle[radius=2pt] node [left, xshift=-1pt] {$\vec w$};
 				\end{axis}
 			\end{tikzpicture}
 			

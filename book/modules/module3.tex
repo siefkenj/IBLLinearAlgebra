@@ -253,7 +253,7 @@ is as a set.}. Finally, $Z$ is the union of three translated copies of $C$.
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
 
-			\draw[myorange, thick] (0,1) circle (1cm) node[right] {$X$};
+			\draw[myorange, thick] (0,1) circle[radius=1cm] node[right] {$X$};
 		\end{axis}
 	\end{tikzpicture}
 	~~~~
@@ -277,7 +277,7 @@ is as a set.}. Finally, $Z$ is the union of three translated copies of $C$.
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
 
-			\draw[mypink, thick] (0,1) circle (1cm) (3,0) circle (1cm) node[above right] {$Y$};
+			\draw[mypink, thick] (0,1) circle[radius=1cm] (3,0) circle[radius=1cm] node[above right] {$Y$};
 		\end{axis}
 	\end{tikzpicture}
 	~~~~
@@ -301,7 +301,7 @@ is as a set.}. Finally, $Z$ is the union of three translated copies of $C$.
 		    ylabel style={at={(ticklabel* cs:1)},anchor=south west}
 		]
 
-			\draw[mygreen, thick] (0,0) circle (1cm) (0,1) circle (1cm) (1,0) circle (1cm) node[above right] {$Z$};
+			\draw[mygreen, thick] (0,0) circle[radius=1cm] (0,1) circle[radius=1cm] (1,0) circle[radius=1cm] node[above right] {$Z$};
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
@@ -372,7 +372,7 @@ by the equation
 			\draw[black!50!white, thick,dotted, ->] (-1,-1/2) -- +(-1,1);
 			\draw[black!50!white, thick,dotted, ->] (1,1/2) -- +(-1,1);
 			\draw[black!50!white, thick,dotted, ->] (2,1) -- +(-1,1);
-			\fill[black!60!white] (2,2.5) circle (1.5pt);
+			\fill[black!60!white] (2,2.5) circle[radius=1.5pt];
 			\draw[black, thick,dashed, ->] (3,3/2) -- +(-1,1) node[midway, above right] {$\vec p$} 
 			node[above left]{$\tfrac{3}{2}\vec d+\vec p\in\ell_2$};
 			\draw[black!50!white, thick,dotted, ->] (4,2) -- +(-1,1);

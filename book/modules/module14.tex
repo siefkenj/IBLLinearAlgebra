@@ -892,8 +892,8 @@ the $\vec e_j$ direction.
 		\coordinate (B) at (0,2);
 		\coordinate (O) at (0,0);
 
-		%\draw [mypink,fill] (A) circle (1.5pt) node [right] {initial point};
-		%\draw [mypink,fill] (B) circle (1.5pt) node [left] {terminal point};
+		%\draw [mypink,fill] (A) circle[radius=1.5pt] node [right] {initial point};
+		%\draw [mypink,fill] (B) circle[radius=1.5pt] node [left] {terminal point};
 		\draw[fill,gray!30!white] (O) -- +(B) -- +($(A)+(B)$) -- +(A) -- (O);
 		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,below] {$\vec e_j$};
 		\draw[->,thick,mypink] (0,0) -- +(B) node [midway,above left] {$\vec e_i$};
@@ -906,8 +906,8 @@ the $\vec e_j$ direction.
 		\coordinate (C) at ($(B)+2*(A)$);
 		\coordinate (O) at (0,0);
 
-		%\draw [mypink,fill] (A) circle (1.5pt) node [right] {initial point};
-		%\draw [mypink,fill] (B) circle (1.5pt) node [left] {terminal point};
+		%\draw [mypink,fill] (A) circle[radius=1.5pt] node [right] {initial point};
+		%\draw [mypink,fill] (B) circle[radius=1.5pt] node [left] {terminal point};
 		\draw[fill,gray!30!white] (O) -- +(C) -- +($(A)+(C)$) -- +(A) -- (O);
 		\draw[->,thick,myred!60!white] (0,0) -- +(A) node [midway,below] {$\vec e_j$};
 		\draw[->,thick,gray,dashed] (0,0) -- +(B);% node [midway,above left] {$\vec b$};
