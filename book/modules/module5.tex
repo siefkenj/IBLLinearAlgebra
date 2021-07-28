@@ -437,12 +437,12 @@ we have established a general fact.
 This is great news because vector components are easy to compute using dot products while projections are usually hard to compute.
 
 \begin{example}
-	Compute the projection of $\vec a=\mat{3\\7}$ onto $\ell=\Span\Set*{\mat{1\\-4}}$.
+	Compute the projection of $\vec a=\mat{3\\7}$ onto $L=\Span\Set*{\mat{1\\-4}}$.
 
 	Let $\vec b = \mat{1\\-4}$. 
-	Since $\ell=\Span\Set{\vec b}$ and $\vec b\neq \vec 0$, by the theorem above, we have
+	Since $L=\Span\Set{\vec b}$ and $\vec b\neq \vec 0$, by the theorem above, we have
 	\[
-	    \Proj_\ell \vec a = \Vcomp_{\vec b} \vec a = \left(\frac{\vec b\cdot \vec a}{\vec b\cdot \vec b}\right)\vec b 
+	    \Proj_L \vec a = \Vcomp_{\vec b} \vec a = \left(\frac{\vec b\cdot \vec a}{\vec b\cdot \vec b}\right)\vec b 
 	    = \tfrac{3-28}{1+16}\mat{1\\-4}=\mat{-25/17\\100/17}.
 	\]
 \end{example}
@@ -451,17 +451,17 @@ It's worth noting, however, that vector components are equal to projections \emp
 projecting onto a span}. In general, projections and vector components are unrelated. 
 
 \begin{example}
-	Let $\vec a=\mat{3\\7}$ , $\vec b=\mat{1\\-4}$, and let $\ell$ be the line given in vector form by
-	$\vec x=t\vec b+\vec a$. Show that $\Proj_\ell\vec a\neq \Vcomp_{\vec b}\vec a$.
+	Let $\vec a=\mat{3\\7}$ , $\vec b=\mat{1\\-4}$, and let $D$ be the line given in vector form by
+	$\vec x=t\vec b+\vec a$. Show that $\Proj_D\vec a\neq \Vcomp_{\vec b}\vec a$.
 
-	By definition, $\Proj_{\ell}\vec a$ is the closest point in $\ell$ to $\vec a$. Since $\vec a\in\ell$, we must
+	By definition, $\Proj_{D}\vec a$ is the closest point in $D$ to $\vec a$. Since $\vec a\in D$, we must
 	have 	
 	\[
-	    \Proj_{\ell}\vec a = \vec a = \mat{3\\7}.
+	    \Proj_{D}\vec a = \vec a = \mat{3\\7}.
 	\]
 	We already computed $\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}$ in the previous example, and so we see
 	\[
-		\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}\neq \mat{3\\7}=\Proj_{\ell}\vec a.
+		\Vcomp_{\vec b}\vec a=\mat{-25/17\\100/17}\neq \mat{3\\7}=\Proj_{D}\vec a.
 	\]
 \end{example}
 

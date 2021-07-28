@@ -5302,8 +5302,8 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 		\end{notes}
 	\end{annotation}
 	\label{projectionAndRotation}
-	Define $\mathcal P$ to be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
-	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
+	Define $\mathcal P:\R^2\to\R^2$ to be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
+	and let $\mathcal R:\R^2\to\R^2$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Find a matrix $P$ so that $P\vec x=\mathcal P(\vec x)$ for all $\vec x\in\R^2$.
 			\begin{solution}
@@ -5924,8 +5924,8 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 		\end{notes}
 	\end{annotation}
 	\label{rankOfMatricesAndTransformations}
-	Let $\mathcal P$ be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
-	and let $\mathcal R$ be rotation counter-clockwise by $90^\circ$.
+	Let $\mathcal P:\R^2\to\R^2$ be projection onto $\Span\Set{\vec u}$ where $\vec u=\mat{2\\3}$,
+	and let $\mathcal R:\R^2\to\R^2$ be rotation counter-clockwise by $90^\circ$.
 	\begin{parts}
 		\item Describe $\Range(\mathcal P)$ and $\Range(\mathcal R)$.
 			\begin{solution}
@@ -6243,6 +6243,17 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 	The vectors $\vec u,\vec v\in\R^9$ are linearly independent and $\vec w=2\vec u-\vec v$.
 	Define $A=[\vec u|\vec v|\vec w]$.
 	\begin{parts}
+		\item What is the rank and nullity of $A$?
+			\begin{solution}
+				$\Rank(A)=2$ and $\Nullity(A)=1$.
+
+				We know that $\Rank(A)$ equals the number of pivots in $\rref(A)$,
+				which in turn equals the dimension of $\Col(A)$. Since $A$ has two
+				linearly independent columns, $\Dim(\Col(A))=2$.
+
+				Again, the rank-nullity theorem then says that $2+\Nullity(A)=3$,
+				and so $\Nullity(A)=1$
+			\end{solution}
 		\item What is the rank and nullity of $A^T$?
 			\begin{solution}
 				$\Rank(A^T)=2$ and $\Nullity(A^T)=7$.
@@ -6256,17 +6267,6 @@ Two students---Pat and Jamie---explained their approach to italicizing the N as 
 
 				The rank-nullity theorem then says that $2+\Nullity(A^T)=9$, and so
 				$\Nullity(A^T)=7$
-			\end{solution}
-		\item What is the rank and nullity of $A$?
-			\begin{solution}
-				$\Rank(A)=2$ and $\Nullity(A)=1$.
-
-				We know that $\Rank(A)$ equals the number of pivots in $\rref(A)$,
-				which in turn equals the dimension of $\Col(A)$. Since $A$ has two
-				linearly independent columns, $\Dim(\Col(A))=2$.
-
-				Again, the rank-nullity theorem then says that $2+\Nullity(A)=3$,
-				and so $\Nullity(A)=1$
 			\end{solution}
 	\end{parts}
 	\vspace{\stretch{1}}
@@ -7454,7 +7454,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 		\end{notes}
 	\end{annotation}
 	\begin{parts}
-		\item Explain volume theorem I using the definition of determinant.
+		\item Explain Volume Theorem I using the definition of determinant.
 			\begin{solution}
 				If $T:\R^n\to\R^n$ is a transformation with standard matrix $M=[\vec c_1|\cdots|\vec c_n]$,
 				then
@@ -7463,11 +7463,11 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 				with sides $T(\vec e_1)=\vec c_1$, \ldots, $T(\vec e_n)=\vec c_n$, and so $\det(T)$
 				will be the oriented volume of the parallelepiped with sides given by $\vec c_1$, \ldots, $\vec c_n$.
 			\end{solution}
-		\item Based on volume theorems I and II, how should $\det(M)$ and $\det(M^T)$
+		\item Based on Volume Theorems I and II, how should $\det(M)$ and $\det(M^T)$
 			relate for a square matrix $M$?
 			\begin{solution}
 				$\det(M)=\det(M^T)$. Since the transpose switches columns for rows,
-				this is an immediate consequence of volume theorems I and II.
+				this is an immediate consequence of Volume Theorems I and II.
 			\end{solution}
 	\end{parts}
 	\vspace{\stretch{1}}

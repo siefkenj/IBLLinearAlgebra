@@ -99,7 +99,8 @@ of others: \emph{span}\index{Span}.
 
 \SavedDefinitionRender{Span}
 
-We just showed above that $\Span\Set*{\mat{1\\1},\mat{1\\-2}}=\R^2$.
+We just showed above that $\Span\Set*{\mat{1\\1},\mat{1\\-2}}=\R^2$. Alternatively, we may use span as a verb and say 
+the set $\Set*{\mat{1\\1},\mat{1\\-2}}$ \emph{spans} $\R^2$.
 
 \begin{example}
 	Let $\vec u=\mat{-1\\2}$ and $\vec v=\mat{1\\-2}$. Find $\Span\Set{\vec u,\vec v}$.
@@ -578,11 +579,13 @@ You only need to analyze solutions to one equation!
 	\]
 	Fix such an $i$. Then, by the definition of span we know
 	\[
-		\vec v_i=\alpha_1\vec v_1+\cdots \alpha_{i-1}\vec v_{i-1}+\alpha_{i+1}\vec v_{i+1}+\cdots +\alpha_n\vec v_n,
+		{\color{mypink}\vec v_i}=\alpha_1\vec v_1+\cdots +\alpha_{i-1}\vec v_{i-1}+\alpha_{i+1}\vec v_{i+1}+\cdots +\alpha_n\vec v_n,
 	\]
 	and so
 	\[
-		\vec 0=\alpha_1\vec v_1+\cdots \alpha_{i-1}\vec v_{i-1}-\vec v_i+\alpha_{i+1}\vec v_{i+1}+\cdots +\alpha_n\vec v_n.
+		\vec 0=\alpha_1\vec v_1+\cdots +\alpha_{i-1}\vec v_{i-1}\ \ 
+		{\color{mypink}-\ \vec v_i}\ 
+		+\alpha_{i+1}\vec v_{i+1}+\cdots +\alpha_n\vec v_n.
 	\]
 	This must be a non-trivial linear combination because the coefficient of $\vec v_i$ is $-1\neq 0$. Therefore, 
 	$\vec v_1,\ldots,\vec v_n$ is linearly dependent by the algebraic definition.
@@ -596,7 +599,7 @@ You only need to analyze solutions to one equation!
 	\]
 	Fix $i$ so that $\alpha_i\neq 0$ (why do we know there is such an $i$?). Rearranging we get
 	\[
-		-\alpha_i\vec v_i=\alpha_1\vec v_1+\cdots \alpha_{i-1}\vec v_{i-1}+\alpha_{i+1}\vec v_{i+1}+\cdots +\alpha_n\vec v_n,
+		-\alpha_i\vec v_i=\alpha_1\vec v_1+\cdots +\alpha_{i-1}\vec v_{i-1}+\alpha_{i+1}\vec v_{i+1}+\cdots +\alpha_n\vec v_n,
 	\]
 	and since $\alpha_i\neq 0$, we can multiply both sides by $\frac{-1}{\alpha_i}$ to get
 	\[
