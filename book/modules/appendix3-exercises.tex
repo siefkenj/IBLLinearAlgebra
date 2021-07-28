@@ -1,201 +1,127 @@
 \begin{exercises}
 	\begin{problist}
-		\prob For each matrix given below, calculate its determinant using both
-		row reduction/elementary matrices and the $2\times 2$ determinant
-		formula.
+		\prob For each description below, if possible, create a matrix 
+		matching the description. Otherwise, explain why such a matrix doesn't
+		exist.
 		\begin{enumerate}
-			\item $\mat{1 & 0 \\ 2 & 4}$
+			\item A $2\times 2$ diagonal matrix whose entries sum to $-1$.
+			\item A $2\times 2$ symmetric matrix whose entries sum to $-1$.
+			\item A $4\times 2$ symmetric matrix whose entries sum to $-1$.
+			\item A $3\times 3$ skew-symmetric matrix whose entries sum to $-1$.
+			\item A $1\times 4$ matrix $A=[a_{ij}]$ whose entries satisfy $a_{ij}=\sqrt{i+j}$.
+		\end{enumerate}
+		\begin{solution}
+			Note: there are many matrices possible.
+			\begin{enumerate}
+				\item $\mat{1&0\\0&-2}$
+				\item $\mat{1&1\\1&-4}$ or $\mat{1&0\\0&-2}$
+				\item Impossible. A symmetric matrix must be square.
+				\item Impossible. Let $A=[a_{ij}]$ be a skew symmetric matrix. By definition, 
+					$a_{ij}=-a_{ji}$. In particular, the diagonal entries satisfy $a_{kk}=-a_{kk}$
+					and so must be zero. For every other entry $a_{ij}$ with $i\neq j$, there exists
+					a corresponding entry $-a_{ji}$. Therefore the sum of all entries must be zero.
+				\item $\mat{\sqrt{2}&\sqrt{3}&2&\sqrt{5}}$
 
-			\item $\mat{1 & 5 \\ 1 & 5}$
-
-			\item $\mat{1 & 0 \\ 0 & 1}$
-
-			\item $\mat{1 & 1 \\ 0 & 0}$
+			\end{enumerate}
+		\end{solution}
+		\prob Consider the following matrices
+		$A=\mat{1 & 0 & 0 \\ 1 & 0 & 2 \\ 1 & 6 & 5}$, $B=\mat{2 & 1 & 1 \\ 0 & 2 & 0 \\ 0 & 0 & 3}$,
+		$C=\mat{1\\-1\\2}$, and $D=\mat{0&-2&1}$. For each of the following, (i) determine if the operation
+		is defined, and (ii) compute the result using both the column picture
+		and row picture of multiplication (if applicable).
+		\begin{enumerate}
+			\item $AC$
+			\item $2A+B$
+			\item $A-B$
+			\item $CA$
+			\item $AB$
+			\item $BA$
+			\item $DC$
+			\item $CD$
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
-				\item $4$
-
-				\item $0$
-
-				\item $1$
-
-				\item $0$
+				\item $\mat{1\\5\\5}$
+				\item $\mat{4&1&1\\2&2&4\\2&12&13}$
+				\item $\mat{-1&-1&-1\\1&-2&2\\1&6&2}$
+				\item Not defined
+				\item $\mat{2&1&1\\2&1&7\\2&13&16}$
+				\item $\mat{4&6&7\\2&0&4\\3&18&15}$
+				\item $\mat{4}$
+				\item $\mat{0&-2&1\\0&2&-1\\0&-4&2}$
 			\end{enumerate}
 		\end{solution}
-		\prob For each matrix given below, calculate its determinant using both
-		row reduction/elementary matrices and the $3\times 3$ determinant
-		formula.
+		\prob In general, matrix multiplication is non-commutative. However, some types of matrices are special.
+
+		Let $A$ and $B$ be $2\times 2$ diagonal matrices and let $X$ and $Y$ be $n\times n$ diagonal matrices.
 		\begin{enumerate}
-			\item $\mat{1 & 0 & 0 \\ 1 & 0 & 2 \\ 1 & 6 & 5}$
+			\item Show by direct computation that $AB=BA$.
+			\item Show that both $XY$ and $YX$ also diagonal matrices.
+			\item Is it true that $XY=YX$ no matter $n$? Explain.
+		\end{enumerate}
 
-			\item $\mat{1 & -4 & 1 \\ 2 & 6 & 5 \\ 2 & 2 & 3}$
-
-			\item $\mat{-1 & 0 & -8 \\ 1 & -3 & -8 \\ 1 & -2 & -1}$
-
-			\item $\mat{2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3}$
-
-			\item $\mat{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0}$
+		\prob Classify the following statements as true or false.
+		\begin{enumerate}
+			\item A matrix in reduced row echelon form is an upper triangular matrix.
+			\item A diagonal matrix is in reduced row echelon form.
+			\item Every zero matrix is also square.
+			\item A zero matrix is neither upper or lower triangular.
+			\item A matrix that is both upper triangular and lower triangular must be diagonal.
+			\item Using row operations every lower triangular matrix can be converted into an upper triangular matrix.
+			\item The product of two lower triangular matrices is a lower triangular matrix (provided the product
+				is defined).
 		\end{enumerate}
 		\begin{solution}
 			\begin{enumerate}
-				\item $-12$
-
-				\item $-16$
-
-				\item $21$
-
-				\item $12$
-
-				\item $0$
+				\item True
+				\item False. Consider $\mat{0&0\\0&1}$.
+				\item False. Zero matrices can be of any size.
+				\item False. All zero matrices are both upper and lower triangular.
+				\item False. Diagonal matrices must be square; upper/lower triangular matrices can be of any size.
+				\item True
+				\item True
 			\end{enumerate}
 		\end{solution}
 
-		\prob For each ordered set given below, use a determinant to decide whether
-		it is a right-handed basis, a left-handed basis, or not a basis.
+		\prob Let $R$ be a $1\times n$ matrix and let $C$ be an $n\times 1$ matrix.
 		\begin{enumerate}
-			\item $\Set*{\mat{1 \\ -3},\mat{1 \\ 2}}$
-
-			\item $\Set*{\mat{1 \\ -3},\mat{-2 \\ 6}}$
-
-			\item $\Set*{\mat{1 \\ 0 \\ 3},\mat{1 \\ 2 \\ 5},\mat{1 \\ -1 \\ 1}}$
-
-			\item $\Set*{\mat{1 \\ 4 \\ 9},\mat{1 \\ 2 \\ 3},\mat{1 \\ 1 \\ 1}}$
-
-			\item $\Set*{\mat{4 \\ 2 \\ 4},\mat{4 \\ 2 \\ 0},\mat{2 \\ 1 \\ 6}}$
+			\item Is the product $RC$ defined? If so, what is its shape?
+			\item Is the product $CR$ defined? If so, what is its shape?
+			\item Let $\vec r$ be the (only) row vector in $R$ and let $\vec c$ be
+				the (only) column vector in $C$. Are $\vec r\cdot \vec c$ and $RC$ the
+				same? Explain.
+			\item Let $\vec x,\vec y\in \R^n$ and let $R_{\vec x}$ be the $1\times n$ matrix with $\vec x$
+				as a row vector and let $C_{\vec y}$ be the $n\times 1$ matrix with $\vec y$ as a
+				column vector. The \emph{inner product}\index{Inner product} of $\vec x$ and $\vec y$ is defined
+				to be $R_{\vec x}C_{\vec y}$. The \emph{outer product}\index{Outer product} of $\vec x$ and $\vec y$ is
+				defined to be $C_{\vec y}R_{\vec x}$.
+				\begin{enumerate}
+					\item How does the inner product of $\vec x$ and $\vec y$ relate to the dot product of $\vec x$ and $\vec y$?
+					\item Let $Q$ be the outer product of $\vec x$ and $\vec y$. What does the reduced row echelon form of $Q$
+						look like?
+					\item Let  $Q$ be the outer product of $\vec x$ and $\vec y$. Show that the columns of $Q$ are always linearly
+						dependent.
+				\end{enumerate}
 		\end{enumerate}
-		\begin{solution}
-			\begin{enumerate}
-				\item Since $\det\left(\mat{1 & 1 \\ -3 & 2}\right)=5>0$, the ordered set
-					$\Set*{\mat{1 \\ -3},\mat{1 \\ 2}}$ is a right-handed basis.
 
-				\item Since $\det\left(\mat{1 & -2 \\ -3 & 6}\right)=0$, the set
-					$\Set*{\mat{1 \\ -3},\mat{-2 \\ 6}}$ is not linearly
-					independent and so is not a basis.
-
-				\item Since $\det\left(\mat{1 & 1 & 1 \\ 0 & 2 & -1 \\ 3 & 5 & 1}\right)=-2<
-					0$, the ordered set
-					$\Set*{\mat{1 \\ 0 \\ 3},\mat{1 \\ 2 \\ 5},\mat{1 \\ -1 \\ 1}}$
-					is a left-handed basis.
-
-				\item Since $\det\left(\mat{1 & 1 & 1 \\ 4 & 2 & 1 \\ 9 & 3 & 1}\right)=-2<0$,
-					the ordered set
-					$\Set*{\mat{1 \\ 4 \\ 9},\mat{1 \\ 2 \\ 3},\mat{1 \\ 1 \\ 1}}$
-					is a left-handed basis.
-
-				\item Since $\det\left(\mat{4 & 4 & 2 \\ 2 & 2 & 1 \\ 4 & 0 & 6}\right)=0$,
-					the set
-					$\Set*{\mat{4 \\ 2 \\ 4},\mat{4 \\ 2 \\ 0},\mat{2 \\ 1 \\ 6}}$
-					is not linearly independent and so is not a basis.
-			\end{enumerate}
-		\end{solution}
-
-		\prob Find all values of $a,b\in \R$ so that the ordered set $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b}}$
-		is (a) a right-handed basis, (b) a left-handed basis, (c) not a basis.
-		\begin{solution}
-			Before answering, note that
-			$\det\left(\mat{a^2 & ab \\ ab & b}\right)=a^{2}b-a^{2}b^{2}=a^{2}( b
-			-b^{2})$.
-			\begin{enumerate}
-				\item If $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b}}$ is a right-handed
-					basis, then
-					$\det\left(\mat{a^2 & ab \\ ab & b}\right)=a^{2}( b-b^{2})>0$.
-					This implies that $a^{2}$ and $b-b^{2}$ are both nonzero
-					and have the same sign. Since $a^{2}\ge 0$, 
-					we must have $a^{2}>0$ and $b-b^{2}>0$. The roots of $b-b^{2}$ are
-					$b=0$ and $b=1$, so $b-b^{2}>0$ implies $0<b<1$. Therefore,
-					$\Set*{\mat{a^2 \\ ab},\mat{ab \\ b}}$ is a right-handed
-					basis when $a\ne 0$ and $0<b<1$.
-
-				\item If $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b}}$ is a left-handed
-					basis, then
-					$\det\left(\mat{a^2 & ab \\ ab & b}\right)=a^{2}( b-b^{2})<0$.
-					This implies that $a^{2}$ and $b-b^{2}$ are both nonzero
-					and have different signs. Since $a^{2}\ge 0$, this
-					implies that $a^{2}>0$ and $b-b^{2}<0$. Roots of $b-b^{2}$ are
-					$b=0$ and $b=1$, so $b-b^{2}<0$ implies $b<0$ or $b>1$. Therefore,
-					$\Set*{\mat{a^2 \\ ab},\mat{ab \\ b}}$ is a left-handed
-					basis when $a\ne 0$ and either $b<0$ or $b>1$.
-
-				\item If $\Set*{\mat{a^2 \\ ab},\mat{ab \\ b}}$ is not a basis,
-					then
-					$\det\left(\mat{a^2 & ab \\ ab & b}\right)=a^{2}( b-b^{2})=0$.
-					This implies that $a^{2}=0$ or $b-b^{2}=0$. Therefore, $\Set*
-					{\mat{a^2 \\ ab},\mat{ab \\ b}}$ is not a basis if one of the
-					following conditions holds: $a=0$, $b=1$, or $b=0$.
-			\end{enumerate}
-		\end{solution}
-
-		\prob Let $M=\mat{a & b \\ c & d}$. The \emph{adjugate matrix} (sometimes
-		called the \emph{classical adjoint}) of $M$, notated $M^{\text{adj}}$,
-		is the matrix given by $M^{\text{adj}}=\mat{d & -b \\ -c & a}$. Prove that
-		if $M$ is invertible, then
-		$\displaystyle M^{-1}=\frac{M^{\text{adj}}}{\det(M)}$.
-		\begin{solution}
-			Since
-			\[
-				\frac{M^{\text{adj}}}{\det{M}}M=\frac{1}{ad-bc}\mat{da-bc & db-bd \\ ac-ca& ad-cb}
-			\]\[
-				=\mat{1 & 0 \\ 0 & 1}=I_{2\times 2}
-			\]
-			and
-			\[
-				M\frac{M^{\text{adj}}}{\det{M}}=\frac{1}{ad-bc}\mat{ad-bc & ba-ab \\ cd-dc& da-cb}
-			\]\[
-				=\mat{1 & 0 \\ 0 & 1}=I_{2\times 2},
-			\]
-			we conclude that
-			\[
-				M^{-1}=\frac{M^{\text{adj}}}{\det(M)}.
-			\]
-		\end{solution}
-
-		\prob For each statement below, determine whether it is true or false.
-		Justify your answer.
+		\prob A $3\times 3$ matrix is called a \emph{Heisenberg matrix}\index{Heisenberg matrix} if it takes the form
+			$\mat{1&a&c\\0&1&b\\0&0&1}$ for some $a,b,c\in\R$.
 		\begin{enumerate}
-			\item A $2\times 2$ matrix $M$ has determinant $1$ if and only if $M=
-				I_{2\times 2}$.
-
-			\item A $3\times 3$ matrix $M$ has determinant $1$ if and only if $\VolChange
-				(\mathcal{T}_{M})$ is equal to 1, where $\mathcal{T}_{M}$ is the
-				transformation given by $\mathcal{T}_{M}(\vec x)=M\vec x$.
-
-			\item For vectors $\vec a,\vec b\in \R^{2}$, it is always the case
-				that $\det([\vec a|\vec b])=-\det([\vec b|\vec a])$.
-
-			\item For a $2\times 2$ or $3\times 3$ matrix $M$, multiplying a
-				single entry of $M$ by $4$ will change $\det(M)$ by a factor of
-				$4$.
-
-			\item For a square matrix $A$, it is always the case that
-				$\det(A^{T}A)\geq 0$.
+			\item Show that if $A$ and $B$ are Heisenberg matrices, then so are $AB$ and $BA$.
+			\item If $A$ and $B$ are Heisenberg matrices, is it always the case that $AB=BA$? Give a proof
+				or a counter example.
+			\item Let $X=\mat{1&a&c\\0&1&b\\0&0&1}$ and let $Y=\mat{1&-1&ab-c\\0&1&-b\\0&0&1}$. Show that $XY=I_{3\times 3}$.
 		\end{enumerate}
-		\begin{solution}
-			\begin{enumerate}
-				\item False. A counterexample is
-					$M=\mat{2 & 0 \\ 0 & \frac{1}{2}}$.
-
-				\item False. A counterexample is
-					$M=\mat{-1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1}$. $M$ does not
-					change volume, but it does reverse orientation.
-
-				\item True. Note that $[\vec a|\vec b]$ is just
-					$[\vec b|\vec a]$ with its columns swapped. The oriented volume
-					of the parallelogram generated by $\vec a$ and $\vec b$ is equal
-					to the negative of the oriented volume of the parallelogram generated
-					by $(\vec b,\vec a)$. Using Volume Theorem I, we have $\det([\vec
-					a|\vec b])=-\det([\vec b|\vec a])$.
-
-				\item False. A counterexample is
-					$M=\mat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}$. We multiply the
-					$(1,2)$-entry by $4$ to get another matrix $M'$. Note that
-					$M'$ is still $\mat{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 }$, and
-					$\det(M)=1=\det(M')\ne 4\det(M)$.
-
-				\item True. Note that
-					$\det(A^{T}A)=\det(A^{T})\det(A)=\det(A)\det(A)=\det(A)^{2}\ge
-					0$.
-			\end{enumerate}
-		\end{solution}
+		\prob Let $X$ be a matrix of the form $\mat{a&-b\\b&a}$ for some $a,b\in\R$.
+		\begin{enumerate}
+			\item Show that $X^2$ has the same form as $X$.
+			\item Is there a solution to the matrix equation $X^2=I_{2\times 2}$? If so, how many?
+			\item Is there a solution to the matrix equation $X^2=-I_{2\times 2}$? If so, how many?
+			\item Let $Y$ be an arbitrary $2\times 2$ matrix. How many solutions are there to the equation
+				$Y^2=I_{2\times 2}$? 
+			\item Do you agree with the statement ``every positive real number has exactly
+				two square roots''? Do you agree with the statement ``every diagonal matrix with positive entries on the diagonal
+				has exactly two square roots''? Explain.
+		\end{enumerate}
 	\end{problist}
 \end{exercises} 

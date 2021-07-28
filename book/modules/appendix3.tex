@@ -1,402 +1,454 @@
-Module \ref{determinant module} discusses the theory of determinants and gives a general algorithm
-for computing determinants by using elementary matrices\index{Matrix!elementary matrix}. But, since $2\times 2$ and $3\times 3$
-matrices arise so often in day-to-day life,\footnote{ The day-to-day life of a mathematics student, at least!}
-it is worth learning some special-purpose formulas for computing the determinants of $2\times 2$ and $3\times 3$
-matrices.
-
-It should be noted that these formulas are \emph{special}. Though there do exist
-formulas for determinants of $n\times n$ matrices, \emph{they are exponentially more complex
-than the formulas for $2\times 2$ and $3\times 3$ matrices}. As such, determinants of large matrices
-are usually computed using row reduction/elementary matrices and not formulas\footnote{
-	General determinant formulas are primarily useful as theoretical tools for writing proofs.}.
-
-\Heading{Computing $2\times 2$ Determinants}
-
-For a $2\times 2$ matrix, we can calculate its determinant directly from its entries.
-
-\begin{theorem}
-	\index{Determinant!$2\times 2$ formula}
-	Let $M=\mat{a & b \\ c & d}$. Then,
-	\[
-		\det(M)=ad-bc.
-	\]
-\end{theorem}
-
-The $2\times 2$ determinant formula can be deduced from volume theorem I\index{Volume!theorem I}.
-Let $M=\mat{a&b\\c&d}$ and let $\vec c_1=\mat{a\\c}$ and $\vec c_2=\mat{b\\d}$ be the columns of $M$.
-We need to compute the area of the parallelogram $\mathcal P$, with sides $\vec c_1$ and $\vec c_2$.
-
-\begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[
-			anchor=origin,
-			disabledatascaling,
-			xmin=0,xmax=4,
-			ymin=0,ymax=4,
-			xtick={1.5,2,3.5},
-			ytick={1,3,4},
-			xticklabels={$b$, $a$, $a+b$},
-			yticklabels={$c$, $d$, $c+d$},
-			x=1cm,y=1cm,
-			grid=both,
-			grid style={line width=.1pt, draw=gray!10},
-			%major grid style={line width=.2pt,draw=gray!50},
-			axis lines=middle,
-			minor tick num=0,
-			enlargelimits={abs=0.5},
-			axis line style={latex-latex},
-			ticklabel style={font=\tiny,fill=white,text height=2pt},
-			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
-			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
-		]
-			\draw [mygreen, fill=mygreen, fill opacity=.3] (0,0) -- (2,1) -- (3.5,4) -- (1.5,3) -- cycle;
-			\draw [black, thick, ->] (0,0) -- (2,1);
-			\draw [black, thick, ->] (0,0) -- (1.5,3);
-		\end{axis}
-		\node [black] at (1.5,0.35) {$\vec c_1$};
-		\node [black] at (0.65,2.1) {$\vec c_2$};
-		\node [mygreen] at (1.75,2) {$\mathcal{P}$};
-	\end{tikzpicture}
-\end{center}
-
-We can compute the area of $\mathcal P$ by computing the area of a rectangle that contains
-$\mathcal P$ and subtracting off any area that we ``over counted''.
-
-\begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[
-			anchor=origin,
-			disabledatascaling,
-			xmin=0,xmax=4,
-			ymin=0,ymax=4,
-			xtick={1.5,2,3.5},
-			ytick={1,3,4},
-			xticklabels={$b$, $a$, $a+b$},
-			yticklabels={$c$, $d$, $c+d$},
-			x=1cm,y=1cm,
-			grid=both,
-			grid style={line width=.1pt, draw=gray!10},
-			%major grid style={line width=.2pt,draw=gray!50},
-			axis lines=middle,
-			minor tick num=0,
-			enlargelimits={abs=0.5},
-			axis line style={latex-latex},
-			ticklabel style={font=\tiny,fill=white,text height=2pt},
-			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
-			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
-		]
-			\draw [mygreen, fill=mygreen, fill opacity=.2] (0,0) -- (2,1) -- (3.5,4) -- (1.5,3) -- cycle;
-			\draw [mypink, pattern=dots, pattern color=mypink] (0,0) rectangle (3.5,4);
-			\draw [black, thick, ->] (0,0) -- (2,1);
-			\draw [black, thick, ->] (0,0) -- (1.5,3);
-		\end{axis}
-		\node [mygreen] at (1.75,2) {$\mathcal{P}$};
-		\node [black] at (1.75, 4.2) {Surrounding rectangle};
-	\end{tikzpicture}
-	\quad
-	\begin{tikzpicture}
-		\begin{axis}[
-			anchor=origin,
-			disabledatascaling,
-			xmin=0,xmax=4,
-			ymin=0,ymax=4,
-			xtick={1.5,2,3.5},
-			ytick={1,3,4},
-			xticklabels={$b$, $a$, $a+b$},
-			yticklabels={$c$, $d$, $c+d$},
-			x=1cm,y=1cm,
-			grid=both,
-			grid style={line width=.1pt, draw=gray!10},
-			%major grid style={line width=.2pt,draw=gray!50},
-			axis lines=middle,
-			minor tick num=0,
-			enlargelimits={abs=0.5},
-			axis line style={latex-latex},
-			ticklabel style={font=\tiny,fill=white,text height=2pt},
-			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
-			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
-		]
-			\fill [mygreen, opacity=.3] (0,0) -- (2,1) -- (3.5,4) -- (1.5,3) -- cycle;
-			\draw [mypink] (0,0) rectangle (3.5,4);
-			\draw [mypink] (0,3) rectangle (1.5,4);
-			\draw [mypink] (2,0) rectangle (3.5,1);
-			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (1.5,3) -- (3.5,4) -- (0,4) -- cycle;
-			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (2,1) -- (3.5,4) -- (3.5,0) -- cycle;
-		\end{axis}
-		\node [mygreen] at (1.75,2) {$\mathcal{P}$};
-		\node [mypink, ] at (0.75, 3.5) {\tiny little rectangle};
-		\node [mypink, ] at (2.75, 0.5) {\tiny little rectangle};
-		\node [mypink, ] at (1.6, 0.5) {\tiny triangle};
-		\node [mypink, ] at (1.9, 3.5) {\tiny triangle};
-		\node [mypink, ] at (0.5, 2) {\tiny triangle};
-		\node [mypink, ] at (3, 2) {\tiny triangle};
-	\end{tikzpicture}
-\end{center}
-
-Thus,
+A \emph{matrix}\index{Matrix!definition} is a box (rectangular array) of numbers, usually surrounded
+by brackets\footnote{ The word \emph{matrix} comes from the Latin word for womb; you can think of a matrix as
+``holding numbers together''.}. For example, 
 \[
-	\Vol(\mathcal P) = \text{area of big rectangle} - \text{area of little rectangles} - \text{area of triangles}.
+	\mat{1&2&3\\4&5&6} \qquad \mat{x\\y\\z}\qquad \begin{pmatrix}7.5&-2\\-3&0\end{pmatrix}\qquad \begin{matrix}1&2\\3&4\\5&6\end{matrix}
 \]
-Using the coordinates for $\vec c_1$ and $\vec c_2$, we get
-\begin{equation}
-	\label{EQDETFORM}
-	\Vol(\mathcal P) = \underbrace{(a+b)(d+c)}_{\text{area of big rectangle}} \qquad -
-	\underbrace{2bc}_{\text{area of little rectangles}} -
-	\underbrace{4\tfrac{ad}{2}}_{\text{area of triangles}} = ad-bc.
-\end{equation}
+are matrices. In this book, we always write matrices with square brackets ``$\,[\,\cdots\,]\,$''.
+We have already used matrices in two ways: to keep track of the coefficients when solving a system of linear equations
+and to describe vectors (as a column of numbers). In both of these cases, matrices were a notational tool used to keep related numbers together.
+But, as we will soon see, matrices are also mathematical objects that you can do arithmetic with.
 
-\begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[
-			anchor=origin,
-			disabledatascaling,
-			xmin=0,xmax=4,
-			ymin=0,ymax=4,
-			xtick={1.5,2,3.5},
-			ytick={1,3,4},
-			xticklabels={$b$, $a$, $a+b$},
-			yticklabels={$c$, $d$, $c+d$},
-			x=1cm,y=1cm,
-			grid=both,
-			grid style={line width=.1pt, draw=gray!10},
-			%major grid style={line width=.2pt,draw=gray!50},
-			axis lines=middle,
-			minor tick num=0,
-			enlargelimits={abs=0.5},
-			axis line style={latex-latex},
-			ticklabel style={font=\tiny,fill=white,text height=2pt},
-			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
-			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
-		]
-			\draw [mypink] (0,0) rectangle (3.5,4);
-			\draw [mypink] (0,3) rectangle (1.5,4);
-			\draw [mypink] (2,0) rectangle (3.5,1);
-			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (1.5,3) -- (3.5,4) -- (0,4) -- cycle;
-			\draw [mypink, fill=mypink, fill opacity=.2] (0,0) -- (2,1) -- (3.5,4) -- (3.5,0) -- cycle;
-		\end{axis}
-	\end{tikzpicture}
-\end{center}
+\Heading{Matrix Notation}
 
-Equation \eqref{EQDETFORM} is beautiful and simple, but its derivation should give you pause. Volume theorem I refers
-to \emph{oriented} volume and we didn't make any reference to orientation in our figures! Indeed, we played tricks
-with pictures. We drew $\vec c_1$ and $\vec c_2$ in a right-handed orientation\index{Basis!right-handed} in the first quadrant, even though the
-vectors $\mat{a\\c}$ and $\mat{b\\d}$ could be in \emph{any} quadrant (and one or both could even be the zero vector)!
-To fully justify Equation \eqref{EQDETFORM}, we need to consider cases based on all the possible ways $\vec c_1$ and $\vec c_2$
-can form a parallelogram. However, it turns out that every case gives the same answer: $\det\left(\mat{a&b\\c&d}\right)=ad-bc$.
+A matrix can be described by its \emph{shape}\footnote{ Other terms for the \emph{shape} of a matrix
+include the ``\emph{size} of a matrix'' and the ``\emph{dimensions} of a matrix''. But, be careful not to confuse this
+usage of ``dimension'' with the term ``dimension'' in the context of subspaces.} 
+(the number of rows and columns in the matrix) and its \emph{entries} (the numbers
+inside the matrix). Traditionally, matrices are labeled with capital letters and their entries are labeled with lower-case letters.
 
-\begin{example}
-	Directly compute the determinant of $M=\mat{1 & 6 \\ 2 & 7}$ using the $2\times 2$ formula.
-	Then, find the determinant of $M$ after decomposing it into the product of elementary matrices.
+Consider the matrix $A$ with $m$ rows and $n$ columns:
+\NiceMatrixOptions{nullify-dots}
+\[
+	A = \ \ \begin{bNiceMatrix}[first-row,first-col]
+&
+		& \Ldots[line-style={solid,<->,color=mypink},shorten=0pt]^{\color{mypink}n \text{ columns}} \\
+		& a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+		& a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+		\Vdots[line-style={solid,<->,mygreen}]_{\color{mygreen}m \text{ rows}} & \vdots & \vdots & \vdots &\ddots & \vdots \\
+		& a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
+	\end{bNiceMatrix}
+\]
+We call $A$ an ``\emph{$m$ by $n$} matrix'', or in notation, an ``$m\times n$ matrix''\footnote{ In this context, ``$\,\times\,$'' is read as ``by''}.
+The entries of $A$ are indexed by their $(\text{\emph{row}},\text{\emph{column}})$ coordinates. So, the $(1,1)$ entry of $A$ is $a_{11}$,
+the $(2,1)$ entry of $A$ is $a_{21}$, etc..  When subscripting a matrix entry, it is tradition to omit a separator between the row and column
+index. That is, we write $a_{ij}$ instead of $a_{i,j}$ or $a_{(i,j)}$\footnote{ There's nothing wrong
+with including a separator. It's just not common practice.}.
 
-	Using the $2\times 2$ formula, we get
-	\[
-		\det(M)=(1)(7)-(2)(6)=-5.
-	\]
+\begin{example}Let $A=\mat{1&2&3\\4&5&6}$. Find the shape of $A$ as well as the $(1,3)$ entry of $A$.
 
-	Alternatively, row reducing and keeping track of the elementary matrices for each step, we see
-	\[
-		\underbrace{\mat{1 & -6 \\ 0 & 1}}_{\textstyle E_3}
-		\underbrace{\mat{1 & 0 \\ 0 & -\frac{1}{5}}}_{\textstyle E_2}
-		\underbrace{\mat{1 & 0 \\ -2 & 1}}_{\textstyle E_1} M = \mat{1&0\\0&1},
-	\]
-	and so
-	\[
-		M = \mat{1 & 0 \\ 2 & 1}
-		    \mat{1 & 0 \\ 0 & -5}
-		    \mat{1 & 6 \\ 0 & 1} = E_1^{-1} E_2^{-1} E_3^{-1}.
-	\]
-
-	$E_1^{-1}$ and $E_3^{-1}$ both have determinant $1$, and $E_2^{-1}$ has determinant $-5$. Thus,
-	\[
-		\det(M)=\det(E_1^{-1})\det(E_2^{-1})\det(E_3^{-1})=(1)(-5)(1)=-5,
-	\]
-	which is exactly what we got using the formula.
+	$A$ has two rows and three columns, so $A$ is a $2\times 3$ matrix. The $(1,3)$ entry of $A$
+	is the number in the first row and third column of $A$, which is $3$.
 \end{example}
 
-\Heading{Computing $3\times 3$ Determinants}
+Since a matrix is completely determined by its shape and entries, we can define a matrix via a formal. For example,
+define $B$ to be the $2\times 3$ matrix whose $(i,j)$ entry, $b_{ij}$, satisfies the formula $b_{ij}=i+j$. In this case
+\[
+	B=\mat{b_{11}&b_{12}&b_{13}\\b_{21}&b_{22}&b_{23}}=\mat{2&3&4\\3&4&5}.
+\]
+The shorthand $B=[b_{ij}]$ means that ``$B$ is a matrix whose $(i,j)$ entry is $b_{ij}$''. Using this shorthand, we could
+alternatively say $B=[b_{ij}]$ is a $2\times 3$ matrix satisfying $b_{ij}=i+j$.
 
-The formula for a $3\times 3$ matrix is more complicated than the $2\times 2$ formula.
+\begin{example}
+	Let $C=[c_{ij}]$ be a $3\times 3$ matrix satisfying $c_{ij}=i-j$. Write down $C$.
 
-\begin{theorem}
-	\index{Determinant!$3\times 3$ formula} Let
-	$M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. Then
 	\[
-		\det(M)=aei+bfg+cdh-gec-hfa-idb.
+		C=\mat{c_{11}&c_{12}&c_{13}\\c_{21}&c_{22}&c_{23}\\c_{31}&c_{32}&c_{33}}=\mat{0&-1&-2\\1&0&-1\\2&1&0}.
 	\]
-\end{theorem}
+\end{example}
 
-Fortunately, there is a clever mnemonic for remembering this formula called \emph{the Rule of Sarrus} or
-\emph{the diagonal trick}.
+\Heading{Basic Terms}
+A matrix has three special parts: the diagonal, the upper triangle, and the lower triangle.
 
-\medskip
-{\bfseries Rule of Sarrus}
-
-Let $M=\mat{a & b & c \\ d & e & f \\ g & h & i}$. To compute the determinant of $M$ using the Rule of Sarrus,
-apply the following four steps.
-
-\begin{enumerate}[leftmargin=2.4cm]
-	\item[\bfseries Step 1.] Augment $M$ with copies of its \emph{first two
-		columns}.
-		\[
-			\begin{bmatrix}
-				[ccc|cc] a & b & c & a & b \\
-				d          & e & f & d & e \\
-				g          & h & i & g & h
-			\end{bmatrix}
-		\]
-
-	\item[\bfseries Step 2.] Multiply together and then \emph{add} the entries along the three
-		diagonals of the new matrix.
-		These are called the \emph{diagonal products}.
-		\[
+\[
+	\underbrace{
 			\begin{bNiceArray}{
-				CCC|CC
-			}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
-				a & b & c & a & b \\
-				d & e & f & d & e \\
-				g & h & i & g & h
+				CCCCC
+			}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3,4-4}}]
+				a_{11} & a_{12} & a_{13} & a_{14} & a_{15} \\
+				a_{21} & a_{22} & a_{23} & a_{24} & a_{25} \\
+				a_{31} & a_{32} & a_{33} & a_{34} & a_{35} \\
+				a_{41} & a_{42} & a_{43} & a_{44} & a_{45} \\
 			\end{bNiceArray}
-		\]
-		\[
-			\text{sum of diagonal products}={\color{LimeGreen!80!black} aei} + {\color{NavyBlue} bfg} + {\color{CornflowerBlue!70!black} cdh}.
-		\]
-
-	\item[\bfseries Step 3.] Multiply together and then \emph{subtract} the entries along the three anti-diagonals.
-		These are called the \emph{anti-diagonal products}.
-		\[
+		}_{\text{\color{LimeGreen!50!black}Diagonal}}
+			\qquad
+		\underbrace{
 			\begin{bNiceArray}{
-				CCC|CC
-			}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
-				a & b & c & a & b \\
-				d & e & f & d & e \\
-				g & h & i & g & h
+				CCCCC
+			}[code-before={\cellcolor{NavyBlue!52}{1-1,2-2,3-3,4-4,1-2,1-3,1-4,1-5,2-3,2-4,2-5,3-4,3-5,4-5}}]
+				a_{11} & a_{12} & a_{13} & a_{14} & a_{15} \\
+				a_{21} & a_{22} & a_{23} & a_{24} & a_{25} \\
+				a_{31} & a_{32} & a_{33} & a_{34} & a_{35} \\
+				a_{41} & a_{42} & a_{43} & a_{44} & a_{45} \\
 			\end{bNiceArray}
-		\]
-		\[
-			\text{difference of anti-diagonal products}=-{\color{LimeGreen!80!black} gec}-{\color{NavyBlue} hfa}-{\color{CornflowerBlue!70!black} idb}
-		\]
-
-	\item[\bfseries Step 4.] Add the diagonal products and subtract the anti-diagonal products to get the
-		determinant.
-		\[
-			\det(M)=aei+bfg+cdh-gec-hfa-idb.
-		\]
-\end{enumerate}
-
-\begin{example}
-	Use the diagonal trick to compute $\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)$.
-
-	\[
-		\begin{bNiceArray}{
-			CCC|CC
-		}[code-before={\cellcolor{LimeGreen!72}{1-1,2-2,3-3}\cellcolor{NavyBlue!72}{1-2,2-3,3-4}\cellcolor{CornflowerBlue!72}{1-3,2-4,3-5}}]
-			1  & 4 & 0 & 1  & 4 \\
-			-2 & 3 & 1 & -2 & 3 \\
-			0  & 2 & 1 & 0  & 2
-		\end{bNiceArray}
-	\]
-	\[
-		\text{sum of diagonal products}={\color{LimeGreen!70!black} (1)(3) (1)}+{\color{NavyBlue} (4)(1) (0)}+{\color{CornflowerBlue!70!black}(0)(-2)(2)}=3+0+0.
-	\]
-
-	\[
-		\begin{bNiceArray}{
-			CCC|CC
-		}[code-before={\cellcolor{LimeGreen!72}{3-1,2-2,1-3}\cellcolor{NavyBlue!72}{3-2,2-3,1-4}\cellcolor{CornflowerBlue!72}{3-3,2-4,1-5}}]
-			1  & 4 & 0 & 1  & 4 \\
-			-2 & 3 & 1 & -2 & 3 \\
-			0  & 2 & 1 & 0  & 2
-		\end{bNiceArray}
-	\]
-	\[
-		\text{difference of anti-diagonal products}=-{\color{LimeGreen!70!black}(0) (3) (0)}-{\color{NavyBlue}(2)(1) (1)}-{\color{CornflowerBlue!70!black} (1) (-2)(4)}=-0-2-(-8).
-	\]
-	Thus, \[\det\left(\mat{1 & 4 & 0 \\ -2 & 3 & 1 \\ 0 & 2 & 1}\right)=3\ +0\ +0\quad-0\ -2\ -(-8)=9.\]
-\end{example}
-
-It may be tempting to apply the Rule of Sarrus to $4\times 4$ and larger matrices, but \emph{don't do it!}
-There is a formula for $4\times 4$ determinants, but \emph{it's not given by the Rule of Sarrus}\footnote{
-	Because your curiosity is never ending, here's the formula. For a matrix $4\times 4$ matrix $A=[a_{ij}]$,
-	we have $\det(A)=
-a_{1 1} a_{2 2} a_{3 3} a_{4 4} - a_{1 1} a_{2 2} a_{3 4} a_{4 3} - a_{1 1} a_{2 3} a_{3 2} a_{4 4} + a_{1 1} a_{2 3} a_{3 4} a_{4 2} + a_{1 1} a_{2 4} a_{3 2} a_{4 3} - a_{1 1} a_{2 4} a_{3 3} a_{4 2} - a_{1 2} a_{2 1} a_{3 3} a_{4 4} + a_{1 2} a_{2 1} a_{3 4} a_{4 3} + a_{1 2} a_{2 3} a_{3 1} a_{4 4} - a_{1 2} a_{2 3} a_{3 4} a_{4 1} - a_{1 2} a_{2 4} a_{3 1} a_{4 3} + a_{1 2} a_{2 4} a_{3 3} a_{4 1} + a_{1 3} a_{2 1} a_{3 2} a_{4 4} - a_{1 3} a_{2 1} a_{3 4} a_{4 2} - a_{1 3} a_{2 2} a_{3 1} a_{4 4} + a_{1 3} a_{2 2} a_{3 4} a_{4 1} + a_{1 3} a_{2 4} a_{3 1} a_{4 2} - a_{1 3} a_{2 4} a_{3 2} a_{4 1} - a_{1 4} a_{2 1} a_{3 2} a_{4 3} + a_{1 4} a_{2 1} a_{3 3} a_{4 2} + a_{1 4} a_{2 2} a_{3 1} a_{4 3} - a_{1 4} a_{2 2} a_{3 3} a_{4 1} - a_{1 4} a_{2 3} a_{3 1} a_{4 2} + a_{1 4} a_{2 3} a_{3 2} a_{4 1}
-	$. This formula involves $24$ products. The $5\times 5$ formula involves $120$ products and the $6\times 6$ formula involves $720$ products. It only
-	gets worse from there.
-
-}.
-
-Like the $2\times 2$ formula for determinants, we can derive the $3\times 3$ formula directly from the definition. However, it takes
-quite a bit more work\footnote{ If you're interested in proving the $3\times 3$ determinant formula, try using the elementary matrix
-approach rather than computing the volume of a parallelepiped directly.}.
-
-\Heading{Determinant Formulas and Orientation}
-
-Determinants and orientation are connected and our determinant formulas (if we accept them as true) give us an
-alternative way to determine the orientation of a basis\index{Basis!orientation of}.
-
-Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ be an ordered basis for $\R^2$, and let $M=[\vec b_1|\vec b_2]$ be the matrix whose
-columns are $\vec b_1$ and $\vec b_2$. Since $\mathcal B$ is linearly independent, we know that $\det(M)\neq 0$.
-Further, applying the definition of the determinant, we know
-\[
-	\det(M)>0
-\]
-means that $\mathcal B$ is a right-handed basis and $\det(M)<0$ means $\mathcal B$ is a left-handed basis.
-
-\begin{example}
-	Use a determinant to decide whether the ordered basis $\Set*{\mat{1\\2},\mat{-3\\2}}$ is left-handed or right-handed.
-
-	Let $A = \mat{1 & -3 \\ 2 & 2}$ be the matrix whose columns are the elements of the given ordered basis.
-	
-	Using the formula for $2 \times 2$ determinants gives us
-	\[
-		\det(A) = (1)(2) - (2)(-3) = 8 > 0
-	\]
-	and so we conclude $\Set*{\mat{1\\2},\mat{-3\\2}}$ is a right-handed basis.
-\end{example}
-
-\medskip
-Recall the ordered basis $\mathcal Q=\Set{\xhat, \vec u_{\theta}}$ where $\vec u_\theta = \mat{\cos\theta\\\sin\theta}$ is the
-unit vector which forms an angle of $\theta$ with the positive $x$-axis.
-
-\begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[
-			anchor=origin,
-			disabledatascaling,
-			xmin=0,xmax=1,
-			ymin=0,ymax=1,
-			xtick={0,1},
-			ytick={0,1},
-			x=2cm,y=2cm,
-			grid=both,
-			grid style={line width=.1pt, draw=gray!10},
-			%major grid style={line width=.2pt,draw=gray!50},
-			axis lines=middle,
-			minor tick num=0,
-			enlargelimits={abs=0.5},
-			axis line style={latex-latex},
-			ticklabel style={font=\tiny,fill=white},
-			xlabel style={at={(ticklabel* cs:1)},anchor=north west},
-			ylabel style={at={(ticklabel* cs:1)},anchor=south west}
-		]
-			\draw [black, thick, ->] (0,0) -- (1,0) node [midway, below] {$\xhat$};
-			\draw [black, thick, ->] (0,0) -- ++(60:2cm) node [midway, above, xshift=-4pt] {$\vec u_\theta$};
-			\draw [mypink] (0.5, 0) arc (0:60:0.5) node [midway, above right, yshift=-2pt] {$\theta$};
-		\end{axis}
-	\end{tikzpicture}
-\end{center}
-
-Visually, we can see that $\mathcal Q$ should be right-handed when $\theta\in(0,\pi)$, left handed when
-$\theta\in(\pi,2\pi)$ and $\mathcal Q$ is not a basis when $\theta=0$ or $\theta =\pi$.
-
-But what does the determinant say?
-
-Computing the determinant of the matrix $Q=[\xhat|\,\vec u_\theta]$ directly using the $2\times 2$ determinant formula, we get
-\[
-	\det(Q) = \det([\xhat|\,\vec u_\theta]) = \det\left(\mat{1&\cos\theta\\0&\sin\theta}\right) = \sin\theta.
+		}_{\text{\color{NavyBlue!80}Upper Triangle}}
+			\qquad
+		\underbrace{
+			\begin{bNiceArray}{
+				CCCCC
+			}[code-before={\cellcolor{CornflowerBlue!72}{1-1,2-2,3-3,4-4,2-1,3-1,4-1,3-2,4-2,4-3}}]
+				a_{11} & a_{12} & a_{13} & a_{14} & a_{15} \\
+				a_{21} & a_{22} & a_{23} & a_{24} & a_{25} \\
+				a_{31} & a_{32} & a_{33} & a_{34} & a_{35} \\
+				a_{41} & a_{42} & a_{43} & a_{44} & a_{45} \\
+			\end{bNiceArray}
+		}_{\text{\color{CornflowerBlue!50!black}Lower Triangle}}
 \]
 
-Notice that $\det(Q)=\sin\theta>0$ when $\theta\in(0,\pi)$, $\det(Q)=\sin\theta < 0$ when $\theta\in(\pi,2\pi)$
-and $\det(Q)=\sin\theta=0$ when $\theta\in\Set{0,\pi}$.
+Formally, we define the diagonal and upper/lower triangle of a matrix in terms of the row and column coordinates.
+\SavedDefinitionRender{Diagonal}
+\SavedDefinitionRender{TriangleOf}
 
-The determinant supports our intuition.
+\Heading{Special Matrices}
+There are several special matrices that come up often.
+\SavedDefinitionRender{TriangularMatrix}
+\SavedDefinitionRender{SquareMatrix}
+\SavedDefinitionRender{DiagonalMatrix}
+\SavedDefinitionRender{SymmetricMatrix}
+\SavedDefinitionRender{ZeroMatrix}
+\SavedDefinitionRender{IdentityMatrix}
+
+\begin{example}Identify the diagonal of $A=\mat{-2&3\\5&6\\7&7}$.
+
+	The diagonal of $A$ consists of the entries in $A$ whose row coordinate is equal to the column coordinate.
+	So, the diagonal of $A$ consists of $-2$ and $6$.
+\end{example}
+
+\begin{example}Apply a single row operation to $B=\mat{-2&3\\0&6\\0&12}$
+ to make it an upper triangular matrix.
+
+	To make $B$ an upper triangular matrix, we need all entries below the diagonal to be zero.
+	More specifically, we need to get rid of the $12$ in the lower-right corner of $B$. By applying the row
+	operation $\text{row}_3\mapsto \text{row}_3-2\,\text{row}_2$ to $B$, we get the upper triangular matrix
+	\[
+		B'=\mat{-2&3\\0&6\\0&0}
+	\]
+\end{example}
+
+\begin{example}If possible, produce a matrix that is both upper and lower triangular.
+
+	For a matrix to be upper triangular, all entries below the diagonal must be zero. For a matrix
+	to be lower triangular, all entries above the diagonal need to be zero. Therefore, if a matrix
+	is both upper and lower triangular, the only non-zero entries of the matrix must be on the diagonal.
+	It follows that
+	\[\mat{1&0&0\\0&2&0\\0&0&3}\qquad\text{and}\qquad \mat{0&0&0\\0&0&0}\qquad\text{etc.}\]
+	are valid examples.
+\end{example}
+
+
+
+
+\Heading{Matrix Arithmetic}
+
+In Module \ref{module1}, we saw that vectors were an extension of numbers that allowed us to describe directions.
+Similarly, we can view matrices as a more general type of ``number''. Matrices can do everything numbers can,
+everything vectors can, and more!
+
+\subsubsection*{Basic Operations}
+
+The rules for addition and scalar multiplication of matrices are what you expect: to add two matrices, add the corresponding entries,
+and to scalar multiply a matrix, distribute the scalar to each entry.
+
+For example,
+\[
+	2\mat{1&2&3\\4&5&6} = \mat{2&4&6\\8&10&12}\qquad\text{and}\qquad
+	\mat{1&2&3\\4&5&6}+\mat{-1&2&0\\3&0&1} = 
+	\mat{1-1&2+2&3+0\\4+3&5+0&6+1}
+	=\mat{0 & 4 & 3\\7&5&7}.
+\]
+
+While any matrix can be scalar multiplied by any scalar, matrix addition only makes sense for \emph{compatible} matrices.
+That is, you can only add together two matrices of the same shape.
+
+\begin{emphbox}[Takeaway]
+	If two matrices are of the same shape, you can add them by adding entries ``straight across''; you
+	can multiply a matrix by a scalar by distributing the scalar to each entry of the matrix.
+\end{emphbox}
+
+\begin{example}
+	Let $A=\mat{1&2&3\\4&5&6}$, let $B=\mat{1&1\\2&2}$, and let $C=\mat{-1&0&-1\\2&1&2}$.
+	Compute $2A+B$ and $A+3C$, if possible.
+
+	First, note that $A$ is a $2\times 3$ matrix and so it can only be added to another $2\times 3$ matrix.
+	Since $B$ is a $2\times 2$ matrix, $2A+B$ is not defined. But, $C$ is a $2\times 3$ matrix, so $A+3C$ is defined.
+	Computing,
+	\[
+		A+3C=\mat{1&2&3\\4&5&6} + 3\mat{-1&0&-1\\2&1&2} = \mat{1&2&3\\4&5&6} + \mat{-3&0&-3\\6&3&6}
+	\]\[
+		= \mat{-2&2&0\\10&8&12}.
+	\]
+\end{example}
+
+\Heading{Matrix-Vector Multiplication}
+Matrices and vectors interact via \emph{matrix-vector} multiplication. There are two equivalent ways to think about
+matrix-vector multiplication: in terms of columns 
+(the \emph{column picture}) and in terms of rows (the \emph{row picture}).
+
+\subsubsection*{Column Picture}
+Let 
+\[
+	A=
+	\matc{
+				{a_{11}} & {a_{12}} & {\cdots} & {a_{1n}}\\
+				{a_{21}} & {a_{22}} & {\cdots} & {a_{2n}}\\
+				{\vdots} & {\vdots} & {\ddots} & {\vdots}\\
+				{a_{m1}} & {a_{m2}} & {\cdots} & {a_{mn}}
+				}=
+			\matc{\big|&\big|&&\big|\\[3pt]
+			\vec c_1&\vec c_2&\cdots&\vec c_n\\[2pt]
+			\big|&\big|&&\big|}
+\]
+be an $m\times n$ matrix and let 
+\[
+	\vec c_1=\matc{a_{11}\\a_{21}\\\vdots\\a_{m1}}\qquad
+	\vec c_2=\matc{a_{12}\\a_{22}\\\vdots\\a_{m2}}\qquad\cdots\qquad
+	\vec c_n=\matc{a_{1n}\\a_{2n}\\\vdots\\a_{mn}}.
+\]
+be the vectors corresponding to the columns of $A$. Further, let $\vec x=\matc{x_1\\x_2\\\vdots\\x_n}$ be a vector.
+
+We define the matrix-vector product $A\vec x$ to be the linear combination of $\vec c_1$, $\vec c_2$, \ldots, $\vec c_n$ with coefficients
+$x_1$, $x_2$, etc.. That is,
+\[
+	A\vec x =
+			\matc{\big|&\big|&&\big|\\[3pt]
+			\vec c_1&\vec c_2&\cdots&\vec c_n\\[2pt]
+			\big|&\big|&&\big|}\matc{x_1\\x_2\\\vdots\\x_n}
+	=x_1\vec c_1+x_2\vec c_2+\cdots+x_n\vec c_n.
+\]
+
+\begin{example}Let $B=\mat{1&2\\-2&3}$ and let $\vec v=\mat{4\\3}$. Compute $B\vec v$ using the column picture.
+
+	The column vectors of $B$ are $\mat{1\\-2}$ and $\mat{2\\3}$, so
+	\[
+		B\vec v=\mat{1&2\\-2&3}\mat{4\\3} = 4\mat{1\\-2} + 3\mat{2\\3}=\mat{10\\1}.
+	\]
+\end{example}
+
+The column picture of matrix-vector multiplication hints that matrix-vector multiplication can be used
+to encode sophisticated problems involving linear combinations (see Module \ref{moduleMatRep} for details).
+
+\subsubsection*{Row Picture}
+
+\newcommand{\hdash}{\text{\-------}}
+Alternatively, let
+\[
+	A=
+	\matc{
+				{a_{11}} & {a_{12}} & {\cdots} & {a_{1n}}\\
+				{a_{21}} & {a_{22}} & {\cdots} & {a_{2n}}\\
+				{\vdots} & {\vdots} & {\ddots} & {\vdots}\\
+				{a_{m1}} & {a_{m2}} & {\cdots} & {a_{mn}}
+				}=
+			\matc{\hdash&\hspace{-4pt}\vec r_1&\hspace{-6pt}\hdash\\
+				\hdash&\hspace{-4pt}\vec r_2&\hspace{-6pt}\hdash\\
+				&\vdots&\\
+				\hdash&\hspace{-4pt}\vec r_m&\hspace{-6pt}\hdash}
+\]
+be an $m\times n$ matrix and let 
+\[
+	\vec r_1=\matc{a_{11}\\a_{12}\\\vdots\\a_{1n}}\qquad
+	\vec r_2=\matc{a_{21}\\a_{22}\\\vdots\\a_{2n}}\qquad\cdots\qquad
+	\vec r_m=\matc{a_{m1}\\a_{m2}\\\vdots\\a_{mn}}.
+\]
+be vectors corresponding to the rows of $A$. Note that we are writing the \emph{row vectors of $A$ in column vector form}. 
+Further, let $\vec x=\matc{x_1\\x_2\\\vdots\\x_n}$ be a vector.
+
+We alternatively define the matrix-vector product $A\vec x$ as the vector whose coordinates are the dot products of the
+rows of $A$ and the vector $\vec x$. That is,
+\[
+	A\vec x =
+			\matc{\hdash&\hspace{-4pt}\vec r_1&\hspace{-6pt}\hdash\\
+				\hdash&\hspace{-4pt}\vec r_2&\hspace{-6pt}\hdash\\
+				&\vdots&\\
+				\hdash&\hspace{-4pt}\vec r_m&\hspace{-6pt}\hdash}
+			\vec x
+		=
+	\matc{\vec r_1\cdot \vec x\\\vec r_2\cdot\vec x\\\vdots\\\vec r_m\cdot \vec x}.
+\]
+
+\begin{example}Let $B=\mat{1&2\\-2&3}$ and let $\vec v=\mat{4\\3}$. Compute $B\vec v$ using the row picture.
+	Verify that the result matches with what you get from the column picture.
+
+	The row vectors of $B$ are $\mat{1\\2}$ and $\mat{-2\\3}$, so
+	\[
+		B\vec v=
+		\begin{bNiceArray}{
+				RR
+			}[code-before={\cellcolor{LimeGreen!72}{1-1,1-2}\cellcolor{CornflowerBlue!72}{2-1,2-2}}]
+				1&2\\-2&3
+		\end{bNiceArray}
+		\mat{4\\3} = \mat{
+		\begin{bNiceArray}{
+				RR
+			}[code-before={\cellcolor{LimeGreen!72}{1-1,2-1}}]
+				1\\2
+		\end{bNiceArray}
+			\cdot\mat{4\\3}\\[8pt] 
+		\begin{bNiceArray}{
+				RR
+			}[code-before={\cellcolor{CornflowerBlue!72}{1-1,2-1}}]
+				-2\\3
+		\end{bNiceArray}
+			\cdot\mat{4\\3}}
+		=\mat{(1)(4)+(2)(3)\\(-2)(4)+(3)(3)}=\mat{10\\1}.
+	\]
+	This is the same vector we got in the previous example using the column picture!
+\end{example}
+
+Since the row picture of matrix-vector multiplication involves dot products, which in turn relate to angles and geometry,
+the row picture hints that matrix-vector multiplication can be used to encode sophisticated problems involving the angles between
+multiple vectors (see Module \ref{moduleMatRep} for more).
+
+\subsubsection*{Compatibility}
+
+Matrix-vector multiplication is only possible when the shape of the matrix is compatible with the size of the vector. That is
+the number of \emph{columns} of the matrix must match the number of \emph{coordinates} in the vector. (Try some examples using
+the row an column picture to make sure you agree.)
+
+The result of a matrix-vector product is always a vector, but the number of coordinates in the output vector
+can change. For example, if $M$ is a $2\times 3$ matrix, the product $M\vec v$ is only defined if $\vec v\in \R^3$.
+However, the resulting vector $\vec w=M\vec v$ is in $\R^2$ (try an example and verify for yourself).
+This means matrix-vector multiplication can be used to move vectors between different spaces!
+
+\begin{emphbox}[Takeaway] Let $A$ be an $m\times n$ matrix and $\vec x$ be a vector.
+The matrix-vector product $A\vec x$ is only defined if $\vec x$ has $n$ coordinates. In that case,
+the result is a vector with $m$ coordinates.
+\end{emphbox}
+
+\Heading{Matrix-Matrix Multiplication}
+
+In many circumstances, we can also multiply two matrices with each other. To do so, we repeatedly apply matrix-vector
+multiplication. Let $C$ and $A$ be matrices and let $\vec a_1$, $\vec a_2$, $\ldots$, $\vec a_k$ be the columns of $A$.
+Then,
+\[
+	CA=C
+			\matc{\big|&\big|&&\big|\\[3pt]
+			\vec a_1&\vec a_2&\cdots&\vec a_k\\[2pt]
+			\big|&\big|&&\big|}
+	=
+			\matc{\big|&\big|&&\big|\\[3pt]
+			C\vec a_1&C\vec a_2&\cdots&C\vec a_k\\[2pt]
+			\big|&\big|&&\big|}.
+\]
+Here, we ``distributed'' $C$ into the matrix $A$, creating a new matrix whose columns are $C\vec a_1$, $C\vec a_2$, \ldots.
+Using the row picture to expand each $C\vec a_i$, we arrive at an explicit formula. Let $\vec r_1$,
+$\vec r_2$, $\ldots$, $\vec r_m$ be the rows of $C$. Then,
+\[
+	CA = 
+			\matc{\hdash&\hspace{-4pt}\vec r_1&\hspace{-6pt}\hdash\\
+				\hdash&\hspace{-4pt}\vec r_2&\hspace{-6pt}\hdash\\
+				&\vdots&\\
+				\hdash&\hspace{-4pt}\vec r_m&\hspace{-6pt}\hdash}
+			\matc{\big|&\big|&&\big|\\[3pt]
+			\vec a_1&\vec a_2&\cdots&\vec a_k\\[2pt]
+			\big|&\big|&&\big|}
+			=\matc{
+				\vec r_1\cdot \vec a_1 &\vec r_1\cdot \vec a_2&\cdots&\vec r_1\cdot \vec a_k\\
+				\vec r_2\cdot \vec a_1 &\vec r_2\cdot \vec a_2&\cdots&\vec r_2\cdot \vec a_k\\
+				\vdots&\vdots&\ddots&\vdots\\
+				\vec r_m\cdot \vec a_1 &\vec r_m\cdot \vec a_2&\cdots&\vec r_m\cdot \vec a_k\\
+			}.
+\]
+
+\begin{example}Let $X=\mat{1&2&3\\0&-1&0}$ and $Y=\mat{2&3\\1&1\\1&0}$. Compute $XY$ and $YX$.
+
+	Computing $XY$ entry by entry, we get the $(1,1)$ entry is $\mat{1\\2\\3}\cdot\mat{2\\1\\1}=7$, the $(2,1)$
+	entry is $\mat{0\\-1\\0}\cdot\mat{2\\1\\1}=-1$, and so on. Computing all the entries we get
+	\[
+		XY=\mat{1&2&3\\0&-1&0}\mat{2&3\\1&1\\1&0}=\mat{7&5\\-1&-1}.
+	\]
+
+	Computing $YX$ entry by entry, we get the $(1,1)$ entry is $\mat{2\\3}\cdot\mat{1\\0}=2$, the $(2,1)$
+	entry is $\mat{1\\1}\cdot\mat{1\\0}=1$, and so on. Computing all the entries we get
+	\[
+		YX=\mat{2&3\\1&1\\1&0}\mat{1&2&3\\0&-1&0}=\mat{2&1&6\\1&1&3\\1&2&3}.
+	\]
+\end{example}
+
+From the previous example, we see that multiplying matrices in different orders can produce
+different results. Formally we say that matrix multiplication is not \emph{commutative} (in contrast,
+scalars can be multiplied in any order). This non-commutativity holds even for square matrices\footnote{ Of course, it is \emph{possible}
+that $AB=BA$ for matrices $A$ and $B$. It just doesn't happen very often.}. For example,
+\[
+	 \mat{1&1\\2&2}\quad =\quad \mat{1&0\\0&2}\mat{1&1\\1&1}\quad \neq\quad \mat{1&1\\1&1}\mat{1&0\\0&2} \quad=\quad \mat{1&2\\1&2}.
+\]
+
+Further, for a matrix-matrix multiplication to be possible, the shapes of each matrix must be compatible. Using our knowledge
+of matrix-vector multiplication, we can deduce that if the matrix-matrix product $CA$ makes sense, then the number of \emph{columns}
+of $C$ must match the number of \emph{rows} of $A$.
+
+Writing the shape of two matrices side-by-side allows for a quick compatibility check.
+\[
+	\text{rows of $C$}\times\underbrace{\color{mypink}\text{columns of $C$}\qquad
+	\text{rows of $A$}}_{\text{must be equal for $CA$ to exist}}\times \text{columns of $A$}
+\]
+A successful matrix-matrix multiplication will always result in a matrix with the number of rows of the first and the number of columns of the second.
+
+\[
+	\underbrace{	\text{\color{mygreen}rows of $C$}\times\text{columns of $C$}\qquad
+	\text{rows of $A$}\times \text{\color{mygreen}columns of $A$}}_{
+		\text{successful product will be a $\text{\color{mygreen}rows of $C$}\!\times \text{\color{mygreen}columns of $A$}$ matrix}
+		}
+\]
+
+\begin{example}Let $A$ be a $2\times 3$ matrix, let $B$ be a $3\times 4$ matrix, and let $C$ be a $1\times 3$ matrix. Determine
+	the shape of the matrices resulting from all possible products of $A$, $B$, and $C$.
+
+	For the product of two matrices to exist, the number of columns of the first matrix must equal the number of rows in the second.
+	Therefore, the only matrix products that are possible are $AB$ and $CB$.
+
+	$AB$ is the product of a $2\times 3$ matrix with a $3\times 4$ matrix, and so will be a $2\times 4$ matrix.
+
+	$CB$ is the product of a $1\times 3$ matrix with a $3\times 4$ matrix, and so will be a $1\times 4$ matrix. 
+\end{example}
+
+\Heading{Matrix Algebra}
+
+Let $A$, $B$, and $C$ be $n\times n$ matrices and let $\alpha$ be a scalar. We can now write algebraic expressions like
+\[
+	A(B+\alpha C).
+\]
+Since the matrices are all $n\times n$, such expressions are always defined and the results
+are again $n\times n$ matrices. We can \emph{almost} treat arithmetic with $n\times n$ matrices like arithmetic with numbers, save the fact
+that changing the order of multiplication might change the result. Many familiar properties
+of arithmetic carry over to matrices. For example, matrix multiplication is both \emph{associative} and \emph{distributive}.
+That is,
+\[
+	(AB)C=A(BC)\qquad\text{and}\qquad A(B+C) = AB+AC\qquad\text{and}\qquad (A+B)C=AC+BC.
+\]
+
+We're already familiar with the special matrices $I$, the identity matrix, and $\mathbf 0$, the zero matrix.
+In terms of matrix algebra, these behave like the numbers $1$ and $0$. That is,
+\[
+	IA=AI=A\qquad \text{and}\qquad \mathbf 0 A = A\mathbf 0=\mathbf 0
+\]
+for any compatible square matrix $A$.
+
+To kick it up a level, when working with square matrices, we can define \emph{polynomials} of matrices. Using familiar exponent
+notation, $A^2=AA$, we can formulate questions like
+\begin{quote}
+	Does the equation $A^2=-I$ have a $2\times 2$ matrix solution?
+\end{quote}
+Famously, the equation $x^2=-1$ has no real solutions, but $A^2=-I$ actually does have real $2\times 2$ matrix solutions (see if you can
+find one)! In this text we will only scratch the surface of what can be done with matrix algebra, but it's powerful stuff\footnote{ Galois
+theory and representation theory both heavily rely on matrix algebra.}.
+
+\begin{emphbox}Matrix algebra behaves a lot like regular algebra except that the order of multiplication
+	matters and matrices must always have compatible sizes.
+\end{emphbox}
+
+\Heading{More Notation}
+Linear algebra has many different products: scalar multiplication, dot products,
+matrix-vector products, and matrix-matrix products, to name a few.
+To distinguish between these different products, we use different notations.
+
+For matrix-vector and matrix-matrix products, we use \emph{adjacency} to represent multiplication. That is,
+we write
+\[
+	A\vec v\qquad\text{and}\qquad AB
+\]
+to indicate a product.
+Specifically, we do \emph{not} use the symbols ``$\,\cdot\,$'' or ``$\,\times\,$'' to represent matrix-vector
+or matrix-matrix products (these symbols are reserved for the dot product and cross product, respectively).
+
 
