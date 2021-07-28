@@ -30,7 +30,7 @@
 		key=UnionsIntersections,
 		title={Unions \& Intersections}
 	]
-	Let $X$ and $Y$ be sets. The \emph{union}\index[definitions]{Set!union}\index{Set!union}\index[symbols]{$\cup$} of $X$ and $Y$ and the 
+	Let $X$ and $Y$ be sets. The \emph{union}\index[definitions]{Set!union}\index{Set!union}\index[symbols]{$\cup$} of $X$ and $Y$ and the
 	\emph{intersection}\index[definitions]{Set!intersection}\index{Set!intersection}\index[symbols]{$\cap$} of $X$
 	and $Y$ are defined as follows.
 
@@ -94,12 +94,12 @@
 	Let
 	$\vec w=\alpha_{1}\vec v_{1}+\alpha_{2}\vec v_{2}+\cdots+\alpha_{n}\vec
 	v_{n}.$
-	The vector $\vec w$ is called a 
+	The vector $\vec w$ is called a
 	\emph{non-negative}\index{Linear combination!non-negative}\index[definitions]{Linear combination!non-negative} linear combination of
 	$\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$ if
 	\[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\geq 0.\]
 
-	The vector $\vec w$ is called a 
+	The vector $\vec w$ is called a
 	\emph{convex}\index{Linear combination!convex}\index[definitions]{Linear combination!convex} linear combination of
 	$\vec v_{1},\vec v_{2},\ldots,\vec v_{n}$
 	if \[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\geq 0\qquad\text{and}\qquad
@@ -193,7 +193,7 @@
 	key=HomogeneousSystem,
 	title={Homogeneous System}]
 
-	A system of linear equations or a vector equation in the variables $\alpha_1$, \ldots, 
+	A system of linear equations or a vector equation in the variables $\alpha_1$, \ldots,
 	$\alpha_n$ is called
 	\emph{homogeneous}\index{System of linear equations!homogeneous}\index[definitions]{Homogeneous system} if it takes the form
 	\[
@@ -501,7 +501,7 @@
 \begin{SaveDefinition}[
 	key=MatrixInverse,
 	title={Matrix Inverse}]
-		
+
 	The \emph{inverse}\index[definitions]{Matrix!inverse of}\index{Matrix!inverse of} of a matrix $A$ is a
 		matrix $B$ such that $AB=I$ and $BA=I$.
 		In this case, $B$ is called the inverse of $A$ and is notated $A^{-1}$.
@@ -510,7 +510,7 @@
 \begin{SaveDefinition}[
 	key=IdentityFunction,
 	title={Identity Function}]
-	
+
 	Let $X$ be a set. The \emph{identity function}\index[definitions]{Function!identity function}\index{Function!identity function} with domain and codomain $X$,
 	notated $\Ident:X\to X$\index[symbols]{$\Ident$}, is the function satisfying
 	\[
@@ -522,7 +522,7 @@
 \begin{SaveDefinition}[
 	key=InverseFunction,
 	title={Inverse Function}]
-		
+
 	Let $f:X\to Y$ be a function. We say $f$ is \emph{invertible}\index[definitions]{Function!invertible function}\index{Function!invertible function} if
 	there exists a function $g:Y\to X$ so that $f\circ g=\Ident$ and $g\circ f=\Ident$.
 	In this case, we call $g$ an \emph{inverse}\index[definitions]{Function!inverse of}\index{Function!inverse of} of $f$ and write
@@ -534,7 +534,7 @@
 \begin{SaveDefinition}[
 	key=Onetoone,
 	title={One-to-one}]
-		
+
 	Let $f:X\to Y$ be a function. We say $f$ is \emph{one-to-one}\index[definitions]{One-to-one function}\index{One-to-one function} (or \emph{injective}\index{Injective function}\index[definitions]{Injective function}) if
 	distinct inputs to $f$ produce distinct outputs. That is $f(x)=f(y)$ implies $x=y$.
 \end{SaveDefinition}
@@ -542,7 +542,7 @@
 \begin{SaveDefinition}[
 	key=Onto,
 	title={Onto}]
-		
+
 	Let $f:X\to Y$ be a function.
 	We say $f$ is \emph{onto}\index{Onto function}\index[definitions]{Onto function} (or \emph{surjective}\index{Surjective function}\index[definitions]{Surjective function}) if every point in the codomain of $f$ gets mapped to.
 	That is $\Range(f)=Y$.
@@ -551,7 +551,7 @@
 \begin{SaveDefinition}[
 	key=IdentityMatrix,
 	title={Identity Matrix}]
-	
+
 	An \emph{identity matrix}\index{Matrix!identity matrix}\index[definitions]{Matrix!identity matrix} is a square matrix with ones on the diagonal
 	and zeros everywhere else. The $n\times n$ identity matrix is denoted $I_{n\times n}$,
 	or just $I$ when its size is implied.
@@ -711,4 +711,38 @@
 	the number of times $x-\lambda_{i}$ occurs as a factor).
 \end{SaveDefinition}
 
+
+\begin{SaveDefinition}[key=Diagonal, title={Diagonal}]
+	The \emph{diagonal}\index[definitions]{Matrix!diagonal of} of an $m\times n$ matrix $A=[a_{ij}]$ consists of
+	the entries $a_{ij}$ satisfying $i=j$.
+\end{SaveDefinition}
+\begin{SaveDefinition}[key=SquareMatrix, title={Square Matrix}]
+	A matrix is called \emph{square}\index[definitions]{Matrix!square} if it has the same
+	number of rows as columns.
+\end{SaveDefinition}
+\begin{SaveDefinition}[key=DiagonalMatrix, title={Diagonal Matrix}]
+	A square matrix is called \emph{diagonal}\index[definitions]{Matrix!diagonal} the only non-zero
+	entries in the matrix appear on the diagonal.
+\end{SaveDefinition}
+\begin{SaveDefinition}[key=TriangleOf, title={Upper \& Lower Triangle}]
+	Let $A=[a_{ij}]$ be an $m\times n$ matrix. The \emph{upper triangle}\index[definitions]{Matrix!upper triangle of}
+	of $A$ consists the entries $a_{ij}$
+	satisfying $j\geq i$. The \emph{lower triangle}\index[definitions]{Matrix!lower triangle of}
+	of $A$ consists of the entries $a_{ij}$ satisfying $j\leq i$.
+\end{SaveDefinition}
+\begin{SaveDefinition}[key=TriangularMatrix, title={Triangular Matrices}]
+	A matrix is called \emph{upper triangular}\index[definitions]{Matrix!upper triangular} if all non-zero entries lie in the upper triangle of the matrix and
+	a matrix is called \emph{lower triangular}\index[definitions]{Matrix!lower triangular} if all non-zero entries lie in the lower triangle. A matrix is
+	called \emph{triangular}\index[definitions]{Matrix!triangular} if it is either upper or lower triangular.
+\end{SaveDefinition}
+\begin{SaveDefinition}[key=SymmetricMatrix, title={Symmetric Matrix}]
+	The square matrix $A=[a_{ij}]$ is called \emph{symmetric}\index[definitions]{Matrix!symmetric} if its
+	entries satisfy $a_{ij}=a_{ji}$.
+
+	Alternatively, if the entries of $A$ satisfy $a_{ij}=-a_{ji}$, then $A$
+	is called \emph{skew-symmetric} or \emph{anti-symmetric}\index[definitions]{Matrix!skew-symmetric}.
+\end{SaveDefinition}
+\begin{SaveDefinition}[key=ZeroMatrix, title={Zero Matrix}]
+	A matrix is called a \emph{zero matrix}\index[definitions]{Matrix!zero matrix} if all its entries are zero.
+\end{SaveDefinition}
 

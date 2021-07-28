@@ -97,6 +97,8 @@
 	\initializebook
 }
 \DeclareDocumentCommand\initializebook{} {
+	% Compute and save the geometry for all of the different layouts. The correct layout
+	% is selected in a different function.
 
 	% twoside needs to be set first since some options are computed relative
 	% to whether the geometry is onesided or twosided
