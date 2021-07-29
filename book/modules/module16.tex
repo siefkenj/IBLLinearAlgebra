@@ -250,7 +250,7 @@ $3$ and a root of $5$ with multiplicity $1$.
 
 Consider the following two theorems.
 
-\begin{theorem}(Fundamental Theorem of Algebra)
+\begin{theorem}[Fundamental Theorem of Algebra]
 	Let $p$ be a polynomial of degree $n$. Then, if complex roots are allowed,
 	the sum of the multiplicities of the roots of $p$ is $n$.
 \end{theorem}
@@ -266,43 +266,78 @@ We can now deduce the following.
 \begin{theorem}
 	An $n\times n$ matrix $A$ is diagonalizable if and only if the sum of its geometric multiplicities
 	is equal to $n$. Further, provided complex eigenvalues are permitted, $A$ is diagonalizable if and
-	only if all its geometric multiplicities equal its algebraic multiplicities.
+	only if its geometric multiplicities are equal to its corresponding algebraic multiplicities.
 \end{theorem}
 \begin{proof}
-	Let $A$ be an $n\times n$ matrix.
-	First we will establish that eigenvectors from distinct eigenspaces of $A$ are linearly independent. We proceed by
-	induction. If $\vec v_1$ is an eigenvector for $A$, it is non-zero and so $\Set{\vec v_1}$ is linearly independent.
-	Suppose $\Set{\vec v_1,\ldots,\vec v_k}$ is a linearly independent set of eigenvectors for $A$ with eigenvalues
-	$\alpha_1,\ldots,\alpha_k$ and that $\vec v_{k+1}$ is an eigenvector with eigenvalue $\alpha_{k+1}\neq \alpha_i$
-	for $i\leq k$. Now, for the sake of a contradiction,
-	suppose $\vec v_{k+1}\in\Span\Set{\vec v_1,\ldots,\vec v_k}$. Since $\Set{\vec v_1,\ldots,\vec v_k}$
-	is linearly independent, there are unique scalars $s_1,\ldots,s_k$ so that
+	Let $A$ be an $n\times n$ matrix with eigenvalues $\lambda_1,\ldots,\lambda_k$. Let $E_1,\ldots,E_k$
+	be bases for the eigenspaces corresponding to $\lambda_1,\ldots,\lambda_k$. We will start by showing $E=E_1\cup\cdots\cup E_k$
+	is a linearly independent set using the following two lemmas.
+
+	\emph{\color{myorange}No New Eigenvalue Lemma.} Suppose that $\vec v_1,\ldots,\vec v_k$ are linearly independent eigenvectors
+	of a matrix $A$ with eigenvalues $\lambda_1,\ldots,\lambda_k$. Then, any eigenvector for $A$ contained in
+	$\Span\Set{\vec v_1,\ldots,\vec v_k}$ must have one of $\lambda_1,\ldots,\lambda_k$ as its eigenvalue.
+
+	The proof goes as follows. Suppose $\vec v=\sum_{i\leq k}\alpha_i\vec v_i$ is an eigenvector for $A$ with
+	eigenvalue $\lambda$. We now compute $A\vec v$ in two different ways: once by using the fact that $\vec v$ is an eigenvector, and
+	again by using the fact that $\vec v$ is a linear combination of other eigenvectors. Observe
 	\[
-		\vec v_{k+1}=\sum_{i\leq k}s_i\vec v_i.
+		A\vec v=\lambda \vec v=\lambda\left(\sum_{i\leq k}\alpha_i\vec v_i\right)
+		=\sum_{i\leq k}\alpha_i\lambda\vec v_i
 	\]
-	Applying $A$, on the one hand we get
+	and
 	\[
-		A\vec v_{k+1}=\alpha_{k+1}\vec v_{k+1} = 
-		\sum_{i\leq k}s_i\alpha_{k+1}\vec v_i.
+		A\vec v=A\left(\sum_{i\leq k}\alpha_i\vec v_i\right)
+		=\sum_{i\leq k}\alpha_i A\vec v_i
+		=\sum_{i\leq k}\alpha_i\lambda_i\vec v_i.
 	\]
-	On the other hand we get
+	We now have
 	\[
-		A\vec v_{k+1}=
-		A\left(\sum_{i\leq k}s_i\vec v_i\right)=
-		\sum_{i\leq k}s_iA\vec v_i=
-		\sum_{i\leq k}s_i\alpha_i\vec v_i.
+		\vec 0=A\vec v-A\vec v = 
+		\sum_{i\leq k}\alpha_i\lambda\vec v_i
+		-\sum_{i\leq k}\alpha_i\lambda_i\vec v_i
+		=\sum_{i\leq k}\alpha_i(\lambda-\lambda_i)\vec v_i.
 	\]
-	Since the representations of $\vec v_{k+1}$ and $\alpha_{k+1}\vec v_{k+1}$ are unique, 
-	we must have $\alpha_{k+1}=\alpha_i$ for at least one $i\leq k$, which is a contradiction. Therefore,
-	$\vec v_{k+1}\notin\Span\Set{\vec v_1,\ldots,\vec v_k}$ and $\Set{\vec v_1,\ldots,\vec v_k, \vec v_{k+1}}$
-	is linearly independent.
+	Because $\vec v_1,\ldots,\vec v_k$ are linearly independent, we know $\alpha_i(\lambda-\lambda_i)=0$ for all $i\leq k$.
+	Further, because $\vec v$ is non-zero (it's an eigenvector),
+	we know at least one $\alpha_i$ is non-zero. Therefore $\lambda-\lambda_i=0$ for at least one
+	$i$. In other words, $\lambda=\lambda_i$ for at least one $i$, which is what we set out to show\footnote{ You may notice
+	that we've proved something stronger than we needed: if an eigenvector is a linear combination of linearly independent eigenvectors,
+	the only non-zero coefficients of that linear combination must belong to eigenvectors with the same eigenvalue.}.
+
+	\emph{\color{myorange}Basis Extension Lemma.} Let $P=\Set{\vec p_1,\ldots,\vec p_a}$ and 
+	$Q=\Set{\vec q_1,\ldots,\vec q_b}$ be linearly independent sets, and suppose $P\cup\Set{\vec q}$
+	is linearly independent for all non-zero $\vec q\in\Span Q$. Then $P\cup Q$ is linearly independent.
+
+	To show this, suppose $\vec 0=\alpha_1\vec p_1+\cdots+\alpha_a\vec p_a+\beta_1\vec q_1+\cdots+\beta_b\vec q_b$ is a linear
+	combination of vectors in $P\cup Q$. Let $\vec q=\beta_1\vec q_1+\cdots+\beta_b\vec q_b$. First, note that $\vec q$ must
+	be the zero vector. If not, $\vec 0=\alpha_1\vec p_1+\cdots+\alpha_a\vec p_a+\vec q$ is a non-trivial linear combination
+	of vectors in $P\cup\Set{\vec q}$, which contradicts the assumption that $P\cup\Set{\vec q}$ is linearly independent.
+	Since we've established $\vec 0=\vec q=\beta_1\vec q_1+\cdots+\beta_b\vec q_b$,
+	we conclude $\beta_1=\cdots=\beta_b=0$ because $Q$ is linearly independent. It follows that since $\vec 0=\alpha_1\vec p_1+\cdots+\alpha_a\vec p_a+\vec q
+	=\alpha_1\vec p_1+\cdots+\alpha_a\vec p_a+\vec 0$, we must have that $\alpha_1=\cdots=\alpha_a=0$ because $P$ is linearly independent.
+	This shows that the only way to express $\vec 0$ as a linear combination of vectors in $P\cup Q$ is as the trivial linear combination,
+	and so $P\cup Q$ is linearly independent.
+
+	\medskip
+	Now we can put our lemmas to good use. We will use induction to show that $E=E_1\cup\cdots\cup E_k$ is linearly independent.
+	By assumption $E_1$ is linearly independent. Now, suppose $U=E_1\cup\cdots\cup E_j$ is linearly independent. By construction,
+	every non-zero vector $\vec v\in\Span E_{j+1}$ is an eigenvector for $A$ with eigenvalue $\lambda_{j+1}$. Therefore, 
+	since $\lambda_{j+1}\neq \lambda_i$ for $1\leq i\leq j$, we may apply
+	the \emph{No New Eigenvalue Lemma} to see that $\vec v\notin\Span U$. It follows that $U\cup\Set{\vec v}$ is linearly independent.
+	Since $E_{j+1}$ is itself linearly independent, we may now apply the \emph{Basis Extension Lemma} to deduce that $U\cup E_{j+1}$
+	is linearly independent. This shows that $E=E_1\cup\cdots\cup E_k$ is linearly independent.
+
+	To conclude notice that by construction, $\text{geometric mult}(\lambda_i)=\abs{E_i}$. Since $E=E_1\cup\cdots\cup E_k$ is linearly independent,
+	the $E_i$'s must be disjoint and so $\sum\text{geometric mult}(\lambda_i)=\sum \abs{E_i}=\abs{E}$. If $\sum\text{geometric mult}(\lambda_i)=n$,
+	then $E\subseteq\R^n$ is a linearly independent set of $n$ vectors and so is a basis for $\R^n$.
+	Finally, because we have a basis for $\R^n$ consisting of eigenvectors
+	for $A$, we know $A$ is diagonalizable.
 
 
-	Now, suppose the geometric multiplicities of the eigenvalues of $A$ sum to $n$, then by
-	taking the union of bases for each eigenspace, by the previous fact, we have a linearly independent
-	set of $n$ eigenvectors, which is therefore a basis of eigenvectors for $\R^n$. Conversely, if there is
-	a basis for $\R^n$ of eigenvectors, we must have a linearly independent set of $n$ eigenvectors. Grouping
-	these eigenvectors by eigenvalue, we see that each one belongs to an eigenspace and the sum of the geometric
+	Conversely, if there is
+	a basis $E$ for $\R^n$ consisting of eigenvectors, we must have a linearly independent set of $n$ eigenvectors. Grouping
+	these eigenvectors by eigenvalue, an application of the \emph{No New Eigenvalue Lemma} shows that each group
+	must actually be a basis for its eigenspace. Thus, the sum of the geometric
 	multiplicities must be $n$.
 
 	Finally, if complex eigenvalues are allowed, the algebraic multiplicities sum to $n$. Since the algebraic multiplicities
