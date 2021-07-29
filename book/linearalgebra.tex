@@ -6811,9 +6811,13 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{1\\1}$, $\vec b_2=\mat{1\\-1}$
-	and let $X=[\vec b_1|\vec b_2]$ be the matrix whose columns are $\vec b_1$ and $\vec b_2$.
+	Let $\mathcal B=\Set{\vec b_1,\vec b_2}$ where $\vec b_1=\mat{1\\1}_{\mathcal E}$, $\vec b_2=\mat{1\\-1}_{\mathcal E}$
+	and let $X=[\vec b_1|\vec b_2]$ be the matrix whose columns are $[\vec b_1]_{\mathcal E}$ and $[\vec b_2]_{\mathcal E}$.
 	\begin{parts}
+		\item Write down $X$.
+			\begin{solution}[inline]
+				$\mat{1&1\\1&-1}$
+			\end{solution}
 		\item Compute $[\xhat]_{\mathcal B}$ and $[\yhat]_{\mathcal B}$.
 			\begin{solution}
 				$[\xhat]_{\mathcal B}=\frac{1}{2}\mat{1\\1}$ and
@@ -6915,9 +6919,10 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 			\end{itemize}
 		\end{notes}
 	\end{annotation}
-	Let $\mathcal E=\Set{\vec e_1,\vec e_2,\ldots,\vec e_n}$ be the standard basis for $\R^n$.
-	Given a basis $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots,\vec b_n}$ for $\R^n$, the
-	matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ converts
+	Let $\mathcal E=\Set{\vec e_1,\vec e_2,\ldots,\vec e_n}$ be the standard basis for $\R^n$
+	and let $\mathcal B=\Set{\vec b_1,\vec b_2,\ldots,\vec b_n}$ be another basis for $\R^n$.
+	Define the matrix $X=[\vec b_1|\vec b_2|\cdots|\vec b_n]$ to be the matrix whose columns are the $\vec b_i$ vectors
+	written in the standard basis. Notice that $X$ converts
 	vectors from the $\mathcal B$ basis into the standard basis. In other words,
 	\[
 		X[\vec v]_{\mathcal B} = [\vec v]_{\mathcal E}.
