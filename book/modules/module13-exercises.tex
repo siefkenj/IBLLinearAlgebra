@@ -236,14 +236,14 @@
 		$\mathcal T:\R^{2}\to\R^{2}$ defined below, compute
 		$[\mathcal T]_{\mathcal E}$ and $[\mathcal T]_{\mathcal B}$.
 		\begin{enumerate}
-			\item Let $\mathcal T$ be the transformation that doubles
-				every vector.
-
 			\item Let $\mathcal T$ be the transformation that rotates
-				every vector counter clockwise by $180^{\circ}$.
+				every vector counter clockwise by $90^{\circ}$.
 
 			\item Let $\mathcal T$ be the transformation that projects
 				every vector onto the $y$-axis.
+			
+			\item Let $\mathcal T$ be the transformation that doubles
+				every vector.
 
 			\item Let $\mathcal T$ be the transformation that reflects
 				every vector over the line $y=x$.
@@ -251,14 +251,9 @@
 		\begin{solution}
 			\begin{enumerate}
 				\item 
-				$[\mathcal T]_{\mathcal E}=[\mathcal T]_{\mathcal B}=
+					$[\mathcal T]_{\mathcal E}=\mat{0&-1\\1&0}$ and $[\mathcal T]_{\mathcal B}=
 				\begin{bmatrix}
-					2 & 0 \\ 0 & 2
-				\end{bmatrix}$
-				\item 
-				$[\mathcal T]_{\mathcal E}=[\mathcal T]_{\mathcal B}=
-				\begin{bmatrix}
-				-1 & 0 \\ 0 & -1
+				-1 & -2 \\ 1 & 1
 				\end{bmatrix}$
 				\item 
 				$[\mathcal T]_{\mathcal E}=
@@ -273,6 +268,11 @@
 				\begin{bmatrix}
 					0 & -1 \\ 0 & 1
 				\end{bmatrix}$.
+				\item 
+				$[\mathcal T]_{\mathcal E}=[\mathcal T]_{\mathcal B}=
+				\begin{bmatrix}
+					2 & 0 \\ 0 & 2
+				\end{bmatrix}$
 				\item Note that $\mathcal T\vec e_1=\vec e_2$ and $\mathcal T\vec e_2=\vec e_1$, so
 				$[\mathcal T]_{\mathcal E}=
 				\begin{bmatrix}

@@ -6886,7 +6886,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 
 \end{lesson}
 	\bookonlynewpage
-	\question
+	\question\label{ProbBasisChangeMatrix}
 	\begin{annotation}
 		\begin{goals}
 			\Goal{Inverses and change of basis in arbitrary dimensions.}
@@ -8597,8 +8597,10 @@ While studying the subway map, you decide to pick two bases to help:
 
 		\begin{notes}
 			\begin{itemize}
-				\item In part 2, students will struggle to articulate their ideas.
-				\item In part 4, students are regularly impressed seeing the $P$'s and
+				\item Part 1 is a throwback to Problem \ref{ProbBasisChangeMatrix}; you may remind students
+					of this if they're struggling.
+				\item In part 3, students will struggle to articulate their ideas.
+				\item In part 5, students are regularly impressed seeing the $P$'s and
 					$P^{-1}$'s cancel in $PDP^{-1}PDP^{-1}\cdots$.
 			\end{itemize}
 		\end{notes}
@@ -8611,19 +8613,28 @@ While studying the subway map, you decide to pick two bases to help:
 		\vec v_3=\mat{-1\\1\\0}
 	\]
 	and $\mathcal V=\Set{\vec v_1,\vec v_2, \vec v_3}$.
-	Let $T_A$ be the transformation induced by $A$.
-	The matrix $P^{-1}$ takes vectors in the standard basis and outputs
-	vectors in their $\mathcal V$-basis representation.
+	Let $T_A$ be the transformation induced by $A$ and let $P=[\vec v_1|\vec v_2|\vec v_3]$ be the matrix
+	with columns $\vec v_1$, $\vec v_2$, and $\vec v_3$ (written in the standard basis).
 	\begin{parts}
-		\item Describe in words what $P$ does.
+		\item Describe in words what $P$ and $P^{-1}$ do in terms of change-of-basis.
 			\begin{solution}
-				$P$ undoes what $P^{-1}$ does, which is to say that it takes vectors
-				in the $\mathcal V$ basis and outputs vectors in their representation
-				in the standard basis.
+				$P$ takes vectors in the $\mathcal V$-basis representation and
+				outputs vectors in the standard basis. $P^{-1}$ does the opposite of what
+				$P$ does. That is, it takes vectors written in the standard basis and rewrites
+				them in the $\mathcal V$ basis.
 			\end{solution}
-		\item Describe how you can use $P$ and $P^{-1}$ to compute
-			$T_A\vec y$ for any $\vec y\in \R^3$.
+		\item If you were asked to compute $T_A\vec y$ for some $\vec y\in\R^3$, which basis would
+			you prefer to do your computations in? Explain.
 			\begin{solution}
+				Computing $T_A\vec y$ in the $\mathcal V$ basis takes only three multiplications.
+				Computing $T_A\vec y$ in the $\mathcal E$ basis takes nine multiplications and three additions.
+				So, the answer depends on how much you enjoy multiplying numbers.
+			\end{solution}
+		\item Given a vector $\vec y\in \R^3$ written in the standard basis,
+			is there a way to compute $T_A\vec y$ without using the matrix $A$? (You may use $P$ and $P^{-1}$,
+			just not $A$.) Explain.
+			\begin{solution}
+				Yes!
 				Computing $[T_A]_{\mathcal V}[\vec y]_{\mathcal V}$ is easy, since
 				$[T_A]_{\mathcal V}$ just multiplies each coordinate of $[\vec y]_{\mathcal V}$
 				by a scalar. We know that $P^{-1}[\vec y]_{\mathcal E}=[\vec y]_{\mathcal V}$
