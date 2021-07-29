@@ -489,12 +489,12 @@ In other words, $T$ \emph{distributes over linear combinations}.
 Linear transformations are just special types of functions. In calculus, it is traditional to use lower case
 letters for a function and parenthesis ``('' and ``)'' around the input to the function.
 \[
-	\underbrace{f:\R\to\R}_{\text{a function}}\qquad \underbrace{f(x)}_{\text{$f$ evaluated at $x$}}
+	\underbrace{f:\R\to\R}_{\text{a function named $f$}}\qquad \underbrace{f(x)}_{\text{$f$ evaluated at $x$}}
 \]
 For (linear) transformations, it is traditional to use capital letters to describe the function/transformation
 and parenthesis around the input are optional.
 \[
-	\underbrace{T:\R^n\to\R^m}_{\text{a transformation}}\qquad \underbrace{T(\vec x)}_{\text{$T$ evaluated at $\vec x$}}
+	\underbrace{T:\R^n\to\R^m}_{\text{a transformation named $T$}}\qquad \underbrace{T(\vec x)}_{\text{$T$ evaluated at $\vec x$}}
 	\qquad
 	\underbrace{T\vec x}_{\text{also $T$ evaluated at $\vec x$}}
 \]
@@ -713,7 +713,7 @@ Consider the following proof that $T$ is linear.
 	transformation.
 \end{proof}
 
-This proof starts out with ``{\color{red}let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar}''.
+This proof starts out with ``{\color{mypink}let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar}''.
 In what follows, the only properties of $\vec x$ and $\vec y$ we use come from the fact that they're
 in $\R^n$ (the domain of $T$) and the only fact about $\alpha$ we use is that it's a scalar. Because
 of this, $\vec x$, and $\vec y$ are considered \emph{arbitrary} vectors and $\alpha$ is an
@@ -735,18 +735,18 @@ will look something like
 	Let $\vec x,\vec y\in \R^n$ and let $\alpha$ be a scalar. By applying the definition
 	of $T$, we see
 	\[
-		T(\vec x+\vec y)=\text{\color{red}application(s) of the definition} = T(\vec x)+T(\vec y).
+		T(\vec x+\vec y)=\text{\color{mypink}application(s) of the definition} = T(\vec x)+T(\vec y).
 	\]
 	Similarly,
 	\[
-		T(\alpha\vec x) = \text{\color{red}application(s) of the definition}=\alpha T(\vec x).
+		T(\alpha\vec x) = \text{\color{mypink}application(s) of the definition}=\alpha T(\vec x).
 	\]
 	Since $T$ satisfies the two properties of a linear transformation, $T$ is a linear
 	transformation.
 \end{proof}
 
 This isn't to say that proving whether or not a transformation is linear is \emph{easy},
-but all the cleverness and insight required appears in the ``{\color{red}application(s) of the definition}''
+but all the cleverness and insight required appears in the ``{\color{mypink}application(s) of the definition}''
 parts.
 
 \bigskip

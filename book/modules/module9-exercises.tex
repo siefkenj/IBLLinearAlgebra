@@ -62,8 +62,8 @@
 					back the unit circle.
 
 				\item
-					$\mathcal{B}\mat{x\\y}= \mat{-x-1\\y}= \mat{-x\\y}+ \mat
-					{-1\\0}$. So the transformation $\mathcal{B}$ reflects about
+					$\mathcal{B}\mat{x\\y}= \matc{-x-1\\y}= \mat{-x\\y}+ \mat
+					{-1\\0}$. So the transformation $\mathcal{B}$ reflects over
 					the $y$-axis and then translates. We already know the first
 					operation keeps the circle as it is. So the final image is just
 					a translated circle, that is unit circle with center at (-1,0).
@@ -295,6 +295,27 @@
 					transformation but $T(\ell_{1})=T(\ell_{2})=\Set{(0,0)}$. Hence
 					it doesn't make sense to say $\ell_{1}$ and $\ell_{2}$ are parallel
 					under $T$.
+			\end{enumerate}
+		\end{solution}
+		\prob Let $\mathcal T:\R^2\to\R^2$ be the transformation that doubles the length
+		of its input. The following statements about $\mathcal T$ are either incorrect or incomplete.
+		Fix each statement so that it is correct and complete.
+		\begin{enumerate}
+			\item $\mathcal T=\mat{2&0\\0&2}$.
+			\item Since $\mathcal T\vec x=2\vec x$ for every $\vec x$, we can
+				say $\mathcal T=2$.
+			\item $\mathcal T$ is a linear transformation because $2(\vec x+\vec y)=2\vec x+2\vec y$.
+		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item $\mathcal T$ can be defined by $\mathcal T\vec x=\mat{2&0\\0&2}\vec x$.
+				\item Since $\mathcal T\vec x=2\vec x$ for every $\vec x\in\R^2$ we can
+					define $\mathcal T$ as the function which multiplies its input by the scalar two.
+				\item $\mathcal T$ is a linear transformation because $\mathcal T(\vec x+\vec y)=2(\vec x+\vec y)=2\vec x+2\vec y=
+					\mathcal T\vec x+\mathcal T\vec y$
+					and $\mathcal T(\alpha\vec x)=2\alpha\vec x=\alpha2\vec x=\alpha\mathcal T\vec x$
+					for all $\vec x,\vec y\in \R^2$ and all scalars $\alpha$.
+
 			\end{enumerate}
 		\end{solution}
 	\end{problist}
