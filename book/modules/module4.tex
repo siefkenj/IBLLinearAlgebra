@@ -8,20 +8,19 @@ The \emph{dot product}\index{Dot product} of $\vec a$ and $\vec b$ is defined to
 \index[symbols]{$\vec a\cdot \vec b$}We will call this the \emph{geometric definition of the dot product}\index{Dot product!geometric definition}\index[definitions]{Dot product!geometric definition}.
 
 \begin{center}
-	\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
-	  \def\tikz@AngleOfLine(#1)(#2)#3{%
-	  \pgfmathanglebetweenpoints{%
-	    \pgfpointanchor{#1}{center}}{%
-	    \pgfpointanchor{#2}{center}}
-	  \pgfmathsetmacro{#3}{\pgfmathresult}%
-	  }
-	\newcommand{\tikzMarkAngle}[3]{
-	\tikzAngleOfLine#1#2{\AngleStart}
-	\tikzAngleOfLine#1#3{\AngleEnd}
-	\draw #1+(\AngleStart:0.35cm) arc (\AngleStart:\AngleEnd:0.35cm);
-	}
-	\usetikzlibrary{patterns,decorations.pathreplacing}
 	\begin{tikzpicture}
+		\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
+		  \def\tikz@AngleOfLine(#1)(#2)#3{%
+		  \pgfmathanglebetweenpoints{%
+		    \pgfpointanchor{#1}{center}}{%
+		    \pgfpointanchor{#2}{center}}
+		  \pgfmathsetmacro{#3}{\pgfmathresult}%
+		  }
+		\newcommand{\tikzMarkAngle}[3]{
+		\tikzAngleOfLine#1#2{\AngleStart}
+		\tikzAngleOfLine#1#3{\AngleEnd}
+		\draw #1+(\AngleStart:0.35cm) arc (\AngleStart:\AngleEnd:0.35cm);
+		}
 		\coordinate (A) at (2,1);
 		\coordinate (B) at (.5,2);
 		\coordinate (O) at (0,0);
@@ -33,6 +32,18 @@ The \emph{dot product}\index{Dot product} of $\vec a$ and $\vec b$ is defined to
 	\end{tikzpicture}
 	\hspace{1cm}
 	\begin{tikzpicture}
+		\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
+		  \def\tikz@AngleOfLine(#1)(#2)#3{%
+		  \pgfmathanglebetweenpoints{%
+		    \pgfpointanchor{#1}{center}}{%
+		    \pgfpointanchor{#2}{center}}
+		  \pgfmathsetmacro{#3}{\pgfmathresult}%
+		  }
+		\newcommand{\tikzMarkAngle}[3]{
+		\tikzAngleOfLine#1#2{\AngleStart}
+		\tikzAngleOfLine#1#3{\AngleEnd}
+		\draw #1+(\AngleStart:0.35cm) arc (\AngleStart:\AngleEnd:0.35cm);
+		}
 		\coordinate (A) at (-2,-1);
 		\coordinate (B) at (.5,2);
 		\coordinate (O) at (0,0);

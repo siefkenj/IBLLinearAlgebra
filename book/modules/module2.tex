@@ -672,7 +672,7 @@ of two vectors gives a point on the line segment connecting them.
 	and $\vec b$.
 
 \begin{center}
-	\usetikzlibrary{decorations.markings}
+	\begin{tikzpicture}
 	\tikzset{test/.style n args={3}{
 	    postaction={
 	    decorate,
@@ -689,7 +689,6 @@ of two vectors gives a point on the line segment connecting them.
 	    \pgfpathcircle{\pgfpointorigin}{#1};
 	    \pgfusepath{fill};}
 	}}}}
-	\begin{tikzpicture}
 		\begin{axis}[
 		    anchor=origin,
 		    name=plot1,
@@ -727,6 +726,22 @@ of two vectors gives a point on the line segment connecting them.
 		\node[right, mygreen] at (B) {\small$\vec b=0\vec a+(1-0)\vec b$};
 	\end{tikzpicture}
 	\begin{tikzpicture}
+	\tikzset{test/.style n args={3}{
+	    postaction={
+	    decorate,
+	    decoration={
+	    markings,
+	    mark=between positions 0 and \pgfdecoratedpathlength step 0.5pt with {
+	    \pgfmathsetmacro\myval{multiply(
+		divide(
+		\pgfkeysvalueof{/pgf/decoration/mark info/distance from start}, \pgfdecoratedpathlength
+		),
+		100
+	    )};
+	    \pgfsetfillcolor{#3!\myval!#2};
+	    \pgfpathcircle{\pgfpointorigin}{#1};
+	    \pgfusepath{fill};}
+	}}}}
 		\begin{axis}[
 		    anchor=origin,
 		    name=plot1,
