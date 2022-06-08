@@ -485,26 +485,34 @@ are linearly dependent \emph{if there is a redundant vector}.
 	\]
 	Determine if $\mathcal P$ and $\mathcal Q$ are the same plane.
 
-	Let $\vec a_1=\mat{1\\2\\1}$ and $\vec a_2=\mat{2\\2\\1}$ be the direction vectors
-	for $\mathcal P$ and let
-	$\vec b_1=\mat{3\\4\\2}$ and $\vec b_2=\mat{2\\2\\1}$ be the direction vectors
-	for $\mathcal Q$. We know that $\mathcal P=\mathcal Q$ if every direction vector for $\mathcal Q$
-	is a linear combination of the direction vectors for $\mathcal P$. In other words, 
-	$\mathcal P=\mathcal Q$ if
-	\[
-		\Set{\vec a_1,\vec a_2,\vec b_1}\qquad\text{and}\qquad \Set{\vec a_1,\vec a_2,\vec b_2}
-	\]
-	are both linearly dependent sets. Since $\vec a_2=\vec b_2$, clearly $\Set{\vec a_1,\vec a_2,\vec b_2}$
-	is linearly dependent. 
+	We could answer this question using techniques from Module \ref{MODULELINESANDPLANES}, but for variety,
+	let's see if we can answer the question using spans and linear dependence.
 
-	We will now check whether $\Set{\vec a_1,\vec a_2,\vec b_1}$ is linearly dependent. Since $\Set{\vec a_1,\vec a_2}$
-	is a linearly independent set, we only need to check if $\vec b_1$ can be written as a linear combination of $\vec a_1$ and $\vec a_2$.
-	After solving the system
+	Let $\vec a_1=\mat{1\\2\\1}$ and $\vec a_2=\mat{2\\2\\1}$ be direction vectors
+	for $\mathcal P$ and let
+	$\vec b_1=\mat{3\\4\\2}$ and $\vec b_2=\mat{2\\2\\1}$ be direction vectors
+	for $\mathcal Q$ and notice $\mathcal P=\Span\Set{\vec a_1,\vec a_2}$ and $\mathcal Q=\Span\Set{\vec b_1,\vec b_2}$.
+
+	By definition $\mathcal P=\mathcal Q$ if (i) every point in $\mathcal P$ is a point in $\mathcal Q$ and (ii) every point in $\mathcal Q$
+	is a point in $\mathcal P$.
+
+	Focusing on (i), let $\vec p=t\vec a_1+s\vec a_2\in \mathcal P$ be an arbitrary point in $\mathcal P$. We need to show
+	$\vec p\in\mathcal Q$.
+	Since $\Set{\vec b_1,\vec b_2}$ is linearly independent and $\mathcal Q=\Span\Set{\vec b_1,\vec b_1}$, showing
+	$\vec p\in\mathcal Q$ is equivalent to showing $\Set{\vec p,\vec b_1,\vec b_2}$ is a linearly \emph{dependent} set.
+
+	To see this, start by observing
 	\[
-		\mat{3\\4\\2}=x\mat{1\\2\\1}+y\mat{2\\2\\1},
+		\Set{\vec a_1,\vec b_1,\vec b_2}\qquad\text{and}\qquad \Set{\vec a_2,\vec b_1,\vec b_2}
 	\]
-	we see that $\vec b_1=\vec a_1+\vec a_2$, and so $\Set{\vec a_1,\vec a_2,\vec b_1}$ is linearly dependent. Therefore,
-	$\mathcal P=\mathcal Q$.
+	are both linearly dependent sets: $\vec a_1=\vec b_1-\vec b_2\in\Span\Set{\vec b_1,\vec b_2}$
+	and $\vec a_2=\vec b_2\in\Span\Set{\vec b_1,\vec b_2}$. Therefore, $\vec a_1\in\mathcal Q$ and
+	$\vec a_2\in\mathcal Q$. Since both $\vec a_1$ and $\vec a_2$ are in $\mathcal Q$ and $\mathcal Q=\Span\Set{\vec b_1,
+	\vec b_2}$ is itself a span, we know that every linear combination of $\vec a_1$ and $\vec a_2$ must be in $\mathcal Q$.
+	In particular, $\vec p=t\vec a_1+s\vec a_2\in\mathcal Q$, which is what we wanted to show.
+
+	We can show (ii) similarly by observing that $\vec b_1\in\mathcal P$ and $\vec b_2\in \mathcal P$ and so any
+	point $\vec q=t\vec b_1+s\vec b_2\in\mathcal Q$ must also be in $\mathcal P$.
 \end{example}
 
 We can also think of linear independence/dependence from an algebraic perspective.

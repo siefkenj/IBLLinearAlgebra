@@ -121,7 +121,14 @@ $\vec x=2\xhat+3\yhat$. However, given the representation-in-a-basis notation, w
 \[
 	\vec x=\mat{2\\3}_{\mathcal E},
 \]
-where $\mathcal E$ is the standard basis for $\R^2$. We should write $\mat{2\\3}_{\mathcal E}$ because the coordinates $(2,3)$
+where $\mathcal E$ is the standard basis for $\R^2$\footnote{
+	One might wonder if we've just made a circular definition. In Module \ref{MODULEBASIS},
+	$\vec e_1\in\R^2$ was defined to be $\mat{1\\0}$. But with our notation, this is the same
+	as $\vec e_1=\mat{1\\0}_{\mathcal E}$, which is itself true by definition! To get around this,
+	we need to declare the existence of the standard basis some other way. The physics solution is to define
+	$\vec e_1$, $\vec e_2$, etc. as physical vectors in space. The abstract mathematics solution is to declare
+	that $\vec e_1$, $\vec e_2$, etc. exist and are linearly independent and say nothing more.
+}. We should write $\mat{2\\3}_{\mathcal E}$ because the coordinates $(2,3)$
 refer to \emph{different} vectors for \emph{different} bases. However, most of the time we are only thinking about the standard
 basis. So, the convention we will follow is:
 \begin{itemize}
@@ -137,8 +144,8 @@ basis. So, the convention we will follow is:
 \end{emphbox}
 
 
+\newpage
 \Heading{True Vectors vs\mbox{.} Representations}
-
 \begin{center}
 \includegraphics[width=3in]{images/MagrittePipe.jpg}\footnote{ Image taken from Wikipedia: \url{https://en.wikipedia.org/wiki/File:MagrittePipe.jpg}} 
 \end{center}
