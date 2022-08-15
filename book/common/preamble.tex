@@ -32,6 +32,8 @@
 	\usetikzlibrary{cd}
 	\usetikzlibrary{spy}
 	\usetikzlibrary{patterns}
+	\usetikzlibrary{decorations, decorations.pathreplacing, decorations.markings}
+
 \usepackage{fancyhdr}
 \usepackage{calc}
 \usepackage{wrapfig}
@@ -84,13 +86,13 @@
 % Useful Linear Algebra macros
 %%%
 \newcommand{\declarecommand}[1]{\providecommand{#1}{}\renewcommand{#1}}
-\declarecommand{\R}{\mathbb{R}}  % we don't care if it's already defined.  We really want *this* command!
-\declarecommand{\Z}{\mathbb{Z}}
-\declarecommand{\Q}{\mathbb{Q}}
-\declarecommand{\N}{\mathbb{N}}
-\declarecommand{\C}{\mathbb{C}}
-\declarecommand{\d}{\mathrm{d}}
-\declarecommand{\dd}{\mathbbm{d}} % exterior derivative
+\DeclareDocumentCommand{\R}{}{\mathbb{R}}  % we don't care if it's already defined.  We really want *this* command!
+\DeclareDocumentCommand{\Z}{}{\mathbb{Z}}
+\DeclareDocumentCommand{\Q}{}{\mathbb{Q}}
+\DeclareDocumentCommand{\N}{}{\mathbb{N}}
+\DeclareDocumentCommand{\C}{}{\mathbb{C}}
+\DeclareDocumentCommand{\d}{}{\mathrm{d}}
+\DeclareDocumentCommand{\dd}{}{\mathbbm{d}} % exterior derivative
 \DeclareMathOperator{\Span}{span}
 \DeclareMathOperator{\Img}{img}
 \DeclareMathOperator{\Id}{id}

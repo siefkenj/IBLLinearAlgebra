@@ -11,16 +11,38 @@ basis for $\R^2$. The coordinates of $\vec x$ with respect to $\mathcal E$ are $
 the coordinates of $\vec x$ with respect to $\mathcal B$ are $(1,2)$.
 
 \begin{center}
-	\usetikzlibrary{decorations}
-	\pgfdeclaredecoration{arrows}{draw}{
-	\state{draw}[width=\pgfdecoratedinputsegmentlength]{%
-	  \path [every arrow subpath/.try] \pgfextra{%
-	    \pgfpathmoveto{\pgfpointdecoratedinputsegmentfirst}%
-	    \pgfpathlineto{\pgfpointdecoratedinputsegmentlast}%
-	   };
-	}}
-	\tikzset{every arrow subpath/.style={->, draw, thick, mygreen}}
 	\begin{tikzpicture}[scale=.75]
+		\pgfdeclaredecoration{arrows}{draw}{
+		\state{draw}[width=\pgfdecoratedinputsegmentlength]{%
+		  \path [every arrow subpath/.try] \pgfextra{%
+		    \pgfpathmoveto{\pgfpointdecoratedinputsegmentfirst}%
+		    \pgfpathlineto{\pgfpointdecoratedinputsegmentlast}%
+		   };
+		}}
+		\tikzset{every arrow subpath/.style={->, draw, thick, mygreen}}
+		\begin{scope}[local bounding box=scope2] 
+			\path[use as bounding box] (-1.3,-1.3) rectangle (4.3,4.3);
+			\begin{scope}
+				\clip (-1.3,-1.3) rectangle (4.3,4.3);
+			% There is an odd bug in tikz that causes the clipped bounding box to not be recogonized as the local bounding box.
+			% so we take matters into our own hands and force the bounding box.
+			\begin{pgfinterruptboundingbox}
+				\begin{scope}[cm={2,1,0,1,(0,0)}]
+					\draw[very thin,color=gray, dashed] (-3.3,-3.3) grid (4.3,4.3);
+				\end{scope}
+				\coordinate (X) at (2,3);
+				\coordinate (B1) at (2,1);
+				\coordinate (B2) at (0,1);
+				%\fill[mypink] (A) circle[radius=2pt] node[above right] {$\vec a$};
+				%\fill[mygreen] (B) circle[radius=2pt] node[above right] {$\vec b$};
+				\draw[thick, mypink, ->] (0,0) -- (X) node[midway, above left] {$\vec x$};
+
+				\path[decoration=arrows, decorate, mygreen] (0,0) -- ++(B1)  node[midway, below right, yshift=3pt] {$1\vec b_1$}
+					-- ++(B2) -- ++(B2) node[midway, right, yshift=5pt] {$2\vec b_2$};
+				\fill[black] (0,0) circle[radius=2pt] node[below left] {$\vec 0$} ;
+			\end{pgfinterruptboundingbox}
+			\end{scope}
+		\end{scope}
 		\begin{scope}[cm={1,0,0,1,(-7,0)}, local bounding box=scope1]
 			\draw[very thin,color=gray, dashed] (-1.3,-1.3) grid (4.3,4.3);
 			
@@ -33,22 +55,6 @@ the coordinates of $\vec x$ with respect to $\mathcal B$ are $(1,2)$.
 
 			\path[decoration=arrows, decorate, mygreen] (0,0) -- ++(E1) -- ++(E1)  node[midway, below] {$2\xhat$}
 				-- ++(E2) -- ++(E2) -- ++(E2)  node[midway, right] {$3\yhat$};
-			\fill[black] (0,0) circle[radius=2pt] node[below left] {$\vec 0$} ;
-		\end{scope}
-		\begin{scope}[local bounding box=scope2]
-			\clip (-1.3,-1.3) rectangle (4.3,4.3);
-			\begin{scope}[cm={2,1,0,1,(0,0)}]
-				\draw[very thin,color=gray, dashed] (-3.3,-3.3) grid (4.3,4.3);
-			\end{scope}
-			\coordinate (X) at (2,3);
-			\coordinate (B1) at (2,1);
-			\coordinate (B2) at (0,1);
-			%\fill[mypink] (A) circle[radius=2pt] node[above right] {$\vec a$};
-			%\fill[mygreen] (B) circle[radius=2pt] node[above right] {$\vec b$};
-			\draw[thick, mypink, ->] (0,0) -- (X) node[midway, above left] {$\vec x$};
-
-			\path[decoration=arrows, decorate, mygreen] (0,0) -- ++(B1)  node[midway, below right, yshift=3pt] {$1\vec b_1$}
-				-- ++(B2) -- ++(B2) node[midway, right, yshift=5pt] {$2\vec b_2$};
 			\fill[black] (0,0) circle[radius=2pt] node[below left] {$\vec 0$} ;
 		\end{scope}
 		\node[above] at (scope1.north) {$\mathcal E$-grid};
@@ -115,7 +121,14 @@ $\vec x=2\xhat+3\yhat$. However, given the representation-in-a-basis notation, w
 \[
 	\vec x=\mat{2\\3}_{\mathcal E},
 \]
-where $\mathcal E$ is the standard basis for $\R^2$. We should write $\mat{2\\3}_{\mathcal E}$ because the coordinates $(2,3)$
+where $\mathcal E$ is the standard basis for $\R^2$\footnote{
+	One might wonder if we've just made a circular definition. In Module \ref{MODULEBASIS},
+	$\vec e_1\in\R^2$ was defined to be $\mat{1\\0}$. But with our notation, this is the same
+	as $\vec e_1=\mat{1\\0}_{\mathcal E}$, which is itself true by definition! To get around this,
+	we need to declare the existence of the standard basis some other way. The physics solution is to define
+	$\vec e_1$, $\vec e_2$, etc. as physical vectors in space. The abstract mathematics solution is to declare
+	that $\vec e_1$, $\vec e_2$, etc. exist and are linearly independent and say nothing more.
+}. We should write $\mat{2\\3}_{\mathcal E}$ because the coordinates $(2,3)$
 refer to \emph{different} vectors for \emph{different} bases. However, most of the time we are only thinking about the standard
 basis. So, the convention we will follow is:
 \begin{itemize}
@@ -131,8 +144,8 @@ basis. So, the convention we will follow is:
 \end{emphbox}
 
 
+\newpage
 \Heading{True Vectors vs\mbox{.} Representations}
-
 \begin{center}
 \includegraphics[width=3in]{images/MagrittePipe.jpg}\footnote{ Image taken from Wikipedia: \url{https://en.wikipedia.org/wiki/File:MagrittePipe.jpg}} 
 \end{center}

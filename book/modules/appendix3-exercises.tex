@@ -100,9 +100,28 @@
 					\item Let $Q$ be the outer product of $\vec x$ and $\vec y$. What does the reduced row echelon form of $Q$
 						look like?
 					\item Let  $Q$ be the outer product of $\vec x$ and $\vec y$. Show that the columns of $Q$ are always linearly
-						dependent.
+						dependent when $n\geq 2$.
 				\end{enumerate}
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Yes. $1\times 1$
+				\item Yes. $n\times n$
+				\item They are related but not the same. $\vec r\cdot \vec c$ is a scalar
+					and $RC$ is a $1\times 1$ matrix.
+				\item
+					\begin{enumerate}
+						\item The inner product of $\vec x$ and $\vec y$ is $[\vec x\cdot \vec y]$.
+							That is, it is the $1\times 1$ matrix with entry $\vec x\cdot \vec y$.
+						\item The reduced row echelon form of $Q$ looks like a (possibly) non-zero
+							row followed by rows of zeros.
+						\item Let $y_1,\ldots, y_n\in \R$ be the entries in $\vec y$. Then
+							the columns of $Q$ are $y_1\vec x,\ldots, y_n\vec x$. These columns
+							are all scalar multiples of the same vector, $\vec x$, and so are
+							linearly dependent.
+					\end{enumerate}
+			\end{enumerate}
+		\end{solution}
 
 		\prob A $3\times 3$ matrix is called a \emph{Heisenberg matrix}\index{Heisenberg matrix} if it takes the form
 			$\mat{1&a&c\\0&1&b\\0&0&1}$ for some $a,b,c\in\R$.
@@ -112,6 +131,28 @@
 				or a counter example.
 			\item Let $X=\mat{1&a&c\\0&1&b\\0&0&1}$ and let $Y=\mat{1&-1&ab-c\\0&1&-b\\0&0&1}$. Show that $XY=I_{3\times 3}$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Multiplying \[
+						\mat{1&a&b\\0&1&c\\0&0&1}\mat{1&x&y\\0&1&z\\0&0&1}
+						=\mat{1&a+x&c+ay+z\\0&1&b+y\\0&0&1}
+				\]
+					and so two Heisenberg matrices aways multiply together to
+					form another Heisenberg matrix.
+				\item It may be that $AB\neq BA$. For example
+				\[
+					\mat{1&2&0\\0&1&1\\0&0&1}
+					\mat{1&1&0\\0&1&2\\0&0&1}
+					\neq
+					\mat{1&1&0\\0&1&2\\0&0&1}
+					\mat{1&2&0\\0&1&1\\0&0&1}.
+				\]
+
+				\item By multiplying out, we see $XY=I$ (and $YX=I$).
+			\end{enumerate}
+		\end{solution}
+
+
 		\prob Let $X$ be a matrix of the form $\mat{a&-b\\b&a}$ for some $a,b\in\R$.
 		\begin{enumerate}
 			\item Show that $X^2$ has the same form as $X$.
@@ -123,5 +164,31 @@
 				two square roots''? Do you agree with the statement ``every diagonal matrix with positive entries on the diagonal
 				has exactly two square roots''? Explain.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Multiplying out, we see
+					\[
+						\mat{a&-b\\b&a}\mat{x&-y\\y&x}=\mat{ax-by&-(ay+bx)\\ay+bx&ax-by}
+					\]
+				has the required form.
+				\item Multiplying, we see
+					\[
+						X^2=\mat{a&-b\\b&a}^2=\mat{a^2-b^2&-2ab\\2ab&a^2-b^2}=\mat{1&0\\0&1}
+					\]
+					implies that $a=0$ or $b=0$. If $a=0$, then $-b^2=1$, which is impossible. Therefore
+					$b=0$. This means $a^2=1$ which has solutions $a=\pm 1$. Therefore there
+					are exactly two solutions to $X^2=I$.
+				\item Multiplying, we see
+					\[
+						X^2=\mat{a&-b\\b&a}^2=\mat{a^2-b^2&-2ab\\2ab&a^2-b^2}=\mat{-1&0\\0&-1}
+					\]
+					implies that $a=0$ or $b=0$. If $a=b$, then $a^2=-1$, which is impossible. Therefore
+					$a=0$. This means $-b^2=-1$ which has solutions $b=\pm 1$. Therefore there
+					are exactly two solutions to $X^2=-I$.
+				\item There are infinitely many solutions to $Y^2=I$. For example $\mat{0&t\\1/t&0}^2=I$ for
+					any non-zero $t$.
+				\item Yes to the first, no to the second. Matrices are more general than numbers!
+			\end{enumerate}
+		\end{solution}
 	\end{problist}
 \end{exercises} 

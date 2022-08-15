@@ -515,18 +515,31 @@ The rank and the nullity of a linear transformation/matrix are connected by a po
 \]
 \end{theorem}
 
-The rank-nullity theorem's statement is simple, but it is surprisingly useful. Consider
-the matrix \[M=\mat{1&2&2}.\] We already know that $\Null(M)$ is the plane with equation
-$x+2y+2z=0$ and therefore is two dimensional. Since $M$ has three columns, $\Rank(M)=1$, and
-so $\Dim(\Col(M))=\Dim(\Row(M))=1$, which means that $M$ has a one-dimensional set of normal vectors
-(if we include $\vec 0$).
+The rank-nullity theorem's statement is simple, but it is surprisingly useful. For example, consider the question:
+how many normal directions does a plane have in $\R^3$ or in $\R^4$ or in $\R^5$?
 
-By contrast, let $\mathcal P\subseteq \R^4$ be the plane in $\R^4$ given in vector form by
+We already know the answer in $\R^3$: a plane has a two-dimensional set of direction vectors and a one-dimensional
+set (a line) of normal vectors\footnote{ Technically, the set of normal vectors for a plane in $\R^3$ is a line without
+$\vec 0$, since $\vec 0$ is never considered a normal vector.}. But, we can verify this fact using the rank-nullity theorem.
+
+Let \[
+	M=\mat{1&2&2}
+\]
+and let $\mathcal P=\Null(M)$. We know $\mathcal P$ is a plane with equation
+$x+2y+2z=0$ and therefore is two dimensional. Further, non-zero vectors in the row space of $M$ are 
+normal vectors for $\mathcal P$. Since $\Null(M)$ is two-dimensional and $M$ has three columns,
+the rank-nullity theorem tells us that $\Rank(M)=1$. Therefore
+$\Dim(\Col(M))=\Dim(\Row(M))=1$. We conclude
+the set of normal vectors to $\mathcal P=\Null(M)$ is a line (if we include $\vec 0$).
+
+By contrast, let $\mathcal Q\subseteq \R^4$ be the plane in $\R^4$ given in vector form by
 \[
 	\vec x=t\mat{1\\2\\2\\2}+s\mat{-1\\1\\-1\\1}.
 \]
-How many normal vectors does $\mathcal P$ have? Well, the matrix $A=\mat{1&2&2&2\\-1&1&-1&1}$ is rank $2$,
-and so has nullity $2$. Therefore, there exist two linearly independent normal directions for $\mathcal P$.
+How many normal vectors does $\mathcal Q$ have? Well, the matrix $A=\mat{1&2&2&2\\-1&1&-1&1}$ has rank $2$
+and therefore has nullity $2$. This means there exist two linearly independent normal directions for $\mathcal Q$\footnote{ Notice
+that we are using the complementary argument to the example in $\R^3$. For this example, the plane
+is the \emph{row space} and the set of normal vectors is the null space (ignoring $\vec 0$, of course).}.
 
 \medskip
 There is an equivalent rank-nullity theorem for linear transformations.

@@ -8,11 +8,11 @@ and in the world of linear algebra, it has a very particular meaning.
 
 \SavedDefinitionRender{Projection}
 
-Let $\mathcal P_{xy}\subseteq\R^3$ be the $xy$-plane in $\R^3$ and let $\vec v=\mat{1\\2\\3}$. Intuitively, 
-$\Proj_{\mathcal P_{xy}}\!\!\vec v$ is the ``shadow'' that  $\vec v$ would cast on ${\mathcal P_{xy}}$ if 
+Let $\mathcal{P}_{xy}\subseteq\R^3$ be the $xy$-plane in $\R^3$ and let $\vec v=\mat{1\\2\\3}$. Intuitively, 
+$\Proj_{\mathcal{P}_{xy}}\!\!\vec v$ is the ``shadow'' that  $\vec v$ would cast on ${\mathcal{P}_{xy}}$ if 
 the sun were directly overhead.
 Upon drawing a picture, we conclude $
-	\Proj_{\mathcal P_{xy}}\vec v=\mat{1\\2\\0}.
+	\Proj_{\mathcal{P}_{xy}}\vec v=\mat{1\\2\\0}.
 $
 
 \begin{center}
@@ -36,7 +36,7 @@ $
 		\coordinate (P) at (axis cs:1,2,0);
 		\draw[dashed, black!50] (P) -- (V);
 		\draw[->, thick, mypink] (O) -- (V) node[above right] {$\vec v$};
-		\draw[->, thick, myorange] (O) -- (P) node[right] {$\Proj_{\mathcal P_{xy}}\vec v$};
+		\draw[->, thick, myorange] (O) -- (P) node[right] {$\Proj_{\mathcal{P}_{xy}}\vec v$};
 	%\addplot3[domain=4:30,samples=80,samples y=0,mark=none,orange, opacity=0.5,ultra thick]
 	%    ({x},{118.89/x},{2*x});
     \end{axis}

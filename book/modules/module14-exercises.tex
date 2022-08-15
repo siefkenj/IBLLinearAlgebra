@@ -2,10 +2,47 @@
 	\begin{problist}
 		\prob Let $\mathcal{T}:\R^{2}\to\R^{2}$ be defined by $\mathcal{T}\mat{x\\y}
 		=\matc{3x-y\\x-\tfrac{1}{4}y}$. Find the volume of $\mathcal{T}(C_{2})$.
+		\begin{solution}
+			The volume of $\mathcal T(C_{2})$ is equal to the absolute value of the
+			determinant of $\mathcal T$. We have that
+			\[
+				[\mathcal T]_{\mathcal E} =
+				\mat{
+					3 & - 1  \\
+					1 & -1/4
+				},
+			\] so $\det \mathcal T = -3/4 + 1 = 1/4$. Since this number is positive, it is also the desired volume.
+		\end{solution}
 
 		\prob Let $\mathcal{S}:\R^{3}\to\R^{3}$ be defined by
 		$\mathcal{S}\mat{x\\y\\z}=\matc{2x+y+z\\x-\tfrac{1}{2}y\\z}$. Find the volume
 		of $\mathcal{S}(C_{3})$.
+		\begin{solution}
+			We start by computing the determinant of $\mathcal S$.
+			The determinant of $\mathcal S$ can be computed from $[\mathcal S]_{\mathcal E}$, which is
+			given by
+			\[
+				[\mathcal S]_{\mathcal E} =
+				\mat{
+					2 & 1    & 1 \\
+					1 & -1/2 & 0 \\
+					0 & 0    & 1
+				}.
+			\] Since determinant is preserved by row operations of the form ``add a multiple of
+			one row to another'', we can partially row reduce $[\mathcal S]_{\mathcal E}$ (using
+			only that row operation) without changing the determinant. Thus, the determinant
+			of $[\mathcal S]_{\mathcal E}$ is the same as the determinant of
+			\[
+				\mat{
+					2 & 1  & 1    \\
+					0 & -1 & -1/2 \\
+					0 & 0  & 1
+				}.
+			\]
+			This matrix is triangular, so the determinant is just the product of the
+			entries on the diagonal. Therefore, $\det [\mathcal S]_{\mathcal E} = -2$. But volume is non-negative,
+			so the volume of $\mathcal S(C_3)$ is $2$.
+		\end{solution}
 
 		\prob Let $\mathcal{T}:\R^{2}\to\R^{2}$ be defined by $\mathcal{T}\mat{x\\y}
 		=\matc{x+2y\\-x-y}$.
@@ -15,6 +52,25 @@
 
 			\item Find $\det(\mathcal{T})$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item Computing, we see $\mathcal T(\xhat) = \mat{1\\-1}$ and
+					$\mathcal T(\yhat)=\mat{2\\-1}$. Drawing these two vectors, we see
+					that $\mathcal T(\xhat),\mathcal T(\yhat)$
+					can be continuously transformed back into $\xhat,\yhat$ while staying
+					linearly independent the whole time. Therefore $\mathcal T$ is orientation
+					preserving.
+
+				\item $\det \mathcal T$ is equal to the determinant of the matrix
+					\[
+						[\mathcal T]_{\mathcal E}=\mat{
+							1  & 2  \\
+							-1 & -1
+						},
+					\]
+					which is $1$.
+			\end{enumerate}
+		\end{solution}
 
 		\prob For each linear transformation defined below, find its determinant.
 		\begin{enumerate}
@@ -40,9 +96,71 @@
 
 			\item $\mathcal{K}\circ \mathcal{H}:\R^{2}\to\R^{2}$, where
 				$\mathcal{H}\mat{x\\y}=\matc{x+2y\\-x-y}$,
-
 				and $\mathcal{K}\mat{x\\y}=\matc{-x-2y\\x+y}$.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item The matrix for $\mathcal S$ in any basis is $
+					\mat{
+						2/3 & 0 \\
+						0 & 2/3
+					}$, so the determinant is $4/9$.
+
+				\item $\mathcal R$ does not change volume or orientation so its determinant is $1$.
+
+				\item $\mathcal F$ does not change volume but it reverses orientation so its determinant
+					is $-1$.
+				
+				\item Though the determinants of $\mathcal P$ and $\mathcal Q$ are both $0$, the determinant
+					of $\mathcal G$ is not zero! We can compute the standard matrix for $\mathcal G$ by
+					noticing $\mathcal G(\xhat)=\mat{13/10\\1/10}$ and $\mathcal G(\yhat)=\mat{1/10\\7/10}$.
+					Therefore
+					\[
+						[\mathcal G]_{\mathcal E} =\mat{13/10&1/10\\1/10&7/10}
+					\]
+					and so $\det\mathcal G=9/10$.
+				
+				\item The matrix $[\mathcal T]_{\mathcal E}$ is given by
+					\[
+						[\mathcal T]_{\mathcal E} =
+						\mat{
+							1 & -1   & 1 \\
+							1 & -1/3 & 1 \\
+							0 & 0    & 1
+						}.
+					\] Subtracting the first row from the second gives the matrix
+					\[
+						\mat{
+							1 & -1  & 1 \\
+							0 & 2/3 & 0 \\
+							0 & 0   & 1
+						},
+					\] which has the same determinant as $[\mathcal T]_{\mathcal E}$, and since this
+					matrix is upper triangular, its determinant is simply $2/3$.
+
+				\item The map $\mathcal J$ maps every vector in $\R^{3}$ into $\Span\Set*{\mat{
+						0 \\
+						0 \\
+						1}}$, hence $\mathcal J$ is not invertible. Therefore,
+					$\det \mathcal J = 0$.
+
+				\item The determinant of the composition of the two maps is just the
+					product of the determinants of the two maps. The matrices 
+					for $\mathcal K$ and $\mathcal H$ (with respect
+					to $\mathcal E$) are
+					\[
+						\mat{
+							1  & 2  \\
+							-1 & -1
+						}\qquad\text{and}\qquad
+						\mat{
+							-1 & -2 \\
+							1  & 1
+						}
+					\] and each has determinant one, so the determinant of $\mathcal K\circ\mathcal H$
+					is also $1$.
+			\end{enumerate}
+		\end{solution}
 
 		\prob Let $A=\mat{2&3\\1&5}$.
 		\begin{enumerate}
@@ -57,6 +175,66 @@
 			\item How do the areas of the parallelograms drawn in parts \ref{PROBMOD14-rows}
 				and \ref{PROBMOD14-cols} relate?
 		\end{enumerate}
+		\begin{solution}
+
+			\begin{enumerate}
+				\item Put $E_{1} =
+					\mat{
+						1    & 0 \\
+						-1/2 & 1
+					}$. Then
+					\[
+						E_{1} A =
+						\mat{
+							2 & 3   \\
+							0 & 7/2
+						}.
+					\] Put $E_{2} =
+					\mat{
+						1 & 0   \\
+						0 & 2/7
+					}$. Then
+					\[
+						E_{2} E_{1} A =
+						\mat{
+							2 & 3 \\
+							0 & 1
+						}.
+					\] Put $E_{3} =
+					\mat{
+						1 & -3 \\
+						0 & 1
+					}$. Then
+					\[
+						E_{3} E_{2} E_{1} A =
+						\mat{
+							2 & 0 \\
+							0 & 1
+						}.
+					\] Finally, put $E_{4} =
+					\mat{
+						1/2 & 0 \\
+						0   & 1
+					}$. Then
+					\[
+						E_{4} E_{3} E_{2} E_{1} A =
+						\mat{
+							1 & 0 \\
+							0 & 1
+						}.
+					\] Therefore,
+					\[
+						\det A = \det E_{1}^{-1}\det E_{2}^{-1}\det E_{3}^{-1}\det E_{4}
+						^{-1}= 7.
+					\]
+
+				\item
+
+				\item
+
+				\item They have the same area.
+			\end{enumerate}
+		\end{solution}
 
 		\prob Let $A=\mat{1&2&0\\0&2&1\\1&2&3}$.
 		\begin{enumerate}
@@ -67,6 +245,80 @@
 			\item Find $\det(A^{T})$, and compare your answer with
 				\ref{Module14-q8}. Are they the same? Explain.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item By row reducing and keeping track
+					of our steps, we see that
+					\[
+						E_5E_4E_3E_2E_1 A = I
+					\]
+					where
+					\[
+						E_{1} =
+						\mat{
+							1  & 0 & 0 \\
+							0  & 1 & 0 \\
+							-1 & 0 & 1
+						}\qquad
+						E_{2} =
+						\mat{
+							1  & 0 & 0 \\
+							0  & 1/2 & 0 \\
+							0 & 0 & 1
+						}
+					\]
+					\[
+						E_{3} =
+						\mat{
+							1  & 0 & 0 \\
+							0  & 1 & 0 \\
+							0 & 0 & 1/3
+						}\qquad
+						E_{4} =
+						\mat{
+							1  & -2 & 0 \\
+							0  & 1 & 0 \\
+							0 & 0 & 1
+						}
+					\]
+					\[
+						E_{5} =
+						\mat{
+							1  & 0 & 0 \\
+							0  & 1 & -1 \\
+							0 & 0 & 1
+						}
+					\]
+					Therefore $A=E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}$.
+					By thinking about the relationship between elementary
+					matrices and determinants, we see that $\det E_1^{-1}
+					=\det E_4^{-1} =\det E_5^{-1} = 1$ and
+					that $\det E_2^{-1} = 2$ and $\det E_3^{-1} = 3$.
+					Therefore $\det A = 6$.
+
+				\item $\det(A^{-1}) = 1/\det(A) = 1/6$.
+
+				\item We have
+					\[
+						A^{T} =
+						\mat{
+							1 & 0 & 1 \\
+							2 & 2 & 2 \\
+							0 & 1 & 3
+						}.
+					\] Note that
+					\[
+						(E_{1} A)^{T} = A^{T} E_{1}^{T} =
+						\mat{
+							1 & 0 & 0 \\
+							2 & 2 & 0 \\
+							0 & 1 & 3
+						}.
+					\] This matrix is \emph{lower} triangular, so the determinant is
+					equal to the product of the diagonal entries, which is still $6$.
+					Further $\det(E_{1}^{T}) = 1$, and so $\det(A^{T}) = 6$.
+			\end{enumerate}
+		\end{solution}
 
 		\prob Let $A$ be an $n \times n$ matrix that can be decomposed into the
 		product of elementary matrices.
@@ -75,6 +327,16 @@
 
 			\item What is $\Null(A^{-1})$? Justify your answer.
 		\end{enumerate}
+		\begin{solution}
+			\begin{enumerate}
+				\item The rank of $A$ is equal to $n$, since each elementary matrix
+					has non-zero determinant and since $A$ can be expressed as a product
+					of elementary matrices, it also has non-zero determinant.
+
+				\item The nullspace of $A^{-1}$ is trivial (i.e. equal to $\Set{\vec 0}$), since $A^{-1}$ is
+					invertible.
+			\end{enumerate}
+		\end{solution}
 
 		\prob Anna and Ella are studying the relationship between determinant and
 		volume. In particular, they are studying $\mathcal{S}:\mathbb{R}^{3}\rightarrow
