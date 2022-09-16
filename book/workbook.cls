@@ -82,6 +82,7 @@
 
 \bool_new:N \g_workbook_twosided
 \bool_new:N \g_workbook_inline_solutions
+\bool_new:N \g_workbook_slides
 
 \keys_define:nn { _workbook_ } {
 	twosided .bool_set:N = \g_workbook_twosided,
@@ -90,6 +91,9 @@
 	inline~solutions .bool_set:N = \g_workbook_inline_solutions,
 	inline~solutions .default:n = true,
 	inline~solutions .initial:n = false,
+	slides .bool_set:N = \g_workbook_slides,
+	slides .default:n = true,
+	slides .initial:n = false,
 }
 
 \DeclareDocumentCommand\setbookoptions{m} {
@@ -103,7 +107,9 @@
 	% twoside needs to be set first since some options are computed relative
 	% to whether the geometry is onesided or twosided
 	\bool_if:nTF \g_workbook_twosided { \geometry{twoside=true} }{ \geometry{twoside=false}	}
-	\geometry{top=.25in,
+	\geometry{
+		papersize={8.5in, 11in},
+		top=.25in,
 		headsep=0in,
 		headheight=0in,
 		left=.95in,
@@ -153,6 +159,26 @@
 		right=10pt,
 		}
 	\savegeometry{leftbannerenv}
+
+	\bool_if:nTF \g_workbook_twosided { \geometry{twoside=true} }{ \geometry{twoside=false}	}
+	\geometry{
+		% 4:3 or 16:9
+		%papersize={13.3cm, 10cm},
+		papersize={17.7cm, 10cm},
+		twoside=false,
+		noheadfoot,
+		marginpar=0pt,
+		marginparsep=0pt,
+		includeall,
+		left=.2cm,
+		right=0cm,
+		top=.7cm,
+		bottom=.7cm,
+		%showframe
+	}
+	\geometry{bottom=\dim_eval:n {\prop_item:Nn \g_workbook_slide_info_prop {margin_bottom}}}
+	\geometry{top=\dim_eval:n {\prop_item:Nn \g_workbook_slide_info_prop {margin_top}}}
+	\savegeometry{slides}
 }
 
 
@@ -1109,6 +1135,236 @@
 
 	\end{multicols*}
 }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SLIDES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\prop_new:N \g_workbook_slide_info_prop
+\dim_new:N \_workbook_current_parskip
+\prop_put:Nnn \g_workbook_slide_info_prop {last_page} {0}
+\prop_put:Nnn \g_workbook_slide_info_prop {margin_top} {.6cm}
+\prop_put:Nnn \g_workbook_slide_info_prop {margin_bottom} {3cm}
+
+\DeclareDocumentCommand{\SlideTitle}{o}{
+	\textbf{\sffamily
+		Core~Exercise~\int_eval:n {\thequestion + (\IfNoValueTF{#1}{0}{#1})}
+	}
+}
+\DeclareDocumentCommand{\TypesetSlideFooter}{m}{
+	\dim_set:Nn \l_tmpa_dim {#1}
+	\begin{tikzpicture}[remember~picture, overlay]
+		\fill[cyan!50!black] ($(current~page.south~west) + (0,\l_tmpa_dim)$) rectangle (current~page.south~east);
+	\end{tikzpicture}
+}
+\DeclareDocumentCommand{\TypsetSlideHeader}{o m}{
+	\dim_set:Nn \l_tmpa_dim {#2}
+	\begin{tikzpicture}[remember~picture, overlay]
+		\draw[fill=cyan!50!black] ($(current~page.north~west) + (0,-\l_tmpa_dim)$) rectangle (current~page.north~east) 
+			node[pos=0, anchor=west, color=white, xshift=1ex, yshift=.5\l_tmpa_dim]{\SlideTitle[#1]};
+	\end{tikzpicture}
+}
+
+\box_new:N \g_workbook_slide_body_box
+\box_new:N \l_workbook_slide_body_tmp_box
+\dim_new:N \g_workbook_slide_bodyvailable_height_dim
+\dim_new:N \l_workbook_slide_body_request_height_dim
+\dim_new:N \l_workbook_slide_body_request_multicol_height_dim
+\dim_new:N \l_workbook_slide_minipage_width_dim
+\newcounter{question_at_start}
+% Typeset to a box. The first arg is the question number to start at
+% followed by a font-adjustment command, followed by the material to be typeset
+\DeclareDocumentCommand{\TypesetSlideBodyOneCol}{m m +m}{
+	\vbox_gset:Nn \g_workbook_slide_body_box {
+		\setcounter{question}{#1}
+		#2
+		\setlength{\fboxrule}{0pt} 
+		\fbox{
+			\begin{minipage}{\l_workbook_slide_minipage_width_dim}
+				#3
+			\end{minipage}
+		}
+	}
+}
+\DeclareDocumentCommand{\TypesetSlideBodyTwoCol}{m m +m}{
+	\vbox_gset:Nn \g_workbook_slide_body_box {
+		% We're re-typesetting to see if we can get a better fit. Reset the question counter
+		% before this.
+		\setcounter{question}{#1}
+		% A (possibly blank) font-adjustment command, like \small
+		#2
+		\setlength{\fboxrule}{0pt} 
+		\fbox{
+			\begin{minipage}{\l_workbook_slide_minipage_width_dim}
+				\begin{multicols}{2}
+					#3
+				\end{multicols}
+			\end{minipage}
+		}
+	}
+}
+% Attempt to typeset the slide body as one column or two columns
+% choosing the layout that achieves the "best fit" (i.e., needs the least
+% amount to scaling).
+\dim_new:N \g_workbook_slide_body_request_height
+\DeclareDocumentCommand{\TypesetSlideBodyBestFit}{m m m +m}{
+	\dim_set:Nn \g_workbook_slide_bodyvailable_height_dim {#1}
+	\def\questionStartNumber{#2}
+	\def\fontCommand{#3}
+
+	% Try to typeset in one column
+	\TypesetSlideBodyOneCol{\questionStartNumber}{\fontCommand}{#4}
+	\dim_set:Nn \l_workbook_slide_body_request_height_dim {\box_ht:N \g_workbook_slide_body_box + \box_dp:N \g_workbook_slide_body_box}
+	\dim_gset_eq:NN \g_workbook_slide_body_request_height \l_workbook_slide_body_request_height_dim
+	
+	% If we're too tall, try to typeset as two columns
+	\dim_compare:nNnTF {\l_workbook_slide_body_request_height_dim} > {\g_workbook_slide_bodyvailable_height_dim} {
+		% scale the original contents so that it fits
+		\box_gresize_to_ht_plus_dp:Nn \g_workbook_slide_body_box {\g_workbook_slide_bodyvailable_height_dim}
+		\box_gset_eq:NN \l_workbook_slide_body_tmp_box \g_workbook_slide_body_box
+
+		% Try typesetting as two columns
+		\TypesetSlideBodyTwoCol{\questionStartNumber}{\fontCommand}{#4}
+
+		% The two-column render might also be too tall; resize if needed
+		\dim_set:Nn \l_workbook_slide_body_request_multicol_height_dim {\box_ht:N \g_workbook_slide_body_box + \box_dp:N \g_workbook_slide_body_box}
+		\dim_compare:nNnTF {\l_workbook_slide_body_request_multicol_height_dim} > {\g_workbook_slide_bodyvailable_height_dim} {
+			\box_gresize_to_ht_plus_dp:Nn \g_workbook_slide_body_box {\g_workbook_slide_bodyvailable_height_dim}
+		}{}
+
+		% Pick the better fit and assign it to box a.
+		\dim_compare:nNnTF {\l_workbook_slide_body_request_multicol_height_dim} > {\l_workbook_slide_body_request_height_dim} {
+			\box_gset_eq:NN \g_workbook_slide_body_box \l_workbook_slide_body_tmp_box
+		}{
+			\dim_gset_eq:NN \g_workbook_slide_body_request_height \l_workbook_slide_body_request_multicol_height_dim
+		}
+	}{}
+}
+
+% Typeset the slide body. Arguments 1 and 2 are the top and bottom margins
+\DeclareDocumentCommand{\TypesetSlideBody}{m m +m}{
+	\dim_set:Nn \g_workbook_slide_bodyvailable_height_dim {10cm - (#1) - (#2)}
+	\dim_set:Nn \l_workbook_slide_minipage_width_dim {\linewidth - .35cm}
+	\box_clear:N \g_workbook_slide_body_box
+	\box_clear:N \l_workbook_slide_body_tmp_box
+	\setcounter{question_at_start}{\thequestion}
+
+	% Try to typeset in a normal font size
+	\TypesetSlideBodyBestFit{\g_workbook_slide_bodyvailable_height_dim}{\thequestion_at_start}{}{#3}
+	% If we're too tall by a little bit, we just use the scaled result.
+	% Otherwise we will try typesetting with a smaller font.
+	% Since the height of a slide is 10cm, we can use 1cm as 10%, etc.
+	\dim_compare:nNnTF {\g_workbook_slide_body_request_height - \g_workbook_slide_bodyvailable_height_dim} < {1cm} {}{
+		\TypesetSlideBodyBestFit{\g_workbook_slide_bodyvailable_height_dim}{\thequestion_at_start}{\small}{#3}
+		\dim_compare:nNnTF {\g_workbook_slide_body_request_height - \g_workbook_slide_bodyvailable_height_dim} < {1cm} {}{
+			\TypesetSlideBodyBestFit{\g_workbook_slide_bodyvailable_height_dim}{\thequestion_at_start}{\footnotesize}{#3}
+		}
+	}
+}
+
+% By default the slide environment should do nothing
+\DeclareDocumentEnvironment{slide}{o +b}{
+	#2
+}{}
+
+% The \initSlides command makes the slides environment actually typeset things.
+\DeclareDocumentCommand{\initSlides}{}{
+	\_workbook_define_new_theorem_box:nn {definition} {
+		% For definitions, we just print the term being defined without the word "Definition" in front.
+		display~name = {},
+		color = LimeGreen,
+		bgcolor = LimeGreen!10!white,
+	}
+	\_workbook_define_new_theorem_box:nn {theorem} {
+		% For definitions, we just print the term being defined without the word "Definition" in front.
+		display~name = {Theorem},
+		color = Fuchsia,
+		bgcolor = Fuchsia!10!white,
+	}
+
+	% Slide environment. It's contents are typeset as one or two columns, depending on what fits on the
+	% page better. The optional argument is a number 
+	\DeclareDocumentEnvironment{slide}{o +b}{
+		% We typeset everything in a minipage, so we need to remember the parskip.
+		\dim_set_eq:NN \_workbook_current_parskip \parskip
+
+		% The \question macro shouldn't do anything other than increment the question counter.
+		% We typeset the question number manually
+		\DeclareDocumentCommand{\question}{}{
+			\addtocounter{question}{1}
+			\def\@currentlabel{\thequestion}
+		}
+
+		\clearpage
+		% Determine if we need a manual page break based on whether the previous slide was printed
+		% on the same page.
+		\prop_put:Nnx \g_workbook_slide_info_prop {curr_page} {\thepage}
+		\int_compare:nNnTF {\prop_item:Nn \g_workbook_slide_info_prop {curr_page}} = {\prop_item:Nn \g_workbook_slide_info_prop {last_page}} {
+			\clearpage
+		} {}
+		\prop_put:Nnx \g_workbook_slide_info_prop {curr_page} {\thepage}
+
+		% Save the question number from the start and end of the slide so we can
+		% compute how many questions are contained in this slide.
+		\prop_put:Nnx \g_workbook_slide_info_prop {question_at_start} {\thequestion}
+		\TypesetSlideBody{
+			\prop_item:Nn \g_workbook_slide_info_prop {margin_top}
+		}{
+			\prop_item:Nn \g_workbook_slide_info_prop {margin_bottom}
+		}{
+			##2
+		}
+		\prop_put:Nnx \g_workbook_slide_info_prop {question_at_end} {\thequestion}
+		\prop_put:Nnx \g_workbook_slide_info_prop {num_questions} {
+			\int_eval:n {\prop_item:Nn \g_workbook_slide_info_prop {question_at_end} - \prop_item:Nn \g_workbook_slide_info_prop {question_at_start}}
+		}
+
+		% Footer
+		\TypesetSlideFooter{\prop_item:Nn \g_workbook_slide_info_prop {margin_bottom}}
+		% Header
+		\TypsetSlideHeader[##1]{\prop_item:Nn \g_workbook_slide_info_prop {margin_top}}
+		% Body (typeset last so it appears on top of the header and footer for any overflows.
+		% It is centered in case it has been scaled to fit.
+		\hfil\box_use:N \g_workbook_slide_body_box\hfil
+
+	}{}
+
+
+	\DeclareDocumentEnvironment{parts}{o +b}{
+		\nopagebreak
+		\begin{list}{\formatpartsitem}{
+				\usecounter{partsitem}
+				\setlength{\leftmargin}{.6cm}
+				\setlength{\itemsep}{0cm}
+				\setlength{\topsep}{0cm}
+			}
+			% if we gave the [resume] argument, start counting from where we
+			% left off.
+			\ifthenelse{ \equal{##1}{resume} }{
+				\setcounter{partsitem}{\value{partsitemlast}}
+			}{}
+		
+			% we'd like an sub-enumerate environments
+			% to act like they're nested, so advance
+			% the level by one.
+			\advance\@enumdepth\@ne
+			##2
+			\setcounter{partsitemlast}{\value{partsitem}}
+		\end{list}
+	}{
+	}
+	\RenewDocumentCommand{\section}{sm}{}
+	\RenewDocumentCommand{\subsection}{sm}{}
+}
+
+
+
+
+
+
+
+
 
 
 
