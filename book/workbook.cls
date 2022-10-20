@@ -1273,7 +1273,7 @@
 	\_workbook_define_new_theorem_box:nn {definition} {
 		% For definitions, we just print the term being defined without the word "Definition" in front.
 		display~name = {},
-		color = LimeGreen,
+		color = LimeGreen!70!black,
 		bgcolor = LimeGreen!10!white,
 	}
 	\_workbook_define_new_theorem_box:nn {theorem} {
