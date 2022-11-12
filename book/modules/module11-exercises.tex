@@ -1,9 +1,7 @@
-
 \begin{exercises}
-
 	\begin{problist}
-		\prob For the following matrices, find their null space, column space, and
-		row space.
+		\prob For the following matrices, find their null space, column space,
+		and row space.
 		\begin{enumerate}
 			\item $M_{1}=\mat{1&2&1\\3&1&-2\\8&6&-2}$.
 
@@ -17,51 +15,50 @@
 		% Q1 Solutions
 
 		\begin{solution}
-
 			\begin{enumerate}
-				\item $M_{1} = \mat{1&2&1\\3&1&-2\\8&6&-2}$;\, $\rref(M_{1})=\mat{1&0&-1\\0&1&1\\0&0&0}$.
-				
+				\item $M_{1}= \mat{1&2&1\\3&1&-2\\8&6&-2}$;\, $\rref(M_{1})=\mat{1&0&-1\\0&1&1\\0&0&0}$.
+
 					$\Null(M_{1})=\Set*{\vec{x} \in \R^3: M_1 \vec{x}=\vec 0}$;
 					therefore, we need to solve $\mat{M_1|\vec0}$.
 					\begin{align*}
-						\Null(M_{1}) &= \Set*{\vec x \in \R^3:\vec x = s\mat{1\\-1\\1} \; \text{for some } s\in\R}\\
-						             &= \Span\Set*{\mat{1\\-1\\1}}
+						\Null(M_{1}) & = \Set*{\vec x \in \R^3:\vec x = s\mat{1\\-1\\1} \; \text{for some } s\in\R} \\
+						             & = \Span\Set*{\mat{1\\-1\\1}}
 					\end{align*}
 					\begin{align*}
-						\Col(M_{1}) &= \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6},\mat{1\\-2\\-2}}\\
-									&= \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6}}
+						\Col(M_{1}) & = \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6},\mat{1\\-2\\-2}} \\
+						            & = \Span\Set*{\mat{1\\3\\8},\mat{2\\1\\6}}
 					\end{align*}
 					\begin{align*}
-						\Row(M_{1}) &= \Span\Set*{\mat{1\\2\\1},\mat{3\\1\\-2},\mat{8\\6\\-2}}\\
-									&= \Span\Set*{\mat{1\\2\\1},\mat{3\\1\\-2}}\\
-									&= \Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\1}}
+						\Row(M_{1}) & = \Span\Set*{\mat{1\\2\\1},\mat{3\\1\\-2},\mat{8\\6\\-2}} \\
+						            & = \Span\Set*{\mat{1\\2\\1},\mat{3\\1\\-2}}                \\
+						            & = \Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\1}}
 					\end{align*}
 
 				\item $\rref(M_{2})=\mat{1&0&4/3\\0&1&1/2}$.
 					\begin{align*}
-					\Null(M_{2})&=\Span\Set*{\mat{4/3\\1/2\\-1}}\\
-					\Col(M_{2})&=\Span\Set*{\mat{0\\3},\mat{2\\2}}=\R^{2}\\
-					\Row(M_{2})&=\Span\Set*{\mat{0\\2\\1},\mat{3\\2\\5}}
+						\Null(M_{2}) & =\Span\Set*{\mat{4/3\\1/2\\-1}}           \\
+						\Col(M_{2})  & =\Span\Set*{\mat{0\\3},\mat{2\\2}}=\R^{2} \\
+						\Row(M_{2})  & =\Span\Set*{\mat{0\\2\\1},\mat{3\\2\\5}}
 					\end{align*}
 
 				\item $\rref(M_{3})=\mat{1&0\\0&1\\0&0}$.
 					\begin{align*}
-					\Null(M_{3})&=\Set*{\mat{0\\0}}\\
-					\Col(M_{3})&=\Span\Set*{\mat{1\\3\\4},\mat{2\\1\\0}}\\
-					\Row(M_{3})&=\Span\Set*{\mat{1\\2},\mat{3\\1}}=\R^{2}
+						\Null(M_{3}) & =\Set*{\mat{0\\0}}                        \\
+						\Col(M_{3})  & =\Span\Set*{\mat{1\\3\\4},\mat{2\\1\\0}}  \\
+						\Row(M_{3})  & =\Span\Set*{\mat{1\\2},\mat{3\\1}}=\R^{2}
 					\end{align*}
 
 				\item $\rref(M_{4})=I_{4\times4}$.
 					\begin{align*}
-					\Null(M_{4})&=\Set*{\mat{0\\0\\0\\0}}\\
-					\Col(M_{4})&=\R^{4}\\
-					\Row(M_{4})&=\R^{4}
+						\Null(M_{4}) & =\Set*{\mat{0\\0\\0\\0}} \\
+						\Col(M_{4})  & =\R^{4}                  \\
+						\Row(M_{4})  & =\R^{4}
 					\end{align*}
 			\end{enumerate}
 		\end{solution}
 
-		\prob Let $\mathcal P$ be the plane given by $3x+4y+5z=0$, and let $T:\R^{3}\to\R^{3}$
-		be projection onto $\mathcal P$.
+		\prob Let $\mathcal{P}$ be the plane given by $3x+4y+5z=0$, and let $T:\R
+		^{3}\to\R^{3}$ be projection onto $\mathcal{P}$.
 		\begin{enumerate}
 			\item Find $\Range(T)$ and $\Rank(T)$.
 
@@ -71,117 +68,124 @@
 		% Q2 Solutions
 
 		\begin{solution}
-
 			\begin{enumerate}
-				\item
-				Since $T$ is the projection onto $\mathcal{P}$, $T(\vec{x})=\vec{x}$ for any $\vec{x}\in\mathcal{P}$ and thus $\mathcal{P}\subseteq\Range(T)$.
-				
-				Let $\vec{y}\in\Range(T)$. This means that $\vec{y}=T(\vec{x})$ for some $\vec{x}\in\R^3$. By definition of a projection, $\vec{y}$ is the closest point in $\mathcal{P}$ to $\vec{x}$, so $\vec{y}\in\mathcal{P}$ and thus $\Range(T)\subseteq\mathcal{P}$.
-				
-				This shows that $\Range(T)=\mathcal{P}$.
-				
-				Since $\Range(T)=\mathcal{P}$ is a plane, we have $\Rank(T)=\Dim(\Range(T))=\Dim(\mathcal{P})=2$.
+				\item Since $T$ is the projection onto $\mathcal{P}$,
+					$T(\vec{x})=\vec{x}$ for any $\vec{x}\in\mathcal{P}$ and
+					thus $\mathcal{P}\subseteq\Range(T)$.
 
-				\item
-				By the rank-nullity theorem,
-				\[
-					\Rank(T)+\Nullity(T)=\Dim(\text{domain of $T$}).
-				\]
-				
-				Thus,
-				\[
-					\Nullity(T)=\Dim(\text{domain of $T$})-\Rank(T)=3-2=1.
-				\]
-				
-				Since $\vec{n}=\mat{3\\4\\5}$ is normal to $\mathcal{P}$, we have $T(\vec{n})=\vec{0}$ and thus $\vec{n}\in\Null(T)$. Since $\Nullity(T)=1$ and $\vec{n}$ is a non-zero vector in $\Null(T)$, we have
-				\[
-					\Null(T)=\Span\Set*{\mat{3\\4\\5}}.
-				\]
+					Let $\vec{y}\in\Range(T)$. This means that $\vec{y}=T(\vec{x}
+					)$ for some $\vec{x}\in\R^{3}$. By definition of a
+					projection, $\vec{y}$ is the closest point in $\mathcal{P}$ to
+					$\vec{x}$, so $\vec{y}\in\mathcal{P}$ and thus
+					$\Range(T)\subseteq\mathcal{P}$.
+
+					This shows that $\Range(T)=\mathcal{P}$.
+
+					Since $\Range(T)=\mathcal{P}$ is a plane, we have $\Rank(T)=\Dim
+					(\Range(T))=\Dim(\mathcal{P})=2$.
+
+				\item By the rank-nullity theorem,
+					\[
+						\Rank(T)+\Nullity(T)=\Dim(\text{domain of $T$}).
+					\]
+
+					Thus,
+					\[
+						\Nullity(T)=\Dim(\text{domain of $T$})-\Rank(T)=3-2=1.
+					\]
+
+					Since $\vec{n}=\mat{3\\4\\5}$ is normal to $\mathcal{P}$, we
+					have $T(\vec{n})=\vec{0}$ and thus $\vec{n}\in\Null(T)$. Since
+					$\Nullity(T)=1$ and $\vec{n}$ is a non-zero vector in $\Null(
+					T)$, we have
+					\[
+						\Null(T)=\Span\Set*{\mat{3\\4\\5}}.
+					\]
 			\end{enumerate}
 		\end{solution}
 
-		\prob Find the range and null space of the following linear
-		transformations.
+		\prob Find the range and null space of the following linear transformations.
 		\begin{enumerate}
-			\item $\mathcal P:\R^{2}\to\R^{2}$, where $\mathcal P$ is
+			\item $\mathcal{P}:\R^{2}\to\R^{2}$, where $\mathcal{P}$ is
 				projection on to the line $y=x$.
 
-			\item Let $\theta\in \R$ and let $\mathcal R:\R^{2}\to\R^{2}$ to be
+			\item Let $\theta\in \R$ and let $\mathcal{R}:\R^{2}\to\R^{2}$ to be
 				the transformation which rotates all vectors by counter-clockwise
 				by $\theta$ radians.
 
-			\item $\mathcal F:\R^{2}\to\R^{2}$, where $\mathcal F$ reflects
+			\item $\mathcal{F}:\R^{2}\to\R^{2}$, where $\mathcal{F}$ reflects
 				over the $x$-axis.
 
-			\item $\mathcal M:\R^{3}\to\R^{3}$ where $\mathcal M$ is the matrix
+			\item $\mathcal{M}:\R^{3}\to\R^{3}$ where $\mathcal{M}$ is the matrix
 				transformation given by $\mat{1&2&3\\4&5&6\\7&8&9}$.
 
-			\item $\mathcal Q:\R^{3}\to\R^{1}$ defined by $\mathcal Q\mat{x\\y\\z}=x+z$.
+			\item $\mathcal{Q}:\R^{3}\to\R^{1}$ defined by $\mathcal{Q}\mat{x\\y\\z}
+				=x+z$.
 		\end{enumerate}
 
 		% Q3 Solutions
 
 		\begin{solution}
-
 			\begin{enumerate}
 				\item Similar to Problem 2.(a),
 					\begin{align*}
-					\Range(P)&=\Set*{\text{line given by the equation } y=x}\\
-					&=\Span\Set*{\mat{1\\1}}\\
-					\Null(P)&=\Set*{\text{line given by the equation } y=-x}\\
-					&=\Span\Set*{\mat{1\\-1}}
+						\Range(P) & =\Set*{\text{line given by the equation } y=x}  \\
+						          & =\Span\Set*{\mat{1\\1}}                         \\
+						\Null(P)  & =\Set*{\text{line given by the equation } y=-x} \\
+						          & =\Span\Set*{\mat{1\\-1}}
 					\end{align*}
 
 				\item Notice that if we have a non-zero vector, after rotation
-					the vector still remains non-zero as rotation does
-					not change magnitude of vectors. Thus, $\Null(R)=\Set*{\mat{0\\0}}$.
-					From the rank-nullity theorem, $\Rank(R) = 2$ implies that $\Range(R) = \R^{2}$.
+					the vector still remains non-zero as rotation does not
+					change magnitude of vectors. Thus,
+					$\Null(R)=\Set*{\mat{0\\0}}$. From the rank-nullity theorem,
+					$\Rank(R) = 2$ implies that $\Range(R) = \R^{2}$.
 
-				\item Since $F\mat{x\\y}= \mat{x\\-y}$, if $F\mat{x\\y}= \mat{0\\0}$, then $x=y=0$.
-					Thus, $\Null(F)=\Set*{\mat{0\\0}}$. From the rank-nullity
-					theorem, $\Rank(F)=2$ implies that $\Range(F)=\R^{2}$.
+				\item Since $F\mat{x\\y}= \mat{x\\-y}$, if
+					$F\mat{x\\y}= \mat{0\\0}$, then $x=y=0$. Thus, $\Null(F)=\Set
+					*{\mat{0\\0}}$. From the rank-nullity theorem, $\Rank(F)=2$ implies
+					that $\Range(F)=\R^{2}$.
 
 				\item Let M be the matrix of the transformation $\mathcal{M}$.
-					$\Rref(M)= \mat{1&0&-1\\0&1&2\\0&0&0}$ So,
-					$\Range(M)=\Col(M)=\Span\Set*{\mat{1\\4\\7},\mat{2\\5\\8}}$
-					and $\Null(M)=\Span\Set*{\mat{1\\-2\\1}}$.
+					$\Rref(M)= \mat{1&0&-1\\0&1&2\\0&0&0}$ So, $\Range(M)=\Col(M)
+					=\Span\Set*{\mat{1\\4\\7},\mat{2\\5\\8}}$ and $\Null(M)=\Span
+					\Set*{\mat{1\\-2\\1}}$.
 
-				\item Notice that $\Range(Q)\subseteq\R$. For any $t\in\R^{1}$, we have
-					$Q\mat{t\\0\\0}=t+0=t$ and thus $t\in\Range(Q)$. Hence,
-					$\Range(Q) = \R^{1}$. For $\vec x \in \R^{3}$, $Q(\vec
-					x)=Q\mat{x\\y\\z}=x+z=0$.
-					Thus, $\Null(Q)$ is the plane given by the equation
-					$x+z=0$ Alternatively, $\Null(Q) = \Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\0}}$
+				\item Notice that $\Range(Q)\subseteq\R$. For any $t\in\R^{1}$, we
+					have $Q\mat{t\\0\\0}=t+0=t$ and thus $t\in\Range(Q)$. Hence,
+					$\Range(Q) = \R^{1}$. For $\vec x \in \R^{3}$, $Q(\vec x)=Q\mat
+					{x\\y\\z}=x+z=0$. Thus, $\Null(Q)$ is the plane given by the
+					equation $x+z=0$ Alternatively,
+					$\Null(Q) = \Span\Set*{\mat{1\\0\\-1},\mat{0\\1\\0}}$
 			\end{enumerate}
 		\end{solution}
 
 		\prob
 		\begin{enumerate}
-			\item Let $\mathcal T$ be the transformation induced by the matrix
-				$\mat{7&5\\-2&-2}$, and $\vec v=3\xhat-3\yhat$. Compute $\mathcal
-				T\vec v$ and $[\mathcal T\vec v]_{\mathcal E}$.
+			\item Let $\mathcal{T}$ be the transformation induced by the matrix $\mat
+				{7&5\\-2&-2}$, and $\vec v=3\xhat-3\yhat$. Compute $\mathcal{T}\vec
+				v$ and $[\mathcal{T}\vec v]_{\mathcal{E}}$.
 
-			\item Let $\mathcal T$ be the transformation induced by the matrix
-				$\mat{3&7&5\\1&-2&-2}$, and $\vec v=2\xhat+0\yhat+4\zhat$.
-				Compute $\mathcal T\vec v$ and $[\mathcal T\vec v]_{\mathcal
-				E}$.
+			\item Let $\mathcal{T}$ be the transformation induced by the matrix $\mat
+				{3&7&5\\1&-2&-2}$, and $\vec v=2\xhat+0\yhat+4\zhat$. Compute $\mathcal{T}
+				\vec v$ and $[\mathcal{T}\vec v]_{\mathcal{E}}$.
 		\end{enumerate}
 
 		% Q4 Solutions
 
 		\begin{solution}
-
 			\begin{enumerate}
-				\item $[\vec v]_{\varepsilon} = \mat{3\\-3}\;$ So, $[T\vec
-					v]_{\varepsilon} = \mat{7&5\\-2&-2}\mat{3\\-3}=\mat{6\\0}$
+				\item $[\vec v]_{\varepsilon}= \mat{3\\-3}\;$ So,
+					$[T\vec v]_{\varepsilon}= \mat{7&5\\-2&-2}\mat{3\\-3}=\mat{6\\0}$
 
 					Thus $T\vec v =6\vec e_{1}.$
 
-				\item $[\vec v]_{\varepsilon} = \mat{2\\0\\4}\;$ So, $[T\vec
-					v]_{\varepsilon} = \mat{3&7&5\\1&-2&-2}\mat{2\\0\\4}=\mat{26\\-6}$
+				\item $[\vec v]_{\varepsilon}= \mat{2\\0\\4}\;$ So,
+					$[T\vec v]_{\varepsilon}= \mat{3&7&5\\1&-2&-2}\mat{2\\0\\4}=\mat
+					{26\\-6}$
 
-					Thus $T\vec v =26\vec e_{1}-6\vec e_{2}\;$ [Here $\vec
-					e_{1}, \vec e_{2}\in \R^{2}$]
+					Thus $T\vec v =26\vec e_{1}-6\vec e_{2}\;$ [Here
+					$\vec e_{1}, \vec e_{2}\in \R^{2}$]
 			\end{enumerate}
 		\end{solution}
 
@@ -191,55 +195,58 @@
 			\item Let $A$ be an arbitrary matrix. Then $\Col(A)=\Col(A^{T})$.
 
 			\item Let $T:\R^{m}\to\R^{n}$ be a transformation (not necessarily
-				linear). If $\Null(T)=\Set{\vec x\in\R^m \given T(\vec x)=\vec
-				0}$ is a subspace, then $T$ is linear.
+				linear). If
+				$\Null(T)=\Set{\vec x\in\R^m \given T(\vec x)=\vec 0}$ is a
+				subspace, then $T$ is linear.
 
-			\item Let $T:\R^{m}\to\R^{n}$ be a linear transformation. Then $\Nullity(T)
-				\geq n$.
+			\item Let $T:\R^{m}\to\R^{n}$ be a linear transformation. Then
+				$\Nullity(T) \geq n$.
 
-			\item Let $T:\R^{m}\to\R^{n}$ be a linear transformation induced by
-				a matrix $M$. If $\Rank(T) = n$, then $\Nullity(M) = 0$.
+			\item Let $T:\R^{m}\to\R^{n}$ be a linear transformation induced by a
+				matrix $M$. If $\Rank(T) = n$, then $\Nullity(M) = 0$.
 		\end{enumerate}
 
-
 		\begin{solution}
-
 			\begin{enumerate}
-				\item False. $\Range(A)$ and $\Range(A^{T})$ need not even
-					be in the same space.
+				\item False. $\Range(A)$ and $\Range(A^{T})$ need not even be in
+					the same space.
 
 					For example, take $A=\mat{1&0\\0&1\\0&0}, A^{T}=\mat{1&0&0\\0&1&0}$
-					Then $\Range(A)=\Set*{xy-\text{plane in }\R^3}$,
-					whereas $\Range(A^{T})=\R^{2}$
+					Then $\Range(A)=\Set*{xy-\text{plane in }\R^3}$, whereas
+					$\Range(A^{T})=\R^{2}$
 
 				\item False. Consider, $T:\R^{2}\to\R^{2}$ given by
 					\[
 						T\mat{x\\y}=\mat{x^2\\y}
 					\]
-					 Then, $\Null(T)= \Set*{\mat{0\\0}}$ which is a subspace.
-					But $T$ is not linear.
+					Then, $\Null(T)= \Set*{\mat{0\\0}}$ which is a subspace. But
+					$T$ is not linear.
 
 				\item False. From rank-nullity theorem,
 					\begin{align*}
 						\Nullity(T) & \leq \Dim(\text{ domain of }T) & =m \quad \text{ (in this case) }
-					\end{align*}So, for any $n>m$ this is false. Consider
-					for example
+					\end{align*}So, for any $n>m$ this is false. Consider for
+					example
 					\begin{align*}
 						 & T:\R^{1}\to\R^{2}\;\text{given by} & T(x)=\mat{x\\0};\; \Nullity(T)=0
 					\end{align*}
 
 				\item False. This is false whenever $m>n$ (follows from rank-nullity
-					theorem) Take for example: $T:\R^{3}\to\R^{2}$ induced
-					by the matrix $A=\mat{1&0&0\\0&1&0}$;\\ we have that $\Rank(T)=\Dim(\Col
-					A)=2$, and $\Nullity(T) = \Nullity(A)=1$.
+					theorem) Take for example: $T:\R^{3}\to\R^{2}$ induced by the
+					matrix $A=\mat{1&0&0\\0&1&0}$;\\ we have that $\Rank(T)=\Dim(
+					\Col A)=2$, and $\Nullity(T) = \Nullity(A)=1$.
 			\end{enumerate}
 		\end{solution}
 
-		\prob Give an example of a $3\times4$ matrix $M$ with the specified rank, or explain why one cannot exist.
+		\prob Give an example of a $3\times4$ matrix $M$ with the specified rank,
+		or explain why one cannot exist.
 		\begin{enumerate}
 			\item $\Rank(M) = 0$
+
 			\item $\Rank(M) = 1$
+
 			\item $\Rank(M) = 3$
+
 			\item $\Rank(M) = 4$
 		\end{enumerate}
 
@@ -251,28 +258,41 @@
 
 				\item $\mat{1&0&0&0\\0&1&0&0\\0&0&1&0}$
 
-				\item A $3\times4$ matrix with rank 4 cannot exist. Examples of justifications
-					are: 1) The column space of a $3\times 4$ matrix is a subspace of $\R^3$
-					and so cannot be four dimensional; 2) A matrix with rank 4
-					has 4 pivots, but a $3\times4$ matrix can have at most 3 pivots, which is
-					less than 4.
+				\item A $3\times4$ matrix with rank 4 cannot exist. Examples of
+					justifications are: 1) The column space of a $3\times 4$
+					matrix is a subspace of $\R^{3}$ and so cannot be four
+					dimensional; 2) A matrix with rank 4 has 4 pivots, but a $3\times
+					4$ matrix can have at most 3 pivots, which is less than 4.
 			\end{enumerate}
 		\end{solution}
 
-		\prob Let $\mathcal{P}:\R^3\to\R^3$ be the projection onto the $xy$-plane.
+		\prob Let $\mathcal{P}:\R^{3}\to\R^{3}$ be the projection onto the $xy$-plane.
 		\begin{enumerate}
-			\item Find a matrix $M_\mathcal{P}$ for the transformation.
+			\item Find a matrix $M_{\mathcal{P}}$ for the transformation.
+
 			\item Find the range of $\mathcal{P}$.
-			\item Find the column space of $M_\mathcal{P}$. Are there any similarities to your answer in the previous part?
-			\item Find the null space of $\mathcal{P}$ and $M_\mathcal{P}$. Are there similarities between the null space of a linear transformation and its associated matrix?
+
+			\item Find the column space of $M_{\mathcal{P}}$. Are there any
+				similarities to your answer in the previous part?
+
+			\item Find the null space of $\mathcal{P}$ and $M_{\mathcal{P}}$.
+				Are there similarities between the null space of a linear
+				transformation and its associated matrix?
 		\end{enumerate}
 
 		\begin{solution}
 			\begin{enumerate}
 				\item $\mat{1&0&0\\0&1&0\\0&0&0}$
+
 				\item The range of $\mathcal{P}$ is the $xy$-plane.
-				\item The column space of $M_\mathcal{P}$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$, which is the $xy$-plane. The column space of a matrix is the same as the range of its induced transformation.
-				\item The null space of $\mathcal{P}$ and $M_\mathcal{P}$ is $\Span\Set*{\mat{0\\0\\1}}$, which is the $z$-axis. The null space of a matrix is the same as the null space of its induced transformation.
+
+				\item The column space of $M_{\mathcal{P}}$ is $\Span\Set*{\mat{1\\0\\0},\mat{0\\1\\0}}$,
+					which is the $xy$-plane. The column space of a matrix is the
+					same as the range of its induced transformation.
+
+				\item The null space of $\mathcal{P}$ and $M_{\mathcal{P}}$ is $\Span
+					\Set*{\mat{0\\0\\1}}$, which is the $z$-axis. The null space
+					of a matrix is the same as the null space of its induced transformation.
 			\end{enumerate}
 		\end{solution}
 	\end{problist}

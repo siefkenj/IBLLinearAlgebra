@@ -274,12 +274,18 @@
 			\begin{enumerate}
 				\item False. A counterexample is given by
 					\[
-						\systeme{x_1+x_2+x_3+x_4=1, x_1+x_2+x_3+x_4=2, x_1+x_2+x_3+x_4=3}.
+						% We would like to use the following systeme command, but for some reason it is erroring
+						% so instead we hardcode the result as an array.
+						%\systeme{x_1+x_2+x_3+x_4=1, x_1+x_2+x_3+x_4=2, x_1+x_2+x_3+x_4=3}.
+						\left\{\begin{array}{r@{\mkern5mu}c@{\mkern5mu}r@{\mkern5mu}c@{\mkern5mu}r@{\mkern5mu}c@{\mkern5mu}r@{\mkern5mu}l}x_{1}&+&x_{2}&+&x_{3}&+&x_{4}&=1\\x_{1}&+&x_{2}&+&x_{3}&+&x_{4}&=2\\x_{1}&+&x_{2}&+&x_{3}&+&x_{4}&=3\end{array}\right..
 					\]
 
 				\item False. A counterexample is given by
 					\[
-						\systeme{0x_1+0x_2=0, 0x_1+0x_2=1}.
+						% We would like to use the following systeme command, but for some reason it is erroring
+						% so instead we hardcode the result as an array.
+						%\systeme{0x_1+0x_2=0, 0x_1+0x_2=1}.
+						\left\{\begin{array}{r@{\mkern5mu}c@{\mkern5mu}r@{\mkern5mu}l}0x_{1}&+&0x_{2}&=0\\0x_{1}&+&0x_{2}&=1\end{array}\right..
 					\]
 
 				\item False. Assume the $y$-axis can be represented as the
