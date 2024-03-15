@@ -221,8 +221,8 @@ Consider the system
 			\[
 				M=\begin{bmatrix}[c|c]
 					1 & ??\\
-					\hline\\[\dimexpr-\normalbaselineskip+2pt]
-					\vec 0 & M'
+					\hline
+					\bigmathstrut \vec 0 & M'
 				\end{bmatrix},
 			\]
 			where $M'$ is a {\it submatrix} of $M$.
@@ -278,16 +278,16 @@ Consider the system
 		\[
 		\begin{bmatrix}[rr|rrr]
 			0&1&2&3&2\\
-			\hline\\[\dimexpr-\normalbaselineskip+2pt]
-			0&0&0&-2&-2\\0&0&0&-1&-1
+			\hline
+			\bigmathstrut 0&0&0&-2&-2\\0&0&0&-1&-1
 		\end{bmatrix}
 		\]
 		Again, the submatrix has a first column of zeros, so we pass to a sub-submatrix.
 		\[
 		\begin{bmatrix}[rrr|rr]
 			0&1&2&3&2\\
-			\hline\\[\dimexpr-\normalbaselineskip+2pt]
-			0&0&0&-2&-2\\0&0&0&-1&-1
+			\hline
+			\bigmathstrut 0&0&0&-2&-2\\0&0&0&-1&-1
 		\end{bmatrix}
 		\]
 		Now we turn the upper left entry into a $1$ and use that pivot
@@ -295,20 +295,20 @@ Consider the system
 		\[
 		\begin{bmatrix}[rrr|rr]
 			0&1&2&3&2\\
-			\hline\\[\dimexpr-\normalbaselineskip+2pt]
-			0&0&0&-2&-2\\0&0&0&-1&-1
+			\hline
+			\bigmathstrut 0&0&0&-2&-2\\0&0&0&-1&-1
 		\end{bmatrix}
 		\xrightarrow{\text{row}_2\mapsto\tfrac{-1}{2}\text{row}_2}
 		\begin{bmatrix}[rrr|rr]
 			0&1&2&3&2\\
-			\hline\\[\dimexpr-\normalbaselineskip+2pt]
-			0&0&0&1&1\\0&0&0&-1&-1
+			\hline
+			\bigmathstrut 0&0&0&1&1\\0&0&0&-1&-1
 		\end{bmatrix}
 		\xrightarrow{\text{row}_3\mapsto\text{row}_3+\text{row}_2}
 		\begin{bmatrix}[rrr|rr]
 			0&1&2&3&2\\
-			\hline\\[\dimexpr-\normalbaselineskip+2pt]
-			0&0&0&1&1\\0&0&0&0&0
+			\hline
+			\bigmathstrut 0&0&0&1&1\\0&0&0&0&0
 		\end{bmatrix}
 		\]
 		The matrix is now in pre-reduced row echelon form. To put it in reduced row echelon
