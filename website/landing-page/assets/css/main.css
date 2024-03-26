@@ -1,3 +1,8 @@
+:root {
+    --color-primary: #bf8700;
+    --color-secondary: #3d99d1;
+}
+
 @keyframes spinAround {
     from {
         transform: rotate(0deg);
@@ -14,15 +19,16 @@ li,
 figure,
 h1,
 h3,
+h2,
 h4 {
     margin: 0;
     padding: 0;
 }
 h1,
+h2,
 h3,
 h4 {
-    font-size: 100%;
-    font-weight: 400;
+    color: var(--color-primary);
 }
 ul {
     list-style: none;
@@ -73,12 +79,12 @@ body {
     line-height: 1.5;
 }
 a {
-    color: #3273dc;
+    color: var(--color-secondary);
     cursor: pointer;
     text-decoration: none;
 }
 a:hover {
-    color: #363636;
+    text-decoration: underline;
 }
 img {
     height: auto;
@@ -170,8 +176,8 @@ span {
 }
 .button.is-dark.is-outlined {
     background-color: transparent;
-    border-color: #00544c;
-    color: #00544c;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 .button.is-dark.is-outlined:hover,
 .button.is-dark.is-outlined:focus {
@@ -202,14 +208,14 @@ span {
     color: #fff;
 }
 .button.is-info.is-outlined {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
     background-color: transparent;
-    border-color: #006d63;
-    color: #006d63;
 }
 .button.is-info.is-outlined:hover,
 .button.is-info.is-outlined:focus {
-    background-color: #006d63;
-    border-color: #006d63;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
     color: #fff;
 }
 .button.is-large {
@@ -251,10 +257,7 @@ span {
 .content ul:not(:last-child) {
     margin-bottom: 1em;
 }
-.content h1,
-.content h3,
 .content h4 {
-    color: #363636;
     font-weight: 400;
     line-height: 1.125;
 }
@@ -388,6 +391,9 @@ span {
     flex-shrink: 1;
     padding: 0.75rem;
 }
+.column.center {
+    align-self: center;
+}
 @media screen and (min-width: 769px), print {
     .column.is-narrow {
         flex: none;
@@ -406,38 +412,12 @@ span {
     }
 }
 .columns {
-    margin-left: -0.75rem;
-    margin-right: -0.75rem;
-    margin-top: -0.75rem;
-}
-.columns:last-child {
-    margin-bottom: -0.75rem;
-}
-.columns:not(:last-child) {
-    margin-bottom: calc(1.5rem - 0.75rem);
+    display: flex;
 }
 @media screen and (min-width: 769px), print {
     .columns:not(.is-desktop) {
         display: flex;
     }
-}
-.columns.is-variable {
-    --columnGap: 0.75rem;
-    margin-left: calc(-1 * var(--columnGap));
-    margin-right: calc(-1 * var(--columnGap));
-}
-.columns.is-variable .column {
-    padding-left: var(--columnGap);
-    padding-right: var(--columnGap);
-}
-.columns.is-variable.is-1 {
-    --columnGap: 0.25rem;
-}
-.columns.is-variable.is-3 {
-    --columnGap: 0.75rem;
-}
-.columns.is-variable.is-8 {
-    --columnGap: 2rem;
 }
 .hero {
     align-items: stretch;
@@ -503,4 +483,10 @@ span {
 .footer {
     background-color: #fffbfa;
     padding: 3rem 1.5rem 6rem;
+}
+
+@media screen and (max-width: 550px) {
+    .container > .columns {
+        flex-direction: column;
+    }
 }
