@@ -1,78 +1,30 @@
-
-% WARNING!  Do not type any of the following 10 characters except as directed:
-%                &   $   #   %   _   {   }   ^   ~   \
-%
-%%
-%%  default option for pdfx.sty  if not specified on the command-line.
-\providecommand{\pdfxopt}{a-1b}
-%%
-%%  Use  {filecontents}  for the  .xmpdata file before input encoding is specified.
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{filecontents*}{\jobname.xmpdata}
-	% a macro definition, used below
-	\pdfxEnableCommands{% simple macro definitions can be provided everything expands to characters
-	 \def\RossPete{Ross \& Pete}
-	 }
-	\Title{Linear Algebra (\jobname)}%  *not* set by LaTeX's  \title
-	\Author{Jason Siefken\sep et al.}% *not* set by LaTeX's \author
-	\Subject{Linear Algebra textbook/workbook}
-	\Keywords{linear algebra\sep vectors\sep mathematics\sep textbook}
-	\Org{University of Toronto}
-	\CreatorTool{LaTeX + pdfx.sty with options \pdfxopt}
-	\Copyright{Jason Siefken}
-	\WebStatement{https://github.com/siefkenj/IBLLinearAlgebra/}% should be URL to copyright statement on the web
-	\CoverDisplayDate{2020}
-	\CoverDate{2020-06-14}%  must be in format  YYYY-MM-DD  or  YYYY-MM
-	\Doi{0.0.0.0}%
-	%
-	% setting the color profile, these reproduce the defaults; use your own, if required
-	%
-	% RGB is used with PDF/A (4 parameters):
-	\setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
-	%
-	%  For Adobe Color Profiles, set the directory for your system
-	%
-	%  e.g.  on Mac OS X
-	%  What is it under Windows ?
-	%
-	\gdef\ColorProfileDir{./common/}
-	%
-	%  For available profiles, see file  AdobeColorProfiles.tex
-	%  For PDF/X-4p or PDF/X-5pg   see file  AdobeExternalProfiles.tex
-	%
-	%  Now you can use the macros defined in those files:
-	 \FOGRAXXXIX
-	%
-	% or CMYK is used with  PDF/X (4 parameters)
-	% \setCMYKcolorprofile{\ColorProfileDir coated_FOGRA39L_argl.icc}{Coated FOGRA39}{FOGRA39 (ISO Coated v2 300\%\space (ECI))}{http://www.color.org}
-\end{filecontents*}
-
 \documentclass{workbook}
 
+\newcommand{\copyrightdate}{2015--2024}
 
-% pdfx will set color profile etc. information appropriately, so the pdf renders
-% consistently across devices. But, it doesn't work with the xelatex-based tectonics
 \usepackage{ifxetex}
-	\usepackage[utf8]{inputenc}
-\ifxetex
-\else
-	\usepackage[a-3u]{pdfx}
-	\hypersetup{hidelinks=true, linkcolor = {0 0 1} }
-\fi
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{hyperxmp} % Embed meta data into the PDF
+\hypersetup{%
+	hidelinks=true,
+	linkcolor = {0 0 1},
+	% Metadata to be embedded by hyperxmp
+	pdftitle={Linear Algebra (\jobname)},
+	pdfauthor={Jason Siefken},
+	pdfauthortitle={Author},
+	pdfcopyright={Copyright (C) \copyrightdate, Jason Siefken},
+	pdfsubject={Linear Algebra textbook/workbook},
+	pdfkeywords={linear algebra, vectors, mathematics, textbook},
+	pdfurl={https://github.com/siefkenj/IBLLinearAlgebra/},
+	pdflicenseurl={https://creativecommons.org/licenses/by-sa/4.0/},
+}
 
 %%%
 % import all needed packages and macros
 %%%
 \usepackage[yyyymmdd]{datetime}
 \input{common/preamble.tex}
-
-% in non-xelatex engines, hyperref is loaded by `pdfx`. If `pdfx` is not loaded, load it here.
-\ifxetex
-	\usepackage{hyperref}
-	\hypersetup{hidelinks=true, linkcolor = {0 0 1} }
-\else
-\fi
 
 \usepackage{breqn}
 
@@ -81,7 +33,7 @@
 %%%
 
 \fancypagestyle{siefken}{%
-	\rfoot{\footnotesize\it \copyright\,Jason Siefken, 2015--2022 \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
+	\rfoot{\footnotesize\it \copyright\,Jason Siefken, \copyrightdate \ \makebox(30,5){\includegraphics[height=1.2em]{by-sa.pdf}}}
 	\lfoot{}
 	\renewcommand{\headrulewidth}{0pt}
 }
@@ -311,7 +263,8 @@
 
 
 
-
+% Needed to get different PDF bookmarks from the TOC entries
+\hypersetup{bookmarksdepth=3}
 
 \pagestyle{empty}
 
@@ -333,6 +286,14 @@
 
 		\emph{\large ``Sometimes you have to walk the mystical path with practical feet.''}
 	\end{center}
+	\newpage
+	\mbox{}
+	{
+		\pagestyle{empty}
+		\setcounter{tocdepth}{1}
+		\tableofcontents
+		\thispagestyle{empty}
+	}
 	\newpage
 	\mbox{}
 	\newpage
@@ -7114,7 +7075,7 @@ Pat and Jamie explained their approach to the Italicizing N task as follows:
 				these vectors have $n$ coordinates.
 
 				In general, $[\vec b_i]_{\mathcal B}$ should be the column vector
-				with zeroes in all coordinates except for a 1 in the $i^\text{th}$
+				with zeroes in all coordinates except for a 1 in the $i^{\text{th}}$
 				coordinate.
 			\end{solution}
 	\end{parts}
@@ -8951,8 +8912,8 @@ While studying the subway map, you decide to pick two bases to help:
 				=\matc{\lambda_1\\0\\\vdots\\0}.
 			\]
 			Therefore, the first column of $P^{-1}BP$ is $\matc{\lambda_1\\0\\\vdots\\0}$.
-			By similar reasoning, the $i^\text{th}$ column of $P^{-1}BP$ consists
-			of all zeroes except for $\lambda_i$ in the $i^\text{th}$ position.
+			By similar reasoning, the $i^{\text{th}}$ column of $P^{-1}BP$ consists
+			of all zeroes except for $\lambda_i$ in the $i^{\text{th}}$ position.
 			In other words, $B$ is similar to the diagonal matrix $D$ with
 			$\lambda_1, \lambda_2, \dots, \lambda_n$ along the diagonal, in that
 			order.

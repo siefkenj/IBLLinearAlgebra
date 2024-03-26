@@ -1,0 +1,17 @@
+ci/book*
+*.aux
+*.fls
+*.idx
+*.ilg
+*.ind
+*.toc
+*.xdv
+*.log
+*.out
+draft
+testing
+html-conversion
+newdocumentclass
+*-bak
+node_modules
+slide-conversion
