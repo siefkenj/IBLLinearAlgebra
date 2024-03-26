@@ -7,23 +7,28 @@ on:
         branches: ["master", "main"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-    - name: Run makedist.sh in Docker container
-      run: |
-        cd ./ci
-        ./prepare-for-ci.sh
-        docker compose up -d
-        docker compose exec -T ibllinearalgebra ./makedist.sh
-        docker compose down
+            - name: Run makedist.sh in Docker container
+              run: |
+                  cd ./ci
+                  ./prepare-for-ci.sh
+                  docker compose up -d
+                  docker compose exec -T ibllinearalgebra ./makedist.sh
+                  docker compose down
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: textbook
-        path: ci/dist/
+            - name: Upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: textbook
+                  path: ci/dist/
+
+            - name: Verifies all PDFs were built
+              run: |
+                  cd ./ci
+                  ./verify-all-compiled.sh
