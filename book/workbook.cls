@@ -25,7 +25,7 @@
 	\RequirePackage{everypage}
 	\RequirePackage{xparse}
 	\RequirePackage{environ}
-	\RequirePackage[usenames, dvipsnames, cmyk, hyperref]{xcolor}
+	\RequirePackage[usenames, dvipsnames, rgb, hyperref]{xcolor}
 	\RequirePackage{tcolorbox}
 		\tcbuselibrary{skins}
 		\tcbuselibrary{breakable}
