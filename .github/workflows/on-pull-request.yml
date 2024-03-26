@@ -1,0 +1,34 @@
+name: Build Textbook
+
+on:
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker
+      run: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+
+    - name: Run makedist.sh
+      run: |
+        cd ./ci
+        ./prepare-for-ci.sh
+        docker compose up -d
+        docker compose exec -T ibllinearalgebra ./makedist.sh
+        docker compose down
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: textbook
+        path: ci/dist/

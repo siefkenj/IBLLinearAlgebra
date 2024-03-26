@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ibllinearalgebra:
+    image: siefkenj/build-images:ibllinearalgebra
+    volumes:
+      - ./book-copy:/workdir/book
+      - ./dist:/workdir/dist
+      - ../makedist.sh:/workdir/makedist.sh:ro
+    working_dir: /workdir
+    stdin_open: true
+    tty: true
