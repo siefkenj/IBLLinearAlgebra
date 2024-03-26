@@ -14,12 +14,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Docker
-      run: |
-        curl -fsSL https://get.docker.com -o get-docker.sh
-        sh get-docker.sh
-
-    - name: Run makedist.sh
+    - name: Run makedist.sh in Docker container
       run: |
         cd ./ci
         ./prepare-for-ci.sh
