@@ -143,7 +143,7 @@ jobs:
 
         steps:
             - name: Download website artifact
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v3
               with:
                   name: website
                   path: website
