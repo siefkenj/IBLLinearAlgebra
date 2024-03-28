@@ -58,13 +58,32 @@ jobs:
 
     pretext_build:
         runs-on: ubuntu-latest
-        #needs: pretext_conversion
+        needs: pretext_conversion
+
+        # Run in the pretext docker container
         container:
             image: oscarlevin/pretext:small
 
         steps:
             - name: Echo pretext version
               run: pretext support
+
+            # fetch the `textbook-pretext` artifact and unzip it
+            - name: Download artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: textbook-pretext
+                  path: ci/book-pretext/pretext-output
+
+            # Build the book
+            - name: Build pretext book
+              run: |
+                  cd ci/book-pretext/pretext-output
+                  pretext build web -q
+
+            # List files in the output directory
+            - name: List files in output directory
+              run: ls -l ci/book-pretext/pretext-output/output/web
 
             #- name: Setup Node.js environment
             #  uses: actions/setup-node@v4
