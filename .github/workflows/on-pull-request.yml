@@ -32,3 +32,26 @@ jobs:
               run: |
                   cd ./ci
                   ./verify-all-compiled.sh
+
+    pretext_conversion:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "20"
+
+            - name: Run prepare-for-pretext-conversion.sh
+              run: |
+                  cd ./ci
+                  ./prepare-for-pretext-conversion.sh
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: textbook-pretext
+                  path: ci/book-pretext/pretext-output
