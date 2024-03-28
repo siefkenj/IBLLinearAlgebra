@@ -13,11 +13,13 @@ mkdir -p book-pretext
 cd book-pretext
 
 # Download the repository zip
-curl -LJO "https://github.com/$REPO_OWNER/$REPO_NAME/archive/refs/heads/$BRANCH_NAME.zip"
-
+URL="https://github.com/$REPO_OWNER/$REPO_NAME/archive/refs/heads/$BRANCH_NAME.zip"
+echo "Starting download of $URL"
+curl -sS -LJO "$URL"
+echo "Download complete."
 
 # Extract the zip file
-unzip $REPO_NAME-$BRANCH_NAME.zip
+unzip -q $REPO_NAME-$BRANCH_NAME.zip
 
 # Navigate into the extracted directory
 cd $REPO_NAME-$BRANCH_NAME
@@ -26,7 +28,7 @@ cd $REPO_NAME-$BRANCH_NAME
 npm ci
 
 # Convert the textbook
-npx vite-node src/convert-textbook.ts -i ../../book/linearalgebra.tex
+npx vite-node src/convert-textbook.ts -i ../../../book/linearalgebra.tex
 
 # File is now written to tmp.out.ptx
 mkdir -p pretext-output/source
