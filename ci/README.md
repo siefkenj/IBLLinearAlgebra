@@ -1,7 +1,8 @@
 # Continuous Integration
 
 This folder contains files related to continuous integration (CI) for automatically building
-and rebuilding the textbook source when needed.
+and rebuilding the textbook source when needed. Look in `.github/workflows/on-pull-request.yml` for
+details about how the CI jobs run.
 
 ### Building a new version of the Docker image
 

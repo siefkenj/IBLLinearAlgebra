@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="us-ascii" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Linear Algebra (textbook)</title>
+        <script
+            defer
+            src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+        ></script>
+        <link href="./assets/css/main.css" rel="stylesheet" />
+    </head>
+    <body>
+        <section class="hero is-dark is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title is-1">Linear Algebra</h1>
+                    <h2 class="title is-3">IBL Workbook</h2>
+                </div>
+            </div>
+        </section>
+        <nav>
+            <ul></ul>
+        </nav>
+
+        <section class="section">
+            <div class="container">
+                <div class="columns is-variable is-8">
+                    <div class="column is-3 has-text-centered">
+                        <div class="content">
+                            <p><img src="./assets/cover.png" /></p>
+                            <p>
+                                <a
+                                    class="button is-info is-outlined is-fullwidth"
+                                    href="./assets/textbook/"
+                                    ><span>Read Online</span></a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    class="button is-info is-outlined is-fullwidth"
+                                    href="https://raw.githubusercontent.com/siefkenj/IBLLinearAlgebra/master/dist/linearalgebra-book.pdf"
+                                    ><span>Download PDF</span></a
+                                >
+                            </p>
+                            <!--
+                            <p>
+                                <a
+                                    class="button is-info is-outlined is-fullwidth"
+                                    href="https://amzn.to/2BTlcR7"
+                                    target="_blank"
+                                    ><span>Buy paperback</span></a
+                                >
+                            </p>
+                        --></div>
+                    </div>
+                    <div class="column">
+                        <div class="content">
+                            <p>
+                                <em><strong>Linear Algebra</strong></em>
+                                is a free, open source textbook aimed at a first
+                                or second year one-semester introductory linear
+                                algebra course. The book is designed for a
+                                non-proofs-focused course, but could be used in
+                                a course that focuses on proofs.
+                            </p>
+                            <p>
+                                Originally designed for MAT223 at the University
+                                of Toronto, student-facing (in-class) questions
+                                are a main feature of <em>Linear Algebra</em>,
+                                and the textbook doubles as a workbook with
+                                space for students to write their solutions to
+                                questions. It is designed to be used in classes
+                                taught using
+                                <a href="http://www.inquirybasedlearning.org/"
+                                    >Inquiry Based Learning</a
+                                >
+                                or other
+                                <a
+                                    href="https://en.wikipedia.org/wiki/Active_learning"
+                                    >Active Learning</a
+                                >
+                                methods.
+                            </p>
+                            <h2>Get the book</h2>
+                            <p>
+                                The entire book is available for free as a
+                                <a
+                                    href="https://raw.githubusercontent.com/siefkenj/IBLLinearAlgebra/master/dist/linearalgebra-book.pdf"
+                                    >PDF</a
+                                >.
+                            </p>
+                            <h4>LaTeX source</h4>
+                            <p>
+                                The source files for this book are available on
+                                <a
+                                    href="https://github.com/siefkenj/IBLLinearAlgebra"
+                                    target="_blank"
+                                    >GitHub</a
+                                >. If you find a mistake or have a suggestion
+                                for the book, please file an <em>issue</em> on
+                                GitHub.
+                            </p>
+                            <h4>Instructor and student resources</h4>
+                            <p>
+                                There are youtube video playlists, lesson plans,
+                                and an instructor guide available. For access to
+                                the instructor guide, please <a href="mailto:siefkenj@math.utoronto.ca">contact the author</a>.
+                            </p>
+                            <ul>
+                                <li>
+                                    <a
+                                        href="https://www.youtube.com/@jasonsiefken9537/playlists"
+                                        target="_blank"
+                                        >MAT223 Video Playlists</a
+                                    >. Video play lists to support a 12-week
+                                    course taught with <em>Linear Algebra</em>.
+                                </li>
+                            </ul>
+                            <p>
+                                If you are using the book in a class you are
+                                teaching, instructor resources are available by
+                                request. Just
+                                <a
+                                    href="/cdn-cgi/l/email-protection#19766a7a786b37757c6f7077596c777a76377c7d6c"
+                                    >contact the author</a
+                                >. You can also request WeBWorK homework sets if
+                                you have access to a WeBWorK server.
+                            </p>
+
+                            <h2>About this Book</h2>
+
+                            <h3>For the student</h3>
+
+                            <p>
+                                This book is your introductory guide to linear
+                                algebra. It is divided into modules, and each
+                                module is further divided into exposition,
+                                practice problems, and core exercises.
+                            </p>
+
+                            <p>
+                                To optimally learn from this text, you should:
+                            </p>
+                            <ul>
+                                <li>
+                                    Start each module by reading through the
+                                    exposition to get familiar with the main
+                                    ideas and linear algebra terminology.
+                                </li>
+                                <li>
+                                    Work through the core exercises to develop
+                                    an understanding and intuition behind the
+                                    main ideas and their subtleties.
+                                </li>
+                                <li>
+                                    Re-read the exposition and identify which
+                                    concepts each core exercise connects with.
+                                </li>
+                                <li>
+                                    Work through the practice problems. These
+                                    will serve as a check on whether you've
+                                    understood the main ideas well enough to
+                                    apply them.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>The core exercises.</strong> Most (but
+                                not all) core exercises will be worked through
+                                during lecture time, and there is space for you
+                                to work provided after each of the core
+                                exercises. The point of the core exercises is to
+                                develop the main ideas of linear algebra by
+                                exploring examples.
+                            </p>
+
+                            <p>
+                                <strong>So many definitions.</strong> A big part
+                                of linear algebra is learning precise and
+                                technical language. There are many terms and
+                                definitions you need to learn, and by far the
+                                best way to successfully learn these terms is to
+                                understand where they come from, why they're
+                                needed, and practice using them.
+                            </p>
+
+                            <p>
+                                <strong>Contributing to the book.</strong> Did
+                                you find an error? Do you have a better way to
+                                explain a linear algebra concept? Please,
+                                contribute to this book! This book is
+                                open-source, and we welcome contributions.
+                            </p>
+
+                            <h4 class="starred">For the instructor</h4>
+                            <p>
+                                This book was designed for a one-semester
+                                introductory linear algebra course course with a
+                                focus on geometry (MAT223 at the University of
+                                Toronto). It has not been designed for an “intro
+                                to proofs”-style course, but could be adapted
+                                for one.
+                            </p>
+                            <p>
+                                Unlike a traditional textbook that is grouped
+                                into chapters and sections by subject, this book
+                                is grouped into modules. Each module contains
+                                exposition about a subject, practice problems
+                                (for students to work on by themselves), and
+                                core exercises (for students to work on with
+                                your guidance). Modules group related concepts,
+                                but the modules have been designed to facilitate
+                                learning linear algebra rather than to serve as
+                                a reference. For example, information about
+                                change-of-basis is spread across several
+                                non-consecutive modules; each time
+                                change-of-basis is readdressed, more detail is
+                                added.
+                            </p>
+                            <p>
+                                <b class="textbf">Using the book.</b> This book
+                                has been designed for use in large
+                                active-learning classrooms driven by a
+                                <em class="emph">think, pair-share</em
+                                >/small-group-discussion format. Specifically,
+                                the <em class="emph">core exercises</em> (these
+                                are the problems which aren’t labeled “Practice
+                                Problems” and for which space is provided to
+                                write answers) are designed for use during class
+                                time.
+                            </p>
+                            <p>A typical class day looks like:</p>
+                            <ol class="enumerate">
+                                <li>
+                                    <p>
+                                        <b class="textbf"
+                                            >Student pre-reading.</b
+                                        >
+                                        Before class, students will read through
+                                        the relevant module.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b class="textbf"
+                                            >Introduction by instructor.</b
+                                        >
+                                        This may involve giving a definition, a
+                                        broader context for the day’s topics, or
+                                        answering questions.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b class="textbf"
+                                            >Students work on problems.</b
+                                        >
+                                        Students work individually or in
+                                        pairs/small groups on the prescribed
+                                        core exercise. During this time the
+                                        instructor moves around the room
+                                        addressing questions that students may
+                                        have and giving one-on-one coaching.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b class="textbf"
+                                            >Instructor intervention.</b
+                                        >
+                                        When most students have successfully
+                                        solved the problem, the instructor
+                                        refocuses the class by providing an
+                                        explanation or soliciting explanations
+                                        from students. This is also time for the
+                                        instructor to ensure that everyone has
+                                        understood the main point of the
+                                        exercise (since it is sometimes easy to
+                                        miss the point!).
+                                    </p>
+                                    <p>
+                                        If students are having trouble, the
+                                        instructor can give hints and additional
+                                        guidance to ensure students’ struggle is
+                                        productive.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p><b class="textbf">Repeat step 3.</b></p>
+                                </li>
+                            </ol>
+                            <p>
+                                Using this format, students are thinking (and
+                                happily so) most of the class. Further, after
+                                struggling with a question, students are
+                                especially primed to hear the insights of the
+                                instructor.
+                            </p>
+                            <p>
+                                <b class="textbf">Conceptual lean.</b> The
+                                <em class="emph">core exercises</em> are geared
+                                towards concepts instead of computation, though
+                                some core exercises focus on simple computation.
+                                They also have a geometric lean. Vectors are
+                                initially introduced with familiar coordinate
+                                notation, but eventually, coordinates are
+                                understood to be
+                                <em class="emph">representations</em> of vectors
+                                rather than “true” geometric vectors, and
+                                objects like the determinant are defined via
+                                oriented volumes rather than formulas involving
+                                matrix entries.
+                            </p>
+                            <p>
+                                Specifically lacking are exercises focusing on
+                                the mechanical skills of row reduction and
+                                computing matrix inverses. Students must
+                                practice these skills, but they require little
+                                instructor intervention and so can be learned
+                                outside of lecture (which is why core exercises
+                                don’t focus on these skills).
+                            </p>
+                            <p>
+                                <b class="textbf">How to prepare.</b> Running an
+                                active-learning classroom is less scripted than
+                                lecturing. The largest challenges are: (i)
+                                understanding where students are at, (ii)
+                                figuring out what to do given the current
+                                understanding of the students, and (iii) timing.
+                            </p>
+                            <p>To prepare for a class day, you should:</p>
+                            <ol class="enumerate">
+                                <li>
+                                    <p>
+                                        <b class="textbf"
+                                            >Strategize about learning
+                                            objectives.</b
+                                        >
+                                        Figure out what the point of the day’s
+                                        lesson is and brain storm some examples
+                                        that would illustrate that point.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b class="textbf"
+                                            >Work through the core exercises.</b
+                                        >
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b class="textbf">Reflect.</b> Reflect
+                                        on how each core exercise addresses the
+                                        day’s goals. Compare with the examples
+                                        you brainstormed and prepare follow-up
+                                        questions that you can use in class to
+                                        test for understanding.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b class="textbf">Schedule.</b> Write
+                                        timestamps next to each core exercise
+                                        indicating at what minute you hope to
+                                        start each exercise. Give more time for
+                                        the exercises that you judge as
+                                        foundational, and be prepared to triage.
+                                        It’s appropriate to leave exercises or
+                                        parts of exercises for homework, but
+                                        change the order of exercises at your
+                                        peril—they really do build on each
+                                        other.
+                                    </p>
+                                </li>
+                            </ol>
+                            <p>
+                                A typical 50 minute class is enough to get
+                                through 2–3 core exercises (depending on the
+                                difficulty), and class observations show that
+                                class time is split 50/50 between students
+                                working and instructor explanations.
+                            </p>
+
+                            <p>
+                                Please contact the author with feedback and
+                                suggestions, or if you are decide to use the
+                                book in a course you are teaching. You can also
+                                easily submit feedback about an error or typo by
+                                creating a
+                                <a
+                                    href="https://github.com/siefkenj/IBLLinearAlgebra/issues/new"
+                                    >GitHub issue</a
+                                >.
+                            </p>
+
+                            <h4>About the author</h4>
+                            <div class="columns">
+                                <div class="column is-narrow">
+                                    <figure class="image" style="width: 8em;">
+                                        <img
+                                            src="https://www.math.utoronto.ca/siefkenj/homepage/images/jason-face.jpg"
+                                        />
+                                    </figure>
+                                </div>
+                                <div class="column center">
+                                    <p>
+                                        <a
+                                            href="https://www.math.utoronto.ca/siefkenj/homepage/index.html"
+                                            target="_blank"
+                                            >Jason Siefken</a
+                                        >
+                                        is a Teaching-stream professor in the
+                                        math department at the University of
+                                        Toronto. He received his Ph.D. in
+                                        mathematics from the University of
+                                        Victoria in 2015. His background is in
+                                        Dynamical Systems and Ergodic Theory,
+                                        but currently he is focused on
+                                        education.
+                                    </p>
+                                </div>
+                            </div>
+                            <h2>License</h2>
+                            <p>
+                                <a
+                                    href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                    rel="license"
+                                    target="_blank"
+                                    ><img
+                                        alt="Creative Commons License"
+                                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+                                        style="border-width: 0" /></a
+                                ><br />
+                                <span
+                                    href="http://purl.org/dc/dcmitype/Text"
+                                    property="dct:title"
+                                    rel="dct:type"
+                                    xmlns:dct="http://purl.org/dc/terms/"
+                                    ><em>Linear Algebra</em></span
+                                >
+                                by
+                                <span
+                                    property="cc:attributionName"
+                                    xmlns:cc="http://creativecommons.org/ns#"
+                                    >Jason Siefken</span
+                                >
+                                is licensed under a
+                                <a
+                                    href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                    rel="license"
+                                    target="_blank"
+                                    >Creative Commons Attribution-ShareAlike 4.0
+                                    International License</a
+                                >. You are free to download, use, print, and
+                                even sell this work as you wish to. You can also
+                                modify the text as much as you like (create a
+                                custom edition for your students, for example),
+                                as long as you attribute the parts of the text
+                                you use to the author.
+                            </p>
+                            <p>
+                                If you are interested in using parts of the book
+                                combined with another text with a similar but
+                                different license (GFDL, for example), please
+                                <a href="mailto:siefkenj@math.utoronto.ca"
+                                    >reach out</a
+                                >
+                                to get permission to modify the license.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container has-text-right">
+                <p class="is-large">
+                    &copy; Copyright 2024 Jason Siefken; template modified from
+                    <a href="https://discrete.openmathbooks.org/dmoi3.html"
+                        >Oscar Levin</a
+                    >
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

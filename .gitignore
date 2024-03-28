@@ -8,6 +8,11 @@ ci/book*
 *.xdv
 *.log
 *.out
+*.xmpdata
+*.fdb_latexmk
+*.swo
+*.swn
+*.xmpi
 draft
 testing
 html-conversion
@@ -15,3 +20,7 @@ newdocumentclass
 *-bak
 node_modules
 slide-conversion
+book-pretext
+ci/dist/
+book/*pdf
+tmp/
