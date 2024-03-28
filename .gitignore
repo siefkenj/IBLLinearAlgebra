@@ -23,3 +23,4 @@ slide-conversion
 book-pretext
 ci/dist/
 book/*pdf
+tmp/
