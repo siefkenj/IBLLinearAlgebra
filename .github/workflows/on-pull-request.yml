@@ -79,24 +79,14 @@ jobs:
             - name: Build pretext book
               run: |
                   cd ci/book-pretext/pretext-output
-                  pretext build web -q
+                  pretext build web
 
             # List files in the output directory
             - name: List files in output directory
-              run: ls -l ci/book-pretext/pretext-output/output/web
+              run: ls -shR ci/book-pretext/pretext-output/output/web
 
-            #- name: Setup Node.js environment
-            #  uses: actions/setup-node@v4
-            #  with:
-            #      node-version: "20"
-
-            #- name: Run build-pretext.sh
-            #  run: |
-            #      cd ./ci
-            #      ./build-pretext.sh
-
-            #- name: Upload artifact
-            #  uses: actions/upload-artifact@v4
-            #  with:
-            #      name: textbook-pretext
-            #      path: ci/book-pretext/pretext-output
+            - name: Upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: textbook-pretext-output
+                  path: ci/book-pretext/pretext-output/output/web
