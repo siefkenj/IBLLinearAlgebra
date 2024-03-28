@@ -143,7 +143,7 @@ jobs:
 
         steps:
             - name: Download website artifact
-              uses: actions/download-artifact@v3
+              uses: actions/download-artifact@v4
               with:
                   name: website
                   path: website
@@ -152,7 +152,7 @@ jobs:
               uses: actions/configure-pages@v4
 
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v4
+              uses: actions/upload-pages-artifact@v3
               with:
                   path: "./website"
 
