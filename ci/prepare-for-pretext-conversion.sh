@@ -24,7 +24,7 @@ cd $REPO_NAME-$BRANCH_NAME
 npm ci
 
 # Convert the textbook
-npx vite-node src/convert-textbook.ts -i ../../../book/linearalgebra.tex
+npx vite-node src/convert-textbook.ts -i ../../book/linearalgebra.tex
 
 # File is now written to tmp.out.ptx
 mkdir -p pretext-output/source
