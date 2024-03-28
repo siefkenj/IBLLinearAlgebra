@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Define the repository details
 REPO_OWNER="siefkenj"
 REPO_NAME="IBLLinearAlgebra-pretext"
