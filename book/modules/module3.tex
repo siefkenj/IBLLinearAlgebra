@@ -83,9 +83,10 @@ the equations are always \emph{consistent}.}, any vector in $\R^2$ can be obtain
 
 We can solve this equation for $\alpha$ and $\beta$ by considering the equations arising from the
 first and second coordinates. Namely,
-	\[
-		\sysdelim..\systeme*{x=\alpha+\beta, y=\alpha-2\beta}
-	\]
+\begin{align*}
+	x &= \alpha + \beta \\
+	y &= \alpha - 2\beta
+\end{align*}
 Subtracting the second equation from the first, we get $x-y=3\beta$ and so $\beta=(x-y)/3$. Plugging 
 $\beta$ into the first equation and solving, we get $\alpha=(2x+y)/3$. Thus, equation \eqref{EQSPAN1}
 \emph{always} has the solution
@@ -113,9 +114,10 @@ the set $\Set*{\mat{1\\1},\mat{1\\-2}}$ \emph{spans} $\R^2$.
 	We need to determine for which $x$ and $y$ the vector equation $\mat{x\\y} = \alpha\mat{-1\\2}+\beta\mat{1\\-2}$ is consistent.
 	
 	From the first and second coordinates, we get the system
-	\[
-		\sysdelim..\systeme*{x=-\alpha+\beta, y=2\alpha-2\beta}.
-	\]
+	\begin{align*}
+		x &= -\alpha + \beta \\
+		y &= 2\alpha - 2\beta.
+	\end{align*}
 	Adding 2 times the first equation to the second, we get $2x+y=0$ and so $y=-2x$.
 	Therefore, if $\mat{x\\y}$ makes the above system consistent, we must have
 	\[
@@ -143,9 +145,11 @@ the set $\Set*{\mat{1\\1},\mat{1\\-2}}$ \emph{spans} $\R^2$.
 	$\vec a, \vec b$, and $\vec c$.
 	
 	Reading off the coordinates, we get the system
-	\[
-		\sysdelim..\systeme*{x=\alpha_1+\alpha_3, y=2\alpha_1+\alpha_2+\alpha_3, z=\alpha_1+2\alpha_3}.
-	\]
+	\begin{align*}
+		x &= \alpha_1 + \alpha_3 \\
+		y &= 2\alpha_1 + \alpha_2 + \alpha_3 \\
+		z &= \alpha_1 + 2\alpha_3.
+	\end{align*}
 	Solving this system, we see
 	\[
 		\begin{aligned}
