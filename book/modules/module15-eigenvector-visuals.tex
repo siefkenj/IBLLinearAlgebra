@@ -1,0 +1,7542 @@
+% Visualizing eigenvectors supplement for module15.tex.
+% This file is intended to be included from module15.tex:
+%   \input{modules/module15-eigenvector-visuals}
+% It assumes the book preamble already loads xcolor and tikz.
+
+\Heading{Visualizing Eigenvectors}
+
+The following examples show how a matrix transforms the unit circle and selected vectors. The same notation is used throughout.
+
+\newcommand{\EVCaseHeading}[1]{%
+	\par
+	{\centering
+		\normalsize\bfseries #1
+	\par}
+	\vspace{0.2\baselineskip}
+}
+
+\newcommand{\EVCaseSeparator}{%
+	\par
+	\vspace{0.5\baselineskip}
+	\hrule
+	\vspace{0.6\baselineskip}
+}
+
+{\centering
+	\begin{minipage}{0.92\textwidth}
+		\centering
+		\begin{tabular}{@{}ll@{\hspace{28pt}}ll@{}}
+			
+			\tikz[baseline=-0.5ex]
+			\draw[green, dashed, line width=0.8pt]
+			(0,0) circle[radius=4pt];
+			&
+			\(\text{all }\hat{v}\)
+			&
+			\tikz[baseline=-0.5ex]
+			\draw[blue, ->, line width=0.8pt]
+			(0,0) -- (16pt,0);
+			&
+			\(\text{selected }\hat{v}\rightarrow A\hat{v}\)
+			\\[6pt]
+			
+			\tikz[baseline=-0.5ex]
+			\draw[green, dashed, ->, line width=0.8pt]
+			(0,0) -- (16pt,0);
+			&
+			\(\text{selected }\hat{v}\)
+			&
+			\tikz[baseline=-0.5ex]
+			\draw[red, line width=1.1pt]
+			(0,0) -- (16pt,0);
+			&
+			\(\text{dominant }\vec{x}\)
+			\\[6pt]
+			
+			\tikz[baseline=-0.5ex]
+			\draw[blue, line width=0.8pt]
+			(0,0) ellipse[x radius=7pt,y radius=4pt];
+			&
+			\(\text{all }A\hat{v}\)
+			&
+			\tikz[baseline=-0.5ex]
+			\draw[red, dashed, line width=0.8pt]
+			(0,0) -- (16pt,0);
+			&
+			\(\text{other }\vec{x}\)
+			\\[6pt]
+			
+			\tikz[baseline=-0.5ex]
+			\draw[cyan, ->, line width=0.8pt]
+			(0,0) -- (16pt,0);
+			&
+			\(\text{selected }A\hat{v}\)
+			&
+			&
+			
+		\end{tabular}
+	\end{minipage}
+\par}
+
+\EVCaseHeading{Uniform scaling}
+{\centering
+	\(A = \begin{bmatrix}1.5 & 0\\0 & 1.5\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		circle\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (150,60)
+		-- (150,-30)
+		-- (60,-30)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(-30,60)
+		-- (60,60)
+		-- (60,-30)
+		-- (-30,-30)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(-30,150)
+		-- (60,150)
+		-- (60,60)
+		-- (-30,60)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(60,150)
+		-- (150,150)
+		-- (150,60)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,60)
+		-- (38.049,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,60)
+		-- (16.098,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(-5.854,60)
+		-- (-5.854,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(-27.805,60)
+		-- (-27.805,-27.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (-27.805,60);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,38.049)
+		-- (-27.805,38.049);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,16.098)
+		-- (-27.805,16.098);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-5.854)
+		-- (-27.805,-5.854);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-27.805)
+		-- (-27.805,-27.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,60)
+		-- (38.049,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,60)
+		-- (16.098,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(-5.854,60)
+		-- (-5.854,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(-27.805,60)
+		-- (-27.805,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (-27.805,60);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,81.951)
+		-- (-27.805,81.951);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,103.902)
+		-- (-27.805,103.902);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,125.854)
+		-- (-27.805,125.854);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,147.805)
+		-- (-27.805,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,60)
+		-- (81.951,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,60)
+		-- (103.902,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(125.854,60)
+		-- (125.854,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(147.805,60)
+		-- (147.805,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (147.805,60);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,81.951)
+		-- (147.805,81.951);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,103.902)
+		-- (147.805,103.902);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,125.854)
+		-- (147.805,125.854);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,147.805)
+		-- (147.805,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,60)
+		-- (81.951,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,60)
+		-- (103.902,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(125.854,60)
+		-- (125.854,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(147.805,60)
+		-- (147.805,-27.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (147.805,60);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,38.049)
+		-- (147.805,38.049);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,16.098)
+		-- (147.805,16.098);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-5.854)
+		-- (147.805,-5.854);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-27.805)
+		-- (147.805,-27.805);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,0)
+			-- (96.364,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(23.636,0)
+			-- (23.636,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,96.364)
+			-- (120,96.364);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,23.636)
+			-- (120,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.618pt off 1.618pt]
+			(96.364,60)
+			-- (96.314,58.097)
+			-- (96.164,56.199)
+			-- (95.916,54.311)
+			-- (95.569,52.44)
+			-- (95.125,50.588)
+			-- (94.584,48.763)
+			-- (93.948,46.968)
+			-- (93.22,45.21)
+			-- (92.4,43.491)
+			-- (91.492,41.818)
+			-- (90.497,40.195)
+			-- (89.419,38.626)
+			-- (88.26,37.116)
+			-- (87.023,35.668)
+			-- (85.713,34.287)
+			-- (84.332,32.977)
+			-- (82.884,31.74)
+			-- (81.374,30.581)
+			-- (79.805,29.503)
+			-- (78.182,28.508)
+			-- (76.509,27.6)
+			-- (74.79,26.78)
+			-- (73.032,26.052)
+			-- (71.237,25.416)
+			-- (69.412,24.875)
+			-- (67.56,24.431)
+			-- (65.689,24.084)
+			-- (63.801,23.836)
+			-- (61.903,23.686)
+			-- (60,23.636)
+			-- (58.097,23.686)
+			-- (56.199,23.836)
+			-- (54.311,24.084)
+			-- (52.44,24.431)
+			-- (50.588,24.875)
+			-- (48.763,25.416)
+			-- (46.968,26.052)
+			-- (45.21,26.78)
+			-- (43.491,27.6)
+			-- (41.818,28.508)
+			-- (40.195,29.503)
+			-- (38.626,30.581)
+			-- (37.116,31.74)
+			-- (35.668,32.977)
+			-- (34.287,34.287)
+			-- (32.977,35.668)
+			-- (31.74,37.116)
+			-- (30.581,38.626)
+			-- (29.503,40.195)
+			-- (28.508,41.818)
+			-- (27.6,43.491)
+			-- (26.78,45.21)
+			-- (26.052,46.968)
+			-- (25.416,48.763)
+			-- (24.875,50.588)
+			-- (24.431,52.44)
+			-- (24.084,54.311)
+			-- (23.836,56.199)
+			-- (23.686,58.097)
+			-- (23.636,60)
+			-- (23.686,61.903)
+			-- (23.836,63.801)
+			-- (24.084,65.689)
+			-- (24.431,67.56)
+			-- (24.875,69.412)
+			-- (25.416,71.237)
+			-- (26.052,73.032)
+			-- (26.78,74.79)
+			-- (27.6,76.509)
+			-- (28.508,78.182)
+			-- (29.503,79.805)
+			-- (30.581,81.374)
+			-- (31.74,82.884)
+			-- (32.977,84.332)
+			-- (34.287,85.713)
+			-- (35.668,87.023)
+			-- (37.116,88.26)
+			-- (38.626,89.419)
+			-- (40.195,90.497)
+			-- (41.818,91.492)
+			-- (43.491,92.4)
+			-- (45.21,93.22)
+			-- (46.968,93.948)
+			-- (48.763,94.584)
+			-- (50.588,95.125)
+			-- (52.44,95.569)
+			-- (54.311,95.916)
+			-- (56.199,96.164)
+			-- (58.097,96.314)
+			-- (60,96.364)
+			-- (61.903,96.314)
+			-- (63.801,96.164)
+			-- (65.689,95.916)
+			-- (67.56,95.569)
+			-- (69.412,95.125)
+			-- (71.237,94.584)
+			-- (73.032,93.948)
+			-- (74.79,93.22)
+			-- (76.509,92.4)
+			-- (78.182,91.492)
+			-- (79.805,90.497)
+			-- (81.374,89.419)
+			-- (82.884,88.26)
+			-- (84.332,87.023)
+			-- (85.713,85.713)
+			-- (87.023,84.332)
+			-- (88.26,82.884)
+			-- (89.419,81.374)
+			-- (90.497,79.805)
+			-- (91.492,78.182)
+			-- (92.4,76.509)
+			-- (93.22,74.79)
+			-- (93.948,73.032)
+			-- (94.584,71.237)
+			-- (95.125,69.412)
+			-- (95.569,67.56)
+			-- (95.916,65.689)
+			-- (96.164,63.801)
+			-- (96.314,61.903)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (23.636,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,96.364);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.763,37.823)
+			-- (85.713,34.287)
+			-- (82.177,39.237);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,29.636)
+			-- (60,23.636)
+			-- (61,29.636);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(37.823,39.237)
+			-- (34.287,34.287)
+			-- (39.237,37.823);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(29.636,61)
+			-- (23.636,60)
+			-- (29.636,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(39.237,82.177)
+			-- (34.287,85.713)
+			-- (37.823,80.763);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,90.364)
+			-- (60,96.364)
+			-- (59,90.364);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(82.177,80.763)
+			-- (85.713,85.713)
+			-- (80.763,82.177);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (98.569,21.431);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (21.431,21.431);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (21.431,98.569);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (98.569,98.569);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(92.945,25.448)
+			-- (98.569,21.431)
+			-- (94.552,27.055);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(25.448,27.055)
+			-- (21.431,21.431)
+			-- (27.055,25.448);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(27.055,94.552)
+			-- (21.431,98.569)
+			-- (25.448,92.945);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(94.552,92.945)
+			-- (98.569,98.569)
+			-- (92.945,94.552);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{1,0,0}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,0)
+			-- (96.364,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(23.636,0)
+			-- (23.636,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,96.364)
+			-- (120,96.364);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,23.636)
+			-- (120,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.618pt off 1.618pt]
+			(96.364,60)
+			-- (96.314,58.097)
+			-- (96.164,56.199)
+			-- (95.916,54.311)
+			-- (95.569,52.44)
+			-- (95.125,50.588)
+			-- (94.584,48.763)
+			-- (93.948,46.968)
+			-- (93.22,45.21)
+			-- (92.4,43.491)
+			-- (91.492,41.818)
+			-- (90.497,40.195)
+			-- (89.419,38.626)
+			-- (88.26,37.116)
+			-- (87.023,35.668)
+			-- (85.713,34.287)
+			-- (84.332,32.977)
+			-- (82.884,31.74)
+			-- (81.374,30.581)
+			-- (79.805,29.503)
+			-- (78.182,28.508)
+			-- (76.509,27.6)
+			-- (74.79,26.78)
+			-- (73.032,26.052)
+			-- (71.237,25.416)
+			-- (69.412,24.875)
+			-- (67.56,24.431)
+			-- (65.689,24.084)
+			-- (63.801,23.836)
+			-- (61.903,23.686)
+			-- (60,23.636)
+			-- (58.097,23.686)
+			-- (56.199,23.836)
+			-- (54.311,24.084)
+			-- (52.44,24.431)
+			-- (50.588,24.875)
+			-- (48.763,25.416)
+			-- (46.968,26.052)
+			-- (45.21,26.78)
+			-- (43.491,27.6)
+			-- (41.818,28.508)
+			-- (40.195,29.503)
+			-- (38.626,30.581)
+			-- (37.116,31.74)
+			-- (35.668,32.977)
+			-- (34.287,34.287)
+			-- (32.977,35.668)
+			-- (31.74,37.116)
+			-- (30.581,38.626)
+			-- (29.503,40.195)
+			-- (28.508,41.818)
+			-- (27.6,43.491)
+			-- (26.78,45.21)
+			-- (26.052,46.968)
+			-- (25.416,48.763)
+			-- (24.875,50.588)
+			-- (24.431,52.44)
+			-- (24.084,54.311)
+			-- (23.836,56.199)
+			-- (23.686,58.097)
+			-- (23.636,60)
+			-- (23.686,61.903)
+			-- (23.836,63.801)
+			-- (24.084,65.689)
+			-- (24.431,67.56)
+			-- (24.875,69.412)
+			-- (25.416,71.237)
+			-- (26.052,73.032)
+			-- (26.78,74.79)
+			-- (27.6,76.509)
+			-- (28.508,78.182)
+			-- (29.503,79.805)
+			-- (30.581,81.374)
+			-- (31.74,82.884)
+			-- (32.977,84.332)
+			-- (34.287,85.713)
+			-- (35.668,87.023)
+			-- (37.116,88.26)
+			-- (38.626,89.419)
+			-- (40.195,90.497)
+			-- (41.818,91.492)
+			-- (43.491,92.4)
+			-- (45.21,93.22)
+			-- (46.968,93.948)
+			-- (48.763,94.584)
+			-- (50.588,95.125)
+			-- (52.44,95.569)
+			-- (54.311,95.916)
+			-- (56.199,96.164)
+			-- (58.097,96.314)
+			-- (60,96.364)
+			-- (61.903,96.314)
+			-- (63.801,96.164)
+			-- (65.689,95.916)
+			-- (67.56,95.569)
+			-- (69.412,95.125)
+			-- (71.237,94.584)
+			-- (73.032,93.948)
+			-- (74.79,93.22)
+			-- (76.509,92.4)
+			-- (78.182,91.492)
+			-- (79.805,90.497)
+			-- (81.374,89.419)
+			-- (82.884,88.26)
+			-- (84.332,87.023)
+			-- (85.713,85.713)
+			-- (87.023,84.332)
+			-- (88.26,82.884)
+			-- (89.419,81.374)
+			-- (90.497,79.805)
+			-- (91.492,78.182)
+			-- (92.4,76.509)
+			-- (93.22,74.79)
+			-- (93.948,73.032)
+			-- (94.584,71.237)
+			-- (95.125,69.412)
+			-- (95.569,67.56)
+			-- (95.916,65.689)
+			-- (96.164,63.801)
+			-- (96.314,61.903)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (23.636,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,96.364);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.763,37.823)
+			-- (85.713,34.287)
+			-- (82.177,39.237);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,29.636)
+			-- (60,23.636)
+			-- (61,29.636);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(37.823,39.237)
+			-- (34.287,34.287)
+			-- (39.237,37.823);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(29.636,61)
+			-- (23.636,60)
+			-- (29.636,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(39.237,82.177)
+			-- (34.287,85.713)
+			-- (37.823,80.763);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,90.364)
+			-- (60,96.364)
+			-- (59,90.364);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(82.177,80.763)
+			-- (85.713,85.713)
+			-- (80.763,82.177);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(85.713,34.287)
+			-- (98.569,21.431);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,23.636)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(34.287,34.287)
+			-- (21.431,21.431);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(23.636,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(34.287,85.713)
+			-- (21.431,98.569);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,96.364)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(85.713,85.713)
+			-- (98.569,98.569);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(108.545,59)
+			-- (114.545,60)
+			-- (108.545,61);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(93.62,24.966)
+			-- (98.569,21.431)
+			-- (95.034,26.38);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(59,11.455)
+			-- (60,5.455)
+			-- (61,11.455);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(24.966,26.38)
+			-- (21.431,21.431)
+			-- (26.38,24.966);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(11.455,61)
+			-- (5.455,60)
+			-- (11.455,59);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(26.38,95.034)
+			-- (21.431,98.569)
+			-- (24.966,93.62);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(61,108.545)
+			-- (60,114.545)
+			-- (59,108.545);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(95.034,93.62)
+			-- (98.569,98.569)
+			-- (93.62,95.034);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(108.545,59)
+			-- (114.545,60)
+			-- (108.545,61);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 3pt off 2.4pt]
+			(60,120)
+			-- (60,0);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(A\vec{x}=\lambda\vec{x}\)\par
+		for every nonzero \(\vec{x}\)\par
+		\vspace{6pt}
+		\(\lambda=A_{11}=A_{22}\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+any basis works\par
+		\vspace{6pt}
+		shown here: \(C=[\vec{e}_1|\vec{e}_2]\)\par
+\par
+\end{samepage}
+\par}
+
+\EVCaseSeparator
+\EVCaseHeading{Diagonal, non-uniform scaling}
+{\centering
+	\(A = \begin{bmatrix}0.8 & 0\\0 & 1.5\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		axis-aligned ellipse\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (108,60)
+		-- (108,-30)
+		-- (60,-30)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(12,60)
+		-- (60,60)
+		-- (60,-30)
+		-- (12,-30)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(12,150)
+		-- (60,150)
+		-- (60,60)
+		-- (12,60)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(60,150)
+		-- (108,150)
+		-- (108,60)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(48.293,60)
+		-- (48.293,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(36.585,60)
+		-- (36.585,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(24.878,60)
+		-- (24.878,-27.805);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(13.171,60)
+		-- (13.171,-27.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (13.171,60);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,38.049)
+		-- (13.171,38.049);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,16.098)
+		-- (13.171,16.098);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-5.854)
+		-- (13.171,-5.854);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-27.805)
+		-- (13.171,-27.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(48.293,60)
+		-- (48.293,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(36.585,60)
+		-- (36.585,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(24.878,60)
+		-- (24.878,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(13.171,60)
+		-- (13.171,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (13.171,60);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,81.951)
+		-- (13.171,81.951);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,103.902)
+		-- (13.171,103.902);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,125.854)
+		-- (13.171,125.854);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(60,147.805)
+		-- (13.171,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(71.707,60)
+		-- (71.707,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(83.415,60)
+		-- (83.415,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(95.122,60)
+		-- (95.122,147.805);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(106.829,60)
+		-- (106.829,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (106.829,60);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,81.951)
+		-- (106.829,81.951);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,103.902)
+		-- (106.829,103.902);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,125.854)
+		-- (106.829,125.854);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(60,147.805)
+		-- (106.829,147.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (60,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(71.707,60)
+		-- (71.707,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(83.415,60)
+		-- (83.415,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(95.122,60)
+		-- (95.122,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(106.829,60)
+		-- (106.829,-27.805);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (106.829,60);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,38.049)
+		-- (106.829,38.049);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,16.098)
+		-- (106.829,16.098);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-5.854)
+		-- (106.829,-5.854);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(60,-27.805)
+		-- (106.829,-27.805);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,0)
+			-- (96.364,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(23.636,0)
+			-- (23.636,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,96.364)
+			-- (120,96.364);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,23.636)
+			-- (120,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.618pt off 1.618pt]
+			(96.364,60)
+			-- (96.314,58.097)
+			-- (96.164,56.199)
+			-- (95.916,54.311)
+			-- (95.569,52.44)
+			-- (95.125,50.588)
+			-- (94.584,48.763)
+			-- (93.948,46.968)
+			-- (93.22,45.21)
+			-- (92.4,43.491)
+			-- (91.492,41.818)
+			-- (90.497,40.195)
+			-- (89.419,38.626)
+			-- (88.26,37.116)
+			-- (87.023,35.668)
+			-- (85.713,34.287)
+			-- (84.332,32.977)
+			-- (82.884,31.74)
+			-- (81.374,30.581)
+			-- (79.805,29.503)
+			-- (78.182,28.508)
+			-- (76.509,27.6)
+			-- (74.79,26.78)
+			-- (73.032,26.052)
+			-- (71.237,25.416)
+			-- (69.412,24.875)
+			-- (67.56,24.431)
+			-- (65.689,24.084)
+			-- (63.801,23.836)
+			-- (61.903,23.686)
+			-- (60,23.636)
+			-- (58.097,23.686)
+			-- (56.199,23.836)
+			-- (54.311,24.084)
+			-- (52.44,24.431)
+			-- (50.588,24.875)
+			-- (48.763,25.416)
+			-- (46.968,26.052)
+			-- (45.21,26.78)
+			-- (43.491,27.6)
+			-- (41.818,28.508)
+			-- (40.195,29.503)
+			-- (38.626,30.581)
+			-- (37.116,31.74)
+			-- (35.668,32.977)
+			-- (34.287,34.287)
+			-- (32.977,35.668)
+			-- (31.74,37.116)
+			-- (30.581,38.626)
+			-- (29.503,40.195)
+			-- (28.508,41.818)
+			-- (27.6,43.491)
+			-- (26.78,45.21)
+			-- (26.052,46.968)
+			-- (25.416,48.763)
+			-- (24.875,50.588)
+			-- (24.431,52.44)
+			-- (24.084,54.311)
+			-- (23.836,56.199)
+			-- (23.686,58.097)
+			-- (23.636,60)
+			-- (23.686,61.903)
+			-- (23.836,63.801)
+			-- (24.084,65.689)
+			-- (24.431,67.56)
+			-- (24.875,69.412)
+			-- (25.416,71.237)
+			-- (26.052,73.032)
+			-- (26.78,74.79)
+			-- (27.6,76.509)
+			-- (28.508,78.182)
+			-- (29.503,79.805)
+			-- (30.581,81.374)
+			-- (31.74,82.884)
+			-- (32.977,84.332)
+			-- (34.287,85.713)
+			-- (35.668,87.023)
+			-- (37.116,88.26)
+			-- (38.626,89.419)
+			-- (40.195,90.497)
+			-- (41.818,91.492)
+			-- (43.491,92.4)
+			-- (45.21,93.22)
+			-- (46.968,93.948)
+			-- (48.763,94.584)
+			-- (50.588,95.125)
+			-- (52.44,95.569)
+			-- (54.311,95.916)
+			-- (56.199,96.164)
+			-- (58.097,96.314)
+			-- (60,96.364)
+			-- (61.903,96.314)
+			-- (63.801,96.164)
+			-- (65.689,95.916)
+			-- (67.56,95.569)
+			-- (69.412,95.125)
+			-- (71.237,94.584)
+			-- (73.032,93.948)
+			-- (74.79,93.22)
+			-- (76.509,92.4)
+			-- (78.182,91.492)
+			-- (79.805,90.497)
+			-- (81.374,89.419)
+			-- (82.884,88.26)
+			-- (84.332,87.023)
+			-- (85.713,85.713)
+			-- (87.023,84.332)
+			-- (88.26,82.884)
+			-- (89.419,81.374)
+			-- (90.497,79.805)
+			-- (91.492,78.182)
+			-- (92.4,76.509)
+			-- (93.22,74.79)
+			-- (93.948,73.032)
+			-- (94.584,71.237)
+			-- (95.125,69.412)
+			-- (95.569,67.56)
+			-- (95.916,65.689)
+			-- (96.164,63.801)
+			-- (96.314,61.903)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (23.636,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,96.364);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.763,37.823)
+			-- (85.713,34.287)
+			-- (82.177,39.237);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,29.636)
+			-- (60,23.636)
+			-- (61,29.636);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(37.823,39.237)
+			-- (34.287,34.287)
+			-- (39.237,37.823);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(29.636,61)
+			-- (23.636,60)
+			-- (29.636,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(39.237,82.177)
+			-- (34.287,85.713)
+			-- (37.823,80.763);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,90.364)
+			-- (60,96.364)
+			-- (59,90.364);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(82.177,80.763)
+			-- (85.713,85.713)
+			-- (80.763,82.177);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(89.091,60)
+			-- (89.051,57.145)
+			-- (88.932,54.298)
+			-- (88.733,51.467)
+			-- (88.455,48.659)
+			-- (88.1,45.883)
+			-- (87.667,43.145)
+			-- (87.159,40.453)
+			-- (86.576,37.814)
+			-- (85.92,35.237)
+			-- (85.193,32.727)
+			-- (84.398,30.292)
+			-- (83.535,27.939)
+			-- (82.608,25.673)
+			-- (81.619,23.502)
+			-- (80.57,21.431)
+			-- (79.466,19.465)
+			-- (78.308,17.61)
+			-- (77.099,15.872)
+			-- (75.844,14.254)
+			-- (74.545,12.762)
+			-- (73.207,11.4)
+			-- (71.832,10.17)
+			-- (70.425,9.077)
+			-- (68.99,8.124)
+			-- (67.529,7.313)
+			-- (66.048,6.646)
+			-- (64.551,6.126)
+			-- (63.041,5.753)
+			-- (61.523,5.529)
+			-- (60,5.455)
+			-- (58.477,5.529)
+			-- (56.959,5.753)
+			-- (55.449,6.126)
+			-- (53.952,6.646)
+			-- (52.471,7.313)
+			-- (51.01,8.124)
+			-- (49.575,9.077)
+			-- (48.168,10.17)
+			-- (46.793,11.4)
+			-- (45.455,12.762)
+			-- (44.156,14.254)
+			-- (42.901,15.872)
+			-- (41.692,17.61)
+			-- (40.534,19.465)
+			-- (39.43,21.431)
+			-- (38.381,23.502)
+			-- (37.392,25.673)
+			-- (36.465,27.939)
+			-- (35.602,30.292)
+			-- (34.807,32.727)
+			-- (34.08,35.237)
+			-- (33.424,37.814)
+			-- (32.841,40.453)
+			-- (32.333,43.145)
+			-- (31.9,45.883)
+			-- (31.545,48.659)
+			-- (31.267,51.467)
+			-- (31.068,54.298)
+			-- (30.949,57.145)
+			-- (30.909,60)
+			-- (30.949,62.855)
+			-- (31.068,65.702)
+			-- (31.267,68.533)
+			-- (31.545,71.341)
+			-- (31.9,74.117)
+			-- (32.333,76.855)
+			-- (32.841,79.547)
+			-- (33.424,82.186)
+			-- (34.08,84.763)
+			-- (34.807,87.273)
+			-- (35.602,89.708)
+			-- (36.465,92.061)
+			-- (37.392,94.327)
+			-- (38.381,96.498)
+			-- (39.43,98.569)
+			-- (40.534,100.535)
+			-- (41.692,102.39)
+			-- (42.901,104.128)
+			-- (44.156,105.746)
+			-- (45.455,107.238)
+			-- (46.793,108.6)
+			-- (48.168,109.83)
+			-- (49.575,110.923)
+			-- (51.01,111.876)
+			-- (52.471,112.687)
+			-- (53.952,113.354)
+			-- (55.449,113.874)
+			-- (56.959,114.247)
+			-- (58.477,114.471)
+			-- (60,114.545)
+			-- (61.523,114.471)
+			-- (63.041,114.247)
+			-- (64.551,113.874)
+			-- (66.048,113.354)
+			-- (67.529,112.687)
+			-- (68.99,111.876)
+			-- (70.425,110.923)
+			-- (71.832,109.83)
+			-- (73.207,108.6)
+			-- (74.545,107.238)
+			-- (75.844,105.746)
+			-- (77.099,104.128)
+			-- (78.308,102.39)
+			-- (79.466,100.535)
+			-- (80.57,98.569)
+			-- (81.619,96.498)
+			-- (82.608,94.327)
+			-- (83.535,92.061)
+			-- (84.398,89.708)
+			-- (85.193,87.273)
+			-- (85.92,84.763)
+			-- (86.576,82.186)
+			-- (87.159,79.547)
+			-- (87.667,76.855)
+			-- (88.1,74.117)
+			-- (88.455,71.341)
+			-- (88.733,68.533)
+			-- (88.932,65.702)
+			-- (89.051,62.855)
+			-- (89.091,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (89.091,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (80.57,21.431);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (39.43,21.431);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (30.909,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (39.43,98.569);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (80.57,98.569);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (89.091,60);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(83.091,59)
+			-- (89.091,60)
+			-- (83.091,61);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(76.864,26.254)
+			-- (80.57,21.431)
+			-- (78.629,27.195);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(41.371,27.195)
+			-- (39.43,21.431)
+			-- (43.136,26.254);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(36.909,61)
+			-- (30.909,60)
+			-- (36.909,59);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(43.136,93.746)
+			-- (39.43,98.569)
+			-- (41.371,92.805);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(78.629,92.805)
+			-- (80.57,98.569)
+			-- (76.864,93.746);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(83.091,59)
+			-- (89.091,60)
+			-- (83.091,61);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{1,0,0}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,0)
+			-- (96.364,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(23.636,0)
+			-- (23.636,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,96.364)
+			-- (120,96.364);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,23.636)
+			-- (120,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.618pt off 1.618pt]
+			(96.364,60)
+			-- (96.314,58.097)
+			-- (96.164,56.199)
+			-- (95.916,54.311)
+			-- (95.569,52.44)
+			-- (95.125,50.588)
+			-- (94.584,48.763)
+			-- (93.948,46.968)
+			-- (93.22,45.21)
+			-- (92.4,43.491)
+			-- (91.492,41.818)
+			-- (90.497,40.195)
+			-- (89.419,38.626)
+			-- (88.26,37.116)
+			-- (87.023,35.668)
+			-- (85.713,34.287)
+			-- (84.332,32.977)
+			-- (82.884,31.74)
+			-- (81.374,30.581)
+			-- (79.805,29.503)
+			-- (78.182,28.508)
+			-- (76.509,27.6)
+			-- (74.79,26.78)
+			-- (73.032,26.052)
+			-- (71.237,25.416)
+			-- (69.412,24.875)
+			-- (67.56,24.431)
+			-- (65.689,24.084)
+			-- (63.801,23.836)
+			-- (61.903,23.686)
+			-- (60,23.636)
+			-- (58.097,23.686)
+			-- (56.199,23.836)
+			-- (54.311,24.084)
+			-- (52.44,24.431)
+			-- (50.588,24.875)
+			-- (48.763,25.416)
+			-- (46.968,26.052)
+			-- (45.21,26.78)
+			-- (43.491,27.6)
+			-- (41.818,28.508)
+			-- (40.195,29.503)
+			-- (38.626,30.581)
+			-- (37.116,31.74)
+			-- (35.668,32.977)
+			-- (34.287,34.287)
+			-- (32.977,35.668)
+			-- (31.74,37.116)
+			-- (30.581,38.626)
+			-- (29.503,40.195)
+			-- (28.508,41.818)
+			-- (27.6,43.491)
+			-- (26.78,45.21)
+			-- (26.052,46.968)
+			-- (25.416,48.763)
+			-- (24.875,50.588)
+			-- (24.431,52.44)
+			-- (24.084,54.311)
+			-- (23.836,56.199)
+			-- (23.686,58.097)
+			-- (23.636,60)
+			-- (23.686,61.903)
+			-- (23.836,63.801)
+			-- (24.084,65.689)
+			-- (24.431,67.56)
+			-- (24.875,69.412)
+			-- (25.416,71.237)
+			-- (26.052,73.032)
+			-- (26.78,74.79)
+			-- (27.6,76.509)
+			-- (28.508,78.182)
+			-- (29.503,79.805)
+			-- (30.581,81.374)
+			-- (31.74,82.884)
+			-- (32.977,84.332)
+			-- (34.287,85.713)
+			-- (35.668,87.023)
+			-- (37.116,88.26)
+			-- (38.626,89.419)
+			-- (40.195,90.497)
+			-- (41.818,91.492)
+			-- (43.491,92.4)
+			-- (45.21,93.22)
+			-- (46.968,93.948)
+			-- (48.763,94.584)
+			-- (50.588,95.125)
+			-- (52.44,95.569)
+			-- (54.311,95.916)
+			-- (56.199,96.164)
+			-- (58.097,96.314)
+			-- (60,96.364)
+			-- (61.903,96.314)
+			-- (63.801,96.164)
+			-- (65.689,95.916)
+			-- (67.56,95.569)
+			-- (69.412,95.125)
+			-- (71.237,94.584)
+			-- (73.032,93.948)
+			-- (74.79,93.22)
+			-- (76.509,92.4)
+			-- (78.182,91.492)
+			-- (79.805,90.497)
+			-- (81.374,89.419)
+			-- (82.884,88.26)
+			-- (84.332,87.023)
+			-- (85.713,85.713)
+			-- (87.023,84.332)
+			-- (88.26,82.884)
+			-- (89.419,81.374)
+			-- (90.497,79.805)
+			-- (91.492,78.182)
+			-- (92.4,76.509)
+			-- (93.22,74.79)
+			-- (93.948,73.032)
+			-- (94.584,71.237)
+			-- (95.125,69.412)
+			-- (95.569,67.56)
+			-- (95.916,65.689)
+			-- (96.164,63.801)
+			-- (96.314,61.903)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,23.636);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,34.287);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (23.636,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (34.287,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,96.364);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (85.713,85.713);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (96.364,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.763,37.823)
+			-- (85.713,34.287)
+			-- (82.177,39.237);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,29.636)
+			-- (60,23.636)
+			-- (61,29.636);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(37.823,39.237)
+			-- (34.287,34.287)
+			-- (39.237,37.823);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(29.636,61)
+			-- (23.636,60)
+			-- (29.636,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(39.237,82.177)
+			-- (34.287,85.713)
+			-- (37.823,80.763);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,90.364)
+			-- (60,96.364)
+			-- (59,90.364);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(82.177,80.763)
+			-- (85.713,85.713)
+			-- (80.763,82.177);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(90.364,59)
+			-- (96.364,60)
+			-- (90.364,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(89.091,60)
+			-- (89.051,57.145)
+			-- (88.932,54.298)
+			-- (88.733,51.467)
+			-- (88.455,48.659)
+			-- (88.1,45.883)
+			-- (87.667,43.145)
+			-- (87.159,40.453)
+			-- (86.576,37.814)
+			-- (85.92,35.237)
+			-- (85.193,32.727)
+			-- (84.398,30.292)
+			-- (83.535,27.939)
+			-- (82.608,25.673)
+			-- (81.619,23.502)
+			-- (80.57,21.431)
+			-- (79.466,19.465)
+			-- (78.308,17.61)
+			-- (77.099,15.872)
+			-- (75.844,14.254)
+			-- (74.545,12.762)
+			-- (73.207,11.4)
+			-- (71.832,10.17)
+			-- (70.425,9.077)
+			-- (68.99,8.124)
+			-- (67.529,7.313)
+			-- (66.048,6.646)
+			-- (64.551,6.126)
+			-- (63.041,5.753)
+			-- (61.523,5.529)
+			-- (60,5.455)
+			-- (58.477,5.529)
+			-- (56.959,5.753)
+			-- (55.449,6.126)
+			-- (53.952,6.646)
+			-- (52.471,7.313)
+			-- (51.01,8.124)
+			-- (49.575,9.077)
+			-- (48.168,10.17)
+			-- (46.793,11.4)
+			-- (45.455,12.762)
+			-- (44.156,14.254)
+			-- (42.901,15.872)
+			-- (41.692,17.61)
+			-- (40.534,19.465)
+			-- (39.43,21.431)
+			-- (38.381,23.502)
+			-- (37.392,25.673)
+			-- (36.465,27.939)
+			-- (35.602,30.292)
+			-- (34.807,32.727)
+			-- (34.08,35.237)
+			-- (33.424,37.814)
+			-- (32.841,40.453)
+			-- (32.333,43.145)
+			-- (31.9,45.883)
+			-- (31.545,48.659)
+			-- (31.267,51.467)
+			-- (31.068,54.298)
+			-- (30.949,57.145)
+			-- (30.909,60)
+			-- (30.949,62.855)
+			-- (31.068,65.702)
+			-- (31.267,68.533)
+			-- (31.545,71.341)
+			-- (31.9,74.117)
+			-- (32.333,76.855)
+			-- (32.841,79.547)
+			-- (33.424,82.186)
+			-- (34.08,84.763)
+			-- (34.807,87.273)
+			-- (35.602,89.708)
+			-- (36.465,92.061)
+			-- (37.392,94.327)
+			-- (38.381,96.498)
+			-- (39.43,98.569)
+			-- (40.534,100.535)
+			-- (41.692,102.39)
+			-- (42.901,104.128)
+			-- (44.156,105.746)
+			-- (45.455,107.238)
+			-- (46.793,108.6)
+			-- (48.168,109.83)
+			-- (49.575,110.923)
+			-- (51.01,111.876)
+			-- (52.471,112.687)
+			-- (53.952,113.354)
+			-- (55.449,113.874)
+			-- (56.959,114.247)
+			-- (58.477,114.471)
+			-- (60,114.545)
+			-- (61.523,114.471)
+			-- (63.041,114.247)
+			-- (64.551,113.874)
+			-- (66.048,113.354)
+			-- (67.529,112.687)
+			-- (68.99,111.876)
+			-- (70.425,110.923)
+			-- (71.832,109.83)
+			-- (73.207,108.6)
+			-- (74.545,107.238)
+			-- (75.844,105.746)
+			-- (77.099,104.128)
+			-- (78.308,102.39)
+			-- (79.466,100.535)
+			-- (80.57,98.569)
+			-- (81.619,96.498)
+			-- (82.608,94.327)
+			-- (83.535,92.061)
+			-- (84.398,89.708)
+			-- (85.193,87.273)
+			-- (85.92,84.763)
+			-- (86.576,82.186)
+			-- (87.159,79.547)
+			-- (87.667,76.855)
+			-- (88.1,74.117)
+			-- (88.455,71.341)
+			-- (88.733,68.533)
+			-- (88.932,65.702)
+			-- (89.051,62.855)
+			-- (89.091,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,60)
+			-- (89.091,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(85.713,34.287)
+			-- (80.57,21.431);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,23.636)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(34.287,34.287)
+			-- (39.43,21.431);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(23.636,60)
+			-- (30.909,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(34.287,85.713)
+			-- (39.43,98.569);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,96.364)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(85.713,85.713)
+			-- (80.57,98.569);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(96.364,60)
+			-- (89.091,60);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(95.091,61)
+			-- (89.091,60)
+			-- (95.091,59);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(81.87,27.373)
+			-- (80.57,21.431)
+			-- (83.727,26.63);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(59,11.455)
+			-- (60,5.455)
+			-- (61,11.455);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(36.273,26.63)
+			-- (39.43,21.431)
+			-- (38.13,27.373);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(24.909,59)
+			-- (30.909,60)
+			-- (24.909,61);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(38.13,92.627)
+			-- (39.43,98.569)
+			-- (36.273,93.37);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(61,108.545)
+			-- (60,114.545)
+			-- (59,108.545);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(83.727,93.37)
+			-- (80.57,98.569)
+			-- (81.87,92.627);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(95.091,61)
+			-- (89.091,60)
+			-- (95.091,59);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter]
+			(60,120)
+			-- (60,0);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 3pt off 2.4pt]
+			(0,60)
+			-- (120,60);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(A\vec{e}_1=\lambda_1\vec{e}_1\)\par
+		\(A\vec{e}_2=\lambda_2\vec{e}_2\)\par
+		\(\downarrow\)\par
+		\(\vec{x}_1=\vec{e}_1\)\par
+		\(\vec{x}_2=\vec{e}_2\)\par
+		\vspace{6pt}
+		\(\lambda_1=A_{11}\)\par
+		\(\lambda_2=A_{22}\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(C=[\vec{x}_1|\vec{x}_2]\)\par
+		\vspace{6pt}
+		here: \(C=[\vec{e}_1|\vec{e}_2]\)\par
+\par
+\end{samepage}
+\par}
+
+\EVCaseSeparator
+\EVCaseHeading{Shear}
+{\centering
+	\(A = \begin{bmatrix}1 & 1.5\\0 & 1\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		tilted ellipse\par
+		\vspace{6pt}
+		\(\vec{e}_2\) slides along \(\vec{e}_1\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (120,60)
+		-- (210,0)
+		-- (150,0)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(0,60)
+		-- (60,60)
+		-- (150,0)
+		-- (90,0)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(-90,120)
+		-- (-30,120)
+		-- (60,60)
+		-- (0,60)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(-30,120)
+		-- (30,120)
+		-- (120,60)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (147.805,1.463);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(45.366,60)
+		-- (133.171,1.463);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,60)
+		-- (118.537,1.463);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,60)
+		-- (103.902,1.463);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(1.463,60)
+		-- (89.268,1.463);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (1.463,60);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,45.366)
+		-- (23.415,45.366);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,30.732)
+		-- (45.366,30.732);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(125.854,16.098)
+		-- (67.317,16.098);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(147.805,1.463)
+		-- (89.268,1.463);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (-27.805,118.537);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(45.366,60)
+		-- (-42.439,118.537);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,60)
+		-- (-57.073,118.537);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,60)
+		-- (-71.707,118.537);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(1.463,60)
+		-- (-86.341,118.537);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (1.463,60);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,74.634)
+		-- (-20.488,74.634);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,89.268)
+		-- (-42.439,89.268);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(-5.854,103.902)
+		-- (-64.39,103.902);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(-27.805,118.537)
+		-- (-86.341,118.537);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (-27.805,118.537);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(74.634,60)
+		-- (-13.171,118.537);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,60)
+		-- (1.463,118.537);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,60)
+		-- (16.098,118.537);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(118.537,60)
+		-- (30.732,118.537);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (118.537,60);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,74.634)
+		-- (96.585,74.634);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,89.268)
+		-- (74.634,89.268);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(-5.854,103.902)
+		-- (52.683,103.902);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(-27.805,118.537)
+		-- (30.732,118.537);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (147.805,1.463);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(74.634,60)
+		-- (162.439,1.463);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,60)
+		-- (177.073,1.463);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,60)
+		-- (191.707,1.463);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(118.537,60)
+		-- (206.341,1.463);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (118.537,60);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,45.366)
+		-- (140.488,45.366);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,30.732)
+		-- (162.439,30.732);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(125.854,16.098)
+		-- (184.39,16.098);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(147.805,1.463)
+		-- (206.341,1.463);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(90.256,0)
+			-- (90.256,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(29.744,0)
+			-- (29.744,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,90.256)
+			-- (120,90.256);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,29.744)
+			-- (120,29.744);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.347pt off 1.347pt]
+			(90.256,60)
+			-- (90.215,58.417)
+			-- (90.091,56.837)
+			-- (89.884,55.267)
+			-- (89.595,53.709)
+			-- (89.225,52.169)
+			-- (88.776,50.65)
+			-- (88.247,49.157)
+			-- (87.641,47.694)
+			-- (86.959,46.264)
+			-- (86.203,44.872)
+			-- (85.375,43.521)
+			-- (84.478,42.216)
+			-- (83.514,40.959)
+			-- (82.485,39.755)
+			-- (81.394,38.606)
+			-- (80.245,37.515)
+			-- (79.041,36.486)
+			-- (77.784,35.522)
+			-- (76.479,34.625)
+			-- (75.128,33.797)
+			-- (73.736,33.041)
+			-- (72.306,32.359)
+			-- (70.843,31.753)
+			-- (69.35,31.224)
+			-- (67.831,30.775)
+			-- (66.291,30.405)
+			-- (64.733,30.116)
+			-- (63.163,29.909)
+			-- (61.583,29.785)
+			-- (60,29.744)
+			-- (58.417,29.785)
+			-- (56.837,29.909)
+			-- (55.267,30.116)
+			-- (53.709,30.405)
+			-- (52.169,30.775)
+			-- (50.65,31.224)
+			-- (49.157,31.753)
+			-- (47.694,32.359)
+			-- (46.264,33.041)
+			-- (44.872,33.797)
+			-- (43.521,34.625)
+			-- (42.216,35.522)
+			-- (40.959,36.486)
+			-- (39.755,37.515)
+			-- (38.606,38.606)
+			-- (37.515,39.755)
+			-- (36.486,40.959)
+			-- (35.522,42.216)
+			-- (34.625,43.521)
+			-- (33.797,44.872)
+			-- (33.041,46.264)
+			-- (32.359,47.694)
+			-- (31.753,49.157)
+			-- (31.224,50.65)
+			-- (30.775,52.169)
+			-- (30.405,53.709)
+			-- (30.116,55.267)
+			-- (29.909,56.837)
+			-- (29.785,58.417)
+			-- (29.744,60)
+			-- (29.785,61.583)
+			-- (29.909,63.163)
+			-- (30.116,64.733)
+			-- (30.405,66.291)
+			-- (30.775,67.831)
+			-- (31.224,69.35)
+			-- (31.753,70.843)
+			-- (32.359,72.306)
+			-- (33.041,73.736)
+			-- (33.797,75.128)
+			-- (34.625,76.479)
+			-- (35.522,77.784)
+			-- (36.486,79.041)
+			-- (37.515,80.245)
+			-- (38.606,81.394)
+			-- (39.755,82.485)
+			-- (40.959,83.514)
+			-- (42.216,84.478)
+			-- (43.521,85.375)
+			-- (44.872,86.203)
+			-- (46.264,86.959)
+			-- (47.694,87.641)
+			-- (49.157,88.247)
+			-- (50.65,88.776)
+			-- (52.169,89.225)
+			-- (53.709,89.595)
+			-- (55.267,89.884)
+			-- (56.837,90.091)
+			-- (58.417,90.215)
+			-- (60,90.256)
+			-- (61.583,90.215)
+			-- (63.163,90.091)
+			-- (64.733,89.884)
+			-- (66.291,89.595)
+			-- (67.831,89.225)
+			-- (69.35,88.776)
+			-- (70.843,88.247)
+			-- (72.306,87.641)
+			-- (73.736,86.959)
+			-- (75.128,86.203)
+			-- (76.479,85.375)
+			-- (77.784,84.478)
+			-- (79.041,83.514)
+			-- (80.245,82.485)
+			-- (81.394,81.394)
+			-- (82.485,80.245)
+			-- (83.514,79.041)
+			-- (84.478,77.784)
+			-- (85.375,76.479)
+			-- (86.203,75.128)
+			-- (86.959,73.736)
+			-- (87.641,72.306)
+			-- (88.247,70.843)
+			-- (88.776,69.35)
+			-- (89.225,67.831)
+			-- (89.595,66.291)
+			-- (89.884,64.733)
+			-- (90.091,63.163)
+			-- (90.215,61.583)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (81.394,38.606);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,29.744);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (38.606,38.606);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (29.744,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (38.606,81.394);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,90.256);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (81.394,81.394);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (90.256,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(76.445,42.141)
+			-- (81.394,38.606)
+			-- (77.859,43.555);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,35.744)
+			-- (60,29.744)
+			-- (61,35.744);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(42.141,43.555)
+			-- (38.606,38.606)
+			-- (43.555,42.141);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(35.744,61)
+			-- (29.744,60)
+			-- (35.744,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(43.555,77.859)
+			-- (38.606,81.394)
+			-- (42.141,76.445);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,84.256)
+			-- (60,90.256)
+			-- (59,84.256);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(77.859,76.445)
+			-- (81.394,81.394)
+			-- (76.445,77.859);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(90.256,60)
+			-- (92.59,58.417)
+			-- (94.835,56.837)
+			-- (96.984,55.267)
+			-- (99.031,53.709)
+			-- (100.972,52.169)
+			-- (102.8,50.65)
+			-- (104.511,49.157)
+			-- (106.1,47.694)
+			-- (107.563,46.264)
+			-- (108.895,44.872)
+			-- (110.093,43.521)
+			-- (111.154,42.216)
+			-- (112.075,40.959)
+			-- (112.853,39.755)
+			-- (113.486,38.606)
+			-- (113.973,37.515)
+			-- (114.311,36.486)
+			-- (114.501,35.522)
+			-- (114.541,34.625)
+			-- (114.432,33.797)
+			-- (114.174,33.041)
+			-- (113.767,32.359)
+			-- (113.213,31.753)
+			-- (112.513,31.224)
+			-- (111.669,30.775)
+			-- (110.683,30.405)
+			-- (109.559,30.116)
+			-- (108.299,29.909)
+			-- (106.906,29.785)
+			-- (105.385,29.744)
+			-- (103.739,29.785)
+			-- (101.973,29.909)
+			-- (100.093,30.116)
+			-- (98.102,30.405)
+			-- (96.007,30.775)
+			-- (93.814,31.224)
+			-- (91.527,31.753)
+			-- (89.154,32.359)
+			-- (86.702,33.041)
+			-- (84.176,33.797)
+			-- (81.584,34.625)
+			-- (78.933,35.522)
+			-- (76.229,36.486)
+			-- (73.482,37.515)
+			-- (70.697,38.606)
+			-- (67.883,39.755)
+			-- (65.048,40.959)
+			-- (62.198,42.216)
+			-- (59.343,43.521)
+			-- (56.489,44.872)
+			-- (53.646,46.264)
+			-- (50.819,47.694)
+			-- (48.018,49.157)
+			-- (45.249,50.65)
+			-- (42.521,52.169)
+			-- (39.841,53.709)
+			-- (37.216,55.267)
+			-- (34.653,56.837)
+			-- (32.16,58.417)
+			-- (29.744,60)
+			-- (27.41,61.583)
+			-- (25.165,63.163)
+			-- (23.016,64.733)
+			-- (20.969,66.291)
+			-- (19.028,67.831)
+			-- (17.2,69.35)
+			-- (15.489,70.843)
+			-- (13.9,72.306)
+			-- (12.437,73.736)
+			-- (11.105,75.128)
+			-- (9.907,76.479)
+			-- (8.846,77.784)
+			-- (7.925,79.041)
+			-- (7.147,80.245)
+			-- (6.514,81.394)
+			-- (6.027,82.485)
+			-- (5.689,83.514)
+			-- (5.499,84.478)
+			-- (5.459,85.375)
+			-- (5.568,86.203)
+			-- (5.826,86.959)
+			-- (6.233,87.641)
+			-- (6.787,88.247)
+			-- (7.487,88.776)
+			-- (8.331,89.225)
+			-- (9.317,89.595)
+			-- (10.441,89.884)
+			-- (11.701,90.091)
+			-- (13.094,90.215)
+			-- (14.615,90.256)
+			-- (16.261,90.215)
+			-- (18.027,90.091)
+			-- (19.907,89.884)
+			-- (21.898,89.595)
+			-- (23.993,89.225)
+			-- (26.186,88.776)
+			-- (28.473,88.247)
+			-- (30.846,87.641)
+			-- (33.298,86.959)
+			-- (35.824,86.203)
+			-- (38.416,85.375)
+			-- (41.067,84.478)
+			-- (43.771,83.514)
+			-- (46.518,82.485)
+			-- (49.303,81.394)
+			-- (52.117,80.245)
+			-- (54.952,79.041)
+			-- (57.802,77.784)
+			-- (60.657,76.479)
+			-- (63.511,75.128)
+			-- (66.354,73.736)
+			-- (69.181,72.306)
+			-- (71.982,70.843)
+			-- (74.751,69.35)
+			-- (77.479,67.831)
+			-- (80.159,66.291)
+			-- (82.784,64.733)
+			-- (85.347,63.163)
+			-- (87.84,61.583)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (113.486,38.606);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (105.385,29.744);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (70.697,38.606);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (29.744,60);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (6.514,81.394);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (14.615,90.256);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (49.303,81.394);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (90.256,60);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(106.355,40.166)
+			-- (113.486,38.606)
+			-- (107.246,42.394);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(99.081,32.58)
+			-- (105.385,29.744)
+			-- (100.342,34.471);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(67.12,43.525)
+			-- (70.697,38.606)
+			-- (68.908,44.419);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(35.744,61)
+			-- (29.744,60)
+			-- (35.744,59);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(13.645,79.834)
+			-- (6.514,81.394)
+			-- (12.754,77.606);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(20.919,87.42)
+			-- (14.615,90.256)
+			-- (19.658,85.529);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(52.88,76.475)
+			-- (49.303,81.394)
+			-- (51.092,75.581);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{1,0,0}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(90.256,0)
+			-- (90.256,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(29.744,0)
+			-- (29.744,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,90.256)
+			-- (120,90.256);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,29.744)
+			-- (120,29.744);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.347pt off 1.347pt]
+			(90.256,60)
+			-- (90.215,58.417)
+			-- (90.091,56.837)
+			-- (89.884,55.267)
+			-- (89.595,53.709)
+			-- (89.225,52.169)
+			-- (88.776,50.65)
+			-- (88.247,49.157)
+			-- (87.641,47.694)
+			-- (86.959,46.264)
+			-- (86.203,44.872)
+			-- (85.375,43.521)
+			-- (84.478,42.216)
+			-- (83.514,40.959)
+			-- (82.485,39.755)
+			-- (81.394,38.606)
+			-- (80.245,37.515)
+			-- (79.041,36.486)
+			-- (77.784,35.522)
+			-- (76.479,34.625)
+			-- (75.128,33.797)
+			-- (73.736,33.041)
+			-- (72.306,32.359)
+			-- (70.843,31.753)
+			-- (69.35,31.224)
+			-- (67.831,30.775)
+			-- (66.291,30.405)
+			-- (64.733,30.116)
+			-- (63.163,29.909)
+			-- (61.583,29.785)
+			-- (60,29.744)
+			-- (58.417,29.785)
+			-- (56.837,29.909)
+			-- (55.267,30.116)
+			-- (53.709,30.405)
+			-- (52.169,30.775)
+			-- (50.65,31.224)
+			-- (49.157,31.753)
+			-- (47.694,32.359)
+			-- (46.264,33.041)
+			-- (44.872,33.797)
+			-- (43.521,34.625)
+			-- (42.216,35.522)
+			-- (40.959,36.486)
+			-- (39.755,37.515)
+			-- (38.606,38.606)
+			-- (37.515,39.755)
+			-- (36.486,40.959)
+			-- (35.522,42.216)
+			-- (34.625,43.521)
+			-- (33.797,44.872)
+			-- (33.041,46.264)
+			-- (32.359,47.694)
+			-- (31.753,49.157)
+			-- (31.224,50.65)
+			-- (30.775,52.169)
+			-- (30.405,53.709)
+			-- (30.116,55.267)
+			-- (29.909,56.837)
+			-- (29.785,58.417)
+			-- (29.744,60)
+			-- (29.785,61.583)
+			-- (29.909,63.163)
+			-- (30.116,64.733)
+			-- (30.405,66.291)
+			-- (30.775,67.831)
+			-- (31.224,69.35)
+			-- (31.753,70.843)
+			-- (32.359,72.306)
+			-- (33.041,73.736)
+			-- (33.797,75.128)
+			-- (34.625,76.479)
+			-- (35.522,77.784)
+			-- (36.486,79.041)
+			-- (37.515,80.245)
+			-- (38.606,81.394)
+			-- (39.755,82.485)
+			-- (40.959,83.514)
+			-- (42.216,84.478)
+			-- (43.521,85.375)
+			-- (44.872,86.203)
+			-- (46.264,86.959)
+			-- (47.694,87.641)
+			-- (49.157,88.247)
+			-- (50.65,88.776)
+			-- (52.169,89.225)
+			-- (53.709,89.595)
+			-- (55.267,89.884)
+			-- (56.837,90.091)
+			-- (58.417,90.215)
+			-- (60,90.256)
+			-- (61.583,90.215)
+			-- (63.163,90.091)
+			-- (64.733,89.884)
+			-- (66.291,89.595)
+			-- (67.831,89.225)
+			-- (69.35,88.776)
+			-- (70.843,88.247)
+			-- (72.306,87.641)
+			-- (73.736,86.959)
+			-- (75.128,86.203)
+			-- (76.479,85.375)
+			-- (77.784,84.478)
+			-- (79.041,83.514)
+			-- (80.245,82.485)
+			-- (81.394,81.394)
+			-- (82.485,80.245)
+			-- (83.514,79.041)
+			-- (84.478,77.784)
+			-- (85.375,76.479)
+			-- (86.203,75.128)
+			-- (86.959,73.736)
+			-- (87.641,72.306)
+			-- (88.247,70.843)
+			-- (88.776,69.35)
+			-- (89.225,67.831)
+			-- (89.595,66.291)
+			-- (89.884,64.733)
+			-- (90.091,63.163)
+			-- (90.215,61.583)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (81.394,38.606);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,29.744);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (38.606,38.606);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (29.744,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (38.606,81.394);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,90.256);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (81.394,81.394);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (90.256,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(76.445,42.141)
+			-- (81.394,38.606)
+			-- (77.859,43.555);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,35.744)
+			-- (60,29.744)
+			-- (61,35.744);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(42.141,43.555)
+			-- (38.606,38.606)
+			-- (43.555,42.141);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(35.744,61)
+			-- (29.744,60)
+			-- (35.744,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(43.555,77.859)
+			-- (38.606,81.394)
+			-- (42.141,76.445);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,84.256)
+			-- (60,90.256)
+			-- (59,84.256);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(77.859,76.445)
+			-- (81.394,81.394)
+			-- (76.445,77.859);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(90.256,60)
+			-- (92.59,58.417)
+			-- (94.835,56.837)
+			-- (96.984,55.267)
+			-- (99.031,53.709)
+			-- (100.972,52.169)
+			-- (102.8,50.65)
+			-- (104.511,49.157)
+			-- (106.1,47.694)
+			-- (107.563,46.264)
+			-- (108.895,44.872)
+			-- (110.093,43.521)
+			-- (111.154,42.216)
+			-- (112.075,40.959)
+			-- (112.853,39.755)
+			-- (113.486,38.606)
+			-- (113.973,37.515)
+			-- (114.311,36.486)
+			-- (114.501,35.522)
+			-- (114.541,34.625)
+			-- (114.432,33.797)
+			-- (114.174,33.041)
+			-- (113.767,32.359)
+			-- (113.213,31.753)
+			-- (112.513,31.224)
+			-- (111.669,30.775)
+			-- (110.683,30.405)
+			-- (109.559,30.116)
+			-- (108.299,29.909)
+			-- (106.906,29.785)
+			-- (105.385,29.744)
+			-- (103.739,29.785)
+			-- (101.973,29.909)
+			-- (100.093,30.116)
+			-- (98.102,30.405)
+			-- (96.007,30.775)
+			-- (93.814,31.224)
+			-- (91.527,31.753)
+			-- (89.154,32.359)
+			-- (86.702,33.041)
+			-- (84.176,33.797)
+			-- (81.584,34.625)
+			-- (78.933,35.522)
+			-- (76.229,36.486)
+			-- (73.482,37.515)
+			-- (70.697,38.606)
+			-- (67.883,39.755)
+			-- (65.048,40.959)
+			-- (62.198,42.216)
+			-- (59.343,43.521)
+			-- (56.489,44.872)
+			-- (53.646,46.264)
+			-- (50.819,47.694)
+			-- (48.018,49.157)
+			-- (45.249,50.65)
+			-- (42.521,52.169)
+			-- (39.841,53.709)
+			-- (37.216,55.267)
+			-- (34.653,56.837)
+			-- (32.16,58.417)
+			-- (29.744,60)
+			-- (27.41,61.583)
+			-- (25.165,63.163)
+			-- (23.016,64.733)
+			-- (20.969,66.291)
+			-- (19.028,67.831)
+			-- (17.2,69.35)
+			-- (15.489,70.843)
+			-- (13.9,72.306)
+			-- (12.437,73.736)
+			-- (11.105,75.128)
+			-- (9.907,76.479)
+			-- (8.846,77.784)
+			-- (7.925,79.041)
+			-- (7.147,80.245)
+			-- (6.514,81.394)
+			-- (6.027,82.485)
+			-- (5.689,83.514)
+			-- (5.499,84.478)
+			-- (5.459,85.375)
+			-- (5.568,86.203)
+			-- (5.826,86.959)
+			-- (6.233,87.641)
+			-- (6.787,88.247)
+			-- (7.487,88.776)
+			-- (8.331,89.225)
+			-- (9.317,89.595)
+			-- (10.441,89.884)
+			-- (11.701,90.091)
+			-- (13.094,90.215)
+			-- (14.615,90.256)
+			-- (16.261,90.215)
+			-- (18.027,90.091)
+			-- (19.907,89.884)
+			-- (21.898,89.595)
+			-- (23.993,89.225)
+			-- (26.186,88.776)
+			-- (28.473,88.247)
+			-- (30.846,87.641)
+			-- (33.298,86.959)
+			-- (35.824,86.203)
+			-- (38.416,85.375)
+			-- (41.067,84.478)
+			-- (43.771,83.514)
+			-- (46.518,82.485)
+			-- (49.303,81.394)
+			-- (52.117,80.245)
+			-- (54.952,79.041)
+			-- (57.802,77.784)
+			-- (60.657,76.479)
+			-- (63.511,75.128)
+			-- (66.354,73.736)
+			-- (69.181,72.306)
+			-- (71.982,70.843)
+			-- (74.751,69.35)
+			-- (77.479,67.831)
+			-- (80.159,66.291)
+			-- (82.784,64.733)
+			-- (85.347,63.163)
+			-- (87.84,61.583)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(90.256,60)
+			-- (90.256,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(81.394,38.606)
+			-- (113.486,38.606);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,29.744)
+			-- (105.385,29.744);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(38.606,38.606)
+			-- (70.697,38.606);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(29.744,60)
+			-- (29.744,60);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(38.606,81.394)
+			-- (6.514,81.394);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,90.256)
+			-- (14.615,90.256);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(81.394,81.394)
+			-- (49.303,81.394);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(90.256,60)
+			-- (90.256,60);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(84.256,59)
+			-- (90.256,60)
+			-- (84.256,61);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(107.486,37.606)
+			-- (113.486,38.606)
+			-- (107.486,39.606);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(99.385,28.744)
+			-- (105.385,29.744)
+			-- (99.385,30.744);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(64.697,37.606)
+			-- (70.697,38.606)
+			-- (64.697,39.606);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(23.744,59)
+			-- (29.744,60)
+			-- (23.744,61);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(12.514,82.394)
+			-- (6.514,81.394)
+			-- (12.514,80.394);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(20.615,91.256)
+			-- (14.615,90.256)
+			-- (20.615,89.256);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(55.303,82.394)
+			-- (49.303,81.394)
+			-- (55.303,80.394);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(96.256,61)
+			-- (90.256,60)
+			-- (96.256,59);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 3pt off 2.4pt]
+			(0,60)
+			-- (120,60);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+only one \(\vec{x}\) and one \(\lambda\):\par
+		\(A\vec{e}_1=\lambda\vec{e}_1\)\par
+		\(\downarrow\)\par
+		\(\vec{x}=\vec{e}_1\)\par
+		\vspace{6pt}
+		\(\lambda=A_{11}=A_{22}\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+no eigenbasis\par
+		\vspace{6pt}
+		\(A\) is not diagonalizable\par
+\par
+\end{samepage}
+\par}
+
+\EVCaseSeparator
+\EVCaseHeading{Symmetric transformation}
+{\centering
+	\(A = \begin{bmatrix}2 & 0.6\\0.6 & 1.2\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		tilted ellipse\par
+		\vspace{6pt}
+		ellipse axes align with \(\vec{x}_1\) and \(\vec{x}_2\)\par
+		\vspace{6pt}
+		both directions stretched\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (180,24)
+		-- (216,-48)
+		-- (96,-12)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(-60,96)
+		-- (60,60)
+		-- (96,-12)
+		-- (-24,24)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(-96,168)
+		-- (24,132)
+		-- (60,60)
+		-- (-60,96)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(24,132)
+		-- (144,96)
+		-- (180,24)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (95.122,-10.244);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,68.78)
+		-- (65.854,-1.463);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(1.463,77.561)
+		-- (36.585,7.317);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(-27.805,86.341)
+		-- (7.317,16.098);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(-57.073,95.122)
+		-- (-21.951,24.878);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (-57.073,95.122);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(68.78,42.439)
+		-- (-48.293,77.561);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(77.561,24.878)
+		-- (-39.512,60);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(86.341,7.317)
+		-- (-30.732,42.439);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(95.122,-10.244)
+		-- (-21.951,24.878);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (24.878,130.244);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,68.78)
+		-- (-4.39,139.024);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(1.463,77.561)
+		-- (-33.659,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(-27.805,86.341)
+		-- (-62.927,156.585);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(-57.073,95.122)
+		-- (-92.195,165.366);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (-57.073,95.122);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(51.22,77.561)
+		-- (-65.854,112.683);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(42.439,95.122)
+		-- (-74.634,130.244);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(33.659,112.683)
+		-- (-83.415,147.805);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(24.878,130.244)
+		-- (-92.195,165.366);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (24.878,130.244);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,51.22)
+		-- (54.146,121.463);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(118.537,42.439)
+		-- (83.415,112.683);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(147.805,33.659)
+		-- (112.683,103.902);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(177.073,24.878)
+		-- (141.951,95.122);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (177.073,24.878);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(51.22,77.561)
+		-- (168.293,42.439);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(42.439,95.122)
+		-- (159.512,60);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(33.659,112.683)
+		-- (150.732,77.561);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(24.878,130.244)
+		-- (141.951,95.122);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (95.122,-10.244);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,51.22)
+		-- (124.39,-19.024);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(118.537,42.439)
+		-- (153.659,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(147.805,33.659)
+		-- (182.927,-36.585);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(177.073,24.878)
+		-- (212.195,-45.366);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (177.073,24.878);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(68.78,42.439)
+		-- (185.854,7.317);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(77.561,24.878)
+		-- (194.634,-10.244);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(86.341,7.317)
+		-- (203.415,-27.805);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(95.122,-10.244)
+		-- (212.195,-45.366);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(86.123,0)
+			-- (86.123,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(112.245,0)
+			-- (112.245,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(33.877,0)
+			-- (33.877,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(7.755,0)
+			-- (7.755,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,86.123)
+			-- (120,86.123);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,112.245)
+			-- (120,112.245);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,33.877)
+			-- (120,33.877);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,7.755)
+			-- (120,7.755);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.163pt off 1.163pt]
+			(86.123,60)
+			-- (86.087,58.633)
+			-- (85.979,57.269)
+			-- (85.801,55.914)
+			-- (85.552,54.569)
+			-- (85.232,53.239)
+			-- (84.844,51.928)
+			-- (84.387,50.639)
+			-- (83.864,49.375)
+			-- (83.275,48.141)
+			-- (82.623,46.939)
+			-- (81.908,45.773)
+			-- (81.134,44.646)
+			-- (80.301,43.561)
+			-- (79.413,42.521)
+			-- (78.471,41.529)
+			-- (77.479,40.587)
+			-- (76.439,39.699)
+			-- (75.354,38.866)
+			-- (74.227,38.092)
+			-- (73.061,37.377)
+			-- (71.859,36.725)
+			-- (70.625,36.136)
+			-- (69.361,35.613)
+			-- (68.072,35.156)
+			-- (66.761,34.768)
+			-- (65.431,34.448)
+			-- (64.086,34.199)
+			-- (62.731,34.021)
+			-- (61.367,33.913)
+			-- (60,33.877)
+			-- (58.633,33.913)
+			-- (57.269,34.021)
+			-- (55.914,34.199)
+			-- (54.569,34.448)
+			-- (53.239,34.768)
+			-- (51.928,35.156)
+			-- (50.639,35.613)
+			-- (49.375,36.136)
+			-- (48.141,36.725)
+			-- (46.939,37.377)
+			-- (45.773,38.092)
+			-- (44.646,38.866)
+			-- (43.561,39.699)
+			-- (42.521,40.587)
+			-- (41.529,41.529)
+			-- (40.587,42.521)
+			-- (39.699,43.561)
+			-- (38.866,44.646)
+			-- (38.092,45.773)
+			-- (37.377,46.939)
+			-- (36.725,48.141)
+			-- (36.136,49.375)
+			-- (35.613,50.639)
+			-- (35.156,51.928)
+			-- (34.768,53.239)
+			-- (34.448,54.569)
+			-- (34.199,55.914)
+			-- (34.021,57.269)
+			-- (33.913,58.633)
+			-- (33.877,60)
+			-- (33.913,61.367)
+			-- (34.021,62.731)
+			-- (34.199,64.086)
+			-- (34.448,65.431)
+			-- (34.768,66.761)
+			-- (35.156,68.072)
+			-- (35.613,69.361)
+			-- (36.136,70.625)
+			-- (36.725,71.859)
+			-- (37.377,73.061)
+			-- (38.092,74.227)
+			-- (38.866,75.354)
+			-- (39.699,76.439)
+			-- (40.587,77.479)
+			-- (41.529,78.471)
+			-- (42.521,79.413)
+			-- (43.561,80.301)
+			-- (44.646,81.134)
+			-- (45.773,81.908)
+			-- (46.939,82.623)
+			-- (48.141,83.275)
+			-- (49.375,83.864)
+			-- (50.639,84.387)
+			-- (51.928,84.844)
+			-- (53.239,85.232)
+			-- (54.569,85.552)
+			-- (55.914,85.801)
+			-- (57.269,85.979)
+			-- (58.633,86.087)
+			-- (60,86.123)
+			-- (61.367,86.087)
+			-- (62.731,85.979)
+			-- (64.086,85.801)
+			-- (65.431,85.552)
+			-- (66.761,85.232)
+			-- (68.072,84.844)
+			-- (69.361,84.387)
+			-- (70.625,83.864)
+			-- (71.859,83.275)
+			-- (73.061,82.623)
+			-- (74.227,81.908)
+			-- (75.354,81.134)
+			-- (76.439,80.301)
+			-- (77.479,79.413)
+			-- (78.471,78.471)
+			-- (79.413,77.479)
+			-- (80.301,76.439)
+			-- (81.134,75.354)
+			-- (81.908,74.227)
+			-- (82.623,73.061)
+			-- (83.275,71.859)
+			-- (83.864,70.625)
+			-- (84.387,69.361)
+			-- (84.844,68.072)
+			-- (85.232,66.761)
+			-- (85.552,65.431)
+			-- (85.801,64.086)
+			-- (85.979,62.731)
+			-- (86.087,61.367)
+			-- (86.123,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (86.123,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,33.877);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (33.877,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,86.123);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (86.123,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.123,59)
+			-- (86.123,60)
+			-- (80.123,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,39.877)
+			-- (60,33.877)
+			-- (61,39.877);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(39.877,61)
+			-- (33.877,60)
+			-- (39.877,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,80.123)
+			-- (60,86.123)
+			-- (59,80.123);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.123,59)
+			-- (86.123,60)
+			-- (80.123,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(112.245,44.326)
+			-- (112.994,42.707)
+			-- (113.597,41.136)
+			-- (114.054,39.616)
+			-- (114.362,38.152)
+			-- (114.521,36.747)
+			-- (114.531,35.407)
+			-- (114.392,34.134)
+			-- (114.103,32.932)
+			-- (113.666,31.804)
+			-- (113.082,30.753)
+			-- (112.353,29.782)
+			-- (111.48,28.895)
+			-- (110.466,28.092)
+			-- (109.313,27.377)
+			-- (108.026,26.751)
+			-- (106.606,26.217)
+			-- (105.06,25.775)
+			-- (103.389,25.427)
+			-- (101.6,25.174)
+			-- (99.696,25.016)
+			-- (97.684,24.954)
+			-- (95.568,24.988)
+			-- (93.355,25.118)
+			-- (91.051,25.344)
+			-- (88.661,25.664)
+			-- (86.193,26.079)
+			-- (83.653,26.587)
+			-- (81.049,27.186)
+			-- (78.386,27.876)
+			-- (75.674,28.653)
+			-- (72.918,29.516)
+			-- (70.127,30.463)
+			-- (67.308,31.491)
+			-- (64.469,32.597)
+			-- (61.617,33.778)
+			-- (58.762,35.031)
+			-- (55.91,36.352)
+			-- (53.068,37.738)
+			-- (50.246,39.185)
+			-- (47.451,40.689)
+			-- (44.69,42.247)
+			-- (41.971,43.852)
+			-- (39.302,45.502)
+			-- (36.689,47.192)
+			-- (34.14,48.917)
+			-- (31.662,50.672)
+			-- (29.262,52.453)
+			-- (26.946,54.255)
+			-- (24.72,56.072)
+			-- (22.591,57.9)
+			-- (20.565,59.734)
+			-- (18.647,61.568)
+			-- (16.842,63.399)
+			-- (15.155,65.22)
+			-- (13.592,67.026)
+			-- (12.155,68.814)
+			-- (10.85,70.577)
+			-- (9.679,72.311)
+			-- (8.647,74.011)
+			-- (7.755,75.674)
+			-- (7.006,77.293)
+			-- (6.403,78.864)
+			-- (5.946,80.384)
+			-- (5.638,81.848)
+			-- (5.479,83.253)
+			-- (5.469,84.593)
+			-- (5.608,85.866)
+			-- (5.897,87.068)
+			-- (6.334,88.196)
+			-- (6.918,89.247)
+			-- (7.647,90.218)
+			-- (8.52,91.105)
+			-- (9.534,91.908)
+			-- (10.687,92.623)
+			-- (11.974,93.249)
+			-- (13.394,93.783)
+			-- (14.94,94.225)
+			-- (16.611,94.573)
+			-- (18.4,94.826)
+			-- (20.304,94.984)
+			-- (22.316,95.046)
+			-- (24.432,95.012)
+			-- (26.645,94.882)
+			-- (28.949,94.656)
+			-- (31.339,94.336)
+			-- (33.807,93.921)
+			-- (36.347,93.413)
+			-- (38.951,92.814)
+			-- (41.614,92.124)
+			-- (44.326,91.347)
+			-- (47.082,90.484)
+			-- (49.873,89.537)
+			-- (52.692,88.509)
+			-- (55.531,87.403)
+			-- (58.383,86.222)
+			-- (61.238,84.969)
+			-- (64.09,83.648)
+			-- (66.932,82.262)
+			-- (69.754,80.815)
+			-- (72.549,79.311)
+			-- (75.31,77.753)
+			-- (78.029,76.148)
+			-- (80.698,74.498)
+			-- (83.311,72.808)
+			-- (85.86,71.083)
+			-- (88.338,69.328)
+			-- (90.738,67.547)
+			-- (93.054,65.745)
+			-- (95.28,63.928)
+			-- (97.409,62.1)
+			-- (99.435,60.266)
+			-- (101.353,58.432)
+			-- (103.158,56.601)
+			-- (104.845,54.78)
+			-- (106.408,52.974)
+			-- (107.845,51.186)
+			-- (109.15,49.423)
+			-- (110.321,47.689)
+			-- (111.353,45.989)
+			-- (112.245,44.326);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (112.245,44.326);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (75.674,28.653);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (7.755,75.674);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (44.326,91.347);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (112.245,44.326);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(105.388,45.197)
+			-- (112.245,44.326)
+			-- (106.041,47.374);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(72.096,33.572)
+			-- (75.674,28.653)
+			-- (73.885,34.467);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(14.612,74.803)
+			-- (7.755,75.674)
+			-- (13.959,72.626);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(47.904,86.428)
+			-- (44.326,91.347)
+			-- (46.115,85.533);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(105.388,45.197)
+			-- (112.245,44.326)
+			-- (106.041,47.374);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{1,0,0}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(86.123,0)
+			-- (86.123,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(112.245,0)
+			-- (112.245,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(33.877,0)
+			-- (33.877,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(7.755,0)
+			-- (7.755,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,86.123)
+			-- (120,86.123);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,112.245)
+			-- (120,112.245);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,33.877)
+			-- (120,33.877);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,7.755)
+			-- (120,7.755);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 1.163pt off 1.163pt]
+			(86.123,60)
+			-- (86.087,58.633)
+			-- (85.979,57.269)
+			-- (85.801,55.914)
+			-- (85.552,54.569)
+			-- (85.232,53.239)
+			-- (84.844,51.928)
+			-- (84.387,50.639)
+			-- (83.864,49.375)
+			-- (83.275,48.141)
+			-- (82.623,46.939)
+			-- (81.908,45.773)
+			-- (81.134,44.646)
+			-- (80.301,43.561)
+			-- (79.413,42.521)
+			-- (78.471,41.529)
+			-- (77.479,40.587)
+			-- (76.439,39.699)
+			-- (75.354,38.866)
+			-- (74.227,38.092)
+			-- (73.061,37.377)
+			-- (71.859,36.725)
+			-- (70.625,36.136)
+			-- (69.361,35.613)
+			-- (68.072,35.156)
+			-- (66.761,34.768)
+			-- (65.431,34.448)
+			-- (64.086,34.199)
+			-- (62.731,34.021)
+			-- (61.367,33.913)
+			-- (60,33.877)
+			-- (58.633,33.913)
+			-- (57.269,34.021)
+			-- (55.914,34.199)
+			-- (54.569,34.448)
+			-- (53.239,34.768)
+			-- (51.928,35.156)
+			-- (50.639,35.613)
+			-- (49.375,36.136)
+			-- (48.141,36.725)
+			-- (46.939,37.377)
+			-- (45.773,38.092)
+			-- (44.646,38.866)
+			-- (43.561,39.699)
+			-- (42.521,40.587)
+			-- (41.529,41.529)
+			-- (40.587,42.521)
+			-- (39.699,43.561)
+			-- (38.866,44.646)
+			-- (38.092,45.773)
+			-- (37.377,46.939)
+			-- (36.725,48.141)
+			-- (36.136,49.375)
+			-- (35.613,50.639)
+			-- (35.156,51.928)
+			-- (34.768,53.239)
+			-- (34.448,54.569)
+			-- (34.199,55.914)
+			-- (34.021,57.269)
+			-- (33.913,58.633)
+			-- (33.877,60)
+			-- (33.913,61.367)
+			-- (34.021,62.731)
+			-- (34.199,64.086)
+			-- (34.448,65.431)
+			-- (34.768,66.761)
+			-- (35.156,68.072)
+			-- (35.613,69.361)
+			-- (36.136,70.625)
+			-- (36.725,71.859)
+			-- (37.377,73.061)
+			-- (38.092,74.227)
+			-- (38.866,75.354)
+			-- (39.699,76.439)
+			-- (40.587,77.479)
+			-- (41.529,78.471)
+			-- (42.521,79.413)
+			-- (43.561,80.301)
+			-- (44.646,81.134)
+			-- (45.773,81.908)
+			-- (46.939,82.623)
+			-- (48.141,83.275)
+			-- (49.375,83.864)
+			-- (50.639,84.387)
+			-- (51.928,84.844)
+			-- (53.239,85.232)
+			-- (54.569,85.552)
+			-- (55.914,85.801)
+			-- (57.269,85.979)
+			-- (58.633,86.087)
+			-- (60,86.123)
+			-- (61.367,86.087)
+			-- (62.731,85.979)
+			-- (64.086,85.801)
+			-- (65.431,85.552)
+			-- (66.761,85.232)
+			-- (68.072,84.844)
+			-- (69.361,84.387)
+			-- (70.625,83.864)
+			-- (71.859,83.275)
+			-- (73.061,82.623)
+			-- (74.227,81.908)
+			-- (75.354,81.134)
+			-- (76.439,80.301)
+			-- (77.479,79.413)
+			-- (78.471,78.471)
+			-- (79.413,77.479)
+			-- (80.301,76.439)
+			-- (81.134,75.354)
+			-- (81.908,74.227)
+			-- (82.623,73.061)
+			-- (83.275,71.859)
+			-- (83.864,70.625)
+			-- (84.387,69.361)
+			-- (84.844,68.072)
+			-- (85.232,66.761)
+			-- (85.552,65.431)
+			-- (85.801,64.086)
+			-- (85.979,62.731)
+			-- (86.087,61.367)
+			-- (86.123,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (86.123,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,33.877);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (33.877,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,86.123);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (86.123,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.123,59)
+			-- (86.123,60)
+			-- (80.123,61);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(59,39.877)
+			-- (60,33.877)
+			-- (61,39.877);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(39.877,61)
+			-- (33.877,60)
+			-- (39.877,59);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61,80.123)
+			-- (60,86.123)
+			-- (59,80.123);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(80.123,59)
+			-- (86.123,60)
+			-- (80.123,61);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(112.245,44.326)
+			-- (112.994,42.707)
+			-- (113.597,41.136)
+			-- (114.054,39.616)
+			-- (114.362,38.152)
+			-- (114.521,36.747)
+			-- (114.531,35.407)
+			-- (114.392,34.134)
+			-- (114.103,32.932)
+			-- (113.666,31.804)
+			-- (113.082,30.753)
+			-- (112.353,29.782)
+			-- (111.48,28.895)
+			-- (110.466,28.092)
+			-- (109.313,27.377)
+			-- (108.026,26.751)
+			-- (106.606,26.217)
+			-- (105.06,25.775)
+			-- (103.389,25.427)
+			-- (101.6,25.174)
+			-- (99.696,25.016)
+			-- (97.684,24.954)
+			-- (95.568,24.988)
+			-- (93.355,25.118)
+			-- (91.051,25.344)
+			-- (88.661,25.664)
+			-- (86.193,26.079)
+			-- (83.653,26.587)
+			-- (81.049,27.186)
+			-- (78.386,27.876)
+			-- (75.674,28.653)
+			-- (72.918,29.516)
+			-- (70.127,30.463)
+			-- (67.308,31.491)
+			-- (64.469,32.597)
+			-- (61.617,33.778)
+			-- (58.762,35.031)
+			-- (55.91,36.352)
+			-- (53.068,37.738)
+			-- (50.246,39.185)
+			-- (47.451,40.689)
+			-- (44.69,42.247)
+			-- (41.971,43.852)
+			-- (39.302,45.502)
+			-- (36.689,47.192)
+			-- (34.14,48.917)
+			-- (31.662,50.672)
+			-- (29.262,52.453)
+			-- (26.946,54.255)
+			-- (24.72,56.072)
+			-- (22.591,57.9)
+			-- (20.565,59.734)
+			-- (18.647,61.568)
+			-- (16.842,63.399)
+			-- (15.155,65.22)
+			-- (13.592,67.026)
+			-- (12.155,68.814)
+			-- (10.85,70.577)
+			-- (9.679,72.311)
+			-- (8.647,74.011)
+			-- (7.755,75.674)
+			-- (7.006,77.293)
+			-- (6.403,78.864)
+			-- (5.946,80.384)
+			-- (5.638,81.848)
+			-- (5.479,83.253)
+			-- (5.469,84.593)
+			-- (5.608,85.866)
+			-- (5.897,87.068)
+			-- (6.334,88.196)
+			-- (6.918,89.247)
+			-- (7.647,90.218)
+			-- (8.52,91.105)
+			-- (9.534,91.908)
+			-- (10.687,92.623)
+			-- (11.974,93.249)
+			-- (13.394,93.783)
+			-- (14.94,94.225)
+			-- (16.611,94.573)
+			-- (18.4,94.826)
+			-- (20.304,94.984)
+			-- (22.316,95.046)
+			-- (24.432,95.012)
+			-- (26.645,94.882)
+			-- (28.949,94.656)
+			-- (31.339,94.336)
+			-- (33.807,93.921)
+			-- (36.347,93.413)
+			-- (38.951,92.814)
+			-- (41.614,92.124)
+			-- (44.326,91.347)
+			-- (47.082,90.484)
+			-- (49.873,89.537)
+			-- (52.692,88.509)
+			-- (55.531,87.403)
+			-- (58.383,86.222)
+			-- (61.238,84.969)
+			-- (64.09,83.648)
+			-- (66.932,82.262)
+			-- (69.754,80.815)
+			-- (72.549,79.311)
+			-- (75.31,77.753)
+			-- (78.029,76.148)
+			-- (80.698,74.498)
+			-- (83.311,72.808)
+			-- (85.86,71.083)
+			-- (88.338,69.328)
+			-- (90.738,67.547)
+			-- (93.054,65.745)
+			-- (95.28,63.928)
+			-- (97.409,62.1)
+			-- (99.435,60.266)
+			-- (101.353,58.432)
+			-- (103.158,56.601)
+			-- (104.845,54.78)
+			-- (106.408,52.974)
+			-- (107.845,51.186)
+			-- (109.15,49.423)
+			-- (110.321,47.689)
+			-- (111.353,45.989)
+			-- (112.245,44.326);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(86.123,60)
+			-- (112.245,44.326);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,33.877)
+			-- (75.674,28.653);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(33.877,60)
+			-- (7.755,75.674);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,86.123)
+			-- (44.326,91.347);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(86.123,60)
+			-- (112.245,44.326);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(106.586,46.556)
+			-- (112.245,44.326)
+			-- (107.615,48.271);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(69.665,29.602)
+			-- (75.674,28.653)
+			-- (70.298,31.499);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(13.414,73.444)
+			-- (7.755,75.674)
+			-- (12.385,71.729);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(50.335,90.398)
+			-- (44.326,91.347)
+			-- (49.702,88.501);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(106.586,46.556)
+			-- (112.245,44.326)
+			-- (107.615,48.271);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter]
+			(0,92.111)
+			-- (120,27.889);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 3pt off 2.4pt]
+			(92.111,120)
+			-- (27.889,0);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+two \(\lambda \in \mathbb{R}\)\par
+		two \(\vec{x}\in\mathbb{R}^2\)\par
+		\vspace{6pt}
+		\(\lambda_1>0\)\par
+		\(\lambda_2>0\)\par
+		\vspace{6pt}
+		\(\vec{x}_1\cdot\vec{x}_2=0\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(Q=[\vec{x}_1|\vec{x}_2]\)\par
+		\vspace{6pt}
+		chosen orthonormal eigenbasis; signs may be reversed\par
+\par
+\end{samepage}
+\par}
+
+\EVCaseSeparator
+\EVCaseHeading{Projection (also symmetric)}
+{\centering
+	\(A = \begin{bmatrix}0.75 &  \approx 0.433\\ \approx 0.433 & 0.25\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		line segment\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (105,34.019)
+		-- (130.981,19.019)
+		-- (85.981,45)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(15,85.981)
+		-- (60,60)
+		-- (85.981,45)
+		-- (40.981,70.981)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(-10.981,100.981)
+		-- (34.019,75)
+		-- (60,60)
+		-- (15,85.981)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(34.019,75)
+		-- (79.019,49.019)
+		-- (105,34.019)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (85.347,45.366);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(49.024,66.337)
+		-- (74.371,51.703);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,72.674)
+		-- (63.396,58.039);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(27.073,79.01)
+		-- (52.42,64.376);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,85.347)
+		-- (41.445,70.713);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (16.098,85.347);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(66.337,56.341)
+		-- (22.434,81.689);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(72.674,52.683)
+		-- (28.771,78.03);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(79.01,49.024)
+		-- (35.108,74.371);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(85.347,45.366)
+		-- (41.445,70.713);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (34.653,74.634);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(49.024,66.337)
+		-- (23.677,80.971);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,72.674)
+		-- (12.702,87.308);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(27.073,79.01)
+		-- (1.726,93.644);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(16.098,85.347)
+		-- (-9.25,99.981);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (16.098,85.347);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(53.663,63.659)
+		-- (9.761,89.006);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(47.326,67.317)
+		-- (3.424,92.664);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(40.99,70.976)
+		-- (-2.913,96.323);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(34.653,74.634)
+		-- (-9.25,99.981);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (34.653,74.634);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(70.976,53.663)
+		-- (45.629,68.297);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,47.326)
+		-- (56.604,61.961);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(92.927,40.99)
+		-- (67.58,55.624);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,34.653)
+		-- (78.555,49.287);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (103.902,34.653);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(53.663,63.659)
+		-- (97.566,38.311);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(47.326,67.317)
+		-- (91.229,41.97);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(40.99,70.976)
+		-- (84.892,45.629);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(34.653,74.634)
+		-- (78.555,49.287);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (85.347,45.366);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(70.976,53.663)
+		-- (96.323,39.029);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,47.326)
+		-- (107.298,32.692);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(92.927,40.99)
+		-- (118.274,26.356);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(103.902,34.653)
+		-- (129.25,20.019);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (103.902,34.653);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(66.337,56.341)
+		-- (110.239,30.994);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(72.674,52.683)
+		-- (116.576,27.336);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(79.01,49.024)
+		-- (122.913,23.677);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(85.347,45.366)
+		-- (129.25,20.019);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,0)
+			-- (114.545,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,0)
+			-- (5.455,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,114.545)
+			-- (120,114.545);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,5.455)
+			-- (120,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 2.428pt off 2.428pt]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(100.909,36.381)
+			-- (102.089,35.7)
+			-- (103.154,35.085)
+			-- (104.1,34.539)
+			-- (104.926,34.062)
+			-- (105.628,33.657)
+			-- (106.205,33.323)
+			-- (106.656,33.063)
+			-- (106.979,32.877)
+			-- (107.173,32.765)
+			-- (107.238,32.727)
+			-- (107.173,32.765)
+			-- (106.979,32.877)
+			-- (106.656,33.063)
+			-- (106.205,33.323)
+			-- (105.628,33.657)
+			-- (104.926,34.062)
+			-- (104.1,34.539)
+			-- (103.154,35.085)
+			-- (102.089,35.7)
+			-- (100.909,36.381)
+			-- (99.617,37.127)
+			-- (98.216,37.936)
+			-- (96.711,38.805)
+			-- (95.104,39.732)
+			-- (93.402,40.715)
+			-- (91.608,41.751)
+			-- (89.728,42.837)
+			-- (87.766,43.969)
+			-- (85.728,45.146)
+			-- (83.619,46.364)
+			-- (81.445,47.618)
+			-- (79.213,48.907)
+			-- (76.928,50.226)
+			-- (74.597,51.572)
+			-- (72.226,52.941)
+			-- (69.821,54.33)
+			-- (67.39,55.734)
+			-- (64.938,57.149)
+			-- (62.472,58.573)
+			-- (60,60)
+			-- (57.528,61.427)
+			-- (55.062,62.851)
+			-- (52.61,64.266)
+			-- (50.179,65.67)
+			-- (47.774,67.059)
+			-- (45.403,68.428)
+			-- (43.072,69.774)
+			-- (40.787,71.093)
+			-- (38.555,72.382)
+			-- (36.381,73.636)
+			-- (34.272,74.854)
+			-- (32.234,76.031)
+			-- (30.272,77.163)
+			-- (28.392,78.249)
+			-- (26.598,79.285)
+			-- (24.896,80.268)
+			-- (23.289,81.195)
+			-- (21.784,82.064)
+			-- (20.383,82.873)
+			-- (19.091,83.619)
+			-- (17.911,84.3)
+			-- (16.846,84.915)
+			-- (15.9,85.461)
+			-- (15.074,85.938)
+			-- (14.372,86.343)
+			-- (13.795,86.677)
+			-- (13.344,86.937)
+			-- (13.021,87.123)
+			-- (12.827,87.235)
+			-- (12.762,87.273)
+			-- (12.827,87.235)
+			-- (13.021,87.123)
+			-- (13.344,86.937)
+			-- (13.795,86.677)
+			-- (14.372,86.343)
+			-- (15.074,85.938)
+			-- (15.9,85.461)
+			-- (16.846,84.915)
+			-- (17.911,84.3)
+			-- (19.091,83.619)
+			-- (20.383,82.873)
+			-- (21.784,82.064)
+			-- (23.289,81.195)
+			-- (24.896,80.268)
+			-- (26.598,79.285)
+			-- (28.392,78.249)
+			-- (30.272,77.163)
+			-- (32.234,76.031)
+			-- (34.272,74.854)
+			-- (36.381,73.636)
+			-- (38.555,72.382)
+			-- (40.787,71.093)
+			-- (43.072,69.774)
+			-- (45.403,68.428)
+			-- (47.774,67.059)
+			-- (50.179,65.67)
+			-- (52.61,64.266)
+			-- (55.062,62.851)
+			-- (57.528,61.427)
+			-- (60,60)
+			-- (62.472,58.573)
+			-- (64.938,57.149)
+			-- (67.39,55.734)
+			-- (69.821,54.33)
+			-- (72.226,52.941)
+			-- (74.597,51.572)
+			-- (76.928,50.226)
+			-- (79.213,48.907)
+			-- (81.445,47.618)
+			-- (83.619,46.364)
+			-- (85.728,45.146)
+			-- (87.766,43.969)
+			-- (89.728,42.837)
+			-- (91.608,41.751)
+			-- (93.402,40.715)
+			-- (95.104,39.732)
+			-- (96.711,38.805)
+			-- (98.216,37.936)
+			-- (99.617,37.127)
+			-- (100.909,36.381);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (100.909,36.381);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (83.619,46.364);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (19.091,83.619);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (36.381,73.636);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (100.909,36.381);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(95.213,38.515)
+			-- (100.909,36.381)
+			-- (96.213,40.247);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(77.923,48.498)
+			-- (83.619,46.364)
+			-- (78.923,50.23);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(24.787,81.485)
+			-- (19.091,83.619)
+			-- (23.787,79.753);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(42.077,71.502)
+			-- (36.381,73.636)
+			-- (41.077,69.77);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(95.213,38.515)
+			-- (100.909,36.381)
+			-- (96.213,40.247);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{1,0,0}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,0)
+			-- (114.545,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,0)
+			-- (5.455,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,114.545)
+			-- (120,114.545);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,5.455)
+			-- (120,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 2.428pt off 2.428pt]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(100.909,36.381)
+			-- (102.089,35.7)
+			-- (103.154,35.085)
+			-- (104.1,34.539)
+			-- (104.926,34.062)
+			-- (105.628,33.657)
+			-- (106.205,33.323)
+			-- (106.656,33.063)
+			-- (106.979,32.877)
+			-- (107.173,32.765)
+			-- (107.238,32.727)
+			-- (107.173,32.765)
+			-- (106.979,32.877)
+			-- (106.656,33.063)
+			-- (106.205,33.323)
+			-- (105.628,33.657)
+			-- (104.926,34.062)
+			-- (104.1,34.539)
+			-- (103.154,35.085)
+			-- (102.089,35.7)
+			-- (100.909,36.381)
+			-- (99.617,37.127)
+			-- (98.216,37.936)
+			-- (96.711,38.805)
+			-- (95.104,39.732)
+			-- (93.402,40.715)
+			-- (91.608,41.751)
+			-- (89.728,42.837)
+			-- (87.766,43.969)
+			-- (85.728,45.146)
+			-- (83.619,46.364)
+			-- (81.445,47.618)
+			-- (79.213,48.907)
+			-- (76.928,50.226)
+			-- (74.597,51.572)
+			-- (72.226,52.941)
+			-- (69.821,54.33)
+			-- (67.39,55.734)
+			-- (64.938,57.149)
+			-- (62.472,58.573)
+			-- (60,60)
+			-- (57.528,61.427)
+			-- (55.062,62.851)
+			-- (52.61,64.266)
+			-- (50.179,65.67)
+			-- (47.774,67.059)
+			-- (45.403,68.428)
+			-- (43.072,69.774)
+			-- (40.787,71.093)
+			-- (38.555,72.382)
+			-- (36.381,73.636)
+			-- (34.272,74.854)
+			-- (32.234,76.031)
+			-- (30.272,77.163)
+			-- (28.392,78.249)
+			-- (26.598,79.285)
+			-- (24.896,80.268)
+			-- (23.289,81.195)
+			-- (21.784,82.064)
+			-- (20.383,82.873)
+			-- (19.091,83.619)
+			-- (17.911,84.3)
+			-- (16.846,84.915)
+			-- (15.9,85.461)
+			-- (15.074,85.938)
+			-- (14.372,86.343)
+			-- (13.795,86.677)
+			-- (13.344,86.937)
+			-- (13.021,87.123)
+			-- (12.827,87.235)
+			-- (12.762,87.273)
+			-- (12.827,87.235)
+			-- (13.021,87.123)
+			-- (13.344,86.937)
+			-- (13.795,86.677)
+			-- (14.372,86.343)
+			-- (15.074,85.938)
+			-- (15.9,85.461)
+			-- (16.846,84.915)
+			-- (17.911,84.3)
+			-- (19.091,83.619)
+			-- (20.383,82.873)
+			-- (21.784,82.064)
+			-- (23.289,81.195)
+			-- (24.896,80.268)
+			-- (26.598,79.285)
+			-- (28.392,78.249)
+			-- (30.272,77.163)
+			-- (32.234,76.031)
+			-- (34.272,74.854)
+			-- (36.381,73.636)
+			-- (38.555,72.382)
+			-- (40.787,71.093)
+			-- (43.072,69.774)
+			-- (45.403,68.428)
+			-- (47.774,67.059)
+			-- (50.179,65.67)
+			-- (52.61,64.266)
+			-- (55.062,62.851)
+			-- (57.528,61.427)
+			-- (60,60)
+			-- (62.472,58.573)
+			-- (64.938,57.149)
+			-- (67.39,55.734)
+			-- (69.821,54.33)
+			-- (72.226,52.941)
+			-- (74.597,51.572)
+			-- (76.928,50.226)
+			-- (79.213,48.907)
+			-- (81.445,47.618)
+			-- (83.619,46.364)
+			-- (85.728,45.146)
+			-- (87.766,43.969)
+			-- (89.728,42.837)
+			-- (91.608,41.751)
+			-- (93.402,40.715)
+			-- (95.104,39.732)
+			-- (96.711,38.805)
+			-- (98.216,37.936)
+			-- (99.617,37.127)
+			-- (100.909,36.381);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (100.909,36.381);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,5.455)
+			-- (83.619,46.364);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,60)
+			-- (19.091,83.619);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,114.545)
+			-- (36.381,73.636);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (100.909,36.381);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(103.043,42.077)
+			-- (100.909,36.381)
+			-- (104.775,41.077);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(81.485,40.667)
+			-- (83.619,46.364)
+			-- (79.753,41.667);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(16.957,77.923)
+			-- (19.091,83.619)
+			-- (15.225,78.923);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(38.515,79.333)
+			-- (36.381,73.636)
+			-- (40.247,78.333);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(103.043,42.077)
+			-- (100.909,36.381)
+			-- (104.775,41.077);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter]
+			(0,94.641)
+			-- (120,25.359);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 3pt off 2.4pt]
+			(94.641,120)
+			-- (25.359,0);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(\vec{x}_1=\) image direction\par
+		\(\lambda_1=1\)\par
+		\vspace{6pt}
+		\(\vec{x}_2=\) collapsed direction\par
+		\(\lambda_2=0\)\par
+		\vspace{6pt}
+		\(\vec{x}_1\cdot\vec{x}_2=0\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(Q=[\vec{x}_1|\vec{x}_2]\)\par
+		\vspace{6pt}
+		\(\vec{x}_1:\) image direction\par
+		\(\vec{x}_2:\) collapsed direction\par
+\par
+\end{samepage}
+\par}
+
+\EVCaseSeparator
+\EVCaseHeading{Reflection (also symmetric)}
+{\centering
+	\(A = \begin{bmatrix}0.5 &  \approx 0.866\\ \approx 0.866 & -0.5\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		unit circle\par
+		\vspace{6pt}
+		flips across a line\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (90,8.038)
+		-- (141.962,38.038)
+		-- (111.962,90)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(30,111.962)
+		-- (60,60)
+		-- (111.962,90)
+		-- (81.962,141.962)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(-21.962,81.962)
+		-- (8.038,30)
+		-- (60,60)
+		-- (30,111.962)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(8.038,30)
+		-- (38.038,-21.962)
+		-- (90,8.038)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (110.694,89.268);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(52.683,72.674)
+		-- (103.377,101.942);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(45.366,85.347)
+		-- (96.06,114.615);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,98.021)
+		-- (88.743,127.289);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,110.694)
+		-- (81.426,139.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (30.732,110.694);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(72.674,67.317)
+		-- (43.405,118.011);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(85.347,74.634)
+		-- (56.079,125.328);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(98.021,81.951)
+		-- (68.752,132.645);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(110.694,89.268)
+		-- (81.426,139.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (9.306,30.732);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(52.683,72.674)
+		-- (1.989,43.405);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(45.366,85.347)
+		-- (-5.328,56.079);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,98.021)
+		-- (-12.645,68.752);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,110.694)
+		-- (-19.962,81.426);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (30.732,110.694);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(47.326,52.683)
+		-- (18.058,103.377);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(34.653,45.366)
+		-- (5.385,96.06);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(21.979,38.049)
+		-- (-7.289,88.743);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(9.306,30.732)
+		-- (-19.962,81.426);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (9.306,30.732);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(67.317,47.326)
+		-- (16.623,18.058);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(74.634,34.653)
+		-- (23.94,5.385);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,21.979)
+		-- (31.257,-7.289);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,9.306)
+		-- (38.574,-19.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (89.268,9.306);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(47.326,52.683)
+		-- (76.595,1.989);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(34.653,45.366)
+		-- (63.921,-5.328);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(21.979,38.049)
+		-- (51.248,-12.645);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(9.306,30.732)
+		-- (38.574,-19.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (110.694,89.268);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(67.317,47.326)
+		-- (118.011,76.595);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(74.634,34.653)
+		-- (125.328,63.921);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,21.979)
+		-- (132.645,51.248);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,9.306)
+		-- (139.962,38.574);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (89.268,9.306);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(72.674,67.317)
+		-- (101.942,16.623);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(85.347,74.634)
+		-- (114.615,23.94);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(98.021,81.951)
+		-- (127.289,31.257);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(110.694,89.268)
+		-- (139.962,38.574);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,0)
+			-- (114.545,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,0)
+			-- (5.455,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,114.545)
+			-- (120,114.545);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,5.455)
+			-- (120,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 2.428pt off 2.428pt]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(87.273,12.762)
+			-- (89.708,14.254)
+			-- (92.061,15.872)
+			-- (94.327,17.61)
+			-- (96.498,19.465)
+			-- (98.569,21.431)
+			-- (100.535,23.502)
+			-- (102.39,25.673)
+			-- (104.128,27.939)
+			-- (105.746,30.292)
+			-- (107.238,32.727)
+			-- (108.6,35.237)
+			-- (109.83,37.814)
+			-- (110.923,40.453)
+			-- (111.876,43.145)
+			-- (112.687,45.883)
+			-- (113.354,48.659)
+			-- (113.874,51.467)
+			-- (114.247,54.298)
+			-- (114.471,57.145)
+			-- (114.545,60)
+			-- (114.471,62.855)
+			-- (114.247,65.702)
+			-- (113.874,68.533)
+			-- (113.354,71.341)
+			-- (112.687,74.117)
+			-- (111.876,76.855)
+			-- (110.923,79.547)
+			-- (109.83,82.186)
+			-- (108.6,84.763)
+			-- (107.238,87.273)
+			-- (105.746,89.708)
+			-- (104.128,92.061)
+			-- (102.39,94.327)
+			-- (100.535,96.498)
+			-- (98.569,98.569)
+			-- (96.498,100.535)
+			-- (94.327,102.39)
+			-- (92.061,104.128)
+			-- (89.708,105.746)
+			-- (87.273,107.238)
+			-- (84.763,108.6)
+			-- (82.186,109.83)
+			-- (79.547,110.923)
+			-- (76.855,111.876)
+			-- (74.117,112.687)
+			-- (71.341,113.354)
+			-- (68.533,113.874)
+			-- (65.702,114.247)
+			-- (62.855,114.471)
+			-- (60,114.545)
+			-- (57.145,114.471)
+			-- (54.298,114.247)
+			-- (51.467,113.874)
+			-- (48.659,113.354)
+			-- (45.883,112.687)
+			-- (43.145,111.876)
+			-- (40.453,110.923)
+			-- (37.814,109.83)
+			-- (35.237,108.6)
+			-- (32.727,107.238)
+			-- (30.292,105.746)
+			-- (27.939,104.128)
+			-- (25.673,102.39)
+			-- (23.502,100.535)
+			-- (21.431,98.569)
+			-- (19.465,96.498)
+			-- (17.61,94.327)
+			-- (15.872,92.061)
+			-- (14.254,89.708)
+			-- (12.762,87.273)
+			-- (11.4,84.763)
+			-- (10.17,82.186)
+			-- (9.077,79.547)
+			-- (8.124,76.855)
+			-- (7.313,74.117)
+			-- (6.646,71.341)
+			-- (6.126,68.533)
+			-- (5.753,65.702)
+			-- (5.529,62.855)
+			-- (5.455,60)
+			-- (5.529,57.145)
+			-- (5.753,54.298)
+			-- (6.126,51.467)
+			-- (6.646,48.659)
+			-- (7.313,45.883)
+			-- (8.124,43.145)
+			-- (9.077,40.453)
+			-- (10.17,37.814)
+			-- (11.4,35.237)
+			-- (12.762,32.727)
+			-- (14.254,30.292)
+			-- (15.872,27.939)
+			-- (17.61,25.673)
+			-- (19.465,23.502)
+			-- (21.431,21.431)
+			-- (23.502,19.465)
+			-- (25.673,17.61)
+			-- (27.939,15.872)
+			-- (30.292,14.254)
+			-- (32.727,12.762)
+			-- (35.237,11.4)
+			-- (37.814,10.17)
+			-- (40.453,9.077)
+			-- (43.145,8.124)
+			-- (45.883,7.313)
+			-- (48.659,6.646)
+			-- (51.467,6.126)
+			-- (54.298,5.753)
+			-- (57.145,5.529)
+			-- (60,5.455)
+			-- (62.855,5.529)
+			-- (65.702,5.753)
+			-- (68.533,6.126)
+			-- (71.341,6.646)
+			-- (74.117,7.313)
+			-- (76.855,8.124)
+			-- (79.547,9.077)
+			-- (82.186,10.17)
+			-- (84.763,11.4)
+			-- (87.273,12.762);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (87.273,12.762);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (107.238,87.273);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (32.727,107.238);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (12.762,32.727);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (87.273,12.762);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(82.88,18.099)
+			-- (87.273,12.762)
+			-- (84.848,19.235);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(101.901,82.88)
+			-- (107.238,87.273)
+			-- (100.765,84.848);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(37.12,101.901)
+			-- (32.727,107.238)
+			-- (35.152,100.765);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(18.099,37.12)
+			-- (12.762,32.727)
+			-- (19.235,35.152);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(82.88,18.099)
+			-- (87.273,12.762)
+			-- (84.848,19.235);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{1,0,0}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,0)
+			-- (114.545,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,0)
+			-- (5.455,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,114.545)
+			-- (120,114.545);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,5.455)
+			-- (120,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 2.428pt off 2.428pt]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(87.273,12.762)
+			-- (89.708,14.254)
+			-- (92.061,15.872)
+			-- (94.327,17.61)
+			-- (96.498,19.465)
+			-- (98.569,21.431)
+			-- (100.535,23.502)
+			-- (102.39,25.673)
+			-- (104.128,27.939)
+			-- (105.746,30.292)
+			-- (107.238,32.727)
+			-- (108.6,35.237)
+			-- (109.83,37.814)
+			-- (110.923,40.453)
+			-- (111.876,43.145)
+			-- (112.687,45.883)
+			-- (113.354,48.659)
+			-- (113.874,51.467)
+			-- (114.247,54.298)
+			-- (114.471,57.145)
+			-- (114.545,60)
+			-- (114.471,62.855)
+			-- (114.247,65.702)
+			-- (113.874,68.533)
+			-- (113.354,71.341)
+			-- (112.687,74.117)
+			-- (111.876,76.855)
+			-- (110.923,79.547)
+			-- (109.83,82.186)
+			-- (108.6,84.763)
+			-- (107.238,87.273)
+			-- (105.746,89.708)
+			-- (104.128,92.061)
+			-- (102.39,94.327)
+			-- (100.535,96.498)
+			-- (98.569,98.569)
+			-- (96.498,100.535)
+			-- (94.327,102.39)
+			-- (92.061,104.128)
+			-- (89.708,105.746)
+			-- (87.273,107.238)
+			-- (84.763,108.6)
+			-- (82.186,109.83)
+			-- (79.547,110.923)
+			-- (76.855,111.876)
+			-- (74.117,112.687)
+			-- (71.341,113.354)
+			-- (68.533,113.874)
+			-- (65.702,114.247)
+			-- (62.855,114.471)
+			-- (60,114.545)
+			-- (57.145,114.471)
+			-- (54.298,114.247)
+			-- (51.467,113.874)
+			-- (48.659,113.354)
+			-- (45.883,112.687)
+			-- (43.145,111.876)
+			-- (40.453,110.923)
+			-- (37.814,109.83)
+			-- (35.237,108.6)
+			-- (32.727,107.238)
+			-- (30.292,105.746)
+			-- (27.939,104.128)
+			-- (25.673,102.39)
+			-- (23.502,100.535)
+			-- (21.431,98.569)
+			-- (19.465,96.498)
+			-- (17.61,94.327)
+			-- (15.872,92.061)
+			-- (14.254,89.708)
+			-- (12.762,87.273)
+			-- (11.4,84.763)
+			-- (10.17,82.186)
+			-- (9.077,79.547)
+			-- (8.124,76.855)
+			-- (7.313,74.117)
+			-- (6.646,71.341)
+			-- (6.126,68.533)
+			-- (5.753,65.702)
+			-- (5.529,62.855)
+			-- (5.455,60)
+			-- (5.529,57.145)
+			-- (5.753,54.298)
+			-- (6.126,51.467)
+			-- (6.646,48.659)
+			-- (7.313,45.883)
+			-- (8.124,43.145)
+			-- (9.077,40.453)
+			-- (10.17,37.814)
+			-- (11.4,35.237)
+			-- (12.762,32.727)
+			-- (14.254,30.292)
+			-- (15.872,27.939)
+			-- (17.61,25.673)
+			-- (19.465,23.502)
+			-- (21.431,21.431)
+			-- (23.502,19.465)
+			-- (25.673,17.61)
+			-- (27.939,15.872)
+			-- (30.292,14.254)
+			-- (32.727,12.762)
+			-- (35.237,11.4)
+			-- (37.814,10.17)
+			-- (40.453,9.077)
+			-- (43.145,8.124)
+			-- (45.883,7.313)
+			-- (48.659,6.646)
+			-- (51.467,6.126)
+			-- (54.298,5.753)
+			-- (57.145,5.529)
+			-- (60,5.455)
+			-- (62.855,5.529)
+			-- (65.702,5.753)
+			-- (68.533,6.126)
+			-- (71.341,6.646)
+			-- (74.117,7.313)
+			-- (76.855,8.124)
+			-- (79.547,9.077)
+			-- (82.186,10.17)
+			-- (84.763,11.4)
+			-- (87.273,12.762);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (87.273,12.762);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,5.455)
+			-- (107.238,87.273);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,60)
+			-- (32.727,107.238);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,114.545)
+			-- (12.762,32.727);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (87.273,12.762);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(89.698,19.235)
+			-- (87.273,12.762)
+			-- (91.666,18.099);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(103.038,76.061)
+			-- (107.238,87.273)
+			-- (99.628,78.03);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(30.302,100.765)
+			-- (32.727,107.238)
+			-- (28.334,101.901);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(16.962,43.939)
+			-- (12.762,32.727)
+			-- (20.372,41.97);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(89.698,19.235)
+			-- (87.273,12.762)
+			-- (91.666,18.099);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter]
+			(0,94.641)
+			-- (120,25.359);
+			
+			\draw[draw=BezierColor3, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 3pt off 2.4pt]
+			(94.641,120)
+			-- (25.359,0);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(\vec{x}_1=\) mirror direction\par
+		\(\lambda_1=1\)\par
+		\vspace{6pt}
+		\(\vec{x}_2=\) orthogonal direction\par
+		\(\lambda_2=-1\)\par
+		\vspace{6pt}
+		\(\vec{x}_1\cdot\vec{x}_2=0\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+\(Q=[\vec{x}_1|\vec{x}_2]\)\par
+		\vspace{6pt}
+		\(\vec{x}_1:\) mirror direction\par
+		\(\vec{x}_2:\) orthogonal direction\par
+\par
+\end{samepage}
+\par}
+
+\EVCaseSeparator
+\EVCaseHeading{Rotation}
+{\centering
+	\(A = \begin{bmatrix} \approx 0.866 & -0.5\\0.5 &  \approx 0.866\end{bmatrix}\)\par
+	\begin{samepage}
+	\centering
+unit circle\par
+		\(\downarrow\)\par
+		unit circle\par
+\par
+\end{samepage}
+	
+	\medskip
+	\definecolor{BezierColor0}{rgb}{0,0.25,0.9}
+	\definecolor{BezierColor1}{rgb}{0,0.8,0.8}
+	\definecolor{BezierColor2}{rgb}{0,0.5,0}
+	\definecolor{BezierColor3}{rgb}{1,0,1}
+	\definecolor{BezierColor4}{rgb}{0,0,0}
+	
+	\begin{tikzpicture}[x=1pt,y=-1pt]
+		\fill[fill=BezierColor0, fill opacity=0.1, nonzero rule]
+		(60,60)
+		-- (111.962,30)
+		-- (81.962,-21.962)
+		-- (30,8.038)
+		-- cycle;
+		
+		\fill[fill=BezierColor1, fill opacity=0.1, nonzero rule]
+		(8.038,90)
+		-- (60,60)
+		-- (30,8.038)
+		-- (-21.962,38.038)
+		-- cycle;
+		
+		\fill[fill=BezierColor2, fill opacity=0.1, nonzero rule]
+		(38.038,141.962)
+		-- (90,111.962)
+		-- (60,60)
+		-- (8.038,90)
+		-- cycle;
+		
+		\fill[fill=BezierColor3, fill opacity=0.1, nonzero rule]
+		(90,111.962)
+		-- (141.962,81.962)
+		-- (111.962,30)
+		-- (60,60)
+		-- cycle;
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (30.732,9.306);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(47.326,67.317)
+		-- (18.058,16.623);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(34.653,74.634)
+		-- (5.385,23.94);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(21.979,81.951)
+		-- (-7.289,31.257);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(9.306,89.268)
+		-- (-19.962,38.574);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (9.306,89.268);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(52.683,47.326)
+		-- (1.989,76.595);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(45.366,34.653)
+		-- (-5.328,63.921);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,21.979)
+		-- (-12.645,51.248);
+		
+		\draw[draw=BezierColor1, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,9.306)
+		-- (-19.962,38.574);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (89.268,110.694);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(47.326,67.317)
+		-- (76.595,118.011);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(34.653,74.634)
+		-- (63.921,125.328);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(21.979,81.951)
+		-- (51.248,132.645);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(9.306,89.268)
+		-- (38.574,139.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (9.306,89.268);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(67.317,72.674)
+		-- (16.623,101.942);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(74.634,85.347)
+		-- (23.94,114.615);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,98.021)
+		-- (31.257,127.289);
+		
+		\draw[draw=BezierColor2, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,110.694)
+		-- (38.574,139.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (89.268,110.694);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(72.674,52.683)
+		-- (101.942,103.377);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(85.347,45.366)
+		-- (114.615,96.06);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(98.021,38.049)
+		-- (127.289,88.743);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(110.694,30.732)
+		-- (139.962,81.426);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (110.694,30.732);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(67.317,72.674)
+		-- (118.011,43.405);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(74.634,85.347)
+		-- (125.328,56.079);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(81.951,98.021)
+		-- (132.645,68.752);
+		
+		\draw[draw=BezierColor3, line width=0.5pt, line cap=butt, line join=miter]
+		(89.268,110.694)
+		-- (139.962,81.426);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter, dash pattern=on 4pt off 3pt, dash phase=2pt]
+		(60,60)
+		-- (30.732,9.306);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(72.674,52.683)
+		-- (43.405,1.989);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(85.347,45.366)
+		-- (56.079,-5.328);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(98.021,38.049)
+		-- (68.752,-12.645);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(110.694,30.732)
+		-- (81.426,-19.962);
+		
+		\draw[draw=BezierColor4, line width=2pt, line cap=butt, line join=miter]
+		(60,60)
+		-- (110.694,30.732);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(52.683,47.326)
+		-- (103.377,18.058);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(45.366,34.653)
+		-- (96.06,5.385);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(38.049,21.979)
+		-- (88.743,-7.289);
+		
+		\draw[draw=BezierColor0, line width=0.5pt, line cap=butt, line join=miter]
+		(30.732,9.306)
+		-- (81.426,-19.962);
+		
+	\end{tikzpicture}
+	
+	\medskip
+	
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		\definecolor{BezierColor3}{rgb}{0,0.8,0.8}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,0)
+			-- (114.545,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,0)
+			-- (5.455,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,114.545)
+			-- (120,114.545);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,5.455)
+			-- (120,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 2.428pt off 2.428pt]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (107.238,32.727);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (32.727,12.762);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (12.762,87.273);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (87.273,107.238);
+			
+			\draw[draw=BezierColor3, line width=0.375pt, line cap=butt, line join=miter]
+			(60,60)
+			-- (107.238,32.727);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(100.765,35.152)
+			-- (107.238,32.727)
+			-- (101.901,37.12);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(35.152,19.235)
+			-- (32.727,12.762)
+			-- (37.12,18.099);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(19.235,84.848)
+			-- (12.762,87.273)
+			-- (18.099,82.88);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(84.848,100.765)
+			-- (87.273,107.238)
+			-- (82.88,101.901);
+			
+			\fill[fill=BezierColor3, nonzero rule]
+			(100.765,35.152)
+			-- (107.238,32.727)
+			-- (101.901,37.12);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\definecolor{BezierColor0}{rgb}{0,0,0}
+		\definecolor{BezierColor1}{rgb}{0,0.5,0}
+		\definecolor{BezierColor2}{rgb}{0,0.25,0.9}
+		
+		\begin{tikzpicture}[x=1pt,y=-1pt]
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,0)
+			-- (114.545,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(60,0)
+			-- (60,120);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,0)
+			-- (5.455,120);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,114.545)
+			-- (120,114.545);
+			
+			\draw[draw=BezierColor0, line width=0.8pt, line cap=butt, line join=miter]
+			(0,60)
+			-- (120,60);
+			
+			\draw[draw=BezierColor0, line width=0.375pt, line cap=butt, line join=miter]
+			(0,5.455)
+			-- (120,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.75pt, line cap=butt, line join=miter, dash pattern=on 2.428pt off 2.428pt]
+			(114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,5.455);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (5.455,60);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (60,114.545);
+			
+			\draw[draw=BezierColor1, line width=0.375pt, line cap=butt, line join=miter, dash pattern=on 1.5pt off 1.2pt]
+			(60,60)
+			-- (114.545,60);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(58.864,12.273)
+			-- (60,5.455)
+			-- (61.136,12.273);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(12.273,61.136)
+			-- (5.455,60)
+			-- (12.273,58.864);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(61.136,107.727)
+			-- (60,114.545)
+			-- (58.864,107.727);
+			
+			\fill[fill=BezierColor1, nonzero rule]
+			(107.727,58.864)
+			-- (114.545,60)
+			-- (107.727,61.136);
+			
+			\draw[draw=BezierColor2, line width=0.75pt, line cap=butt, line join=miter]
+			(107.238,32.727)
+			-- (105.746,30.292)
+			-- (104.128,27.939)
+			-- (102.39,25.673)
+			-- (100.535,23.502)
+			-- (98.569,21.431)
+			-- (96.498,19.465)
+			-- (94.327,17.61)
+			-- (92.061,15.872)
+			-- (89.708,14.254)
+			-- (87.273,12.762)
+			-- (84.763,11.4)
+			-- (82.186,10.17)
+			-- (79.547,9.077)
+			-- (76.855,8.124)
+			-- (74.117,7.313)
+			-- (71.341,6.646)
+			-- (68.533,6.126)
+			-- (65.702,5.753)
+			-- (62.855,5.529)
+			-- (60,5.455)
+			-- (57.145,5.529)
+			-- (54.298,5.753)
+			-- (51.467,6.126)
+			-- (48.659,6.646)
+			-- (45.883,7.313)
+			-- (43.145,8.124)
+			-- (40.453,9.077)
+			-- (37.814,10.17)
+			-- (35.237,11.4)
+			-- (32.727,12.762)
+			-- (30.292,14.254)
+			-- (27.939,15.872)
+			-- (25.673,17.61)
+			-- (23.502,19.465)
+			-- (21.431,21.431)
+			-- (19.465,23.502)
+			-- (17.61,25.673)
+			-- (15.872,27.939)
+			-- (14.254,30.292)
+			-- (12.762,32.727)
+			-- (11.4,35.237)
+			-- (10.17,37.814)
+			-- (9.077,40.453)
+			-- (8.124,43.145)
+			-- (7.313,45.883)
+			-- (6.646,48.659)
+			-- (6.126,51.467)
+			-- (5.753,54.298)
+			-- (5.529,57.145)
+			-- (5.455,60)
+			-- (5.529,62.855)
+			-- (5.753,65.702)
+			-- (6.126,68.533)
+			-- (6.646,71.341)
+			-- (7.313,74.117)
+			-- (8.124,76.855)
+			-- (9.077,79.547)
+			-- (10.17,82.186)
+			-- (11.4,84.763)
+			-- (12.762,87.273)
+			-- (14.254,89.708)
+			-- (15.872,92.061)
+			-- (17.61,94.327)
+			-- (19.465,96.498)
+			-- (21.431,98.569)
+			-- (23.502,100.535)
+			-- (25.673,102.39)
+			-- (27.939,104.128)
+			-- (30.292,105.746)
+			-- (32.727,107.238)
+			-- (35.237,108.6)
+			-- (37.814,109.83)
+			-- (40.453,110.923)
+			-- (43.145,111.876)
+			-- (45.883,112.687)
+			-- (48.659,113.354)
+			-- (51.467,113.874)
+			-- (54.298,114.247)
+			-- (57.145,114.471)
+			-- (60,114.545)
+			-- (62.855,114.471)
+			-- (65.702,114.247)
+			-- (68.533,113.874)
+			-- (71.341,113.354)
+			-- (74.117,112.687)
+			-- (76.855,111.876)
+			-- (79.547,110.923)
+			-- (82.186,109.83)
+			-- (84.763,108.6)
+			-- (87.273,107.238)
+			-- (89.708,105.746)
+			-- (92.061,104.128)
+			-- (94.327,102.39)
+			-- (96.498,100.535)
+			-- (98.569,98.569)
+			-- (100.535,96.498)
+			-- (102.39,94.327)
+			-- (104.128,92.061)
+			-- (105.746,89.708)
+			-- (107.238,87.273)
+			-- (108.6,84.763)
+			-- (109.83,82.186)
+			-- (110.923,79.547)
+			-- (111.876,76.855)
+			-- (112.687,74.117)
+			-- (113.354,71.341)
+			-- (113.874,68.533)
+			-- (114.247,65.702)
+			-- (114.471,62.855)
+			-- (114.545,60)
+			-- (114.471,57.145)
+			-- (114.247,54.298)
+			-- (113.874,51.467)
+			-- (113.354,48.659)
+			-- (112.687,45.883)
+			-- (111.876,43.145)
+			-- (110.923,40.453)
+			-- (109.83,37.814)
+			-- (108.6,35.237)
+			-- (107.238,32.727);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (107.238,32.727);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,5.455)
+			-- (32.727,12.762);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(5.455,60)
+			-- (12.762,87.273);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(60,114.545)
+			-- (87.273,107.238);
+			
+			\draw[draw=BezierColor2, line width=0.375pt, line cap=butt, line join=miter]
+			(114.545,60)
+			-- (107.238,32.727);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(107.825,38.782)
+			-- (107.238,32.727)
+			-- (109.757,38.264);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(38.782,12.175)
+			-- (32.727,12.762)
+			-- (38.264,10.243);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(12.175,81.218)
+			-- (12.762,87.273)
+			-- (10.243,81.736);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(81.218,107.825)
+			-- (87.273,107.238)
+			-- (81.736,109.757);
+			
+			\fill[fill=BezierColor2, nonzero rule]
+			(107.825,38.782)
+			-- (107.238,32.727)
+			-- (109.757,38.264);
+			
+		\end{tikzpicture}
+	\end{minipage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+no \(\vec{x}\in\mathbb{R}^2\) satisfies\par
+		\(A\vec{x}=\lambda\vec{x}\)\par
+\par
+\end{samepage}
+	
+	\medskip
+	\begin{samepage}
+	\centering
+no real eigenbasis\par
+		\vspace{6pt}
+		not diagonalizable over \(\mathbb{R}\)\par
+\par
+\end{samepage}
+\par}
