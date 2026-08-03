@@ -1,0 +1,20 @@
+{
+    "id": "typst",
+    "version": "1.0.0",
+    "name": "Typst",
+    "description": "Installs the Typst compiler (and optionally the typstyle formatter) from the official GitHub releases.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": ["latest", "0.15.1"],
+            "default": "0.15.1",
+            "description": "Typst release to install, or `latest` to resolve the newest release at build time."
+        },
+        "installTypstyle": {
+            "type": "boolean",
+            "default": true,
+            "description": "Also install the `typstyle` formatter, which the tinymist VS Code extension uses to format Typst source."
+        }
+    },
+    "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+}

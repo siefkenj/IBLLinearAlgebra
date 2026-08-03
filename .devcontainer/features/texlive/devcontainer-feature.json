@@ -1,0 +1,25 @@
+{
+    "id": "texlive",
+    "version": "1.0.0",
+    "name": "TeX Live (from tlnet)",
+    "description": "Installs the current TeX Live release from CTAN's tlnet repository (not the distro package, which is usually a year or more behind) plus the packages this book needs. Any .sty listed in `styFiles` that is still missing afterwards is resolved to its TeX Live package with `tlmgr search --global --file` and installed, so the container is self-healing as the sources grow.",
+    "options": {
+        "scheme": {
+            "type": "string",
+            "proposals": ["scheme-basic", "scheme-small", "scheme-medium", "scheme-full"],
+            "default": "scheme-small",
+            "description": "TeX Live scheme to install as the base. `packages`/`styFiles` are installed on top of it."
+        },
+        "packages": {
+            "type": "string",
+            "default": "latexmk,textpos,everypage,enumitem,wrapfig,marginnote,mparhack,marginfix,indextools,nicematrix,fnpct,systeme,simplekv,datatool,tracklang,xfor,pgfplots,pgf,environ,tcolorbox,tikzfill,pdfcol,titlesec,changepage,pdfx,colorprofiles,xmpincl,stringenc,datetime,fmtcount,lipsum,mathdesign,charter,tikz-cd,translations,xstring,ly1,hyperxmp,ifmtarg,luacode,luatex85,lualatex-math,siunitx,breqn,mathtools,microtype,footnotehyper,varwidth,eso-pic,fancyhdr,caption,tools,geometry,bookmark,hyperref,etoolbox,xcolor,l3packages,l3kernel,fontspec,unicode-math,xltxtra,realscripts,metalogo,psnfss,amsfonts,amsmath,iftex,collection-fontsrecommended",
+            "description": "Comma-separated TeX Live package names to install with tlmgr. Unknown names are reported and skipped rather than failing the build."
+        },
+        "styFiles": {
+            "type": "string",
+            "default": "amsmath.sty,amsfonts.sty,amssymb.sty,avant.sty,bm.sty,bookmark.sty,breqn.sty,calc.sty,caption.sty,changepage.sty,colorprofiles.sty,datatool.sty,datetime.sty,enumitem.sty,environ.sty,eso-pic.sty,etoolbox.sty,everypage.sty,everyshi.sty,fancyhdr.sty,fnpct.sty,footnotehyper.sty,geometry.sty,graphicx.sty,hyperref.sty,hyperxmp.sty,iftex.sty,indextools.sty,layout.sty,lipsum.sty,luatex85.sty,marginfix.sty,marginnote.sty,mathdesign.sty,mathtools.sty,microtype.sty,mparhack.sty,multicol.sty,nicematrix.sty,pdfx.sty,pgfplots.sty,showframe.sty,simplekv.sty,tracklang.sty,siunitx.sty,stringenc.sty,subcaption.sty,systeme.sty,tcolorbox.sty,textpos.sty,tikz.sty,titlesec.sty,varwidth.sty,wrapfig.sty,xcolor.sty,xltxtra.sty,xmpincl.sty,xparse.sty,xspace.sty,xstring.sty",
+            "description": "Comma-separated .sty files that must exist after installation. Missing ones are looked up with `tlmgr search --global --file` and their packages installed."
+        }
+    },
+    "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+}
