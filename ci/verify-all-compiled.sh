@@ -9,14 +9,16 @@ for texfile in $BUILD_DIR/linearalgebra*.tex; do
 
     # Check if the corresponding PDF file exists
     if [[ ! -f "./dist/$basefile.pdf" ]]; then
-        # If the PDF file does not exist, cat the corresponding log file
-        if [[ -f "$BUILD_DIR/$basefile.log" ]]; then
+        # If the PDF file does not exist, cat the corresponding log file.
+        # makedist.sh builds each document in its own output directory.
+        logfile="$BUILD_DIR/build/$basefile/$basefile.log"
+        if [[ -f "$logfile" ]]; then
             echo "" >&2
             echo "" >&2
             echo "THERE WAS AN ERROR WHEN BUILDING $basefile.pdf" >&2
             echo "Log file for $basefile:" >&2
 
-            cat "$BUILD_DIR/$basefile.log" >&2
+            cat "$logfile" >&2
             
             echo "" >&2
             EXIT_CODE=1

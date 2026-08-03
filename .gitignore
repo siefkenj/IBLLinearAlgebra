@@ -23,4 +23,11 @@ slide-conversion
 book-pretext
 ci/dist/
 book/*pdf
+book/build/
 tmp/
+
+# things left over from a temporary compile
+*.pagebounds
+*-ta.pdf
+*-student.pdf
+*-solutions.pdf

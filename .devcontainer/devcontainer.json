@@ -1,0 +1,48 @@
+{
+    "name": "IBLLinearAlgebra LaTeX & Typst DevContainer",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        // Node is used by the HTML/PreTeXt/slide conversion tooling
+        // (`html-conversion/`, `slide-conversion/`, `ci/prepare-for-pretext-conversion.sh`).
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        },
+        // ghostscript + poppler-utils: pdfcrop/pdftoppm, used when making standalone figures.
+        // rsync/unzip: `ci/prepare-for-ci.sh` and `ci/prepare-for-pretext-conversion.sh`.
+        "ghcr.io/devcontainers-extra/features/apt-packages:1": {
+            "packages": "ghostscript,poppler-utils,rsync,unzip,vim,fontconfig,inkscape"
+        },
+        // A full TeX Live (installed from tlnet, so it is the *current* release rather
+        // than Ubuntu's) with every package the book actually loads. This mirrors the
+        // CI image in `ci/Dockerfile`.
+        "./features/texlive": {},
+        // Typst, for the Typst sources that will live in this repo.
+        "./features/typst": {},
+        // Unset the stale NODE_OPTIONS/VSCODE_INSPECTOR_OPTIONS that VS Code's Auto Attach
+        // debugger injects into terminals, which otherwise breaks node/npm with a missing
+        // ms-vscode.js-debug/bootloader.js. Avoids erroneous connections to the host's debugger.
+        "./features/shell-init-rc": {}
+    },
+    "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+    "hostRequirements": {
+        "cpus": 4,
+        "memory": "8gb"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "James-Yu.latex-workshop",
+                "myriad-dreamin.tinymist",
+                "streetsidesoftware.code-spell-checker"
+            ],
+            "settings": {
+                // The book is large and builds five separate PDFs; building on every save
+                // is more disruptive than useful. Build with the LaTeX Workshop sidebar,
+                // or run `./makedist.sh`.
+                "latex-workshop.latex.autoBuild.run": "never",
+                "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+                "tinymist.formatterMode": "typstyle"
+            }
+        }
+    }
+}
