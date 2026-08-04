@@ -78,6 +78,9 @@
 \usepackage{fnpct} % fancy footnote spacing
 \usepackage{bm}
 \usepackage{systeme}
+% systeme v0.4 (2025/05/13) dropped \sysdelim in favour of key/value settings.
+% \providecommand keeps us working with both the old and the new package.
+\providecommand{\sysdelim}[2]{\setsysteme{delim={#1,#2}}}
 \usepackage{datatool}% http://ctan.org/pkg/datatool for sorted lists
 \usepackage{xspace}
 
