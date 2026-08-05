@@ -498,7 +498,7 @@
 Real eigenvectors for a transformation $T$ can be seen by comparing vectors in the unit circle, $\mathcal{S}$, and vectors in its image, $T(\mathcal{S})$,
  and looking for those vectors that don't change direction.
 
-\subsection*{Uniform Scaling}
+\subsubsection*{Uniform Scaling}
 Consider the dilation $\mathcal{T}_{A}$ where $A=\matc{3/2 & 0\\ 0 & 3/2}$. This transformation scales all vectors by a factor of $3/2$.
 We can visualize this transformation by studying how a region is transformed\footnote{ All we really need is to look at two linear independent vectors, but looking at more vectors doesn't hurt!}. In this case, we will focus on a square region and the unit 
 circle.
@@ -543,7 +543,7 @@ on top of one another have been moved slightly so that their tails don't overlap
 \end{center}
 
 
-\subsection*{Stretch along an Axis}
+\subsubsection*{Stretch along an Axis}
 Consider $\mathcal{T}_{A}$, where $A=\mat{3/2 & 0\\ 0 & 1}$. This transformation stretches vectors by a factor of $3/2$ in the
 $\xhat$-direction and leaves the $\yhat$-direction alone.
 
@@ -558,7 +558,7 @@ Non-zero multiples of $\xhat$ and $\yhat$ are eigenvectors (with eigenvalues $3/
 	\EVcircle[\EVstartsAxisDilation][\EVimagesAxisDilation]{1.5}{0}{0}{1}{}{0/EVdirA, 90/EVdirC, 180/EVdirE, 270/EVdirG}
 \end{center}
 
-\subsection*{Reflection}
+\subsubsection*{Reflection}
 Consider the reflection $\mathcal{T}_{A}$, where $A=\mat{0 & 1\\ 1 & 0}$. This transformation reflects every vector across the
 line with direction $\xhat + \yhat$.
 
@@ -574,7 +574,7 @@ All other vectors change direction.
 	\EVcircle[\EVstartsAllOnTop][\EVimagesAllOnTop]{0}{1}{1}{0}{}{45/EVdirB, 135/EVdirD, 225/EVdirF, 315/EVdirH}
 \end{center}
 
-\subsection*{Shear}
+\subsubsection*{Shear}
 Consider the shear $\mathcal{T}_{A}$, where $A=\mat{1 & 1/2\\ 0 & 1}$. This transformation slides every vector sideways by 
 $1/2$ its $x$ coordinate.
 
@@ -589,7 +589,7 @@ while all other vectors change direction.
 	\EVcircle[\EVstartsShear][\EVimagesShear]{1}{0.5}{0}{1}{}{0/EVdirA, 180/EVdirE}
 \end{center}
 
-\subsection*{Projection}
+\subsubsection*{Projection}
 Consider the projection $\mathcal{T}_{A}$, where $A=\mat{1/2 & 1/2\\ 1/2 & 1/2}$. This transformation projects every vector onto
 the line $y=x$, flattening the whole plane onto that single line.
 
@@ -606,7 +606,7 @@ eigenvalue $0$. All other non-zero vectors change direction when transformed, an
 	\EVcircle[\EVstartsProjection][\EVimagesProjection]{0.5}{0.5}{0.5}{0.5}{}{45/EVdirB, 225/EVdirF}
 \end{center}
 
-\subsection*{Rotation}
+\subsubsection*{Rotation}
 Consider the rotation $\mathcal{T}_{A}$, where $A=\mat{\cos 10^{\circ} & -\sin 10^{\circ}\\ \sin 10^{\circ} & \cos 10^{\circ}}$. This transformation rotates every
 vector counter-clockwise by $10^{\circ}$.
 
