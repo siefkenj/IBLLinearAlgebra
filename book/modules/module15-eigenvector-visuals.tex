@@ -339,7 +339,34 @@
 % its dots the same distance along both halves however far the pair has
 % been stepped apart.
 %%%
+%%%
+% \EVfit{<material>}
+%
+% Typeset <material> as one box, but start a new page first if the whole of it
+% will not fit in what is left of this one.
+%
+% Without this, TeX will squeeze a picture onto the bottom of a page by using
+% up the page's available shrink, which leaves the bottom of the picture
+% sitting under the footer.  Shrinking a page is legal, so this happens
+% silently: there is no `Overfull \vbox' to warn about it, even at \vfuzz=0pt.
+%
+% \pagegoal is \maxdimen until something has been contributed to the page.
+% Nothing ever is in a standalone latex-image compile, so the test is skipped
+% there and the macro stays a plain box, which is what the pretext build needs.
+%%%
+\newsavebox{\EVfitbox}
+\newcommand{\EVfit}[1]{%
+	\sbox\EVfitbox{#1}%
+	\ifdim\pagegoal<\maxdimen
+		\ifdim\dimexpr\pagetotal+\ht\EVfitbox+\dp\EVfitbox+2\topsep\relax>\pagegoal
+			\newpage
+		\fi
+	\fi
+	\usebox\EVfitbox
+}
+
 \NewDocumentCommand{\EVcircle}{O{\EVstartsNoneOnTop} O{\EVimagesNoneOnTop} m m m m m m}{%
+	\EVfit{%
 	\begin{tikzpicture}[x=\EVunit,y=\EVunit]
 		\EVframe
 		% the unit circle and its image, both grey
@@ -380,6 +407,7 @@
 			}
 		\fi
 	\end{tikzpicture}%
+	}%
 }
 
 %%%
@@ -441,6 +469,7 @@
 % there.  The call sites supply the surrounding `center'.
 %%%
 \NewDocumentCommand{\EVTransformPair}{O{\EVdirections} m m m m}{%
+	\EVfit{%
 	\begin{tabular}{c@{\hspace{8pt}}c@{\hspace{8pt}}c@{\hspace{20pt}}c@{\hspace{8pt}}c@{\hspace{8pt}}c}
 		\multicolumn{3}{c}{\small Transforming a Square}
 		& \multicolumn{3}{c}{\small Transforming the Unit Circle}
@@ -452,6 +481,7 @@
 		& \(\vcenter{\hbox{\EVmapsto{\(\mathcal{T}_A\)}}}\)
 		& \(\vcenter{\hbox{\EVcircleAfter[#1]{#2}{#3}{#4}{#5}{}}}\)
 	\end{tabular}%
+	}%
 }
 
 %%%
