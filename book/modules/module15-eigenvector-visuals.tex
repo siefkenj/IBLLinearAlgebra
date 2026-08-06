@@ -1,0 +1,655 @@
+% Visualizing eigenvectors supplement for module15.tex.
+% This file is intended to be included from module15.tex:
+%   \input{modules/module15-eigenvector-visuals}
+% It assumes the book preamble already loads xcolor and tikz.
+%
+% Each figure is drawn from the four entries of A.  Tikz does the
+% transforming: the image of the unit circle is that same circle under a
+% `cm' transformation, and the image of a vector is read off inside a
+% transformed scope.  No eigenvalues are computed here -- a case that has
+% eigenvectors off the 45 degree directions simply lists their angles.
+%
+% Everything from here down to END LATEX-IMAGE PREAMBLE is definitions.
+% The pretext conversion lifts that block out and hands it to pretext as
+% the preamble each figure is compiled against, so the html build has the
+% same colours, dash patterns and drawing macros the pdf does.  Keep the
+% markers in place, and keep prose out from between them.
+%
+%%% BEGIN LATEX-IMAGE PREAMBLE
+
+%%%
+% Palette.  A vector's hue is a function of its starting angle, sampled
+% from a cyclic ramp, so an eigenvector inserted between two of the
+% standard directions lands between them in colour as well.
+%
+% The ramp is an ellipse in the (a,b) plane of CIE Lab with a sinusoidal
+% lightness, fitted so that the eight sampled hues stay distinguishable
+% under normal vision and under simulated protanopia, deuteranopia and
+% tritanopia: the smallest pairwise Lab distance over all four is 16.9.
+% Lightness is capped so every hue stays legible as a line on white.
+%%%
+\definecolor{EVdirA}{HTML}{7ABD7D}  %   0 degrees
+\definecolor{EVdirB}{HTML}{10ACA0}  %  45
+\definecolor{EVdirC}{HTML}{00769A}  %  90
+\definecolor{EVdirD}{HTML}{2A3D71}  % 135
+\definecolor{EVdirE}{HTML}{531443}  % 180
+\definecolor{EVdirF}{HTML}{761E28}  % 225
+\definecolor{EVdirG}{HTML}{995C25}  % 270
+\definecolor{EVdirH}{HTML}{A19D47}  % 315
+% eigendirections that fall between two standard ones, same ramp
+\definecolor{EVeigA}{HTML}{47B897}  %  28.155
+\definecolor{EVeigB}{HTML}{005183}  % 118.155
+\definecolor{EVeigC}{HTML}{43B798}  %  30
+\definecolor{EVeigD}{HTML}{044E81}  % 120
+\colorlet{EVcirclecol}{black!55}    % the unit circle and its image
+\colorlet{EVaxiscol}{black!35}      % axes and unit rules
+
+% A starting vector is dashed and its image solid.  On top of that, a
+% vector is marked by which side of the y-axis it points to: one dot if
+% it points right, a tight pair of dots if it points left, nothing if it
+% lies along the y-axis.  A starting vector carries its marks after two
+% short dashes, its image after one long dash.
+%
+% Taking the long dash to be the two short dashes with the gap between
+% them filled in is what makes the marks line up.  With short dash a, gap
+% b, dot d and long dash L = 2a + b, the marks begin at 2a + 2b on both
+% patterns and the two patterns share a period.  So the dots fall the
+% same distance from the origin along a vector and along its image, which
+% is what lets the two be matched by eye when they are nearly parallel.
+%
+% The gap b is as narrow as it can be: below about 2pt the two short
+% dashes read as one long one and a marked starting vector stops being
+% distinguishable from its image.  The gap g inside a double dot has to
+% stay well under b, or the pair reads as two separate dots.
+%
+% These are lengths on the page, not diagram coordinates, so a figure
+% drawn at a smaller \EVunit rescales them to keep the same number of
+% dashes along a vector.  \EVpanelsizes does this.
+%
+% The starting vectors are drawn at \EVoriginopacity so that where an
+% image crosses one it is the image that reads as the solid mark.  The
+% images are fully opaque.
+%
+% EVeigendash is the older heavy dash for an eigenvector's starting
+% vector, kept for \EVemphasiseeigentrue.
+%
+% Every arrow in these figures is drawn at \EVvecwidth.  It is a width on
+% the page and is deliberately not scaled down for the smaller panels, so
+% a hairline never appears.
+\newcommand{\EVvecwidth}{1.5pt}
+\newcommand{\EVoriginopacity}{0.6}
+\newcommand{\EVdasha}{4.75pt} % short dash
+\newcommand{\EVdashb}{1.5pt}  % gap between marks
+\newcommand{\EVdashd}{1.5pt}  % a dot
+\newcommand{\EVdashg}{0.8pt}  % gap inside a double dot
+\newcommand{\EVdashp}{3pt}    % dash and gap of an unmarked vector
+% The long dash is not a free parameter: it is the two short dashes with
+% the gap between them filled in.  Deriving it here rather than writing a
+% number down means the marks cannot drift out of line when a, b or the
+% panel scale is changed.
+\newcommand{\EVdashL}{\the\dimexpr\EVdasha*2+\EVdashb\relax}
+\tikzset{
+	EVplaindash/.style={dash pattern=on \EVdashp off \EVdashp,
+		line width=\EVvecwidth, opacity=\EVoriginopacity},
+	EVsolid/.style={line width=\EVvecwidth},
+	EVrightorig/.style={dash pattern=on \EVdasha off \EVdashb on \EVdasha
+		off \EVdashb on \EVdashd off \EVdashb, line width=\EVvecwidth,
+		opacity=\EVoriginopacity},
+	EVrightimg/.style={dash pattern=on \EVdashL off \EVdashb
+		on \EVdashd off \EVdashb, line width=\EVvecwidth},
+	EVleftorig/.style={dash pattern=on \EVdasha off \EVdashb on \EVdasha
+		off \EVdashb on \EVdashd off \EVdashg on \EVdashd off \EVdashb,
+		line width=\EVvecwidth, opacity=\EVoriginopacity},
+	EVleftimg/.style={dash pattern=on \EVdashL off \EVdashb
+		on \EVdashd off \EVdashg on \EVdashd off \EVdashb,
+		line width=\EVvecwidth},
+	EVeigendash/.style={dash pattern=on 5pt off 3pt, line width=1.8pt,
+		opacity=\EVoriginopacity},
+}
+
+% The eight standard directions: the hue each one keeps, and the pair of
+% dash patterns it is drawn with.  Three point right, three point left,
+% and the two along the y-axis are left unmarked.
+\newcommand{\EVdirections}{%
+	0/EVdirA/EVrightorig/EVrightimg, 45/EVdirB/EVrightorig/EVrightimg,
+	90/EVdirC/EVplaindash/EVsolid, 135/EVdirD/EVleftorig/EVleftimg,
+	180/EVdirE/EVleftorig/EVleftimg, 225/EVdirF/EVleftorig/EVleftimg,
+	270/EVdirG/EVplaindash/EVsolid, 315/EVdirH/EVrightorig/EVrightimg%
+}
+
+% The projection onto y=x sends 135 and 315 to zero, so its image panel
+% draws the other six: a zero length arrow is not a vector.
+\newcommand{\EVdirectionsProjection}{%
+	0/EVdirA/EVrightorig/EVrightimg, 45/EVdirB/EVrightorig/EVrightimg,
+	90/EVdirC/EVplaindash/EVsolid, 180/EVdirE/EVleftorig/EVleftimg,
+	225/EVdirF/EVleftorig/EVleftimg, 270/EVdirG/EVplaindash/EVsolid%
+}
+
+% How far apart a colliding pair ends up.  The two are separated
+% symmetrically about the line they share: the starting vector steps a
+% quarter turn negatively, its image a quarter turn positively, each by
+% half the gap, so neither sits where the true vector was.
+\newcommand{\EVoffset}{3pt}
+\newcommand{\EVhalfoffset}{1.5pt}
+\newcommand{\EVnoshift}{0pt}
+
+%%%
+% Which images collide, worked out once per transformation and recorded
+% here rather than solved for at typesetting time.  An entry is
+% angle/colour/shift/dash; the shift is \EVhalfoffset when that image
+% lands on top of one of the starting vectors and \EVnoshift when it does
+% not, and the dash is EVrightimg, EVleftimg or EVsolid according to
+% which side of the y-axis the direction points to.  A direction sent to
+% zero is left out of the list entirely, since a zero length arrow is not
+% a vector.
+%%%
+% 3/2 I, and the reflection across y=x: the first fixes every direction,
+% the second permutes the eight among themselves, so in both cases every
+% image lands on a starting vector.
+\newcommand{\EVimagesAllOnTop}{%
+	0/EVdirA/\EVhalfoffset/EVrightimg, 45/EVdirB/\EVhalfoffset/EVrightimg,
+	90/EVdirC/\EVhalfoffset/EVsolid, 135/EVdirD/\EVhalfoffset/EVleftimg,
+	180/EVdirE/\EVhalfoffset/EVleftimg, 225/EVdirF/\EVhalfoffset/EVleftimg,
+	270/EVdirG/\EVhalfoffset/EVsolid, 315/EVdirH/\EVhalfoffset/EVrightimg%
+}
+% diag(3/2,1): the axes are fixed; the diagonals swing to 33.7 degrees
+% and friends, which no starting vector occupies.
+\newcommand{\EVimagesAxisDilation}{%
+	0/EVdirA/\EVhalfoffset/EVrightimg, 45/EVdirB/\EVnoshift/EVrightimg,
+	90/EVdirC/\EVhalfoffset/EVsolid, 135/EVdirD/\EVnoshift/EVleftimg,
+	180/EVdirE/\EVhalfoffset/EVleftimg, 225/EVdirF/\EVnoshift/EVleftimg,
+	270/EVdirG/\EVhalfoffset/EVsolid, 315/EVdirH/\EVnoshift/EVrightimg%
+}
+% projection onto y=x: 135 and 315 go to zero and are dropped; every
+% other image collapses onto the 45 or 225 starting vector.
+\newcommand{\EVimagesProjection}{%
+	0/EVdirA/\EVhalfoffset/EVrightimg, 45/EVdirB/\EVhalfoffset/EVrightimg,
+	90/EVdirC/\EVhalfoffset/EVsolid, 180/EVdirE/\EVhalfoffset/EVleftimg,
+	225/EVdirF/\EVhalfoffset/EVleftimg, 270/EVdirG/\EVhalfoffset/EVsolid%
+}
+% shear by 1/2: only the two horizontal directions are fixed.
+\newcommand{\EVimagesShear}{%
+	0/EVdirA/\EVhalfoffset/EVrightimg, 45/EVdirB/\EVnoshift/EVrightimg,
+	90/EVdirC/\EVnoshift/EVsolid, 135/EVdirD/\EVnoshift/EVleftimg,
+	180/EVdirE/\EVhalfoffset/EVleftimg, 225/EVdirF/\EVnoshift/EVleftimg,
+	270/EVdirG/\EVnoshift/EVsolid, 315/EVdirH/\EVnoshift/EVrightimg%
+}
+% rotation by 10 degrees, and the symmetric example: no image lands on a
+% multiple of 45.  (The symmetric example's own eigenvectors do land on
+% themselves, and are nudged in its extra-eigendirection list instead.)
+\newcommand{\EVimagesNoneOnTop}{%
+	0/EVdirA/\EVnoshift/EVrightimg, 45/EVdirB/\EVnoshift/EVrightimg,
+	90/EVdirC/\EVnoshift/EVsolid, 135/EVdirD/\EVnoshift/EVleftimg,
+	180/EVdirE/\EVnoshift/EVleftimg, 225/EVdirF/\EVnoshift/EVleftimg,
+	270/EVdirG/\EVnoshift/EVsolid, 315/EVdirH/\EVnoshift/EVrightimg%
+}
+
+%%%
+% The same collisions seen from the other side: which starting vectors
+% get landed on, and so must step aside themselves.  All eight are
+% always drawn, so every table lists all eight.  The dash field is
+% EVrightorig, EVleftorig or EVplaindash, matching the image table.
+%%%
+% 3/2 I fixes every direction; the reflection across y=x permutes the
+% eight among themselves.  Either way all eight are landed on.
+\newcommand{\EVstartsAllOnTop}{%
+	0/EVdirA/\EVhalfoffset/EVrightorig, 45/EVdirB/\EVhalfoffset/EVrightorig,
+	90/EVdirC/\EVhalfoffset/EVplaindash, 135/EVdirD/\EVhalfoffset/EVleftorig,
+	180/EVdirE/\EVhalfoffset/EVleftorig, 225/EVdirF/\EVhalfoffset/EVleftorig,
+	270/EVdirG/\EVhalfoffset/EVplaindash, 315/EVdirH/\EVhalfoffset/EVrightorig%
+}
+% diag(3/2,1): only the axis directions are landed on.
+\newcommand{\EVstartsAxisDilation}{%
+	0/EVdirA/\EVhalfoffset/EVrightorig, 45/EVdirB/\EVnoshift/EVrightorig,
+	90/EVdirC/\EVhalfoffset/EVplaindash, 135/EVdirD/\EVnoshift/EVleftorig,
+	180/EVdirE/\EVhalfoffset/EVleftorig, 225/EVdirF/\EVnoshift/EVleftorig,
+	270/EVdirG/\EVhalfoffset/EVplaindash, 315/EVdirH/\EVnoshift/EVrightorig%
+}
+% projection onto y=x: six images all pile onto just two starting
+% vectors, so only 45 and 225 step aside.  135 and 315 are drawn unmarked
+% even though they point left and right: both are sent to zero, so there
+% is no image left for their marks to be matched against.
+\newcommand{\EVstartsProjection}{%
+	0/EVdirA/\EVnoshift/EVrightorig, 45/EVdirB/\EVhalfoffset/EVrightorig,
+	90/EVdirC/\EVnoshift/EVplaindash, 135/EVdirD/\EVnoshift/EVplaindash,
+	180/EVdirE/\EVnoshift/EVleftorig, 225/EVdirF/\EVhalfoffset/EVleftorig,
+	270/EVdirG/\EVnoshift/EVplaindash, 315/EVdirH/\EVnoshift/EVplaindash%
+}
+% shear by 1/2: only the two horizontal directions are landed on.
+\newcommand{\EVstartsShear}{%
+	0/EVdirA/\EVhalfoffset/EVrightorig, 45/EVdirB/\EVnoshift/EVrightorig,
+	90/EVdirC/\EVnoshift/EVplaindash, 135/EVdirD/\EVnoshift/EVleftorig,
+	180/EVdirE/\EVhalfoffset/EVleftorig, 225/EVdirF/\EVnoshift/EVleftorig,
+	270/EVdirG/\EVnoshift/EVplaindash, 315/EVdirH/\EVnoshift/EVrightorig%
+}
+% rotation by 10 degrees, and the symmetric example: nothing is landed on.
+\newcommand{\EVstartsNoneOnTop}{%
+	0/EVdirA/\EVnoshift/EVrightorig, 45/EVdirB/\EVnoshift/EVrightorig,
+	90/EVdirC/\EVnoshift/EVplaindash, 135/EVdirD/\EVnoshift/EVleftorig,
+	180/EVdirE/\EVnoshift/EVleftorig, 225/EVdirF/\EVnoshift/EVleftorig,
+	270/EVdirG/\EVnoshift/EVplaindash, 315/EVdirH/\EVnoshift/EVrightorig%
+}
+
+% Now that an eigenvector's image is nudged aside and drawn parallel to
+% it, the heavy dash that used to mark the starting vector is redundant.
+% Set this true to bring it back.
+\newif\ifEVemphasiseeigen
+\EVemphasiseeigenfalse
+
+% One scale for every circle diagram, so the unit circle is the same
+% size in all of them and the cases can be compared by eye.  The reach
+% is set by the widest image drawn below (the symmetric case, 2.09).
+\newcommand{\EVunit}{42pt}
+\newcommand{\EVreach}{2.2}
+
+% The panels inside \EVTransformPair are drawn at 22pt to the unit rather
+% than 42pt, so they need their own set of these.  The dash lengths are
+% cut in the same 22/42 ratio, which leaves a vector carrying the same
+% number of dashes and marks there as in the overlays, just smaller.
+% \EVdashL is derived from a and b, so it follows on its own.
+\newcommand{\EVpanelunit}{22pt}
+\newcommand{\EVpanelreach}{1.8}
+\newcommand{\EVpaneldasha}{2.49pt}
+\newcommand{\EVpaneldashb}{0.79pt}
+\newcommand{\EVpaneldashd}{0.79pt}
+\newcommand{\EVpaneldashg}{0.42pt}
+\newcommand{\EVpaneldashp}{1.57pt}
+
+% Point the shared names at the panel set.  The dash styles and the
+% collision tables refer to those names, so switching the values is what
+% rescales a panel rather than a second set of styles would be.  Called
+% as the first thing inside a tikzpicture: that environment is a group,
+% which is what keeps the change from leaking into the next figure.
+\newcommand{\EVpanelsizes}{%
+	\renewcommand{\EVreach}{\EVpanelreach}%
+	\renewcommand{\EVdasha}{\EVpaneldasha}%
+	\renewcommand{\EVdashb}{\EVpaneldashb}%
+	\renewcommand{\EVdashd}{\EVpaneldashd}%
+	\renewcommand{\EVdashg}{\EVpaneldashg}%
+	\renewcommand{\EVdashp}{\EVpaneldashp}%
+}
+
+%%%
+% The grey frame shared by the square picture and the circle picture, so
+% their gridlines agree.  The grid is drawn on integer coordinates well
+% past the reach and then clipped, which both keeps the spacing at 1 and
+% lets it run off every edge of the figure.
+%%%
+\newcommand{\EVframe}{%
+	\clip (-\EVreach,-\EVreach) rectangle (\EVreach,\EVreach);
+	\draw[EVaxiscol,thin] (-6,-6) grid[step=1] (6,6);
+	\draw[EVaxiscol,semithick]
+		(-\EVreach,0) -- (\EVreach,0)  (0,-\EVreach) -- (0,\EVreach);
+}
+
+%%%
+% Before/after halves of a circle diagram, for the side-by-side figure.
+% \EVcircleBefore{extra eigendirections}{standard ones that are eigen}
+% \EVcircleAfter[directions]{a}{b}{c}{d}{extra eigendirections}
+%
+% The after half takes its own direction table so that a transformation
+% which sends some direction to zero can leave that one out; the before
+% half always draws all eight, since every starting vector is a vector.
+%
+% Both halves are only ever drawn as panels of \EVTransformPair, so they
+% take the panel sizes directly.
+%%%
+\newcommand{\EVcircleBefore}[2]{%
+	\begin{tikzpicture}[x=\EVpanelunit,y=\EVpanelunit]
+		\EVpanelsizes
+		\EVframe
+		\draw[EVcirclecol,dashed,thick] (0,0) circle[radius=1];
+		\foreach \ang/\col/\os/\is in \EVdirections {%
+			\draw[\col,\os,->] (0,0) -- (\ang:1);
+		}
+		\foreach \i/\ang/\col/\os/\is/\shift in {#1}{%
+			\draw[\col,\os,->] (0,0) -- (\ang:1);
+		}
+		\ifEVemphasiseeigen
+			\foreach \ang/\col in {#2}{%
+				\draw[\col,EVeigendash,->] (0,0) -- (\ang:1);
+			}
+		\fi
+	\end{tikzpicture}%
+}
+\NewDocumentCommand{\EVcircleAfter}{O{\EVdirections} m m m m m}{%
+	\begin{tikzpicture}[x=\EVpanelunit,y=\EVpanelunit]
+		\EVpanelsizes
+		\EVframe
+		\draw[EVcirclecol,thick,cm={#2,#4,#3,#5,(0,0)}] (0,0) circle[radius=1];
+		\begin{scope}[cm={#2,#4,#3,#5,(0,0)}]
+			\foreach \ang/\col/\os/\is in #1 {\path (\ang:1) coordinate (v\ang);}
+			\foreach \i/\ang/\col/\os/\is/\shift in {#6} {\path (\ang:1) coordinate (e\i);}
+		\end{scope}
+		\foreach \ang/\col/\os/\is in #1 {\draw[\col,\is,->] (0,0) -- (v\ang);}
+		\foreach \i/\ang/\col/\os/\is/\shift in {#6}{\draw[\col,\is,->] (0,0) -- (e\i);}
+	\end{tikzpicture}%
+}
+
+%%%
+% \EVcircle[starts][images]{a}{b}{c}{d}{extra eigendirections}{standard
+%                                                     ones that are eigen}
+% #1 and #2 are the angle/colour/shift/dash tables above: which starting
+% vectors are landed on, and which images land on something.  #7 is a
+% possibly empty list of index/angle/colour/dash/dash/shift entries for
+% eigenvectors off the eight standard directions -- one shift serves for
+% both halves of the pair.  #8 is used only under \EVemphasiseeigentrue.
+%
+% Every arrow is drawn from its own start outwards, so a marked pair puts
+% its dots the same distance along both halves however far the pair has
+% been stepped apart.
+%%%
+%%%
+% \EVfit{<material>}
+%
+% Typeset <material> as one box, but start a new page first if the whole of it
+% will not fit in what is left of this one.
+%
+% Without this, TeX will squeeze a picture onto the bottom of a page by using
+% up the page's available shrink, which leaves the bottom of the picture
+% sitting under the footer.  Shrinking a page is legal, so this happens
+% silently: there is no `Overfull \vbox' to warn about it, even at \vfuzz=0pt.
+%
+% \pagegoal is \maxdimen until something has been contributed to the page.
+% Nothing ever is in a standalone latex-image compile, so the test is skipped
+% there and the macro stays a plain box, which is what the pretext build needs.
+%%%
+\newsavebox{\EVfitbox}
+\newcommand{\EVfit}[1]{%
+	\sbox\EVfitbox{#1}%
+	\ifdim\pagegoal<\maxdimen
+		\ifdim\dimexpr\pagetotal+\ht\EVfitbox+\dp\EVfitbox+2\topsep\relax>\pagegoal
+			\newpage
+		\fi
+	\fi
+	\usebox\EVfitbox
+}
+
+\NewDocumentCommand{\EVcircle}{O{\EVstartsNoneOnTop} O{\EVimagesNoneOnTop} m m m m m m}{%
+	\EVfit{%
+	\begin{tikzpicture}[x=\EVunit,y=\EVunit]
+		\EVframe
+		% the unit circle and its image, both grey
+		\draw[EVcirclecol,dashed,thick] (0,0) circle[radius=1];
+		\draw[EVcirclecol,thick,cm={#3,#5,#4,#6,(0,0)}] (0,0) circle[radius=1];
+		% Read the images off inside the transformation, then draw the
+		% arrows outside it so that the heads are not sheared.
+		\begin{scope}[cm={#3,#5,#4,#6,(0,0)}]
+			\foreach \ang/\col/\os/\is in \EVdirections {\path (\ang:1) coordinate (v\ang);}
+			\foreach \i/\ang/\col/\os/\is/\shift in {#7} {\path (\ang:1) coordinate (e\i);}
+		\end{scope}
+		% Starting vectors, stepped a quarter turn negatively when an
+		% image is going to land on them.
+		\foreach \ang/\col/\shift/\os in #1 {%
+			\path ($(0,0)!\shift!-90:(\ang:1)$) coordinate (s\ang);
+			\draw[\col,\os,->] (s\ang) -- ($(\ang:1)+(s\ang)$);
+		}
+		% Images, stepped the same distance the other way, about the
+		% direction they landed in rather than the one they came from.
+		\foreach \ang/\col/\shift/\is in #2 {%
+			\path ($(0,0)!\shift!90:(v\ang)$) coordinate (o\ang);
+			\draw[\col,\is,->] (o\ang) -- ($(v\ang)+(o\ang)$);
+		}
+		% Eigendirections that are not among the eight: both halves here.
+		\foreach \i/\ang/\col/\os/\is/\shift in {#7}{%
+			\path ($(0,0)!\shift!-90:(\ang:1)$) coordinate (g\i);
+			\ifEVemphasiseeigen
+				\draw[\col,EVeigendash,->] (g\i) -- ($(\ang:1)+(g\i)$);
+			\else
+				\draw[\col,\os,->] (g\i) -- ($(\ang:1)+(g\i)$);
+			\fi
+			\path ($(0,0)!\shift!90:(e\i)$) coordinate (f\i);
+			\draw[\col,\is,->] (f\i) -- ($(e\i)+(f\i)$);
+		}
+		\ifEVemphasiseeigen
+			\foreach \ang/\col in {#8}{%
+				\draw[\col,EVeigendash,->] (0,0) -- (\ang:1);
+			}
+		\fi
+	\end{tikzpicture}%
+	}%
+}
+
+%%%
+% \EVgrid{a}{b}{c}{d}
+% The unit square under A, drawn on the same frame as the circle
+% pictures.  Straight lines stay straight, so this is a plain tikz grid
+% drawn inside a cm transformation.  The square carries no internal
+% gridlines of its own -- the grey grid behind it supplies the spacing --
+% only its outline, its quadrant tints, and the images of the two axes.
+%
+% Like the circle halves, this is only ever drawn as a panel.
+%%%
+\newcommand{\EVgrid}[4]{%
+	\begin{tikzpicture}[x=\EVpanelunit,y=\EVpanelunit]
+		\EVpanelsizes
+		\EVframe
+		\begin{scope}[cm={#1,#3,#2,#4,(0,0)}]
+			% each quadrant takes the ramp hue of its own bisector, so the
+			% square follows the same angular colour flow as the vectors
+			\foreach \sx/\sy/\col in {1/1/EVdirB, -1/1/EVdirD,
+				-1/-1/EVdirF, 1/-1/EVdirH}{%
+				\fill[\col,opacity=0.16] (0,0) rectangle (\sx,\sy);
+				\draw[\col,thin] (0,0) rectangle (\sx,\sy);
+			}
+			% images of the two axes
+			\draw[very thick] (-1,0) -- (1,0);
+			\draw[very thick,dashed] (0,-1) -- (0,1);
+		\end{scope}
+	\end{tikzpicture}%
+}
+
+%%%
+% The book annotates "this maps to that" with a gently bent arrow
+% carrying the transformation above it (see module8 and module14).
+%%%
+\newcommand{\EVmapsto}[1]{%
+	\begin{tikzpicture}
+		\draw[thick] (0,0) edge[bend left, ->] node[midway,above] {#1} (0.9,0);
+	\end{tikzpicture}%
+}
+
+%%%
+% \EVTransformPair{a}{b}{c}{d}
+% The square and the unit circle, each shown beside its image under A.
+% Four panels and two arrows come to about 420pt against a 433pt text
+% width, so the two transforms sit on one line.  \vcenter puts every
+% cell on the math axis so the panels and the arrows line up.
+%
+% The panels are drawn at 22pt to the unit against the 42pt of the
+% overlay figures.  Each panel picture installs \EVpanelsizes itself, so
+% there is nothing to set up or undo here.
+%
+% The optional argument is the direction table for the image panel, for
+% the case where A sends one of the eight to zero.
+%
+% The macro expands to a single box and does no centring of its own, so
+% that it is legal where only a box is: the pretext build compiles each
+% figure on its own in a standalone document, and `center' is not allowed
+% there.  The call sites supply the surrounding `center'.
+%%%
+\NewDocumentCommand{\EVTransformPair}{O{\EVdirections} m m m m}{%
+	\EVfit{%
+	\begin{tabular}{c@{\hspace{8pt}}c@{\hspace{8pt}}c@{\hspace{20pt}}c@{\hspace{8pt}}c@{\hspace{8pt}}c}
+		\multicolumn{3}{c}{\small Transforming a Square}
+		& \multicolumn{3}{c}{\small Transforming the Unit Circle}
+		\\[4pt]
+		\(\vcenter{\hbox{\EVgrid{1}{0}{0}{1}}}\)
+		& \(\vcenter{\hbox{\EVmapsto{\(\mathcal{T}_A\)}}}\)
+		& \(\vcenter{\hbox{\EVgrid{#2}{#3}{#4}{#5}}}\)
+		& \(\vcenter{\hbox{\EVcircleBefore{}{}}}\)
+		& \(\vcenter{\hbox{\EVmapsto{\(\mathcal{T}_A\)}}}\)
+		& \(\vcenter{\hbox{\EVcircleAfter[#1]{#2}{#3}{#4}{#5}{}}}\)
+	\end{tabular}%
+	}%
+}
+
+%%%
+% Layout helpers.
+%%%
+\newcommand{\EVCaseHeading}[1]{%
+	\par
+	\begin{center}
+		\normalsize\bfseries #1
+\end{center}
+	\vspace{0.2\baselineskip}
+}
+
+\newcommand{\EVCaseSeparator}{%
+	\par
+	\vspace{0.5\baselineskip}
+	\hrule
+	\vspace{0.6\baselineskip}
+}
+
+\newcommand{\EVNote}[1]{%
+	\par\medskip
+	\begin{samepage}
+		\centering #1\par
+	\end{samepage}%
+}
+
+% The two figures of a case.  The fifth argument lists any eigenvectors
+% that are not already one of the eight standard directions.
+% The \par's matter: without them the pictures and the notes run
+% together into one paragraph instead of stacking.
+\NewDocumentCommand{\EVFigures}{O{\EVstartsNoneOnTop} O{\EVimagesNoneOnTop} m m m m m m}{%
+	\par\medskip
+	\EVgrid{#3}{#4}{#5}{#6}%
+	\par\medskip
+	\EVcircle[#1][#2]{#3}{#4}{#5}{#6}{#7}{#8}%
+	\par
+}
+
+%%% END LATEX-IMAGE PREAMBLE
+
+\Heading{Visualizing Eigenvectors}
+
+Real eigenvectors for a transformation $T$ can be seen by comparing vectors in the unit circle, $\mathcal{S}$, and vectors in its image, $T(\mathcal{S})$,
+ and looking for those vectors that don't change direction.
+
+\subsubsection*{Uniform Scaling}
+Consider the dilation $\mathcal{T}_{A}$ where $A=\matc{3/2 & 0\\ 0 & 3/2}$. This transformation scales all vectors by a factor of $3/2$.
+We can visualize this transformation by studying how a region is transformed\footnote{ All we really need is to look at two linear independent vectors, but looking at more vectors doesn't hurt!}. In this case, we will focus on a square region and the unit 
+circle.
+
+\begin{center}
+	\EVTransformPair{1.5}{0}{0}{1.5}
+\end{center}
+
+Overlaying the unit circle with its image, we can see that every non-zero vector's direction is preserved, and so all non-zero vectors are eigenvectors. 
+
+
+\begin{center}
+	\EVcircle[\EVstartsAllOnTop][\EVimagesAllOnTop]{1.5}{0}{0}{1.5}{}{0/EVdirA, 45/EVdirB, 90/EVdirC, 135/EVdirD, 180/EVdirE, 225/EVdirF, 270/EVdirG, 315/EVdirH}
+\end{center}
+
+In the diagrams, the following conventions are used: vectors on the original unit circle are dashed (with occasional dots) 
+while corresponding vectors on the image of the unit circle are solid (with occasional dots); vectors are colored based on their angle;
+and dot patterns are provided to help you distinguish between vectors with similar colors. Additionally, vectors that normally would be drawn directly
+on top of one another have been moved slightly so that their tails don't overlap.
+
+
+%%%
+% Legend.  Drawn as one picture rather than a tabular of \tikz swatches:
+% the pretext conversion turns a whole tikzpicture into a single image,
+% and an image is not allowed inside a table cell.
+%
+% x=1pt and y=-13pt let every coordinate be a plain number, so the arrows
+% are 46pt long and the rows sit 13pt apart, counting downwards.
+%%%
+\begin{center}
+	\begin{tikzpicture}[x=1pt,y=-13pt]
+		\node[anchor=base west] at (0,0) {Original Vectors};
+		\node[anchor=base west] at (110,0) {Vectors in the Image};
+		\foreach \row/\os/\is in {%
+			1/EVplaindash/EVsolid, 2/EVrightorig/EVrightimg,
+			3/EVleftorig/EVleftimg%
+		}{%
+			\draw[EVdirC,\os,->] (0,\row) -- (46,\row);
+			\draw[EVdirC,\is,->] (110,\row) -- (156,\row);
+		}
+	\end{tikzpicture}
+\end{center}
+
+
+\subsubsection*{Stretch along an Axis}
+Consider $\mathcal{T}_{A}$, where $A=\mat{3/2 & 0\\ 0 & 1}$. This transformation stretches vectors by a factor of $3/2$ in the
+$\xhat$-direction and leaves the $\yhat$-direction alone.
+
+\begin{center}
+	\EVTransformPair{1.5}{0}{0}{1}
+\end{center}
+
+Overlaying the unit circle with its image, we can see that only the vectors lying along the coordinate axes keep their direction.
+Non-zero multiples of $\xhat$ and $\yhat$ are eigenvectors (with eigenvalues $3/2$ and $1$, respectively), while all other vectors are not eigenvectors.
+
+\begin{center}
+	\EVcircle[\EVstartsAxisDilation][\EVimagesAxisDilation]{1.5}{0}{0}{1}{}{0/EVdirA, 90/EVdirC, 180/EVdirE, 270/EVdirG}
+\end{center}
+
+\subsubsection*{Reflection}
+Consider the reflection $\mathcal{T}_{A}$, where $A=\mat{0 & 1\\ 1 & 0}$. This transformation reflects every vector across the
+line with direction $\xhat + \yhat$.
+
+\begin{center}
+	\EVTransformPair{0}{1}{1}{0}
+\end{center}
+
+Overlaying the unit circle with its image, we see that every vector in the unit circle is sent to another vector in the unit circle; however, studying closely,
+only vectors pointing along the lines with directions $\xhat+\yhat$ and $\xhat - \yhat$ keep their direction.
+All other vectors change direction.
+
+\begin{center}
+	\EVcircle[\EVstartsAllOnTop][\EVimagesAllOnTop]{0}{1}{1}{0}{}{45/EVdirB, 135/EVdirD, 225/EVdirF, 315/EVdirH}
+\end{center}
+
+\subsubsection*{Shear}
+Consider the shear $\mathcal{T}_{A}$, where $A=\mat{1 & 1/2\\ 0 & 1}$. This transformation slides every vector sideways by 
+$1/2$ its $x$ coordinate.
+
+\begin{center}
+	\EVTransformPair{1}{0.5}{0}{1}
+\end{center}
+
+Overlaying the unit circle with its image, we can see that only the vectors lying along the $x$-axis keep their direction (they don't move at all),
+while all other vectors change direction.
+
+\begin{center}
+	\EVcircle[\EVstartsShear][\EVimagesShear]{1}{0.5}{0}{1}{}{0/EVdirA, 180/EVdirE}
+\end{center}
+
+\subsubsection*{Projection}
+Consider the projection $\mathcal{T}_{A}$, where $A=\mat{1/2 & 1/2\\ 1/2 & 1/2}$. This transformation projects every vector onto
+the line $y=x$, flattening the whole plane onto that single line.
+
+\begin{center}
+	\EVTransformPair[\EVdirectionsProjection]{0.5}{0.5}{0.5}{0.5}
+\end{center}
+
+Overlaying the unit circle with its image, we can see that non-zero vectors lying along the line with direction $\xhat + \yhat$ remain unchanged,
+and so are eigenvectors
+with eigenvalue $1$. Non-zero vectors along the line with direction $\xhat - \yhat$ are all sent to $\vec 0$, and so are eigenvectors with
+eigenvalue $0$. All other non-zero vectors change direction when transformed, and so are not eigenvectors.
+
+\begin{center}
+	\EVcircle[\EVstartsProjection][\EVimagesProjection]{0.5}{0.5}{0.5}{0.5}{}{45/EVdirB, 225/EVdirF}
+\end{center}
+
+\subsubsection*{Rotation}
+Consider the rotation $\mathcal{T}_{A}$, where $A=\mat{\cos 10^{\circ} & -\sin 10^{\circ}\\ \sin 10^{\circ} & \cos 10^{\circ}}$. This transformation rotates every
+vector counter-clockwise by $10^{\circ}$.
+
+\begin{center}
+	\EVTransformPair{0.984808}{-0.173648}{0.173648}{0.984808}
+\end{center}
+
+Overlaying the unit circle with its image, we can see that the unit circle maps to itself. However, since every non-zero vector was rotated, this
+transformation has no \emph{real} eigenvectors.
+
+\begin{center}
+	\EVcircle[\EVstartsNoneOnTop][\EVimagesNoneOnTop]{0.984808}{-0.173648}{0.173648}{0.984808}{}{}
+\end{center}
+
+
+
